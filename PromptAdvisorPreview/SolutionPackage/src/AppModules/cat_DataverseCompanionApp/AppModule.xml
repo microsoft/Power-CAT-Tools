@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>cat_DataverseCompanionApp</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>0082043a-64eb-ed11-8848-6045bdd2f33e</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="62" schemaName="cat_DataverseCompanionApp" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Dataverse Accelerator App" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Discover the latest feature set available in Dataverse with more guidance on when and how to use each capability, and get value from Dataverse faster." languagecode="1033" />
+  </Descriptions>
+  <appelements>
+    <appelement uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_apiplayground_62f25">
+      <canvasappid>
+        <name>cat_apiplayground_62f25</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cat_cat_DataverseCompanionApp_canvasappid_cat_apiplayground_62f25</name>
+    </appelement>
+    <appelement uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_dataverseactiondetailspage_eec36">
+      <canvasappid>
+        <name>cat_dataverseactiondetailspage_eec36</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cat_cat_DataverseCompanionApp_canvasappid_cat_dataverseactiondetailspage_eec36</name>
+    </appelement>
+    <appelement uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_overview_3dbf5">
+      <canvasappid>
+        <name>cat_overview_3dbf5</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cat_cat_DataverseCompanionApp_canvasappid_cat_overview_3dbf5</name>
+    </appelement>
+    <appelement uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_plugintracelog_d12af">
+      <canvasappid>
+        <name>cat_plugintracelog_d12af</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cat_cat_DataverseCompanionApp_canvasappid_cat_plugintracelog_d12af</name>
+    </appelement>
+    <appelement uniquename="cat_cat_DataverseCompanionApp_canvasappid_msdyn_promptadvisor_3ada1">
+      <canvasappid>
+        <name>msdyn_promptadvisor_3ada1</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cat_cat_DataverseCompanionApp_canvasappid_msdyn_promptadvisor_3ada1</name>
+    </appelement>
+  </appelements>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AllowNotificationsEarlyAccess">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+    <appsetting settingdefinitionid.uniquename="FluentThemingPreview">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+    <appsetting settingdefinitionid.uniquename="NewLookModernExperienceOct2023">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

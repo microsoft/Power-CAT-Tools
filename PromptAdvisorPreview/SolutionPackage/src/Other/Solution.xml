@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.24092.202" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24092.202" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24092.00202">
+  <SolutionManifest>
+    <UniqueName>PromptAdvisorPreview</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Prompt Advisor Preview" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>0.0.0.0</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>PowerCat</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="PowerCAT" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="PowerCAT" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl>http://crm.dynamics.com</SupportingWebsiteUrl>
+      <CustomizationPrefix>cat</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>33535</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="300" schemaName="msdyn_promptadvisor_3ada1" behavior="0" />
+      <RootComponent type="401" id="{c5d1f8be-b067-4901-baa8-32229ed10a61}" behavior="0" />
+      <RootComponent type="61" schemaName="cat_prompt" behavior="0" />
+      <RootComponent type="62" schemaName="cat_DataverseCompanionApp" behavior="0" />
+      <RootComponent type="66" schemaName="cat_PowerCAT.DVFluentDetailsListWithContextMenu" behavior="0" />
+      <RootComponent type="66" schemaName="cat_PowerCAT.DVGaugeChart" behavior="0" />
+      <RootComponent type="66" schemaName="cat_PowerCAT.DVHorizontalBarChart" behavior="0" />
+      <RootComponent type="80" schemaName="cat_DataverseCompanionApp" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202409.1.0.6)" />
+        <Dependent type="300" schemaName="msdyn_promptadvisor_3ada1" displayName="Prompt Advisor Page" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" solution="Active" />
+        <Dependent type="AppElement" displayName="cat_cat_DataverseCompanionApp_canvasappid_cat_apiplayground_62f25" id.uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_apiplayground_62f25" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_dataverseactiondetailspage_eec36" displayName="Dataverse Actions Page" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_dataverseactiondetailspage_eec36" displayName="Dataverse Actions Page" solution="Active" />
+        <Dependent type="AppElement" displayName="cat_cat_DataverseCompanionApp_canvasappid_cat_dataverseactiondetailspage_eec36" id.uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_dataverseactiondetailspage_eec36" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_overview_3dbf5" displayName="Overview" solution="Active" />
+        <Dependent type="AppElement" displayName="cat_cat_DataverseCompanionApp_canvasappid_cat_overview_3dbf5" id.uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_overview_3dbf5" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" solution="Active" />
+        <Dependent type="AppElement" displayName="cat_cat_DataverseCompanionApp_canvasappid_cat_plugintracelog_d12af" id.uniquename="cat_cat_DataverseCompanionApp_canvasappid_cat_plugintracelog_d12af" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cat_CommunicationIcon" displayName="cat_CommunicationIcon" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cat_dataverse_icon" displayName="cat_dataverse_icon" solution="Active" />
+        <Dependent type="80" schemaName="cat_DataverseCompanionApp" displayName="Dataverse Accelerator App" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cat_desktopPulseIcon" displayName="cat_desktopPulseIcon" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cat_ic_fluent_flash_28_regular" displayName="cat_ic_fluent_flash_28_regular" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cat_learn_icon" displayName="cat_learn_icon" solution="Active" />
+        <Dependent type="62" schemaName="cat_DataverseCompanionApp" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.DVAPITester" displayName="cat_PowerCAT.DVAPITester" solution="DataverseAccelerator (1.0.5.6)" />
+        <Dependent type="300" schemaName="msdyn_promptadvisor_3ada1" displayName="Prompt Advisor Page" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.DVAutoWidthLabel" displayName="cat_PowerCAT.DVAutoWidthLabel" solution="DataverseAccelerator (1.0.5.6)" />
+        <Dependent type="300" schemaName="msdyn_promptadvisor_3ada1" displayName="Prompt Advisor Page" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.DVCommandBar" displayName="cat_PowerCAT.DVCommandBar" solution="DataverseAccelerator (1.0.5.6)" />
+        <Dependent type="300" schemaName="msdyn_promptadvisor_3ada1" displayName="Prompt Advisor Page" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.DVIcon" displayName="cat_PowerCAT.DVIcon" solution="DataverseAccelerator (1.0.5.6)" />
+        <Dependent type="300" schemaName="msdyn_promptadvisor_3ada1" displayName="Prompt Advisor Page" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AllowNotificationsEarlyAccess" solution="AppNotifications (10.0.0.16)" id.uniquename="AllowNotificationsEarlyAccess" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_DataverseCompanionApp,settingdefinitionid.uniquename=AllowNotificationsEarlyAccess" id.parentappmoduleid.uniquename="cat_DataverseCompanionApp" id.settingdefinitionid.uniquename="AllowNotificationsEarlyAccess" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="FluentThemingPreview" solution="msdyn_PowerAppsThemingSettings (1.0.0.13)" id.uniquename="FluentThemingPreview" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_DataverseCompanionApp,settingdefinitionid.uniquename=FluentThemingPreview" id.parentappmoduleid.uniquename="cat_DataverseCompanionApp" id.settingdefinitionid.uniquename="FluentThemingPreview" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="NewLookModernExperienceOct2023" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.12)" id.uniquename="NewLookModernExperienceOct2023" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_DataverseCompanionApp,settingdefinitionid.uniquename=NewLookModernExperienceOct2023" id.parentappmoduleid.uniquename="cat_DataverseCompanionApp" id.settingdefinitionid.uniquename="NewLookModernExperienceOct2023" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>
