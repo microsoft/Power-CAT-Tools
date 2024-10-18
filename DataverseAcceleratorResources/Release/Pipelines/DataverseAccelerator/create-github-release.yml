@@ -90,8 +90,8 @@ steps:
 - template: Pipelines\Templates\create-release-github.yml@PipelineRepo
   parameters:
     gitHubApiUrl: 'microsoft/Power-CAT-Dataverse-Accelerator'
-    solutionName: 'PromptAdvisorPreview'
-    solutionDisplayName: 'Prompt Advisor Preview'
+    solutionName: 'DataverseAccelerator'
+    solutionDisplayName: 'Dataverse Accelerator'
     releaseMonth: ${{parameters.ReleaseMonthNumber}}
     releaseYear: ${{parameters.ReleaseYearNumber}}
     connectionName: 'powercat-alm'
