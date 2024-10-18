@@ -166,9 +166,9 @@
             <Title LCID="1033" Title="Prompt advisor" />
           </Titles>
         </SubArea>
-        <SubArea Id="subarea_29aeb1b3" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="/WebResources/cat_learn_icon" Icon="/WebResources/cat_learn_icon" Url="https://aka.ms/dvacclearnmore" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+        <SubArea Id="subarea_learn" ResourceId="SitemapDesigner.NewSubArea" VectorIcon="/WebResources/cat_learn_icon" Icon="/WebResources/cat_learn_icon" Url="https://aka.ms/dvacclearnmore" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <Titles>
-            <Title LCID="1033" Title="Learn " />
+            <Title LCID="1033" Title="Learn" />
             <Title LCID="1025" Title="التعلّم " />
             <Title LCID="1026" Title="Научете " />
             <Title LCID="1027" Title="Més informació " />
