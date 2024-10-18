@@ -45,7 +45,7 @@ steps:
   inputs:
     source: 'specific'
     project: 'Power-CAT-Dataverse-Accelerator'
-    pipeline: '2359' #Production buildId
+    pipeline: '2446' #Production buildId
     runVersion: 'latest'
     patterns: '**/PromptAdvisorPreview*.zip'
   displayName: 'Download Prompt Advisor Preview solution'
