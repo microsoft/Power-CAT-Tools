@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24092.202" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24092.202" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24092.00202">
+<ImportExportXml version="9.2.24094.228" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24094.228" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24094.00228">
   <SolutionManifest>
     <UniqueName>PromptAdvisorPreview</UniqueName>
     <LocalizedNames>
@@ -91,7 +91,9 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202409.1.0.6)" />
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202409.3.41.1)">
+          <package>msdyn_AISolutionAnchor (202409.3.41.1)</package>
+        </Required>
         <Dependent type="300" schemaName="msdyn_promptadvisor_3ada1" displayName="Prompt Advisor Page" />
       </MissingDependency>
       <MissingDependency>
