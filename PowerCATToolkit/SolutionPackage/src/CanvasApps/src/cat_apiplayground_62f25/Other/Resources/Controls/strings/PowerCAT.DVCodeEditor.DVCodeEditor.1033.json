@@ -1,0 +1,15 @@
+{
+  "DVCodeEditor_Desc_key": "A monaco editor based code component which help view and edit code(JSON for now)",
+  "DVCodeEditor_Disp_key": "Code Editor",
+  "DVCodeEditor_FormatCode_Disp_key": "Format Code",
+  "DVCodeEditor_Language_Disp_key": "Language",
+  "DVCodeEditor_LinetoJump_Desc_key": "Line to jump in the editor",
+  "DVCodeEditor_LinetoJump_Disp_key": "Line to jump",
+  "DVCodeEditor_ShowLineNumber_Disp_key": "Show Line Number",
+  "DVCodeEditor_ShowminiMap_Disp_key": "Show Mini Map",
+  "DVCodeEditor_Theme_Disp_key": "Theme",
+  "DVCodeEditor_Theme_light_Disp_key": "Light",
+  "DVCodeEditor_Theme_vs-dark_Disp_key": "Dark",
+  "DVCodeEditor_Value_Desc_key": "Value of the editor",
+  "DVCodeEditor_Value_Disp_key": "Value"
+}

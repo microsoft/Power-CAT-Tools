@@ -1,0 +1,720 @@
+HubLandingScreen As screen:
+    Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =/* Load data for this page while spinner is loading */
+        If( init <> true,
+            // TODO: Additional Dataloading Loading here
+        
+            // Stop spinner 
+            UpdateContext({ init: true });
+        );
+
+    "goto_Nav As 'NavigationComponentPCF(0.1.2008)'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =42
+        Name: =gotopage
+        Navigate: =toggleNav
+        PageType: ="custom"
+        Width: =42
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    cAppFrameContainer As groupContainer.verticalAutoLayoutContainer:
+        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =2
+
+        cContentHeader As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 0)
+            FillPortions: =0
+            Height: =160
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =1268.76
+            X: =0.00
+            Y: =16
+            ZIndex: =1
+
+            htmlGradient_1 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =Parent.Height+2
+                HtmlText: |
+                    =$"<div style='width:100%;height:{Self.Height-1}px; background: linear-gradient(90deg, { 
+                        AppTheme.palette.themeTertiary }11 10%, { AppTheme.palette.themePrimary }33 100%, transparent)'></div>"
+                    /* Hint: {#FFFFFF}(Hex Value) + {FF} (Alpha value) = Transparent hex 88% (X axis dist) */
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Visible: =false
+                Width: =Parent.Width
+                ZIndex: =1
+
+            imgBanner As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: |-
+                    =ColorValue("#FFFFFF")//ColorValue("#E8B0D3") //
+                Height: =Parent.Height
+                Image: =header
+                ImagePosition: =ImagePosition.Fill
+                Visible: =false
+                Width: =Parent.Width
+                X: =0.00
+                ZIndex: =2
+
+            Image2 As image:
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =Parent.Height
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: =header
+                ImagePosition: =ImagePosition.Tile
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =Parent.Width + 200
+                X: =-200
+                ZIndex: =3
+
+            cBannerMain_1 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =    
+                Width: =Min(Parent.Width - Margins,1200) //Parent.Width        
+                X: =(Parent.Width - Self.Width)/2
+                ZIndex: =4
+
+                cBannerContent_1 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    ContentLanguage: =
+                    Height: =160
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =8
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =0 //Margins / 2
+                    PaddingRight: =Self.PaddingLeft
+                    PaddingTop: =0.00
+                    Width: =854
+                    X: =-129
+                    ZIndex: =1
+
+                    h1LandingTitle_1 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                        Height: =48
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        PaddingLeft: =0
+                        Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,20,ScreenSize.Medium,28,32)
+                        Text: ="Power CAT Tools"
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 500)
+                        Wrap: =false
+                        X: =394.49
+                        Y: =0
+                        ZIndex: =1
+
+                    TextCanvas2 As Text:
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: ="Accelerate solutions with tailored tools inspired by real-world development innovation."
+                        Width: =500
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                Image4 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =688
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =Catools_Black
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =436
+                    X: =767
+                    Y: =-264
+                    ZIndex: =2
+
+            htmlGradient_2 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =10
+                HtmlText: |
+                    =$"<div style='width:100%;height:{Self.Height-1}px; background: linear-gradient(0deg, { AppTheme.palette.neutralSecondary }11 , transparent)'></div>"
+                    /* Hint: {#FFFFFF}(Hex Value) + {FF} (Alpha value) = Transparent hex 88% (X axis dist) */
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Visible: =false
+                Width: =Parent.Width
+                Y: =150
+                ZIndex: =5
+
+        cMainContainer As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =cMainContent.Height //200
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingLeft: =Margins/2
+            PaddingRight: =Margins/2
+            ZIndex: =3
+
+            cMainContent As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =FlexOff
+                Height: =cBufferHub_0.Y + cBufferHub_0.Height //Max(cBufferHub_0.Y + cBufferHub_0.Height, Parent.Height-Self.Y)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =8
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =2
+                PaddingRight: =2
+                PaddingTop: =16
+                Width: =Min(Parent.Width - Margins,1200)
+                ZIndex: =1
+
+                cSectionHeader_1 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =28
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =8
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Width: =1147.88
+                    X: =1.87
+                    ZIndex: =1
+
+                    TextCanvas2_2 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =24
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =14
+                        Text: ="Features"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =479.77
+                        X: =0.00
+                        Y: =0
+                        ZIndex: =1
+
+                    LinkCanvas2_2 As Link:
+                        Align: =Align.Right
+                        Appearance: ="Default"
+                        BasePaletteColor: =
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =14
+                        Height: =22
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: ="See more"
+                        Visible: =false
+                        Width: =74.96
+                        X: =1072.91
+                        Y: =0
+                        ZIndex: =5
+
+                cCardsRow_2 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    FillPortions: =0
+                    Height: |-
+                        =/* Responsive tip: Reference the last item in the container's vertical position and height */ Card1_22.Y + Card1_22.Height + 24
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    PaddingTop: =2
+                    Width: =Parent.Width - Self.X * 2
+                    X: =1.87
+                    Y: =51
+                    ZIndex: =2
+
+                    "Card1_16 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Description: ="Improve development workstreams by with automated code review with comprehensive guidance."
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =
+                        Height: =Self.AutoHeight
+                        Image: =codereview
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =320
+                        OnSelect: |-
+                            =UpdateContext({ toggleNav: false , gotopage: "cat_homepage_f8fb3" }); UpdateContext({ toggleNav: true });
+                        Subtitle: =
+                        Title: ="Code review"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "Card1_9 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Description: ="Automatically generate documentation from your solutions using generative AI."
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =
+                        Height: =Self.AutoHeight
+                        Image: =docuPilot
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Above header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =320
+                        OnSelect: |-
+                            =UpdateContext({ toggleNav: false , gotopage: "cat_docupilot_fa88a" }); UpdateContext({ toggleNav: true });
+                        Subtitle: =
+                        Title: ="DocuPilot"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    "Card1_13 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        AccessibleLabel: ="Risk assessment"
+                        Description: ="Comprehensive risk profiles and mitigation strategies based on predefined customizable baseline risk ratings."
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =
+                        Height: =Self.AutoHeight
+                        Image: =riskassessment
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =320
+                        OnSelect: |-
+                            =UpdateContext({ toggleNav: false , gotopage: "cat_riskassessments_2e193" }); UpdateContext({ toggleNav: true });
+                        Subtitle: =
+                        Title: ="Risk assessment"
+                        Width: =200
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                    "Card1_24 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Alignment: ='PowerCAT.Card.Alignment'.Vertical
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =desktopPulse
+                        Height: =Self.AutoHeight
+                        Image: =
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Below header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =320
+                        OnSelect: |-
+                            =UpdateContext({ toggleNav: false , gotopage: "cat_plugintracelog_d12af" }); UpdateContext({ toggleNav: true });
+                        Size: ='PowerCAT.Card.Size'.Large
+                        Subtitle: ="Helps create Power Apps experiences on the web and mobile platforms."
+                        Title: ="Plugin monitor"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                    "Card1_23 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Alignment: ='PowerCAT.Card.Alignment'.Vertical
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =comm  
+                        Height: =Self.AutoHeight
+                        Image: =
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Below header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =320
+                        OnSelect: |-
+                            =UpdateContext({ toggleNav: false , gotopage: "cat_apiplayground_62f25" }); UpdateContext({ toggleNav: true });
+                        Size: ='PowerCAT.Card.Size'.Large
+                        Subtitle: ="Helps create Power Apps experiences on the web and mobile platforms."
+                        Title: ="API playground"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =5
+
+                    "Card1_22 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Alignment: ='PowerCAT.Card.Alignment'.Vertical
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =plug
+                        Height: =Self.AutoHeight
+                        Image: =
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Below header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =320
+                        OnSelect: |-
+                            =Launch("http://aka.ms/lowcodeplugins")
+                        Size: ='PowerCAT.Card.Size'.Large
+                        Subtitle: ="Helps create Power Apps experiences on the web and mobile platforms."
+                        Title: ="Power Fx functions"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =6
+
+                    cBufferLanding_3 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =50
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =320
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =Card1_22.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =7
+
+                    cBufferLanding_7 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =100
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =320
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =Card1_22.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =8
+
+                cSectionHeader_2 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =28
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =8
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Width: =1147.88
+                    X: =1.87
+                    ZIndex: =4
+
+                    TextCanvas2_3 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontColor: =
+                        Height: =28
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =14
+                        Text: ="Featured kits"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =479.77
+                        X: =0.00
+                        Y: =0
+                        ZIndex: =1
+
+                cCardsRow_4 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    FillPortions: =0
+                    Height: |-
+                        =/* Responsive tip: Reference the last item in the container's vertical position and height */ Card1_21.Y + Card1_21.Height + 24
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    PaddingTop: =2
+                    Width: =Parent.Width - Self.X * 2
+                    X: =1.87
+                    Y: =51
+                    ZIndex: =5
+
+                    "Card1_19 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Alignment: ='PowerCAT.Card.Alignment'.Vertical
+                        Description: =
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =copilotStd
+                        Height: =Self.AutoHeight
+                        Image: =
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Above header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |-
+                            =Launch("https://github.com/microsoft/Power-CAT-Copilot-Studio-Kit?tab=readme-ov-file#power-cat-copilot-studio-kit")
+                        Size: ='PowerCAT.Card.Size'.Small
+                        Subtitle: ="A comprehensive set of capabilities designed to augment Microsoft Copilot Studio"
+                        Title: ="Copilot Studio kit"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "Card1_21 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Alignment: ='PowerCAT.Card.Alignment'.Vertical
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =creatorKit  
+                        Height: =Self.AutoHeight
+                        Image: =
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Below header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: =Launch("aka.ms/creatorkit")
+                        Size: ='PowerCAT.Card.Size'.Small
+                        Subtitle: ="Helps create Power Apps experiences on the web and mobile platforms."
+                        Title: ="Creator kit"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =5
+
+                    cBufferLanding_9 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =50
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =230
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =false //Card1_21.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =6
+
+                    cBufferLanding_10 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =100
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =230
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =false //Card1_21.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =7
+
+                cSectionHeader_3 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =28
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =8
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Width: =1147.88
+                    X: =1.87
+                    ZIndex: =6
+
+                    TextCanvas2_4 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontColor: =
+                        Height: =28
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =14
+                        Text: ="Learning resources"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =479.77
+                        X: =0.00
+                        Y: =0
+                        ZIndex: =1
+
+                cCardsRow_3 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    FillPortions: =0
+                    Height: |-
+                        =/* Responsive tip: Reference the last item in the container's vertical position and height */ Card1_18.Y + Card1_18.Height + 24
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    PaddingTop: =2
+                    Width: =Parent.Width - Self.X * 2
+                    X: =1.87
+                    Y: =51
+                    ZIndex: =7
+
+                    "Card1_14 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =docCopy
+                        Height: =Self.AutoHeight
+                        Image: =
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |-
+                            =Launch("https://aka.ms/cattoolkit")
+                        Size: ='PowerCAT.Card.Size'.Small
+                        Subtitle: =
+                        Title: ="Documentation"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "Card1_15 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Alignment: ='PowerCAT.Card.Alignment'.Vertical
+                        Description: =
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =chatBubbles
+                        Height: =Self.AutoHeight
+                        Image: =    
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Below header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |-
+                            =Launch("https://aka.ms/cattoolkit/faq")
+                        Size: ='PowerCAT.Card.Size'.Small
+                        Subtitle: =
+                        Title: ="Frequently asked question"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    "Card1_18 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        HeaderImage: =apps
+                        Height: =Self.AutoHeight
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |-
+                            =Launch("https://aka.ms/cattoolkit/support")
+                        Size: ='PowerCAT.Card.Size'.Small
+                        Subtitle: =
+                        Title: ="Support"
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =5
+
+                    cBufferLanding_4 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =50
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =300
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =Card1_18.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =6
+
+                    cBufferLanding_8 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =100
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =300
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =Card1_18.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =7
+
+                cBufferHub_0 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =FlexOff
+                    Height: =24
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =8
+
+    cLoader As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Visible: =IsBlank(AppTheme) //|| showLoader
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Spinner1_4 As Spinner:
+            DisplayMode: =DisplayMode.Edit
+            Height: =200
+            Label: ="Loading ..."
+            LabelPosition: ='Spinner.LabelPosition'.Below
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            Visible: =true
+            Width: =200
+            X: =0
+            Y: =0
+            ZIndex: =1
+

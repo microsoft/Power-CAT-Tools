@@ -1,0 +1,1272 @@
+"'Home Screen' As screen":
+    Fill: =ColorValue(AppTheme.palette.neutralLighterAlt) 
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =/* Load data for this page while spinner is loading */
+        If( init <> true,
+            UpdateContext({ pageTitle: "Solution Documentation" });
+            UpdateContext({ pageSubtext: "A native tool for documenting Power Platform solutions using generative AI"});
+        
+            // TODO: Additional Dataloading Loading 
+        
+            UpdateContext({ init: true });
+        );
+        UpdateContext({showSaveLoader:false});
+        ResetForm(DocumentGeneratorRequestForm);
+        /*ClearCollect(
+            ProcessedDocumentCollection,
+            AddColumns(
+                Filter(
+                    'DocuPilot Document Generation Requests', 'Document Status' =
+                    'Document Status (DocuPilot Document Generation Requests)'.Complete 
+                ),
+                Icon, "https://static2.sharepointonline.com/files/fabric/assets/item-types/16/docx.svg",
+                SolutionName, 'Solution Name',
+                DocumentName, 'Solution Document'.FileName,
+                DocumentOwner, 'Owning User'.'Full Name',
+                LastModified, 'Modified On'
+            )
+        );*/
+
+    cAppFrameContainer_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =24
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =Parent.Width
+        ZIndex: =1
+
+        cContentHeader_1 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 0)
+            FillPortions: =0
+            Height: =150
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =1268.76
+            X: =0.00
+            Y: =16
+            ZIndex: =1
+
+            htmlGradient_3 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =Parent.Height+2
+                HtmlText: |
+                    =$"<div style='width:100%;height:{Self.Height-1}px; background: linear-gradient(90deg, { 
+                        AppTheme.palette.themeTertiary }11 10%, { AppTheme.palette.themePrimary }33 100%, transparent)'></div>"
+                    /* Hint: {#FFFFFF}(Hex Value) + {FF} (Alpha value) = Transparent hex 88% (X axis dist) */
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Visible: =false
+                Width: =Parent.Width
+                ZIndex: =2
+
+            cBannerMain_2 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =    
+                Width: =Parent.Width        
+                ZIndex: =4
+
+                cBannerContent_2 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Height: =Parent.Height
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =8
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =Margins / 2
+                    PaddingRight: =Self.PaddingLeft
+                    PaddingTop: =0.00
+                    Width: =Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 600)
+                    X: =0.00
+                    ZIndex: =1
+
+                    Container1_1 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =55
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =1
+
+                        h1LandingTitle_4 As Text:
+                            Align: ='TextCanvas.Align'.Start
+                            BorderStyle: =""
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =
+                            Height: =48
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            PaddingLeft: =0
+                            Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,20,ScreenSize.Medium,28,32)
+                            Text: =pageTitle
+                            Weight: ='TextCanvas.Weight'.Bold
+                            Width: =Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 500)
+                            Wrap: =false
+                            X: =374.49
+                            Y: =0
+                            ZIndex: =2
+
+                    Label3_4 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: |-
+                            =ColorValue("#242424")
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        LineHeight: =1.4
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                        Text: =pageSubtext
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 500)
+                        X: =394.49
+                        ZIndex: =3
+
+            htmlGradient_4 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =10
+                HtmlText: |
+                    =$"<div style='width:100%;height:{Self.Height-1}px; background: linear-gradient(0deg, { AppTheme.palette.neutralSecondary }11 , transparent)'></div>"
+                    /* Hint: {#FFFFFF}(Hex Value) + {FF} (Alpha value) = Transparent hex 88% (X axis dist) */
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Visible: =false
+                Width: =Parent.Width
+                Y: =Parent.Height - Self.Height + 2
+                ZIndex: =5
+
+        cMainContainer_3 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingLeft: =Margins/2
+            PaddingRight: =Margins/2
+            ZIndex: =3
+
+            Container2_7 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =Max(cBufferHub_6.Y + cBufferHub_6.Height, Parent.Height-Self.Y)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =16
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =2
+                PaddingRight: =2
+                Width: =
+                ZIndex: =1
+
+                cSectionHeader_4 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =28
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =8
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingRight: =0.00
+                    PaddingTop: =0.00
+                    Visible: =Card1_17.Visible
+                    Width: =1147.88
+                    X: =1.87
+                    ZIndex: =1
+
+                    TextCanvas2_5 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =28
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =16
+                        Text: ="Recently edited"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =479.77
+                        X: =0.00
+                        Y: =0
+                        ZIndex: =1
+
+                    LinkCanvas2_5 As Link:
+                        Align: =Align.Right
+                        Appearance: ="Default"
+                        BasePaletteColor: =
+                        BorderStyle: =""
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =14
+                        Height: =22
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: ="See more"
+                        Visible: =false
+                        Width: =74.96
+                        X: =1072.91
+                        Y: =0
+                        ZIndex: =5
+
+                cCardsRow_5 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: |-
+                        =/* Responsive tip: Reference the last item in the container's vertical position and height */ Card1_17.Y + Card1_17.Height + 24
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    PaddingTop: =2
+                    Visible: =Card1_17.Visible
+                    Width: =Parent.Width - Self.X * 2
+                    X: =1.87
+                    Y: =51
+                    ZIndex: =2
+
+                    "Card1_17 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Description: =
+                        DisplayMode: =DisplayMode.Edit
+                        HeaderImage: =docx
+                        Height: =Self.AutoHeight
+                        Image: =
+                        Items: =
+                        ItemTooltip: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |+
+                            =/*Set(varRelatedFiles,GetRelatedDocumentRequestFiles.Run(Last(FirstN(RecentDocumentCollection, 1)).'DocuPilot Document Generation Request').solutiondataset);
+                            
+                            Navigate(DocumentGeneratorScreen,Transition.None,{varRelatedFiles: varRelatedFiles,DocumentRequestRecord: Last(FirstN(RecentDocumentCollection, 1)),showFlair:"ShowFlair"&Rand()});*/
+                            
+                        Size: ='PowerCAT.Card.Size'.Medium
+                        Subtitle: |-
+                            =Concatenate(If(
+                                CountRows(RecentDocumentCollection) > 0,
+                                With(
+                                    { timeDiff: DateDiff(Last(FirstN(RecentDocumentCollection, 1)).ModifiedOn, Now(), TimeUnit.Minutes) },
+                                    If(
+                                        timeDiff >= 1440,  // More than or equal to 1 day (1440 minutes)
+                                        Text(RoundDown(timeDiff / 1440, 0), "[$-en-US]0") & " days ago",
+                                        If(
+                                            timeDiff >= 60,  // More than or equal to 1 hour (60 minutes)
+                                            Text(RoundDown(timeDiff / 60, 0), "[$-en-US]0") & " hours ago",
+                                            timeDiff & " mins ago"
+                                        )
+                                    )
+                                ),
+                                ""
+                            ), " by ", User().FullName)
+                        Title: =If(RecentDocCount > 0, Last(FirstN(Split(Last(FirstN(RecentDocumentCollection, 1)).'Solution Document'.FileName,"-"),2)).Value, "")
+                        Visible: =RecentDocCount > 0
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "Card1_11 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Description: =
+                        DisplayMode: =DisplayMode.Edit
+                        HeaderImage: =docx
+                        Height: =Self.AutoHeight
+                        Image: =
+                        ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Above header'
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |-
+                            =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
+                            //Navigate(DocumentGeneratorScreen,Transition.None,{showFlair:"ShowFlair"&Rand()});
+                        Size: ='PowerCAT.Card.Size'.Medium
+                        Subtitle: |-
+                            =Concatenate(If(
+                                RecentDocCount > 1,
+                                With(
+                                    { timeDiff: DateDiff(Last(FirstN(RecentDocumentCollection, 2)).ModifiedOn, Now(), TimeUnit.Minutes) },
+                                    If(
+                                        timeDiff >= 1440,  // More than or equal to 1 day (1440 minutes)
+                                        Text(RoundDown(timeDiff / 1440, 0), "[$-en-US]0") & " days ago",
+                                        If(
+                                            timeDiff >= 60,  // More than or equal to 1 hour (60 minutes)
+                                            Text(RoundDown(timeDiff / 60, 0), "[$-en-US]0") & " hours ago",
+                                            timeDiff & " mins ago"
+                                        )
+                                    )
+                                ),
+                                ""
+                            ), " by ", User().FullName)
+                        Title: =If(RecentDocCount > 0, Last(FirstN(Split(Last(FirstN(RecentDocumentCollection, 2)).'Solution Document'.FileName,"-"),2)).Value, "")
+                        Visible: =RecentDocCount > 1
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    "Card1_12 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Description: =
+                        DisplayMode: =DisplayMode.Edit
+                        HeaderImage: =docx
+                        Height: =Self.AutoHeight
+                        Image: =
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |-
+                            =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
+                            //Navigate(DocumentGeneratorScreen,Transition.None,{showFlair:"ShowFlair"&Rand()});
+                        Size: ='PowerCAT.Card.Size'.Medium
+                        Subtitle: |-
+                            =Concatenate(If(
+                                RecentDocCount > 2,
+                                With(
+                                    { timeDiff: DateDiff(Last(FirstN(RecentDocumentCollection, 3)).ModifiedOn, Now(), TimeUnit.Minutes) },
+                                    If(
+                                        timeDiff >= 1440,  // More than or equal to 1 day (1440 minutes)
+                                        Text(RoundDown(timeDiff / 1440, 0), "[$-en-US]0") & " days ago",
+                                        If(
+                                            timeDiff >= 60,  // More than or equal to 1 hour (60 minutes)
+                                            Text(RoundDown(timeDiff / 60, 0), "[$-en-US]0") & " hours ago",
+                                            timeDiff & " mins ago"
+                                        )
+                                    )
+                                ),
+                                ""
+                            ), " by ", User().FullName)
+                        Title: =If(RecentDocCount > 2, Last(FirstN(Split(Last(FirstN(RecentDocumentCollection, 3)).'Solution Document'.FileName,"-"),2)).Value, "")
+                        Visible: =RecentDocCount > 2
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                    "Card1_19 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                        Description: =
+                        DisplayMode: =DisplayMode.Edit
+                        HeaderImage: =docx
+                        Height: =Self.AutoHeight
+                        Image: =
+                        Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
+                        OnSelect: |
+                            =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
+                        Size: ="Medium"
+                        Subtitle: |-
+                            =Concatenate(If(
+                                RecentDocCount > 3,
+                                With(
+                                    { timeDiff: DateDiff(Last(FirstN(RecentDocumentCollection, 4)).ModifiedOn, Now(), TimeUnit.Minutes) },
+                                    If(
+                                        timeDiff >= 1440,  // More than or equal to 1 day (1440 minutes)
+                                        Text(RoundDown(timeDiff / 1440, 0), "[$-en-US]0") & " days ago",
+                                        If(
+                                            timeDiff >= 60,  // More than or equal to 1 hour (60 minutes)
+                                            Text(RoundDown(timeDiff / 60, 0), "[$-en-US]0") & " hours ago",
+                                            timeDiff & " mins ago"
+                                        )
+                                    )
+                                ),
+                                ""
+                            ), " by ", User().FullName)
+                        Title: =If(RecentDocCount > 3, Last(FirstN(Split(Last(FirstN(RecentDocumentCollection, 4)).'Solution Document'.FileName,"-"),2)).Value, "")
+                        Visible: =RecentDocCount > 3
+                        Width: =300
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                    cBufferLanding_5 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =50
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =230
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =Card1_19.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =5
+
+                    cBufferLanding_9 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =FlexOn
+                        Height: =100
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =230
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingRight: =0.00
+                        PaddingTop: =0.00
+                        Visible: =Card1_19.Y > 2 //cCardsRow.Height > cCard_3.Height + 20
+                        Width: =468.52
+                        X: =0.00
+                        ZIndex: =6
+
+                MainContainer1_6 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Semilight
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: =Max(div_20.Y, 160)
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =0   
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingTop: =
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =Parent.Width - Self.X * 2
+                    ZIndex: =5
+
+                    cListCard_5 As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =Max(div_19.Y, 260)
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =0   
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingTop: =
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width - Self.X * 2
+                        ZIndex: =1
+
+                        cListToolbar_12 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Start
+                            Fill: =ColorValue(AppTheme.palette.neutralLighter) //RGBA(0, 0, 0, 0)
+                            FillPortions: =0
+                            Height: =48
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutGap: =8
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =16
+                            PaddingRight: =16
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            Toolbar1_9 As Toolbar.pcfdataset:
+                                AccessibleLabel: ="Toolbar"
+                                DisplayMode: =DisplayMode.Edit
+                                FillPortions: =FlexOn
+                                Height: =44
+                                Items: |-
+                                    =Table(
+                                        {
+                                            ItemKey: "new",
+                                            ItemDisplayName: "New",
+                                            ItemIconName: "Add",
+                                            ItemAppearance: "Primary",
+                                            ItemIconStyle: "Regular",
+                                            ItemTooltip: "Add new item"
+                                        },
+                                        {
+                                            ItemKey: "edit",
+                                            ItemDisplayName: "Edit",
+                                            ItemIconName: "Edit",
+                                            ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
+                                            ItemDisabled: true,
+                                            ItemAppearance: "Subtle",
+                                            ItemIconStyle: "Regular"
+                                        },
+                                        {
+                                            ItemKey: "download",
+                                            ItemDisplayName: "Download",
+                                            ItemIconName: "ArrowDownload",
+                                            ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
+                                            ItemDisabled: true,
+                                            ItemAppearance: "Subtle",
+                                            ItemIconStyle: "Regular"
+                                        },    
+                                        {
+                                            ItemKey: "delete",
+                                            ItemDisplayName: "Delete",
+                                            ItemIconName: "Delete",
+                                            ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
+                                            ItemDisabled: true,
+                                            ItemAppearance: "Subtle",
+                                            ItemIconStyle: "Regular"
+                                        },
+                                        {
+                                            ItemKey: "refresh",
+                                            ItemDisplayName: "Refresh",
+                                            ItemIconName: "ArrowClockwise",
+                                            ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
+                                            ItemDisabled: true,
+                                            ItemAppearance: "Subtle",
+                                            ItemIconStyle: "Regular"
+                                        }
+                                    )
+                                LayoutMinHeight: =55
+                                LayoutMinWidth: =280
+                                OnSelect: |
+                                    =
+                                    UpdateContext({ShowHideDialog:!ShowHideDialog});
+                                Width: =Parent.Width
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                            Container9_15 As groupContainer.horizontalAutoLayoutContainer:
+                                Height: =40
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =8
+                                LayoutJustifyContent: =LayoutJustifyContent.End
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingLeft: =2
+                                PaddingRight: =2
+                                ZIndex: =2
+
+                                Icon1_13 As icon.Search:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    Color: =RGBA(0, 120, 212, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(220, 220, 220, 1)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    Height: =32
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Icon: =If(showSearch, Icon.Cancel, Icon.Search)
+                                    OnSelect: |-
+                                        =UpdateContext({showSearch: !showSearch})
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Visible: =App.ActiveScreen.Size <= ScreenSize.Small
+                                    Width: =32
+                                    ZIndex: =2
+
+                                cSearchTeams_7 As groupContainer.horizontalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderColor: =ColorValue(AppTheme.palette.neutralQuaternary)
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Light
+                                    FillPortions: =0
+                                    Height: =32
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =250
+                                    LayoutMode: =LayoutMode.Auto
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    Visible: =App.ActiveScreen.Size > ScreenSize.Small || showSearch
+                                    Width: =200
+                                    ZIndex: =4
+
+                                    "txtSearch_6 As 'Text input'":
+                                        Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                        DisplayMode: =DisplayMode.Edit
+                                        FillPortions: =1
+                                        Height: =32
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =100
+                                        Placeholder: ="Search"
+                                        Width: =320
+                                        X: =0
+                                        Y: =0
+                                        ZIndex: =1
+
+                        Spinner1_14 As Spinner:
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =200
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            SpinnerSize: ='Spinner.SpinnerSize'.Small
+                            Visible: =
+                            Width: =200
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        cGrid_5 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0
+                            Height: =Max((CountIf(ListItems,true) * 48), 200)
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingRight: =16
+                            Visible: =!IsEmpty(ListItems)
+                            ZIndex: =4
+
+                            "FluentDetailsList1_3 As 'Fluent Details List (1.1.39)'.pcfdataset":
+                                AlignInContainer: =AlignInContainer.Stretch
+                                AlternateRowColor: =
+                                ColDisplayName: =""
+                                ColName: =""
+                                columns_Items: |-
+                                    =Table(
+                                        {
+                                            ColName: "Icon",
+                                            ColDisplayName: "",
+                                            ColWidth: 32,
+                                            ColCellType: "image",
+                                            ColImageWidth: 16,
+                                            ColVerticalAlign: "top",
+                                            ColPaddingTop: 4
+                                        },
+                                        {
+                                            ColName: "DocumentName",
+                                            ColDisplayName: "Document Name",
+                                            ColSortable: true,
+                                            ColIsBold: true,
+                                            ColWidth: 500
+                                        },
+                                        {
+                                            ColName: "DocumentOwner",
+                                            ColDisplayName: "Owner",
+                                            ColSortable: true,
+                                            ColIsBold: true,
+                                            ColWidth: 200
+                                        },
+                                        {
+                                            ColName: "LastModified",
+                                            ColDisplayName: "Last Modified",
+                                            ColSortable: true,
+                                            ColIsBold: true,
+                                            ColWidth: 200
+                                        }
+                                    )
+                                Compact: =true
+                                CurrentSortColumn: =""
+                                CurrentSortDirection: ='PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =Max((CountIf(ListItems, true) * If(numCols<= 6, 85, 40) ), 100)
+                                Items: =ListItems
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnChange: =
+                                RaiseOnRowSelectionChangeEvent: =true
+                                RecordKey: =""
+                                SelectionAlwaysVisible: =false
+                                SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.Single
+                                SelectRowsOnFocus: =true
+                                Theme: =AppThemeJson
+                                Visible: =true
+                                Width: =Parent.Width
+                                X: =0
+                                Y: =40
+                                ZIndex: =1
+
+                                "'Solution Name1' As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="Solution Name"
+                                    FieldName: ="cat_solutionname"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =1
+                                    ZIndex: =10
+
+                                "'Solution Id1' As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="Solution Id"
+                                    FieldName: ="cat_solutionid"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =2
+                                    ZIndex: =11
+
+                                "'Solution Document1' As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="Solution Document"
+                                    FieldName: ="cat_solutiondocument"
+                                    FieldType: ="F"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =3
+                                    ZIndex: =12
+
+                                "DocumentName1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="DocumentName"
+                                    FieldName: ="DocumentName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =4
+                                    ZIndex: =13
+
+                                "Icon2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="Icon"
+                                    FieldName: ="Icon"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =5
+                                    ZIndex: =14
+
+                                "modifiedon1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="modifiedon"
+                                    FieldName: ="modifiedon"
+                                    FieldType: ="d"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =6
+                                    ZIndex: =15
+
+                                "modifiedby1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="modifiedby"
+                                    FieldName: ="modifiedby"
+                                    FieldType: ="E"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =7
+                                    ZIndex: =16
+
+                                "owninguser1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="owninguser"
+                                    FieldName: ="owninguser"
+                                    FieldType: ="E"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =8
+                                    ZIndex: =17
+
+                                "ModifiedBy1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="ModifiedBy"
+                                    FieldName: ="ModifiedBy"
+                                    FieldType: |-
+                                        ="![AIPluginUserSetting_SystemUser_Syst:E, ImportFile_SystemUser:E, OwnerMapping_SystemUser:E, SystemUser_AsyncOperations:E, SystemUser_BulkDeleteFailures:E, SystemUser_DuplicateBaseRecord:E, SystemUser_DuplicateMatchingRecord:E, SystemUser_DuplicateRules:E, SystemUser_Email_EmailSender:E, SystemUser_ImportData:E, SystemUser_ImportFiles:E, SystemUser_ImportLogs:E, SystemUser_ImportMaps:E, SystemUser_Imports:E, SystemUser_ProcessSessions:E, SystemUser_SyncError:E, SystemUser_SyncErrors:E, accessmode:l, address1_addresstypecode:l, address1_city:s, address1_composite:s, address1_country:s, address1_county:s, address1_fax:s, address1_latitude:n, address1_line1:s, address1_line2:s, address1_line3:s, address1_longitude:n, address1_name:s, address1_postalcode:s, address1_postofficebox:s, address1_shippingmethodcode:l, address1_stateorprovince:s, address1_telephone1:s, address1_telephone2:s, address1_telephone3:s, address1_upszone:s, address1_utcoffset:n, address2_addresstypecode:l, address2_city:s, address2_composite:s, address2_country:s, address2_county:s, address2_fax:s, address2_latitude:n, address2_line1:s, address2_line2:s, address2_line3:s, address2_longitude:n, address2_name:s, address2_postalcode:s, address2_postofficebox:s, address2_shippingmethodcode:l, address2_stateorprovince:s, address2_telephone1:s, address2_telephone2:s, address2_telephone3:s, address2_upszone:s, address2_utcoffset:n, adx_inviteredemption_systemuser_createdby:E, adx_inviteredemption_systemuser_createdonbehalfby:E, adx_inviteredemption_systemuser_modifiedby:E, adx_inviteredemption_systemuser_modifiedonbehalfby:E, adx_inviteredemption_systemuser_owninguser:E, adx_portalcomment_systemuser_createdby:E, adx_portalcomment_systemuser_createdonbehalfby:E, adx_portalcomment_systemuser_modifiedby:E, adx_portalcomment_systemuser_modifiedonbehalfby:E, adx_portalcomment_systemuser_owninguser:E, adx_webformsession_systemuser:E, annotation_owning_user:E, applicationid:g, applicationiduri:s, appmodulecomponent_createdby:E, appmodulecomponent_modifiedby:E, azureactivedirectoryobjectid:g, azuredeletedon:d, azurestate:l, businessunitid:E, caltype:l, chat_systemuser_createdby:E, chat_systemuser_createdonbehalfby:E, chat_systemuser_modifiedby:E, chat_systemuser_modifiedonbehalfby:E, chat_systemuser_owninguser:E, contact_owning_user:E, createdby:E, createdby_connection:E, createdby_connection_role:E, createdby_pluginassembly:E, createdby_plugintracelog:E, createdby_plugintype:E, createdby_plugintypestatistic:E, createdby_sdkmessage:E, createdby_sdkmessagefilter:E, createdby_sdkmessageprocessingstep:E, createdby_sdkmessageprocessingstepimage:E, createdby_sdkmessageprocessingstepsecureconfig:E, createdby_serviceendpoint:E, createdon:d, createdonbehalfby:E, defaultfilterspopulated:l, defaultmailbox:E, defaultodbfoldername:s, deletedstate:l, disabledreason:s, displayinserviceviews:l, domainname:s, email_acceptingentity_systemuser:E, emailrouteraccessapproval:l, employeeid:s, entityimage:![Full:i, Value:i], entityimageid:g, exchangerate:n, firstname:s, flowmachinegroup_PasswordChangedBy:E, flowmachinegroup_RotationStartedBy:E, fullname:s, governmentid:s, homephone:s, identityid:n, impersonatinguserid_sdkmessageprocessingstep:E, importsequencenumber:n, incomingemaildeliverymethod:l, internalemailaddress:s, invitestatuscode:l, isdisabled:l, isemailaddressapprovedbyo365admin:l, isintegrationuser:l, islicensed:l, issyncwithdirectory:l, jobtitle:s, lastname:s, lk_ACIViewMapper_createdby:E, lk_ACIViewMapper_createdonbehalfby:E, lk_ACIViewMapper_modifiedby:E, lk_ACIViewMapper_modifiedonbehalfby:E, lk_DisplayStringbase_createdby:E, lk_DisplayStringbase_createdonbehalfby:E, lk_DisplayStringbase_modifiedby:E, lk_DisplayStringbase_modifiedonbehalfby:E, lk_PostFollow_createdby:E, lk_accountbase_createdby:E, lk_accountbase_createdonbehalfby:E, lk_accountbase_modifiedby:E, lk_accountbase_modifiedonbehalfby:E, lk_actioncardbase_createdby:E, lk_actioncardbase_createdonbehalfby:E, lk_actioncardbase_modifiedby:E, lk_actioncardbase_modifiedonbehalfby:E, lk_activityfileattachment_createdby:E, lk_activityfileattachment_createdonbehalfby:E, lk_activityfileattachment_modifiedby:E, lk_activityfileattachment_modifiedonbehalfby:E, lk_activitypointer_createdby:E, lk_activitypointer_createdonbehalfby:E, lk_activitypointer_modifiedby:E, lk_activitypointer_modifiedonbehalfby:E, lk_adx_externalidentity_createdby:E, lk_adx_externalidentity_createdonbehalfby:E, lk_adx_externalidentity_modifiedby:E, lk_adx_externalidentity_modifiedonbehalfby:E, lk_adx_invitation_createdby:E, lk_adx_invitation_createdonbehalfby:E, lk_adx_invitation_modifiedby:E, lk_adx_invitation_modifiedonbehalfby:E, lk_adx_setting_createdby:E, lk_adx_setting_createdonbehalfby:E, lk_adx_setting_modifiedby:E, lk_adx_setting_modifiedonbehalfby:E, lk_adx_webformsession_createdby:E, lk_adx_webformsession_createdonbehalfby:E, lk_adx_webformsession_modifiedby:E, lk_adx_webformsession_modifiedonbehalfby:E, lk_aicopilot_createdby:E, lk_aicopilot_createdonbehalfby:E, lk_aicopilot_modifiedby:E, lk_aicopilot_modifiedonbehalfby:E, lk_aiinsightcard_createdby:E, lk_aiinsightcard_createdonbehalfby:E, lk_aiinsightcard_modifiedby:E, lk_aiinsightcard_modifiedonbehalfby:E, lk_aiplugin_createdby:E, lk_aiplugin_createdonbehalfby:E, lk_aiplugin_modifiedby:E, lk_aiplugin_modifiedonbehalfby:E, lk_aipluginauth_createdby:E, lk_aipluginauth_createdonbehalfby:E, lk_aipluginauth_modifiedby:E, lk_aipluginauth_modifiedonbehalfby:E, lk_aipluginconversationstarter_createdby:E, lk_aipluginconversationstarter_createdonbehalfby:E, lk_aipluginconversationstarter_modifiedby:E, lk_aipluginconversationstarter_modifiedonbehalfby:E, lk_aipluginconversationstartermapping_createdby:E, lk_aipluginconversationstartermapping_createdonbehalfby:E, lk_aipluginconversationstartermapping_modifiedby:E, lk_aipluginconversationstartermapping_modifiedonbehalfby:E, lk_aipluginexternalschema_createdby:E, lk_aipluginexternalschema_createdonbehalfby:E, lk_aipluginexternalschema_modifiedby:E, lk_aipluginexternalschema_modifiedonbehalfby:E, lk_aipluginexternalschemaproperty_createdby:E, lk_aipluginexternalschemaproperty_createdonbehalfby:E, lk_aipluginexternalschemaproperty_modifiedby:E, lk_aipluginexternalschemaproperty_modifiedonbehalfby:E, lk_aiplugingovernance_createdby:E, lk_aiplugingovernance_createdonbehalfby:E, lk_aiplugingovernance_modifiedby:E, lk_aiplugingovernance_modifiedonbehalfby:E, lk_aiplugingovernanceext_createdby:E, lk_aiplugingovernanceext_createdonbehalfby:E, lk_aiplugingovernanceext_modifiedby:E, lk_aiplugingovernanceext_modifiedonbehalfby:E, lk_aiplugininstance_createdby:E, lk_aiplugininstance_createdonbehalfby:E, lk_aiplugininstance_modifiedby:E, lk_aiplugininstance_modifiedonbehalfby:E, lk_aipluginoperation_createdby:E, lk_aipluginoperation_createdonbehalfby:E, lk_aipluginoperation_modifiedby:E, lk_aipluginoperation_modifiedonbehalfby:E, lk_aipluginoperationparameter_createdby:E, lk_aipluginoperationparameter_createdonbehalfby:E, lk_aipluginoperationparameter_modifiedby:E, lk_aipluginoperationparameter_modifiedonbehalfby:E, lk_aipluginoperationresponsetemplate_createdby:E, lk_aipluginoperationresponsetemplate_createdonbehalfby:E, lk_aipluginoperationresponsetemplate_modifiedby:E, lk_aipluginoperationresponsetemplate_modifiedonbehalfby:E, lk_aiplugintitle_createdby:E, lk_aiplugintitle_createdonbehalfby:E, lk_aiplugintitle_modifiedby:E, lk_aiplugintitle_modifiedonbehalfby:E, lk_aipluginusersetting_createdby:E, lk_aipluginusersetting_createdonbehalfby:E, lk_aipluginusersetting_modifiedby:E, lk_aipluginusersetting_modifiedonbehalfby:E, lk_aiskillconfig_createdby:E, lk_aiskillconfig_createdonbehalfby:E, lk_aiskillconfig_modifiedby:E, lk_aiskillconfig_modifiedonbehalfby:E, lk_annotationbase_createdby:E, lk_annotationbase_createdonbehalfby:E, lk_annotationbase_modifiedby:E, lk_annotationbase_modifiedonbehalfby:E, lk_appaction_createdby:E, lk_appaction_createdonbehalfby:E, lk_appaction_modifiedby:E, lk_appaction_modifiedonbehalfby:E, lk_appactionmigration_createdby:E, lk_appactionmigration_createdonbehalfby:E, lk_appactionmigration_modifiedby:E, lk_appactionmigration_modifiedonbehalfby:E, lk_appactionrule_createdby:E, lk_appactionrule_createdonbehalfby:E, lk_appactionrule_modifiedby:E, lk_appactionrule_modifiedonbehalfby:E, lk_applicationuser_createdby:E, lk_applicationuser_createdonbehalfby:E, lk_applicationuser_modifiedby:E, lk_applicationuser_modifiedonbehalfby:E, lk_appmodulecomponent_createdonbehalfby:E, lk_appmodulecomponent_modifiedonbehalfby:E, lk_appnotification_createdby:E, lk_appnotification_createdonbehalfby:E, lk_appnotification_modifiedby:E, lk_appnotification_modifiedonbehalfby:E, lk_appointment_createdby:E, lk_appointment_createdonbehalfby:E, lk_appointment_modifiedby:E, lk_appointment_modifiedonbehalfby:E, lk_asyncoperation_createdby:E, lk_asyncoperation_createdonbehalfby:E, lk_asyncoperation_modifiedby:E, lk_asyncoperation_modifiedonbehalfby:E, lk_audit_callinguserid:E, lk_audit_userid:E, lk_backgroundoperation_createdby:E, lk_backgroundoperation_createdonbehalfby:E, lk_backgroundoperation_modifiedby:E, lk_backgroundoperation_modifiedonbehalfby:E, lk_bot_createdby:E, lk_bot_createdonbehalfby:E, lk_bot_modifiedby:E, lk_bot_modifiedonbehalfby:E, lk_botcomponent_createdby:E, lk_botcomponent_createdonbehalfby:E, lk_botcomponent_modifiedby:E, lk_botcomponent_modifiedonbehalfby:E, lk_botcomponentcollection_createdby:E, lk_botcomponentcollection_createdonbehalfby:E, lk_botcomponentcollection_modifiedby:E, lk_botcomponentcollection_modifiedonbehalfby:E, lk_bulkdeleteoperation_createdonbehalfby:E, lk_bulkdeleteoperation_modifiedonbehalfby:E, lk_bulkdeleteoperationbase_createdby:E, lk_bulkdeleteoperationbase_modifiedby:E, lk_businessunit_createdonbehalfby:E, lk_businessunit_modifiedonbehalfby:E, lk_businessunitbase_createdby:E, lk_businessunitbase_modifiedby:E, lk_businessunitnewsarticle_createdonbehalfby:E, lk_businessunitnewsarticle_modifiedonbehalfby:E, lk_businessunitnewsarticlebase_createdby:E, lk_businessunitnewsarticlebase_modifiedby:E, lk_card_createdby:E, lk_card_createdonbehalfby:E, lk_card_modifiedby:E, lk_card_modifiedonbehalfby:E, lk_cardstateitem_createdby:E, lk_cardstateitem_createdonbehalfby:E, lk_cardstateitem_modifiedby:E, lk_cardstateitem_modifiedonbehalfby:E, lk_cat_customer_createdby:E, lk_cat_customer_createdonbehalfby:E, lk_cat_customer_modifiedby:E, lk_cat_customer_modifiedonbehalfby:E, lk_cat_docupilotdocumentgenerationrequest_createdby:E, lk_cat_docupilotdocumentgenerationrequest_createdonbehalfby:E, lk_cat_docupilotdocumentgenerationrequest_modifiedby:E, lk_cat_docupilotdocumentgenerationrequest_modifiedonbehalfby:E, lk_cat_patterndetails_createdby:E, lk_cat_patterndetails_createdonbehalfby:E, lk_cat_patterndetails_modifiedby:E, lk_cat_patterndetails_modifiedonbehalfby:E, lk_cat_patternidentifier_createdby:E, lk_cat_patternidentifier_createdonbehalfby:E, lk_cat_patternidentifier_modifiedby:E, lk_cat_patternidentifier_modifiedonbehalfby:E, lk_cat_patterninstance_createdby:E, lk_cat_patterninstance_createdonbehalfby:E, lk_cat_patterninstance_modifiedby:E, lk_cat_patterninstance_modifiedonbehalfby:E, lk_cat_patternresult_createdby:E, lk_cat_patternresult_createdonbehalfby:E, lk_cat_patternresult_modifiedby:E, lk_cat_patternresult_modifiedonbehalfby:E, lk_cat_sample_createdby:E, lk_cat_sample_createdonbehalfby:E, lk_cat_sample_modifiedby:E, lk_cat_sample_modifiedonbehalfby:E, lk_cat_solutioncomponent_createdby:E, lk_cat_solutioncomponent_createdonbehalfby:E, lk_cat_solutioncomponent_modifiedby:E, lk_cat_solutioncomponent_modifiedonbehalfby:E, lk_cat_solutionreview_createdby:E, lk_cat_solutionreview_createdonbehalfby:E, lk_cat_solutionreview_modifiedby:E, lk_cat_solutionreview_modifiedonbehalfby:E, lk_catalog_createdby:E, lk_catalog_createdonbehalfby:E, lk_catalog_modifiedby:E, lk_catalog_modifiedonbehalfby:E, lk_catalogassignment_createdby:E, lk_catalogassignment_createdonbehalfby:E, lk_catalogassignment_modifiedby:E, lk_catalogassignment_modifiedonbehalfby:E, lk_certificatecredential_createdby:E, lk_certificatecredential_createdonbehalfby:E, lk_certificatecredential_modifiedby:E, lk_certificatecredential_modifiedonbehalfby:E, lk_columnmapping_createdby:E, lk_columnmapping_createdonbehalfby:E, lk_columnmapping_modifiedby:E, lk_columnmapping_modifiedonbehalfby:E, lk_componentversion_createdby:E, lk_componentversion_modifiedby:E, lk_componentversionnrddatasource_createdby:E, lk_componentversionnrddatasource_createdonbehalfby:E, lk_componentversionnrddatasource_modifiedby:E, lk_componentversionnrddatasource_modifiedonbehalfby:E, lk_connectionbase_createdonbehalfby:E, lk_connectionbase_modifiedonbehalfby:E, lk_connectioninstance_createdby:E, lk_connectioninstance_createdonbehalfby:E, lk_connectioninstance_modifiedby:E, lk_connectioninstance_modifiedonbehalfby:E, lk_connectionreference_createdby:E, lk_connectionreference_createdonbehalfby:E, lk_connectionreference_modifiedby:E, lk_connectionreference_modifiedonbehalfby:E, lk_connectionrolebase_createdonbehalfby:E, lk_connectionrolebase_modifiedonbehalfby:E, lk_connector_createdby:E, lk_connector_createdonbehalfby:E, lk_connector_modifiedby:E, lk_connector_modifiedonbehalfby:E, lk_contact_createdonbehalfby:E, lk_contact_modifiedonbehalfby:E, lk_contactbase_createdby:E, lk_contactbase_modifiedby:E, lk_conversationtranscript_createdby:E, lk_conversationtranscript_createdonbehalfby:E, lk_conversationtranscript_modifiedby:E, lk_conversationtranscript_modifiedonbehalfby:E, lk_copilotexamplequestion_createdby:E, lk_copilotexamplequestion_createdonbehalfby:E, lk_copilotexamplequestion_modifiedby:E, lk_copilotexamplequestion_modifiedonbehalfby:E, lk_copilotglossaryterm_createdby:E, lk_copilotglossaryterm_createdonbehalfby:E, lk_copilotglossaryterm_modifiedby:E, lk_copilotglossaryterm_modifiedonbehalfby:E, lk_copilotsynonyms_createdby:E, lk_copilotsynonyms_createdonbehalfby:E, lk_copilotsynonyms_modifiedby:E, lk_copilotsynonyms_modifiedonbehalfby:E, lk_credential_createdby:E, lk_credential_createdonbehalfby:E, lk_credential_modifiedby:E, lk_credential_modifiedonbehalfby:E, lk_customapi_createdby:E, lk_customapi_createdonbehalfby:E, lk_customapi_modifiedby:E, lk_customapi_modifiedonbehalfby:E, lk_customapirequestparameter_createdby:E, lk_customapirequestparameter_createdonbehalfby:E, lk_customapirequestparameter_modifiedby:E, lk_customapirequestparameter_modifiedonbehalfby:E, lk_customapiresponseproperty_createdby:E, lk_customapiresponseproperty_createdonbehalfby:E, lk_customapiresponseproperty_modifiedby:E, lk_customapiresponseproperty_modifiedonbehalfby:E, lk_customcontrol_createdby:E, lk_customcontrol_createdonbehalfby:E, lk_customcontrol_modifiedby:E, lk_customcontrol_modifiedonbehalfby:E, lk_customcontroldefaultconfig_createdby:E, lk_customcontroldefaultconfig_createdonbehalfby:E, lk_customcontroldefaultconfig_modifiedby:E, lk_customcontroldefaultconfig_modifiedonbehalfby:E, lk_customcontrolresource_createdby:E, lk_customcontrolresource_createdonbehalfby:E, lk_customcontrolresource_modifiedby:E, lk_customcontrolresource_modifiedonbehalfby:E, lk_customeraddress_createdonbehalfby:E, lk_customeraddress_modifiedonbehalfby:E, lk_customeraddressbase_createdby:E, lk_customeraddressbase_modifiedby:E, lk_datalakefolder_createdby:E, lk_datalakefolder_createdonbehalfby:E, lk_datalakefolder_modifiedby:E, lk_datalakefolder_modifiedonbehalfby:E, lk_datalakefolderpermission_createdby:E, lk_datalakefolderpermission_createdonbehalfby:E, lk_datalakefolderpermission_modifiedby:E, lk_datalakefolderpermission_modifiedonbehalfby:E, lk_datalakeworkspace_createdby:E, lk_datalakeworkspace_createdonbehalfby:E, lk_datalakeworkspace_modifiedby:E, lk_datalakeworkspace_modifiedonbehalfby:E, lk_datalakeworkspacepermission_createdby:E, lk_datalakeworkspacepermission_createdonbehalfby:E, lk_datalakeworkspacepermission_modifiedby:E, lk_datalakeworkspacepermission_modifiedonbehalfby:E, lk_dataprocessingconfiguration_createdby:E, lk_dataprocessingconfiguration_createdonbehalfby:E, lk_dataprocessingconfiguration_modifiedby:E, lk_dataprocessingconfiguration_modifiedonbehalfby:E, lk_delegatedauthorization_createdby:E, lk_delegatedauthorization_createdonbehalfby:E, lk_delegatedauthorization_modifiedby:E, lk_delegatedauthorization_modifiedonbehalfby:E, lk_desktopflowbinary_createdby:E, lk_desktopflowbinary_createdonbehalfby:E, lk_desktopflowbinary_modifiedby:E, lk_desktopflowbinary_modifiedonbehalfby:E, lk_desktopflowmodule_createdby:E, lk_desktopflowmodule_createdonbehalfby:E, lk_desktopflowmodule_modifiedby:E, lk_desktopflowmodule_modifiedonbehalfby:E, lk_documenttemplatebase_createdby:E, lk_documenttemplatebase_createdonbehalfby:E, lk_documenttemplatebase_modifiedby:E, lk_documenttemplatebase_modifiedonbehalfby:E, lk_duplicaterule_createdonbehalfby:E, lk_duplicaterule_modifiedonbehalfby:E, lk_duplicaterulebase_createdby:E, lk_duplicaterulebase_modifiedby:E, lk_duplicaterulecondition_createdonbehalfby:E, lk_duplicaterulecondition_modifiedonbehalfby:E, lk_duplicateruleconditionbase_createdby:E, lk_duplicateruleconditionbase_modifiedby:E, lk_dvfilesearch_createdby:E, lk_dvfilesearch_createdonbehalfby:E, lk_dvfilesearch_modifiedby:E, lk_dvfilesearch_modifiedonbehalfby:E, lk_dvfilesearchattribute_createdby:E, lk_dvfilesearchattribute_createdonbehalfby:E, lk_dvfilesearchattribute_modifiedby:E, lk_dvfilesearchattribute_modifiedonbehalfby:E, lk_dvfilesearchentity_createdby:E, lk_dvfilesearchentity_createdonbehalfby:E, lk_dvfilesearchentity_modifiedby:E, lk_dvfilesearchentity_modifiedonbehalfby:E, lk_dvtablesearch_createdby:E, lk_dvtablesearch_createdonbehalfby:E, lk_dvtablesearch_modifiedby:E, lk_dvtablesearch_modifiedonbehalfby:E, lk_dvtablesearchattribute_createdby:E, lk_dvtablesearchattribute_createdonbehalfby:E, lk_dvtablesearchattribute_modifiedby:E, lk_dvtablesearchattribute_modifiedonbehalfby:E, lk_dvtablesearchentity_createdby:E, lk_dvtablesearchentity_createdonbehalfby:E, lk_dvtablesearchentity_modifiedby:E, lk_dvtablesearchentity_modifiedonbehalfby:E, lk_email_createdby:E, lk_email_createdonbehalfby:E, lk_email_modifiedby:E, lk_email_modifiedonbehalfby:E, lk_emailserverprofile_createdby:E, lk_emailserverprofile_createdonbehalfby:E, lk_emailserverprofile_modifiedby:E, lk_emailserverprofile_modifiedonbehalfby:E, lk_entityrecordfilter_createdby:E, lk_entityrecordfilter_createdonbehalfby:E, lk_entityrecordfilter_modifiedby:E, lk_entityrecordfilter_modifiedonbehalfby:E, lk_environmentvariabledefinition_createdby:E, lk_environmentvariabledefinition_createdonbehalfby:E, lk_environmentvariabledefinition_modifiedby:E, lk_environmentvariabledefinition_modifiedonbehalfby:E, lk_environmentvariablevalue_createdby:E, lk_environmentvariablevalue_createdonbehalfby:E, lk_environmentvariablevalue_modifiedby:E, lk_environmentvariablevalue_modifiedonbehalfby:E, lk_eventexpanderbreadcrumb_createdby:E, lk_eventexpanderbreadcrumb_createdonbehalfby:E, lk_eventexpanderbreadcrumb_modifiedby:E, lk_eventexpanderbreadcrumb_modifiedonbehalfby:E, lk_expiredprocess_createdby:E, lk_expiredprocess_createdonbehalfby:E, lk_expiredprocess_modifiedby:E, lk_expiredprocess_modifiedonbehalfby:E, lk_exportedexcel_createdby:E, lk_exportedexcel_createdonbehalfby:E, lk_exportedexcel_modifiedby:E, lk_exportedexcel_modifiedonbehalfby:E, lk_exportsolutionupload_createdby:E, lk_exportsolutionupload_createdonbehalfby:E, lk_exportsolutionupload_modifiedby:E, lk_exportsolutionupload_modifiedonbehalfby:E, lk_fabricaiskill_createdby:E, lk_fabricaiskill_createdonbehalfby:E, lk_fabricaiskill_modifiedby:E, lk_fabricaiskill_modifiedonbehalfby:E, lk_fax_createdby:E, lk_fax_createdonbehalfby:E, lk_fax_modifiedby:E, lk_fax_modifiedonbehalfby:E, lk_featurecontrolsetting_createdby:E, lk_featurecontrolsetting_createdonbehalfby:E, lk_featurecontrolsetting_modifiedby:E, lk_featurecontrolsetting_modifiedonbehalfby:E, lk_federatedknowledgeconfiguration_createdby:E, lk_federatedknowledgeconfiguration_createdonbehalfby:E, lk_federatedknowledgeconfiguration_modifiedby:E, lk_federatedknowledgeconfiguration_modifiedonbehalfby:E, lk_federatedknowledgeentityconfiguration_createdby:E, lk_federatedknowledgeentityconfiguration_createdonbehalfby:E, lk_federatedknowledgeentityconfiguration_modifiedby:E, lk_federatedknowledgeentityconfiguration_modifiedonbehalfby:E, lk_feedback_closedby:E, lk_feedback_createdby:E, lk_feedback_createdonbehalfby:E, lk_feedback_modifiedby:E, lk_feedback_modifiedonbehalfby:E, lk_fieldsecurityprofile_createdby:E, lk_fieldsecurityprofile_createdonbehalfby:E, lk_fieldsecurityprofile_modifiedby:E, lk_fieldsecurityprofile_modifiedonbehalfby:E, lk_flowcapacityassignment_createdby:E, lk_flowcapacityassignment_createdonbehalfby:E, lk_flowcapacityassignment_modifiedby:E, lk_flowcapacityassignment_modifiedonbehalfby:E, lk_flowcredentialapplication_createdby:E, lk_flowcredentialapplication_createdonbehalfby:E, lk_flowcredentialapplication_modifiedby:E, lk_flowcredentialapplication_modifiedonbehalfby:E, lk_flowevent_createdby:E, lk_flowevent_createdonbehalfby:E, lk_flowevent_modifiedby:E, lk_flowevent_modifiedonbehalfby:E, lk_flowlog_createdby:E, lk_flowlog_createdonbehalfby:E, lk_flowlog_modifiedby:E, lk_flowlog_modifiedonbehalfby:E, lk_flowmachine_createdby:E, lk_flowmachine_createdonbehalfby:E, lk_flowmachine_modifiedby:E, lk_flowmachine_modifiedonbehalfby:E, lk_flowmachinegroup_createdby:E, lk_flowmachinegroup_createdonbehalfby:E, lk_flowmachinegroup_modifiedby:E, lk_flowmachinegroup_modifiedonbehalfby:E, lk_flowmachineimage_createdby:E, lk_flowmachineimage_createdonbehalfby:E, lk_flowmachineimage_modifiedby:E, lk_flowmachineimage_modifiedonbehalfby:E, lk_flowmachineimageversion_createdby:E, lk_flowmachineimageversion_createdonbehalfby:E, lk_flowmachineimageversion_modifiedby:E, lk_flowmachineimageversion_modifiedonbehalfby:E, lk_flowmachinenetwork_createdby:E, lk_flowmachinenetwork_createdonbehalfby:E, lk_flowmachinenetwork_modifiedby:E, lk_flowmachinenetwork_modifiedonbehalfby:E, lk_flowrun_createdby:E, lk_flowrun_createdonbehalfby:E, lk_flowrun_modifiedby:E, lk_flowrun_modifiedonbehalfby:E, lk_flowsession_createdby:E, lk_flowsession_createdonbehalfby:E, lk_flowsession_modifiedby:E, lk_flowsession_modifiedonbehalfby:E, lk_fxexpression_createdby:E, lk_fxexpression_createdonbehalfby:E, lk_fxexpression_modifiedby:E, lk_fxexpression_modifiedonbehalfby:E, lk_goalrollupquery_createdby:E, lk_goalrollupquery_createdonbehalfby:E, lk_goalrollupquery_modifiedby:E, lk_goalrollupquery_modifiedonbehalfby:E, lk_governanceconfiguration_createdby:E, lk_governanceconfiguration_createdonbehalfby:E, lk_governanceconfiguration_modifiedby:E, lk_governanceconfiguration_modifiedonbehalfby:E, lk_import_createdonbehalfby:E, lk_import_modifiedonbehalfby:E, lk_importbase_createdby:E, lk_importbase_modifiedby:E, lk_importdata_createdonbehalfby:E, lk_importdata_modifiedonbehalfby:E, lk_importdatabase_createdby:E, lk_importdatabase_modifiedby:E, lk_importentitymapping_createdby:E, lk_importentitymapping_createdonbehalfby:E, lk_importentitymapping_modifiedby:E, lk_importentitymapping_modifiedonbehalfby:E, lk_importfilebase_createdby:E, lk_importfilebase_createdonbehalfby:E, lk_importfilebase_modifiedby:E, lk_importfilebase_modifiedonbehalfby:E, lk_importjobbase_createdby:E, lk_importjobbase_createdonbehalfby:E, lk_importjobbase_modifiedby:E, lk_importjobbase_modifiedonbehalfby:E, lk_importlog_createdonbehalfby:E, lk_importlog_modifiedonbehalfby:E, lk_importlogbase_createdby:E, lk_importlogbase_modifiedby:E, lk_importmap_createdonbehalfby:E, lk_importmap_modifiedonbehalfby:E, lk_importmapbase_createdby:E, lk_importmapbase_modifiedby:E, lk_keyvaultreference_createdby:E, lk_keyvaultreference_createdonbehalfby:E, lk_keyvaultreference_modifiedby:E, lk_keyvaultreference_modifiedonbehalfby:E, lk_letter_createdby:E, lk_letter_createdonbehalfby:E, lk_letter_modifiedby:E, lk_letter_modifiedonbehalfby:E, lk_lookupmapping_createdby:E, lk_lookupmapping_createdonbehalfby:E, lk_lookupmapping_modifiedby:E, lk_lookupmapping_modifiedonbehalfby:E, lk_mailbox_createdby:E, lk_mailbox_createdonbehalfby:E, lk_mailbox_modifiedby:E, lk_mailbox_modifiedonbehalfby:E, lk_mailboxtrackingfolder_createdby:E, lk_mailboxtrackingfolder_createdonbehalfby:E, lk_mailboxtrackingfolder_modifiedby:E, lk_mailboxtrackingfolder_modifiedonbehalfby:E, lk_mailmergetemplate_createdonbehalfby:E, lk_mailmergetemplate_modifiedonbehalfby:E, lk_mailmergetemplatebase_createdby:E, lk_mailmergetemplatebase_modifiedby:E, lk_mainfewshot_createdby:E, lk_mainfewshot_createdonbehalfby:E, lk_mainfewshot_modifiedby:E, lk_mainfewshot_modifiedonbehalfby:E, lk_makerfewshot_createdby:E, lk_makerfewshot_createdonbehalfby:E, lk_makerfewshot_modifiedby:E, lk_makerfewshot_modifiedonbehalfby:E, lk_managedidentity_createdby:E, lk_managedidentity_createdonbehalfby:E, lk_managedidentity_modifiedby:E, lk_managedidentity_modifiedonbehalfby:E, lk_metadataforarchival_createdby:E, lk_metadataforarchival_createdonbehalfby:E, lk_metadataforarchival_modifiedby:E, lk_metadataforarchival_modifiedonbehalfby:E, lk_mobileofflineprofileextension_createdby:E, lk_mobileofflineprofileextension_createdonbehalfby:E, lk_mobileofflineprofileextension_modifiedby:E, lk_mobileofflineprofileextension_modifiedonbehalfby:E, lk_msdyn_aibdataset_createdby:E, lk_msdyn_aibdataset_createdonbehalfby:E, lk_msdyn_aibdataset_modifiedby:E, lk_msdyn_aibdataset_modifiedonbehalfby:E, lk_msdyn_aibdatasetfile_createdby:E, lk_msdyn_aibdatasetfile_createdonbehalfby:E, lk_msdyn_aibdatasetfile_modifiedby:E, lk_msdyn_aibdatasetfile_modifiedonbehalfby:E, lk_msdyn_aibdatasetrecord_createdby:E, lk_msdyn_aibdatasetrecord_createdonbehalfby:E, lk_msdyn_aibdatasetrecord_modifiedby:E, lk_msdyn_aibdatasetrecord_modifiedonbehalfby:E, lk_msdyn_aibdatasetscontainer_createdby:E, lk_msdyn_aibdatasetscontainer_createdonbehalfby:E, lk_msdyn_aibdatasetscontainer_modifiedby:E, lk_msdyn_aibdatasetscontainer_modifiedonbehalfby:E, lk_msdyn_aibfeedbackloop_createdby:E, lk_msdyn_aibfeedbackloop_createdonbehalfby:E, lk_msdyn_aibfeedbackloop_modifiedby:E, lk_msdyn_aibfeedbackloop_modifiedonbehalfby:E, lk_msdyn_aibfile_createdby:E, lk_msdyn_aibfile_createdonbehalfby:E, lk_msdyn_aibfile_modifiedby:E, lk_msdyn_aibfile_modifiedonbehalfby:E, lk_msdyn_aibfileattacheddata_createdby:E, lk_msdyn_aibfileattacheddata_createdonbehalfby:E, lk_msdyn_aibfileattacheddata_modifiedby:E, lk_msdyn_aibfileattacheddata_modifiedonbehalfby:E, lk_msdyn_aiconfiguration_createdby:E, lk_msdyn_aiconfiguration_createdonbehalfby:E, lk_msdyn_aiconfiguration_modifiedby:E, lk_msdyn_aiconfiguration_modifiedonbehalfby:E, lk_msdyn_aievent_createdby:E, lk_msdyn_aievent_createdonbehalfby:E, lk_msdyn_aievent_modifiedby:E, lk_msdyn_aievent_modifiedonbehalfby:E, lk_msdyn_aifptrainingdocument_createdby:E, lk_msdyn_aifptrainingdocument_createdonbehalfby:E, lk_msdyn_aifptrainingdocument_modifiedby:E, lk_msdyn_aifptrainingdocument_modifiedonbehalfby:E, lk_msdyn_aimodel_createdby:E, lk_msdyn_aimodel_createdonbehalfby:E, lk_msdyn_aimodel_modifiedby:E, lk_msdyn_aimodel_modifiedonbehalfby:E, lk_msdyn_aiodimage_createdby:E, lk_msdyn_aiodimage_createdonbehalfby:E, lk_msdyn_aiodimage_modifiedby:E, lk_msdyn_aiodimage_modifiedonbehalfby:E, lk_msdyn_aiodlabel_createdby:E, lk_msdyn_aiodlabel_createdonbehalfby:E, lk_msdyn_aiodlabel_modifiedby:E, lk_msdyn_aiodlabel_modifiedonbehalfby:E, lk_msdyn_aiodtrainingboundingbox_createdby:E, lk_msdyn_aiodtrainingboundingbox_createdonbehalfby:E, lk_msdyn_aiodtrainingboundingbox_modifiedby:E, lk_msdyn_aiodtrainingboundingbox_modifiedonbehalfby:E, lk_msdyn_aiodtrainingimage_createdby:E, lk_msdyn_aiodtrainingimage_createdonbehalfby:E, lk_msdyn_aiodtrainingimage_modifiedby:E, lk_msdyn_aiodtrainingimage_modifiedonbehalfby:E, lk_msdyn_aitemplate_createdby:E, lk_msdyn_aitemplate_createdonbehalfby:E, lk_msdyn_aitemplate_modifiedby:E, lk_msdyn_aitemplate_modifiedonbehalfby:E, lk_msdyn_analysiscomponent_createdby:E, lk_msdyn_analysiscomponent_createdonbehalfby:E, lk_msdyn_analysiscomponent_modifiedby:E, lk_msdyn_analysiscomponent_modifiedonbehalfby:E, lk_msdyn_analysisjob_createdby:E, lk_msdyn_analysisjob_createdonbehalfby:E, lk_msdyn_analysisjob_modifiedby:E, lk_msdyn_analysisjob_modifiedonbehalfby:E, lk_msdyn_analysisoverride_createdby:E, lk_msdyn_analysisoverride_createdonbehalfby:E, lk_msdyn_analysisoverride_modifiedby:E, lk_msdyn_analysisoverride_modifiedonbehalfby:E, lk_msdyn_analysisresult_createdby:E, lk_msdyn_analysisresult_createdonbehalfby:E, lk_msdyn_analysisresult_modifiedby:E, lk_msdyn_analysisresult_modifiedonbehalfby:E, lk_msdyn_analysisresultdetail_createdby:E, lk_msdyn_analysisresultdetail_createdonbehalfby:E, lk_msdyn_analysisresultdetail_modifiedby:E, lk_msdyn_analysisresultdetail_modifiedonbehalfby:E, lk_msdyn_apirequestcache_createdby:E, lk_msdyn_apirequestcache_createdonbehalfby:E, lk_msdyn_apirequestcache_modifiedby:E, lk_msdyn_apirequestcache_modifiedonbehalfby:E, lk_msdyn_apirequestfolder_createdby:E, lk_msdyn_apirequestfolder_createdonbehalfby:E, lk_msdyn_apirequestfolder_modifiedby:E, lk_msdyn_apirequestfolder_modifiedonbehalfby:E, lk_msdyn_appinsightsmetadata_createdby:E, lk_msdyn_appinsightsmetadata_createdonbehalfby:E, lk_msdyn_appinsightsmetadata_modifiedby:E, lk_msdyn_appinsightsmetadata_modifiedonbehalfby:E, lk_msdyn_copilotinteractions_createdby:E, lk_msdyn_copilotinteractions_createdonbehalfby:E, lk_msdyn_copilotinteractions_modifiedby:E, lk_msdyn_copilotinteractions_modifiedonbehalfby:E, lk_msdyn_customcontrolextendedsettings_createdby:E, lk_msdyn_customcontrolextendedsettings_createdonbehalfby:E, lk_msdyn_customcontrolextendedsettings_modifiedby:E, lk_msdyn_customcontrolextendedsettings_modifiedonbehalfby:E, lk_msdyn_dataflow_createdby:E, lk_msdyn_dataflow_createdonbehalfby:E, lk_msdyn_dataflow_datalakefolder_createdby:E, lk_msdyn_dataflow_datalakefolder_createdonbehalfby:E, lk_msdyn_dataflow_datalakefolder_modifiedby:E, lk_msdyn_dataflow_datalakefolder_modifiedonbehalfby:E, lk_msdyn_dataflow_modifiedby:E, lk_msdyn_dataflow_modifiedonbehalfby:E, lk_msdyn_dataflowconnectionreference_createdby:E, lk_msdyn_dataflowconnectionreference_createdonbehalfby:E, lk_msdyn_dataflowconnectionreference_modifiedby:E, lk_msdyn_dataflowconnectionreference_modifiedonbehalfby:E, lk_msdyn_dataflowrefreshhistory_createdby:E, lk_msdyn_dataflowrefreshhistory_createdonbehalfby:E, lk_msdyn_dataflowrefreshhistory_modifiedby:E, lk_msdyn_dataflowrefreshhistory_modifiedonbehalfby:E, lk_msdyn_dataflowtemplate_createdby:E, lk_msdyn_dataflowtemplate_createdonbehalfby:E, lk_msdyn_dataflowtemplate_modifiedby:E, lk_msdyn_dataflowtemplate_modifiedonbehalfby:E, lk_msdyn_dmsrequest_createdby:E, lk_msdyn_dmsrequest_createdonbehalfby:E, lk_msdyn_dmsrequest_modifiedby:E, lk_msdyn_dmsrequest_modifiedonbehalfby:E, lk_msdyn_dmsrequeststatus_createdby:E, lk_msdyn_dmsrequeststatus_createdonbehalfby:E, lk_msdyn_dmsrequeststatus_modifiedby:E, lk_msdyn_dmsrequeststatus_modifiedonbehalfby:E, lk_msdyn_dmssyncrequest_createdby:E, lk_msdyn_dmssyncrequest_createdonbehalfby:E, lk_msdyn_dmssyncrequest_modifiedby:E, lk_msdyn_dmssyncrequest_modifiedonbehalfby:E, lk_msdyn_dmssyncstatus_createdby:E, lk_msdyn_dmssyncstatus_createdonbehalfby:E, lk_msdyn_dmssyncstatus_modifiedby:E, lk_msdyn_dmssyncstatus_modifiedonbehalfby:E, lk_msdyn_entitylinkchatconfiguration_createdby:E, lk_msdyn_entitylinkchatconfiguration_createdonbehalfby:E, lk_msdyn_entitylinkchatconfiguration_modifiedby:E, lk_msdyn_entitylinkchatconfiguration_modifiedonbehalfby:E, lk_msdyn_entityrefreshhistory_createdby:E, lk_msdyn_entityrefreshhistory_createdonbehalfby:E, lk_msdyn_entityrefreshhistory_modifiedby:E, lk_msdyn_entityrefreshhistory_modifiedonbehalfby:E, lk_msdyn_favoriteknowledgearticle_createdby:E, lk_msdyn_favoriteknowledgearticle_createdonbehalfby:E, lk_msdyn_favoriteknowledgearticle_modifiedby:E, lk_msdyn_favoriteknowledgearticle_modifiedonbehalfby:E, lk_msdyn_federatedarticle_createdby:E, lk_msdyn_federatedarticle_createdonbehalfby:E, lk_msdyn_federatedarticle_modifiedby:E, lk_msdyn_federatedarticle_modifiedonbehalfby:E, lk_msdyn_federatedarticleincident_createdby:E, lk_msdyn_federatedarticleincident_createdonbehalfby:E, lk_msdyn_federatedarticleincident_modifiedby:E, lk_msdyn_federatedarticleincident_modifiedonbehalfby:E, lk_msdyn_fileupload_createdby:E, lk_msdyn_fileupload_createdonbehalfby:E, lk_msdyn_fileupload_modifiedby:E, lk_msdyn_fileupload_modifiedonbehalfby:E, lk_msdyn_flow_actionapprovalmodel_createdby:E, lk_msdyn_flow_actionapprovalmodel_createdonbehalfby:E, lk_msdyn_flow_actionapprovalmodel_modifiedby:E, lk_msdyn_flow_actionapprovalmodel_modifiedonbehalfby:E, lk_msdyn_flow_approval_createdby:E, lk_msdyn_flow_approval_createdonbehalfby:E, lk_msdyn_flow_approval_modifiedby:E, lk_msdyn_flow_approval_modifiedonbehalfby:E, lk_msdyn_flow_approvalrequest_createdby:E, lk_msdyn_flow_approvalrequest_createdonbehalfby:E, lk_msdyn_flow_approvalrequest_modifiedby:E, lk_msdyn_flow_approvalrequest_modifiedonbehalfby:E, lk_msdyn_flow_approvalresponse_createdby:E, lk_msdyn_flow_approvalresponse_createdonbehalfby:E, lk_msdyn_flow_approvalresponse_modifiedby:E, lk_msdyn_flow_approvalresponse_modifiedonbehalfby:E, lk_msdyn_flow_approvalstep_createdby:E, lk_msdyn_flow_approvalstep_createdonbehalfby:E, lk_msdyn_flow_approvalstep_modifiedby:E, lk_msdyn_flow_approvalstep_modifiedonbehalfby:E, lk_msdyn_flow_awaitallactionapprovalmodel_createdby:E, lk_msdyn_flow_awaitallactionapprovalmodel_createdonbehalfby:E, lk_msdyn_flow_awaitallactionapprovalmodel_modifiedby:E, lk_msdyn_flow_awaitallactionapprovalmodel_modifiedonbehalfby:E, lk_msdyn_flow_awaitallapprovalmodel_createdby:E, lk_msdyn_flow_awaitallapprovalmodel_createdonbehalfby:E, lk_msdyn_flow_awaitallapprovalmodel_modifiedby:E, lk_msdyn_flow_awaitallapprovalmodel_modifiedonbehalfby:E, lk_msdyn_flow_basicapprovalmodel_createdby:E, lk_msdyn_flow_basicapprovalmodel_createdonbehalfby:E, lk_msdyn_flow_basicapprovalmodel_modifiedby:E, lk_msdyn_flow_basicapprovalmodel_modifiedonbehalfby:E, lk_msdyn_flow_flowapproval_createdby:E, lk_msdyn_flow_flowapproval_createdonbehalfby:E, lk_msdyn_flow_flowapproval_modifiedby:E, lk_msdyn_flow_flowapproval_modifiedonbehalfby:E, lk_msdyn_formmapping_createdby:E, lk_msdyn_formmapping_createdonbehalfby:E, lk_msdyn_formmapping_modifiedby:E, lk_msdyn_formmapping_modifiedonbehalfby:E, lk_msdyn_function_createdby:E, lk_msdyn_function_createdonbehalfby:E, lk_msdyn_function_modifiedby:E, lk_msdyn_function_modifiedonbehalfby:E, lk_msdyn_helppage_createdby:E, lk_msdyn_helppage_createdonbehalfby:E, lk_msdyn_helppage_modifiedby:E, lk_msdyn_helppage_modifiedonbehalfby:E, lk_msdyn_insightsstorevirtualentity_createdby:E, lk_msdyn_insightsstorevirtualentity_createdonbehalfby:E, lk_msdyn_insightsstorevirtualentity_modifiedby:E, lk_msdyn_insightsstorevirtualentity_modifiedonbehalfby:E, lk_msdyn_integratedsearchprovider_createdby:E, lk_msdyn_integratedsearchprovider_createdonbehalfby:E, lk_msdyn_integratedsearchprovider_modifiedby:E, lk_msdyn_integratedsearchprovider_modifiedonbehalfby:E, lk_msdyn_kalanguagesetting_createdby:E, lk_msdyn_kalanguagesetting_createdonbehalfby:E, lk_msdyn_kalanguagesetting_modifiedby:E, lk_msdyn_kalanguagesetting_modifiedonbehalfby:E, lk_msdyn_kbattachment_createdby:E, lk_msdyn_kbattachment_createdonbehalfby:E, lk_msdyn_kbattachment_modifiedby:E, lk_msdyn_kbattachment_modifiedonbehalfby:E, lk_msdyn_kmfederatedsearchconfig_createdby:E, lk_msdyn_kmfederatedsearchconfig_createdonbehalfby:E, lk_msdyn_kmfederatedsearchconfig_modifiedby:E, lk_msdyn_kmfederatedsearchconfig_modifiedonbehalfby:E, lk_msdyn_kmpersonalizationsetting_createdby:E, lk_msdyn_kmpersonalizationsetting_createdonbehalfby:E, lk_msdyn_kmpersonalizationsetting_modifiedby:E, lk_msdyn_kmpersonalizationsetting_modifiedonbehalfby:E, lk_msdyn_knowledgearticleimage_createdby:E, lk_msdyn_knowledgearticleimage_createdonbehalfby:E, lk_msdyn_knowledgearticleimage_modifiedby:E, lk_msdyn_knowledgearticleimage_modifiedonbehalfby:E, lk_msdyn_knowledgearticletemplate_createdby:E, lk_msdyn_knowledgearticletemplate_createdonbehalfby:E, lk_msdyn_knowledgearticletemplate_modifiedby:E, lk_msdyn_knowledgearticletemplate_modifiedonbehalfby:E, lk_msdyn_knowledgeassetconfiguration_createdby:E, lk_msdyn_knowledgeassetconfiguration_createdonbehalfby:E, lk_msdyn_knowledgeassetconfiguration_modifiedby:E, lk_msdyn_knowledgeassetconfiguration_modifiedonbehalfby:E, lk_msdyn_knowledgeconfiguration_createdby:E, lk_msdyn_knowledgeconfiguration_createdonbehalfby:E, lk_msdyn_knowledgeconfiguration_modifiedby:E, lk_msdyn_knowledgeconfiguration_modifiedonbehalfby:E, lk_msdyn_knowledgeinteractioninsight_createdby:E, lk_msdyn_knowledgeinteractioninsight_createdonbehalfby:E, lk_msdyn_knowledgeinteractioninsight_modifiedby:E, lk_msdyn_knowledgeinteractioninsight_modifiedonbehalfby:E, lk_msdyn_knowledgemanagementsetting_createdby:E, lk_msdyn_knowledgemanagementsetting_createdonbehalfby:E, lk_msdyn_knowledgemanagementsetting_modifiedby:E, lk_msdyn_knowledgemanagementsetting_modifiedonbehalfby:E, lk_msdyn_knowledgepersonalfilter_createdby:E, lk_msdyn_knowledgepersonalfilter_createdonbehalfby:E, lk_msdyn_knowledgepersonalfilter_modifiedby:E, lk_msdyn_knowledgepersonalfilter_modifiedonbehalfby:E, lk_msdyn_knowledgesearchfilter_createdby:E, lk_msdyn_knowledgesearchfilter_createdonbehalfby:E, lk_msdyn_knowledgesearchfilter_modifiedby:E, lk_msdyn_knowledgesearchfilter_modifiedonbehalfby:E, lk_msdyn_knowledgesearchinsight_createdby:E, lk_msdyn_knowledgesearchinsight_createdonbehalfby:E, lk_msdyn_knowledgesearchinsight_modifiedby:E, lk_msdyn_knowledgesearchinsight_modifiedonbehalfby:E, lk_msdyn_mobileapp_createdby:E, lk_msdyn_mobileapp_createdonbehalfby:E, lk_msdyn_mobileapp_modifiedby:E, lk_msdyn_mobileapp_modifiedonbehalfby:E, lk_msdyn_modulerundetail_createdby:E, lk_msdyn_modulerundetail_createdonbehalfby:E, lk_msdyn_modulerundetail_modifiedby:E, lk_msdyn_modulerundetail_modifiedonbehalfby:E, lk_msdyn_pmanalysishistory_createdby:E, lk_msdyn_pmanalysishistory_createdonbehalfby:E, lk_msdyn_pmanalysishistory_modifiedby:E, lk_msdyn_pmanalysishistory_modifiedonbehalfby:E, lk_msdyn_pmbusinessruleautomationconfig_createdby:E, lk_msdyn_pmbusinessruleautomationconfig_createdonbehalfby:E, lk_msdyn_pmbusinessruleautomationconfig_modifiedby:E, lk_msdyn_pmbusinessruleautomationconfig_modifiedonbehalfby:E, lk_msdyn_pmcalendar_createdby:E, lk_msdyn_pmcalendar_createdonbehalfby:E, lk_msdyn_pmcalendar_modifiedby:E, lk_msdyn_pmcalendar_modifiedonbehalfby:E, lk_msdyn_pmcalendarversion_createdby:E, lk_msdyn_pmcalendarversion_createdonbehalfby:E, lk_msdyn_pmcalendarversion_modifiedby:E, lk_msdyn_pmcalendarversion_modifiedonbehalfby:E, lk_msdyn_pminferredtask_createdby:E, lk_msdyn_pminferredtask_createdonbehalfby:E, lk_msdyn_pminferredtask_modifiedby:E, lk_msdyn_pminferredtask_modifiedonbehalfby:E, lk_msdyn_pmprocessextendedmetadataversion_createdby:E, lk_msdyn_pmprocessextendedmetadataversion_createdonbehalfby:E, lk_msdyn_pmprocessextendedmetadataversion_modifiedby:E, lk_msdyn_pmprocessextendedmetadataversion_modifiedonbehalfby:E, lk_msdyn_pmprocesstemplate_createdby:E, lk_msdyn_pmprocesstemplate_createdonbehalfby:E, lk_msdyn_pmprocesstemplate_modifiedby:E, lk_msdyn_pmprocesstemplate_modifiedonbehalfby:E, lk_msdyn_pmprocessusersettings_createdby:E, lk_msdyn_pmprocessusersettings_createdonbehalfby:E, lk_msdyn_pmprocessusersettings_modifiedby:E, lk_msdyn_pmprocessusersettings_modifiedonbehalfby:E, lk_msdyn_pmprocessversion_createdby:E, lk_msdyn_pmprocessversion_createdonbehalfby:E, lk_msdyn_pmprocessversion_modifiedby:E, lk_msdyn_pmprocessversion_modifiedonbehalfby:E, lk_msdyn_pmrecording_createdby:E, lk_msdyn_pmrecording_createdonbehalfby:E, lk_msdyn_pmrecording_modifiedby:E, lk_msdyn_pmrecording_modifiedonbehalfby:E, lk_msdyn_pmsimulation_createdby:E, lk_msdyn_pmsimulation_createdonbehalfby:E, lk_msdyn_pmsimulation_modifiedby:E, lk_msdyn_pmsimulation_modifiedonbehalfby:E, lk_msdyn_pmtemplate_createdby:E, lk_msdyn_pmtemplate_createdonbehalfby:E, lk_msdyn_pmtemplate_modifiedby:E, lk_msdyn_pmtemplate_modifiedonbehalfby:E, lk_msdyn_pmview_createdby:E, lk_msdyn_pmview_createdonbehalfby:E, lk_msdyn_pmview_modifiedby:E, lk_msdyn_pmview_modifiedonbehalfby:E, lk_msdyn_qna_createdby:E, lk_msdyn_qna_createdonbehalfby:E, lk_msdyn_qna_modifiedby:E, lk_msdyn_qna_modifiedonbehalfby:E, lk_msdyn_richtextfile_createdby:E, lk_msdyn_richtextfile_createdonbehalfby:E, lk_msdyn_richtextfile_modifiedby:E, lk_msdyn_richtextfile_modifiedonbehalfby:E, lk_msdyn_riskassessment_createdby:E, lk_msdyn_riskassessment_createdonbehalfby:E, lk_msdyn_riskassessment_modifiedby:E, lk_msdyn_riskassessment_modifiedonbehalfby:E, lk_msdyn_riskassessmentsetting_createdby:E, lk_msdyn_riskassessmentsetting_createdonbehalfby:E, lk_msdyn_riskassessmentsetting_modifiedby:E, lk_msdyn_riskassessmentsetting_modifiedonbehalfby:E, lk_msdyn_salesforcestructuredobject_createdby:E, lk_msdyn_salesforcestructuredobject_createdonbehalfby:E, lk_msdyn_salesforcestructuredobject_modifiedby:E, lk_msdyn_salesforcestructuredobject_modifiedonbehalfby:E, lk_msdyn_salesforcestructuredqnaconfig_createdby:E, lk_msdyn_salesforcestructuredqnaconfig_createdonbehalfby:E, lk_msdyn_salesforcestructuredqnaconfig_modifiedby:E, lk_msdyn_salesforcestructuredqnaconfig_modifiedonbehalfby:E, lk_msdyn_schedule_createdby:E, lk_msdyn_schedule_createdonbehalfby:E, lk_msdyn_schedule_modifiedby:E, lk_msdyn_schedule_modifiedonbehalfby:E, lk_msdyn_serviceconfiguration_createdby:E, lk_msdyn_serviceconfiguration_createdonbehalfby:E, lk_msdyn_serviceconfiguration_modifiedby:E, lk_msdyn_serviceconfiguration_modifiedonbehalfby:E, lk_msdyn_slakpi_createdby:E, lk_msdyn_slakpi_createdonbehalfby:E, lk_msdyn_slakpi_modifiedby:E, lk_msdyn_slakpi_modifiedonbehalfby:E, lk_msdyn_solutionhealthrule_createdby:E, lk_msdyn_solutionhealthrule_createdonbehalfby:E, lk_msdyn_solutionhealthrule_modifiedby:E, lk_msdyn_solutionhealthrule_modifiedonbehalfby:E, lk_msdyn_solutionhealthruleargument_createdby:E, lk_msdyn_solutionhealthruleargument_createdonbehalfby:E, lk_msdyn_solutionhealthruleargument_modifiedby:E, lk_msdyn_solutionhealthruleargument_modifiedonbehalfby:E, lk_msdyn_solutionhealthruleset_createdby:E, lk_msdyn_solutionhealthruleset_createdonbehalfby:E, lk_msdyn_solutionhealthruleset_modifiedby:E, lk_msdyn_solutionhealthruleset_modifiedonbehalfby:E, lk_msdyn_timelinepin_createdby:E, lk_msdyn_timelinepin_createdonbehalfby:E, lk_msdyn_timelinepin_modifiedby:E, lk_msdyn_timelinepin_modifiedonbehalfby:E, lk_msdyn_tour_createdby:E, lk_msdyn_tour_createdonbehalfby:E, lk_msdyn_tour_modifiedby:E, lk_msdyn_tour_modifiedonbehalfby:E, lk_msdyn_virtualtablecolumncandidate_createdby:E, lk_msdyn_virtualtablecolumncandidate_createdonbehalfby:E, lk_msdyn_virtualtablecolumncandidate_modifiedby:E, lk_msdyn_virtualtablecolumncandidate_modifiedonbehalfby:E, lk_msdyn_workflowactionstatus_createdby:E, lk_msdyn_workflowactionstatus_createdonbehalfby:E, lk_msdyn_workflowactionstatus_modifiedby:E, lk_msdyn_workflowactionstatus_modifiedonbehalfby:E, lk_msdynce_botcontent_createdby:E, lk_msdynce_botcontent_createdonbehalfby:E, lk_msdynce_botcontent_modifiedby:E, lk_msdynce_botcontent_modifiedonbehalfby:E, lk_mspcat_catalogsubmissionfiles_createdby:E, lk_mspcat_catalogsubmissionfiles_createdonbehalfby:E, lk_mspcat_catalogsubmissionfiles_modifiedby:E, lk_mspcat_catalogsubmissionfiles_modifiedonbehalfby:E, lk_mspcat_packagestore_createdby:E, lk_mspcat_packagestore_createdonbehalfby:E, lk_mspcat_packagestore_modifiedby:E, lk_mspcat_packagestore_modifiedonbehalfby:E, lk_new_interactionforemail_createdby:E, lk_new_interactionforemail_createdonbehalfby:E, lk_new_interactionforemail_modifiedby:E, lk_new_interactionforemail_modifiedonbehalfby:E, lk_newprocess_createdby:E, lk_newprocess_createdonbehalfby:E, lk_newprocess_modifiedby:E, lk_newprocess_modifiedonbehalfby:E, lk_nlsqregistration_createdby:E, lk_nlsqregistration_createdonbehalfby:E, lk_nlsqregistration_modifiedby:E, lk_nlsqregistration_modifiedonbehalfby:E, lk_officegraphdocument_createdonbehalfby:E, lk_officegraphdocument_modifiedonbehalfby:E, lk_organization_createdonbehalfby:E, lk_organization_modifiedonbehalfby:E, lk_organizationbase_createdby:E, lk_organizationbase_modifiedby:E, lk_organizationdatasyncfnostate_createdby:E, lk_organizationdatasyncfnostate_createdonbehalfby:E, lk_organizationdatasyncfnostate_modifiedby:E, lk_organizationdatasyncfnostate_modifiedonbehalfby:E, lk_organizationdatasyncstate_createdby:E, lk_organizationdatasyncstate_createdonbehalfby:E, lk_organizationdatasyncstate_modifiedby:E, lk_organizationdatasyncstate_modifiedonbehalfby:E, lk_organizationdatasyncsubscription_createdby:E, lk_organizationdatasyncsubscription_createdonbehalfby:E, lk_organizationdatasyncsubscription_modifiedby:E, lk_organizationdatasyncsubscription_modifiedonbehalfby:E, lk_organizationdatasyncsubscriptionentity_createdby:E, lk_organizationdatasyncsubscriptionentity_createdonbehalfby:E, lk_organizationdatasyncsubscriptionentity_modifiedby:E, lk_organizationdatasyncsubscriptionentity_modifiedonbehalfby:E, lk_organizationdatasyncsubscriptionfnotable_createdby:E, lk_organizationdatasyncsubscriptionfnotable_createdonbehalfby:E, lk_organizationdatasyncsubscriptionfnotable_modifiedby:E, lk_organizationdatasyncsubscriptionfnotable_modifiedonbehalfby:E, lk_ownermapping_createdby:E, lk_ownermapping_createdonbehalfby:E, lk_ownermapping_modifiedby:E, lk_ownermapping_modifiedonbehalfby:E, lk_package_createdby:E, lk_package_createdonbehalfby:E, lk_package_modifiedby:E, lk_package_modifiedonbehalfby:E, lk_packagehistory_createdby:E, lk_packagehistory_createdonbehalfby:E, lk_packagehistory_modifiedby:E, lk_packagehistory_modifiedonbehalfby:E, lk_personaldocumenttemplatebase_createdby:E, lk_personaldocumenttemplatebase_createdonbehalfby:E, lk_personaldocumenttemplatebase_modifiedby:E, lk_personaldocumenttemplatebase_modifiedonbehalfby:E, lk_phonecall_createdby:E, lk_phonecall_createdonbehalfby:E, lk_phonecall_modifiedby:E, lk_phonecall_modifiedonbehalfby:E, lk_picklistmapping_createdby:E, lk_picklistmapping_createdonbehalfby:E, lk_picklistmapping_modifiedby:E, lk_picklistmapping_modifiedonbehalfby:E, lk_plugin_createdby:E, lk_plugin_createdonbehalfby:E, lk_plugin_modifiedby:E, lk_plugin_modifiedonbehalfby:E, lk_pluginassembly_createdonbehalfby:E, lk_pluginassembly_modifiedonbehalfby:E, lk_pluginpackage_createdby:E, lk_pluginpackage_createdonbehalfby:E, lk_pluginpackage_modifiedby:E, lk_pluginpackage_modifiedonbehalfby:E, lk_plugintracelogbase_createdonbehalfby:E, lk_plugintype_createdonbehalfby:E, lk_plugintype_modifiedonbehalfby:E, lk_plugintypestatisticbase_createdonbehalfby:E, lk_plugintypestatisticbase_modifiedonbehalfby:E, lk_position_createdby:E, lk_position_createdonbehalfby:E, lk_position_modifiedby:E, lk_position_modifiedonbehalfby:E, lk_post_createdby:E, lk_post_createdonbehalfby:E, lk_post_modifiedby:E, lk_post_modifiedonbehalfby:E, lk_postcomment_createdby:E, lk_postcomment_createdonbehalfby:E, lk_postfollow_createdonbehalfby:E, lk_postlike_createdby:E, lk_postlike_createdonbehalfby:E, lk_powerbidataset_createdby:E, lk_powerbidataset_createdonbehalfby:E, lk_powerbidataset_modifiedby:E, lk_powerbidataset_modifiedonbehalfby:E, lk_powerbidatasetapdx_createdby:E, lk_powerbidatasetapdx_createdonbehalfby:E, lk_powerbidatasetapdx_modifiedby:E, lk_powerbidatasetapdx_modifiedonbehalfby:E, lk_powerbimashupparameter_createdby:E, lk_powerbimashupparameter_createdonbehalfby:E, lk_powerbimashupparameter_modifiedby:E, lk_powerbimashupparameter_modifiedonbehalfby:E, lk_powerbireport_createdby:E, lk_powerbireport_createdonbehalfby:E, lk_powerbireport_modifiedby:E, lk_powerbireport_modifiedonbehalfby:E, lk_powerbireportapdx_createdby:E, lk_powerbireportapdx_createdonbehalfby:E, lk_powerbireportapdx_modifiedby:E, lk_powerbireportapdx_modifiedonbehalfby:E, lk_powerfxrule_createdby:E, lk_powerfxrule_createdonbehalfby:E, lk_powerfxrule_modifiedby:E, lk_powerfxrule_modifiedonbehalfby:E, lk_powerpagecomponent_createdby:E, lk_powerpagecomponent_createdonbehalfby:E, lk_powerpagecomponent_modifiedby:E, lk_powerpagecomponent_modifiedonbehalfby:E, lk_powerpagesite_createdby:E, lk_powerpagesite_createdonbehalfby:E, lk_powerpagesite_modifiedby:E, lk_powerpagesite_modifiedonbehalfby:E, lk_powerpagesitelanguage_createdby:E, lk_powerpagesitelanguage_createdonbehalfby:E, lk_powerpagesitelanguage_modifiedby:E, lk_powerpagesitelanguage_modifiedonbehalfby:E, lk_powerpagesitepublished_createdby:E, lk_powerpagesitepublished_createdonbehalfby:E, lk_powerpagesitepublished_modifiedby:E, lk_powerpagesitepublished_modifiedonbehalfby:E, lk_powerpageslog_createdby:E, lk_powerpageslog_createdonbehalfby:E, lk_powerpageslog_modifiedby:E, lk_powerpageslog_modifiedonbehalfby:E, lk_powerpagesmanagedidentity_createdby:E, lk_powerpagesmanagedidentity_createdonbehalfby:E, lk_powerpagesmanagedidentity_modifiedby:E, lk_powerpagesmanagedidentity_modifiedonbehalfby:E, lk_powerpagesscanreport_createdby:E, lk_powerpagesscanreport_createdonbehalfby:E, lk_powerpagesscanreport_modifiedby:E, lk_powerpagesscanreport_modifiedonbehalfby:E, lk_powerpagessiteaifeedback_createdby:E, lk_powerpagessiteaifeedback_createdonbehalfby:E, lk_powerpagessiteaifeedback_modifiedby:E, lk_powerpagessiteaifeedback_modifiedonbehalfby:E, lk_privilegecheckerlog_createdby:E, lk_privilegecheckerlog_createdonbehalfby:E, lk_privilegecheckerlog_modifiedby:E, lk_privilegecheckerlog_modifiedonbehalfby:E, lk_privilegecheckerrun_createdby:E, lk_privilegecheckerrun_createdonbehalfby:E, lk_privilegecheckerrun_modifiedby:E, lk_privilegecheckerrun_modifiedonbehalfby:E, lk_privilegesremovalsetting_createdby:E, lk_privilegesremovalsetting_createdonbehalfby:E, lk_privilegesremovalsetting_modifiedby:E, lk_privilegesremovalsetting_modifiedonbehalfby:E, lk_processorregistration_createdby:E, lk_processorregistration_createdonbehalfby:E, lk_processorregistration_modifiedby:E, lk_processorregistration_modifiedonbehalfby:E, lk_processsession_canceledby:E, lk_processsession_completedby:E, lk_processsession_createdby:E, lk_processsession_executedby:E, lk_processsession_modifiedby:E, lk_processsession_startedby:E, lk_processsessionbase_createdonbehalfby:E, lk_processsessionbase_modifiedonbehalfby:E, lk_processstageparameter_createdby:E, lk_processstageparameter_createdonbehalfby:E, lk_processstageparameter_modifiedby:E, lk_processstageparameter_modifiedonbehalfby:E, lk_publisher_createdby:E, lk_publisher_modifiedby:E, lk_publisheraddressbase_createdby:E, lk_publisheraddressbase_createdonbehalfby:E, lk_publisheraddressbase_modifiedby:E, lk_publisheraddressbase_modifiedonbehalfby:E, lk_publisherbase_createdonbehalfby:E, lk_publisherbase_modifiedonbehalfby:E, lk_queue_createdonbehalfby:E, lk_queue_modifiedonbehalfby:E, lk_queuebase_createdby:E, lk_queuebase_modifiedby:E, lk_queueitem_createdonbehalfby:E, lk_queueitem_modifiedonbehalfby:E, lk_queueitembase_createdby:E, lk_queueitembase_modifiedby:E, lk_queueitembase_workerid:E, lk_recentlyused_createdby:E, lk_recentlyused_createdonbehalfby:E, lk_recentlyused_modifiedby:E, lk_recentlyused_modifiedonbehalfby:E, lk_recommendeddocument_createdby:E, lk_recommendeddocument_createdonbehalfby:E, lk_recommendeddocument_modifiedby:E, lk_recommendeddocument_modifiedonbehalfby:E, lk_recordfilter_createdby:E, lk_recordfilter_createdonbehalfby:E, lk_recordfilter_modifiedby:E, lk_recordfilter_modifiedonbehalfby:E, lk_recurrencerule_createdby:E, lk_recurrencerule_modifiedby:E, lk_recurrencerulebase_createdonbehalfby:E, lk_recurrencerulebase_modifiedonbehalfby:E, lk_recurringappointmentmaster_createdby:E, lk_recurringappointmentmaster_createdonbehalfby:E, lk_recurringappointmentmaster_modifiedby:E, lk_recurringappointmentmaster_modifiedonbehalfby:E, lk_recyclebinconfig_createdby:E, lk_recyclebinconfig_createdonbehalfby:E, lk_recyclebinconfig_modifiedby:E, lk_recyclebinconfig_modifiedonbehalfby:E, lk_report_createdonbehalfby:E, lk_report_modifiedonbehalfby:E, lk_reportbase_createdby:E, lk_reportbase_modifiedby:E, lk_reportcategory_createdonbehalfby:E, lk_reportcategory_modifiedonbehalfby:E, lk_reportcategorybase_createdby:E, lk_reportcategorybase_modifiedby:E, lk_reportparameter_createdby:E, lk_reportparameter_createdonbehalfby:E, lk_reportparameter_modifiedby:E, lk_reportparameter_modifiedonbehalfby:E, lk_retaineddataexcel_createdby:E, lk_retaineddataexcel_createdonbehalfby:E, lk_retaineddataexcel_modifiedby:E, lk_retaineddataexcel_modifiedonbehalfby:E, lk_retentionconfig_createdby:E, lk_retentionconfig_createdonbehalfby:E, lk_retentionconfig_modifiedby:E, lk_retentionconfig_modifiedonbehalfby:E, lk_retentionfailuredetail_createdby:E, lk_retentionfailuredetail_createdonbehalfby:E, lk_retentionfailuredetail_modifiedby:E, lk_retentionfailuredetail_modifiedonbehalfby:E, lk_retentionoperation_createdby:E, lk_retentionoperation_createdonbehalfby:E, lk_retentionoperation_modifiedby:E, lk_retentionoperation_modifiedonbehalfby:E, lk_retentionoperationdetail_createdby:E, lk_retentionoperationdetail_createdonbehalfby:E, lk_retentionoperationdetail_modifiedby:E, lk_retentionoperationdetail_modifiedonbehalfby:E, lk_retentionsuccessdetail_createdby:E, lk_retentionsuccessdetail_createdonbehalfby:E, lk_retentionsuccessdetail_modifiedby:E, lk_retentionsuccessdetail_modifiedonbehalfby:E, lk_role_createdonbehalfby:E, lk_role_modifiedonbehalfby:E, lk_rolebase_createdby:E, lk_rolebase_modifiedby:E, lk_rollupfield_createdby:E, lk_rollupfield_createdonbehalfby:E, lk_rollupfield_modifiedby:E, lk_rollupfield_modifiedonbehalfby:E, lk_savedquery_createdonbehalfby:E, lk_savedquery_modifiedonbehalfby:E, lk_savedquerybase_createdby:E, lk_savedquerybase_modifiedby:E, lk_savedqueryvisualizationbase_createdby:E, lk_savedqueryvisualizationbase_createdonbehalfby:E, lk_savedqueryvisualizationbase_modifiedby:E, lk_savedqueryvisualizationbase_modifiedonbehalfby:E, lk_sdkmessage_createdonbehalfby:E, lk_sdkmessage_modifiedonbehalfby:E, lk_sdkmessagefilter_createdonbehalfby:E, lk_sdkmessagefilter_modifiedonbehalfby:E, lk_sdkmessageprocessingstep_createdonbehalfby:E, lk_sdkmessageprocessingstep_modifiedonbehalfby:E, lk_sdkmessageprocessingstepimage_createdonbehalfby:E, lk_sdkmessageprocessingstepimage_modifiedonbehalfby:E, lk_sdkmessageprocessingstepsecureconfig_createdonbehalfby:E, lk_sdkmessageprocessingstepsecureconfig_modifiedonbehalfby:E, lk_searchattributesettings_createdby:E, lk_searchattributesettings_createdonbehalfby:E, lk_searchattributesettings_modifiedby:E, lk_searchattributesettings_modifiedonbehalfby:E, lk_searchcustomanalyzer_createdby:E, lk_searchcustomanalyzer_createdonbehalfby:E, lk_searchcustomanalyzer_modifiedby:E, lk_searchcustomanalyzer_modifiedonbehalfby:E, lk_searchrelationshipsettings_createdby:E, lk_searchrelationshipsettings_createdonbehalfby:E, lk_searchrelationshipsettings_modifiedby:E, lk_searchrelationshipsettings_modifiedonbehalfby:E, lk_searchresultscache_createdby:E, lk_searchresultscache_createdonbehalfby:E, lk_searchresultscache_modifiedby:E, lk_searchresultscache_modifiedonbehalfby:E, lk_serviceendpointbase_createdonbehalfby:E, lk_serviceendpointbase_modifiedonbehalfby:E, lk_serviceplan_createdby:E, lk_serviceplan_createdonbehalfby:E, lk_serviceplan_modifiedby:E, lk_serviceplan_modifiedonbehalfby:E, lk_serviceplanmapping_createdby:E, lk_serviceplanmapping_createdonbehalfby:E, lk_serviceplanmapping_modifiedby:E, lk_serviceplanmapping_modifiedonbehalfby:E, lk_sharedlinksetting_createdby:E, lk_sharedlinksetting_createdonbehalfby:E, lk_sharedlinksetting_modifiedby:E, lk_sharedlinksetting_modifiedonbehalfby:E, lk_sharedobject_createdby:E, lk_sharedobject_createdonbehalfby:E, lk_sharedobject_modifiedby:E, lk_sharedobject_modifiedonbehalfby:E, lk_sharedworkspace_createdby:E, lk_sharedworkspace_createdonbehalfby:E, lk_sharedworkspace_modifiedby:E, lk_sharedworkspace_modifiedonbehalfby:E, lk_sharedworkspaceaccesstoken2_createdby:E, lk_sharedworkspaceaccesstoken2_createdonbehalfby:E, lk_sharedworkspaceaccesstoken2_modifiedby:E, lk_sharedworkspaceaccesstoken2_modifiedonbehalfby:E, lk_sharedworkspacepool_createdby:E, lk_sharedworkspacepool_createdonbehalfby:E, lk_sharedworkspacepool_modifiedby:E, lk_sharedworkspacepool_modifiedonbehalfby:E, lk_sharepointdocumentlocationbase_createdby:E, lk_sharepointdocumentlocationbase_createdonbehalfby:E, lk_sharepointdocumentlocationbase_modifiedby:E, lk_sharepointdocumentlocationbase_modifiedonbehalfby:E, lk_sharepointmanagedidentity_createdby:E, lk_sharepointmanagedidentity_createdonbehalfby:E, lk_sharepointmanagedidentity_modifiedby:E, lk_sharepointmanagedidentity_modifiedonbehalfby:E, lk_sharepointsitebase_createdby:E, lk_sharepointsitebase_createdonbehalfby:E, lk_sharepointsitebase_modifiedby:E, lk_sharepointsitebase_modifiedonbehalfby:E, lk_sideloadedaiplugin_createdby:E, lk_sideloadedaiplugin_createdonbehalfby:E, lk_sideloadedaiplugin_modifiedby:E, lk_sideloadedaiplugin_modifiedonbehalfby:E, lk_signal_createdby:E, lk_signal_createdonbehalfby:E, lk_signal_modifiedby:E, lk_signal_modifiedonbehalfby:E, lk_signalregistration_createdby:E, lk_signalregistration_createdonbehalfby:E, lk_signalregistration_modifiedby:E, lk_signalregistration_modifiedonbehalfby:E, lk_solution_createdby:E, lk_solution_modifiedby:E, lk_solutionbase_createdonbehalfby:E, lk_solutionbase_modifiedonbehalfby:E, lk_solutioncomponentattributeconfiguration_createdby:E, lk_solutioncomponentattributeconfiguration_createdonbehalfby:E, lk_solutioncomponentattributeconfiguration_modifiedby:E, lk_solutioncomponentattributeconfiguration_modifiedonbehalfby:E, lk_solutioncomponentbase_createdonbehalfby:E, lk_solutioncomponentbase_modifiedonbehalfby:E, lk_solutioncomponentbatchconfiguration_createdby:E, lk_solutioncomponentbatchconfiguration_createdonbehalfby:E, lk_solutioncomponentbatchconfiguration_modifiedby:E, lk_solutioncomponentbatchconfiguration_modifiedonbehalfby:E, lk_solutioncomponentconfiguration_createdby:E, lk_solutioncomponentconfiguration_createdonbehalfby:E, lk_solutioncomponentconfiguration_modifiedby:E, lk_solutioncomponentconfiguration_modifiedonbehalfby:E, lk_solutioncomponentrelationshipconfiguration_createdby:E, lk_solutioncomponentrelationshipconfiguration_createdonbehalfby:E, lk_solutioncomponentrelationshipconfiguration_modifiedby:E, lk_solutioncomponentrelationshipconfiguration_modifiedonbehalfby:E, lk_sourcecontrolbranchconfiguration_createdby:E, lk_sourcecontrolbranchconfiguration_createdonbehalfby:E, lk_sourcecontrolbranchconfiguration_modifiedby:E, lk_sourcecontrolbranchconfiguration_modifiedonbehalfby:E, lk_sourcecontrolcomponent_createdby:E, lk_sourcecontrolcomponent_createdonbehalfby:E, lk_sourcecontrolcomponent_modifiedby:E, lk_sourcecontrolcomponent_modifiedonbehalfby:E, lk_sourcecontrolcomponentpayload_createdby:E, lk_sourcecontrolcomponentpayload_createdonbehalfby:E, lk_sourcecontrolcomponentpayload_modifiedby:E, lk_sourcecontrolcomponentpayload_modifiedonbehalfby:E, lk_sourcecontrolconfiguration_createdby:E, lk_sourcecontrolconfiguration_createdonbehalfby:E, lk_sourcecontrolconfiguration_modifiedby:E, lk_sourcecontrolconfiguration_modifiedonbehalfby:E, lk_stagedentity_createdby:E, lk_stagedentity_createdonbehalfby:E, lk_stagedentity_modifiedby:E, lk_stagedentity_modifiedonbehalfby:E, lk_stagedentityattribute_createdby:E, lk_stagedentityattribute_createdonbehalfby:E, lk_stagedentityattribute_modifiedby:E, lk_stagedentityattribute_modifiedonbehalfby:E, lk_stagedmetadataasyncoperation_createdby:E, lk_stagedmetadataasyncoperation_createdonbehalfby:E, lk_stagedmetadataasyncoperation_modifiedby:E, lk_stagedmetadataasyncoperation_modifiedonbehalfby:E, lk_stagedsourcecontrolcomponent_createdby:E, lk_stagedsourcecontrolcomponent_createdonbehalfby:E, lk_stagedsourcecontrolcomponent_modifiedby:E, lk_stagedsourcecontrolcomponent_modifiedonbehalfby:E, lk_stagesolutionupload_createdby:E, lk_stagesolutionupload_createdonbehalfby:E, lk_stagesolutionupload_modifiedby:E, lk_stagesolutionupload_modifiedonbehalfby:E, lk_supportusertable_createdby:E, lk_supportusertable_createdonbehalfby:E, lk_supportusertable_modifiedby:E, lk_supportusertable_modifiedonbehalfby:E, lk_synapsedatabase_createdby:E, lk_synapsedatabase_createdonbehalfby:E, lk_synapsedatabase_modifiedby:E, lk_synapsedatabase_modifiedonbehalfby:E, lk_synapselinkexternaltablestate_createdby:E, lk_synapselinkexternaltablestate_createdonbehalfby:E, lk_synapselinkexternaltablestate_modifiedby:E, lk_synapselinkexternaltablestate_modifiedonbehalfby:E, lk_synapselinkprofile_createdby:E, lk_synapselinkprofile_createdonbehalfby:E, lk_synapselinkprofile_modifiedby:E, lk_synapselinkprofile_modifiedonbehalfby:E, lk_synapselinkprofileentity_createdby:E, lk_synapselinkprofileentity_createdonbehalfby:E, lk_synapselinkprofileentity_modifiedby:E, lk_synapselinkprofileentity_modifiedonbehalfby:E, lk_synapselinkprofileentitystate_createdby:E, lk_synapselinkprofileentitystate_createdonbehalfby:E, lk_synapselinkprofileentitystate_modifiedby:E, lk_synapselinkprofileentitystate_modifiedonbehalfby:E, lk_synapselinkschedule_createdby:E, lk_synapselinkschedule_createdonbehalfby:E, lk_synapselinkschedule_modifiedby:E, lk_synapselinkschedule_modifiedonbehalfby:E, lk_syncerrorbase_createdby:E, lk_syncerrorbase_createdonbehalfby:E, lk_syncerrorbase_modifiedby:E, lk_syncerrorbase_modifiedonbehalfby:E, lk_systemuser_createdonbehalfby:E, lk_systemuser_modifiedonbehalfby:E, lk_systemuserbase_createdby:E, lk_systemuserbase_modifiedby:E, lk_task_createdby:E, lk_task_createdonbehalfby:E, lk_task_modifiedby:E, lk_task_modifiedonbehalfby:E, lk_team_createdonbehalfby:E, lk_team_modifiedonbehalfby:E, lk_teambase_administratorid:E, lk_teambase_createdby:E, lk_teambase_modifiedby:E, lk_teammobileofflineprofilemembership_createdby:E, lk_teammobileofflineprofilemembership_createdonbehalfby:E, lk_teammobileofflineprofilemembership_modifiedby:E, lk_teammobileofflineprofilemembership_modifiedonbehalfby:E, lk_teamtemplate_createdby:E, lk_teamtemplate_createdonbehalfby:E, lk_teamtemplate_modifiedby:E, lk_teamtemplate_modifiedonbehalfby:E, lk_templatebase_createdby:E, lk_templatebase_createdonbehalfby:E, lk_templatebase_modifiedby:E, lk_templatebase_modifiedonbehalfby:E, lk_theme_createdby:E, lk_theme_createdonbehalfby:E, lk_theme_modifiedby:E, lk_theme_modifiedonbehalfby:E, lk_timezonedefinition_createdby:E, lk_timezonedefinition_createdonbehalfby:E, lk_timezonedefinition_modifiedby:E, lk_timezonedefinition_modifiedonbehalfby:E, lk_timezonelocalizedname_createdby:E, lk_timezonelocalizedname_createdonbehalfby:E, lk_timezonelocalizedname_modifiedby:E, lk_timezonelocalizedname_modifiedonbehalfby:E, lk_timezonerule_createdby:E, lk_timezonerule_createdonbehalfby:E, lk_timezonerule_modifiedby:E, lk_timezonerule_modifiedonbehalfby:E, lk_tracelog_createdby:E, lk_tracelog_createdonbehalfby:E, lk_tracelog_modifiedby:E, lk_tracelog_modifiedonbehalfby:E, lk_trait_createdby:E, lk_trait_createdonbehalfby:E, lk_trait_modifiedby:E, lk_trait_modifiedonbehalfby:E, lk_traitregistration_createdby:E, lk_traitregistration_createdonbehalfby:E, lk_traitregistration_modifiedby:E, lk_traitregistration_modifiedonbehalfby:E, lk_transactioncurrency_createdonbehalfby:E, lk_transactioncurrency_modifiedonbehalfby:E, lk_transactioncurrencybase_createdby:E, lk_transactioncurrencybase_modifiedby:E, lk_transformationmapping_createdby:E, lk_transformationmapping_createdonbehalfby:E, lk_transformationmapping_modifiedby:E, lk_transformationmapping_modifiedonbehalfby:E, lk_transformationparametermapping_createdby:E, lk_transformationparametermapping_createdonbehalfby:E, lk_transformationparametermapping_modifiedby:E, lk_transformationparametermapping_modifiedonbehalfby:E, lk_translationprocess_createdby:E, lk_translationprocess_createdonbehalfby:E, lk_translationprocess_modifiedby:E, lk_translationprocess_modifiedonbehalfby:E, lk_userform_createdby:E, lk_userform_modifiedby:E, lk_userformbase_createdonbehalfby:E, lk_userformbase_modifiedonbehalfby:E, lk_usermobileofflineprofilemembership_createdby:E, lk_usermobileofflineprofilemembership_createdonbehalfby:E, lk_usermobileofflineprofilemembership_modifiedby:E, lk_usermobileofflineprofilemembership_modifiedonbehalfby:E, lk_userquery_createdby:E, lk_userquery_createdonbehalfby:E, lk_userquery_modifiedby:E, lk_userquery_modifiedonbehalfby:E, lk_userqueryvisualization_createdby:E, lk_userqueryvisualization_modifiedby:E, lk_userqueryvisualizationbase_createdonbehalfby:E, lk_userqueryvisualizationbase_modifiedonbehalfby:E, lk_userrating_createdby:E, lk_userrating_createdonbehalfby:E, lk_userrating_modifiedby:E, lk_userrating_modifiedonbehalfby:E, lk_usersettings_createdonbehalfby:E, lk_usersettings_modifiedonbehalfby:E, lk_usersettingsbase_createdby:E, lk_usersettingsbase_modifiedby:E, lk_viewasexamplequestion_createdby:E, lk_viewasexamplequestion_createdonbehalfby:E, lk_viewasexamplequestion_modifiedby:E, lk_viewasexamplequestion_modifiedonbehalfby:E, lk_virtualentitymetadata_createdby:E, lk_virtualentitymetadata_createdonbehalfby:E, lk_virtualentitymetadata_modifiedby:E, lk_virtualentitymetadata_modifiedonbehalfby:E, lk_webresourcebase_createdonbehalfby:E, lk_webresourcebase_modifiedonbehalfby:E, lk_webwizard_createdby:E, lk_webwizard_createdonbehalfby:E, lk_webwizard_modifiedby:E, lk_webwizard_modifiedonbehalfby:E, lk_workflowbinary_createdby:E, lk_workflowbinary_createdonbehalfby:E, lk_workflowbinary_modifiedby:E, lk_workflowbinary_modifiedonbehalfby:E, lk_workflowlog_createdby:E, lk_workflowlog_createdonbehalfby:E, lk_workflowlog_modifiedby:E, lk_workflowlog_modifiedonbehalfby:E, lk_workqueue_createdby:E, lk_workqueue_createdonbehalfby:E, lk_workqueue_modifiedby:E, lk_workqueue_modifiedonbehalfby:E, lk_workqueueitem_createdby:E, lk_workqueueitem_createdonbehalfby:E, lk_workqueueitem_modifiedby:E, lk_workqueueitem_modifiedonbehalfby:E, mailbox_regarding_systemuser:E, middlename:s, mobilealertemail:s, mobilephone:s, modifiedby:E, modifiedby_connection:E, modifiedby_connection_role:E, modifiedby_pluginassembly:E, modifiedby_plugintype:E, modifiedby_plugintypestatistic:E, modifiedby_sdkmessage:E, modifiedby_sdkmessagefilter:E, modifiedby_sdkmessageprocessingstep:E, modifiedby_sdkmessageprocessingstepimage:E, modifiedby_sdkmessageprocessingstepsecureconfig:E, modifiedby_serviceendpoint:E, modifiedon:d, modifiedonbehalfby:E, msdyn_flow_actionapprovalmodelrelationship_systemuser:E, msdyn_flow_awaitallactionmodelrelationship_user:E, msdyn_flow_awaitallmodelrelationship_systemuser:E, msdyn_flow_basicapprovalmodelrelationship_systemuser:E, msdyn_riskassessment_ExceptionApprovedBy_system:E, msdyn_riskassessment_ExceptionFlaggedBy_systemuser:E, mspp_systemuser_mspp_adplacement_createdby:E, mspp_systemuser_mspp_adplacement_modifiedby:E, mspp_systemuser_mspp_columnpermission_createdby:E, mspp_systemuser_mspp_columnpermission_modifiedby:E, mspp_systemuser_mspp_columnpermissionprofile_createdby:E, mspp_systemuser_mspp_columnpermissionprofile_modifiedby:E, mspp_systemuser_mspp_contentsnippet_createdby:E, mspp_systemuser_mspp_contentsnippet_modifiedby:E, mspp_systemuser_mspp_entityform_createdby:E, mspp_systemuser_mspp_entityform_modifiedby:E, mspp_systemuser_mspp_entityformmetadata_createdby:E, mspp_systemuser_mspp_entityformmetadata_modifiedby:E, mspp_systemuser_mspp_entitylist_createdby:E, mspp_systemuser_mspp_entitylist_modifiedby:E, mspp_systemuser_mspp_entitypermission_createdby:E, mspp_systemuser_mspp_entitypermission_modifiedby:E, mspp_systemuser_mspp_pagetemplate_createdby:E, mspp_systemuser_mspp_pagetemplate_modifiedby:E, mspp_systemuser_mspp_pollplacement_createdby:E, mspp_systemuser_mspp_pollplacement_modifiedby:E, mspp_systemuser_mspp_publishingstate_createdby:E, mspp_systemuser_mspp_publishingstate_modifiedby:E, mspp_systemuser_mspp_publishingstatetransitionrule_createdby:E, mspp_systemuser_mspp_publishingstatetransitionrule_modifiedby:E, mspp_systemuser_mspp_redirect_createdby:E, mspp_systemuser_mspp_redirect_modifiedby:E, mspp_systemuser_mspp_shortcut_createdby:E, mspp_systemuser_mspp_shortcut_modifiedby:E, mspp_systemuser_mspp_sitemarker_createdby:E, mspp_systemuser_mspp_sitemarker_modifiedby:E, mspp_systemuser_mspp_sitesetting_createdby:E, mspp_systemuser_mspp_sitesetting_modifiedby:E, mspp_systemuser_mspp_webfile_createdby:E, mspp_systemuser_mspp_webfile_modifiedby:E, mspp_systemuser_mspp_webform_createdby:E, mspp_systemuser_mspp_webform_modifiedby:E, mspp_systemuser_mspp_webformmetadata_createdby:E, mspp_systemuser_mspp_webformmetadata_modifiedby:E, mspp_systemuser_mspp_webformstep_createdby:E, mspp_systemuser_mspp_webformstep_modifiedby:E, mspp_systemuser_mspp_weblink_createdby:E, mspp_systemuser_mspp_weblink_modifiedby:E, mspp_systemuser_mspp_weblinkset_createdby:E, mspp_systemuser_mspp_weblinkset_modifiedby:E, mspp_systemuser_mspp_webpage_createdby:E, mspp_systemuser_mspp_webpage_modifiedby:E, mspp_systemuser_mspp_webpageaccesscontrolrule_createdby:E, mspp_systemuser_mspp_webpageaccesscontrolrule_modifiedby:E, mspp_systemuser_mspp_webrole_createdby:E, mspp_systemuser_mspp_webrole_modifiedby:E, mspp_systemuser_mspp_website_createdby:E, mspp_systemuser_mspp_website_modifiedby:E, mspp_systemuser_mspp_websiteaccess_createdby:E, mspp_systemuser_mspp_websiteaccess_modifiedby:E, mspp_systemuser_mspp_websitelanguage_createdby:E, mspp_systemuser_mspp_websitelanguage_modifiedby:E, mspp_systemuser_mspp_webtemplate_createdby:E, mspp_systemuser_mspp_webtemplate_modifiedby:E, nickname:s, organizationid:g, outgoingemaildeliverymethod:l, overriddencreatedon:d, parentsystemuserid:E, passporthi:n, passportlo:n, personalemailaddress:s, photourl:h, positionid:E, powerpagecomponent_webrole_systemuser:E, preferredaddresscode:l, preferredemailcode:l, preferredphonecode:l, privilegecheckerlog_CheckedUser_systemuser:E, privilegecheckerlog_ImpersonatingUser_systemuser:E, privilegecheckerlog_SupportingCaller_systemuser:E, processid:g, queue_primary_user:E, queueid:E, queuemembership_association:E, salutation:s, setupuser:l, sharepointemailaddress:s, sideloadedaiplugin_sideloadedpluginownerid:E, skills:s, stageid:g, system_user_accounts:E, system_user_asyncoperation:E, system_user_contacts:E, system_user_email_templates:E, system_user_workflow:E, systemuser_PostFollows:E, systemuser_PostRegardings:E, systemuser_SiteMap_createdby:E, systemuser_SiteMap_createdonbehalfby:E, systemuser_SiteMap_modifiedby:E, systemuser_SiteMap_modifiedonbehalfby:E, systemuser_appconfig_createdby:E, systemuser_appconfig_createdonbehalfby:E, systemuser_appconfig_modifiedby:E, systemuser_appconfig_modifiedonbehalfby:E, systemuser_appconfiginstance_createdby:E, systemuser_appconfiginstance_createdonbehalfby:E, systemuser_appconfiginstance_modifiedby:E, systemuser_appconfiginstance_modifiedonbehalfby:E, systemuser_appconfigmaster_createdby:E, systemuser_appconfigmaster_createdonbehalfby:E, systemuser_appconfigmaster_modifiedby:E, systemuser_appconfigmaster_modifiedonbehalfby:E, systemuser_appmodule_createdby:E, systemuser_appmodule_createdonbehalfby:E, systemuser_appmodule_modifiedby:E, systemuser_appmodule_modifiedonbehalfby:E, systemuser_bot_publishedby:E, systemuser_callbackregistration_createdby:E, systemuser_callbackregistration_createdonbehalfby:E, systemuser_callbackregistration_modifiedby:E, systemuser_callbackregistration_modifiedonbehalfby:E, systemuser_connections1:E, systemuser_connections2:E, systemuser_mailbox_emailaddressapprovedby:E, systemuser_mailbox_testandenablelastattemptedby:E, systemuser_navigationsetting_createdby:E, systemuser_navigationsetting_createdonbehalfby:E, systemuser_navigationsetting_modifiedby:E, systemuser_navigationsetting_modifiedonbehalfby:E, systemuser_principalobjectattributeaccess:E, systemuser_principalobjectattributeaccess_principalid:E, systemuser_usermobileofflineprofilemembership_SystemUserId:E, systemuserid:g, systemuserprofiles_association:E, systemuserroles_association:E, teammembership_association:E, teams_chat_activity_linkrecord:E, teams_chat_activity_unlinkrecord:E, timezoneruleversionnumber:n, title:s, transactioncurrencyid:E, traversedpath:s, user_accounts:E, user_activity:E, user_activityfileattachment:E, user_adx_invitation:E, user_adx_setting:E, user_aiinsightcard:E, user_aiplugin:E, user_aipluginauth:E, user_aipluginconversationstarter:E, user_aipluginconversationstartermapping:E, user_aipluginexternalschema:E, user_aipluginexternalschemaproperty:E, user_aiplugingovernance:E, user_aiplugingovernanceext:E, user_aiplugininstance:E, user_aipluginoperation:E, user_aipluginoperationparameter:E, user_aipluginoperationresponsetemplate:E, user_aipluginusersetting:E, user_aiskillconfig:E, user_appnotification:E, user_appointment:E, user_bot:E, user_botcomponent:E, user_botcomponentcollection:E, user_card:E, user_cat_customer:E, user_cat_docupilotdocumentgenerationrequest:E, user_cat_patterndetails:E, user_cat_patternidentifier:E, user_cat_patterninstance:E, user_cat_patternresult:E, user_cat_sample:E, user_cat_solutioncomponent:E, user_cat_solutionreview:E, user_certificatecredential:E, user_componentversion:E, user_connectioninstance:E, user_connectionreference:E, user_connector:E, user_conversationtranscript:E, user_copilotglossaryterm:E, user_copilotsynonyms:E, user_credential:E, user_customapi:E, user_datalakefolder:E, user_desktopflowbinary:E, user_desktopflowmodule:E, user_dvfilesearch:E, user_dvfilesearchattribute:E, user_dvfilesearchentity:E, user_dvtablesearch:E, user_dvtablesearchattribute:E, user_dvtablesearchentity:E, user_email:E, user_environmentvariabledefinition:E, user_exchangesyncidmapping:E, user_exportedexcel:E, user_exportsolutionupload:E, user_fabricaiskill:E, user_fax:E, user_featurecontrolsetting:E, user_federatedknowledgeconfiguration:E, user_federatedknowledgeentityconfiguration:E, user_flowcapacityassignment:E, user_flowcredentialapplication:E, user_flowevent:E, user_flowmachine:E, user_flowmachinegroup:E, user_flowmachineimage:E, user_flowmachineimageversion:E, user_flowmachinenetwork:E, user_flowrun:E, user_flowsession:E, user_fxexpression:E, user_governanceconfiguration:E, user_keyvaultreference:E, user_letter:E, user_mailbox:E, user_managedidentity:E, user_msdyn_aibdataset:E, user_msdyn_aibdatasetfile:E, user_msdyn_aibdatasetrecord:E, user_msdyn_aibdatasetscontainer:E, user_msdyn_aibfeedbackloop:E, user_msdyn_aibfile:E, user_msdyn_aibfileattacheddata:E, user_msdyn_aievent:E, user_msdyn_aifptrainingdocument:E, user_msdyn_aimodel:E, user_msdyn_aiodimage:E, user_msdyn_aiodlabel:E, user_msdyn_aiodtrainingboundingbox:E, user_msdyn_aiodtrainingimage:E, user_msdyn_aitemplate:E, user_msdyn_analysiscomponent:E, user_msdyn_analysisjob:E, user_msdyn_analysisoverride:E, user_msdyn_analysisresult:E, user_msdyn_analysisresultdetail:E, user_msdyn_apirequestcache:E, user_msdyn_apirequestfolder:E, user_msdyn_copilotinteractions:E, user_msdyn_customcontrolextendedsettings:E, user_msdyn_dataflow:E, user_msdyn_dataflow_datalakefolder:E, user_msdyn_dataflowconnectionreference:E, user_msdyn_dataflowrefreshhistory:E, user_msdyn_dataflowtemplate:E, user_msdyn_dmsrequest:E, user_msdyn_dmsrequeststatus:E, user_msdyn_dmssyncrequest:E, user_msdyn_dmssyncstatus:E, user_msdyn_entitylinkchatconfiguration:E, user_msdyn_entityrefreshhistory:E, user_msdyn_favoriteknowledgearticle:E, user_msdyn_federatedarticle:E, user_msdyn_fileupload:E, user_msdyn_flow_actionapprovalmodel:E, user_msdyn_flow_approval:E, user_msdyn_flow_approvalrequest:E, user_msdyn_flow_approvalresponse:E, user_msdyn_flow_approvalstep:E, user_msdyn_flow_awaitallactionapprovalmodel:E, user_msdyn_flow_awaitallapprovalmodel:E, user_msdyn_flow_basicapprovalmodel:E, user_msdyn_flow_flowapproval:E, user_msdyn_formmapping:E, user_msdyn_function:E, user_msdyn_integratedsearchprovider:E, user_msdyn_kalanguagesetting:E, user_msdyn_kbattachment:E, user_msdyn_kmfederatedsearchconfig:E, user_msdyn_knowledgearticleimage:E, user_msdyn_knowledgearticletemplate:E, user_msdyn_knowledgeassetconfiguration:E, user_msdyn_knowledgeinteractioninsight:E, user_msdyn_knowledgemanagementsetting:E, user_msdyn_knowledgepersonalfilter:E, user_msdyn_knowledgesearchfilter:E, user_msdyn_knowledgesearchinsight:E, user_msdyn_mobileapp:E, user_msdyn_pmanalysishistory:E, user_msdyn_pmbusinessruleautomationconfig:E, user_msdyn_pmcalendar:E, user_msdyn_pmcalendarversion:E, user_msdyn_pminferredtask:E, user_msdyn_pmprocessextendedmetadataversion:E, user_msdyn_pmprocesstemplate:E, user_msdyn_pmprocessusersettings:E, user_msdyn_pmprocessversion:E, user_msdyn_pmrecording:E, user_msdyn_pmsimulation:E, user_msdyn_pmtemplate:E, user_msdyn_pmview:E, user_msdyn_qna:E, user_msdyn_richtextfile:E, user_msdyn_riskassessment:E, user_msdyn_riskassessmentsetting:E, user_msdyn_salesforcestructuredobject:E, user_msdyn_salesforcestructuredqnaconfig:E, user_msdyn_schedule:E, user_msdyn_serviceconfiguration:E, user_msdyn_slakpi:E, user_msdyn_solutionhealthrule:E, user_msdyn_solutionhealthruleargument:E, user_msdyn_virtualtablecolumncandidate:E, user_msdynce_botcontent:E, user_mspcat_catalogsubmissionfiles:E, user_mspcat_packagestore:E, user_new_interactionforemail:E, user_nlsqregistration:E, user_owner_postfollows:E, user_parent_user:E, user_phonecall:E, user_plannerbusinessscenario:E, user_plannersyncaction:E, user_plugin:E, user_powerbidataset:E, user_powerbidatasetapdx:E, user_powerbimashupparameter:E, user_powerbireport:E, user_powerbireportapdx:E, user_powerfxrule:E, user_powerpagecomponent:E, user_powerpagesite:E, user_powerpagesitelanguage:E, user_powerpagesitepublished:E, user_powerpageslog:E, user_powerpagesmanagedidentity:E, user_powerpagesscanreport:E, user_powerpagessiteaifeedback:E, user_privilegecheckerrun:E, user_processorregistration:E, user_processstageparameter:E, user_recentlyused:E, user_recurringappointmentmaster:E, user_retaineddataexcel:E, user_retentionconfig:E, user_retentionfailuredetail:E, user_retentionoperation:E, user_retentionsuccessdetail:E, user_settings:E, user_sharepointdocumentlocation:E, user_sharepointsite:E, user_sideloadedaiplugin:E, user_signal:E, user_signalregistration:E, user_solutioncomponentbatchconfiguration:E, user_stagesolutionupload:E, user_synapsedatabase:E, user_task:E, user_trait:E, user_traitregistration:E, user_userauthztracker:E, user_userform:E, user_userquery:E, user_userqueryvisualizations:E, user_workflowbinary:E, user_workqueue:E, user_workqueueitem:E, userlicensetype:n, userpuid:s, utcconversiontimezonecode:n, versionnumber:n, webresource_createdby:E, webresource_modifiedby:E, windowsliveid:s, workflow_createdby:E, workflow_createdonbehalfby:E, workflow_modifiedby:E, workflow_modifiedonbehalfby:E, workqueueitem_processinguser:E, yammeremailaddress:s, yammeruserid:s, yomifirstname:s, yomifullname:s, yomilastname:s, yomimiddlename:s]"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =9
+                                    ZIndex: =18
+
+                                "LastModified1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="LastModified"
+                                    FieldName: ="LastModified"
+                                    FieldType: ="d"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =10
+                                    ZIndex: =19
+
+                                "DocumentOwner1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="DocumentOwner"
+                                    FieldName: ="DocumentOwner"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =11
+                                    ZIndex: =20
+
+                        cEmptyState_8 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Center
+                            FillPortions: =0
+                            Height: =314
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutGap: =8
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Visible: =IsEmpty(ListItems)
+                            Width: =333
+                            X: =469
+                            Y: =93
+                            ZIndex: =5
+
+                            Image3_9 As image:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Image: =noresult
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                ZIndex: =1
+
+                            txtSubtitle1_EmptyState_8 As Text:
+                                Align: ='TextCanvas.Align'.Center
+                                AlignInContainer: =AlignInContainer.Center
+                                BorderColor: =
+                                DisplayMode: =DisplayMode.Edit
+                                Fill: =
+                                FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                Height: =36
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =20
+                                Text: ="Empty state"
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =250
+                                Wrap: =false
+                                X: =40
+                                Y: =193
+                                ZIndex: =2
+
+                            lblBody1_EmptyState_8 As Label:
+                                AlignInContainer: =AlignInContainer.Center
+                                Alignment: =Align.Center
+                                AutoHeight: =true
+                                Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                                DisplayMode: =DisplayMode.Edit
+                                FontSize: =10.5
+                                FontWeight: =FontWeight.Normal
+                                Height: =12
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =320
+                                OnChange: =false
+                                Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                                VerticalAlignment: =VerticalAlign.Middle
+                                Width: =320
+                                X: =320
+                                Y: =197
+                                ZIndex: =3
+
+                            Container9_8 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.Start
+                                FillPortions: =0
+                                Height: =44
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =8
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =4
+
+                                btnEmptyActionPrimary_8 As Button:
+                                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                                    BasePaletteColor: =
+                                    BorderColor: =
+                                    DisplayMode: =DisplayMode.Edit
+                                    FontColor: =
+                                    Height: =32
+                                    Icon: ="Add"
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: |
+                                        =UpdateContext({ShowHideDialog:!ShowHideDialog});
+                                    Text: ="New Document Request"
+                                    Width: =210
+                                    X: =542
+                                    Y: =0
+                                    ZIndex: =1
+
+                        div_19 As rectangle:
+                            AlignInContainer: =AlignStart
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Fill: =RGBA(0,0,0,0)
+                            Height: =2
+                            Visible: =false
+                            Width: =Parent.Width - Self.X * 2
+                            X: =84
+                            Y: =256
+                            ZIndex: =6
+
+                    div_20 As rectangle:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(0,0,0,0)
+                        Height: =2
+                        Width: =Parent.Width - Self.X * 2
+                        X: =84
+                        Y: =256
+                        ZIndex: =4
+
+                cBufferHub_6 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =24
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =8
+
+    cNewReviewContainer_3 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(53, 61, 63, .5)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        LayoutWrap: =true
+        PaddingBottom: =16
+        PaddingLeft: =0   
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =ShowHideDialog
+        Width: =Parent.Width
+        ZIndex: =2
+
+        MainContainer_6 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingLeft: =Margins
+            PaddingRight: =Margins
+            Width: =1273
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+            TopMakersContainer_6 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =10
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =2
+                PaddingLeft: =2
+                PaddingRight: =2
+                PaddingTop: =2
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =390
+                ZIndex: =2
+
+                Container1_14 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    DropShadow: =DropShadow.Semilight
+                    Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                    FillPortions: =0
+                    Height: =375
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =480
+                    ZIndex: =2
+
+                    DocumentGeneratorRequestForm As form.PowerApps_CoreControls_Form:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataSource: ='DocuPilot Document Generation Requests'
+                        DefaultMode: =FormMode.New
+                        FillPortions: =0
+                        Height: =300
+                        LayoutMinHeight: =250
+                        LayoutMinWidth: =400
+                        NumberOfColumns: =1
+                        OnFailure: |-
+                            =UpdateContext({showSaveLoader:false});
+                        OnSuccess: |-
+                            =Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:DocumentGeneratorRequestForm.LastSubmit, varStartReview: "StartReview"&Rand()});
+                            
+                            
+                            
+                            
+                                
+                        UseFluentV9Cards: =true
+                        Width: =500
+                        ZIndex: =1
+
+                        "'Solution Zip File_DataCard1' As typedDataCard.fluentV9FileEditCard":
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="cat_solutionzipfile"
+                            Default: |-
+                                =If(!IsBlank(ThisItem.'Solution Zip File'.FileName), Table({DisplayName: ThisItem.'Solution Zip File'.FileName, Value: ThisItem.'Solution Zip File'.Value}), Blank())
+                            DisplayMode: =Parent.DisplayMode
+                            DisplayName: ="Solution File (Pick or Upload)"//DataSourceInfo([@'DocuPilot Document Generation Requests'],DataSourceInfo.DisplayName,'cat_solutionzipfile')
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =50
+                            Required: =false
+                            Update: =DataCardValue2.Attachments
+                            Width: =460
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                            DataCardKey2 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =34
+                                Text: =Parent.DisplayName
+                                Visible: =true
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.Width - 60
+                                Wrap: =false
+                                X: =30
+                                Y: =10
+                                ZIndex: =1
+
+                            DataCardValue2 As attachments:
+                                AddAttachmentText: ="Upload file"
+                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(51, 51, 51, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                DisplayMode: =Parent.DisplayMode
+                                FocusedBorderThickness: =2
+                                Font: =Font.'Segoe UI'
+                                Height: =170
+                                HoverColor: =RGBA(51, 51, 51, 1)
+                                HoverFill: =RGBA(212, 212, 212, 1)
+                                IsInDataCard: =true
+                                ItemColor: =RGBA(0, 0, 0, 1)
+                                ItemFill: =RGBA(0, 120, 212, 1)
+                                ItemHoverColor: =RGBA(51, 51, 51, 1)
+                                ItemHoverFill: =RGBA(212, 212, 212, 1)
+                                Items: =Parent.Default
+                                ItemSpacing: =12
+                                MaxAttachments: =10
+                                MaxAttachmentSize: =130
+                                MaxAttachmentsText: =""
+                                NoAttachmentsColor: =RGBA(166, 166, 166, 1)
+                                NoAttachmentsText: ="There is no file."
+                                PaddingBottom: =5
+                                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(0, 120, 212, 1)
+                                Size: =10.5
+                                Tooltip: =Parent.DisplayName
+                                Width: =Parent.Width - 60
+                                X: =25
+                                Y: = DataCardValue8_7.Y+DataCardValue8_7.Height + 15
+                                ZIndex: =2
+
+                            ErrorMessage1 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =10
+                                Size: =12
+                                Text: =Parent.Error
+                                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                Width: =Parent.Width - 60
+                                X: =30
+                                Y: =DataCardValue2.Y + DataCardValue2.Height
+                                ZIndex: =3
+
+                            StarVisible1 As Text:
+                                Align: ='TextCanvas.Align'.Center
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =DataCardKey2.Height
+                                Text: ="*"
+                                Visible: =false
+                                Width: =30
+                                Wrap: =false
+                                X: =0
+                                Y: =DataCardKey2.Y
+                                ZIndex: =4
+
+                            DataCardValue8_7 As Combobox.pcfdataset:
+                                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                                Appearance: ='ComboboxCanvas.Appearance'.Outline
+                                DefaultSelectedItems: =[Parent.Default]
+                                DisplayMode: =If(IsEmpty(DataCardValue2.Attachments),DisplayMode.Edit, DisplayMode.Disabled) //Parent.DisplayMode
+                                Height: =32
+                                InputTextPlaceholder: ="Pick an existing solution"
+                                Items: =Filter(Solutions, 'Solutions (Views)'.'Unmanaged Solutions')
+                                Required: =false
+                                TriggerOutput: ="Keypress"
+                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                Width: =Parent.Width - 48
+                                X: =24
+                                Y: =DataCardKey2.Y + DataCardKey2.Height + 7
+                                ZIndex: =5
+
+                                "'Display Name1_6' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
+                                    FieldDisplayName: ="Display Name"
+                                    FieldName: ="friendlyname"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =1
+                                    ZIndex: =8
+
+                                "'Solution Identifier1_6' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
+                                    FieldDisplayName: ="Solution Identifier"
+                                    FieldName: ="solutionid"
+                                    FieldType: ="g"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =2
+                                    ZIndex: =9
+
+                        "'Document Status_DataCard1' As typedDataCard.fluentV9ComboBoxOptionSetSingleViewCard":
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="cat_documentstatus"
+                            Default: =ThisItem.'Document Status'
+                            DisplayMode: =DisplayMode.View
+                            DisplayName: =DataSourceInfo([@'DocuPilot Document Generation Requests'],DataSourceInfo.DisplayName,'Document Status')
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =70
+                            Required: =false
+                            Visible: =false
+                            Width: =460
+                            X: =0
+                            Y: =1
+                            ZIndex: =1
+
+                            DataCardKey1 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =22
+                                Text: =Parent.DisplayName
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.Width - 48
+                                Wrap: =false
+                                X: =24
+                                Y: =10
+                                ZIndex: =1
+
+                            DataCardValue1 As Combobox.pcfdataset:
+                                DefaultSelectedItems: =[Parent.Default]
+                                DisplayMode: =DisplayMode.View
+                                Height: =32
+                                Items: =['Document Status (DocuPilot Document Generation Requests)'.Draft]
+                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                Width: =Parent.Width - 48
+                                X: =24
+                                Y: =DataCardKey1.Y + DataCardKey1.Height + 4
+                                ZIndex: =2
+
+                    Container4_4 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =48
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =48
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =3
+
+                        btnCancel As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Secondary
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =UpdateContext({ShowHideDialog:!ShowHideDialog})
+                            Text: ="Cancel"
+                            Width: =96
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        btnGenerateDocument As Button:
+                            Align: =""
+                            Appearance: ='ButtonCanvas.Appearance'.Primary
+                            BasePaletteColor: =
+                            BorderStyle: =""
+                            DisplayMode: =If((!IsEmpty(DataCardValue2.Attachments) || !IsBlank(DataCardValue8_7.Selected)), DisplayMode.Edit, DisplayMode.Disabled)
+                            FontColor: =
+                            Height: =32
+                            Icon: ="Document"
+                            IconRotation: =0
+                            IconStyle: ="Outline"
+                            Layout: ="Icon before"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |
+                                =UpdateContext({ShowHideDialog:!ShowHideDialog, showSaveLoader:true});
+                                SubmitForm(DocumentGeneratorRequestForm);
+                                Patch('DocuPilot Document Generation Requests',DocumentGeneratorRequestForm.LastSubmit, {'Document Status': 'Document Status (DocuPilot Document Generation Requests)'.Draft});
+                            Text: ="Generate"
+                            VerticalAlign: =""
+                            Width: =140
+                            X: =483
+                            Y: =14
+                            ZIndex: =2
+
+    cSpinner_5 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: |-
+            =ColorValue("#fafafa")
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =showSaveLoader
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Spinner1_7 As Spinner:
+            DisplayMode: =DisplayMode.Edit
+            Height: =Parent.Height
+            Label: ="Saving Request"
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            SpinnerSize: ='Spinner.SpinnerSize'.Large
+            Visible: =showSaveLoader
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+    ButtonCanvas1_2 As Button:
+        Appearance: ='ButtonCanvas.Appearance'.Secondary
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Icon: ="Delete"
+        OnSelect: =RemoveIf('DocuPilot Document Generation Requests', true);
+        Text: =
+        Visible: =false
+        Width: =96
+        X: =1228
+        Y: =20
+        ZIndex: =4
+

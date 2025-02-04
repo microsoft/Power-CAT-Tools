@@ -1,0 +1,122 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_docupilotdocumentgenerationrequests",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_docupilotdocumentgenerationrequest",
+    "MaxGetRowsCount": 500,
+    "Name": "DocuPilot Document Generation Requests",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_configurationkeys": "ConfigurationKeys",
+      "cat_documenthtmldataset": "Document HTML Dataset",
+      "cat_documentstatus": "Document Status",
+      "cat_docupilotdocumentgenerationrequest_AsyncOperations": "System Jobs",
+      "cat_docupilotdocumentgenerationrequest_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_docupilotdocumentgenerationrequest_FileAttachments": "FileAttachments",
+      "cat_docupilotdocumentgenerationrequest_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_docupilotdocumentgenerationrequest_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_docupilotdocumentgenerationrequest_ProcessSession": "Process Sessions",
+      "cat_docupilotdocumentgenerationrequest_SyncErrors": "Sync Errors",
+      "cat_docupilotdocumentgenerationrequestid": "DocuPilot Document Generation Request",
+      "cat_requestnumber": "Request Number",
+      "cat_solutiondocument": "Solution Document",
+      "cat_solutionname": "Solution Name",
+      "cat_solutionzipfile": "Solution Zip File",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "DocuPilot Document Generation Requests",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "DocuPilot Document Generation Requests (Views)",
+    "Name": "_cat_docupilotdocumentgenerationrequest_views",
+    "RelatedEntityName": "DocuPilot Document Generation Requests",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0122e691-f3fe-4f5c-8dab-f6ebda5ec4d5": "DocuPilot Document Generation Request Lookup View",
+      "358622d5-5453-449b-85e6-a31372b34097": "DocuPilot Document Generation Request Advanced Find View",
+      "67393e99-23bf-4e56-ae10-59e9a3554eeb": "Active DocuPilot Document Generation Requests",
+      "9a4f9503-4f1e-4610-9d2e-dfe313c41f8b": "Inactive DocuPilot Document Generation Requests",
+      "b5f66aa8-ca87-491f-8cf0-69fdbe16cfcd": "DocuPilot Document Generation Request Associated View"
+    }
+  },
+  {
+    "DisplayName": "Document Status (DocuPilot Document Generation Requests)",
+    "Name": "cat_docupilotdocumentgenerationrequest_cat_documentstatus",
+    "OptionSetInfoNameMapping": {
+      "764860000": "Draft",
+      "764860001": "Complete"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_documentstatus",
+        "OptionSetReferenceEntityName": "DocuPilot Document Generation Requests"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_documentstatus",
+    "RelatedEntityName": "DocuPilot Document Generation Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (DocuPilot Document Generation Requests)",
+    "Name": "cat_docupilotdocumentgenerationrequest_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "DocuPilot Document Generation Requests"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "DocuPilot Document Generation Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (DocuPilot Document Generation Requests)",
+    "Name": "cat_docupilotdocumentgenerationrequest_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "DocuPilot Document Generation Requests"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "DocuPilot Document Generation Requests",
+    "Type": "OptionSetInfo"
+  }
+]

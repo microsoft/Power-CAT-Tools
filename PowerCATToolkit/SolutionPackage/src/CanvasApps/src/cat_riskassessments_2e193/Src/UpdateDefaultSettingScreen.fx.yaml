@@ -1,0 +1,712 @@
+UpdateDefaultSettingScreen As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |
+        =/* Load data for this page while spinner is loading */
+        If(
+            init <> true,
+            UpdateContext({init: true});
+            
+        );
+
+    cAppFrame_0 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingRight: =Self.PaddingLeft
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        cTopNav_0 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =ColorValue(AppTheme.palette.neutralLighter)
+            FillPortions: =FlexOff
+            Height: =60
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =24
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingRight: =20
+            ZIndex: =1
+
+            "AutoWidthLabel1_9 As 'Auto Width Label (1.1.39)'":
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =18
+                FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
+                FontWeight: ="600"
+                Height: =24
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                Text: =_featureName
+                Tooltip: ="AutoWidthLabel_Desc"
+                Width: =Self.AutoWidth
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            "TabList1 As 'Tab list'.pcfdataset":
+                DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = SettingsLandingScreen)
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =FlexOn
+                Height: =55
+                Items: =Nav
+                LayoutMinHeight: =55
+                LayoutMinWidth: =280
+                OnChange: =Navigate(Self.Selected.Screen);
+                Width: =280
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                DisplayName1 As PowerApps_CoreControls_TabListTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="DisplayName"
+                    FieldName: ="DisplayName"
+                    FieldType: ="s"
+                    Order: =1
+                    ZIndex: =1
+
+            Container11_6 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =8
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                "LearnIcon As 'Fluent Icon (1.1.39)'":
+                    AccessibilityLabel: =DVAssessmentPageLoc.learnButtonText
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#424242"
+                    Height: =Parent.Height
+                    HoverFillColor: =AppTheme.palette.neutralLight
+                    HoverFontColor: |-
+                        ="#424242"
+                    HoverIconColor: |-
+                        ="#424242"
+                    IconColor: |-
+                        ="#424242"
+                    IconName: ="BookAnswers"
+                    IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |-
+                        =Launch(
+                            "https://aka.ms/dvacc/riskassess",
+                            {},
+                            LaunchTarget.New
+                        )
+                    Tooltip: =DVAssessmentPageLoc.learnButtonText
+                    Width: =32
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                "QuestionIcon As 'Fluent Icon (1.1.39)'":
+                    AccessibilityLabel: =DVAssessmentPageLoc.helpButtonText
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#424242"
+                    Height: =Parent.Height
+                    HoverFillColor: =AppTheme.palette.neutralLight
+                    HoverFontColor: |-
+                        ="#424242"
+                    HoverIconColor: |-
+                        ="#424242"
+                    IconColor: |-
+                        ="#424242"
+                    IconName: ="StatusCircleQuestionMark"
+                    IconSize: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |-
+                        =Launch(
+                            "https://aka.ms/dvacc/riskassess/help",
+                            {},
+                            LaunchTarget.New
+                        )
+                    Tooltip: =DVAssessmentPageLoc.helpButtonText
+                    Width: =32
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                "BugIcon As 'Fluent Icon (1.1.39)'":
+                    AccessibilityLabel: ="Report a bug"
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#424242"
+                    Height: =Parent.Height
+                    HoverFillColor: =AppTheme.palette.neutralLight
+                    HoverFontColor: |-
+                        ="#424242"
+                    HoverIconColor: |-
+                        ="#424242"
+                    IconColor: |-
+                        ="#424242"
+                    IconName: ="Bug"
+                    IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |-
+                        =Launch(
+                            "https://aka.ms/dvacc/riskassess/bug",
+                            {},
+                            LaunchTarget.New
+                        )
+                    Tooltip: ="Report a bug"
+                    Width: =32
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
+
+        cScreenContainer_0 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            FillPortions: =FlexOff
+            Height: =Max(div_0.Y, App.ActiveScreen.Height - Self.Y)
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =0   
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingLeft: =Margins
+            PaddingRight: =Margins
+            Width: =Parent.Width - Self.X * 2
+            ZIndex: =2
+
+            cPageHeaderMain_0 As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                FillPortions: =0
+                Height: =div_11.Y + 1
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =4
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =If(Self.X = 0, Margins, 0)
+                PaddingRight: =Self.PaddingLeft
+                PaddingTop: =16
+                Width: =1181
+                X: =92
+                Y: =40
+                ZIndex: =1
+
+                cPageHeaderTop_4 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =FlexOff
+                    Height: =75
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =1042
+                    X: =68
+                    Y: =52
+                    ZIndex: =1
+
+                    cPageHeaderTitle_6 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =FlexOn
+                        Height: =cHeaderText_9.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =16
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =431
+                        X: =36
+                        Y: =40
+                        ZIndex: =1
+
+                        ButtonCanvas4_9 As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="ArrowLeft"
+                            Layout: ='ButtonCanvas.Layout'.IconOnly
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: =Back()
+                            Text: =
+                            Width: =32
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        cHeaderText_9 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =rDivider_PageHeader_9.Y
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutGap: =4
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width - Self.X
+                            X: =1-1
+                            Y: =1-1 
+                            ZIndex: =2
+
+                            h2Title_9 As Text:
+                                Align: ='TextCanvas.Align'.Start
+                                AlignInContainer: =AlignInContainer.Start
+                                AutoHeight: =true
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =36
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =20
+                                Text: ="Default settings"
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.Width - Self.X * 2
+                                X: =394.49
+                                Y: =0
+                                ZIndex: =1
+
+                            Label3_11 As label:
+                                AlignInContainer: =AlignInContainer.Start
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 18, 107, 1)
+                                Color: |-
+                                    =ColorValue("#424242")
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =Font.'Segoe UI'
+                                LineHeight: =1.4
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                Text: ="Select which risk assessment profile is automatically run"
+                                VerticalAlign: =VerticalAlign.Top
+                                Visible: =!IsBlank(Self.Text)
+                                Width: =Min(600, Parent.Width)
+                                X: =394.49
+                                ZIndex: =2
+
+                            rDivider_PageHeader_9 As rectangle:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Fill: =RGBA(0,0,0,0)
+                                Height: =1
+                                Width: =Parent.Width - Self.X * 2
+                                X: =72
+                                Y: =52
+                                ZIndex: =3
+
+                div_11 As rectangle:
+                    AlignInContainer: =AlignStart
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Fill: =ColorValue(AppTheme.palette.neutralLight)
+                    Height: =1
+                    Width: =Parent.Width - Self.X * 2
+                    X: =84
+                    Y: =256
+                    ZIndex: =2
+
+            cListCard_3 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Semilight
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =Max(div_18.Y, 120)
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =0   
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Width: =Parent.Width - Self.X * 2
+                ZIndex: =2
+
+                "AssessmentDefaultSettingsList As 'Fluent Details List (1.1.39)'.pcfdataset":
+                    columns_Items: |-
+                        =Table(
+                            {
+                                ColName: "Name",
+                                ColDisplayName: DVAssessmentPageLoc.nameColumn,
+                                ColWidth: Max(Self.Width/4,100),
+                                ColRowHeader: true,
+                                ColHorizontalAlign: "Left",
+                                ColVerticalAlign: "Center"
+                            },
+                            {
+                                ColName: "ImpactedRoles",
+                                ColDisplayName: "Impacted roles:",
+                                ColShowAsSubTextOf:"Name",
+                                ColLabelAbove:true,
+                                ColIsBold:true
+                            },
+                           
+                            {
+                                ColName: "ModifiedOn",
+                                ColDisplayName:DVAssessmentPageLoc.modifedOnColumnName,
+                                ColWidth: Max(Self.Width / 12,75),//Max(Self.Width/13,100),
+                                ColRowHeader: true,
+                                ColHorizontalAlign: "Left",
+                                 ColVerticalAlign: "Center"
+                            },
+                            {
+                                ColName: "ModifiedBy",
+                                ColDisplayName: DVAssessmentPageLoc.modifiedByColumnName,
+                                ColRowHeader: true,
+                                ColWidth:Max(Self.Width / 8,100), //Max(Self.Width/6,100),
+                                ColHorizontalAlign: "Left",
+                                  ColVerticalAlign: "Center"
+                            },
+                            {
+                                ColName: "Owner",
+                                ColDisplayName: DVAssessmentPageLoc.ownerColumnName,
+                                ColRowHeader: true,
+                                ColHorizontalAlign: "Left",
+                                ColVerticalAlign: "Center",
+                                ColWidth: Max(Self.Width / 8,100)//Max(Self.Width/6,100)
+                            },
+                            {
+                                ColName: "IsDefault",
+                                ColDisplayName: DVAssessmentPageLoc.isDefaultColumnName,
+                                ColRowHeader: true,
+                                ColHorizontalAlign: "Left",
+                                ColVerticalAlign: "Center",
+                                ColWidth: Max(Self.Width / 12,75)//Max(Self.Width - App.Width/1.4, 50)
+                            }
+                        )
+                    Compact: =false
+                    CurrentSortColumn: =defaultSettingsSortCol
+                    CurrentSortDirection: =defaultSettingsSortOrder
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =FlexOff
+                    HeaderVisible: =false
+                    Height: =Max(60 + (CountRows(RiskAssessmentsSettingsToBeDisplayed) * 48), 200)
+                    InputEvent: ="SetFocusOnRowSetSelection "&Text(Rand())
+                    Items: |-
+                        =SortByColumns(
+                            ActiveRiskAssessmentSettingsToBeDisplayed,
+                            defaultSettingsSortCol,
+                            If(
+                                defaultSettingsSortOrder = 'PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        )
+                    LargeDatasetPaging: =true
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |
+                        =If(
+                            Self.EventName = "OnRowSelectionChange",
+                            If(
+                                CountRows(Self.SelectedItems) > 0 && !Self.Selected.RecordSelected,
+                                UpdateContext(
+                                    {
+                                        init: false,
+                                        showSpinnerColorForDefaultSettings: RGBA(
+                                            255,
+                                            255,
+                                            255,
+                                            0.7
+                                        )
+                                    }
+                                );
+                                Patch(
+                                    'Risk Assessment Settings',
+                                    DefaultRiskAssessmentSetting,
+                                    {'Is Default': 'Is Default (Risk Assessment Settings)'.No}
+                                );
+                                Patch(
+                                    'Risk Assessment Settings',
+                                    Self.Selected.Setting,
+                                    {'Is Default': 'Is Default (Risk Assessment Settings)'.Yes}
+                                );
+                                UpdateContext(
+                                    {
+                                        init: true,
+                                        showSpinnerColorForDefaultSettings: Blank()
+                                    }
+                                );
+                                ,
+                                false
+                            )
+                        );
+                        If(
+                            Self.EventName = "Sort",
+                            UpdateContext(
+                                {
+                                    defaultSettingsSortCol: Self.SortEventColumn,
+                                    defaultSettingsSortOrder: Self.SortEventDirection
+                                }
+                            )
+                        );
+                    PageSize: =CountRows(ActiveRiskAssessmentSettingsToBeDisplayed)
+                    RaiseOnRowSelectionChangeEvent: =true
+                    RecordKey: ="AssessmentSettingId"
+                    RecordSelected: ="RecordSelected"
+                    SelectRowsOnFocus: =true
+                    Theme: =AppThemeJson
+                    Width: =200
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                    "ImpactedRoles2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="ImpactedRoles"
+                        FieldName: ="ImpactedRoles"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =5
+
+                    "IsDefault1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="IsDefault"
+                        FieldName: ="IsDefault"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =2
+                        ZIndex: =6
+
+                    "ModifiedOn1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="ModifiedOn"
+                        FieldName: ="ModifiedOn"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =3
+                        ZIndex: =7
+
+                    "Name2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="Name"
+                        FieldName: ="Name"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =4
+                        ZIndex: =8
+
+                    "Owner2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="Owner"
+                        FieldName: ="Owner"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =5
+                        ZIndex: =9
+
+                    "RecordSelected3 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="RecordSelected"
+                        FieldName: ="RecordSelected"
+                        FieldType: ="b"
+                        FieldVariantName: ="textualColumn"
+                        Order: =6
+                        ZIndex: =10
+
+                    "Setting2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="Setting"
+                        FieldName: ="Setting"
+                        FieldType: |-
+                            ="![_ownerid_value:P, createdby:E, createdon:d, createdonbehalfby:E, importsequencenumber:n, modifiedby:E, modifiedon:d, modifiedonbehalfby:E, msdyn_RiskAssessment_msdyn_RiskAssessment:E, msdyn_RoleId:E, msdyn_buappend:l, msdyn_buappendto:l, msdyn_buassign:l, msdyn_bucreate:l, msdyn_budelete:l, msdyn_buread:l, msdyn_bushare:l, msdyn_buwrite:l, msdyn_description:s, msdyn_isdefault:l, msdyn_name:s, msdyn_orgappend:l, msdyn_orgappendto:l, msdyn_orgassign:l, msdyn_orgcreate:l, msdyn_orgdelete:l, msdyn_orgread:l, msdyn_orgshare:l, msdyn_orgwrite:l, msdyn_pcbuappend:l, msdyn_pcbuappendto:l, msdyn_pcbuassign:l, msdyn_pcbucreate:l, msdyn_pcbudelete:l, msdyn_pcburead:l, msdyn_pcbushare:l, msdyn_pcbuwrite:l, msdyn_riskassessmentsetting_AsyncOperations:E, msdyn_riskassessmentsetting_BulkDeleteFailures:E, msdyn_riskassessmentsetting_MailboxTrackingFolders:E, msdyn_riskassessmentsetting_PrincipalObjectAttributeAccesses:E, msdyn_riskassessmentsetting_ProcessSession:E, msdyn_riskassessmentsetting_SyncErrors:E, msdyn_riskassessmentsettingid:g, msdyn_userappend:l, msdyn_userappendto:l, msdyn_userassign:l, msdyn_usercreate:l, msdyn_userdelete:l, msdyn_userread:l, msdyn_usershare:l, msdyn_userwrite:l, overriddencreatedon:d, owningbusinessunit:E, owningteam:E, owninguser:E, statecode:l, statuscode:l, timezoneruleversionnumber:n, utcconversiontimezonecode:n, versionnumber:n]"
+                        FieldVariantName: ="textualColumn"
+                        Order: =7
+                        ZIndex: =11
+
+                    "Status2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="Status"
+                        FieldName: ="Status"
+                        FieldType: ="l"
+                        FieldVariantName: ="textualColumn"
+                        Order: =8
+                        ZIndex: =12
+
+                    "ModifiedBy2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="ModifiedBy"
+                        FieldName: ="ModifiedBy"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =9
+                        ZIndex: =13
+
+                    "AssessmentSettingId2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="AssessmentSettingId"
+                        FieldName: ="AssessmentSettingId"
+                        FieldType: ="g"
+                        FieldVariantName: ="textualColumn"
+                        Order: =10
+                        ZIndex: =14
+
+                    "Assessments2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="Assessments"
+                        FieldName: ="Assessments"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =11
+                        ZIndex: =15
+
+                    "AssessmentDescription2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="AssessmentDescription"
+                        FieldName: ="AssessmentDescription"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =12
+                        ZIndex: =16
+
+                cEmptyState_3 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    FillPortions: =0
+                    Height: =314
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =8
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =IsEmpty(ActiveRiskAssessmentSettingsToBeDisplayed)
+                    Width: =333
+                    X: =469
+                    Y: =93
+                    ZIndex: =3
+
+                    Image3_9 As image:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: ='Empty states'
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        ZIndex: =1
+
+                    txtSubtitle1_EmptyState_8 As Text:
+                        Align: ='TextCanvas.Align'.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                        Height: =36
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =20
+                        Text: ="No assessment settings"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =250
+                        Wrap: =false
+                        X: =40
+                        Y: =193
+                        ZIndex: =2
+
+                    lblBody1_EmptyState_8 As Label:
+                        AlignInContainer: =AlignInContainer.Center
+                        Alignment: =Align.Center
+                        AutoHeight: =true
+                        Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                        DisplayMode: =DisplayMode.Edit
+                        FontWeight: =FontWeight.Normal
+                        Height: =12
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        OnChange: =false
+                        Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Width: =320
+                        X: =320
+                        Y: =197
+                        ZIndex: =3
+
+                    Container9_8 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        FillPortions: =0
+                        Height: =44
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =8
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Visible: =false
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                        btnEmptyActionPrimary_7 As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Secondary
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =UpdateContext({ searchText: "" }); 
+                            Text: ="Action"
+                            Width: =132
+                            X: =542
+                            Y: =0
+                            ZIndex: =1
+
+                div_18 As rectangle:
+                    AlignInContainer: =AlignStart
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Fill: =RGBA(0,0,0,0)
+                    Height: =2
+                    Width: =Parent.Width - Self.X * 2
+                    X: =84
+                    Y: =256
+                    ZIndex: =4
+
+            div_0 As rectangle:
+                BorderColor: =App.Theme.Colors.Darker40
+                Fill: =RGBA(0,0,0,0)
+                Height: =2
+                Width: =Parent.Width - Self.X * 2
+                X: =84
+                Y: =256
+                ZIndex: =3
+
+    cSpinner_5 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: |-
+            =If(IsBlankOrError(showSpinnerColorForDefaultSettings),ColorValue("#fafafa"),showSpinnerColorForDefaultSettings)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =init <> true
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Spinner1_5 As Spinner:
+            DisplayMode: =DisplayMode.Edit
+            Height: =Parent.Height
+            Label: ="Updating default setting"
+            LabelPosition: ='Spinner.LabelPosition'.Below
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            SpinnerSize: ='Spinner.SpinnerSize'.Large
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+

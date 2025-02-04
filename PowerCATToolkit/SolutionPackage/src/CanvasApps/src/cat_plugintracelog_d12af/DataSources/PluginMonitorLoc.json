@@ -1,0 +1,11 @@
+[
+  {
+    "DataSetName": "default.cds",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "LogicalName": "cat_PluginMonitorLoc",
+    "Name": "PluginMonitorLoc",
+    "Schema": "![addFilterTxt:s, addTxt:s, applyTxt:s, cancelBtnTxt:s, clearAllTxt:s, closeTxt:s, contextTxt:s, copyClipboardMessageTxt:s, debugTxt:s, defaultErrorMessageTxt:s, deleteTxt:s, detailsTxt:s, editTxt:s, enableAllLogsTxt:s, enableExceptionOnlyTxt:s, enableLoggingInfoTxt:s, endTimeInfoTxt:s, exceptionEnableMessageTxt:s, exceptionOnlyCtrlTxt:s, exceptionOnlyInfoTxt:s, filterTxt:s, firstPageTxt:s, headingLogSetting:s, headingLoggingOff:s, headingTraceLog:s, infoLogSettingTxt:s, keywordsTxt:s, lastPageTxt:s, launchEditorTxt:s, lblConfigurationTxt:s, lblCorrelationIdTxt:s, lblDepthTxt:s, lblDuration:s, lblEnableApplicationInsights:s, lblEnableLoggingTxt:s, lblException:s, lblFailed:s, lblFilters:s, lblInstantPlugin:s, lblMessageNameTxt:s, lblMode:s, lblModeTxt:s, lblMsgBlock:s, lblName:s, lblOperationTypeTxt:s, lblPersistenceKeytxt:s, lblPluginStepIdTxt:s, lblPrimaryTable:s, lblRefineByKeywords:s, lblRequestIdTxt:s, lblRunDate:s, lblStartTime:s, lblStepId:s, lblTraceLog:s, lblType:s, learnMoreTxt:s, logEnableMessageTxt:s, logSettingsTxt:s, maxDurationInfoTxt:s, minDurationInfoTxt:s, modeInfoTxt:s, nameInfoTxt:s, nextPageTxt:s, noLogsFoundTxt:s, noRecordsFound:s, noResultFoundMsg:s, noTxt:s, pageSize:s, pageTxt:s, pluginCardTxt:s, prevPageTxt:s, publishTxt:s, radioAllTxt:s, radioAsynchronousTxt:s, radioAutomatedTxt:s, radioCustomApiTxt:s, radioExceptionOnlyTxt:s, radioInstantTxt:s, radioOffTxt:s, radioPluginTxt:s, radioSynchronousTxt:s, readDocInsightTxt:s, readDocumentationTxt:s, refineByKeywordInfoTxt:s, refreshTxt:s, removeFilterTxt:s, resetAllTxt:s, resetTxt:s, saveTxt:s, searchTxt:s, secTxt:s, startTimeInfoTxt:s, subheadingTraceLog:s, successPageTxt:s, typeInfoTxt:s, yesTxt:s]",
+    "Type": "WebResourceInfo"
+  }
+]

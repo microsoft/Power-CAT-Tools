@@ -1,0 +1,67 @@
+{
+  "a651f4ab-260b-422a-81f0-342a9015962b": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1725/1.0.1725.4004/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "ba798559-c656-4ed0-a242-264dd8a4ae7e": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowDisplayName": {
+          "value": "Get Related Document Request Files "
+        },
+        "workflowEntityId": {
+          "value": "c1677ec2-3be2-ef11-8ee9-7c1e520bafa0"
+        },
+        "workflowName": {
+          "value": "f56707c2-ff53-d0a3-c42c-a7d18f75ebf0"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "ba798559-c656-4ed0-a242-264dd8a4ae7e"
+        },
+        "workflowDisplayName": {
+          "value": "Get Related Document Request Files "
+        },
+        "workflowEntityId": {
+          "value": "c1677ec2-3be2-ef11-8ee9-7c1e520bafa0"
+        },
+        "workflowName": {
+          "value": "f56707c2-ff53-d0a3-c42c-a7d18f75ebf0"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GetRelatedDocumentRequestFiles"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "ba798559-c656-4ed0-a242-264dd8a4ae7e"
+    },
+    "dependents": [],
+    "id": "a651f4ab-260b-422a-81f0-342a9015962b"
+  },
+  "ba798559-c656-4ed0-a242-264dd8a4ae7e": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1722/1.0.1722.3977/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "a651f4ab-260b-422a-81f0-342a9015962b"
+    ],
+    "id": "ba798559-c656-4ed0-a242-264dd8a4ae7e"
+  }
+}

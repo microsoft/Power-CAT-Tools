@@ -1,0 +1,207 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_patterndetailses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_patterndetails",
+    "MaxGetRowsCount": 500,
+    "Name": "Pattern Details",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_patternactive": "Pattern Active",
+      "cat_patterncategory": "PatternCategory",
+      "cat_patterndescription": "PatternDescription",
+      "cat_patterndetails": "PatternName",
+      "cat_patterndetails_AsyncOperations": "System Jobs",
+      "cat_patterndetails_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_patterndetails_DuplicateBaseRecord": "Duplicate Records (cat_patterndetails_DuplicateBaseRecord)",
+      "cat_patterndetails_DuplicateMatchingRecord": "Duplicate Records (cat_patterndetails_DuplicateMatchingRecord)",
+      "cat_patterndetails_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_patterndetails_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_patterndetails_ProcessSession": "Process Sessions",
+      "cat_patterndetails_SyncErrors": "Sync Errors",
+      "cat_patterndetailsid": "Pattern Details",
+      "cat_patterndoclink": "PatternDocLink",
+      "cat_patternid": "PatternID",
+      "cat_patternrecommendation": "PatternRecommendation",
+      "cat_patternscore": "PatternScore",
+      "cat_patternseverity": "PatternSeverity",
+      "cat_patterntype": "PatternType",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Pattern Details",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Pattern Details (Views)",
+    "Name": "_cat_patterndetails_views",
+    "RelatedEntityName": "Pattern Details",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2c497973-f2a8-413b-929e-d49e999b7529": "Pattern Details Lookup View",
+      "8c465034-d514-4e85-b90d-5814415d4e4d": "Active Pattern Details",
+      "b73ba22d-35b4-4d4e-b475-56055fa07828": "Pattern Details Advanced Find View",
+      "cc9f1534-2c47-46f5-8b5b-d1f380a298c1": "Pattern Details Associated View",
+      "d7d4d171-0f8b-4d7c-a4eb-251e211a2a4f": "Inactive Pattern Details"
+    }
+  },
+  {
+    "DisplayName": "Category",
+    "Name": "cat_category",
+    "OptionSetInfoNameMapping": {
+      "764860000": "Accessibility",
+      "764860001": "Coding Standards",
+      "764860002": "Compliance",
+      "764860003": "Configuration",
+      "764860004": "Data",
+      "764860005": "Design",
+      "764860006": "Functionality",
+      "764860007": "Maintainability",
+      "764860008": "Optimization",
+      "764860009": "Performance",
+      "764860010": "Privacy",
+      "764860011": "Reliability",
+      "764860012": "Scalability",
+      "764860013": "Security",
+      "764860014": "Supportability",
+      "764860015": "Usage",
+      "764860016": "Usability",
+      "764860017": "UX"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_patterncategory",
+        "OptionSetReferenceEntityName": "Pattern Details"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_patterncategory",
+    "RelatedEntityName": "Pattern Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Pattern Active (Pattern Details)",
+    "Name": "cat_patterndetails_cat_patternactive",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_patternactive",
+        "OptionSetReferenceEntityName": "Pattern Details"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cat_patternactive",
+    "RelatedEntityName": "Pattern Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Pattern Details)",
+    "Name": "cat_patterndetails_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Pattern Details"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Pattern Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Pattern Details)",
+    "Name": "cat_patterndetails_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Pattern Details"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Pattern Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PatternTypeChoices",
+    "Name": "cat_patterntypechoices",
+    "OptionSetInfoNameMapping": {
+      "764860000": "PowerAppsPattern",
+      "764860001": "FlowPattern",
+      "764860002": "BotPattern",
+      "764860003": "PowerPagesPattern"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_patterntype",
+        "OptionSetReferenceEntityName": "Pattern Details"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_patterntype",
+    "RelatedEntityName": "Pattern Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Severity",
+    "Name": "cat_severity",
+    "OptionSetInfoNameMapping": {
+      "764860000": "Informational",
+      "764860001": "Low",
+      "764860002": "Medium",
+      "764860003": "High",
+      "764860004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_patternseverity",
+        "OptionSetReferenceEntityName": "Pattern Details"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_patternseverity",
+    "RelatedEntityName": "Pattern Details",
+    "Type": "OptionSetInfo"
+  }
+]

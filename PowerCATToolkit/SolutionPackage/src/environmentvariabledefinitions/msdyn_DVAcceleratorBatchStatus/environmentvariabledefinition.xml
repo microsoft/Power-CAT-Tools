@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="msdyn_DVAcceleratorBatchStatus">
+  <defaultvalue>{"BatchId":"b4f8fdfe-6ab5-44cb-82d5-67cda5c1ce82","BatchStatus":"Not started"}</defaultvalue>
+  <description default="Environment variable to hold the status of the flow running which scans all the custom roles in the environment">
+    <label description="Environment variable to hold the status of the flow running which scans all the custom roles in the environment" languagecode="1033" />
+  </description>
+  <displayname default="DVAcceleratorBatchStatus">
+    <label description="DVAcceleratorBatchStatus" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.3.74</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000003</type>
+</environmentvariabledefinition>

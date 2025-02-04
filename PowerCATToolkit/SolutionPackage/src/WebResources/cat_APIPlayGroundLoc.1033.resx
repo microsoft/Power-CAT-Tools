@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="copyClipboardMessageTxt" xml:space="preserve">
+    <value>Copied to clipboard</value>
+    <comment>Message displayed when text is copied to clipboard</comment>
+  </data>
+  <data name="defaultErrorMessageTxt" xml:space="preserve">
+    <value>An error occurred. Please refresh or try again later.</value>
+    <comment>General error message for unexpected issues</comment>
+  </data>
+  <data name="headingLogSetting" xml:space="preserve">
+    <value>Setting</value>
+    <comment>Header for log settings section</comment>
+  </data>
+  <data name="lblFailed" xml:space="preserve">
+    <value>Failed</value>
+    <comment>Label for failed status</comment>
+  </data>
+  <data name="lblInstantPlugin" xml:space="preserve">
+    <value>Instant low code plugin</value>
+    <comment>Label for instant low code plugin</comment>
+  </data>
+  <data name="logEnableMessageTxt" xml:space="preserve">
+    <value>All logs have been enabled successfully</value>
+    <comment>Confirmation message for enabling all logs</comment>
+  </data>
+  <data name="resetTxt" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Button to reset settings</comment>
+  </data>
+  <data name="editTxt" xml:space="preserve">
+    <value>Edit</value>
+    <comment>Button to edit settings</comment>
+  </data>
+  <data name="yesTxt" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Button to select "Yes"</comment>
+  </data>
+  <data name="deleteTxt" xml:space="preserve">
+    <value>Delete</value>
+    <comment>Button to delete an item</comment>
+  </data>
+  <data name="addTxt" xml:space="preserve">
+    <value>Add</value>
+    <comment>Button to add a new item</comment>
+  </data>
+  <data name="noResultFoundMsgTxt" xml:space="preserve">
+    <value>No results found</value>
+    <comment>Message displayed when no search results are found</comment>
+  </data>
+  <data name="cancelBtnTxt" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Button to cancel the current action</comment>
+  </data>
+  <data name="closeTxt" xml:space="preserve">
+    <value>Close</value>
+    <comment>Button to close the current window or dialog</comment>
+  </data>
+  <data name="refreshTxt" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>Button to refresh the current view</comment>
+  </data>
+  <data name="saveTxt" xml:space="preserve">
+    <value>Save</value>
+    <comment>Button to save changes</comment>
+  </data>
+  <data name="logSettingsTxt" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Button to open log settings</comment>
+  </data>
+  <data name="detailsTxt" xml:space="preserve">
+    <value>Details</value>
+    <comment>Button to view details</comment>
+  </data>
+  <data name="learnMoreTxt" xml:space="preserve">
+    <value>Learn more</value>
+    <comment>Button to learn more about a topic</comment>
+  </data>
+  <data name="addNewParamBtnTxt" xml:space="preserve">
+    <value>Add Param</value>
+    <comment>Button to add a new parameter</comment>
+  </data>
+  <data name="addParamToolTipTxt" xml:space="preserve">
+    <value>Add New Param</value>
+    <comment>Tooltip for adding a new parameter</comment>
+  </data>
+  <data name="createTxt" xml:space="preserve">
+    <value>Create</value>
+    <comment>Button to create a new item</comment>
+  </data>
+  <data name="customApiDesTxt" xml:space="preserve">
+    <value>Invoke a pro-code custom API within Dataverse</value>
+    <comment>Description for invoking a pro-code custom API</comment>
+  </data>
+  <data name="customAPITxt" xml:space="preserve">
+    <value>Custom API</value>
+    <comment>Label for custom API</comment>
+  </data>
+  <data name="defaultDesMsgTxt" xml:space="preserve">
+    <value>Enter a request, then click 'send' to get a response.</value>
+    <comment>Default message for entering a request</comment>
+  </data>
+  <data name="deleteVerbTxt" xml:space="preserve">
+    <value>DELETE</value>
+    <comment>Label for DELETE HTTP verb</comment>
+  </data>
+  <data name="envUrlTxt" xml:space="preserve">
+    <value>EnvUrl</value>
+    <comment>Label for environment URL field</comment>
+  </data>
+  <data name="folderDesTxt" xml:space="preserve">
+    <value>Create a folder to organize saved requests.</value>
+    <comment>Description for creating a folder</comment>
+  </data>
+  <data name="folderNameTxt" xml:space="preserve">
+    <value>Folder Name</value>
+    <comment>Label for folder name field</comment>
+  </data>
+  <data name="folderTxt" xml:space="preserve">
+    <value>Folder</value>
+    <comment>Label for folder field</comment>
+  </data>
+  <data name="getVerbTxt" xml:space="preserve">
+    <value>GET</value>
+    <comment>Label for GET HTTP verb</comment>
+  </data>
+  <data name="instantPluginDesTxt" xml:space="preserve">
+    <value>Invoke a low code instant plugin within Dataverse.</value>
+    <comment>Description for invoking a low code instant plugin</comment>
+  </data>
+  <data name="instantPluginTxt" xml:space="preserve">
+    <value>Low Code Instant Plugin</value>
+    <comment>Label for low code instant plugin</comment>
+  </data>
+  <data name="jsonDDtxt" xml:space="preserve">
+    <value>JSON</value>
+    <comment>Label for JSON data type</comment>
+  </data>
+  <data name="keyTxt" xml:space="preserve">
+    <value>Key</value>
+    <comment>Label for key field</comment>
+  </data>
+  <data name="newRequestTxt" xml:space="preserve">
+    <value>New request</value>
+    <comment>Button to create a new request</comment>
+  </data>
+  <data name="newTxt" xml:space="preserve">
+    <value>New</value>
+    <comment>Button to create a new item</comment>
+  </data>
+  <data name="oDataDesTxt" xml:space="preserve">
+    <value>Simplified request construction for seamless interaction with the Dataverse Web API.</value>
+    <comment>Description for OData request construction</comment>
+  </data>
+  <data name="oDataRequestTxt" xml:space="preserve">
+    <value>OData Request</value>
+    <comment>Label for OData request</comment>
+  </data>
+  <data name="openTxt" xml:space="preserve">
+    <value>Open</value>
+    <comment>Button to open an item</comment>
+  </data>
+  <data name="postVerbTxt" xml:space="preserve">
+    <value>POST</value>
+    <comment>Label for POST HTTP verb</comment>
+  </data>
+  <data name="putVerbTxt" xml:space="preserve">
+    <value>PUT</value>
+    <comment>Label for PUT HTTP verb</comment>
+  </data>
+  <data name="queryParamInfoBtnTxt" xml:space="preserve">
+    <value>Select query parameters</value>
+    <comment>Button to select query parameters</comment>
+  </data>
+  <data name="queryParamsTxt" xml:space="preserve">
+    <value>Query Params</value>
+    <comment>Label for query parameters field</comment>
+  </data>
+  <data name="removeParamBtnTxt" xml:space="preserve">
+    <value>Remove Parameter</value>
+    <comment>Button to remove a parameter</comment>
+  </data>
+  <data name="requestPlaceholderCustomApiTxt" xml:space="preserve">
+    <value>Select a custom API</value>
+    <comment>Placeholder text for selecting a custom API</comment>
+  </data>
+  <data name="requestPlaceholderInstantTxt" xml:space="preserve">
+    <value>Select an instant plugin</value>
+    <comment>Placeholder text for selecting an instant plugin</comment>
+  </data>
+  <data name="responseLblTxt" xml:space="preserve">
+    <value>Response</value>
+    <comment>Label for response field</comment>
+  </data>
+  <data name="savedRequestsTxt" xml:space="preserve">
+    <value>Saved Requests</value>
+    <comment>Label for saved requests section</comment>
+  </data>
+  <data name="saveFolderMessageTxt" xml:space="preserve">
+    <value>Folder created successfully</value>
+    <comment>Confirmation message for creating a folder</comment>
+  </data>
+  <data name="sendBtnTxt" xml:space="preserve">
+    <value>Send</value>
+    <comment>Button to send a request</comment>
+  </data>
+  <data name="sizeLblTxt" xml:space="preserve">
+    <value>Size</value>
+    <comment>Label for size field</comment>
+  </data>
+  <data name="statusLblTxt" xml:space="preserve">
+    <value>Status</value>
+    <comment>Label for status field</comment>
+  </data>
+  <data name="timeLblTxt" xml:space="preserve">
+    <value>Time</value>
+    <comment>Label for time field</comment>
+  </data>
+  <data name="validationMsgTxt" xml:space="preserve">
+    <value>Please select request to execute</value>
+    <comment>Validation message for selecting a request to execute</comment>
+  </data>
+  <data name="valueTxt" xml:space="preserve">
+    <value>Value</value>
+    <comment>Label for value field</comment>
+  </data>
+  <data name="xmlDDTxt" xml:space="preserve">
+    <value>XML</value>
+    <comment>Label for XML data type</comment>
+  </data>
+  <data name="bodyTabTxt" xml:space="preserve">
+    <value>Body</value>
+    <comment>Label for body tab</comment>
+  </data>
+  <data name="loadingTxt" xml:space="preserve">
+    <value>Loading...</value>
+    <comment>Message displayed while loading</comment>
+  </data>
+  <data name="parametersTabTxt" xml:space="preserve">
+    <value>Parameters</value>
+    <comment>Label for parameters tab</comment>
+  </data>
+  <data name="sendingRequestTxt" xml:space="preserve">
+    <value>Sending request...</value>
+    <comment>Message displayed while sending a request</comment>
+  </data>
+  <data name="noRequestFound" xml:space="preserve">
+    <value>No Request Found</value>
+    <comment>Message displayed when no request is found</comment>
+  </data>
+  <data name="savedrequestMsgTxt" xml:space="preserve">
+    <value>Request saved successfully</value>
+    <comment>Confirmation message for saving a request</comment>
+  </data>
+  <data name="addFolder" xml:space="preserve">
+    <value>Add Folder</value>
+    <comment>Button to add a new folder</comment>
+  </data>
+  <data name="createFolderTxt" xml:space="preserve">
+    <value>Create folder</value>
+    <comment>Button to create a new folder</comment>
+  </data>
+  <data name="deleteMsgTxt" xml:space="preserve">
+    <value>Request deleted successfully</value>
+    <comment>Confirmation message for deleting a request</comment>
+  </data>
+  <data name="isPrivateCheckBox" xml:space="preserve">
+    <value>IsPrivate</value>
+    <comment>Checkbox to mark an item as private</comment>
+  </data>
+  <data name="requestTxt" xml:space="preserve">
+    <value>Requests</value>
+    <comment>Label for requests section</comment>
+  </data>
+  <data name="saveRequestTxt" xml:space="preserve">
+    <value>Save Request</value>
+    <comment>Button to save a request</comment>
+  </data>
+  <data name="searchRequestsTxt" xml:space="preserve">
+    <value>Search requests</value>
+    <comment>Label for search requests field</comment>
+  </data>
+  <data name="validationFolderMsg" xml:space="preserve">
+    <value>Please select folder</value>
+    <comment>Validation message for selecting a folder</comment>
+  </data>
+  <data name="validationODataMsgTxt" xml:space="preserve">
+    <value>Please enter OData endpoint url</value>
+    <comment>Validation message for entering OData endpoint URL</comment>
+  </data>
+  <data name="getStarted" xml:space="preserve">
+    <value>Get started</value>
+    <comment>Button to get started</comment>
+  </data>
+  <data name="recentRequests" xml:space="preserve">
+    <value>Recent requests</value>
+    <comment>Label for recent requests section</comment>
+  </data>
+  <data name="actionsAndFunctions" xml:space="preserve">
+    <value>Actions and functions</value>
+    <comment>Label for actions and functions section</comment>
+  </data>
+  <data name="actionsAndFunctionsSubTxt" xml:space="preserve">
+    <value>First party workflows to call</value>
+    <comment>Subtext explaining actions and functions</comment>
+  </data>
+  <data name="discoverSubtitle" xml:space="preserve">
+    <value>Explore the full potential of the Dataverse Web API by learning from the documentation.</value>
+    <comment>Subtitle for discovering the Dataverse Web API</comment>
+  </data>
+  <data name="discoverTitle" xml:space="preserve">
+    <value>Discover what's possible with the Dataverse Web API</value>
+    <comment>Title for discovering the Dataverse Web API</comment>
+  </data>
+  <data name="getStartedSubtitle" xml:space="preserve">
+    <value>Quickly send any type of request to the Dataverse Web API: Custom API, OData, or instant low code plugin.</value>
+    <comment>Subtitle for getting started with the Dataverse Web API</comment>
+  </data>
+  <data name="nameTxt" xml:space="preserve">
+    <value>Name</value>
+    <comment>Label for name field</comment>
+  </data>
+  <data name="newCustomAPIRequest" xml:space="preserve">
+    <value>New Custom API request</value>
+    <comment>Label for new custom API request</comment>
+  </data>
+  <data name="newODataRequest" xml:space="preserve">
+    <value>New OData request</value>
+    <comment>Label for new OData request</comment>
+  </data>
+  <data name="newPluginRequest" xml:space="preserve">
+    <value>New instant low code plugin request</value>
+    <comment>Label for new instant low code plugin request</comment>
+  </data>
+  <data name="queryData" xml:space="preserve">
+    <value>Query data</value>
+    <comment>Label for query data section</comment>
+  </data>
+  <data name="queryDataSubTxt" xml:space="preserve">
+    <value>How to retrieve data using OData syntax</value>
+    <comment>Subtext explaining how to retrieve data using OData syntax</comment>
+  </data>
+  <data name="saveRequest" xml:space="preserve">
+    <value>Save request</value>
+    <comment>Button to save a request</comment>
+  </data>
+  <data name="serviceDoc" xml:space="preserve">
+    <value>Read the service doc</value>
+    <comment>Button to read the service documentation</comment>
+  </data>
+  <data name="serviceDocSubTxt" xml:space="preserve">
+    <value>Overview of resources</value>
+    <comment>Subtext explaining the service documentation</comment>
+  </data>
+  <data name="thisEnvironment" xml:space="preserve">
+    <value>This environment</value>
+    <comment>Label for this environment section</comment>
+  </data>
+  <data name="chooseFolderTxt" xml:space="preserve">
+    <value>Choose folder</value>
+    <comment>Button to choose a folder</comment>
+  </data>
+  <data name="newFolder" xml:space="preserve">
+    <value>New folder</value>
+    <comment>Button to create a new folder</comment>
+  </data>
+  <data name="selectFolderTxt" xml:space="preserve">
+    <value>Select folder</value>
+    <comment>Button to select a folder</comment>
+  </data>
+  <data name="validationFolderCreateMsg" xml:space="preserve">
+    <value>Please enter folder name</value>
+    <comment>Validation message for entering a folder name</comment>
+  </data>
+  <data name="headersTxt" xml:space="preserve">
+    <value>Headers</value>
+    <comment>Label for headers field</comment>
+  </data>
+  <data name="sampleButton1Txt" xml:space="preserve">
+    <value>List 10 accounts names and revenue</value>
+    <comment>Button to list 10 account names and revenue</comment>
+  </data>
+  <data name="sampleButton2Txt" xml:space="preserve">
+    <value>Create an account</value>
+    <comment>Button to create an account</comment>
+  </data>
+  <data name="sampleButton3Txt" xml:space="preserve">
+    <value>List upcoming appointments ordered by date</value>
+    <comment>Button to list upcoming appointments ordered by date</comment>
+  </data>
+  <data name="selectHeadersTxt" xml:space="preserve">
+    <value>Select headers</value>
+    <comment>Button to select headers</comment>
+  </data>
+  <data name="editFolder" xml:space="preserve">
+    <value>Edit Folder</value>
+    <comment>Button to edit a folder</comment>
+  </data>
+  <data name="folders" xml:space="preserve">
+    <value>Folders</value>
+    <comment>Label for folders section</comment>
+  </data>
+  <data name="folderUpdateMsg" xml:space="preserve">
+    <value>Folder updated successfully</value>
+    <comment>Confirmation message for updating a folder</comment>
+  </data>
+  <data name="manageFolder" xml:space="preserve">
+    <value>Manage Folders</value>
+    <comment>Button to manage folders</comment>
+  </data>
+  <data name="folderDeletedTxt" xml:space="preserve">
+    <value>Folder deleted successfully</value>
+    <comment>Confirmation message for deleting a folder</comment>
+  </data>
+  <data name="createCustomAPI" xml:space="preserve">
+    <value>Create Custom API</value>
+    <comment>Button to create a custom API</comment>
+  </data>
+  <data name="createLowCodePlugin" xml:space="preserve">
+    <value>Create Low Code Instant Plugin</value>
+    <comment>Button to create a low code instant plugin</comment>
+  </data>
+  <data name="createODataRequet" xml:space="preserve">
+    <value>Create OData Request</value>
+    <comment>Button to create an OData request</comment>
+  </data>
+  <data name="deleteRequest" xml:space="preserve">
+    <value>Delete Request</value>
+    <comment>Button to delete a request</comment>
+  </data>
+  <data name="phEnterRequestName" xml:space="preserve">
+    <value>Enter request name</value>
+    <comment>Placeholder text for entering a request name</comment>
+  </data>
+  <data name="appName" xml:space="preserve">
+    <value>API playground</value>
+    <comment>Name of the application</comment>
+  </data>
+  <data name="howToUseTxt" xml:space="preserve">
+    <value>How to use this tool</value>
+    <comment>Label for instructions on how to use the tool</comment>
+  </data>
+  <data name="learnTxt" xml:space="preserve">
+    <value>Learn</value>
+    <comment>Button to learn more about a topic</comment>
+  </data>
+  <data name="parameterTxt" xml:space="preserve">
+    <value>Parameter</value>
+    <comment>Label for parameter field</comment>
+  </data>
+  <data name="addHeaderTxt" xml:space="preserve">
+    <value>Add Header</value>
+    <comment>Button to add a new header</comment>
+  </data>
+  <data name="sendRequest" xml:space="preserve">
+    <value>Send Request</value>
+    <comment>Button to send a request</comment>
+  </data>
+  <data name="actionsAndFunctions" xml:space="preserve">
+    <value>Actions and functions</value>
+    <comment>APIPlayGroundLoc.actionsAndFunctions</comment>
+  </data>
+  <data name="actionsAndFunctionsSubTxt" xml:space="preserve">
+    <value>First party workflows to call</value>
+    <comment>APIPlayGroundLoc.actionsAndFunctionsSubTxt</comment>
+  </data>
+  <data name="discoverSubtitle" xml:space="preserve">
+    <value>Explore the full potential of the Dataverse Web API by learning from the documentation.</value>
+    <comment>APIPlayGroundLoc.discoverSubtitle</comment>
+  </data>
+  <data name="discoverTitle" xml:space="preserve">
+    <value>Discover what's possible with the Dataverse Web API</value>
+    <comment>APIPlayGroundLoc.discoverTitle</comment>
+  </data>
+  <data name="getStartedSubtitle" xml:space="preserve">
+    <value>Quickly send any type of request to the Dataverse Web API: Custom API, OData, or instant low code plugin.</value>
+    <comment>APIPlayGroundLoc.getStartedSubtitle</comment>
+  </data>
+  <data name="nameTxt" xml:space="preserve">
+    <value>Name</value>
+    <comment>APIPlayGroundLoc.nameTxt</comment>
+  </data>
+  <data name="newCustomAPIRequest" xml:space="preserve">
+    <value>New Custom API request</value>
+    <comment>APIPlayGroundLoc.newCustomAPIRequest</comment>
+  </data>
+  <data name="newODataRequest" xml:space="preserve">
+    <value>New OData request</value>
+    <comment>APIPlayGroundLoc.newODataRequest</comment>
+  </data>
+  <data name="newPluginRequest" xml:space="preserve">
+    <value>New instant low code plugin request</value>
+    <comment>APIPlayGroundLoc.newPluginRequest</comment>
+  </data>
+  <data name="queryData" xml:space="preserve">
+    <value>Query data</value>
+    <comment>APIPlayGroundLoc.queryData</comment>
+  </data>
+  <data name="queryDataSubTxt" xml:space="preserve">
+    <value>How to retrieve data using OData syntax</value>
+    <comment>APIPlayGroundLoc.queryDataSubTxt</comment>
+  </data>
+  <data name="saveRequest" xml:space="preserve">
+    <value>Save request</value>
+    <comment>APIPlayGroundLoc.saveRequest</comment>
+  </data>
+  <data name="serviceDoc" xml:space="preserve">
+    <value>Read the service doc</value>
+    <comment>APIPlayGroundLoc.serviceDoc</comment>
+  </data>
+  <data name="serviceDocSubTxt" xml:space="preserve">
+    <value>Overview of resources</value>
+    <comment>APIPlayGroundLoc.serviceDocSubTxt</comment>
+  </data>
+  <data name="thisEnvironment" xml:space="preserve">
+    <value>This environment</value>
+    <comment>APIPlayGroundLoc.thisEnvironment</comment>
+  </data>
+  <data name="chooseFolderTxt" xml:space="preserve">
+    <value>Choose folder</value>
+    <comment>APIPlayGroundLoc.chooseFolderTxt</comment>
+  </data>
+  <data name="newFolder" xml:space="preserve">
+    <value>New folder</value>
+    <comment>APIPlayGroundLoc.newFolder</comment>
+  </data>
+  <data name="selectFolderTxt" xml:space="preserve">
+    <value>Select folder</value>
+    <comment>APIPlayGroundLoc.selectFolderTxt</comment>
+  </data>
+  <data name="validationFolderCreateMsg" xml:space="preserve">
+    <value>Please enter folder name</value>
+    <comment>APIPlayGroundLoc.validationFolderCreateMsg</comment>
+  </data>
+  <data name="headersTxt" xml:space="preserve">
+    <value>Headers</value>
+    <comment>APIPlayGroundLoc.headersTxt</comment>
+  </data>
+  <data name="sampleButton1Txt" xml:space="preserve">
+    <value>List 10 accounts names and revenue</value>
+    <comment>APIPlayGroundLoc.sampleButton1Txt</comment>
+  </data>
+  <data name="sampleButton2Txt" xml:space="preserve">
+    <value>Create an account</value>
+    <comment>APIPlayGroundLoc.sampleButton2Txt</comment>
+  </data>
+  <data name="sampleButton3Txt" xml:space="preserve">
+    <value>List upcoming appointments ordered by date</value>
+    <comment>APIPlayGroundLoc.sampleButton3Txt</comment>
+  </data>
+  <data name="selectHeadersTxt" xml:space="preserve">
+    <value>Select headers</value>
+    <comment>APIPlayGroundLoc.selectHeadersTxt</comment>
+  </data>
+  <data name="editFolder" xml:space="preserve">
+    <value>Edit Folder</value>
+    <comment>APIPlayGroundLoc.editFolder</comment>
+  </data>
+  <data name="folders" xml:space="preserve">
+    <value>Folders</value>
+    <comment>APIPlayGroundLoc.folderList</comment>
+  </data>
+  <data name="folderUpdateMsg" xml:space="preserve">
+    <value>Folder updated successfully</value>
+    <comment>APIPlayGroundLoc.folderUpdateMsg</comment>
+  </data>
+  <data name="manageFolder" xml:space="preserve">
+    <value>Manage Folders</value>
+    <comment>APIPlayGroundLoc.manageFolder</comment>
+  </data>
+  <data name="folderDeletedTxt" xml:space="preserve">
+    <value>Folder deleted successfully</value>
+    <comment>APIPlayGroundLoc.folderDeletedTxt</comment>
+  </data>
+  <data name="createCustomAPI" xml:space="preserve">
+    <value>Create Custom API</value>
+    <comment>APIPlayGroundLoc.createCustomAPI</comment>
+  </data>
+  <data name="createLowCodePlugin" xml:space="preserve">
+    <value>Create Low Code Instant Plugin</value>
+    <comment>APIPlayGroundLoc.createLowCodePlugin</comment>
+  </data>
+  <data name="createODataRequet" xml:space="preserve">
+    <value>Create OData Request</value>
+    <comment>APIPlayGroundLoc.createODataRequet</comment>
+  </data>
+  <data name="deleteRequest" xml:space="preserve">
+    <value>Delete Request</value>
+    <comment>APIPlayGroundLoc.deleteRequest</comment>
+  </data>
+  <data name="phEnterRequestName" xml:space="preserve">
+    <value>Enter request name</value>
+    <comment>APIPlayGroundLoc.phEnterRequestName</comment>
+  </data>
+  <data name="appName" xml:space="preserve">
+    <value>API playground</value>
+  </data>
+  <data name="howToUseTxt" xml:space="preserve">
+    <value>How to use this tool</value>
+  </data>
+  <data name="learnTxt" xml:space="preserve">
+    <value>Learn</value>
+  </data>
+  <data name="parameterTxt" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="addHeaderTxt" xml:space="preserve">
+    <value>Add Header</value>
+  </data>
+  <data name="sendRequest" xml:space="preserve">
+    <value>Send Request</value>
+  </data>
+</root>

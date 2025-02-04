@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{be4af45b-e214-48fd-a9ef-e218297847dd}</savedqueryid>
+    <layoutxml>
+      <grid name="msdyn_riskassessments" jump="msdyn_name" select="1" icon="1" preview="1">
+        <row name="msdyn_riskassessment" id="msdyn_riskassessmentid">
+          <cell name="msdyn_roleid" width="187" />
+          <cell name="msdyn_assessedrisklevel" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="msdyn_assessmentdate" width="137" />
+          <cell name="msdyn_totalcriticalrisk" width="144" />
+          <cell name="msdyn_totalhighrisk" width="130" />
+          <cell name="msdyn_totalmoderaterisk" width="155" />
+          <cell name="msdyn_totallowrisk" width="127" />
+          <cell name="msdyn_totalnorisk" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="msdyn_riskassessment">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="msdyn_assessmentdate" />
+          <attribute name="msdyn_roleid" />
+          <order attribute="msdyn_assessmentdate" descending="true" />
+          <attribute name="msdyn_totalcriticalrisk" />
+          <attribute name="msdyn_totalhighrisk" />
+          <attribute name="msdyn_totalmoderaterisk" />
+          <attribute name="msdyn_totallowrisk" />
+          <attribute name="msdyn_totalnorisk" />
+          <attribute name="msdyn_assessedrisklevel" />
+          <attribute name="msdyn_riskassessmentid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Risk Assessment Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

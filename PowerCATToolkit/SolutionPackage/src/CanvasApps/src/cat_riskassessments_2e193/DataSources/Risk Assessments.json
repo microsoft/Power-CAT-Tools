@@ -1,0 +1,192 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "msdyn_riskassessments",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "msdyn_riskassessment",
+    "MaxGetRowsCount": 2000,
+    "Name": "Risk Assessments",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msdyn_assessedrisklevel": "Assessed Risk Level",
+      "msdyn_assessmentdate": "Assessment Date",
+      "msdyn_assessmentlogjson": "Assessment Log JSON",
+      "msdyn_ExceptionApprovedBy": "Exception Approved By",
+      "msdyn_exceptionapprovedon": "Exception Approved On",
+      "msdyn_exceptionflagged": "Exception Flagged",
+      "msdyn_ExceptionFlaggedBy": "Exception Flagged By",
+      "msdyn_exceptionflaggedon": "Exception Flagged On",
+      "msdyn_exceptionreason": "Exception Reason",
+      "msdyn_isarchived": "Is Archived",
+      "msdyn_membercount": "Member Count",
+      "msdyn_name": "Request Number",
+      "msdyn_riskassessment_AsyncOperations": "System Jobs",
+      "msdyn_riskassessment_BulkDeleteFailures": "Bulk Delete Failures",
+      "msdyn_riskassessment_DuplicateBaseRecord": "Duplicate Records (msdyn_riskassessment_DuplicateBaseRecord)",
+      "msdyn_riskassessment_DuplicateMatchingRecord": "Duplicate Records (msdyn_riskassessment_DuplicateMatchingRecord)",
+      "msdyn_riskassessment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "msdyn_riskassessment_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "msdyn_riskassessment_ProcessSession": "Process Sessions",
+      "msdyn_riskassessment_SyncErrors": "Sync Errors",
+      "msdyn_riskassessmentid": "Risk Assessment",
+      "msdyn_RiskAssessmentSettingId": "Risk Assessment Setting",
+      "msdyn_RoleId": "Security Role",
+      "msdyn_tagbordercolorforstatusreason": "Tag Border Color For Status Reason",
+      "msdyn_tagcolorforassessedrisklevel": "Tag Color For Assessed Risk Level",
+      "msdyn_tagcolorforrisklevel": "Tag Color For Risk Level",
+      "msdyn_tagcolorforstatusreason": "Tag Color For Status Reason",
+      "msdyn_totalbulevelprivileges": "Total BU Level Privileges",
+      "msdyn_totalcriticalrisk": "Total Critical Risk",
+      "msdyn_totalhighrisk": "Total High Risk",
+      "msdyn_totallowrisk": "Total Low Risk",
+      "msdyn_totalmoderaterisk": "Total Moderate Risk",
+      "msdyn_totalnorisk": "Total No Risk",
+      "msdyn_totalorglevelprivileges": "Total Org Level Privileges",
+      "msdyn_totalpcbulevelprivileges": "Total PCBU Level Privileges",
+      "msdyn_totalprivileges": "Total Privileges",
+      "msdyn_totaluserlevelprivileges": "Total User Level Privileges",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Risk Assessments",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Risk Assessments (Views)",
+    "Name": "_msdyn_riskassessment_views",
+    "RelatedEntityName": "Risk Assessments",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "be4af45b-e214-48fd-a9ef-e218297847dd": "Risk Assessment Associated View",
+      "d47a23fd-1247-4907-ad68-913e528dc1af": "Inactive Risk Assessments",
+      "e48e84a4-e1e3-4654-90bc-36d884e82058": "Active Risk Assessments",
+      "ef26f85d-6226-4fc0-8601-82820bd9ece8": "Risk Assessment Lookup View",
+      "f2c3b79f-c648-ef11-a317-6045bdd63bf5": "All Risk Assessments",
+      "f9ea3588-468c-4fbf-b77c-229e5787edf4": "Risk Assessment Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Assessed Risk Level (Risk Assessments)",
+    "Name": "msdyn_riskassessment_msdyn_assessedrisklevel",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_assessedrisklevel",
+        "OptionSetReferenceEntityName": "Risk Assessments"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_assessedrisklevel",
+    "RelatedEntityName": "Risk Assessments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Exception Flagged (Risk Assessments)",
+    "Name": "msdyn_riskassessment_msdyn_exceptionflagged",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_exceptionflagged",
+        "OptionSetReferenceEntityName": "Risk Assessments"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_exceptionflagged",
+    "RelatedEntityName": "Risk Assessments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Archived (Risk Assessments)",
+    "Name": "msdyn_riskassessment_msdyn_isarchived",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_isarchived",
+        "OptionSetReferenceEntityName": "Risk Assessments"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_isarchived",
+    "RelatedEntityName": "Risk Assessments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Risk Assessments)",
+    "Name": "msdyn_riskassessment_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Risk Assessments"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Risk Assessments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Risk Assessments)",
+    "Name": "msdyn_riskassessment_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Pending",
+      "192350001": "Needs Review",
+      "192350002": "In Progress",
+      "192350003": "Compliant",
+      "192350004": "Exception",
+      "192350005": "Stale"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Risk Assessments"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Risk Assessments",
+    "Type": "OptionSetInfo"
+  }
+]

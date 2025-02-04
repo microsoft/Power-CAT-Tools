@@ -1,0 +1,50 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_cat_solutionreview_forms",
+      "Namespace": "Solution Reviews (Forms)",
+      "Values": {
+        "Information": "27fa9fa3-c92c-4e56-9b8c-ef807f11fe81"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_customer_forms",
+      "Namespace": "Customers (Forms)",
+      "Values": {
+        "Information": "491627d0-d6ac-4e0f-b941-ccff0e3ed7a2"
+      }
+    },
+    {
+      "Kind": "default.cds_solution_forms",
+      "Namespace": "Solutions (Forms)",
+      "Values": {
+        "Information": "75e0f489-3e68-11dd-81ce-00188b01dce6"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_docupilotdocumentgenerationrequest_forms",
+      "Namespace": "DocuPilot Document Generation Requests (Forms)",
+      "Values": {
+        "Information": "c47f7891-834f-4a8b-a45b-dfa4c7f1c94b"
+      }
+    },
+    {
+      "Kind": "default.cds_environmentvariabledefinition_forms",
+      "Namespace": "Environment Variable Definitions (Forms)",
+      "Values": {
+        "Information": "3853733b-a351-455d-b686-d2d05027ba4d"
+      }
+    }
+  ]
+}

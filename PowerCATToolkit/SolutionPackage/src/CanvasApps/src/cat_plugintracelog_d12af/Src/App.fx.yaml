@@ -1,0 +1,543 @@
+App As appinfo:
+    BackEnabled: =true
+    Formulas: |-
+        =// Main theme
+        AppTheme = {
+            palette: {
+                themePrimary: "#0078d4",
+                themeLighterAlt: "#eff6fc",
+                themeLighter: "#deecf9",
+                themeLight: "#c7e0f4",
+                themeTertiary: "#71afe5",
+                themeSecondary: "#2b88d8",
+                themeDarkAlt: "#106ebe",
+                themeDark: "#005a9e",
+                themeDarker: "#004578",
+                neutralLighterAlt: "#faf9f8",
+                neutralLighter: "#f3f2f1",
+                neutralLight: "#edebe9",
+                neutralQuaternaryAlt: "#e1dfdd",
+                neutralQuaternary: "#d0d0d0",
+                neutralTertiaryAlt: "#c8c6c4",
+                neutralTertiary: "#a19f9d",
+                neutralSecondary: "#605e5c",
+                neutralPrimaryAlt: "#3b3a39",
+                neutralPrimary: "#323130",
+                neutralDark: "#201f1e",
+                black: "#000000",
+                white: "#ffffff"
+            }
+        };
+        // Searchbox theme
+        SearchBoxTheme = {
+            palette: {
+                themePrimary: ColorValue("#0078d4"),
+                themeLighterAlt: ColorValue("#eff6fc"),
+                themeLighter: ColorValue("#deecf9"),
+                themeLight: ColorValue("#c7e0f4"),
+                themeTertiary: ColorValue("#71afe5"),
+                themeSecondary: ColorValue("#2b88d8"),
+                themeDarkAlt: ColorValue("#106ebe"),
+                themeDark: ColorValue("#005a9e"),
+                themeDarker: ColorValue("#004578"),
+                neutralLighterAlt: ColorValue("#faf9f8"),
+                neutralLighter: ColorValue("#f3f2f1"),
+                neutralLight: ColorValue("#edebe9"),
+                neutralQuaternaryAlt: ColorValue("#e1dfdd"),
+                neutralQuaternary: ColorValue("#d0d0d0"),
+                neutralTertiaryAlt: ColorValue("#c8c6c4"),
+                neutralTertiary: ColorValue("#a19f9d"),
+                neutralSecondary: ColorValue("#605e5c"),
+                neutralPrimaryAlt: ColorValue("#3b3a39"),
+                neutralPrimary: ColorValue("#323130"),
+                neutralDark: ColorValue("#201f1e"),
+                black: ColorValue("#000000"),
+                white: ColorValue("#f3f2f1")
+            }
+        };
+        // Neutral theme
+        AppThemeAlt = {
+            palette: {
+                themePrimary: "#0074cc",
+                themeLighterAlt: "#f3f9fd",
+                themeLighter: "#cfe6f7",
+                themeLight: "#a8d1f0",
+                themeTertiary: "#5aa6e0",
+                themeSecondary: "#1982d2",
+                themeDarkAlt: "#0068b8",
+                themeDark: "#00589b",
+                themeDarker: "#004172",
+                neutralLighterAlt: "#f3f3f3",
+                neutralLighter: "#efefef",
+                neutralLight: "#e5e5e5",
+                neutralQuaternaryAlt: "#d6d6d6",
+                neutralQuaternary: "#cccccc",
+                neutralTertiaryAlt: "#c4c4c4",
+                neutralTertiary: "#a19f9d",
+                neutralSecondary: "#605e5c",
+                neutralPrimaryAlt: "#3b3a39",
+                neutralPrimary: "#323130",
+                neutralDark: "#201f1e",
+                black: "#000000",
+                white: "#fafafa"
+            }
+        };
+        // Neutral theme (connectors pane)
+        AppThemeNeutral = {
+            palette: {
+                themePrimary: "#000000",
+                themeLighterAlt: "#898989",
+                themeLighter: "#737373",
+                themeLight: "#595959",
+                themeTertiary: "#373737",
+                themeSecondary: "#2f2f2f",
+                themeDarkAlt: "#252525",
+                themeDark: "#151515",
+                themeDarker: "#0b0b0b",
+                neutralLighterAlt: "#faf9f8",
+                neutralLighter: "#f3f2f1",
+                neutralLight: "#edebe9",
+                neutralQuaternaryAlt: "#e1dfdd",
+                neutralQuaternary: "#d0d0d0",
+                neutralTertiaryAlt: "#c8c6c4",
+                neutralTertiary: "#595959",
+                neutralSecondary: "#373737",
+                neutralPrimaryAlt: "#2f2f2f",
+                neutralPrimary: "#000000",
+                neutralDark: "#151515",
+                black: "#0b0b0b",
+                white: "#ffffff"
+            }
+        };
+        LogResults1 = SortByColumns(
+            RenameColumns(
+                Search(
+                    Filter(
+                        AddColumns(
+                            'Plug-in Trace Logs',
+                            CreatedBy,
+                            'Created By (Delegate) (createdby)',
+        
+                            Status,
+                            If(
+                                IsBlank(ThisRecord.'Exception Details'),
+                                "Success",
+                                "Failed"
+                            ),
+                            
+                            TagColor,
+                            If(
+                                !IsBlank(ThisRecord.'Exception Details'),
+                                "#FDF6F6",// Failure background fill 
+                                "#F1FAF1"// Success background fill
+                            ),
+        
+                            TagBorderColor,
+                            If(
+                                !IsBlank(ThisRecord.'Exception Details'),
+                                "#F1BBBC",// Failure stroke
+                                "#9FD89F"// Success stroke 
+                            )
+                         ,
+                            Type,
+                            If(
+                                IsBlank(
+                                    LookUp(
+                                        'Sdk Message Processing Steps',
+                                        ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
+                                        fxexpressionid
+                                    )
+                                ),
+                                If(
+                                    LookUp(
+                                        'Sdk Message Processing Steps',
+                                        ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
+                                        'Execution Stage'
+                                    ) = 30,
+                                    PluginMonitorLoc.radioCustomApiTxt,
+                                    PluginMonitorLoc.radioPluginTxt
+                                ),
+                                If(
+                                    LookUp(
+                                        'Sdk Message Processing Steps',
+                                        ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
+                                        'Execution Stage'
+                                    ) = 30,
+                                    PluginMonitorLoc.radioInstantTxt,
+                                    PluginMonitorLoc.radioAutomatedTxt
+                                )
+                            ),
+                            Duration,
+                            performanceexecutionduration & " ms",
+                            StartTime,
+                            Text(
+                                performanceexecutionstarttime,
+                                "dd/mm/yyy hh:mm AM/PM"
+                            )
+                        ),
+        
+                        /* Min/max duration filter */
+                        (If(
+                            SetMaxDuration,
+                            'Execution Duration' >= spnDurationMin.Value && 'Execution Duration' <= spnDurationMax.Value,
+                            'Execution Duration' >= spnDurationMin.Value
+                        )),
+        
+                        /* Run start datetime filter */
+                        (ThisRecord.'Execution Start Time' >= ddStartTime.Selected.DateTime || IsBlank(ddStartTime.Selected) ),
+                        (ThisRecord.'Execution Start Time' <= ddEndTime.Selected.DateTime || IsBlank(ddEndTime.Selected)),
+        
+                        /* Mode filter */
+                        (Mode=TraceLog_ModeRadioGroup.Selected.Value||TraceLog_ModeRadioGroup.Selected.Value=3),
+        
+                        //(Text(Mode) = TraceLog_ModeRadioGroup.Selected.Value || TraceLog_ModeRadioGroup.Selected.Value = "All"),
+        
+                        /* Type filter */
+                        (Type = Text(TraceLog_TypeRadioGroup.Selected.Value) || TraceLog_TypeRadioGroup.Selected.Value = "All"),
+        
+                        /* Message name filter */
+                        ('Message Name' = TraceLog_NameDropdown.Selected.Value || TraceLog_NameDropdown.Selected.Value = "All"),
+        
+                        /* Status filter */
+                        (Status = If(
+                            TraceLog_ExceptionToggleButton.Checked,
+                            "Failed",
+                            "Success"
+                        ) || TraceLog_ExceptionToggleButton.Checked = false)
+                    ),
+        
+                    /* Keyword search filter */
+                    If(
+                        IsBlank(SearchInput.Value),
+                        TraceLog_KeywordInput.Value,
+                        SearchInput.Value
+                    ),
+                    messagename,
+                    messageblock,
+                    exceptiondetails,
+                    typename,
+                    Type
+                ),
+                messagename,messagename,
+                typename,typename,
+                messageblock,messageblock,
+                createdon,createdon,
+                performanceexecutionduration,performanceexecutionduration,
+                configuration,configuration,
+                correlationid,correlationid,
+                depth,depth,
+                mode,mode,
+                operationtype,operationtype,
+                organizationid,organizationid,
+                primaryentity,primaryentity,
+                performanceexecutionstarttime,performanceexecutionstarttime,
+                persistencekey,persistencekey,
+                requestid,requestid,
+                pluginstepid,pluginstepid,
+                plugintracelogid,plugintracelogid,
+                secureconfiguration,secureconfiguration,
+                profile,profile,
+                exceptiondetails,exceptiondetails,
+                performanceconstructorduration,performanceconstructorduration
+            ),
+            "performanceexecutionstarttime",
+            SortOrder.Descending
+        );
+        TotalRecords = CountRows(LogResults1);
+        
+        TotalCount = CountRows( 
+            Search(
+                Filter(
+                    'Plug-in Trace Logs',
+                    ('performanceexecutionduration' <= spnDurationMin.Value || spnDurationMin.Value = 0),
+                    ((performanceconstructorstarttime >= ddStartTime.Selected.DateTime || IsBlank(ddStartTime.Selected)) && ('performanceconstructorstarttime' <= ddEndTime.Selected.DateTime || ddEndTime.Selected.DateTime = Blank())),
+                    ('messagename' = TraceLog_NameDropdown.Selected.Value || TraceLog_NameDropdown.Selected.Value = "All"),
+                    ((ThisRecord.'Exception Details' <> "") = TraceLog_ExceptionToggleButton.Checked || !TraceLog_ExceptionToggleButton.Checked),
+                    (Mode=TraceLog_ModeRadioGroup.Selected.Value||TraceLog_ModeRadioGroup.Selected.Value=3)
+                ),
+                If(
+                    IsBlank(SearchInput.Value),
+                    TraceLog_KeywordInput.Value,
+                    SearchInput.Value
+                ),
+                messagename,
+                messageblock,
+                exceptiondetails,
+                typename
+            )
+        );
+        
+        
+        // Lock layout container values
+        FlexOff = 0;
+        FlexOn = 1;
+        
+        //* Log filtering logic *//
+        TEXT_ALL = PluginMonitorLoc.radioAllTxt;
+        
+        /* Responsive values */
+        margin = App.ActiveScreen.Width * 0.03;
+        
+        /* Mode filter radio items */
+        modes=Table({
+            DisplayName:PluginMonitorLoc.radioAllTxt,
+            Value:3
+        },{
+            DisplayName:PluginMonitorLoc.radioSynchronousTxt,
+            Value:0
+        },{
+            DisplayName:PluginMonitorLoc.radioAsynchronousTxt,
+            Value:1
+        });
+        
+        /* Type filter radio items */
+        Types=Table({
+            DisplayName:PluginMonitorLoc.radioAllTxt,
+            Value:0
+        },{
+            DisplayName:PluginMonitorLoc.radioInstantTxt,
+            Value:1
+        },{
+            DisplayName:PluginMonitorLoc.radioAutomatedTxt,
+            Value:2
+        },{
+            DisplayName:PluginMonitorLoc.radioPluginTxt,
+            Value:3
+        },{
+            DisplayName:PluginMonitorLoc.radioCustomApiTxt,
+            Value:4
+        });
+        
+        runs = Sort('Plug-in Trace Logs','Execution Start Time',SortOrder.Ascending);
+        
+        /* Calculates olders runtime option for filter*/
+        oldestRun = With({ d: First(runs).'Execution Start Time' }, DateTime( Year(d), Month(d), Day(d), Hour(d), 0, 0 )); 
+        
+        /* Calculates newest runtime option for filter */
+        latestRun = With({ d: Last(runs).'Execution Start Time'}, With({ rnd: Mod(Minute(d),60) < 15, m: RoundUp(Minute(d)/15,0) * 15 }, 
+            DateTime( Year(d), Month(d), Day(d), If( rnd, Hour(d)+1, Hour(d)), If(rnd, 0, m), 0)
+        ));
+        
+        /* Step between time intervals */
+        intSize = 30;
+        
+        /* All possible start datetime intervals for filter */
+        runDates = With({ 
+                numDateOptions: RoundUp(DateDiff(oldestRun, latestRun, TimeUnit.Minutes)/intSize, 0)
+            },
+            ForAll(Sequence(numDateOptions), With({ dt: DateAdd(latestRun,-((ThisRecord.Value-1) * intSize),TimeUnit.Minutes) },
+            {
+                DateTime: dt,
+                DisplayDateTime: Text(dt,"dd mmm yyyy, hh:mm AM/PM")
+            }))
+        );
+        
+        /* Filtered datetime intervals for 'starts before' filter */
+        endDates = Filter(runDates, DateTime > ddStartTime.Selected.DateTime);
+        
+        
+        
+        /* OLD */
+        
+        /*LogResults = Search(
+            Filter(PluginTraceLogs,
+            /* Type (radio) 
+                ThisRecord.Type = TraceLog_TypeRadioGroup.Selected.Value || TraceLog_TypeRadioGroup.Selected.Value = TEXT_ALL,*/ 
+        /* Mode (radio) 
+                Text(ThisRecord.Mode) = TraceLog_ModeRadioGroup.Selected.Value || TraceLog_ModeRadioGroup.Selected.Value=TEXT_ALL,*/
+        /* ID (dropdown) 
+                ThisRecord.'Message Name' = TraceLog_NameDropdown.Selected.Value || TraceLog_NameDropdown.Selected.Value=TEXT_ALL,*/
+        /* Duration (less than a slider value) 
+                ThisRecord.'Execution Duration' <= TraceLog_Duration.Value,*/
+        /* Exceptions 
+                (!IsBlank(ThisRecord.'Exception Details') && TraceLog_ExceptionToggleButton.Checked) || !TraceLog_ExceptionToggleButton.Checked
+            ),
+            If(IsBlank(SearchInput.Value),TraceLog_KeywordInput.Value,SearchInput.Value),
+            "messagename",
+            "messageblock",
+            "exceptiondetails",
+            "typename",
+            "Type");*/
+        
+        Org = LookUp(Organizations, 'Organization Name' = First(Organizations).'Organization Name');
+        
+        LogSetting = First(Organizations).'Plug-in Trace Log Setting';
+    OnStart: |
+        =Set(init, false);
+        // THEMING INFO: DO NOT REMOVE
+        Set(AppThemeJson, JSON(AppTheme));
+        Set(AppThemeAltJson,JSON(AppThemeAlt));
+        Set(AppThemeNeutralJson,JSON(AppThemeNeutral));
+        
+        //* App settings & variables *//
+        Set(showHideDebugContainer,true);
+        Set(showHideContextContainer,false);
+        Set(showHideSettingContainer,true);
+        Set(showHideDetailListContainer,false);
+        Set(showHideLoggingOffContainer,false);
+        //Set(LogSetting,First(Organizations).'Plug-in Trace Log Setting');
+        
+        /* Create collection for Plugin Trace Logs 
+        ClearCollect(
+            PluginTraceLogs,
+            RenameColumns(
+                AddColumns(
+                    'Plug-in Trace Logs',
+                    "CreatedBy",
+                    'Created By (Delegate) (createdby)',
+                    "Status",
+                    If(
+                        IsBlank(ThisRecord.'Exception Details'),
+                        "Success",
+                        "Failed"
+                    ),
+                    "TagColor",
+                    If(
+                        !IsBlank(ThisRecord.'Exception Details'),
+                        "rgb(255, 0, 0)",
+                        "rgb(5, 122, 52)"
+                    ),
+                    "TagBorderColor",
+                    If(
+                        !IsBlank(ThisRecord.'Exception Details'),
+                        "rgb(255, 0, 0)",
+                        "rgb(5, 122, 52)"
+                    ),
+                    "Type",
+                    If(
+                        IsBlank(
+                            LookUp(
+                                'Sdk Message Processing Steps',
+                                ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
+                                fxexpressionid
+                            )
+                        ),
+                        If(
+                            LookUp(
+                                'Sdk Message Processing Steps',
+                                ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
+                                'Execution Stage'
+                            ) = 30,
+                            PluginMonitorLoc.radioCustomApiTxt,
+                            PluginMonitorLoc.radioPluginTxt
+                        ),
+                        If(
+                            LookUp(
+                                'Sdk Message Processing Steps',
+                                ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
+                                'Execution Stage'
+                            ) = 30,
+                            PluginMonitorLoc.radioInstantTxt,
+                            PluginMonitorLoc.radioAutomatedTxt
+                        )
+                    ),
+                    "Duration",
+                    'Execution Duration' & " ms",
+                    "StartTime",
+                    Text(
+                        'Constructor Start Time',
+                        "dd/mm/yyy hh:mm AM/PM"
+                    )
+                ),
+                "messagename",
+                "messagename",
+                "typename",
+                "typename",
+                "messageblock",
+                "messageblock",
+                "createdon",
+                "createdon",
+                "performanceexecutionduration",
+                "performanceexecutionduration",
+                "configuration",
+                "configuration",
+                "correlationid",
+                "correlationid",
+                "depth",
+                "depth",
+                "mode",
+                "mode",
+                "operationtype",
+                "operationtype",
+                "organizationid",
+                "organizationid",
+                "primaryentity",
+                "primaryentity",
+                "performanceexecutionstarttime",
+                "performanceexecutionstarttime",
+                "persistencekey",
+                "persistencekey",
+                "requestid",
+                "requestid",
+                "pluginstepid",
+                "pluginstepid",
+                "plugintracelogid",
+                "plugintracelogid",
+                "secureconfiguration",
+                "secureconfiguration",
+                "profile",
+                "profile",
+                "exceptiondetails",
+                "exceptiondetails",
+                "performanceconstructorduration",
+                "performanceconstructorduration"
+            )
+        );
+        
+        */
+        
+        //Collection for check user have system admin permission or not
+        ClearCollect(
+            UserRoles,
+            LookUp(LookUp(Users,'User Name'=User().Email).'Security Roles (systemuserroles_association)',Name="System Administrator")
+        );
+        
+        
+        //Set(TotalRecords, CountRows(LogResults1));
+        Set(IsAdmin,!IsBlank(UserRoles) && CountRows(UserRoles)>=1);
+        
+        /* Controls */
+        
+        ClearCollect(LogScreenCommandBarItems, Table(
+            {
+                ItemKey: "logsettings",
+                ItemDisplayName: PluginMonitorLoc.headingLogSetting,
+                ItemIconName: "settings"
+            },
+            {
+                ItemKey: "refresh",
+                ItemDisplayName: PluginMonitorLoc.refreshTxt,
+                ItemIconName: "Refresh"
+            },
+            {
+                ItemKey: "learn",
+                ItemDisplayName: If(App.ActiveScreen.Size > ScreenSize.Small,PluginMonitorLoc.learnMoreTxt),
+                ItemIconName: "info",
+                ItemHeader:true,
+                ItemFarItem:true
+            },{
+                ItemKey: "filter",
+                ItemDisplayName: If(App.ActiveScreen.Size > ScreenSize.Small,PluginMonitorLoc.lblFilters),
+                ItemIconName: "Filter",
+                ItemHeader:true,
+                ItemFarItem:true
+            }
+        ));
+        
+        Set(init, true);
+    StartScreen: |+
+        =If(
+            First(Organizations).'Plug-in Trace Log Setting' = 0,
+            LoggingOffScreen,
+            TraceLogScreen
+        )
+        
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

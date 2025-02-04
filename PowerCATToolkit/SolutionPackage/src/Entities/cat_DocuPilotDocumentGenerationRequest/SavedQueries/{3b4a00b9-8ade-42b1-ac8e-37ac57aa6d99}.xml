@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3b4a00b9-8ade-42b1-ac8e-37ac57aa6d99}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cat_requestnumber" select="1" icon="1" preview="1">
+        <row name="result" id="cat_docupilotdocumentgenerationrequestid">
+          <cell name="cat_requestnumber" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_docupilotdocumentgenerationrequest">
+          <attribute name="cat_docupilotdocumentgenerationrequestid" />
+          <attribute name="cat_requestnumber" />
+          <attribute name="createdon" />
+          <order attribute="cat_requestnumber" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cat_requestnumber" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active DocuPilot Document Generation Requests" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

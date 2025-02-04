@@ -1,0 +1,1389 @@
+SettingsLandingScreen As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |
+        =/* Load data for this page while spinner is loading */
+        If(
+            init <> true,
+            UpdateContext({pageTitle: DVAssessmentPageLoc.settings});
+            UpdateContext({init: true});
+            
+        );
+
+    cAppFrame_5 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingRight: =Self.PaddingLeft
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        cTopNav_6 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =ColorValue(AppTheme.palette.neutralLighter)
+            FillPortions: =FlexOff
+            Height: =60
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =24
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingRight: =20
+            ZIndex: =1
+
+            "AutoWidthLabel1_8 As 'Auto Width Label (1.1.39)'":
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =18
+                FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
+                FontWeight: ="600"
+                Height: =24
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                Text: =_featureName
+                Tooltip: ="AutoWidthLabel_Desc"
+                Width: =Self.AutoWidth
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            "TabList1_6 As 'Tab list'.pcfdataset":
+                DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =FlexOn
+                Height: =55
+                Items: =Nav
+                LayoutMinHeight: =55
+                LayoutMinWidth: =280
+                OnChange: =Navigate(Self.Selected.Screen);
+                Width: =280
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                DisplayName1_6 As PowerApps_CoreControls_TabListTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="DisplayName"
+                    FieldName: ="DisplayName"
+                    FieldType: ="s"
+                    Order: =1
+                    ZIndex: =1
+
+            Container11_7 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =
+                BorderStyle: =BorderStyle.None
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =8
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                "LearnIcon_1 As 'Fluent Icon (1.1.39)'":
+                    AccessibilityLabel: =DVAssessmentPageLoc.learnButtonText
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#424242"
+                    Height: =Parent.Height
+                    HoverFillColor: =AppTheme.palette.neutralLight
+                    HoverFontColor: |-
+                        ="#424242"
+                    HoverIconColor: |-
+                        ="#424242"
+                    IconColor: |-
+                        ="#424242"
+                    IconName: ="BookAnswers"
+                    IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |-
+                        =Launch(
+                            "https://aka.ms/dvacc/riskassess",
+                            {},
+                            LaunchTarget.New
+                        )
+                    Tooltip: =DVAssessmentPageLoc.learnButtonText
+                    Width: =32
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                "QuestionIcon_1 As 'Fluent Icon (1.1.39)'":
+                    AccessibilityLabel: =DVAssessmentPageLoc.helpButtonText
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#424242"
+                    Height: =Parent.Height
+                    HoverFillColor: =AppTheme.palette.neutralLight
+                    HoverFontColor: |-
+                        ="#424242"
+                    HoverIconColor: |-
+                        ="#424242"
+                    IconColor: |-
+                        ="#424242"
+                    IconName: ="StatusCircleQuestionMark"
+                    IconSize: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |-
+                        =Launch(
+                            "https://aka.ms/dvacc/riskassess/help",
+                            {},
+                            LaunchTarget.New
+                        )
+                    Tooltip: =DVAssessmentPageLoc.helpButtonText
+                    Width: =32
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                "BugIcon_1 As 'Fluent Icon (1.1.39)'":
+                    AccessibilityLabel: ="Report a bug"
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: |-
+                        ="#424242"
+                    Height: =Parent.Height
+                    HoverFillColor: =AppTheme.palette.neutralLight
+                    HoverFontColor: |-
+                        ="#424242"
+                    HoverIconColor: |-
+                        ="#424242"
+                    IconColor: |-
+                        ="#424242"
+                    IconName: ="Bug"
+                    IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: |-
+                        =Launch(
+                            "https://aka.ms/dvacc/riskassess/bug",
+                            {},
+                            LaunchTarget.New
+                        )
+                    Tooltip: ="Report a bug"
+                    Width: =32
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+        cScreenContainer_3 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingLeft: =Margins
+            PaddingRight: =Margins
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =2
+
+            cPageHeaderMain_6 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                FillPortions: =0
+                Height: =div_10.Y + 1
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =4
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =If(Self.X = 0, Margins, 0)
+                PaddingRight: =Self.PaddingLeft
+                PaddingTop: =16
+                Width: =Parent.Width - Margins
+                X: =92
+                Y: =40
+                ZIndex: =1
+
+                cPageHeaderTop_6 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =FlexOff
+                    Height: =75
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =1042
+                    X: =68
+                    Y: =52
+                    ZIndex: =1
+
+                    cPageHeaderTitle_8 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =FlexOn
+                        Height: =cHeaderText_11.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =16
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =431
+                        X: =36
+                        Y: =40
+                        ZIndex: =1
+
+                        ButtonCanvas4_11 As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="ArrowLeft"
+                            Layout: ='ButtonCanvas.Layout'.IconOnly
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: =Back()
+                            Text: =
+                            Visible: =true
+                            Width: =32
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        cHeaderText_11 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =rDivider_PageHeader_11.Y
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutGap: =4
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width - Self.X
+                            X: =1-1
+                            Y: =1-1 
+                            ZIndex: =2
+
+                            h2Title_11 As Text:
+                                Align: ='TextCanvas.Align'.Start
+                                AlignInContainer: =AlignInContainer.Start
+                                DisplayMode: =DisplayMode.Edit
+                                Font: =Font.'Segoe UI'
+                                Height: =36
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =20
+                                Text: =pageTitle
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.Width - Self.X * 2
+                                X: =394.49
+                                Y: =0
+                                ZIndex: =1
+
+                            Label3_13 As label:
+                                AlignInContainer: =AlignInContainer.Start
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 18, 107, 1)
+                                Color: |-
+                                    =ColorValue("#424242")
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =Font.'Segoe UI'
+                                LineHeight: =1.4
+                                PaddingBottom: =0
+                                PaddingLeft: =0
+                                PaddingRight: =0
+                                PaddingTop: =0
+                                Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                Text: ="Define your risk tolerance and how often assessment scans run on roles in this environment."
+                                VerticalAlign: =VerticalAlign.Top
+                                Visible: =!IsBlank(Self.Text)
+                                Width: =Min(600, Parent.Width)
+                                X: =394.49
+                                ZIndex: =2
+
+                            rDivider_PageHeader_11 As rectangle:
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Fill: =RGBA(0,0,0,0)
+                                Height: =1
+                                Width: =Parent.Width - Self.X * 2
+                                X: =72
+                                Y: =52
+                                ZIndex: =3
+
+                    tlbRight_14 As Toolbar.pcfdataset:
+                        AccessibleLabel: ="Toolbar"
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =44
+                        Items: |-
+                            =Table({ItemKey:"1",ItemDisplayName:"",ItemIconName:"Circle",ItemAppearance:"Subtle",ItemIconStyle:"Subtle",ItemTooltip:"Action"},{ItemKey:"2",ItemDisplayName:"",ItemIconName:"Circle",ItemAppearance:"Subtle",ItemIconStyle:"Subtle"},{ItemKey:"3",ItemDisplayName:"",ItemIconName:"Circle",ItemDisabled: false ,ItemAppearance:"Subtle"})
+                        LayoutMinHeight: =55
+                        LayoutMinWidth: =280
+                        OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'new' */"new",Notify("New clicked"),/* Action for 'edit' */"edit",Notify("Edit clicked"),/* Action for 'delete' */ "delete",Notify("Delete clicked"),/* Action for 'info' */ "info",Notify("Info clicked"), /* Default action */  Notify("Unrecognized button clicked"))
+                        Visible: =false
+                        Width: =200
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                div_10 As rectangle:
+                    AlignInContainer: =AlignStart
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Fill: =ColorValue(AppTheme.palette.neutralLight)
+                    Height: =1
+                    Width: =Parent.Width - Self.X * 2
+                    X: =84
+                    Y: =256
+                    ZIndex: =2
+
+            cBuffer_6 As groupContainer.manualLayoutContainer:
+                FillPortions: =FlexOff
+                Height: =16
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =2
+
+            Container2_2 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
+                Height: =Max(cBufferHub_2.Y + cBufferHub_2.Height, Parent.Height-Self.Y)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =16
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =2
+                PaddingRight: =2
+                Width: =Parent.Width - Margins
+                ZIndex: =3
+
+                MainContainer1_4 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    Fill: =RGBA(0, 0, 0, 0)//RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: =Max(div_15.Y, 120)
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =5
+                    PaddingTop: =5
+                    Width: =Parent.Width - Self.X * 2
+                    ZIndex: =1
+
+                    cGetStartedPane As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(209, 209, 209, 1)
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: |-
+                            =If(
+                                SettingsLandingScreen.Size = 1 || (SettingsLandingScreen.Size = 2 && SettingsLandingScreen.Orientation = Layout.Horizontal && SettingsLandingScreen.Width <= 800),
+                                cSetupLeft.Height + cSetupRight.Height + 60,
+                                Max(
+                                    cSetupLeft.Height,
+                                    cSetupRight.Height
+                                )+20
+                            )
+                        LayoutGap: =24
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        LayoutWrap: =true
+                        PaddingBottom: =16
+                        PaddingLeft: =24
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Visible: =showSettingsSetupCard <> false
+                        Width: =Parent.Width-10//AssessmentSettingsListContainer.Width
+                        ZIndex: =1
+
+                        Container29 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            Height: =cSetupLeft.Height
+                            LayoutGap: =16
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =1
+
+                            Image3 As image:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                Height: =46
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Image: ='Task List Square Settings'
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Width: =46
+                                ZIndex: =1
+
+                            cSetupLeft As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                Height: =SetupRiskAssessmentSettingsText.Height + ReviewandUpdateAssessmentSettingsText.Height + btnManageAssessmentSettings.Height
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                ZIndex: =2
+
+                                Container16 As groupContainer.horizontalAutoLayoutContainer:
+                                    BorderColor: =
+                                    BorderStyle: =BorderStyle.None
+                                    FillPortions: =0
+                                    Height: =SetupRiskAssessmentSettingsText.Height
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =250
+                                    LayoutMode: =LayoutMode.Auto
+                                    ZIndex: =1
+
+                                    SetupRiskAssessmentSettingsText As Text:
+                                        DisplayMode: =DisplayMode.Edit
+                                        FillPortions: =FlexOff
+                                        Font: =Font.'Segoe UI'
+                                        Height: |-
+                                            =If(
+                                                SettingsLandingScreen.Size = 1 || SettingsLandingScreen.Size = 2,
+                                                58,
+                                                32
+                                            )
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =96
+                                        Size: =20
+                                        Text: ="Set up your assessment settings"
+                                        Weight: ='TextCanvas.Weight'.Semibold
+                                        Width: =300
+                                        X: =0
+                                        Y: =0
+                                        ZIndex: =1
+
+                                    "InfoButton_Settings As 'Information button'":
+                                        Content: ="Click manage to review and update the risk ratings for each security role access level in the default profile, which is used to assess the risk of a security role during scans."
+                                        DisplayMode: =DisplayMode.Edit
+                                        Height: =24
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =32
+                                        Width: =22
+                                        X: =0
+                                        Y: =0
+                                        ZIndex: =2
+
+                                ReviewandUpdateAssessmentSettingsText As Label:
+                                    AutoHeight: =true
+                                    DisplayMode: =DisplayMode.Edit
+                                    FontSize: =12 * 0.725
+                                    Height: =32
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =320
+                                    OnChange: =false
+                                    Text: ="Review and update your risk assessment settings profile before scanning."
+                                    Width: =Parent.Width-20
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                                btnManageAssessmentSettings As Button:
+                                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                    DisplayMode: =DisplayMode.Edit
+                                    Height: =32
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: |-
+                                        =Set(currentSelectedAssessmentSetting,DefaultRiskAssessmentSetting);
+                                        Navigate(EditSettingsScreen);
+                                    Text: ="Review default "
+                                    Width: =120
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =3
+
+                        Rectangle3_3 As rectangle:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Fill: =ColorValue(AppTheme.palette.neutralLight)
+                            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                            Height: =Parent.Height - 48
+                            Visible: |-
+                                =If(
+                                    SettingsLandingScreen.Size = 1 || (SettingsLandingScreen.Size = 2 && SettingsLandingScreen.Orientation = Layout.Horizontal && SettingsLandingScreen.Width <= 800),
+                                    false,
+                                    true
+                                )
+                            Width: =1
+                            ZIndex: =2
+
+                        cSetupRight As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            Height: =ReadyToScanText.Height + AutoScanningText.Height + Container32.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =3
+
+                            ReadyToScanText As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =32
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                Size: =20
+                                Text: =If(AutoScanEnvVar.Value = "yes", "Auto scanning enabled", "Ready to scan?")
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.Width
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                            AutoScanningText As Label:
+                                AutoHeight: =true
+                                DisplayMode: =DisplayMode.Edit
+                                FontSize: =12 * 0.725
+                                Height: =32
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =320
+                                OnChange: =false
+                                Text: =If( AutoScanEnvVar.Value = "yes", "Auto scanning is enabled; every role change triggers a new scan and updates the assessment results for that role.", "Scan all roles once, or enable auto scanning for continuous evaluation whenever changes are made to security roles.")
+                                VerticalAlignment: =VerticalAlign.Top
+                                Width: =Parent.Width-20
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                            Container32 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.Start
+                                FillPortions: =0
+                                Height: |-
+                                    =If(
+                                        SettingsLandingScreen.Size = 1,
+                                        btnScanAllRoles_SettingScreen.Height+btnEnableAutoScan_SettingsScreen.Height+10,
+                                        44
+                                    )
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =8//If(AutoScanEnvVar.Value <> "yes", 8)
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                LayoutWrap: =true
+                                Width: =Parent.Width-20
+                                ZIndex: =3
+
+                                btnScanAllRoles_SettingScreen As Button:
+                                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                    BasePaletteColor: =
+                                    DisplayMode: =If(CountRows(RetrieveAssessableSecurityRoles)>0,DisplayMode.Edit,DisplayMode.Disabled)
+                                    Height: =32
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: |
+                                        =If(
+                                            BatchStatus = "Running",
+                                            Notify(
+                                                "Scanning of the role is still in inprogress State. Please try after some time",
+                                                NotificationType.Information,
+                                                5000
+                                            ),
+                                            UpdateContext(
+                                                {
+                                                    init: false,
+                                                    spinnerLabelForEditSettings: "Queuing scans..."
+                                                }
+                                            );
+                                            With(
+                                                {
+                                                    s: "msdyn_DVAcceleratorBatchStatus",
+                                                    v: JSON(
+                                                        First(
+                                                            Table(
+                                                                {
+                                                                    BatchId: GUID(),
+                                                                    BatchStatus: "Running"
+                                                                }
+                                                            )
+                                                        )
+                                                    )
+                                                },
+                                                If(
+                                                    IsBlankOrError(BatchStatusEnvVar),
+                                                    Patch(
+                                                        [@'Environment Variable Values'],
+                                                        Defaults([@'Environment Variable Values']),
+                                                        {
+                                                            'Environment Variable Definition': LookUp(
+                                                                'Environment Variable Definitions',
+                                                                'Schema Name' = s
+                                                            ),
+                                                            'Schema Name': s,
+                                                            Value: v
+                                                        }
+                                                    ),
+                                                    Patch(
+                                                        [@'Environment Variable Values'],
+                                                        BatchStatusEnvVar,
+                                                        {
+                                                            'Schema Name': s,
+                                                            Value: v
+                                                        }
+                                                    )
+                                                )
+                                            );
+                                            '[DVAccelerator]Scanallcustomroles'.Run();
+                                            Concurrent(
+                                                Refresh('Risk Assessments'),
+                                                Refresh('Security Roles'),
+                                                Refresh('Environment Variable Definitions'),
+                                                Refresh('Environment Variable Values')
+                                            );
+                                            Notify(
+                                                "Currently scanning all roles, this might take a few minutes. Refresh to get the latest status",
+                                                NotificationType.Information,
+                                                5000
+                                            );
+                                            UpdateContext(
+                                                {
+                                                    init: true,
+                                                    spinnerLabelForEditSettings: ""
+                                                }
+                                            );
+                                            
+                                        );
+                                        /*
+                                        Set(
+                                            isBatchOperationSuccessful,
+                                            If(
+                                                IsBlankOrError(Environment.cat_ScanAllRoles().out),
+                                                false,
+                                                true
+                                            )
+                                        );
+                                        If(
+                                            isBatchOperationSuccessful,
+                                            true,
+                                            Notify(
+                                                "Something went wrong. Please try again",
+                                                NotificationType.Error
+                                            )
+                                        );
+                                        UpdateContext(
+                                            {
+                                                init: true,
+                                                spinnerLabelForEditSettings: ""
+                                            }
+                                        );
+                                        If(
+                                            CountRows(RetrieveAssessableSecurityRoles) > 0 && isBatchOperationSuccessful,
+                                            Notify(
+                                                DVAssessmentPageLoc.scanRoleNotificationText,
+                                                NotificationType.Information,
+                                                5000
+                                            );
+                                            ,
+                                            true
+                                        );
+                                        ClearCollect(
+                                            col_RiskAssessmentToBeDisplayed,
+                                            RisksAssessmentsToBeDisplayed
+                                        );*/
+                                    Text: ="Scan all roles"
+                                    Visible: =true
+                                    Width: =114
+                                    X: =-9
+                                    Y: =0
+                                    ZIndex: =1
+
+                                btnEnableAutoScan_SettingsScreen As Button:
+                                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                    DisplayMode: =DisplayMode.Edit//If(AutoScanEnvVar.Value <> "yes", DisplayMode.Edit, DisplayMode.Disabled)
+                                    Height: =32
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: |
+                                        =With(
+                                            {
+                                                s: "msdyn_DVAcceleratorAutoScan",
+                                                v: "yes"
+                                            },
+                                            If(
+                                                IsBlankOrError(AutoScanEnvVar),
+                                                Patch(
+                                                    [@'Environment Variable Values'],
+                                                    Defaults([@'Environment Variable Values']),
+                                                    {
+                                                        'Environment Variable Definition': LookUp(
+                                                            'Environment Variable Definitions',
+                                                            'Schema Name' = s
+                                                        ),
+                                                        'Schema Name': s,
+                                                        Value: v
+                                                    }
+                                                ),
+                                                Patch(
+                                                    [@'Environment Variable Values'],
+                                                    AutoScanEnvVar,
+                                                    {
+                                                        'Schema Name': s,
+                                                        Value: v
+                                                    }
+                                                )
+                                            )
+                                        );
+                                    Text: ="Enable auto scan"
+                                    Visible: =//AutoScanEnvVar.Value <> "yes"
+                                    Width: =138
+                                    X: =110
+                                    Y: =0
+                                    ZIndex: =2
+
+                        HidecGetStartedPaneButton As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="Dismiss"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =UpdateContext({ showSettingsSetupCard: false })
+                            Text: =
+                            Visible: =If(SettingsLandingScreen.Size=1|| (SettingsLandingScreen.Size = 2 && SettingsLandingScreen.Orientation = Layout.Horizontal && SettingsLandingScreen.Width <= 800),false,true)
+                            Width: =32
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
+                    txtAssessmentSettingsHeading As Text:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontColor: |
+                            =RGBA(36, 36, 36, 1)
+                        Height: =28
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =16
+                        Text: =DVAssessmentPageLoc.assessmentSettingsHeading
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    AssessmentSettingsInfoContainer As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(255, 255, 255, 0)
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =Container14.Height+Rectangle1.Height+Container15.Height+22
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width-10
+                        ZIndex: =3
+
+                        Container14 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderColor: =
+                            BorderStyle: =BorderStyle.None
+                            FillPortions: =0
+                            Height: =RiskProfilesTextContainer.Height
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =1
+
+                            RiskProfilesTextContainer As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =
+                                BorderStyle: =BorderStyle.None
+                                Height: =TextCanvas5.Height+TextCanvas6.Height+36
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =12
+                                PaddingLeft: =12
+                                PaddingRight: =12
+                                PaddingTop: =12
+                                ZIndex: =1
+
+                                TextCanvas5 As Text:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: |-
+                                        =RGBA(
+                                            36,
+                                            36,
+                                            36,
+                                            1
+                                        )
+                                    Height: =24
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Size: =16
+                                    Text: ="Risk profiles"
+                                    Width: =96
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
+
+                                TextCanvas6 As Text:
+                                    AlignInContainer: =AlignInContainer.Start
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: |-
+                                        =RGBA(
+                                            36,
+                                            36,
+                                            36,
+                                            1
+                                        )
+                                    Height: |-
+                                        =If(
+                                            SettingsLandingScreen.Size = 1 || SettingsLandingScreen.Size = 2 ,
+                                            40,
+                                            22
+                                        )
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Text: ="Control the risk assessment settings that are shared."
+                                    Width: =Parent.Width-20
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                            btnNavigateToProfiles As Button:
+                                Align: =Align.Right
+                                Appearance: ='ButtonCanvas.Appearance'.Transparent
+                                DisplayMode: =DisplayMode.Edit
+                                FillPortions: =1
+                                Font: =Font.'Segoe UI'
+                                FontColor: =RGBA(66,66,66,1)
+                                FontSize: =14
+                                FontWeight: =FontWeight.Normal
+                                Height: =32
+                                Icon: ="ChevronRight"
+                                Layout: ='ButtonCanvas.Layout'.IconAfter
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                OnSelect: =Navigate(BaselineSettingsScreen);
+                                Text: =CountRows(Filter(AllRiskAssessmentsSettings,Status= 'Status (Risk Assessment Settings)'.Active)) &"  profiles"
+                                VerticalAlign: =
+                                Width: =130
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                        Rectangle1 As rectangle:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledFill: =
+                            DisplayMode: =DisplayMode.View
+                            Fill: =ColorValue(AppTheme.palette.neutralLight)
+                            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                            Height: =1
+                            HoverFill: =
+                            PressedFill: =
+                            Width: =Parent.Width-30
+                            ZIndex: =2
+
+                        Container15 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderColor: =
+                            BorderStyle: =BorderStyle.None
+                            FillPortions: =0
+                            Height: =DefaultSettingsTextContainer.Height
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =3
+
+                            DefaultSettingsTextContainer As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =
+                                BorderStyle: =BorderStyle.None
+                                Height: =txtDefaultSettings.Height+txtSelectProfile.Height+36
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =12
+                                PaddingLeft: =12
+                                PaddingRight: =12
+                                PaddingTop: =12
+                                ZIndex: =1
+
+                                txtDefaultSettings As Text:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: |-
+                                        =RGBA(
+                                            36,
+                                            36,
+                                            36,
+                                            1
+                                        )
+                                    Height: =24
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Size: =16
+                                    Text: ="Default settings"
+                                    Width: =96
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
+
+                                txtSelectProfile As Text:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: |-
+                                        =RGBA(
+                                            36,
+                                            36,
+                                            36,
+                                            1
+                                        )
+                                    Height: |-
+                                        =If(
+                                            SettingsLandingScreen.Size = 1 || SettingsLandingScreen.Size = 2 ,
+                                            40,
+                                            22
+                                        )
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Text: ="Select which risk assessment profile is automatically run"
+                                    Width: =Parent.Width
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                            btnNavigateToProfiles_1 As Button:
+                                Align: =Align.Right
+                                AlignInContainer: =AlignInContainer.Center
+                                Appearance: ='ButtonCanvas.Appearance'.Transparent
+                                DisplayMode: =DisplayMode.Edit
+                                FillPortions: =1
+                                Font: =Font.'Segoe UI'
+                                FontColor: =RGBA(66,66,66,1)
+                                FontSize: =14
+                                FontWeight: =FontWeight.Normal
+                                Height: =32
+                                Icon: ="ChevronRight"
+                                Layout: ='ButtonCanvas.Layout'.IconAfter
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                OnSelect: =Navigate(UpdateDefaultSettingScreen);
+                                Text: ="Default risk assessment profile"
+                                VerticalAlign: =
+                                Width: =300
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                    txtScanFrequency As Text:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.'Segoe UI'
+                        FontColor: |
+                            =RGBA(36, 36, 36, 1)
+                        Height: =28
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =16
+                        Text: ="Scan frequency"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                    ScanFrequencyContainer As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        BorderColor: =RGBA(255, 255, 255, 0)
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =Container14_1.Height+20
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =12
+                        PaddingLeft: =12
+                        PaddingRight: =12
+                        PaddingTop: =12
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width-10
+                        ZIndex: =5
+
+                        Container14_1 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderColor: =
+                            BorderStyle: =BorderStyle.None
+                            FillPortions: =0
+                            Height: =ContinuousScanningContainer.Height
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =1
+
+                            ContinuousScanningContainer As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =
+                                BorderStyle: =BorderStyle.None
+                                Height: =txtContinuousScanning.Height+TextCanvas6_1.Height+36
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =12
+                                PaddingLeft: =12
+                                PaddingRight: =12
+                                PaddingTop: =12
+                                ZIndex: =1
+
+                                txtContinuousScanning As Text:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: |-
+                                        =RGBA(
+                                            36,
+                                            36,
+                                            36,
+                                            1
+                                        )
+                                    Height: =24
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Size: =16
+                                    Text: ="Continuous scanning"
+                                    Width: =96
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
+
+                                TextCanvas6_1 As Text:
+                                    AlignInContainer: =AlignInContainer.Start
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: |-
+                                        =RGBA(
+                                            36,
+                                            36,
+                                            36,
+                                            1
+                                        )
+                                    Height: |-
+                                        =If(
+                                            SettingsLandingScreen.Size = 1 || SettingsLandingScreen.Size = 2 || (SettingsLandingScreen.Size = 3 && SettingsLandingScreen.Orientation = Layout.Horizontal),
+                                            40,
+                                            22
+                                        )
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    Text: ="When this setting is on, an new role created or update to an existing custom role in this environment will trigger a new risk assessment scan."
+                                    Width: =Parent.Width-20
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                            toggleAutoRun As Toggle:
+                                BasePaletteColor: |
+                                    =RGBA(15, 108, 189, 1)
+                                Checked: |-
+                                    =If(
+                                       AutoScanEnvVar.Value = "yes",
+                                        true,
+                                        false
+                                    )
+                                DisplayMode: |-
+                                    =If(
+                                        isLoggedInUserSysAdmin && CountRows('Risk Assessment Settings'.'Risk Assessment Setting') > 0,
+                                        DisplayMode.Edit,
+                                        DisplayMode.Disabled
+                                    )
+                                Height: =35
+                                Label: =
+                                LayoutMinHeight: =35
+                                LayoutMinWidth: =113
+                                OnCheck: |
+                                    =UpdateContext(
+                                        {
+                                            init: false,
+                                            spinnerLabelForEditSettings: "Enabling auto scan..."
+                                        }
+                                    );
+                                    With(
+                                        {
+                                            s: "msdyn_DVAcceleratorAutoScan",
+                                            v: "yes"
+                                        },
+                                        If(
+                                            IsBlankOrError(AutoScanEnvVar),
+                                            Patch(
+                                                [@'Environment Variable Values'],
+                                                Defaults([@'Environment Variable Values']),
+                                                {
+                                                    'Environment Variable Definition': LookUp(
+                                                        'Environment Variable Definitions',
+                                                        'Schema Name' = s
+                                                    ),
+                                                    'Schema Name': s,
+                                                    Value: v
+                                                }
+                                            ),
+                                            Patch(
+                                                [@'Environment Variable Values'],
+                                                AutoScanEnvVar,
+                                                {
+                                                    'Schema Name': s,
+                                                    Value: v
+                                                }
+                                            )
+                                        )
+                                    );
+                                    If(
+                                        CountOfCustomSecurityRoles > 0,
+                                        If(
+                                            BatchStatus = "Running",
+                                            Notify(
+                                                "Scanning of the role is still in inprogress State. Please try after some time",
+                                                NotificationType.Information,
+                                                5000
+                                            ),
+                                            UpdateContext({spinnerLabelForEditSettings: "Queuing scan..."});
+                                            With(
+                                                {
+                                                    s: "msdyn_DVAcceleratorBatchStatus",
+                                                    v: JSON(
+                                                        First(
+                                                            Table(
+                                                                {
+                                                                    BatchId: GUID(),
+                                                                    BatchStatus: "Running"
+                                                                }
+                                                            )
+                                                        )
+                                                    )
+                                                },
+                                                If(
+                                                    IsBlankOrError(BatchStatusEnvVar),
+                                                    Patch(
+                                                        [@'Environment Variable Values'],
+                                                        Defaults([@'Environment Variable Values']),
+                                                        {
+                                                            'Environment Variable Definition': LookUp(
+                                                                'Environment Variable Definitions',
+                                                                'Schema Name' = s
+                                                            ),
+                                                            'Schema Name': s,
+                                                            Value: v
+                                                        }
+                                                    ),
+                                                    Patch(
+                                                        [@'Environment Variable Values'],
+                                                        BatchStatusEnvVar,
+                                                        {
+                                                            'Schema Name': s,
+                                                            Value: v
+                                                        }
+                                                    )
+                                                )
+                                            );
+                                            '[DVAccelerator]Scanallcustomroles'.Run();
+                                            Concurrent(
+                                                Refresh('Risk Assessments'),
+                                                Refresh('Security Roles'),
+                                                Refresh('Environment Variable Definitions'),
+                                                Refresh('Environment Variable Values')
+                                            );
+                                            Notify(
+                                                "Currently scanning all roles, this might take a few minutes. Refresh to get the latest status",
+                                                NotificationType.Information,
+                                                5000
+                                            );
+                                        ),
+                                        false
+                                    );
+                                    UpdateContext(
+                                        {
+                                            init: true,
+                                            spinnerLabelForEditSettings: ""
+                                        }
+                                    );
+                                    // Queuing roles for scanning...
+                                    /*If(
+                                        CountRows(RetrieveAssessableSecurityRoles) > 0,
+                                        UpdateContext({spinnerLabelForEditSettings: "Queuing scans..."});
+                                        Set(
+                                            isBatchOperationSuccessful,
+                                            If(
+                                                IsBlankOrError(Environment.cat_ScanAllRoles().out),
+                                                false,
+                                                true
+                                            )
+                                        );
+                                        If(
+                                            isBatchOperationSuccessful,
+                                            true,
+                                            Notify(
+                                                "Something went wrong. Please try again",
+                                                NotificationType.Error
+                                            )
+                                        );
+                                        UpdateContext(
+                                            {
+                                                init: true,
+                                                spinnerLabelForEditSettings: Blank()
+                                            }
+                                        );
+                                        If(
+                                            CountRows(RetrieveAssessableSecurityRoles) > 0 && isBatchOperationSuccessful,
+                                            Notify(
+                                                DVAssessmentPageLoc.scanRoleNotificationText,
+                                                NotificationType.Information,
+                                                5000
+                                            );
+                                            ,
+                                            true
+                                        );
+                                        ClearCollect(
+                                            col_RiskAssessmentToBeDisplayed,
+                                            RisksAssessmentsToBeDisplayed
+                                        );
+                                        ,
+                                        UpdateContext(
+                                            {
+                                                init: true,
+                                                spinnerLabelForEditSettings: Blank()
+                                            }
+                                        )
+                                    );*/
+                                OnUncheck: |-
+                                    =
+                                    
+                                    UpdateContext({
+                                        init:false,
+                                        spinnerLabelForEditSettings:"Disabling auto scan..."
+                                    });
+                                    
+                                    
+                                    With(
+                                        {
+                                            s: "msdyn_DVAcceleratorAutoScan",
+                                            v: "no"
+                                        },
+                                        If(
+                                            IsBlankOrError(AutoScanEnvVar),
+                                            Patch(
+                                                [@'Environment Variable Values'],
+                                                Defaults([@'Environment Variable Values']),
+                                                {
+                                                    'Environment Variable Definition': LookUp(
+                                                        'Environment Variable Definitions',
+                                                        'Schema Name' = s
+                                                    ),
+                                                    'Schema Name': s,
+                                                    Value: v
+                                                }
+                                            ),
+                                            Patch(
+                                                [@'Environment Variable Values'],
+                                                AutoScanEnvVar,
+                                                {
+                                                    'Schema Name': s,
+                                                    Value: v
+                                                }
+                                            )
+                                        )
+                                    );
+                                    
+                                    UpdateContext({
+                                        init:true,
+                                        spinnerLabelForEditSettings:Blank()
+                                    });
+                                Width: =113
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                    div_15 As rectangle:
+                        AlignInContainer: =AlignStart
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(0,0,0,0)
+                        Height: =2
+                        Width: =Parent.Width - Self.X * 2
+                        X: =84
+                        Y: =256
+                        ZIndex: =6
+
+                cBufferHub_2 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =FlexOff
+                    Height: =24
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+    cSpinner_7 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 0.7)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =init <> true
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Spinner1_10 As Spinner:
+            DisplayMode: =DisplayMode.Edit
+            Height: =Parent.Height
+            Label: =spinnerLabelForEditSettings
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            SpinnerSize: ='Spinner.SpinnerSize'.Large
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+

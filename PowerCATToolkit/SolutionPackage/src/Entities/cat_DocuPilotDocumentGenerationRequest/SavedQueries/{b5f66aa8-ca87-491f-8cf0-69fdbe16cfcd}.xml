@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{b5f66aa8-ca87-491f-8cf0-69fdbe16cfcd}</savedqueryid>
+    <layoutxml>
+      <grid name="cat_docupilotdocumentgenerationrequests" jump="cat_requestnumber" select="1" icon="1" preview="1">
+        <row name="cat_docupilotdocumentgenerationrequest" id="cat_docupilotdocumentgenerationrequestid">
+          <cell name="cat_requestnumber" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_docupilotdocumentgenerationrequest">
+          <attribute name="cat_docupilotdocumentgenerationrequestid" />
+          <attribute name="cat_requestnumber" />
+          <attribute name="createdon" />
+          <order attribute="cat_requestnumber" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="DocuPilot Document Generation Request Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,36 @@
+msdyn_tagbordercolorforstatusreason: |
+    =Switch(statuscode,
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'1', "#C4C4C4",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350002', "#f5bf26",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350001', "#F9E2AE",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350003', "#CFE5AF",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350004', "#A6E9ED",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350005', "#F9E2AE",
+        "#D8DFE0"
+    )
+msdyn_tagcolorforassessedrisklevel: |-
+    =Switch(msdyn_assessedrisklevel,
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350004',"#D83A00",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350003',"#FF9349",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350002',"#FFBA01",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350001',"#029DCC",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350000',"#18AB58",
+        "#E3008C"
+    )
+msdyn_tagcolorforrisklevel: |-
+    =Switch(msdyn_assessedrisklevel,
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350004',"#F1BBBC",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350003',"#F4BEAA",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350002',"#FCEFD3",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350001',"#FFFAD6",
+        msdyn_riskassessment_msdyn_riskassessment_msdyn_assessedrisklevel.'192350000',"#F7F7F7",
+        "RGBA(225,223,221,1)"
+    )
+msdyn_tagcolorforstatusreason: |-
+    =Switch(statuscode,
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'1', "#F7F7F7",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350002', "#F7F7F7",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350001', "#FEFBF4",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350003', "#F8FCF4",
+        msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350004', "#F0FAFA",msdyn_riskassessment_msdyn_riskassessment_statuscode.'192350005',"#FFF9F5"
+    )

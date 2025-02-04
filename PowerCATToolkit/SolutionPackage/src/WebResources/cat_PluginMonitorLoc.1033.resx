@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="copyClipboardMessageTxt" xml:space="preserve">
+    <value>Copied the message block text to clipboard</value>
+    <comment>Message displayed when text is copied to clipboard</comment>
+  </data>
+  <data name="defaultErrorMessageTxt" xml:space="preserve">
+    <value>An error occurred. Please refresh or try again later.</value>
+    <comment>General error message for unexpected issues</comment>
+  </data>
+  <data name="exceptionEnableMessageTxt" xml:space="preserve">
+    <value>Logging has been enabled successfully</value>
+    <comment>Confirmation message for enabling logging</comment>
+  </data>
+  <data name="firstPageTxt" xml:space="preserve">
+    <value>Go to the first page</value>
+    <comment>Navigation button to go to the first page</comment>
+  </data>
+  <data name="headingLoggingOff" xml:space="preserve">
+    <value>Logging is turned off</value>
+    <comment>Header indicating logging is disabled</comment>
+  </data>
+  <data name="headingLogSetting" xml:space="preserve">
+    <value>Log settings</value>
+    <comment>Header for log settings section</comment>
+  </data>
+  <data name="headingTraceLog" xml:space="preserve">
+    <value>Plugin monitoring</value>
+    <comment>Header for plugin monitoring section</comment>
+  </data>
+  <data name="infoLogSettingTxt" xml:space="preserve">
+    <value>Configure log settings to track event history for all plugins and Custom API requests in this environment.</value>
+    <comment>Information about configuring log settings</comment>
+  </data>
+  <data name="lastPageTxt" xml:space="preserve">
+    <value>Go to last page</value>
+    <comment>Navigation button to go to the last page</comment>
+  </data>
+  <data name="lblConfigurationTxt" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>Label for configuration settings</comment>
+  </data>
+  <data name="lblCorrelationIdTxt" xml:space="preserve">
+    <value>Correlation Id</value>
+    <comment>Label for correlation ID field</comment>
+  </data>
+  <data name="lblDepthTxt" xml:space="preserve">
+    <value>Depth</value>
+    <comment>Label for depth field</comment>
+  </data>
+  <data name="lblDuration" xml:space="preserve">
+    <value>Duration</value>
+    <comment>Label for duration field</comment>
+  </data>
+  <data name="lblEnableApplicationInsights" xml:space="preserve">
+    <value>Enable Application Insights for production workflows</value>
+    <comment>Label for enabling Application Insights</comment>
+  </data>
+  <data name="lblEnableLoggingTxt" xml:space="preserve">
+    <value>Enable logging</value>
+    <comment>Label for enabling logging</comment>
+  </data>
+  <data name="lblException" xml:space="preserve">
+    <value>Exception block</value>
+    <comment>Label for exception block field</comment>
+  </data>
+  <data name="lblFailed" xml:space="preserve">
+    <value>Failed</value>
+    <comment>Label for failed status</comment>
+  </data>
+  <data name="lblFilters" xml:space="preserve">
+    <value>Filters</value>
+    <comment>Label for filters section</comment>
+  </data>
+  <data name="lblInstantPlugin" xml:space="preserve">
+    <value>Instant low code plugin</value>
+    <comment>Label for instant low code plugin</comment>
+  </data>
+  <data name="lblMessageNameTxt" xml:space="preserve">
+    <value>Message name</value>
+    <comment>Label for message name field</comment>
+  </data>
+  <data name="lblMode" xml:space="preserve">
+    <value>Mode</value>
+    <comment>Label for mode field</comment>
+  </data>
+  <data name="lblModeTxt" xml:space="preserve">
+    <value>Mode</value>
+    <comment>Label for mode field</comment>
+  </data>
+  <data name="lblMsgBlock" xml:space="preserve">
+    <value>Message block</value>
+    <comment>Label for message block field</comment>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Name</value>
+    <comment>Label for name field</comment>
+  </data>
+  <data name="lblOperationTypeTxt" xml:space="preserve">
+    <value>Operation type</value>
+    <comment>Label for operation type field</comment>
+  </data>
+  <data name="lblPersistenceKeytxt" xml:space="preserve">
+    <value>Persistence key</value>
+    <comment>Label for persistence key field</comment>
+  </data>
+  <data name="lblPluginStepIdTxt" xml:space="preserve">
+    <value>Plugin step Id</value>
+    <comment>Label for plugin step ID field</comment>
+  </data>
+  <data name="lblPrimaryTable" xml:space="preserve">
+    <value>Primary table</value>
+    <comment>Label for primary table field</comment>
+  </data>
+  <data name="lblRefineByKeywords" xml:space="preserve">
+    <value>Refine by keywords</value>
+    <comment>Label for refining search by keywords</comment>
+  </data>
+  <data name="lblRequestIdTxt" xml:space="preserve">
+    <value>Request Id</value>
+    <comment>Label for request ID field</comment>
+  </data>
+  <data name="lblRunDate" xml:space="preserve">
+    <value>Run date</value>
+    <comment>Label for run date field</comment>
+  </data>
+  <data name="lblStartTime" xml:space="preserve">
+    <value>Start time</value>
+    <comment>Label for start time field</comment>
+  </data>
+  <data name="lblStepId" xml:space="preserve">
+    <value>Step Id</value>
+    <comment>Label for step ID field</comment>
+  </data>
+  <data name="lblTraceLog" xml:space="preserve">
+    <value>Trace log</value>
+    <comment>Label for trace log field</comment>
+  </data>
+  <data name="lblType" xml:space="preserve">
+    <value>Type</value>
+    <comment>Label for type field</comment>
+  </data>
+  <data name="logEnableMessageTxt" xml:space="preserve">
+    <value>All logs have been enabled successfully</value>
+    <comment>Confirmation message for enabling all logs</comment>
+  </data>
+  <data name="nextPageTxt" xml:space="preserve">
+    <value>Next page</value>
+    <comment>Navigation button to go to the next page</comment>
+  </data>
+  <data name="noLogsFoundTxt" xml:space="preserve">
+    <value>No logs found</value>
+    <comment>Message displayed when no logs are found</comment>
+  </data>
+  <data name="noRecordsFound" xml:space="preserve">
+    <value>No records found</value>
+    <comment>Message displayed when no records are found</comment>
+  </data>
+  <data name="pageSize" xml:space="preserve">
+    <value>Page size</value>
+    <comment>Label for page size field</comment>
+  </data>
+  <data name="pageTxt" xml:space="preserve">
+    <value>Page</value>
+    <comment>Label for page field</comment>
+  </data>
+  <data name="prevPageTxt" xml:space="preserve">
+    <value>Previous page</value>
+    <comment>Navigation button to go to the previous page</comment>
+  </data>
+  <data name="readDocInsightTxt" xml:space="preserve">
+    <value>App insights should be used for plugin workflows deployed to production. App Insights is enabled within the plugin source code.</value>
+    <comment>Information about using Application Insights</comment>
+  </data>
+  <data name="removeFilterTxt" xml:space="preserve">
+    <value>Try removing filters for broader results.</value>
+    <comment>Suggestion to remove filters for broader search results</comment>
+  </data>
+  <data name="secTxt" xml:space="preserve">
+    <value>Sec</value>
+    <comment>Label for seconds field</comment>
+  </data>
+  <data name="subheadingTraceLog" xml:space="preserve">
+    <value>Analyze plugin executions for troubleshooting, debugging, and performance evaluation of both pro-code and low-code plugins.</value>
+    <comment>Subheading for trace log analysis section</comment>
+  </data>
+  <data name="successPageTxt" xml:space="preserve">
+    <value>Logs setting updated successfully</value>
+    <comment>Confirmation message for updating log settings</comment>
+  </data>
+  <data name="resetTxt" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Button to reset settings</comment>
+  </data>
+  <data name="editTxt" xml:space="preserve">
+    <value>Edit</value>
+    <comment>Button to edit settings</comment>
+  </data>
+  <data name="noTxt" xml:space="preserve">
+    <value>No</value>
+    <comment>Button to select "No"</comment>
+  </data>
+  <data name="yesTxt" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Button to select "Yes"</comment>
+  </data>
+  <data name="deleteTxt" xml:space="preserve">
+    <value>Delete</value>
+    <comment>Button to delete an item</comment>
+  </data>
+  <data name="addTxt" xml:space="preserve">
+    <value>Add</value>
+    <comment>Button to add a new item</comment>
+  </data>
+  <data name="noResultFoundMsg" xml:space="preserve">
+    <value>No results found</value>
+    <comment>Message displayed when no search results are found</comment>
+  </data>
+  <data name="cancelBtnTxt" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Button to cancel the current action</comment>
+  </data>
+  <data name="closeTxt" xml:space="preserve">
+    <value>Close</value>
+    <comment>Button to close the current window or dialog</comment>
+  </data>
+  <data name="publishTxt" xml:space="preserve">
+    <value>Publish</value>
+    <comment>Button to publish content</comment>
+  </data>
+  <data name="refreshTxt" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>Button to refresh the current view</comment>
+  </data>
+  <data name="saveTxt" xml:space="preserve">
+    <value>Save</value>
+    <comment>Button to save changes</comment>
+  </data>
+  <data name="addFilterTxt" xml:space="preserve">
+    <value>Add filter</value>
+    <comment>Button to add a new filter</comment>
+  </data>
+  <data name="applyTxt" xml:space="preserve">
+    <value>Apply</value>
+    <comment>Button to apply the selected settings or filters</comment>
+  </data>
+  <data name="clearAllTxt" xml:space="preserve">
+    <value>Clear all</value>
+    <comment>Button to clear all filters or settings</comment>
+  </data>
+  <data name="contextTxt" xml:space="preserve">
+    <value>Context</value>
+    <comment>Label for context field</comment>
+  </data>
+  <data name="debugTxt" xml:space="preserve">
+    <value>Debug</value>
+    <comment>Button to start debugging</comment>
+  </data>
+  <data name="exceptionOnlyCtrlTxt" xml:space="preserve">
+    <value>Exception only</value>
+    <comment>Control to filter only exception logs</comment>
+  </data>
+  <data name="launchEditorTxt" xml:space="preserve">
+    <value>Launch editor</value>
+    <comment>Button to launch the editor</comment>
+  </data>
+  <data name="learnMoreTxt" xml:space="preserve">
+    <value>Learn more</value>
+    <comment>Button to learn more about a topic</comment>
+  </data>
+  <data name="logSettingsTxt" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Button to open log settings</comment>
+  </data>
+  <data name="resetAllTxt" xml:space="preserve">
+    <value>Reset all</value>
+    <comment>Button to reset all settings to default</comment>
+  </data>
+  <data name="enableAllLogsTxt" xml:space="preserve">
+    <value>Enable all logs</value>
+    <comment>Button to enable logging for all events</comment>
+  </data>
+  <data name="enableExceptionOnlyTxt" xml:space="preserve">
+    <value>Enable exceptions only</value>
+    <comment>Button to enable logging only for exceptions</comment>
+  </data>
+  <data name="filterTxt" xml:space="preserve">
+    <value>Filter</value>
+    <comment>Label for filter field</comment>
+  </data>
+  <data name="keywordsTxt" xml:space="preserve">
+    <value>Keywords</value>
+    <comment>Label for keywords field</comment>
+  </data>
+  <data name="radioAllTxt" xml:space="preserve">
+    <value>All</value>
+    <comment>Radio button to select all items</comment>
+  </data>
+  <data name="radioAsynchronousTxt" xml:space="preserve">
+    <value>Asynchronous</value>
+    <comment>Radio button to select asynchronous mode</comment>
+  </data>
+  <data name="radioAutomatedTxt" xml:space="preserve">
+    <value>Automated low code plugin</value>
+    <comment>Radio button to select automated low code plugin</comment>
+  </data>
+  <data name="radioCustomApiTxt" xml:space="preserve">
+    <value>Custom API</value>
+    <comment>Radio button to select custom API</comment>
+  </data>
+  <data name="radioExceptionOnlyTxt" xml:space="preserve">
+    <value>Exception only</value>
+    <comment>Radio button to select exception only mode</comment>
+  </data>
+  <data name="radioInstantTxt" xml:space="preserve">
+    <value>Instant low code plugin</value>
+    <comment>Radio button to select instant low code plugin</comment>
+  </data>
+  <data name="radioOffTxt" xml:space="preserve">
+    <value>Off</value>
+    <comment>Radio button to turn off logging</comment>
+  </data>
+  <data name="radioPluginTxt" xml:space="preserve">
+    <value>Plugin</value>
+    <comment>Radio button to select plugin mode</comment>
+  </data>
+  <data name="radioSynchronousTxt" xml:space="preserve">
+    <value>Synchronous</value>
+    <comment>Radio button to select synchronous mode</comment>
+  </data>
+  <data name="readDocumentationTxt" xml:space="preserve">
+    <value>Read documentation</value>
+    <comment>Button to read documentation</comment>
+  </data>
+  <data name="searchTxt" xml:space="preserve">
+    <value>Search</value>
+    <comment>Button to search</comment>
+  </data>
+  <data name="detailsTxt" xml:space="preserve">
+    <value>Details</value>
+    <comment>Button to view details</comment>
+  </data>
+  <data name="refineByKeywordInfoTxt" xml:space="preserve">
+    <value>Use keywords to narrow down your search results. Searches in the message block, exception details, name and type.</value>
+    <comment>Information about refining search results using keywords</comment>
+  </data>
+  <data name="nameInfoTxt" xml:space="preserve">
+    <value>Only show logs for a specific plugin or Custom API.</value>
+    <comment>Information about filtering logs by name</comment>
+  </data>
+  <data name="typeInfoTxt" xml:space="preserve">
+    <value>Refine results by workflow type.</value>
+    <comment>Information about filtering results by workflow type</comment>
+  </data>
+  <data name="startTimeInfoTxt" xml:space="preserve">
+    <value>Shows runs that started at or after the selected start time.</value>
+    <comment>Information about filtering results by start time</comment>
+  </data>
+  <data name="endTimeInfoTxt" xml:space="preserve">
+    <value>Shows runs that started before the selected end time.</value>
+    <comment>Information about filtering results by end time</comment>
+  </data>
+  <data name="modeInfoTxt" xml:space="preserve">
+    <value>Refine results by synchronous or asynchronous modes.</value>
+    <comment>Information about filtering results by mode</comment>
+  </data>
+  <data name="minDurationInfoTxt" xml:space="preserve">
+    <value>Shows results with a duration greater than the minimum indicated.</value>
+    <comment>Information about filtering results by minimum duration</comment>
+  </data>
+  <data name="maxDurationInfoTxt" xml:space="preserve">
+    <value>Shows results with a duration that's less than the maximum indicated.</value>
+    <comment>Information about filtering results by maximum duration</comment>
+  </data>
+  <data name="exceptionOnlyInfoTxt" xml:space="preserve">
+    <value>Only show exceptions (failed runs).</value>
+    <comment>Information about filtering results to show only exceptions</comment>
+  </data>
+  <data name="enableLoggingInfoTxt" xml:space="preserve">
+    <value>Logging must be enabled to capture plugin runs. Choose "All logs" to record both successful and failed runs, or choose "exception logs" to only capture failures.</value>
+    <comment>Information about enabling logging</comment>
+  </data>
+  <data name="pluginCardTxt" xml:space="preserve">
+    <value>View execution history for troubleshooting and debugging plugins and Custom APIs.</value>
+    <comment>Information about viewing execution history</comment>
+  </data>
+</root>

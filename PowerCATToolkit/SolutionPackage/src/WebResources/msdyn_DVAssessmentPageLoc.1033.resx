@@ -1,0 +1,1120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutText" xml:space="preserve">
+    <value>about</value>
+    <comment>DVAssessmentPageLoc.aboutText</comment>
+  </data>
+  <data name="accessLevelTooltip" xml:space="preserve">
+    <value>Access levels organize permissions in layers, from broad organizational control down to individual user restrictions. It allows for granular control over who can access and manipulate data within an organization's Dataverse environment. Higher levels, such as Organization and Parent-Child Business Unit, set overarching policies, while lower levels, like Business Unit and User, inherit or are assigned specific permissions. 'No Access' designates entities with restricted or zero access to Dataverse resources.</value>
+  </data>
+  <data name="actionColumnName" xml:space="preserve">
+    <value>Action</value>
+    <comment>DVAssessmentPageLoc.actionColumnName</comment>
+  </data>
+  <data name="activateButtonText" xml:space="preserve">
+    <value>Activate</value>
+    <comment>DVAssessmentPageLoc.activateButtonText</comment>
+  </data>
+  <data name="activatingRecordText" xml:space="preserve">
+    <value>Activating record...</value>
+    <comment>DVAssessmentPageLoc.activatingRecordText</comment>
+  </data>
+  <data name="advOptions" xml:space="preserve">
+    <value>Advanced options</value>
+  </data>
+  <data name="allExceptionsAreReviewed" xml:space="preserve">
+    <value>All exceptions have been reviewed</value>
+    <comment>DVAssessmentPageLoc.allExceptionsAreReviewed</comment>
+  </data>
+  <data name="allRolesAreCompliant" xml:space="preserve">
+    <value>All roles are compliant</value>
+    <comment>DVAssessmentPageLoc.allRolesAreCompliant</comment>
+  </data>
+  <data name="allRolesAreScannedAndCompliant" xml:space="preserve">
+    <value>All roles are scanned and compliant. No action needed for now.</value>
+    <comment>DVAssessmentPageLoc.allRolesAreScannedAndCompliant</comment>
+  </data>
+  <data name="allStatusValue" xml:space="preserve">
+    <value>All</value>
+    <comment>DVAssessmentPageLoc.allStatusValue</comment>
+  </data>
+  <data name="appendPrivilege" xml:space="preserve">
+    <value>Append</value>
+  </data>
+  <data name="appendToPrivilege" xml:space="preserve">
+    <value>Append to</value>
+  </data>
+  <data name="appendToText" xml:space="preserve">
+    <value>AppendTo</value>
+    <comment>DVAssessmentPageLoc.appendToText</comment>
+  </data>
+  <data name="approveButtonText" xml:space="preserve">
+    <value>Approve</value>
+    <comment>DVAssessmentPageLoc.approveButtonText</comment>
+  </data>
+  <data name="approvedExceptionText" xml:space="preserve">
+    <value>Approved exception</value>
+    <comment>DVAssessmentPageLoc.approvedExceptionText</comment>
+  </data>
+  <data name="approvedText" xml:space="preserve">
+    <value>Approved</value>
+    <comment>DVAssessmentPageLoc.approvedText</comment>
+  </data>
+  <data name="appSettingsButton" xml:space="preserve">
+    <value>App settings</value>
+    <comment>DVAssessmentPageLoc.appSettingsButton</comment>
+  </data>
+  <data name="appSettingsInfoText" xml:space="preserve">
+    <value>Continuously scan all new and updated custom security roles. This overwrites previous risk assessments for existing roles.</value>
+  </data>
+  <data name="assessmentDocsAction" xml:space="preserve">
+    <value>View documentation</value>
+  </data>
+  <data name="assessmentDocsBody" xml:space="preserve">
+    <value>Learn more about how to use this tool.</value>
+  </data>
+  <data name="assessmentDocsHeading" xml:space="preserve">
+    <value>Read the risk assessment documentation</value>
+  </data>
+  <data name="assessments" xml:space="preserve">
+    <value>Assessments</value>
+    <comment>DVAssessmentPageLoc.assessments</comment>
+  </data>
+  <data name="assessmentSettingsHeading" xml:space="preserve">
+    <value>Assessment settings</value>
+    <comment>DVAssessmentPageLoc.assessmentSettingsHeading</comment>
+  </data>
+  <data name="assessmentSettingsHelpButtonToolTip" xml:space="preserve">
+    <value>Configure risk assessment settings to define risk for every privilege level based on your organization’s security standards. Multiple setting profiles can be created for specialized scenarios.</value>
+    <comment>DVAssessmentPageLoc.assessmentSettingsHelpButtonToolTip</comment>
+  </data>
+  <data name="assessmentsNeededToReviewTooltip" xml:space="preserve">
+    <value>In this section, security roles that have been assessed to have any risk are presented for review by an administrator. The privileges of the role can be modified to align with the recommendation and achieve compliant status, or the entire role can be marked as an exception.</value>
+    <comment>DVAssessmentPageLoc.assessmentsNeededToReviewTooltip</comment>
+  </data>
+  <data name="assessmentsNeedReview" xml:space="preserve">
+    <value>&lt;span style=font-size:40px; font-weight: normal'&gt;0&lt;/span&gt;&lt;span style='font-size:16px; padding-left:5px; text-wrap: wrap;'&gt;&lt;b&gt;assessments need review&lt;/b&gt;&lt;/span&gt;</value>
+  </data>
+  <data name="assessmentsSettingTooltip" xml:space="preserve">
+    <value>A risk rating for each privilege type and level is recommended. These can be modified or overridden to accomodate higher privilege needs.</value>
+    <comment>DVAssessmentPageLoc.assessmentsSettingTooltip</comment>
+  </data>
+  <data name="assessmentsToReview" xml:space="preserve">
+    <value>Assessments to review</value>
+    <comment>DVAssessmentPageLoc.assessmentsToReview</comment>
+  </data>
+  <data name="assignPrivilege" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="automatedScanningHeaderText" xml:space="preserve">
+    <value>Automated scanning</value>
+    <comment>DVAssessmentPageLoc.automatedScanningHeaderText</comment>
+  </data>
+  <data name="autoRunAction" xml:space="preserve">
+    <value>Enable auto run</value>
+  </data>
+  <data name="autoRunAll" xml:space="preserve">
+    <value>Auto-run all</value>
+  </data>
+  <data name="autoRunBody" xml:space="preserve">
+    <value>Ongoing risk assessment scanning helps you stay on top of changes in the environment and reduce vulnerability.</value>
+  </data>
+  <data name="autoRunHeading" xml:space="preserve">
+    <value>Automatically run risk assessments</value>
+  </data>
+  <data name="autoScan" xml:space="preserve">
+    <value>Auto scan</value>
+    <comment>DVAssessmentPageLoc.autoScan</comment>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+    <comment>DVAssessmentPageLoc.back</comment>
+  </data>
+  <data name="baselineAction" xml:space="preserve">
+    <value>View baseline</value>
+  </data>
+  <data name="baselineBody" xml:space="preserve">
+    <value>Assessment baseline is configured by default for all security roles. You can change the standard baseline for all or for individual security roles.</value>
+  </data>
+  <data name="baselineHeading" xml:space="preserve">
+    <value>Review baseline recommendations</value>
+  </data>
+  <data name="basicText" xml:space="preserve">
+    <value>Basic</value>
+    <comment>DVAssessmentPageLoc.basicText</comment>
+  </data>
+  <data name="body" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="businessUnitColumnName" xml:space="preserve">
+    <value>Business unit</value>
+  </data>
+  <data name="buText" xml:space="preserve">
+    <value>BU</value>
+    <comment>DVAssessmentPageLoc.buText</comment>
+  </data>
+  <data name="byText" xml:space="preserve">
+    <value>by</value>
+    <comment>DVAssessmentPageLoc.byText</comment>
+  </data>
+  <data name="cancelButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="compareSecurityRolesPrivileges" xml:space="preserve">
+    <value>These are compared to security role privileges during assessments to determine risk.</value>
+    <comment>DVAssessmentPageLoc.compareSecurityRolesPrivileges</comment>
+  </data>
+  <data name="completedText" xml:space="preserve">
+    <value>Completed</value>
+    <comment>DVAssessmentPageLoc.completedText</comment>
+  </data>
+  <data name="complianceText" xml:space="preserve">
+    <value>Compliance</value>
+    <comment>DVAssessmentPageLoc.complianceText</comment>
+  </data>
+  <data name="compliantText" xml:space="preserve">
+    <value>Compliant</value>
+    <comment>DVAssessmentPageLoc.compliantText</comment>
+  </data>
+  <data name="configureBaseLineRecommendations" xml:space="preserve">
+    <value>Configure base recommendations to align assessments to your security needs.</value>
+    <comment>DVAssessmentPageLoc.configureBaseLineRecommendations</comment>
+  </data>
+  <data name="confirmClose" xml:space="preserve">
+    <value>Are you sure you want to leave the app? All unsaved work will be lost.</value>
+  </data>
+  <data name="copyToClipboard" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="coverage" xml:space="preserve">
+    <value>Coverage</value>
+    <comment>DVAssessmentPageLoc.coverage</comment>
+  </data>
+  <data name="coverageBody" xml:space="preserve">
+    <value>&lt;b&gt;Risk assessment coverage&lt;/b&gt; ensures security role risks are being tracked and logged for review. Run an assessment on all roles to get more insight, or enable auto run for continuous scanning.</value>
+  </data>
+  <data name="coverageToolTip" xml:space="preserve">
+    <value>This section displays the distribution of statuses for all risk assessments in this environment. Review the assessment settings page before enabling auto-scan.</value>
+    <comment>DVAssessmentPageLoc.coverageToolTip</comment>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="created" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="createdby" xml:space="preserve">
+    <value>Created by</value>
+  </data>
+  <data name="createPrivilege" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="creatingConnectionReference" xml:space="preserve">
+    <value>Creating connection reference...</value>
+  </data>
+  <data name="criticalRiskValue" xml:space="preserve">
+    <value>Critical</value>
+    <comment>DVAssessmentPageLoc.criticalRiskValue</comment>
+  </data>
+  <data name="currentLevelColumnName" xml:space="preserve">
+    <value>Current level</value>
+    <comment>DVAssessmentPageLoc.currentLevelColumnName</comment>
+  </data>
+  <data name="customizeDefaultRiskAssessmentSettings" xml:space="preserve">
+    <value>Customize the risk ratings used to evaluate security role privileges. Risk assessment are automatically assigned to default settings, but can be reassigned and rerun.</value>
+  </data>
+  <data name="customSecurityRoles" xml:space="preserve">
+    <value>Custom security roles</value>
+    <comment>DVAssessmentPageLoc.customSecurityRoles</comment>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+    <comment>DVAssessmentPageLoc.dashboard</comment>
+  </data>
+  <data name="dataType" xml:space="preserve">
+    <value>Data type</value>
+  </data>
+  <data name="dataverseSecurityRoles" xml:space="preserve">
+    <value>Dataverse security roles</value>
+    <comment>DVAssessmentPageLoc.dataverseSecurityRoles</comment>
+  </data>
+  <data name="dateRunColumn" xml:space="preserve">
+    <value>Date run</value>
+    <comment>DVAssessmentPageLoc.dateRunColumn</comment>
+  </data>
+  <data name="daysAgoText" xml:space="preserve">
+    <value>days ago</value>
+    <comment>DVAssessmentPageLoc.daysAgoText</comment>
+  </data>
+  <data name="deactivateButtonText" xml:space="preserve">
+    <value>Deactivate</value>
+    <comment>DVAssessmentPageLoc.deactivateButtonText</comment>
+  </data>
+  <data name="deactivatingRecordText" xml:space="preserve">
+    <value>Deactivating record...</value>
+    <comment>DVAssessmentPageLoc.deactivatingRecordText</comment>
+  </data>
+  <data name="deepText" xml:space="preserve">
+    <value>Deep</value>
+    <comment>DVAssessmentPageLoc.deepText</comment>
+  </data>
+  <data name="defaultProfileDeactivationWarningMessage" xml:space="preserve">
+    <value>Default profile cannot be deleted. Assign another risk assessment settings row as the default profile to delete this row.</value>
+    <comment>DVAssessmentPageLoc.defaultProfileDeactivationWarningMessage</comment>
+  </data>
+  <data name="defaultProfileErrorValidationText" xml:space="preserve">
+    <value>There is already a default Profile added. Please remove that profile as default before selecting another profile as default</value>
+    <comment>DVAssessmentPageLoc.defaultProfileErrorValidationText</comment>
+  </data>
+  <data name="definition" xml:space="preserve">
+    <value>Definition</value>
+  </data>
+  <data name="deleteButtonText" xml:space="preserve">
+    <value>Delete</value>
+    <comment>DVAssessmentPageLoc.deleteButtonText</comment>
+  </data>
+  <data name="deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="deleteParameter" xml:space="preserve">
+    <value>Delete parameter</value>
+  </data>
+  <data name="deletePlugin" xml:space="preserve">
+    <value>Delete plug-in</value>
+  </data>
+  <data name="deletePrivilege" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="deleting" xml:space="preserve">
+    <value>Deleting</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="descriptionInfo" xml:space="preserve">
+    <value>Description info</value>
+  </data>
+  <data name="detailsColumn" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="displayName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="duplicateButtonText" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
+  <data name="editButtonText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="editPlugin" xml:space="preserve">
+    <value>Edit plug-in</value>
+  </data>
+  <data name="enableAutoScan" xml:space="preserve">
+    <value>Enable auto scan for continuous coverage.</value>
+    <comment>DVAssessmentPageLoc.enableAutoScan</comment>
+  </data>
+  <data name="enterUniqueId" xml:space="preserve">
+    <value>Enter unique Id</value>
+  </data>
+  <data name="errMsgProvideUniqueName" xml:space="preserve">
+    <value>Provide a unique name</value>
+  </data>
+  <data name="errorMessageText" xml:space="preserve">
+    <value>Something Went Wrong. Please try Again</value>
+    <comment>DVAssessmentPageLoc.errorMessageText</comment>
+  </data>
+  <data name="exceptionsHeadingText" xml:space="preserve">
+    <value>Exceptions</value>
+    <comment>DVAssessmentPageLoc.exceptionsHeadingText</comment>
+  </data>
+  <data name="exceptionsNeedReviewFromAdmin" xml:space="preserve">
+    <value>Exceptions need review from an admin</value>
+    <comment>DVAssessmentPageLoc.exceptionsNeedReviewFromAdmin</comment>
+  </data>
+  <data name="exceptionsReviewed" xml:space="preserve">
+    <value>Exceptions reviewed</value>
+    <comment>DVAssessmentPageLoc.exceptionsReviewed</comment>
+  </data>
+  <data name="exceptionStatusValue" xml:space="preserve">
+    <value>Exception</value>
+    <comment>DVAssessmentPageLoc.exceptionStatusValue</comment>
+  </data>
+  <data name="exceptionsText" xml:space="preserve">
+    <value>exceptions</value>
+    <comment>DVAssessmentPageLoc.exceptionsText</comment>
+  </data>
+  <data name="expression" xml:space="preserve">
+    <value>Expression</value>
+  </data>
+  <data name="flagExceptionText" xml:space="preserve">
+    <value>Flag exception</value>
+    <comment>DVAssessmentPageLoc.flagException</comment>
+  </data>
+  <data name="flaggedExceptionColumnName" xml:space="preserve">
+    <value>Flagged exception</value>
+  </data>
+  <data name="flaggedExceptions" xml:space="preserve">
+    <value>&lt;span style=font-size:40px; font-weight: normal'&gt;0&lt;/span&gt;&lt;span style='font-size:16px; padding-left:5px; text-wrap: wrap;'&gt;&lt;b&gt;roles  flagged&lt;/b&gt;&lt;/span&gt;</value>
+  </data>
+  <data name="flaggedExceptionsHeading" xml:space="preserve">
+    <value>Flagged exceptions</value>
+    <comment>DVAssessmentPageLoc.flaggedExceptionsHeading</comment>
+  </data>
+  <data name="flaggedExceptionsTooltip" xml:space="preserve">
+    <value>Assessments that are flagged with an exception status indicate a risk due to it’s privilege levels varying from recommendation. Exceptions have a justification that must be reviewed and approved by the environment administrator to receive compliant status. Keep in mind that flagged exceptions will be reset every time the role undergoes re-assessment.</value>
+    <comment>DVAssessmentPageLoc.flaggedExceptionsTooltip</comment>
+  </data>
+  <data name="flaggedOnText" xml:space="preserve">
+    <value>Flagged on</value>
+    <comment>DVAssessmentPageLoc.flaggedOnText</comment>
+  </data>
+  <data name="formula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="globalText" xml:space="preserve">
+    <value>Global</value>
+    <comment>DVAssessmentPageLoc.globalText</comment>
+  </data>
+  <data name="helpButtonText" xml:space="preserve">
+    <value>Help</value>
+    <comment>DVAssessmentPageLoc.helpButtonText</comment>
+  </data>
+  <data name="helpButtonTooltip" xml:space="preserve">
+    <value>Meet compliance by updating the security role privileges to the recommended access levels. You can update individually or all at once. If there’s a good reason for having a higher privilege level than recommended, flag the role as an exception.</value>
+  </data>
+  <data name="hideMetricsButton" xml:space="preserve">
+    <value>Hide metrics</value>
+    <comment>DVAssessmentPageLoc.hideMetricsButton</comment>
+  </data>
+  <data name="highRiskValue" xml:space="preserve">
+    <value>High</value>
+    <comment>DVAssessmentPageLoc.highRiskValue</comment>
+  </data>
+  <data name="howAccessIsDetermined" xml:space="preserve">
+    <value>How access is determined</value>
+    <comment>DVAssessmentPageLoc.howAccessIsDetermined</comment>
+  </data>
+  <data name="inProgressStatusValue" xml:space="preserve">
+    <value>In Progress</value>
+    <comment>DVAssessmentPageLoc.inProgressStatusValue</comment>
+  </data>
+  <data name="insights" xml:space="preserve">
+    <value>Insights</value>
+  </data>
+  <data name="isDefaultColumnName" xml:space="preserve">
+    <value>Is default</value>
+    <comment>DVAssessmentPageLoc.isDefaultColumnName</comment>
+  </data>
+  <data name="learnButtonText" xml:space="preserve">
+    <value>Learn</value>
+    <comment>DVAssessmentPageLoc.learnButtonText</comment>
+  </data>
+  <data name="learnMore" xml:space="preserve">
+    <value>Learn more</value>
+    <comment>DVAssessmentPageLoc.learnMore</comment>
+  </data>
+  <data name="learnMoreAboutRiskAssessments" xml:space="preserve">
+    <value>Learn more about risk assessments</value>
+    <comment>DVAssessmentPageLoc.learnMoreAboutRiskAssessments</comment>
+  </data>
+  <data name="loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="localText" xml:space="preserve">
+    <value>Local</value>
+    <comment>DVAssessmentPageLoc.localText</comment>
+  </data>
+  <data name="lowRiskValue" xml:space="preserve">
+    <value>Low</value>
+    <comment>DVAssessmentPageLoc.lowRiskValue</comment>
+  </data>
+  <data name="maximizeText" xml:space="preserve">
+    <value>Maximize</value>
+    <comment>DVAssessmentPageLoc.maximizeText</comment>
+  </data>
+  <data name="memberCountColumn" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="minimizeText" xml:space="preserve">
+    <value>Minimize</value>
+    <comment>DVAssessmentPageLoc.minimizeText</comment>
+  </data>
+  <data name="moderateRiskValue" xml:space="preserve">
+    <value>Moderate</value>
+    <comment>DVAssessmentPageLoc.moderateRiskValue</comment>
+  </data>
+  <data name="modifedOnColumnName" xml:space="preserve">
+    <value>Modifed on</value>
+    <comment>DVAssessmentPageLoc.modifedOnColumnName</comment>
+  </data>
+  <data name="modifiedByColumnName" xml:space="preserve">
+    <value>Modified by</value>
+    <comment>DVAssessmentPageLoc.modifiedByColumnName</comment>
+  </data>
+  <data name="modifiedRolesPendingAssessment" xml:space="preserve">
+    <value>Modified roles pending assessment</value>
+    <comment>DVAssessmentPageLoc.modifiedRolesPendingAssessment</comment>
+  </data>
+  <data name="modifiedRolesPendingAssessmentTooltip" xml:space="preserve">
+    <value>Roles in pending state have not been assessed yet. Scan all roles to evaluate risk, or enable auto scan for continuous evaluation.</value>
+    <comment>DVAssessmentPageLoc.modifiedRolesPendingAssessmentTooltip</comment>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="nameColumn" xml:space="preserve">
+    <value>Name</value>
+    <comment>DVAssessmentPageLoc.nameColumn</comment>
+  </data>
+  <data name="nameFieldRequiredText" xml:space="preserve">
+    <value>Name: Required fields must be filled in.</value>
+    <comment>DVAssessmentPageLoc.DVAssessmentPageLoc.youAreAllDone</comment>
+  </data>
+  <data name="needsReviewStatusValue" xml:space="preserve">
+    <value>Needs Review</value>
+    <comment>DVAssessmentPageLoc.needsReviewStatusValue</comment>
+  </data>
+  <data name="new" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="newButtonText" xml:space="preserve">
+    <value>New</value>
+    <comment>DVAssessmentPageLoc.newButtonText</comment>
+  </data>
+  <data name="newRiskAssessmentSettingsText" xml:space="preserve">
+    <value>New risk assessment settings</value>
+    <comment>DVAssessmentPageLoc.newRiskAssessmentSettingsText</comment>
+  </data>
+  <data name="next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="noAccessPriviliegeLevel" xml:space="preserve">
+    <value>No access</value>
+    <comment>DVAssessmentPageLoc.noAccessPriviliegeLevel</comment>
+  </data>
+  <data name="noAssessments" xml:space="preserve">
+    <value>No assessments</value>
+    <comment>DVAssessmentPageLoc.noAssessments</comment>
+  </data>
+  <data name="noExceptionsToReviewMessage" xml:space="preserve">
+    <value>No exceptions to review</value>
+    <comment>DVAssessmentPageLoc.noExceptionsToReviewMessage</comment>
+  </data>
+  <data name="nonCompliantText" xml:space="preserve">
+    <value>Noncompliant</value>
+    <comment>DVAssessmentPageLoc.nonCompliantText</comment>
+  </data>
+  <data name="noneText" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="noRiskValue" xml:space="preserve">
+    <value>No Risk</value>
+    <comment>DVAssessmentPageLoc.noRiskValue</comment>
+  </data>
+  <data name="noRolesYetSubText" xml:space="preserve">
+    <value>There are no custom security roles in this environment that introduce extra access. Maker sure the risk assessment settings in this environment reflect the scanning you want if roles may be added later on.</value>
+    <comment>DVAssessmentPageLoc.noRolesYetSubText</comment>
+  </data>
+  <data name="noRolesYetText" xml:space="preserve">
+    <value>No roles yet</value>
+    <comment>DVAssessmentPageLoc.noRolesYetText</comment>
+  </data>
+  <data name="notAssessedText" xml:space="preserve">
+    <value>Not assessed</value>
+    <comment>DVAssessmentPageLoc.notAssessedText</comment>
+  </data>
+  <data name="notScannedText" xml:space="preserve">
+    <value>Not scanned</value>
+    <comment>DVAssessmentPageLoc.notScannedText</comment>
+  </data>
+  <data name="notStartedText" xml:space="preserve">
+    <value>Not started</value>
+    <comment>DVAssessmentPageLoc.notStartedText</comment>
+  </data>
+  <data name="ofText" xml:space="preserve">
+    <value>Of</value>
+    <comment>DVAssessmentPageLoc.ofText</comment>
+  </data>
+  <data name="openAdminCenterButtonText" xml:space="preserve">
+    <value>Open admin Center</value>
+    <comment>DVAssessmentPageLoc.openAdminCenterButtonText</comment>
+  </data>
+  <data name="organizationColumnName" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="orgText" xml:space="preserve">
+    <value>Org</value>
+    <comment>DVAssessmentPageLoc.orgText</comment>
+  </data>
+  <data name="overview" xml:space="preserve">
+    <value>Overview</value>
+    <comment>DVAssessmentPageLoc.overview</comment>
+  </data>
+  <data name="ownerColumn" xml:space="preserve">
+    <value>Contact owner</value>
+  </data>
+  <data name="ownerColumnName" xml:space="preserve">
+    <value>Owner</value>
+    <comment>DVAssessmentPageLoc.ownerColumnName</comment>
+  </data>
+  <data name="parentChildBuColumnName" xml:space="preserve">
+    <value>Parent: Child business unit</value>
+  </data>
+  <data name="pcbuText" xml:space="preserve">
+    <value>PCBU</value>
+    <comment>DVAssessmentPageLoc.pcbuText</comment>
+  </data>
+  <data name="pendingStatusValue" xml:space="preserve">
+    <value>Pending</value>
+    <comment>DVAssessmentPageLoc.pendingStatusValue</comment>
+  </data>
+  <data name="permissions" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="pleaseWaitLoadingText" xml:space="preserve">
+    <value>Please wait...</value>
+    <comment>DVAssessmentPageLoc.pleaseWaitLoadingText</comment>
+  </data>
+  <data name="privilegeColumnName" xml:space="preserve">
+    <value>Privilege</value>
+  </data>
+  <data name="privilegeLevelText" xml:space="preserve">
+    <value>Privilege level</value>
+    <comment>DVAssessmentPageLoc.privilegeLevelText</comment>
+  </data>
+  <data name="privilegesColumnName" xml:space="preserve">
+    <value>Privileges</value>
+    <comment>DVAssessmentPageLoc.privilegesColumnName</comment>
+  </data>
+  <data name="privilegesText" xml:space="preserve">
+    <value>privileges</value>
+    <comment>DVAssessmentPageLoc.privilegesText</comment>
+  </data>
+  <data name="privilegesUpdateWarningNotificationWhenAutoScanIsOff" xml:space="preserve">
+    <value>Privileges cannot be edited in this interface because autoscan is off. Update the role in the admin center and manually run the risk assessment, or enable auto-scan on this Risk Assessment Settings profile to get updated risk assessment evaluation.</value>
+    <comment>DVAssessmentPageLoc.privilegesUpdateWarningNotificationWhenAutoScanIsOff</comment>
+  </data>
+  <data name="privilegesValidationErrorText" xml:space="preserve">
+    <value>All Prvileges must be filled in</value>
+    <comment>DVAssessmentPageLoc.privilegesValidationErrorText</comment>
+  </data>
+  <data name="privilegeTypeText" xml:space="preserve">
+    <value>Privilege type</value>
+    <comment>DVAssessmentPageLoc.privilegeTypeText</comment>
+  </data>
+  <data name="profilesText" xml:space="preserve">
+    <value>Profiles</value>
+    <comment>DVAssessmentPageLoc.profilesText</comment>
+  </data>
+  <data name="prvOrgRiskInfo" xml:space="preserve">
+    <value>Organization level allows users to access all records in this table. User level only grants access to records they own.</value>
+    <comment>DVAssessmentPageLoc.prvOrgRiskInfo</comment>
+  </data>
+  <data name="prvText" xml:space="preserve">
+    <value>prv</value>
+    <comment>DVAssessmentPageLoc.prvText</comment>
+  </data>
+  <data name="readPrivilege" xml:space="preserve">
+    <value>Read</value>
+    <comment>DVAssessmentPageLoc.privilegesColumnName</comment>
+  </data>
+  <data name="reasonForExceptionFieldRequiredText" xml:space="preserve">
+    <value>Reason for exception: Required fields must be filled in.</value>
+    <comment>DVAssessmentPageLoc.reasonForExceptionFieldRequiredText</comment>
+  </data>
+  <data name="reasonForExceptionText" xml:space="preserve">
+    <value>Reason for exception</value>
+    <comment>DVAssessmentPageLoc.reasonForExceptionText</comment>
+  </data>
+  <data name="recommendedLevelColumnName" xml:space="preserve">
+    <value>Recommended level</value>
+    <comment>DVAssessmentPageLoc.recommendedLevelColumnName</comment>
+  </data>
+  <data name="reduceRiskLevelHeaderText" xml:space="preserve">
+    <value>Reduce access level</value>
+    <comment>DVAssessmentPageLoc.reduceRiskLevelHeaderText</comment>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>DVAssessmentPageLoc.refresh</comment>
+  </data>
+  <data name="refreshNotificationText" xml:space="preserve">
+    <value>Please refresh the page after some time for the changes to reflect.</value>
+    <comment>DVAssessmentPageLoc.refreshNotificationText</comment>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="resources" xml:space="preserve">
+    <value>Resources</value>
+    <comment>DVAssessmentPageLoc.resources</comment>
+  </data>
+  <data name="reviewAssessmentTitle" xml:space="preserve">
+    <value>Review completed assessments</value>
+  </data>
+  <data name="reviewBaselineSettingsToolTip" xml:space="preserve">
+    <value>Review Risk Assessment Base line settings</value>
+    <comment>DVAssessmentPageLoc.reviewBaselineSettingsToolTip</comment>
+  </data>
+  <data name="reviewColumn" xml:space="preserve">
+    <value>Review</value>
+    <comment>DVAssessmentPageLoc.reviewColumn</comment>
+  </data>
+  <data name="reviewCompletedTitle" xml:space="preserve">
+    <value>Review completed assessments</value>
+  </data>
+  <data name="reviewedOnText" xml:space="preserve">
+    <value>Reviewed on</value>
+    <comment>DVAssessmentPageLoc.reviewedOnText</comment>
+  </data>
+  <data name="reviewedText" xml:space="preserve">
+    <value>Reviewed</value>
+    <comment>DVAssessmentPageLoc.reviewedText</comment>
+  </data>
+  <data name="reviewHighestRiskRole" xml:space="preserve">
+    <value>Review highest risk role</value>
+    <comment>DVAssessmentPageLoc.totalCustomRoles</comment>
+  </data>
+  <data name="reviewRecommendations" xml:space="preserve">
+    <value>Evaluate the security of your organization. Review recommendations and take action to improve your security posture.</value>
+    <comment>DVAssessmentPageLoc.reviewRecommendations</comment>
+  </data>
+  <data name="reviewRiskAssessments" xml:space="preserve">
+    <value>Risk assessments scan custom security roles to help prevent misconfiguration.</value>
+    <comment>DVAssessmentPageLoc.reviewRiskAssessments</comment>
+  </data>
+  <data name="reviewRiskAssessmentsSettings" xml:space="preserve">
+    <value>Review risk assessment settings before scanning roles</value>
+    <comment>DVAssessmentPageLoc.reviewRiskAssessmentsSettings</comment>
+  </data>
+  <data name="reviewSettings" xml:space="preserve">
+    <value>Review settings</value>
+    <comment>DVAssessmentPageLoc.reviewSettings</comment>
+  </data>
+  <data name="riskAssessmentBreadCrumbText" xml:space="preserve">
+    <value>Risk assessment</value>
+    <comment>DVAssessmentPageLoc.riskAssessmentBreadCrumbText</comment>
+  </data>
+  <data name="riskAssessmentDocumentation" xml:space="preserve">
+    <value>Risk assessment documentation</value>
+    <comment>DVAssessmentPageLoc.riskAssessmentDocumentation</comment>
+  </data>
+  <data name="riskAssessmentNavText" xml:space="preserve">
+    <value>Risk Assessments</value>
+    <comment>DVAssessmentPageLoc.riskAssessmentNavText</comment>
+  </data>
+  <data name="riskAssessmentsNonCompliant" xml:space="preserve">
+    <value>Noncompliant roles</value>
+    <comment>DVAssessmentPageLoc.riskAssessmentsNonCompliant</comment>
+  </data>
+  <data name="riskAssessmentStarted" xml:space="preserve">
+    <value>Risk assessment started for</value>
+    <comment>DVAssessmentPageLoc.riskAssessmentStarted</comment>
+  </data>
+  <data name="riskAssessmentTool" xml:space="preserve">
+    <value>Risk assessment tool</value>
+    <comment>DVAssessmentPageLoc.riskAssessmentTool</comment>
+  </data>
+  <data name="riskRatingsColumn" xml:space="preserve">
+    <value>Risk ratings</value>
+    <comment>DVAssessmentPageLoc.riskRatingsColumn</comment>
+  </data>
+  <data name="roleNameColumn" xml:space="preserve">
+    <value>Role</value>
+    <comment>DVAssessmentPageLoc.roleNameColumn</comment>
+  </data>
+  <data name="roles" xml:space="preserve">
+    <value>roles</value>
+    <comment>DVAssessmentPageLoc.roles</comment>
+  </data>
+  <data name="rolesByStatus" xml:space="preserve">
+    <value>Roles by status</value>
+    <comment>DVAssessmentPageLoc.rolesByStatus</comment>
+  </data>
+  <data name="rolesFlaggedExceptionMessage" xml:space="preserve">
+    <value>Roles needing higher privilege than recommended can be flagged for review. Minimize exceptions as much as possible to align with risk settings</value>
+    <comment>DVAssessmentPageLoc.rolesFlaggedExceptionMessage</comment>
+  </data>
+  <data name="rolesNeededReview" xml:space="preserve">
+    <value>Roles needed review</value>
+    <comment>DVAssessmentPageLoc.rolesNeededReview</comment>
+  </data>
+  <data name="rolesNeededToReviewTooltip" xml:space="preserve">
+    <value>Total custom roles in the environment.</value>
+  </data>
+  <data name="rolesToReviewHeading" xml:space="preserve">
+    <value>Roles to review</value>
+    <comment>DVAssessmentPageLoc.rolesToReviewHeading</comment>
+  </data>
+  <data name="roleUpdatedSuccessfullyText" xml:space="preserve">
+    <value>Role updated successfully</value>
+    <comment>DVAssessmentPageLoc.roleUpdatedSuccessfullyText</comment>
+  </data>
+  <data name="rows" xml:space="preserve">
+    <value>rows</value>
+    <comment>DVAssessmentPageLoc.rows</comment>
+  </data>
+  <data name="run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="runAll" xml:space="preserve">
+    <value>Run all</value>
+  </data>
+  <data name="runAssessment" xml:space="preserve">
+    <value>Run assessment</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="saveButtonText" xml:space="preserve">
+    <value>Save</value>
+    <comment>DVAssessmentPageLoc.saveButtonText</comment>
+  </data>
+  <data name="saveSettingsSuccessMessage" xml:space="preserve">
+    <value>Successfully saved the changes</value>
+  </data>
+  <data name="savingLoaderText" xml:space="preserve">
+    <value>Saving...</value>
+  </data>
+  <data name="scanAllButtonText" xml:space="preserve">
+    <value>Scan all</value>
+    <comment>DVAssessmentPageLoc.scanAllButtonText</comment>
+  </data>
+  <data name="scanAllRoles" xml:space="preserve">
+    <value>Scan all roles</value>
+    <comment>DVAssessmentPageLoc.scanAllRoles</comment>
+  </data>
+  <data name="scanningAllRolesText" xml:space="preserve">
+    <value>Scanning all roles....</value>
+    <comment>DVAssessmentPageLoc.scanningAllRolesText</comment>
+  </data>
+  <data name="scanRoleButtonText" xml:space="preserve">
+    <value>Scan role</value>
+  </data>
+  <data name="scanRoleNotificationText" xml:space="preserve">
+    <value>Scanning the role. The role will stay in the 'In progress' status until it's complete</value>
+  </data>
+  <data name="scanRolesOnceRisksAreConfigured" xml:space="preserve">
+    <value>When you’re done configuring risk ratings, scan roles to assess risks.</value>
+    <comment>DVAssessmentPageLoc.scanRolesOnceRisksAreConfigured</comment>
+  </data>
+  <data name="scansCompareRoles" xml:space="preserve">
+    <value>Scans compare role privileges to your settings</value>
+    <comment>DVAssessmentPageLoc.scansCompareRoles</comment>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+    <comment>DVAssessmentPageLoc.search</comment>
+  </data>
+  <data name="securityAssessmentTitle" xml:space="preserve">
+    <value>Security roles risk assessment</value>
+  </data>
+  <data name="securityConceptsInDataverse" xml:space="preserve">
+    <value>Security concepts in Dataverse</value>
+    <comment>DVAssessmentPageLoc.securityConceptsInDataverse</comment>
+  </data>
+  <data name="securityCoverageTitle" xml:space="preserve">
+    <value>Dataverse security coverage</value>
+  </data>
+  <data name="securityHealthDescription" xml:space="preserve">
+    <value>Reduce the surface area of security threats in your environment by running risk assessments on all security roles. We've suggested which roles you should prioritize first based on impact.</value>
+  </data>
+  <data name="securityLearnAction" xml:space="preserve">
+    <value>View documentation</value>
+  </data>
+  <data name="securityLearnBody" xml:space="preserve">
+    <value>Understanding the basic functions of security roles will help.</value>
+  </data>
+  <data name="securityLearnHeading" xml:space="preserve">
+    <value>Learn about security roles in Dataverse.</value>
+  </data>
+  <data name="securityRoles" xml:space="preserve">
+    <value>Security roles</value>
+    <comment>DVAssessmentPageLoc.securityRoles</comment>
+  </data>
+  <data name="securityRolesDescription" xml:space="preserve">
+    <value>Roles provide a set of privileges that grant users and teams access to data and capabilities.</value>
+    <comment>DVAssessmentPageLoc.securityRolesDescription</comment>
+  </data>
+  <data name="seeAll" xml:space="preserve">
+    <value>See all</value>
+    <comment>DVAssessmentPageLoc.seeAll</comment>
+  </data>
+  <data name="seeTerms" xml:space="preserve">
+    <value>See terms</value>
+  </data>
+  <data name="selectRiskAssessmentSettingsProfileAutomaticallyText" xml:space="preserve">
+    <value>Choose the risk assessment settings profile that scans new roles automatically</value>
+    <comment>DVAssessmentPageLoc.selectRiskAssessmentSettingsProfileAutomaticallyText</comment>
+  </data>
+  <data name="setAsDefault" xml:space="preserve">
+    <value>Set as default</value>
+  </data>
+  <data name="settingProfilesText" xml:space="preserve">
+    <value>setting profiles</value>
+    <comment>DVAssessmentPageLoc.settingProfilesText</comment>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>DVAssessmentPageLoc.settings</comment>
+  </data>
+  <data name="severityColumn" xml:space="preserve">
+    <value>Severity</value>
+    <comment>DVAssessmentPageLoc.severityColumn</comment>
+  </data>
+  <data name="sharePrivilege" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="showLess" xml:space="preserve">
+    <value>Show less</value>
+  </data>
+  <data name="showMetricsButton" xml:space="preserve">
+    <value>Show metrics</value>
+  </data>
+  <data name="showMore" xml:space="preserve">
+    <value>Show more</value>
+  </data>
+  <data name="statusColumn" xml:space="preserve">
+    <value>Status</value>
+    <comment>DVAssessmentPageLoc.statusColumn</comment>
+  </data>
+  <data name="statusTooltip" xml:space="preserve">
+    <value>Security role assessment status</value>
+    <comment>DVAssessmentPageLoc.statusTooltip</comment>
+  </data>
+  <data name="submittedOnText" xml:space="preserve">
+    <value>Submitted on</value>
+    <comment>DVAssessmentPageLoc.submittedOnText</comment>
+  </data>
+  <data name="successfulActivationMessage" xml:space="preserve">
+    <value>Successfully activated the record</value>
+    <comment>DVAssessmentPageLoc.successfulActivationMessage</comment>
+  </data>
+  <data name="successfulDeactivationMessage" xml:space="preserve">
+    <value>Successfully deactivated the record</value>
+    <comment>DVAssessmentPageLoc.successfulDeactivationMessage</comment>
+  </data>
+  <data name="successTitle" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="suggestedActions" xml:space="preserve">
+    <value>Suggested Actions</value>
+  </data>
+  <data name="summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="supportedActions" xml:space="preserve">
+    <value>Supported actions</value>
+  </data>
+  <data name="supportedActionsSubtext" xml:space="preserve">
+    <value>Add the action to the plugin code, then use intellisense to provide parameter values.</value>
+  </data>
+  <data name="syncAndAsync" xml:space="preserve">
+    <value>Synchronous and asynchronous</value>
+  </data>
+  <data name="systemAdminRoleName" xml:space="preserve">
+    <value>System Administrator</value>
+    <comment>DVAssessmentPageLoc.systemAdminRoleName</comment>
+  </data>
+  <data name="table" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="teams" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="totalCustomRoles" xml:space="preserve">
+    <value>Total custom roles</value>
+    <comment>DVAssessmentPageLoc.totalCustomRoles</comment>
+  </data>
+  <data name="totalCustomRolesTooltip" xml:space="preserve">
+    <value>Total custom roles in the environment.</value>
+    <comment>DVAssessmentPageLoc.totalCustomRolesTooltip</comment>
+  </data>
+  <data name="totalFlaggedExceptions" xml:space="preserve">
+    <value>Total flagged exceptions</value>
+    <comment>DVAssessmentPageLoc.totalFlaggedExceptions</comment>
+  </data>
+  <data name="totalPrivilegesText" xml:space="preserve">
+    <value>Total privileges</value>
+    <comment>DVAssessmentPageLoc.totalPrivilegesText</comment>
+  </data>
+  <data name="totalRoles" xml:space="preserve">
+    <value>Total roles</value>
+    <comment>DVAssessmentPageLoc.totalRoles</comment>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Update</value>
+    <comment>DVAssessmentPageLoc.Update</comment>
+  </data>
+  <data name="updated" xml:space="preserve">
+    <value>Updated</value>
+  </data>
+  <data name="useAsDefaultRiskSetting" xml:space="preserve">
+    <value>Use these settings for all new risk assessments</value>
+  </data>
+  <data name="userColumnName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>View</value>
+    <comment>DVAssessmentPageLoc.view</comment>
+  </data>
+  <data name="viewAll" xml:space="preserve">
+    <value>View all</value>
+  </data>
+  <data name="viewAllAssessments" xml:space="preserve">
+    <value>View all assessments</value>
+  </data>
+  <data name="viewAllRoles" xml:space="preserve">
+    <value>View all roles</value>
+  </data>
+  <data name="viewButtonText" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="viewReportButtonText" xml:space="preserve">
+    <value>View report</value>
+    <comment>DVAssessmentPageLoc.viewReportButtonText</comment>
+  </data>
+  <data name="viewRolesButtonText" xml:space="preserve">
+    <value>View roles</value>
+    <comment>DVAssessmentPageLoc.viewRolesButtonText</comment>
+  </data>
+  <data name="viewSystemRolesButtonText" xml:space="preserve">
+    <value>View system roles</value>
+    <comment>DVAssessmentPageLoc.viewSystemRolesButtonText</comment>
+  </data>
+  <data name="writePrivilege" xml:space="preserve">
+    <value>Write</value>
+    <comment>DVAssessmentPageLoc.writePrivilege</comment>
+  </data>
+  <data name="youAreAllDone" xml:space="preserve">
+    <value>You’re all done!</value>
+    <comment>DVAssessmentPageLoc.youAreAllDone</comment>
+  </data>
+</root>

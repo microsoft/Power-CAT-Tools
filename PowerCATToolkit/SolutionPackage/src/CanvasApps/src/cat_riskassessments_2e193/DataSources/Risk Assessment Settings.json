@@ -1,0 +1,887 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "msdyn_riskassessmentsettings",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "msdyn_riskassessmentsetting",
+    "MaxGetRowsCount": 2000,
+    "Name": "Risk Assessment Settings",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "msdyn_buappend": "BU Append",
+      "msdyn_buappendto": "BU Append To",
+      "msdyn_buassign": "BU Assign",
+      "msdyn_bucreate": "BU Create",
+      "msdyn_budelete": "BU Delete",
+      "msdyn_buread": "BU Read",
+      "msdyn_bushare": "BU Share",
+      "msdyn_buwrite": "BU Write",
+      "msdyn_description": "Description",
+      "msdyn_isdefault": "Is Default",
+      "msdyn_name": "Name",
+      "msdyn_orgappend": "Org Append",
+      "msdyn_orgappendto": "Org Append To",
+      "msdyn_orgassign": "Org Assign",
+      "msdyn_orgcreate": "Org Create",
+      "msdyn_orgdelete": "Org Delete",
+      "msdyn_orgread": "Org Read",
+      "msdyn_orgshare": "Org Share",
+      "msdyn_orgwrite": "Org Write",
+      "msdyn_pcbuappend": "PCBU Append",
+      "msdyn_pcbuappendto": "PCBU Append To",
+      "msdyn_pcbuassign": "PCBU Assign",
+      "msdyn_pcbucreate": "PCBU Create",
+      "msdyn_pcbudelete": "PCBU Delete",
+      "msdyn_pcburead": "PCBU Read",
+      "msdyn_pcbushare": "PCBU Share",
+      "msdyn_pcbuwrite": "PCBU Write",
+      "msdyn_RiskAssessment_msdyn_RiskAssessment": "Risk Assessments",
+      "msdyn_riskassessmentsetting_AsyncOperations": "System Jobs",
+      "msdyn_riskassessmentsetting_BulkDeleteFailures": "Bulk Delete Failures",
+      "msdyn_riskassessmentsetting_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "msdyn_riskassessmentsetting_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "msdyn_riskassessmentsetting_ProcessSession": "Process Sessions",
+      "msdyn_riskassessmentsetting_SyncErrors": "Sync Errors",
+      "msdyn_riskassessmentsettingid": "Risk Assessment Setting",
+      "msdyn_RoleId": "Security Role",
+      "msdyn_userappend": "User Append",
+      "msdyn_userappendto": "User Append To",
+      "msdyn_userassign": "User Assign",
+      "msdyn_usercreate": "User Create",
+      "msdyn_userdelete": "User Delete",
+      "msdyn_userread": "User Read",
+      "msdyn_usershare": "User Share",
+      "msdyn_userwrite": "User Write",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Risk Assessment Settings",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Risk Assessment Settings (Views)",
+    "Name": "_msdyn_riskassessmentsetting_views",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1003e88b-d36e-4280-bbab-4340a1887d14": "Active Risk Assessment Settings",
+      "2486f6c7-cd57-4140-b5b0-fa23d8331e02": "Risk Assessment Setting Advanced Find View",
+      "576dead0-1d05-4150-a49c-abae271e5023": "Inactive Risk Assessment Settings",
+      "5bc9034d-7cc3-42a2-8842-0628f7ecac7b": "Risk Assessment Setting Associated View",
+      "adff9134-55ec-4920-9af3-340a89082212": "Risk Assessment Setting Lookup View"
+    }
+  },
+  {
+    "DisplayName": "BU Append (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_buappend",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_buappend",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_buappend",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Append To (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_buappendto",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_buappendto",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_buappendto",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Assign (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_buassign",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_buassign",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_buassign",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Create (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_bucreate",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_bucreate",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_bucreate",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Delete (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_budelete",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_budelete",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_budelete",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Read (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_buread",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_buread",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_buread",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Share (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_bushare",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_bushare",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_bushare",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "BU Write (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_buwrite",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_buwrite",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_buwrite",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Is Default (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_isdefault",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_isdefault",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "msdyn_isdefault",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Append (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgappend",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgappend",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgappend",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Append To (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgappendto",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgappendto",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgappendto",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Assign (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgassign",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgassign",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgassign",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Create (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgcreate",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgcreate",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgcreate",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Delete (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgdelete",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgdelete",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgdelete",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Read (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgread",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgread",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgread",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Share (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgshare",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgshare",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgshare",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Org Write (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_orgwrite",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_orgwrite",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_orgwrite",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Append (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbuappend",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbuappend",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbuappend",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Append To (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbuappendto",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbuappendto",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbuappendto",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Assign (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbuassign",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbuassign",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbuassign",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Create (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbucreate",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbucreate",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbucreate",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Delete (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbudelete",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbudelete",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbudelete",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Read (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcburead",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcburead",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcburead",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Share (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbushare",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbushare",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbushare",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "PCBU Write (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_pcbuwrite",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_pcbuwrite",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_pcbuwrite",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Append (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_userappend",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_userappend",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_userappend",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Append To (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_userappendto",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_userappendto",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_userappendto",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Assign (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_userassign",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_userassign",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_userassign",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Create (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_usercreate",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_usercreate",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_usercreate",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Delete (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_userdelete",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_userdelete",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_userdelete",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Read (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_userread",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_userread",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_userread",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Share (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_usershare",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_usershare",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_usershare",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User Write (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_msdyn_userwrite",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "msdyn_userwrite",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "msdyn_userwrite",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Risk Assessment Settings)",
+    "Name": "msdyn_riskassessmentsetting_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Risk Assessment Settings"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Risk Assessment Settings",
+    "Type": "OptionSetInfo"
+  }
+]

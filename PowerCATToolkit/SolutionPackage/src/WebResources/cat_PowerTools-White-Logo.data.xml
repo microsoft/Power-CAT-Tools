@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{21778900-12e3-ef11-8ee9-0022482e1942}</WebResourceId>
+  <Name>cat_PowerTools-White-Logo</Name>
+  <DisplayName>PowerTools-White-Logo</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0.0.5</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/cat_PowerTools-White-Logo21778900-12E3-EF11-8EE9-0022482E1942</FileName>
+</WebResource>

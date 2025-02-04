@@ -1,0 +1,793 @@
+DocumentGeneratorScreen As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |+
+        =UpdateContext({solutionName:Blank(), varDisablePreview: true});
+        
+
+    Mermaid2PngSolutionDiagram As Mermaid2Png:
+        DisplayMode: =DisplayMode.Edit
+        Height: =200
+        HideUserInterface: =true
+        MermaidCode: =varSolutionArchitectureDiagram
+        Width: =200
+        X: =36
+        Y: =430
+        ZIndex: =1
+
+    Mermaid2PngERDiagram As Mermaid2Png:
+        DisplayMode: =DisplayMode.Edit
+        Height: =200
+        HideUserInterface: =true
+        MermaidCode: =varERDiagram
+        Width: =200
+        X: =52
+        Y: =466
+        ZIndex: =2
+
+    IntelligentReviewVisualizer1_6 As IntelligentReviewVisualizer.pcfdataset:
+        ChooseButtonTitle: ="Upload Solution"
+        DisplayMode: =DisplayMode.Edit
+        ExtractSolutionDetails: =true
+        Height: =20
+        HideUserInterface: =true
+        InputEvent: =varStartReview
+        Items: =
+        OnReviewComplete: |-
+            =// Identify & Isolated valid and non-repetative solution extraction
+            If(!IsBlank(Self.SolutionDetails) && Self.SolutionDetails.solutionOverview.uniqueName <> solutionName,
+            UpdateContext({varDisablePreview: true,showSaveLoader: false,varEnableTypingEffect:true, solutionName:Self.SolutionDetails.solutionOverview.uniqueName});
+            
+            //Prepare Configration Collection
+            Clear(ConfigurationCollection);
+            Collect(ConfigurationCollection,Table(
+                {
+                    ConfigItemValue: DocumentSectionString.Overview,
+                    ConfigItemDisplayName: OverviewSection.DisplayName,
+                    ConfigItemParentValue: Blank(),
+                    ConfigItemChecked: true
+                },
+                {
+                    ConfigItemValue: DocumentSectionString.SolutionOverview,
+                    ConfigItemDisplayName: SolutionOverview.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.Overview,
+                    ConfigItemChecked: true
+                },
+                {
+                    ConfigItemValue: DocumentSectionString.ArchitectureDiagram,
+                    ConfigItemDisplayName: ArchitectureDiagramSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.Overview,
+                    ConfigItemChecked: true
+                },
+                {
+                    ConfigItemValue: DocumentSectionString.Prerequisites,
+                    ConfigItemDisplayName: PrerequisitesSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.Overview,
+                    ConfigItemChecked: true
+                },
+                {
+                    ConfigItemValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemDisplayName: UXAndAutomationsSection.DisplayName,
+                    ConfigItemParentValue: Blank(),
+                    ConfigItemChecked: false
+                }));
+            If(!IsEmpty(Self.SolutionDetails.canvasApps),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.Apps,
+                    ConfigItemDisplayName: DocumentSectionString.Apps,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }));
+            If(!IsEmpty(Self.SolutionDetails.workflows),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.Flows,
+                    ConfigItemDisplayName: DocumentSectionString.Flows,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }));
+            If(!IsEmpty(Self.SolutionDetails.plugins),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.Plugins,
+                    ConfigItemDisplayName: DocumentSectionString.Plugins,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }));
+            If(!IsEmpty(Self.SolutionDetails.codeComponents),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.CustomControls,
+                    ConfigItemDisplayName: DocumentSectionString.CustomControls,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }));
+            
+            If(!IsEmpty(Self.SolutionDetails.plugins),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.Plugins,
+                    ConfigItemDisplayName: PluginsSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }
+            ));
+            If(!IsEmpty(Self.SolutionDetails.connectionReferences),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.ConnectionReferences,
+                    ConfigItemDisplayName: ConnectionReferencesSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }
+            ));
+            If(!IsEmpty(Self.SolutionDetails.tables),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.Tables,
+                    ConfigItemDisplayName: TableSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }
+            ));
+            If(!IsEmpty(Self.SolutionDetails.tables),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.EntityRelationship,
+                    ConfigItemDisplayName: EntityRelationshipSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }
+            ));
+            If(!IsEmpty(Self.SolutionDetails.customApis),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.CustomAPI,
+                    ConfigItemDisplayName: CustomAPISection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }
+            ));
+            If(!IsEmpty(Self.SolutionDetails.securityRoles),
+            Collect(ConfigurationCollection,
+                {
+                    ConfigItemValue: DocumentSectionString.Securityrole,
+                    ConfigItemDisplayName: SecurityRoleSection.DisplayName,
+                    ConfigItemParentValue: DocumentSectionString.UXAndAutomations,
+                    ConfigItemChecked: true
+                }
+            ));
+            
+            //Prepare a collection to be used to generate solution architecture diagram
+            ClearCollect(
+                colSolutionDetailsDiagram,
+                Table(
+                    {
+                        SolutionDetails: JSON(
+                            {
+                                SolutionName: Self.SolutionDetails.solutionOverview.displayName,
+                                SolutionVersion: Self.SolutionDetails.solutionOverview.version,
+                                
+                                // Extract only the names of Canvas Apps
+                                CanvasApps: Concat(Self.SolutionDetails.canvasApps, appName & "; "),
+                                
+                                // Extract only table names
+                                Tables: Concat(Self.SolutionDetails.tables, SchemaName & "; "),
+            
+                                // Extract Field Names as "TableName: FieldSchema - FieldName"
+                                Fields: Concat(
+                                    Self.SolutionDetails.tables, 
+                                    DisplayName & ": " & 
+                                    Concat(ThisRecord.Fields, SchemaName & " - " & Name & "; ") 
+                                    & " | " // Separator for each table
+                                ),
+            
+            
+                                // Extract only workflow names
+                                Workflows: Concat(Self.SolutionDetails.workflows, name & "; "),
+            
+                                // Extract OneToMany relationship schema names
+                                Relationships: Concat(
+                                    Self.SolutionDetails.tables, 
+                                    //TODO: OnetoOne is missing
+                                    Concat(ThisRecord.Relationships.OneToMany, SchemaName & "; ")
+                                ),
+            
+                                // Extract only Connector IDs from Connection References
+                                ConnectionReferences: Concat(Self.SolutionDetails.connectionReferences, ConnectorID & "; "),
+            
+                                // Extract only Security Role names
+                                SecurityRoles: Concat(Self.SolutionDetails.securityRoles, name & "; ")
+                            },
+                            JSONFormat.Compact
+                        )
+                    }
+                )
+            );
+            
+            If(!IsEmpty(Self.SolutionDetails.tables),
+            ClearCollect(
+                colERDiagram,
+                AddColumns(
+                    Self.SolutionDetails.tables,
+                    PrimaryKey, LookUp(Fields, DataType = "primarykey").Name,
+                    LookupFields, Filter(Fields, DataType = "lookup").Name,
+                    OneToManyRelations, Table(
+                        AddColumns(
+                            Relationships.OneToMany,
+                            RelSchema, SchemaName,
+                            FromTable, ReferencingEntity,
+                            ToTable, ReferencedEntity
+                        )
+                    )
+                )
+            ),ClearCollect(
+                colERDiagram,Blank()));
+            
+            // Show type of activity on the UI
+            ClearCollect(
+                SolutionDetailsDataset,
+                Table(
+                    {
+                        SolutionDetailItemKey: "information",
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue: Blank(),
+                        SolutionDetailItemVisible: true,
+                        SolutionDetailItemHTML: "<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #134D67;'>Using Generative AI to understand the solution...</h2>"
+                    }));
+            UpdateContext(
+                { 
+                    varSolutionArchitectureDiagram:  Blank(),
+                    varERDiagram: Blank()
+                }
+            );
+            Concurrent(
+            If(!IsEmpty(colSolutionDetailsDiagram),
+            With(
+                { predictionResult: 'Docu-pilot-GenerateSolutionDiagram v1.0'.Predict(
+                    First(colSolutionDetailsDiagram).SolutionDetails
+                ) },
+                If(
+                    IsError(predictionResult),
+                    UpdateContext(
+                        { varSolutionArchitectureDiagram: Blank() } // Set empty if error occurs
+                    ),
+                    UpdateContext(
+                        {
+                            varSolutionArchitectureDiagram: Coalesce(
+                                predictionResult.StructuredOutput.mermaid,
+                                "" // Ensure it's always a string
+                            )
+                        }
+                    )
+                )
+            )),
+            If(!IsEmpty(colERDiagram),
+            With(
+                { predictionResult: 'DocuPilot-GenerateERDiagram'.Predict(
+                    JSON(First(colERDiagram), JSONFormat.Compact) 
+                ) },
+                If(
+                    IsError(predictionResult),
+                    UpdateContext({ varERDiagram: Blank() }), 
+                    UpdateContext({ varERDiagram: predictionResult.StructuredOutput.mermaidERCode }) 
+                )
+            )));
+            
+            ClearCollect(
+                SolutionDetailsDataset,
+                Table(
+                    {
+                        SolutionDetailItemKey: "information",
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue: Blank(),
+                        SolutionDetailItemVisible: true,
+                        SolutionDetailItemHTML: "<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #134D67;'>Looking for PowerApps and PowerAutomate...</h2>"
+                    }));
+            // Limit the screen count to 30, so that, the input text does not exceeds the limit for the custom prompt   
+            Concurrent(
+            ClearCollect(
+                AppCollection,
+                IfError(
+                    If(
+                        !IsBlank(Self.SolutionDetails.canvasApps),
+                        'DocuPilot-GetAppSummary'.Predict(
+                            JSON(
+                                ForAll(
+                                    Self.SolutionDetails.canvasApps,
+                                    {appDescription: appDescription, appName: appName, screens: FirstN(screens, 30)}
+                                ),
+                                JSONFormat.Compact
+                            )
+                        ).StructuredOutput,
+                        Blank() // If no canvas apps exist, return Blank()
+                    ),
+                    Blank() // If an error occurs, return Blank()
+                )
+            ),
+            // Limit the flow count to 30, so that, the input text does not exceeds the limit for the custom prompt
+            IfError(
+                ClearCollect(
+                    FlowCollection,
+                    If(
+                        !IsBlank(Self.SolutionDetails.workflows),
+                        'DocuPilot-GetFlowSummary'.Predict(
+                            JSON(
+                                FirstN(Self.SolutionDetails.workflows, 30),
+                                JSONFormat.Compact
+                            )
+                        ).StructuredOutput,
+                        Blank() // If workflows are empty, return Blank()
+                    )
+                ),
+                ClearCollect(FlowCollection, Blank()) // If an error occurs, return Blank()
+            ));
+            
+            // Temporarily store the solution details HTML in a collection to be used to generate the technical design document
+            ClearCollect(
+                TemporarySolutionDetailsDataset,
+                Table(
+                    {
+                        SolutionDetailItemKey: "SolutionDetails",
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue: Self.SolutionDetails,
+                        SolutionDetailItemVisible: false,
+                        SolutionDetailItemHTML: ""
+                    },
+                    {
+                        SolutionDetailItemKey: DocumentSectionString.SolutionOverview,
+                        SolutionDetailItemDisplayName: "Solution Details",
+                        SolutionDetailItemValue: { solutionoverview: ""},
+                        SolutionDetailItemVisible: !IsBlank(Self.SolutionDetails.solutionOverview),
+                        SolutionDetailItemHTML: "<div class='solutionoverview'>
+                                                            <li><strong>Solution Name:</strong>" & Self.SolutionDetails.solutionOverview.displayName & "</li>
+                                                            <li><strong>Unique Name:</strong> " & Self.SolutionDetails.solutionOverview.uniqueName & "</li>
+                                                            <li><strong>Description:</strong> " & Self.SolutionDetails.solutionOverview.description & "</li>
+                                                            <li><strong>Version:</strong> " & Self.SolutionDetails.solutionOverview.version & "</li></ul></div>"
+                    },
+                    
+                    {
+                    SolutionDetailItemKey: DocumentSectionString.ArchitectureDiagram,
+                    SolutionDetailItemDisplayName: "Solution Diagram",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: !IsBlank(Mermaid2PngSolutionDiagram.MermaidSVG),
+                    SolutionDetailItemHTML:
+                    Substitute(
+                        Substitute(
+                            Mermaid2PngSolutionDiagram.MermaidPNG,
+                            "visibility:hidden", 
+                            ""
+                        ),
+                        "<img",
+                        "<br/><img width='650' height='450'"
+                        // TODO: To find a better way to check or set aspect ratio of the image
+                    )
+                },
+                    {
+                                SolutionDetailItemKey: DocumentSectionString.Prerequisites,
+                                SolutionDetailItemDisplayName: "Pre-requisites",
+                                SolutionDetailItemValue: { powerAutomate: ""},
+                                SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.environmentVariables),
+                                SolutionDetailItemHTML: Concatenate("<h3>Environment Variables</h3>",Concat(Self.SolutionDetails.environmentVariables,
+                                                "<div class='environmentvariables'>
+                                                            <li><strong>Name:</strong>" & ThisRecord.displayName & "</li>
+                                                            <li><strong>Description:</strong> " & ThisRecord.description & "</li></ul></div>")
+                                                            ,"<h3>Connection References</h3>",Concat(Self.SolutionDetails.connectionReferences,
+                                                "<div class='connectionreferences'>
+                                                            <li><strong>Name:</strong>" & ThisRecord.DisplayName & "</li>
+                                                            <li><strong>Logical Name:</strong> " & ThisRecord.LogicalName & "</li></ul></div><br/>"))
+                    },
+                {
+                    SolutionDetailItemKey: DocumentSectionString.UXAndAutomations,
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue:  { ux: ""},
+                    SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.UXAndAutomations, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<br/><h1  id='ux-automation' style='font-size: 30px; font-weight: bold; color: #134D67;'>User Experience and Automations</h1><br/>" // Used to generate navigation header
+                },
+                {
+                        SolutionDetailItemKey: DocumentSectionString.EntityRelationship,
+                        SolutionDetailItemDisplayName: "Entity Relationship Diagram",
+                        SolutionDetailItemValue: { customcontrols: ""},
+                        SolutionDetailItemVisible: !IsBlank(Mermaid2PngERDiagram.MermaidPNG),
+                        SolutionDetailItemHTML: Substitute(
+                        Substitute(
+                            Mermaid2PngERDiagram.MermaidPNG,
+                            "visibility:hidden", 
+                            ""
+                        ),
+                        "<img",
+                        "<br/><img width='650' height='"&CountRows(Self.SolutionDetails.tables)*50&"'"
+                        // TODO: To find a better way to check or set aspect ratio of the image
+                    )
+                },
+                    {
+                        SolutionDetailItemKey: DocumentSectionString.Apps,
+                        SolutionDetailItemDisplayName: "Apps",
+                        SolutionDetailItemValue: { canvasApps: AppCollection },
+                        SolutionDetailItemVisible: !IsEmpty(AppCollection),
+                        SolutionDetailItemHTML: Concat(
+                            AppCollection,
+                            "<br/><div class='canvas-app'><h3>" & ThisRecord.appName & "</h3><p>" & ThisRecord.appDescription & "</p><div class='screens'>" & 
+                            Concat(
+                                ThisRecord.screens,
+                                "<div class='screen'><h4>" & ThisRecord.screenName & "</h4><p>" & ThisRecord.screenDescription & "</p></div>"
+                            ) & 
+                            "</div></div>"
+                        )
+                    },
+                    {
+                        SolutionDetailItemKey: DocumentSectionString.Flows,
+                        SolutionDetailItemDisplayName: "Power Automate",
+                        SolutionDetailItemValue: { powerAutomate: ""},
+                        SolutionDetailItemVisible: !IsEmpty(FlowCollection),
+                        SolutionDetailItemHTML: Concat(FlowCollection,
+                                        "<div class='powerautomate'>
+                                                    <h3>" & ThisRecord.Name & "</h3>
+                                                    <p><strong>Description:</strong> " & ThisRecord.Description & "</p>
+                                                    <p><strong>Triggers:</strong></p>
+                                                    <ul>" & 
+                                                        Concat(
+                                                            ThisRecord.Triggers,
+                                                            "<li>" & ThisRecord.item & "</li>"
+                                                        ) & 
+                                                    "</ul>
+                                                    <p><strong>Actions:</strong></p>
+                                                    <ul>" & 
+                                                        Concat(
+                                                            ThisRecord.Actions,
+                                                            "<li>" & ThisRecord.item & "</li>"
+                                                        ) & 
+                                                    "</ul>
+                                                </div>"
+                )
+             },
+             {
+                        SolutionDetailItemKey: DocumentSectionString.CustomAPI,
+                        SolutionDetailItemDisplayName: "Custom API",
+                        SolutionDetailItemValue: { customapi: ""},
+                        SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.customApis),
+                        SolutionDetailItemHTML: Concat(Self.SolutionDetails.customApis,
+                                        "<br/><div class='customapi'>
+                                                    <ul>
+                                                            <li><strong>Name:</strong>" & ThisRecord.displayName & "</li>
+                                                            <li><strong>Description:</strong> " & ThisRecord.description & "</li>
+                                                            <li><strong>IsFunction:</strong>" & ThisRecord.isFunction & "</li>
+                                                            <li><strong>IsPrivate:</strong>" & ThisRecord.isPrivate & "</li></ul></div><br/>")
+             },
+             {
+                        SolutionDetailItemKey: DocumentSectionString.CustomControls,
+                        SolutionDetailItemDisplayName: "Custom Controls",
+                        SolutionDetailItemValue: { customcontrols: ""},
+                        SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.codeComponents),
+                        SolutionDetailItemHTML: Concatenate("<br/>", Concat(Self.SolutionDetails.codeComponents,
+                                        "<div class='customcontrol'>
+                                                    <ul>
+                                                            <li><strong>Name:</strong>" & ThisRecord.displayName & "</li>
+                                                            <li><strong>Description:</strong> " & ThisRecord.description & "</li>
+                                                            <li><strong>Version:</strong>" & ThisRecord.version & "</li></ul></div>"),"<br/>")
+             }, 
+              {
+                        SolutionDetailItemKey: DocumentSectionString.Plugins,
+                        SolutionDetailItemDisplayName: "Plugins",
+                        SolutionDetailItemValue: { plugin: ""},
+                        SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.plugins),
+                        SolutionDetailItemHTML: Concatenate("<br/>", Concat(Self.SolutionDetails.plugins,
+                                        "<div class='plugins'>
+                                                    <span><strong>" & ThisRecord.Name & "</strong></span></div>"),"<br/>")
+             }, 
+             {
+                SolutionDetailItemKey: DocumentSectionString.Tables,
+                SolutionDetailItemDisplayName: "Table ",
+                SolutionDetailItemValue: { table: "" },
+                SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.tables),
+                SolutionDetailItemHTML: Concatenate("<br/>", Concat(
+                    Self.SolutionDetails.tables,
+                    "<div class='table'>
+                        <strong>" & ThisRecord.DisplayName & "</strong>
+                        <ul>
+                            <li><strong>Description:</strong> " & ThisRecord.Description & "</li>
+                            <li><strong>Fields:</strong> " & Concat(ThisRecord.Fields, Name & ", ") & "</li>
+                        </ul>
+                    </div>"
+                ),"<br/>")
+            },
+             
+             {
+                        SolutionDetailItemKey: DocumentSectionString.Securityrole,
+                        SolutionDetailItemDisplayName: "Security Role(s)",
+                        SolutionDetailItemValue: { customcontrols: ""},
+                        SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.securityRoles),
+                         SolutionDetailItemHTML: Concatenate("<br/>", Concat(
+                            Self.SolutionDetails.securityRoles,
+                            "<div class='securityroles'>
+                                <ul>
+                                    <li><strong>Name:</strong> " & ThisRecord.name & "</li>
+                                </ul>
+                            </div>","<br/>")
+                )
+             } 
+            ));
+            UpdateContext(
+                { overviewsummaryResults: 'DocuPilot-OverviewSummary'.Predict(
+                    Concat(
+                        Filter(
+                            TemporarySolutionDetailsDataset,
+                            Not(SolutionDetailItemKey in [DocumentSectionString.ArchitectureDiagram, DocumentSectionString.EntityRelationship]) // Exclude specific keys representing image to limit characters
+                        ),
+                        SolutionDetailItemHTML & " "
+                    )
+                ).StructuredOutput });
+                
+            If(
+                IsError(overviewsummaryResults),
+                UpdateContext({ varOveriewSummary: Blank() }), 
+                UpdateContext({ varOveriewSummary: overviewsummaryResults })
+            );
+            Clear(SolutionDetailsDataset);
+            // Generate document's overview & summary based on the information/html collected so far
+            Collect(SolutionDetailsDataset,   
+                    // This first item is to provide all the information necessary related to solution details for the doc preview component
+                    // It is important to set the visibility to false and set -{ SolutionDetailItemKey: "SolutionDetails"}
+                    Table(
+                        {
+                        SolutionDetailItemKey: "SolutionDetails",
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue: Self.SolutionDetails,
+                        SolutionDetailItemVisible: false,//!IsBlank(Find(DocumentSectionString.Overview, Self.SelectedConfigValue)),
+                        SolutionDetailItemHTML: ""
+                    },
+                    {
+                        SolutionDetailItemKey: "SolutionOverview",
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue: { overview: ""},
+                        SolutionDetailItemVisible: true,
+                        SolutionDetailItemHTML: "<h1 style='font-size: 34px;font-weight: 700; margin: 10px 0;color: #134D67;line-height: 1.2; font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;'>Technical Design Document for "&Self.SolutionDetails.solutionOverview.displayName&"</h1>"
+                    },      
+                    {
+                        SolutionDetailItemKey: DocumentSectionString.Overview,
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue:{ overview: ""},
+                        SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.Overview, Self.SelectedConfigValue)),
+                        SolutionDetailItemHTML: "<h1 id='overview' style='font-size: 30px; font-weight: bold; color: #134D67;'>Overview</h1>" // Used to generate navigation header
+                    },
+                    {
+                        SolutionDetailItemKey: "overview",
+                        SolutionDetailItemDisplayName: "",
+                        SolutionDetailItemValue: { overview: ""},
+                        SolutionDetailItemVisible: !IsBlank(varOveriewSummary),
+                         SolutionDetailItemHTML: 
+                            "<br/><div class='overview'>
+                                <span>"&varOveriewSummary.overview&"</span>
+                            </div><br/>"
+             }));
+             // Using temporary dataset to readjust order
+             // TODO: Make order as one of the key to define sort order
+             Collect(SolutionDetailsDataset,  TemporarySolutionDetailsDataset );
+             Collect(SolutionDetailsDataset,  {
+                        SolutionDetailItemKey: "summary",
+                        SolutionDetailItemDisplayName: "Summary",
+                        SolutionDetailItemValue: { summary: ""},
+                        SolutionDetailItemVisible: !IsBlank(varOveriewSummary),
+                         SolutionDetailItemHTML: 
+                            "<br/><div class='summary'>
+                                <span>"&varOveriewSummary.summary&"</span>
+                            </div><br/>"
+             });
+            UpdateContext({varDisablePreview: false,varEnableTypingEffect:false, showFlair:"ShowFlair"&Rand()}));
+        ReviewSolution: =false
+        SolutionFile: =varRequestRecord.'Solution Zip File'
+        SolutionName: =Blank()
+        Visible: =true
+        Width: =226
+        X: =805
+        Y: =110
+        ZIndex: =3
+
+    DocPreview1 As DocPreview.pcfdataset:
+        DisabledPreview: =varDisablePreview
+        DisplayMode: =DisplayMode.Edit
+        EnableTyping: =varEnableTypingEffect
+        Height: =App.Height
+        InputEvent: =showFlair
+        Items: =ConfigurationCollection
+        OnBackClick: =Back()
+        OnConfigChange: |
+            =
+            // Update ConfigItemChecked based on selected keys
+            ForAll(
+                ConfigurationCollection,
+                Patch(
+                    ConfigurationCollection,
+                    ThisRecord,
+                    { ConfigItemChecked: !IsBlank(LookUp(Split(Self.SelectedConfigValue, ","), Trim(Value) = ConfigItemValue)) } 
+                )
+            );
+            
+            // Convert comma-separated values into a table
+            Set(
+                selectedKeysTable,
+                Split(Self.SelectedConfigValue, ",")
+            );
+            /*
+            // **Set all SolutionDetailItemVisible to false (excluding "SolutionDetails")**
+            ForAll(
+                SolutionDetailsDataset,
+                Patch(
+                    SolutionDetailsDataset,
+                    ThisRecord, 
+                    { SolutionDetailItemVisible: false }
+                )
+            );
+            
+            // **Set only selected keys to visible (excluding "SolutionDetails")**
+            ForAll(selectedKeysTable.Value,
+                Patch(
+                    SolutionDetailsDataset,
+                    LookUp(SolutionDetailsDataset,SolutionDetailItemKey = Value),
+                    { SolutionDetailItemVisible: true }
+                )
+            );
+            //ClearCollect(localSolutionDetailsDataset,SolutionDetailsDataset);
+            //ClearCollect(SolutionDetailsDataset,localSolutionDetailsDataset);*/
+        RecordID: =varRequestRecord.'DocuPilot Document Generation Request'
+        SolutionDetails_Items: |-
+            =
+            SolutionDetailsDataset
+            // Do not remove details below. These are reference on the solution details need to be structured to provide a proper preview of the document
+            /*Table(
+                // This first item is to provide all the information necessary related to solution details for the doc preview component
+                // It is important to set the visibility to false and set -{ SolutionDetailItemKey: "SolutionDetails"}
+                {
+                    SolutionDetailItemKey: "SolutionDetails",
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue: IntelligentReviewVisualizer1_6.SolutionDetails,
+                    SolutionDetailItemVisible: false,
+                    SolutionDetailItemHTML: ""
+                },
+                // Document Heading
+                {
+                    SolutionDetailItemKey: "title",
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,
+                    SolutionDetailItemHTML: "<h1 style='font-size: 34px; font-weight: bold; margin: 10px 0; color: #000000; line-height: 1.2; font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;'>Technical Design Document for Asset Managements</h1>"
+                },
+                {
+                    SolutionDetailItemKey: DocumentSectionString.Overview,
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.Overview, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<h1 id='overview' style='font-size: 30px; font-weight: bold; color: #134D67;'>Overview</h1>" // Used to generate navigation header
+                },
+                {
+                    SolutionDetailItemKey: DocumentSectionString.Overview,
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.Overview, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<p>This technical design document outlines the Asset Management System (AMS), covering its key features, technical specifications, requirements, and architectural considerations. The purpose of this document is to provide a structured guide for understanding, implementing, and maintaining the Asset Management System within an organization.</p>"
+                },
+                {
+                    SolutionDetailItemKey: "Solution-Detail",
+                    SolutionDetailItemDisplayName: "Solution Detail",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible:  true,//!IsBlank(Find(DocumentSectionString.SolutionDetails, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<div class='solutionoverview'><ul><li><strong>Solution Name:</strong> Asset Management System</li><li><strong>Display Name:</strong> Asset Manager Pro</li><li><strong>Unique Name:</strong> AssetManagerProApp</li><li><strong>Version Number:</strong> 2.1.0.3</li><li><strong>Created Date:</strong> 01 January 2024, 00:00:00 UTC</li><li><strong>Modified Date:</strong> 01 February 2024, 12:00:00 UTC</li></ul></div>"
+                }    , {
+                    SolutionDetailItemKey: "solutionarchitecture",
+                    SolutionDetailItemDisplayName: "Solution Diagram",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible:  true,//!IsBlank(Find(DocumentSectionString.SolutionDetails, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML:
+                        Substitute(
+                            Substitute(
+                                Mermaid2PngSolutionDiagram.MermaidPNG,
+                                "visibility:hidden", 
+                                ""
+                            ),
+                            "<img",
+                            "<img width='600' height='400'"
+                        )
+                },  
+                {
+                    SolutionDetailItemKey: DocumentSectionString.Prerequisites,
+                    SolutionDetailItemDisplayName: "Pre-requisites",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.Prerequisites, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<ul><li><strong>Environmental Variable 1:</strong> Database Connection URL – Connection string for the central asset database</li><li><strong>Environmental Variable 2:</strong> Authentication Key – API key for external integrations</li><li><strong>Connection Reference 1:</strong> Power BI Integration – Required for visual reporting and dashboard functionality</li><li><strong>Connection Reference 2:</strong> Azure Blob Storage – Storage solution for asset-related documents</li></ul>"
+                },
+                {
+                    SolutionDetailItemKey: DocumentSectionString.UXAndAutomations,
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.UXAndAutomations, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<h1  id='ux-automation' style='font-size: 30px; font-weight: bold; color: #134D67;'>User Experience(UX) and Automations</h1>" // Used to generate 
+                },
+                {
+                    SolutionDetailItemKey: "ux-automations",
+                    SolutionDetailItemDisplayName: "",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true, //!IsBlank(Find(DocumentSectionString.UXAndAutomations, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<p>This section includes detailed descriptions of the user experience and automation processes involved in the Sample Power App.</p>"
+                },
+                {
+                    SolutionDetailItemKey: DocumentSectionString.Apps,
+                    SolutionDetailItemDisplayName: "Apps",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true, //!IsBlank(Find(DocumentSectionString.Apps, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: "<ul><li><strong>Asset Manager Web App:</strong> A web-based application that allows users to manage assets, view reports, and track lifecycle events.</li><li><strong>Asset Tracker Mobile App:</strong> A mobile app enabling on-site staff to log asset conditions, update status, and scan asset tags via QR codes.</li></ul>"
+                },
+                {
+                    SolutionDetailItemKey: "custom-controls",
+                    SolutionDetailItemDisplayName: "Custom Controls",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,
+                    SolutionDetailItemHTML: "<p>This section includes custom UI elements that enhance the user experience and extend the app functionality.</p>"
+                },
+                {
+                    SolutionDetailItemKey: "data-security",
+                    SolutionDetailItemDisplayName: "Data and Security",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,
+                    SolutionDetailItemHTML: "<p>Details on data security, custom roles, data models, entities, and entity relationships.</p>"
+                },
+                {
+                    SolutionDetailItemKey: "ER Diagram",
+                    SolutionDetailItemDisplayName: "Entity Relationship Diagram",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible:  true,//!IsBlank(Find(DocumentSectionString.SolutionDetails, Self.SelectedConfigValue)),
+                    SolutionDetailItemHTML: 
+                    Substitute(
+                        Substitute(
+                            Mermaid2PngERDiagram.MermaidPNG,
+                            "visibility:hidden", 
+                            ""
+                        ),
+                        "<img",
+                        "<img width='600' height='400'"
+                    )
+                } 
+                /*
+               {
+                    SolutionDetailItemKey: "table",
+                    SolutionDetailItemDisplayName: "Entity Relationship",
+                    SolutionDetailItemValue: Blank(),
+                    SolutionDetailItemVisible: true,
+                    SolutionDetailItemHTML: "<div style='display: flex; justify-content: center; align-items: center;
+                        width: 100%; max-width: 600px; height: 400px; max-height: 800px;
+                        overflow: hidden; border: 1px solid #ccc; border-radius: 8px;
+                        background-color: white;'>"&Substitute(Mermaid2PngERDiagram.MermaidPNG, "visibility:hidden", "width: 100%;height: 100%;object-fit: cover;")&"</div>"
+                }/
+            )*/
+        Width: =App.Width
+        X: =0
+        Y: =0
+        ZIndex: =4
+
+    cSpinner_6 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: |-
+            =ColorValue("#fafafa")
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =showSaveLoader
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Spinner1_8 As Spinner:
+            DisplayMode: =DisplayMode.Edit
+            Height: =Parent.Height
+            Label: ="Reading Solution"
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            SpinnerSize: ='Spinner.SpinnerSize'.Large
+            Visible: =showSaveLoader
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+

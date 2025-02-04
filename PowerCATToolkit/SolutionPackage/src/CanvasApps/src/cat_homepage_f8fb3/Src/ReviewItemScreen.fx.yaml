@@ -1,0 +1,556 @@
+ReviewItemScreen As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |+
+        =UpdateContext({ctxShowCode:false, ctxSelectedPropery:Blank()});
+        
+        If(!IsEmpty(SelectedReviewItem.instanceValue),
+        
+        UpdateContext(
+            {
+                ctxSelectedPropery: First(SelectedReviewItem.instanceValue),
+                ctxShowCode: !IsBlank(First(SelectedReviewItem.instanceValue).Code)
+            }
+        );
+        );
+        
+        
+
+    Container5 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        cPageHeaderMain_7 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            FillPortions: =0
+            Height: =div_11.Y + 1
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =4
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =Margins
+            PaddingRight: |
+                =Margins
+            PaddingTop: =16
+            Width: =Parent.Width 
+            X: =92
+            Y: =40
+            ZIndex: =1
+
+            cPageHeaderTop_5 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =FlexOff
+                Height: =75
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =1042
+                X: =68
+                Y: =52
+                ZIndex: =1
+
+                cPageHeaderTitle_7 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =FlexOn
+                    Height: =cHeaderText_10.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =431
+                    X: =36
+                    Y: =40
+                    ZIndex: =1
+
+                    ButtonCanvas4_10 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Subtle
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Icon: ="ArrowLeft"
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: =Back()
+                        Text: =
+                        Visible: =true
+                        Width: =32
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    cHeaderText_10 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =rDivider_PageHeader_10.Y
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =4
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width - Self.X
+                        X: =1-1
+                        Y: =1-1 
+                        ZIndex: =2
+
+                        h2Title_10 As Text:
+                            Align: ='TextCanvas.Align'.Start
+                            AlignInContainer: =AlignInContainer.Start
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =36
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Size: =20
+                            Text: =Coalesce(SelectedReviewItem.patternName, "Review Results")
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =Parent.Width - Self.X * 2
+                            X: =394.49
+                            Y: =0
+                            ZIndex: =1
+
+                        Label3_12 As label:
+                            AlignInContainer: =AlignInContainer.Start
+                            AutoHeight: =true
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: |-
+                                =ColorValue("#424242")
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =Font.'Segoe UI'
+                            LineHeight: =1.4
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                            Text: =SelectedReviewItem.patternID
+                            VerticalAlign: =VerticalAlign.Top
+                            Visible: =!IsBlank(Self.Text)
+                            Width: =Min(600, Parent.Width)
+                            X: =394.49
+                            ZIndex: =2
+
+                        rDivider_PageHeader_10 As rectangle:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Fill: =RGBA(0,0,0,0)
+                            Height: =1
+                            Width: =Parent.Width - Self.X * 2
+                            X: =72
+                            Y: =52
+                            ZIndex: =3
+
+            cLargeToolbar_5 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignStretch
+                FillPortions: =FlexOff
+                Height: =tlbMain_5.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =60
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =false
+                Width: =Parent.Width - Self.X * 2
+                ZIndex: =3
+
+                tlbMain_5 As Toolbar.pcfdataset:
+                    AccessibleLabel: ="Toolbar"
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =3
+                    Height: =48
+                    Items: |-
+                        =Table(
+                            {
+                                ItemKey: "1",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle",
+                                ItemTooltip: "Action"
+                            },
+                            {
+                                ItemKey: "2",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle"
+                            },
+                            {
+                                ItemKey: "3",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemDisabled: false,
+                                ItemAppearance: "Subtle"
+                                //,ItemIconStyle: "Filled"
+                            },
+                            {
+                                ItemKey: "4",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle"
+                            },
+                            {
+                                ItemKey: "4",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle",
+                                ItemFarItem: true
+                            }
+                        )
+                    LayoutMinHeight: =55
+                    LayoutMinWidth: =280
+                    OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'new' */"new",Notify("New clicked"),/* Action for 'edit' */"edit",Notify("Edit clicked"),/* Action for 'delete' */ "delete",Notify("Delete clicked"),/* Action for 'info' */ "info",Notify("Info clicked"), /* Default action */  Notify("Unrecognized button clicked"))
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                tlbRight_11 As Toolbar.pcfdataset:
+                    AccessibleLabel: ="Toolbar"
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =FlexOn
+                    Height: =44
+                    Items: |-
+                        =Table(
+                            {
+                                ItemKey: "1",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle",
+                                ItemTooltip: "Action"
+                            },
+                            {
+                                ItemKey: "2",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle"
+                            },
+                            {
+                                ItemKey: "3",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemDisabled: false,
+                                ItemAppearance: "Subtle"
+                                //,ItemIconStyle: "Filled"
+                            },
+                            {
+                                ItemKey: "4",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle"
+                            },
+                            {
+                                ItemKey: "4",
+                                ItemDisplayName: "Action",
+                                ItemIconName: "Circle",
+                                ItemAppearance: "Subtle",
+                                ItemIconStyle: "Subtle",
+                                ItemFarItem: true
+                            }
+                        )
+                    LayoutMinHeight: =55
+                    LayoutMinWidth: =280
+                    OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'new' */"new",Notify("New clicked"),/* Action for 'edit' */"edit",Notify("Edit clicked"),/* Action for 'delete' */ "delete",Notify("Delete clicked"),/* Action for 'info' */ "info",Notify("Info clicked"), /* Default action */  Notify("Unrecognized button clicked"))
+                    Width: =258
+                    X: =899
+                    Y: =0
+                    ZIndex: =2
+
+            div_11 As rectangle:
+                AlignInContainer: =AlignStart
+                BorderColor: =App.Theme.Colors.Darker40
+                Fill: =ColorValue(AppTheme.palette.neutralLight)
+                Height: =1
+                Width: =Parent.Width - Self.X * 2
+                X: =84
+                Y: =256
+                ZIndex: =4
+
+        cNav As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: |-
+                =Coalesce(SelectedTheme.'Neutral/Background/3/Rest',ColorValue("#FAFAFA"))
+            FillPortions: =0
+            Height: =1200
+            LayoutGap: =10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingBottom: =10
+            PaddingLeft: =Margins
+            PaddingRight: =Margins 
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =3
+
+            Container7 As groupContainer.horizontalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =10
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                ZIndex: =2
+
+                Container3 As groupContainer.verticalAutoLayoutContainer:
+                    Height: =1200
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =20  
+                    PaddingRight: =20
+                    PaddingTop: =20
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =4
+
+                    lblDescription As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        AutoHeight: =false
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(40, 134, 222, 1)
+                        Height: =30
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =18
+                        Text: ="Description"
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =true
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - Self.X
+                        X: =20
+                        Y: =20
+                        ZIndex: =1
+
+                    HtmlText1 As htmlViewer:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        AutoHeight: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        HtmlText: =LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternDescription
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10.5
+                        ZIndex: =3
+
+                    lblRecommendations_2 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        AutoHeight: =false
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(40, 134, 222, 1)
+                        Height: =35
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =18
+                        Text: ="Recomendation"
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =true
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - Self.X
+                        X: =20
+                        Y: =20
+                        ZIndex: =4
+
+                    HtmlText1_1 As htmlViewer:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        AutoHeight: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        HtmlText: =LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternRecommendation
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10.5
+                        ZIndex: =6
+
+                    docLinks As Link:
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: ="Learn More"
+                        URL: =SelectedReviewItem.docLinks
+                        Visible: =!IsBlank(Self.Text)
+                        Width: =320
+                        X: =20
+                        Y: =20
+                        ZIndex: =7
+
+                    lblRecommendations_4 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =Parent.Height
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Size: =18
+                        Text: ="Code View"
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =ctxShowCode
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - Self.X
+                        X: =20
+                        Y: =20
+                        ZIndex: =8
+
+                    Container4 As groupContainer.horizontalAutoLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =ctxShowCode
+                        ZIndex: =9
+
+                        CodeTreeContainer As groupContainer.verticalAutoLayoutContainer:
+                            Fill: =ColorValue(AppTheme.palette.neutralLighter)
+                            FillPortions: =0
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            LayoutOverflowX: =LayoutOverflow.Scroll
+                            LayoutOverflowY: =LayoutOverflow.Scroll
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =25
+                            Visible: =!IsEmpty(SelectedReviewItem.instanceValue)
+                            Width: =280
+                            ZIndex: =1
+
+                            CodeViewerTree1 As CodeViewerTree.pcfdataset:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =200
+                                Items: =SelectedReviewItem.instanceValue
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                OnSelect: |-
+                                    =UpdateContext({ctxSelectedPropery:Self.Selected});
+                                PatternName: =
+                                Width: =Parent.Width - Self.X - (Parent.PaddingLeft * 2)
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                                "topicName1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="topicName"
+                                    FieldName: ="topicName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =8
+                                    ZIndex: =7
+
+                                "ScreenName1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="ScreenName"
+                                    FieldName: ="ScreenName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =7
+                                    ZIndex: =8
+
+                                "PropertyName1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="PropertyName"
+                                    FieldName: ="PropertyName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =6
+                                    ZIndex: =9
+
+                                "ControlType1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="ControlType"
+                                    FieldName: ="ControlType"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =5
+                                    ZIndex: =10
+
+                                "PatternName1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="PatternName"
+                                    FieldName: ="PatternName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =4
+                                    ZIndex: =11
+
+                                "ControlName1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="ControlName"
+                                    FieldName: ="ControlName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =3
+                                    ZIndex: =12
+
+                                "conditionName1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="conditionName"
+                                    FieldName: ="conditionName"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =2
+                                    ZIndex: =13
+
+                                "Code1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="Code"
+                                    FieldName: ="Code"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =1
+                                    ZIndex: =14
+
+                        "PFxCodeEditor1 As 'PowerFx Code Editor'":
+                            DisplayMode: =DisplayMode.View
+                            Height: =Parent.Height
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            PowerFx: |-
+                                =If(!IsBlank(ctxSelectedPropery),
+                                Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1)))
+                            ShowLineNumber: =false
+                            ShowminiMap: =true
+                            Value: =Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1))
+                            Visible: =ctxShowCode
+                            Width: =Parent.Width
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                    div_18 As rectangle:
+                        AlignInContainer: =AlignStart
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(0,0,0,0)
+                        Height: =2
+                        Width: =Parent.Width - Self.X * 2
+                        X: =84
+                        Y: =256
+                        ZIndex: =10
+

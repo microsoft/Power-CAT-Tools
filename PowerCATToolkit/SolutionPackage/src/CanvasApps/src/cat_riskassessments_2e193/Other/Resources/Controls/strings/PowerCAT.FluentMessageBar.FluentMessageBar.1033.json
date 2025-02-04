@@ -1,0 +1,15 @@
+{
+  "ActionButtonName_Key": "Action Button Name",
+  "Body_Key": "Body",
+  "Intent_Key": "Intent",
+  "LinkText_Key": "Link Text",
+  "Messagebar_AutoHeight_Display_Key": "AutoHeight",
+  "Messagebar_HideDismiss_Display_Key": "Hide Dismiss",
+  "Messagebar_Toolbar_Items_Desc_Key": "Specifies the items in the toolbar and their configuration",
+  "Messagebar_Toolbar_Items_Display_Key": "Toolbar Items",
+  "OnDismiss_Desc": "Description for Dismiss action",
+  "OnSelect_Key": "OnSelect",
+  "Shape_Key": "Shape",
+  "Title_Key": "Title",
+  "URL_Key": "URL"
+}

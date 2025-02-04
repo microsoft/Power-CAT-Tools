@@ -1,0 +1,101 @@
+Screen1 As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    CodeViewerTree1_1 As CodeViewerTree.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =580
+        Items: |
+            =Table(
+                {ScreenName: "Request Screen", ControlName: "", PropertyName: "OnVisible", 
+                 Code: "Set(varLoader, true);", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: ""},
+                {ScreenName: "Request Screen", ControlName: "OnVisibleToggle", PropertyName: "OnCheck", 
+                 Code: "Set(varLoader, true); Set(varShowSavePopUp,false); ...", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: "Classic/Toggle"},
+                {ScreenName: "Request Screen", ControlName: "OnSaveToggle", PropertyName: "OnCheck", 
+                 Code: "Set(varIsSaved, true); Concurrent(Set(varLoader, true), ...", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: "Classic/Toggle"},
+                {ScreenName: "Request Screen", ControlName: "SavePromptCheckToggle", PropertyName: "OnCheck", 
+                 Code: "If(com_DD_002_PeoplePicker_CoordinatorAssigned.Visible && ...", PatternName: "CodeReadability", FailureReason: "Code length exceeds 1000 characters without any comments.", ControlType: "Classic/Toggle"},
+                {ScreenName: "Request Screen", ControlName: "SavePromptCheckToggle", PropertyName: "OnCheck", 
+                 Code: "If(com_DD_002_PeoplePicker_CoordinatorAssigned.Visible && ...", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: "Classic/Toggle"},
+                {ScreenName: "Request Screen", ControlName: "rchtxt_IF_003_Richtext_Required_BusinessJustification", PropertyName: "Default", 
+                 Code: "If(!IsBlank(varRequestEntity), If(!IsBlank(varBusinessJustificationText), ...", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: "RichTextEditor"},
+                {ScreenName: "Request Screen", ControlName: "lbl_DD_002_PeoplePicker_Size4_PrePrepInternalAttendees", PropertyName: "Text", 
+                 Code: "Internal Attendees (...)", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: "Label"},
+                {ScreenName: "Request Screen", ControlName: "cbo_PrepEndTime", PropertyName: "Default", 
+                 Code: "If(chkbox_S_002_Checkbox_Dropdown_TBD.Value || IsBlank(cbo_PrepStartTime.SelectedText), ...", PatternName: "CodeReadability", FailureReason: "Nested If statements detected.", ControlType: "Classic/DropDown"},
+                {ScreenName: "Request Screen", ControlName: "cbo_DD_002_PeoplePicker_Size4_PrePrepInternalAttendees", PropertyName: "DefaultSelectedItems", 
+                 Code: "If(ThisItem.oceo_prepmeetingtype = 'Prep Meeting Type'.'Pre Prep', If(IsBlank(...", PatternName: "CodeReadability", FailureReason: "Code length exceeds 1000 characters without any comments.", ControlType: "Classic/ComboBox"},
+                {ScreenName: "Request Screen", ControlName: "lblMaterialHealthValue", PropertyName: "Text", 
+                 Code: "Round(((If(cbo_DD_001_Generic_Size2_CALMaterialStatus.Selected.Value= 'Material Status'...", PatternName: "CodeReadability", FailureReason: "Code length exceeds 1000 characters without any comments.", ControlType: "Label"}
+            )
+        OnSelect: |-
+            =UpdateContext({ctxSelectedPropery:Self.Selected});
+        PatternName: =
+        Width: =400
+        X: =234
+        Y: =57
+        ZIndex: =1
+
+        "topicName1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="topicName"
+            FieldName: ="topicName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =8
+            ZIndex: =7
+
+        "ScreenName1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="ScreenName"
+            FieldName: ="ScreenName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =7
+            ZIndex: =8
+
+        "PropertyName1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="PropertyName"
+            FieldName: ="PropertyName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =6
+            ZIndex: =9
+
+        "ControlType1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="ControlType"
+            FieldName: ="ControlType"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =5
+            ZIndex: =10
+
+        "PatternName1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="PatternName"
+            FieldName: ="PatternName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =4
+            ZIndex: =11
+
+        "ControlName1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="ControlName"
+            FieldName: ="ControlName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =3
+            ZIndex: =12
+
+        "conditionName1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="conditionName"
+            FieldName: ="conditionName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =13
+
+        "Code1_1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+            FieldDisplayName: ="Code"
+            FieldName: ="Code"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =14
+

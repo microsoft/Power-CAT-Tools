@@ -1,0 +1,11 @@
+[
+  {
+    "DataSetName": "default.cds",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "LogicalName": "cat_APIPlayGroundLoc",
+    "Name": "APIPlayGroundLoc",
+    "Schema": "![actionsAndFunctions:s, actionsAndFunctionsSubTxt:s, addFolder:s, addHeaderTxt:s, addNewParamBtnTxt:s, addParamToolTipTxt:s, addTxt:s, appName:s, bodyTabTxt:s, cancelBtnTxt:s, chooseFolderTxt:s, closeTxt:s, copyClipboardMessageTxt:s, createCustomAPI:s, createFolderTxt:s, createLowCodePlugin:s, createODataRequet:s, createTxt:s, customAPITxt:s, customApiDesTxt:s, defaultDesMsgTxt:s, defaultErrorMessageTxt:s, deleteMsgTxt:s, deleteRequest:s, deleteTxt:s, deleteVerbTxt:s, detailsTxt:s, discoverSubtitle:s, discoverTitle:s, editFolder:s, editTxt:s, envUrlTxt:s, folderDeletedTxt:s, folderDesTxt:s, folderNameTxt:s, folderTxt:s, folderUpdateMsg:s, folders:s, getStarted:s, getStartedSubtitle:s, getVerbTxt:s, headersTxt:s, headingLogSetting:s, howToUseTxt:s, instantPluginDesTxt:s, instantPluginTxt:s, isPrivateCheckBox:s, jsonDDtxt:s, keyTxt:s, lblFailed:s, lblInstantPlugin:s, learnMoreTxt:s, learnTxt:s, loadingTxt:s, logEnableMessageTxt:s, logSettingsTxt:s, manageFolder:s, nameTxt:s, newCustomAPIRequest:s, newFolder:s, newODataRequest:s, newPluginRequest:s, newRequestTxt:s, newTxt:s, noRequestFound:s, noResultFoundMsgTxt:s, oDataDesTxt:s, oDataRequestTxt:s, openTxt:s, parameterTxt:s, parametersTabTxt:s, phEnterRequestName:s, postVerbTxt:s, putVerbTxt:s, queryData:s, queryDataSubTxt:s, queryParamInfoBtnTxt:s, queryParamsTxt:s, recentRequests:s, refreshTxt:s, removeParamBtnTxt:s, requestPlaceholderCustomApiTxt:s, requestPlaceholderInstantTxt:s, requestTxt:s, resetTxt:s, responseLblTxt:s, sampleButton1Txt:s, sampleButton2Txt:s, sampleButton3Txt:s, saveFolderMessageTxt:s, saveRequest:s, saveRequestTxt:s, saveTxt:s, savedRequestsTxt:s, savedrequestMsgTxt:s, searchRequestsTxt:s, selectFolderTxt:s, selectHeadersTxt:s, sendBtnTxt:s, sendRequest:s, sendingRequestTxt:s, serviceDoc:s, serviceDocSubTxt:s, sizeLblTxt:s, statusLblTxt:s, thisEnvironment:s, timeLblTxt:s, validationFolderCreateMsg:s, validationFolderMsg:s, validationMsgTxt:s, validationODataMsgTxt:s, valueTxt:s, xmlDDTxt:s, yesTxt:s]",
+    "Type": "WebResourceInfo"
+  }
+]

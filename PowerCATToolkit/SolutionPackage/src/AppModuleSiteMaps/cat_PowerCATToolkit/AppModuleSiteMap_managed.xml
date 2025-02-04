@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SiteMapUniqueName>cat_PowerCATToolkit</SiteMapUniqueName>
+  <EnableCollapsibleGroups>False</EnableCollapsibleGroups>
+  <ShowHome>False</ShowHome>
+  <ShowPinned>False</ShowPinned>
+  <ShowRecents>False</ShowRecents>
+  <SiteMap IntroducedVersion="7.0.0.0">
+    <Area Id="area_83de5be0" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Titles>
+        <Title LCID="1033" Title="Area1" />
+      </Titles>
+      <Group Id="group_nav" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Navigation" />
+        </Titles>
+        <SubArea Id="subarea_landingPage" VectorIcon="/WebResources/cat_HomeIcon" Icon="/WebResources/cat_HomeIcon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_landing_a3b7a">
+          <Titles>
+            <Title LCID="1033" Title="Home" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_bc496484" VectorIcon="/WebResources/cat_Code-Review-Icon" Icon="/WebResources/cat_Code-Review-Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_homepage_f8fb3">
+          <Titles>
+            <Title LCID="1033" Title="Review Tool" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_6849d900" VectorIcon="/WebResources/cat_Document-Sparkle-Icon" Icon="/WebResources/cat_Document-Sparkle-Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_docupilot_fa88a">
+          <Titles>
+            <Title LCID="1033" Title="AI Documentation" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_riskAssessment" VectorIcon="/WebResources/cat_Shield_Checkmark_Icon" Icon="/WebResources/cat_Shield_Checkmark_Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_riskassessments_2e193">
+          <Titles>
+            <Title LCID="1033" Title="Assess risk" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_5c266043" VectorIcon="/WebResources/cat_Monitor-Pulse-Icon" Icon="/WebResources/cat_Monitor-Pulse-Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_plugintracelog_d12af">
+          <Titles>
+            <Title LCID="1033" Title="Plugin monitor" />
+          </Titles>
+        </SubArea>
+        <SubArea Id="subarea_ca051dbf" VectorIcon="/WebResources/cat_Communication-Icon" Icon="/WebResources/cat_Communication-Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_apiplayground_62f25">
+          <Titles>
+            <Title LCID="1033" Title="API playground" />
+          </Titles>
+        </SubArea>
+      </Group>
+    </Area>
+  </SiteMap>
+  <LocalizedNames>
+    <LocalizedName description="Power CAT Toolkit" languagecode="1033" />
+  </LocalizedNames>
+</AppModuleSiteMap>
