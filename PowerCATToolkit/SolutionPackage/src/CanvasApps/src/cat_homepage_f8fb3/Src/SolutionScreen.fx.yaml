@@ -696,7 +696,7 @@ SolutionScreen As screen:
                         ZIndex: =4
 
                         "FluentDetailsList4 As 'Fluent Details List (1.1.39)'.pcfdataset":
-                            AlignInContainer: =AlignStretch
+                            AlignInContainer: =If(/* workaround pcf upgrade bug */ true, AlignStretch)
                             columns_Items: |-
                                 =With({
                                                 // If there is a selection column, we remove the width and the padding
