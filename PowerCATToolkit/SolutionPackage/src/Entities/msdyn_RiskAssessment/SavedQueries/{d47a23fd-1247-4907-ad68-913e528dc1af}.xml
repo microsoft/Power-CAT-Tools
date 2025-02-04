@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d47a23fd-1247-4907-ad68-913e528dc1af}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="msdyn_name" select="1" icon="1" preview="1">
+        <row name="result" id="msdyn_riskassessmentid">
+          <cell name="msdyn_roleid" width="178" />
+          <cell name="msdyn_assessedrisklevel" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="msdyn_isarchived" width="106" />
+          <cell name="msdyn_assessmentdate" width="137" />
+          <cell name="msdyn_membercount" width="126" />
+          <cell name="msdyn_totalcriticalrisk" width="144" />
+          <cell name="msdyn_totalhighrisk" width="130" />
+          <cell name="msdyn_totalmoderaterisk" width="155" />
+          <cell name="msdyn_totallowrisk" width="127" />
+          <cell name="msdyn_totalnorisk" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="msdyn_riskassessment">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="msdyn_assessmentdate" />
+          <attribute name="msdyn_totalcriticalrisk" />
+          <attribute name="msdyn_totalhighrisk" />
+          <attribute name="msdyn_totalmoderaterisk" />
+          <attribute name="msdyn_totallowrisk" />
+          <attribute name="msdyn_totalnorisk" />
+          <order attribute="msdyn_assessmentdate" descending="true" />
+          <attribute name="msdyn_roleid" />
+          <attribute name="msdyn_membercount" />
+          <attribute name="msdyn_assessedrisklevel" />
+          <attribute name="msdyn_riskassessmentid" />
+          <attribute name="msdyn_isarchived" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Risk Assessments" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

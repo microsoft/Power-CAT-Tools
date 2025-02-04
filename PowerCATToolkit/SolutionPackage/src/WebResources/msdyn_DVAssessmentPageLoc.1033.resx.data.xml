@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{a229aa08-90d1-ee11-9079-000d3a4dc5aa}</WebResourceId>
+  <Name>msdyn_DVAssessmentPageLoc.1033.resx</Name>
+  <DisplayName>DVAssessmentPageLoc</DisplayName>
+  <Description>Localized text for the Assessment Page</Description>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>12</WebResourceType>
+  <IntroducedVersion>1.0.3.69</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/msdyn_DVAssessmentPageLoc1033resxA229AA08-90D1-EE11-9079-000D3A4DC5AA</FileName>
+</WebResource>

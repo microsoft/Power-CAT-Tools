@@ -1,0 +1,125 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_solutioncomponents",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_solutioncomponent",
+    "MaxGetRowsCount": 500,
+    "Name": "Solution Components",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "cat_componentname": "Component Name",
+      "cat_componenttype": "Component Type",
+      "cat_displayname": "Display Name",
+      "cat_PatternResult_cat_SolutionComponent": "Pattern Results",
+      "cat_score": "Score",
+      "cat_solutioncomponent_Annotations": "Notes",
+      "cat_solutioncomponent_AsyncOperations": "System Jobs",
+      "cat_solutioncomponent_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_solutioncomponent_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_solutioncomponent_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_solutioncomponent_ProcessSession": "Process Sessions",
+      "cat_solutioncomponent_SyncErrors": "Sync Errors",
+      "cat_solutioncomponentid": "Solution Component",
+      "cat_SolutionReview": "SolutionReview",
+      "cat_totalscreensorcomponents": "Total Screens or Components",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Solution Components",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Solution Components (Views)",
+    "Name": "_cat_solutioncomponent_views",
+    "RelatedEntityName": "Solution Components",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1d1281bb-9b3a-4546-b03d-354486ed5fd0": "Active Solution Components",
+      "34a3e7ae-8d1d-4f51-8202-a3546dac9068": "Solution Component Lookup View",
+      "530108fa-5fbf-4188-8b50-b6ed7d437e61": "Solution Component Associated View",
+      "8a657bc1-3eec-463a-a67a-0c02138b3006": "Inactive Solution Components",
+      "90193d6b-197a-41db-9418-fc3880a0de9d": "Solution Component Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Solution Component",
+    "Name": "cat_solutioncomponent",
+    "OptionSetInfoNameMapping": {
+      "764860000": "PowerApps",
+      "764860001": "PowerAutomate",
+      "764860002": "Agent",
+      "764860003": "PowerPages"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_componenttype",
+        "OptionSetReferenceEntityName": "Solution Components"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_componenttype",
+    "RelatedEntityName": "Solution Components",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Solution Components)",
+    "Name": "cat_solutioncomponent_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Solution Components"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Solution Components",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Solution Components)",
+    "Name": "cat_solutioncomponent_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Solution Components"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Solution Components",
+    "Type": "OptionSetInfo"
+  }
+]

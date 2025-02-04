@@ -1,0 +1,11 @@
+<environmentvariabledefinition schemaname="msdyn_DVAcceleratorAutoScan">
+  <defaultvalue>no</defaultvalue>
+  <displayname default="DVAcceleratorAutoScan">
+    <label description="DVAcceleratorAutoScan" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.3.73</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000002</type>
+</environmentvariabledefinition>

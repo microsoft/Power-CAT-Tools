@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_customers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_customer",
+    "MaxGetRowsCount": 500,
+    "Name": "Customers",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_customer_AsyncOperations": "System Jobs",
+      "cat_customer_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_customer_DuplicateBaseRecord": "Duplicate Records (cat_customer_DuplicateBaseRecord)",
+      "cat_customer_DuplicateMatchingRecord": "Duplicate Records (cat_customer_DuplicateMatchingRecord)",
+      "cat_customer_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_customer_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_customer_ProcessSession": "Process Sessions",
+      "cat_customer_SyncErrors": "Sync Errors",
+      "cat_customerid": "Customer",
+      "cat_name": "Name",
+      "cat_solutionreview_Customer_cat_customer": "Solution Reviews",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Customers",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Customers (Views)",
+    "Name": "_cat_customer_views",
+    "RelatedEntityName": "Customers",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "190c0557-1adb-4ea2-b674-1df4e5f35684": "Customer Lookup View",
+      "3444e5d3-44c9-4bf4-88e8-87fa02628450": "Customer Associated View",
+      "97343b25-5f63-4206-8ca0-9e8c3cbb3adc": "Active Customers",
+      "be101279-076b-45f7-b0f6-45f0b94f0b41": "Inactive Customers",
+      "c7834977-cea3-4950-9a8e-d30cc232729a": "Customer Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Customers)",
+    "Name": "cat_customer_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Customers)",
+    "Name": "cat_customer_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  }
+]

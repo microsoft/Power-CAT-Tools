@@ -1,0 +1,127 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "fxexpressions",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "fxexpression",
+    "MaxGetRowsCount": 2000,
+    "Name": "FxExpressions",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "category": "Category",
+      "compiledexpression": "CompiledExpression",
+      "componentidunique": "Row id unique",
+      "componentstate": "Component State",
+      "context": "Context",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "dependencies": "PowerFx Expression dependencies",
+      "entitylogicalname": "EntityLogicalName",
+      "expression": "Expression",
+      "fxexpression_AsyncOperations": "System Jobs",
+      "fxexpression_BulkDeleteFailures": "Bulk Delete Failures",
+      "fxexpression_customapi": "Custom APIs",
+      "fxexpression_DuplicateBaseRecord": "Duplicate Records (fxexpression_DuplicateBaseRecord)",
+      "fxexpression_DuplicateMatchingRecord": "Duplicate Records (fxexpression_DuplicateMatchingRecord)",
+      "fxexpression_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "fxexpression_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "fxexpression_ProcessSession": "Process Sessions",
+      "fxexpression_sdkmessageprocessingstep": "Sdk Message Processing Steps",
+      "fxexpression_SyncErrors": "Sync Errors",
+      "fxexpressionid": "FxExpression",
+      "importsequencenumber": "Import Sequence Number",
+      "ismanaged": "Is Managed",
+      "messagename": "MessageName",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "name": "Name",
+      "overriddencreatedon": "Record Created On",
+      "overwritetime": "Record Overwrite Time",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "parameters": "Input and output parameters associated with the expression",
+      "solutionid": "Solution",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "uniquename": "Unique Name",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "FxExpressions",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "FxExpressions (Views)",
+    "Name": "_fxexpression_views",
+    "RelatedEntityName": "FxExpressions",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {}
+  },
+  {
+    "DisplayName": "Category (FxExpressions)",
+    "Name": "fxexpression_category",
+    "OptionSetInfoNameMapping": {
+      "0": "Workflow",
+      "1": "Business Rule"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "category",
+        "OptionSetReferenceEntityName": "FxExpressions"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "category",
+    "RelatedEntityName": "FxExpressions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (FxExpressions)",
+    "Name": "fxexpression_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "FxExpressions"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "FxExpressions",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (FxExpressions)",
+    "Name": "fxexpression_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "FxExpressions"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "FxExpressions",
+    "Type": "OptionSetInfo"
+  }
+]

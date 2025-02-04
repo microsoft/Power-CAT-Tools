@@ -1,0 +1,114 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_customapi_forms",
+      "Namespace": "Custom APIs (Forms)",
+      "Values": {
+        "Information": "f64c027c-81b5-4f8e-a16e-1963c4f80c22"
+      }
+    },
+    {
+      "Kind": "default.cds_fxexpression_forms",
+      "Namespace": "FxExpressions (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_customapirequestparameter_forms",
+      "Namespace": "Custom API Request Parameters (Forms)",
+      "Values": {
+        "Information": "bb1855f2-e049-482b-865a-e890f957efe9"
+      }
+    },
+    {
+      "Kind": "default.cds_msdyn_apirequestcache_forms",
+      "Namespace": "API Request Caches (Forms)",
+      "Values": {
+        "Information": "d25c5844-7ccd-42a4-aeae-b484e261d44d"
+      }
+    },
+    {
+      "Kind": "default.cds_msdyn_apirequestfolder_forms",
+      "Namespace": "API Request Folders (Forms)",
+      "Values": {
+        "Information": "503e446e-3eb5-461e-a104-bd9a306eb091"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_customapiresponseproperty_forms",
+      "Namespace": "Custom API Response Properties (Forms)",
+      "Values": {
+        "Information": "7dbec4e4-8152-4cda-8d34-194539b7ea87"
+      }
+    },
+    {
+      "Kind": "default.cds_plugintype_forms",
+      "Namespace": "Plug-in Types (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_duplicaterecord_forms",
+      "Namespace": "Duplicate Records (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msdyn_apisession_forms",
+      "Namespace": "API Sessions (Forms)",
+      "Values": {
+        "Information": "dfbac887-ae2f-4d47-806b-a4ca055fa6c6"
+      }
+    },
+    {
+      "Kind": "default.cds_canvasapp_forms",
+      "Namespace": "Canvas Apps (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_sdkmessage_forms",
+      "Namespace": "Sdk Messages (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_sdkmessageprocessingstep_forms",
+      "Namespace": "Sdk Message Processing Steps (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_account_forms",
+      "Namespace": "Accounts (Forms)",
+      "Values": {
+        "Account": "8448b78f-8f42-454e-8e2a-f8196b0419af",
+        "account card": "b028db32-3619-48a5-ac51-cf3f947b0ef3",
+        "Account Card form": "cccff382-2b92-467e-bf1b-3db179512af8",
+        "Account for Interactive experience": "a72c7955-442b-4ea4-9499-b10cd18b4256",
+        "Account Hierarchy Tile Form": "69cff312-cfb6-4289-9631-249ab85d2c62",
+        "Account Quick Create": "c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b",
+        "Account Reference Panel": "098ae145-1567-41ec-8398-86dbaac70c9b",
+        "Information": "b053a39a-041a-4356-acef-ddf00182762b",
+        "Social Profiles": "2205c86d-ed88-4a2f-a447-3b86a8781f2e"
+      }
+    },
+    {
+      "Kind": "default.cds_solution_forms",
+      "Namespace": "Solutions (Forms)",
+      "Values": {
+        "Information": "75e0f489-3e68-11dd-81ce-00188b01dce6"
+      }
+    },
+    {
+      "Kind": "default.cds_webresource_forms",
+      "Namespace": "Web Resources (Forms)",
+      "Values": {}
+    }
+  ]
+}

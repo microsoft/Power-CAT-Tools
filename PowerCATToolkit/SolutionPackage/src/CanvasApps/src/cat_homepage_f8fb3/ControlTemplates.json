@@ -1,0 +1,1510 @@
+{
+  "appinfo": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/appinfo",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "appinfo",
+    "OverridableProperties": {},
+    "Version": "1.0"
+  },
+  "attachments": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/attachments",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "attachments",
+    "OverridableProperties": {},
+    "Version": "2.3.0"
+  },
+  "Button": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_ButtonCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_ButtonCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Button",
+    "Version": "0.0.44"
+  },
+  "cat_PowerCAT.CodeViewerTreeTemplate_dataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/pcfDataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.CodeViewerTreeTemplate_dataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
+  },
+  "cat_PowerCAT.FluentDetailsListTemplate_dataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/pcfDataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.FluentDetailsListTemplate_dataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
+  },
+  "cat_PowerCAT.IntelligentReviewVisualizerTemplate_dataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/pcfDataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.IntelligentReviewVisualizerTemplate_dataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
+  },
+  "CodeViewerTree": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.CodeViewerTree",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.CodeViewerTree",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "CodeViewerTree",
+    "Version": "0.0.24"
+  },
+  "Combobox": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_ComboboxCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_ComboboxCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Combobox",
+    "Version": "0.0.49"
+  },
+  "Fluent Card (1.1.39) Preview": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.Card",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.Card",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Card (1.1.39) Preview",
+    "Version": "1.1.39"
+  },
+  "Fluent Details List (1.1.39)": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.FluentDetailsList",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.FluentDetailsList",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Details List (1.1.39)",
+    "Version": "1.1.39"
+  },
+  "Fluent Donut Chart (1.1.39) Preview": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.DonutChart",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.DonutChart",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Donut Chart (1.1.39) Preview",
+    "Version": "1.1.39"
+  },
+  "Fluent Horizontal bar Chart (1.1.39) Preview": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.HorizontalBarChart",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.HorizontalBarChart",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Horizontal bar Chart (1.1.39) Preview",
+    "Version": "1.1.39"
+  },
+  "form": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/form",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "form",
+    "OverridableProperties": {},
+    "Version": "2.4.2"
+  },
+  "gallery": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/gallery",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "gallery",
+    "OverridableProperties": {},
+    "Version": "2.15.0"
+  },
+  "galleryTemplate": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/galleryTemplate",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "galleryTemplate",
+    "OverridableProperties": {},
+    "Version": "1.0"
+  },
+  "groupContainer": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/groupContainer",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "groupContainer",
+    "OverridableProperties": {},
+    "Version": "1.3.0"
+  },
+  "Host": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "HostType": "Default",
+    "Id": "http://microsoft.com/appmagic/hostcontrol",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "hostControl",
+    "OverridableProperties": {},
+    "Version": "1.6.0"
+  },
+  "htmlViewer": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/htmlViewer",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "htmlViewer",
+    "OverridableProperties": {},
+    "Version": "2.1.0"
+  },
+  "icon": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/icon",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "icon",
+    "OverridableProperties": {},
+    "Version": "2.5.0"
+  },
+  "image": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/image",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "image",
+    "OverridableProperties": {},
+    "Version": "2.2.3"
+  },
+  "Information button": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_InfoButtonCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_InfoButtonCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Information button",
+    "Version": "0.0.31"
+  },
+  "IntelligentReviewVisualizer": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.IntelligentReviewVisualizer",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.IntelligentReviewVisualizer",
+    "OverridableProperties": {
+      "ReviewResults": {
+        "Type": {
+          "EnumString": "",
+          "Kind": "Record",
+          "Name": "Root",
+          "Type": [
+            {
+              "EnumString": "",
+              "Kind": "Record",
+              "Name": "Copilot",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "Table",
+                  "Name": "items",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "displayName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "name",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "result",
+                      "Type": [
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "category",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "description",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Hyperlink",
+                          "Name": "docLinks",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "failureReason",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Table",
+                          "Name": "instanceValue",
+                          "Type": [
+                            {
+                              "EnumString": "",
+                              "Kind": "Record",
+                              "Name": "Entity",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "Table",
+                                  "Name": "RegexEntity",
+                                  "Type": [
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "Table",
+                                      "Name": "matchingPatternEntityList",
+                                      "Type": [
+                                        {
+                                          "EnumString": "",
+                                          "Kind": "String",
+                                          "Name": "Value",
+                                          "Type": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "String",
+                                      "Name": "name",
+                                      "Type": []
+                                    },
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "String",
+                                      "Name": "pattern",
+                                      "Type": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "Table",
+                              "Name": "Flows",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "String",
+                                  "Name": "Value",
+                                  "Type": []
+                                }
+                              ]
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "Table",
+                              "Name": "KnowledgeSource",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "String",
+                                  "Name": "Value",
+                                  "Type": []
+                                }
+                              ]
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "Table",
+                              "Name": "Topic",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "Table",
+                                  "Name": "InvalidTriggerQueries",
+                                  "Type": [
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "String",
+                                      "Name": "Value",
+                                      "Type": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "EnumString": "",
+                                  "Kind": "String",
+                                  "Name": "TopicName",
+                                  "Type": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "patternID",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "patternName",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "recommendation",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "severity",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "status",
+                          "Type": []
+                        }
+                      ]
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Number",
+                      "Name": "score",
+                      "Type": []
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Number",
+                  "Name": "totalBots",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Number",
+                  "Name": "totalScore",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Record",
+              "Name": "PowerApps",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "Table",
+                  "Name": "items",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "displayName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "name",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "result",
+                      "Type": [
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "category",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "description",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Hyperlink",
+                          "Name": "docLinks",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "failureReason",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Table",
+                          "Name": "instanceValue",
+                          "Type": [
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "Code",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "ControlName",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "ControlType",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "PatternName",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "PropertyName",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "ScreenName",
+                              "Type": []
+                            }
+                          ]
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "patternID",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "patternName",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "recommendation",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "severity",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "status",
+                          "Type": []
+                        }
+                      ]
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Number",
+                      "Name": "score",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Number",
+                      "Name": "totalCanvasComponents",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Number",
+                      "Name": "totalCodeComponents",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Number",
+                      "Name": "totalScreens",
+                      "Type": []
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Number",
+                  "Name": "totalApps",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Number",
+                  "Name": "totalScore",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Record",
+              "Name": "PowerAutomate",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "Table",
+                  "Name": "items",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "displayName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "name",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "result",
+                      "Type": [
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "category",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "description",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Hyperlink",
+                          "Name": "docLinks",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "failureReason",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Table",
+                          "Name": "instanceValue",
+                          "Type": [
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "Value",
+                              "Type": []
+                            }
+                          ]
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "patternID",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "patternName",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "recommendation",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "severity",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "status",
+                          "Type": []
+                        }
+                      ]
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Number",
+                      "Name": "score",
+                      "Type": []
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Number",
+                  "Name": "totalFlows",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Number",
+                  "Name": "totalScore",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Number",
+              "Name": "SolutionScore",
+              "Type": []
+            }
+          ]
+        },
+        "Version": "1.345"
+      },
+      "SolutionDetails": {
+        "Type": {
+          "EnumString": "",
+          "Kind": "Record",
+          "Name": "Root",
+          "Type": [
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "aiModels",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "Name",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "canvasApps",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "appDescription",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "appName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Table",
+                  "Name": "screens",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "screenName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "screenYaml",
+                      "Type": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "codeComponents",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "description",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "displayName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "type",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "version",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "connectionReferences",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "ConnectorID",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "DisplayName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "LogicalName",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "customApis",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "description",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "displayName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Boolean",
+                  "Name": "isFunction",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Boolean",
+                  "Name": "isPrivate",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "environmentVariables",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "description",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "displayName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "type",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "missingDependencies",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "Record",
+                  "Name": "Dependent",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "DisplayName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "SchemaName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "Type",
+                      "Type": []
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Record",
+                  "Name": "Required",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "DisplayName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "SchemaName",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "Solution",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "Type",
+                      "Type": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "plugins",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "Name",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "securityRoles",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "name",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Record",
+              "Name": "solutionOverview",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "description",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "displayName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "uniqueName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "version",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "tables",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "Description",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "DisplayName",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Table",
+                  "Name": "Fields",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "DataType",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "Name",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "String",
+                      "Name": "SchemaName",
+                      "Type": []
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "Record",
+                  "Name": "Relationships",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "ManyToMany",
+                      "Type": [
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "Entity1LogicalName",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "Entity2LogicalName",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "SchemaName",
+                          "Type": []
+                        }
+                      ]
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "ManyToOne",
+                      "Type": []
+                    },
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "OneToMany",
+                      "Type": [
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "ReferencedEntity",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "ReferencingAttribute",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "ReferencingEntity",
+                          "Type": []
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "String",
+                          "Name": "SchemaName",
+                          "Type": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "SchemaName",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "workflows",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "category",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "json",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "name",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "primaryEntity",
+                  "Type": []
+                }
+              ]
+            }
+          ]
+        },
+        "Version": "1.345"
+      }
+    },
+    "PCFDynamicSchemaForIRRetrieval": {
+      "ReviewResults": {
+        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"Copilot\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Topic\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TopicName\":{\"type\":\"string\"},\"InvalidTriggerQueries\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}},\"Flows\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"KnowledgeSource\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"Entity\":{\"type\":\"object\",\"properties\":{\"RegexEntity\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"pattern\":{\"type\":\"string\"},\"matchingPatternEntityList\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}}}}}}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"integer\"}}}},\"totalBots\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"number\"}}},\"PowerAutomate\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"number\"}}}},\"totalFlows\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"number\"}}},\"PowerApps\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"totalScreens\":{\"type\":\"integer\"},\"totalCanvasComponents\":{\"type\":\"integer\"},\"totalCodeComponents\":{\"type\":\"integer\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ScreenName\":{\"type\":\"string\"},\"ControlName\":{\"type\":\"string\"},\"PropertyName\":{\"type\":\"string\"},\"Code\":{\"type\":\"string\"},\"PatternName\":{\"type\":\"string\"},\"ControlType\":{\"type\":\"string\"}}}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"integer\"}}}},\"totalApps\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"number\"}}},\"SolutionScore\":{\"type\":\"number\"}}}",
+        "PCFSkipValidation": false
+      },
+      "SolutionDetails": {
+        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"solutionOverview\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"uniqueName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"uniqueName\",\"version\"]},\"canvasApps\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"appName\":{\"type\":\"string\"},\"appDescription\":{\"type\":\"string\"},\"screens\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"screenName\":{\"type\":\"string\"},\"screenYaml\":{\"type\":\"string\"}},\"required\":[\"screenName\",\"screenYaml\"]}}},\"required\":[\"appName\",\"appDescription\",\"screens\"]}},\"tables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"DisplayName\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"Description\":{\"type\":\"string\"},\"Fields\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DataType\":{\"type\":\"string\"}},\"required\":[\"Name\",\"SchemaName\",\"DataType\"]}},\"Relationships\":{\"type\":\"object\",\"properties\":{\"OneToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"ReferencingEntity\":{\"type\":\"string\"},\"ReferencingAttribute\":{\"type\":\"string\"},\"ReferencedEntity\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"ReferencingEntity\",\"ReferencingAttribute\",\"ReferencedEntity\"]}},\"ManyToOne\":{\"type\":\"array\",\"items\":{\"type\":\"object\"}},\"ManyToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"Entity1LogicalName\":{\"type\":\"string\"},\"Entity2LogicalName\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"Entity1LogicalName\",\"Entity2LogicalName\"]}}}}},\"required\":[\"DisplayName\",\"SchemaName\",\"Fields\",\"Relationships\"]}},\"workflows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"primaryEntity\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"json\":{\"type\":\"string\"}},\"required\":[\"name\",\"primaryEntity\",\"category\"]}},\"codeComponents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\",\"version\"]}},\"customApis\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"isPrivate\":{\"type\":\"boolean\"},\"isFunction\":{\"type\":\"boolean\"}},\"required\":[\"displayName\",\"description\",\"isPrivate\",\"isFunction\"]}},\"environmentVariables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\"]}},\"securityRoles\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}}}},\"plugins\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"connectionReferences\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"LogicalName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"ConnectorID\":{\"type\":\"string\"}}}},\"aiModels\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"missingDependencies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Required\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"Solution\":{\"type\":\"string\"}}},\"Dependent\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"}}}}}}},\"required\":[\"solutionOverview\",\"canvasApps\",\"tables\",\"workflows\",\"codeComponents\",\"customApis\",\"environmentVariables\",\"securityRoles\",\"plugins\",\"connectionReferences\",\"aiModels\",\"missingDependencies\"]}",
+        "PCFSkipValidation": false
+      }
+    },
+    "TemplateDisplayName": "IntelligentReviewVisualizer",
+    "Version": "0.0.123"
+  },
+  "label": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/label",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "label",
+    "OverridableProperties": {},
+    "Version": "2.5.1"
+  },
+  "Label": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_Label",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_Label",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Label",
+    "Version": "1.6.0"
+  },
+  "Link": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_LinkCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_LinkCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Link",
+    "Version": "0.0.44"
+  },
+  "pcfDataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/pcfDataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "pcfDataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
+  },
+  "PowerApps_CoreControls_ComboboxCanvasTemplate_dataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/PowerApps_CoreControls_ComboboxCanvasTemplate_dataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_ComboboxCanvasTemplate_dataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
+  },
+  "PowerApps_CoreControls_TabListTemplate_dataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/PowerApps_CoreControls_TabListTemplate_dataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_TabListTemplate_dataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
+  },
+  "PowerFx Code Editor": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.PFxCodeEditor",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.PFxCodeEditor",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "PowerFx Code Editor",
+    "Version": "0.0.6"
+  },
+  "rectangle": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/shapes/rectangle",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "rectangle",
+    "OverridableProperties": {},
+    "Version": "2.3.0"
+  },
+  "screen": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/screen",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "screen",
+    "OverridableProperties": {},
+    "Version": "1.0"
+  },
+  "Spinner": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Spinner",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_Spinner",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Spinner",
+    "Version": "1.4.4"
+  },
+  "Tab list": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_TabList",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_TabList",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Tab list",
+    "Version": "2.2.28"
+  },
+  "Text": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_TextCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_TextCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Text",
+    "Version": "0.0.50"
+  },
+  "Text box": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_TextBox",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_TextBox",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Text box",
+    "Version": "1.6.1"
+  },
+  "Text input": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_TextInputCanvas",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_TextInputCanvas",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Text input",
+    "Version": "0.0.53"
+  },
+  "Toolbar": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Toolbar",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_Toolbar",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Toolbar",
+    "Version": "2.0.3"
+  },
+  "typedDataCard": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/card",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "typedDataCard",
+    "OverridableProperties": {},
+    "Version": "1.0.6"
+  }
+}

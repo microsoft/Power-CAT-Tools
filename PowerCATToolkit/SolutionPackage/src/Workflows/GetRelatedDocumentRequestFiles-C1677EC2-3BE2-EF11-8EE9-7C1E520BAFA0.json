@@ -1,0 +1,206 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cat_sharedcommondataserviceforapps_a0332"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "1afc3d81-3646-43cf-b325-929cf3458766"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "RowID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "DownloadHTMLDatasetDocument": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "302df81e-3bc8-4b0e-bead-702236f50c1b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetEntityFileImageFieldContent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cat_docupilotdocumentgenerationrequests",
+              "recordId": "@triggerBody()['text']",
+              "fileImageFieldName": "cat_documenthtmldataset"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "DownloadSolutionDocumentAttachment": {
+          "runAfter": {
+            "DownloadHTMLDatasetDocument": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b5d2a0f9-8745-453f-85f1-d5d4be0cda28"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetEntityFileImageFieldContent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cat_docupilotdocumentgenerationrequests",
+              "recordId": "@triggerBody()['text']",
+              "fileImageFieldName": "cat_solutiondocument"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "DownloadSolutionZipAttachment": {
+          "runAfter": {
+            "DownloadSolutionDocumentAttachment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6f4b4ef0-a852-4525-a926-714dd698e1aa"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetEntityFileImageFieldContent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cat_docupilotdocumentgenerationrequests",
+              "recordId": "@triggerBody()['text']",
+              "fileImageFieldName": "cat_solutionzipfile"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "runAfter": {
+            "SolutionDataSetFile": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a92cb1b9-b4bf-4491-84aa-df8d0a7b663c"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "solutiondataset": "@{outputs('SolutionDataSetFile')}",
+              "solutionzip": "@{body('DownloadSolutionZipAttachment')}",
+              "solutiondocumentfile": "@{body('DownloadSolutionDocumentAttachment')}"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "solutiondataset": {
+                  "title": "SolutionDataSet",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "solutionzip": {
+                  "title": "SolutionZip",
+                  "x-ms-dynamically-added": true,
+                  "type": "string",
+                  "format": "byte"
+                },
+                "solutiondocumentfile": {
+                  "title": "SolutionDocumentFile",
+                  "x-ms-dynamically-added": true,
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          }
+        },
+        "SolutionZipFile": {
+          "runAfter": {
+            "DownloadSolutionZipAttachment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8605dbac-9c40-4446-886a-60c692b45da3"
+          },
+          "type": "Compose",
+          "inputs": "@base64ToString(outputs('DownloadSolutionZipAttachment')?['body']?['$content'])"
+        },
+        "SolutionDocFile": {
+          "runAfter": {
+            "SolutionZipFile": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "27fc7a2e-30a0-484a-991c-b298f504b7a4"
+          },
+          "type": "Compose",
+          "inputs": "@base64ToString(outputs('DownloadSolutionDocumentAttachment')?['body']?['$content'])"
+        },
+        "SolutionDataSetFile": {
+          "runAfter": {
+            "SolutionDocFile": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a7ef7567-4fc1-4d94-bbdb-04927365b4f6"
+          },
+          "type": "Compose",
+          "inputs": "@base64ToString(outputs('DownloadHTMLDatasetDocument')?['body']?['$content'])"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

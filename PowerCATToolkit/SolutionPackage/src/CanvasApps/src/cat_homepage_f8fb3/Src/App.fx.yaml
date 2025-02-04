@@ -1,0 +1,482 @@
+App As appinfo:
+    BackEnabled: =true
+    Formulas: |-
+        =Pattern := Type({ cat_patternscore:Number, cat_patterndoclink:Text, cat_patternrecommendation:Text, cat_patterncategory:Text, cat_patterntype:Text, cat_patterndescription:Text,cat_patternseverity:Text});
+        
+        
+        Nav = Table({DisplayName:"Results", Screen:SolutionScreen} ,{DisplayName:"Dashboard", Screen:DashboardScreen, ItemKeyEnabled:false });
+        
+        AppTypeStyles=[
+            {
+                AppTypeKey: "Agents",
+                Color: "#ffe5a3"
+            },
+            {
+                AppTypeKey: "Canvas",
+                Color: "#ecd2f7"
+            },
+            {
+                AppTypeKey: "PowerAutomate",
+                Color: "#c7d3fc"
+            }
+        ];
+        
+        
+        
+        
+        /* Add formulas here */
+        
+        /* Navigation */
+        // Displayed on top Nav; if not using delete these and the topnav controls
+        FeatureName = "Feature Name";
+        
+        //Nav = Table({DisplayName:"Home", Screen:HubLandingScreen},{DisplayName:"Feature home", Screen:FeatureLandingScreen},{DisplayName:"Dashboard", Screen:DashboardScreen},{DisplayName:"List items", Screen:ListScreen},{DisplayName:"Details", Screen:FormScreen});
+        
+        /* List screen */
+        ListItems = SortByColumns(AddColumns(Filter('Solution Reviews', 'Solution Reviews (Views)'.'Active Solution Reviews', 'Review Name' <> Blank()), ReviewStatus, "Details", Reviewer, 'Owning User'.'Full Name', CustomerName, Customer.Name, ReviewTitle, 'Review Name', ReviewFile, 'Solution File'), "createdon",SortOrder.Descending);
+        //FilterItems = Table({Value:"All"},Distinct(Samples, Category));
+        
+        
+        
+        /* Do not edit below */
+        
+        /* Responsive properties */
+        Margins = App.ActiveScreen.Width * 0.05; //Min( App.ActiveScreen.Width * 0.05, 32 );
+        
+        //* Grid calculations *//
+        
+        // Viewport presets
+        // Edit presets based on design (leave as-is for Defaults)
+        // - PARAM: numCols (Int) - Count of columns for the viewport
+        // - PARAM: gutterWidth - Width (in pixels) of the gutters for the viewport
+        viewportPresets = Table({
+            size: ScreenSize.Small,
+            numCols: 3,
+            gutterWidth: 16
+        },{
+            size: ScreenSize.Medium,
+            numCols: 6,
+            gutterWidth: 16
+        },{
+            size: ScreenSize.Large,
+            numCols: 6,
+            gutterWidth: 16
+        },{
+            size: ScreenSize.ExtraLarge,
+            numCols: 9,
+            gutterWidth: 24
+        });
+        
+        /* Do not modify below this point */
+        contentSize = Min((App.ActiveScreen.Width-(Margins*2)),1920);
+        // Number of columns determined by viewport
+        numCols = Index( viewportPresets, App.ActiveScreen.Size).numCols;
+        // Gutter width presets
+        Gutters = Index( viewportPresets, App.ActiveScreen.Size).gutterWidth;
+        // Column width is calculated for flexible layout 
+        colWidth = With({ numGutters : numCols - 1}, (Min((App.ActiveScreen.Width-(Margins*2)),1920) - (Gutters * numGutters)) / Max(numCols,1));
+        // Visual element width can be calculated to align with columns
+        itemWidth = With({ maxCols: Max(viewportPresets, numCols) }, ForAll(Sequence(numCols), {count: ThisRecord.Value, width: (colWidth * ThisRecord.Value) + (Gutters * (ThisRecord.Value-1)) }));
+        
+        
+        AppTheme = 
+            /* START THEME OBJECT */
+            {
+                palette: {
+                    themePrimary: "#0078d4",
+                    themeLighterAlt: "#eff6fc",
+                    themeLighter: "#deecf9",
+                    themeLight: "#c7e0f4",
+                    themeTertiary: "#71afe5",
+                    themeSecondary: "#2b88d8",
+                    themeDarkAlt: "#106ebe",
+                    themeDark: "#005a9e",
+                    themeDarker: "#004578",
+                    neutralLighterAlt: "#faf9f8",
+                    neutralLighter: "#f3f2f1",
+                    neutralLight: "#edebe9",
+                    neutralQuaternaryAlt: "#e1dfdd",
+                    neutralQuaternary: "#d0d0d0",
+                    neutralTertiaryAlt: "#c8c6c4",
+                    neutralTertiary: "#a19f9d",
+                    neutralSecondary: "#605e5c",
+                    neutralPrimaryAlt: "#3b3a39",
+                    neutralPrimary:"#323130",
+                    neutralDark: "#201f1e",
+                    black: "#000000",
+                    white: "#ffffff"
+                }
+            }
+            /* END THEME OBJECT */
+        ;
+        
+        Typeramp = Table(
+            { name: "Caption2", fontSize: 10, fontFamily: "SegoeUI", fontWeight: "Regular", lineHeight: 14 },
+            { name: "Caption2Strong", fontSize: 10, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 14 },
+            { name: "Caption1", fontSize: 12, fontFamily: "SegoeUI", fontWeight: "Regular", lineHeight: 18 },
+            { name: "Caption1Strong", fontSize: 12, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 18 },
+            { name: "Caption1Stronger", fontSize: 12, fontFamily: "SegoeUI", fontWeight: "Bold", lineHeight: 18 },
+            { name: "Body1", fontSize: 14, fontFamily: "SegoeUI", fontWeight: "Regular", lineHeight: 20 },
+            { name: "Body1Strong", fontSize: 14, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 20 },
+            { name: "Body1Stronger", fontSize: 14, fontFamily: "SegoeUI", fontWeight: "Bold", lineHeight: 20 },
+            { name: "Body2", fontSize: 16, fontFamily: "SegoeUI", fontWeight: "Regular", lineHeight: 22 },
+            { name: "Body2Strong", fontSize: 16, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 22 },
+            { name: "Body2Stronger", fontSize: 16, fontFamily: "SegoeUI", fontWeight: "Bold", lineHeight: 28 },
+            { name: "Subtitle1", fontSize: 20, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 28 },
+            { name: "Title3", fontSize: 24, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 34 },
+            { name: "Title2", fontSize: 28, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 40 },
+            { name: "Title1", fontSize: 32, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 46 },
+            { name: "LargeTitle", fontSize: 40, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 56 },
+            { name: "Display", fontSize: 68, fontFamily: "SegoeUI", fontWeight: "Semibold", lineHeight: 96 }
+        );
+    OnError: =
+    OnStart: |-
+        =If(IsEmpty('Pattern Details'),
+        Set(PatternDetails, Table( ParseJSON( RTResource.Patterns ).value ));
+        ForAll(PatternDetails, 
+        
+            Patch('Pattern Details', Defaults('Pattern Details'), 
+            {
+                PatternID: Text(ThisRecord.Value.cat_patternid),
+                PatternName:Text(ThisRecord.Value.cat_patterndetails),
+                PatternDescription:Text(ThisRecord.Value.cat_patterndescription),
+                PatternRecommendation:Text(ThisRecord.Value.cat_patternrecommendation),
+                PatternScore:1,
+                PatternDocLink:Text(ThisRecord.Value.cat_patterndoclink),
+                PatternType: Switch(Text(ThisRecord.Value.'cat_patterntype@OData.Community.Display.V1.FormattedValue'), "PowerAppsPattern", [@PatternTypeChoices].PowerAppsPattern, "BotPattern", [@PatternTypeChoices].BotPattern, "FlowPattern", [@PatternTypeChoices].FlowPattern),
+                PatternSeverity: Switch(Text(ThisRecord.Value.'cat_patternseverity@OData.Community.Display.V1.FormattedValue'), "Low", [@Severity].Low, "Medium", [@Severity].Medium, "High", [@Severity].High, "Informational", [@Severity].Informational, [@Severity].Low),
+                PatternCategory: Switch(Text(ThisRecord.Value.'cat_patterncategory@OData.Community.Display.V1.FormattedValue'), "Accessibility", [@Category].Accessibility,  
+                                                                "Compliance", [@Category].Compliance, 
+                                                                 "Configuration", [@Category].Configuration, 
+                                                                 "Data", [@Category].Data, 
+                                                                 "Design", [@Category].Design,
+                                                                 "Functionality", [@Category].Functionality,
+                                                                 "Maintainability", [@Category].Maintainability,
+                                                                 "Optimization", [@Category].Optimization,
+                                                                 "Performance", [@Category].Performance,
+                                                                 "Reliability", [@Category].Privacy,
+                                                                 "Optimization", [@Category].Reliability,
+                                                                 "Coding Standards", [@Category].'Coding Standards',
+                                                                 "Security", [@Category].Security,
+                                                                 "Supportability", [@Category].Supportability,
+                                                                 "Usage", [@Category].Usage, 
+                                                                 "UX", [@Category].UX,
+                                                                 [@Category].Functionality
+                                                                 )
+        
+            }
+            
+            )
+        );
+        
+        );
+        
+        ClearCollect(PatternDetailz, Table(
+            {
+                PatternType: "PowerAppsPattern",
+                PatternID: "app-AssetOptimization",
+                PatternName: "Asset Optimization",
+                PatternDescription: "Review embedded asset compression/size optimization. Validate apps respect limitations related to media and audio asset sizes.",
+                PatternDocLink: "",
+                PatternRecommendation: "Ensure that all files do not exceed 300KB file size. Please consider compressing the listed files.",
+                PatternSeverity: "Medium",
+                PatternCategory: "Performance",
+                PatternScore: 1,
+                PatternActive: true
+            },
+            {
+                PatternType: "PowerAppsPattern",
+                PatternID: "app-AppSettings",
+                PatternName: "App Settings flags",
+                PatternDescription: "Ensure that all necessary settings are enabled for optimal performance.",
+                PatternDocLink: "https://www.microsoft.com/en-us/power-platform/blog/power-apps/app-checker-now-includes-performance-optimization-tips/",
+                PatternRecommendation: "Please consider turning on the listed setting.",
+                PatternSeverity: "Medium",
+                PatternCategory: "Performance",
+                PatternScore: 1,
+                PatternActive: true
+            },
+            {
+                PatternType: "PowerAppsPattern",
+                PatternID: "app-Accessibility",
+                PatternName: "Accessibility",
+                PatternDescription: "Review accessibility checker. Notes: Alternate Text labels can reveal otherwise hidden media and context to users with disabilities. Use natural language text when naming screens to optimize results from screen readers.",
+                PatternDocLink: "https://docs.microsoft.com/power-apps/maker/canvas-apps/accessible-apps",
+                PatternRecommendation: "Please address the listed accessibility issues in failure reason.",
+                PatternSeverity: "High",
+                PatternCategory: "Accessibility",
+                PatternScore: 1,
+                PatternActive: true
+            },
+            {
+                PatternType: "FlowPattern",
+                PatternID: "flow-ConnectionReferences",
+                PatternDescription: "Check if all connection references are used and properly configured.",
+                PatternDocLink: "https://learn.microsoft.com/en-us/power-automate/connection-references",
+                PatternRecommendation: "Ensure all connection references are correctly configured and utilized.",
+                PatternSeverity: "",
+                PatternCategory: "",
+                PatternScore: 1,
+                PatternActive: true
+            },
+            {
+                PatternType: "FlowPattern",
+                PatternID: "flow-UnusedVariables",
+                PatternDescription: "Check for unused variable in the flow.",
+                PatternDocLink: "https://learn.microsoft.com/en-us/power-automate/best-practices",
+                PatternRecommendation: "Remove any variable(s) that are declared but not used.",
+                PatternSeverity: "",
+                PatternCategory: "",
+                PatternScore: 1,
+                PatternActive: true
+            },
+            {
+                PatternType: "BotPattern",
+                PatternID: "bot-DuplicateQueries",
+                PatternDescription: "This pattern checks for overlapping trigger phrases between topics. If multiple topics have similar or identical phrases, it flags them to avoid conflicts in bot behavior.",
+                PatternDocLink: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#1",
+                PatternRecommendation: "Ensure no overlapping trigger queries across topics.",
+                PatternSeverity: "",
+                PatternCategory: "",
+                PatternScore: 1,
+                PatternActive: true
+            },
+            {
+                PatternType: "BotPattern",
+                PatternID: "bot-SingleWordPhrases",
+                PatternDescription: "This pattern identifies single-word trigger phrases, recommending the use of multi-word phrases for more accurate and meaningful responses.",
+                PatternDocLink: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#3",
+                PatternRecommendation: "Ensure all trigger phrases are more than one word.",
+                PatternSeverity: "",
+                PatternCategory: "",
+                PatternScore: 1,
+                PatternActive: true
+            }
+        ));
+        
+        Concurrent(
+            Set(FlexOff, 0);
+            Set(FlexOn, 1);
+            Set(FlexOff, 0); Set(FlexOn, 1); Set(AlignStart, AlignInContainer.Start); Set(AlignStretch, AlignInContainer.Stretch);
+        // Get neutral tokens from environment variable
+        With(
+            {
+                neutralTokens: ParseJSON(
+                    LookUp(
+                        'Environment Variable Definitions',
+                        'Schema Name' = "msdyn_GlobalTokens"
+                    ).'Default Value'
+                )
+            },
+            ClearCollect(
+                GlobalTokens,
+                ForAll(
+                    neutralTokens,
+                    {
+                        name: Text(ThisRecord.name),
+                        value: ColorValue(Text(ThisRecord.value))
+                    }
+                )
+            );
+        );
+        ,
+        
+        Set(
+            Typography,
+            {
+                'Caption 2': {
+                    fontSize: 10,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Regular",
+                    lineHeight: 14
+                },
+                'Caption 2 Strong': {
+                    fontSize: 10,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 14
+                },
+                'Caption 1': {
+                    fontSize: 12,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Regular",
+                    lineHeight: 18
+                },
+                'Caption 1 Strong': {
+                    fontSize: 12,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 18
+                },
+                'Caption 1 Stronger': {
+                    fontSize: 12,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Bold",
+                    lineHeight: 18
+                },
+                'Body 1': {
+                    fontSize: 14,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Regular",
+                    lineHeight: 20
+                },
+                'Body 1 Strong': {
+                    fontSize: 14,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 20
+                },
+                'Body 1 Stronger': {
+                    fontSize: 14,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Bold",
+                    lineHeight: 20
+                },
+                'Body 2': {
+                    fontSize: 16,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Regular",
+                    lineHeight: 22
+                },
+                'Body 2 Strong': {
+                    fontSize: 16,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 22
+                },
+                'Body 2 Stronger': {
+                    fontSize: 16,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Bold",
+                    lineHeight: 22
+                },
+                'Subtitle 2': {
+                    fontSize: 16,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 28
+                },
+                'Subtitle 2 Stronger': {
+                    fontSize: 16,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Bold",
+                    lineHeight: 28
+                },
+                'Subtitle 1': {
+                    fontSize: 20,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 28
+                },
+                'Title 3': {
+                    fontSize: 24,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 34
+                },
+                'Title 2': {
+                    fontSize: 28,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 40
+                },
+                'Title 1': {
+                    fontSize: 32,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 46
+                },
+                'Large Title': {
+                    fontSize: 40,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 56
+                },
+                Display: {
+                    fontSize: 68,
+                    fontFamily: Font.'Segoe UI',
+                    fontWeight: "Semibold",
+                    lineHeight: 96
+                }
+            }
+        )
+        );
+        
+        // **THEME** //
+        Set( Themes, {
+                Light: {
+                    'Neutral/Background/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                    'Neutral/Background/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-98").value,
+                    'Neutral/Background/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-96").value,
+                    'Neutral/Background/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-94").value,
+                    'Brand/Background/1/Rest': App.Theme.Colors.Primary, //LookUp(GlobalTokens, name="Brand-80"),
+                    'Neutral/Foreground/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-14").value,
+                    'Neutral/Foreground/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-26").value,
+                    'Neutral/Foreground/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-38").value,
+                    'Neutral/Foreground/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-44").value,
+                    'Neutral/Foreground/Disabled/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-74").value,
+                    'Neutral/Foreground/2/Link/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-26").value,
+                    'Neutral/Foreground/On Brand/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                    'Brand/Foreground/1/Rest': App.Theme.Colors.Primary, //LookUp(GlobalTokens, name="Brand-80"),
+                    'Brand/Foreground/2/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                    'Brand/Foreground/Link/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                    'Neutral/Stroke/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-82").value,
+                    'Neutral/Stroke/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-88").value,
+                    'Neutral/Stroke/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-94").value,
+                    'Neutral/Stroke/Subtle/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-88").value,
+                    'Brand/Stroke/1/Rest': App.Theme.Colors.Primary //LookUp(GlobalTokens, name="Brand-80")
+                },
+                Dark: {
+                    'Neutral/Background/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-16").value,
+                    'Neutral/Background/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-12").value,
+                    'Neutral/Background/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-8").value,
+                    'Neutral/Background/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-4").value,
+                    'Brand/Background/1/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                    'Brand/Background/2/Rest': App.Theme.Colors.Darker60, //LookUp(GlobalTokens, name="Brand-20"),
+                    'Neutral/Foreground/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                    'Neutral/Foreground/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-84").value,
+                    'Neutral/Foreground/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-68").value,
+                    'Neutral/Foreground/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-60").value,
+                    'Neutral/Foreground/Disabled/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-36").value,
+                    'Neutral/Foreground/2/Link/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-84").value,
+                    'Neutral/Foreground/On Brand/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                    'Brand/Foreground/1/Rest': App.Theme.Colors.Lighter20 ,//LookUp(GlobalTokens, name="Brand-100"),
+                    'Brand/Foreground/2/Rest': App.Theme.Colors.Lighter30, //LookUp(GlobalTokens, name="Brand-110"),
+                    'Brand/Foreground/Link/Rest': App.Theme.Colors.Lighter20, //LookUp(GlobalTokens, name="Brand-100"),
+                    'Brand/Foreground/On Light/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                    'Neutral/Stroke/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-40").value,
+                    'Neutral/Stroke/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-32").value,
+                    'Neutral/Stroke/Subtle/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-4").value,
+                    'Brand/Stroke/1/Rest': App.Theme.Colors.Lighter20 //LookUp(GlobalTokens, name="Brand-100")
+                }
+            }
+        );
+        
+        Set(SelectedTheme, Themes.Light);
+        
+        Set(
+            AppThemeJson,
+            JSON(
+                AppTheme,
+                JSONFormat.IndentFour
+            )
+        );
+        
+        Set(PowerAppsIcon, "data:image/svg+xml," & EncodeUrl(
+            "<svg width='96' height='96' viewBox='0 0 96 96' fill='none' xmlns='http://www.w3.org/2000/svg'> <defs> <filter id='filter0_f'> <feFlood flood-opacity='0' result='BackgroundImageFix'/> <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/> <feGaussianBlur stdDeviation='4' result='effect1_foregroundBlur'/> </filter> <filter id='filter1_f'> <feFlood flood-opacity='0' result='BackgroundImageFix'/> <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/> <feGaussianBlur stdDeviation='0.38' result='effect1_foregroundBlur'/> </filter> <linearGradient id='paint0_linear' x1='71' y1='96.0002' x2='15' y2='-40.9998' gradientUnits='userSpaceOnUse'> <stop stop-color='#742774'/> <stop offset='1' stop-color='#BB35A4'/> </linearGradient> <linearGradient id='paint1_linear' x1='32' y1='0.0002436' x2='78' y2='96.0002' gradientUnits='userSpaceOnUse'> <stop stop-color='#E48CC7'/> <stop offset='1' stop-color='#D467B9'/> </linearGradient> <linearGradient id='paint2_linear' x1='62' y1='29.0002' x2='76' y2='72' gradientUnits='userSpaceOnUse'> <stop stop-color='#E9A1CB'/> <stop offset='1' stop-color='#E48CC7'/> </linearGradient> <clipPath id='clip0'> <rect width='96' height='96' fill='white'/> </clipPath> <clipPath id='clip1'> <rect width='96' height='96' fill='white'/> </clipPath> <clipPath id='clip2'> <rect width='96' height='96' fill='white' transform='translate(0 0.00012207)'/> </clipPath> </defs> <g clip-path='url(#clip0)'> <g clip-path='url(#clip1)'> <g clip-path='url(#clip2)'> <mask id='mask0' mask-type='alpha' maskUnits='userSpaceOnUse' x='-1' y='1' width='97' height='94'> <path d='M1.45715 44.049C-0.522237 46.3111 -0.522238 49.6889 1.45715 51.951L36.9897 92.5596C38.5833 94.381 41.4167 94.381 43.0103 92.5596L46.8367 88.1866L51.0504 92.7833C52.6358 94.5128 55.3623 94.5128 56.9476 92.7833L94.2825 52.0543C96.3853 49.7604 96.3853 46.2396 94.2825 43.9457L56.9476 3.21667C55.3623 1.4872 52.6358 1.4872 51.0504 3.21667L46.8367 7.81341L43.0103 3.44035C41.4167 1.61904 38.5833 1.61904 36.9897 3.44035L1.45715 44.049Z' fill='white'/> </mask> <g mask='url(#mask0)'> <path d='M40 96L-2 48L40 0L82 48L40 96Z' fill='url(#paint0_linear)'/> <g filter='url(#filter0_f)'> <path d='M53.999 2L97.999 50L53.999 98L34.4767 76.7029C33.0748 75.1736 33.0748 72.8264 34.4767 71.2971L51.5214 52.7029C52.9232 51.1736 52.9232 48.8264 51.5214 47.2971L34.4767 28.7029C33.0748 27.1736 33.0748 24.8264 34.4767 23.2971L53.999 2Z' fill='black' fill-opacity='0.32'/> </g> <g filter='url(#filter1_f)'> <path d='M53.999 0.380127L97.999 48.3801L53.999 96.3801L34.4767 75.083C33.0748 73.5537 33.0748 71.2065 34.4767 69.6772L51.5214 51.083C52.9232 49.5537 52.9232 47.2065 51.5214 45.6772L34.4767 27.083C33.0748 25.5537 33.0748 23.2065 34.4767 21.6772L53.999 0.380127Z' fill='black' fill-opacity='0.24'/> </g> <path d='M53.999 0L97.999 48L53.999 96L34.4767 74.7029C33.0748 73.1736 33.0748 70.8264 34.4767 69.2971L51.5214 50.7029C52.9232 49.1736 52.9232 46.8264 51.5214 45.2971L34.4767 26.7029C33.0748 25.1736 33.0748 22.8264 34.4767 21.2971L53.999 0Z' fill='url(#paint1_linear)'/> <path d='M73.0514 27.2167C74.6367 25.4872 77.3633 25.4872 78.9486 27.2167L98 48L78.9486 68.7833C77.3633 70.5128 74.6367 70.5128 73.0514 68.7833L57.7165 52.0543C55.6137 49.7604 55.6137 46.2396 57.7165 43.9457L73.0514 27.2167Z' fill='url(#paint2_linear)'/> </g> </g> </g> </g> </svg>"));
+        
+            Set(PowerAutomateIcon, "data:image/svg+xml," & EncodeUrl(
+                "<svg width='96' height='96' viewBox='0 0 96 96' fill='none' xmlns='http://www.w3.org/2000/svg'> <defs> <filter id='filter0_f'> <feFlood flood-opacity='0' result='BackgroundImageFix'/> <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/> <feGaussianBlur stdDeviation='0.4' result='effect1_foregroundBlur'/> </filter> <filter id='filter1_f'> <feFlood flood-opacity='0' result='BackgroundImageFix'/> <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/> <feGaussianBlur stdDeviation='4' result='effect1_foregroundBlur'/> </filter> <linearGradient id='paint0_linear' x1='43' y1='55' x2='29' y2='10' gradientUnits='userSpaceOnUse'> <stop stop-color='#0D36A5'/> <stop offset='1' stop-color='#1152D4'/> </linearGradient> <linearGradient id='paint1_linear' x1='46' y1='10' x2='46' y2='86' gradientUnits='userSpaceOnUse'> <stop stop-color='#84CAFF'/> <stop offset='1' stop-color='#61B1FB'/> </linearGradient> <linearGradient id='paint2_linear' x1='37.5' y1='10' x2='37.5' y2='86' gradientUnits='userSpaceOnUse'> <stop stop-color='#3B90F5'/> <stop offset='1' stop-color='#2A78EE'/> </linearGradient> <clipPath id='clip0'> <rect width='96' height='96' fill='white'/> </clipPath> <clipPath id='clip1'> <rect width='96' height='96' fill='white'/> </clipPath> </defs> <g clip-path='url(#clip0)'> <g clip-path='url(#clip1)'> <mask id='mask0' mask-type='alpha' maskUnits='userSpaceOnUse' x='-1' y='10' width='97' height='76'> <path d='M61.2116 10C62.3496 10 63.4337 10.4847 64.1925 11.3328L94.6136 45.3328C95.9723 46.8514 95.9723 49.1486 94.6136 50.6672L64.1925 84.6672C63.4337 85.5153 62.3496 86 61.2116 86H3.94634C0.488777 86 -1.34012 81.9095 0.965366 79.3328L29 48L0.965366 16.6672C-1.34012 14.0905 0.488777 10 3.94634 10H61.2116Z' fill='white'/> </mask> <g mask='url(#mask0)'> <path d='M63 10L29 48L-5 10H63Z' fill='url(#paint0_linear)'/> <g filter='url(#filter0_f)'> <path d='M63 10.4L-5 86.4H63L97 48.4L63 10.4Z' fill='black' fill-opacity='0.24'/> </g> <g filter='url(#filter1_f)'> <path d='M63 12L-5 88H63L97 50L63 12Z' fill='black' fill-opacity='0.32'/> </g> <path d='M-5 86L63 10L97 48L63 86H-5Z' fill='url(#paint1_linear)'/> <path d='M-5 86L63 10L80 29L29 86H-5Z' fill='url(#paint2_linear)'/> </g> </g> </g> </svg> "));
+        
+            Set(CopilotStudioIcon, "data:image/svg+xml," & EncodeUrl(
+                    "<svg width='32' height='30' viewBox='0 0 32 30' fill='none'   xmlns='http://www.w3.org/2000/svg'>   <path fill-rule='evenodd' clip-rule='evenodd' d='M32 15.9011C32 16.9097 31.2489 17.7606 30.2481 17.8857L25.6077 18.4657C24.6797 18.6508 24.0003 19.4676 24.0003 20.4269V26.2343C24.0003 27.2429 23.2492 28.0937 22.2484 28.2188L10.2483 29.7188C9.05461 29.868 8.00024 28.9373 8.00024 27.7343L8.00024 17.9998L16 16.8569L15.9999 4.50695C15.9999 3.46677 16.7972 2.60022 17.8338 2.51384L23.9999 2C23.9999 2.95215 24.7089 3.75529 25.6537 3.87339L30.248 4.44768C31.2488 4.57279 31.9999 5.42357 31.9999 6.43221L32 15.9011Z' fill='url(#paint0_linear_24446_27590)'/>   <path d='M8 27.9999L8 22.4321C8 21.4241 8.75023 20.5737 9.75024 20.4478L5.82817e-08 21.6666L1.41382e-07 23.5677C1.85471e-07 24.5763 0.751074 25.4271 1.75193 25.5522L6.3462 26.1265C7.291 26.2446 8 27.0478 8 27.9999Z' fill='url(#paint1_linear_24446_27590)'/>   <path opacity='0.5' d='M1.65216 12.5416C0.696572 12.7104 1.80044e-06 13.5408 1.6998e-06 14.5111L6.63806e-07 24.5001L1.10005e-06 23.9323C1.87504e-06 22.9237 0.751075 22.0729 1.75193 21.9478L14.2481 20.3857C15.2489 20.2606 16 19.4098 16 18.4012L16 12.2041C16 11.378 16.5079 10.6369 17.2784 10.3388L19.9274 9.31396L1.65216 12.5416Z' fill='black'/>   <path opacity='0.5' fill-rule='evenodd' clip-rule='evenodd' d='M-0.00488215 23.9323C-0.00488159 23.1758 1.06344 22.5377 1.81408 22.4438L14.3102 20.8818C15.5613 20.7254 16.5001 19.6619 16.5001 18.4011L16.5001 12.204C16.5001 11.5845 16.8811 11.0287 17.4589 10.8051L20.1079 9.78023L19.8406 8.82153L1.56533 12.0492C0.370847 12.2601 -0.00483555 13.2981 -0.00483567 14.5111L-0.00488215 23.9323Z' fill='black' fill-opacity='0.5'/>   <path d='M1.75193 12.1143C0.751075 12.2394 1.72888e-06 13.0902 1.62427e-06 14.0988L5.97389e-07 23.9999L1.03363e-06 23.4321C1.80862e-06 22.4235 0.751074 21.5727 1.75193 21.4476L14.2481 19.8856C15.2489 19.7605 16 18.9097 16 17.901L16 10.3333L1.75193 12.1143Z' fill='url(#paint2_linear_24446_27590)'/>   <path d='M1.75193 12.1143C0.751075 12.2394 1.72888e-06 13.0902 1.62427e-06 14.0988L5.97389e-07 23.9999L1.03363e-06 23.4321C1.80862e-06 22.4235 0.751074 21.5727 1.75193 21.4476L14.2481 19.8856C15.2489 19.7605 16 18.9097 16 17.901L16 10.3333L1.75193 12.1143Z' fill='url(#paint3_linear_24446_27590)' fill-opacity='0.6'/>   <path d='M16 17.7656L16 12.0989C16 11.0908 16.7502 10.2404 17.7502 10.1146L8 11.3333L8 13.2344C8 14.2431 8.75107 15.0939 9.75193 15.219L14.2481 15.781C15.2489 15.9061 16 16.7569 16 17.7656Z' fill='url(#paint4_linear_24446_27590)'/>   <path opacity='0.5' d='M9.75193 2.28112C8.75107 2.40623 8 3.25703 8 4.26568L8 13.8334L8 13.599C8 12.5904 8.75108 11.7396 9.75193 11.6145L22.2481 10.0524C23.2489 9.92733 24 9.07652 24 8.06788L24 2.76567C24 1.56268 22.9456 0.631906 21.7519 0.781119L9.75193 2.28112Z' fill='black'/>   <path opacity='0.5' fill-rule='evenodd' clip-rule='evenodd' d='M8.01197 13.5962L8.01196 4.26434C8.01196 3.00353 8.43878 1.94119 9.68985 1.78481L21.6899 0.28481C23.182 0.0982932 24.4999 1.26176 24.4999 2.7655L24.4999 8.06771C24.4999 9.32852 23.5611 10.392 22.31 10.5484L9.81389 12.1104C9.06363 12.2042 8.01254 12.8429 8.01196 13.5988L8.49994 13.5988L8.01197 13.5977L8.01197 13.5962Z' fill='black' fill-opacity='0.5'/>   <path d='M9.75193 1.78101C8.75107 1.90612 8 2.75692 8 3.76557L8.00001 13.3333L8 13.0989C8 12.0903 8.75108 11.2394 9.75194 11.1143L22.2481 9.55232C23.2489 9.42722 24 8.57641 24 7.56777L24 2.26556C24 1.06257 22.9456 0.131795 21.7519 0.281008L9.75193 1.78101Z' fill='url(#paint5_linear_24446_27590)'/>   <path d='M9.75193 1.78101C8.75107 1.90612 8 2.75692 8 3.76557L8.00001 13.3333L8 13.0989C8 12.0903 8.75108 11.2394 9.75194 11.1143L22.2481 9.55232C23.2489 9.42722 24 8.57641 24 7.56777L24 2.26556C24 1.06257 22.9456 0.131795 21.7519 0.281008L9.75193 1.78101Z' fill='url(#paint6_linear_24446_27590)' fill-opacity='0.8'/>   <defs>     <linearGradient id='paint0_linear_24446_27590' x1='8.66691' y1='30.9702' x2='44.3844' y2='13.0863' gradientUnits='userSpaceOnUse'>       <stop stop-color='#003580'/>       <stop offset='0.299454' stop-color='#0057AD'/>       <stop offset='1' stop-color='#16BFDF'/>     </linearGradient>     <linearGradient id='paint1_linear_24446_27590' x1='8.15961e-08' y1='22.1999' x2='10.6667' y2='22.1999' gradientUnits='userSpaceOnUse'>       <stop stop-color='#0E637A'/>       <stop offset='1' stop-color='#0074BD'/>     </linearGradient>     <linearGradient id='paint2_linear_24446_27590' x1='18.8571' y1='22.9928' x2='0.541807' y2='13.7907' gradientUnits='userSpaceOnUse'>       <stop stop-color='#0986B3'/>       <stop offset='0.721629' stop-color='#16BFDF'/>       <stop offset='1' stop-color='#3DD9EB'/>     </linearGradient>     <linearGradient id='paint3_linear_24446_27590' x1='3.05979e-07' y1='17.3333' x2='2.42857' y2='17.3333' gradientUnits='userSpaceOnUse'>       <stop stop-color='#0BA0C5'/>       <stop offset='0.499692' stop-color='#0BA0C5' stop-opacity='0.263415'/>       <stop offset='1' stop-color='#0BA0C5' stop-opacity='0'/>     </linearGradient>     <linearGradient id='paint4_linear_24446_27590' x1='5.33333' y1='15.2619' x2='16' y2='15.2619' gradientUnits='userSpaceOnUse'>       <stop stop-color='#117B97'/>       <stop offset='1' stop-color='#1392B4'/>     </linearGradient>     <linearGradient id='paint5_linear_24446_27590' x1='9' y1='15.1915' x2='23.3216' y2='0.595888' gradientUnits='userSpaceOnUse'>       <stop stop-color='#3DCBFF'/>       <stop offset='0.524843' stop-color='#6EEDED'/>       <stop offset='1' stop-color='#9BF3AF'/>     </linearGradient>     <linearGradient id='paint6_linear_24446_27590' x1='8' y1='7' x2='10.5714' y2='7' gradientUnits='userSpaceOnUse'>       <stop stop-color='#3DCBFF'/>       <stop offset='0.433173' stop-color='#3DCBFF' stop-opacity='0.339056'/>       <stop offset='1' stop-color='#3DCBFF' stop-opacity='0'/>     </linearGradient>   </defs> </svg>"
+            ));
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

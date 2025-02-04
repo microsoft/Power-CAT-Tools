@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{c5388550-04e5-ee11-a204-000d3a0a2504}</WebResourceId>
+  <Name>cat_PluginMonitorLoc.1033.resx</Name>
+  <DisplayName>PluginMonitorLoc</DisplayName>
+  <Description>Localization for the Plugin Monitoring module in Dataverse Accelerator.</Description>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>12</WebResourceType>
+  <IntroducedVersion>1.0.3.153</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/cat_PluginMonitorLoc1033resxC5388550-04E5-EE11-A204-000D3A0A2504</FileName>
+</WebResource>

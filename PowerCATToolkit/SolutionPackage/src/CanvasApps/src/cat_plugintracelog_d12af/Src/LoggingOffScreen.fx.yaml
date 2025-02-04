@@ -1,0 +1,380 @@
+LoggingOffScreen As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: =If(IsAdmin = false, Notify("System admin permission required",NotificationType.Error));
+
+    MainSettingContainer_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        ActionInsightsContainer_2 As groupContainer.horizontalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            Fill: =ColorValue(AppTheme.palette.neutralLighter)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =50
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =16
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =false
+            ZIndex: =1
+
+            HeaderCommandBar_2 As DVCommandBar.pcfdataset:
+                AlignInContainer: =AlignInContainer.Start
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =Parent.Height
+                Items: |-
+                    =Table(
+                        {
+                            ItemKey: "logsettings",
+                            ItemDisplayName: PluginMonitorLoc.logSettingsTxt,
+                            ItemIconName: "settings"
+                        },
+                        {
+                            ItemKey: "refresh",
+                            ItemDisplayName: PluginMonitorLoc.refreshTxt,
+                            ItemIconName: "Refresh"
+                        }
+                    )
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnSelect: |-
+                    =Switch(
+                        HeaderCommandBar_2.Selected.ItemKey,
+                        "logsettings",
+                        Navigate(LogSettingScreen),
+                        "refresh",
+                        If(
+                            First(Organizations).'Plug-in Trace Log Setting' = 0,
+                            Navigate(
+                                LoggingOffScreen
+                            ),
+                             Navigate(
+                                TraceLogScreen
+                            )
+                        );
+                    )
+                Theme: =AppThemeNeutralJson
+                Width: =300
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+        LoggingOffContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =24
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingTop: =Parent.Height/10
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =3
+
+            PersmissionMsg_1 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Light
+                FillPortions: =0
+                Height: =30
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                PaddingLeft: =20
+                PaddingRight: =20
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =false //If(IsAdmin,false,true)
+                Width: =Parent.Width-40
+                ZIndex: =1
+
+                Rectangle2_1 As rectangle:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(245, 231, 225, 1)
+                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                    Height: =30
+                    HoverFill: =RGBA(245, 231, 225, 1)
+                    PressedFill: =RGBA(245, 231, 225, 1)
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                TextCanvas2_1 As Text:
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =30
+                    Text: =If(!IsAdmin,"System admin permission required","")
+                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    Width: =334
+                    X: =32
+                    Y: =0
+                    ZIndex: =2
+
+                DVIcon3 As DVIcon:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    IconName: ="WarningSolid"
+                    Tooltip: ="Warning"
+                    Width: =30
+                    X: =0
+                    Y: =0
+                    ZIndex: =5
+
+            ImgLoggingOff_1 As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =200
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: =imgLoggingOff
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =300
+                ZIndex: =2
+
+            TextCanvas5_1 As Text:
+                AlignInContainer: =AlignInContainer.Center
+                AutoHeight: =false
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =30
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =20
+                Text: =PluginMonitorLoc.headingLoggingOff
+                Weight: ='TextCanvas.Weight'.Bold
+                Width: =210
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+            Container10 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =8
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =1366
+                Y: =301
+                ZIndex: =4
+
+                Log_InfoText_1 As Text:
+                    Align: ='TextCanvas.Align'.Center
+                    AutoHeight: =true
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    Text: =PluginMonitorLoc.infoLogSettingTxt
+                    Width: =500
+                    X: =433
+                    Y: =571
+                    ZIndex: =1
+
+                Log_LearnMoreLink_1 As Link:
+                    AccessibleLabel: ="Link"
+                    Align: ='LinkCanvas.Align'.Center
+                    Appearance: ="Default"
+                    AutoHeight: =true
+                    BasePaletteColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =40
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Text: =PluginMonitorLoc.learnMoreTxt
+                    URL: |-
+                        ="https://aka.ms/pluginmonitoring"
+                    Width: =320
+                    Wrap: =false
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+            EnableLogsButtonContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                FillPortions: =0
+                Height: =52
+                LayoutGap: =8
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =1366
+                X: =450
+                Y: =414
+                ZIndex: =5
+
+                EnableLogsButton_1 As Button:
+                    Align: =""
+                    BasePaletteColor: =
+                    BorderStyle: =""
+                    DisplayMode: =If(IsAdmin,DisplayMode.Edit,DisplayMode.Disabled)
+                    FontColor: =
+                    Height: =36
+                    Icon: =""
+                    IconRotation: =0
+                    IconStyle: ="Outline"
+                    Layout: ="Icon before"
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: |-
+                        =UpdateContext({ varSpin: true });
+                        
+                        /* Update log settings to 'All' */
+                        Set( results,
+                            Patch( Organizations, Org, {
+                                    'Plug-in Trace Log Setting': 'Plug-in Trace Log Setting (Organizations)'.All
+                                }
+                            );
+                        );
+                        
+                        If(
+                            /* Success */
+                            !IsBlankOrError( results ),
+                                Notify( PluginMonitorLoc.logEnableMessageTxt, NotificationType.Success );
+                                Navigate( TraceLogScreen, ScreenTransition.Cover ),
+                            
+                            /* Update failed */
+                            Notify( PluginMonitorLoc.defaultErrorMessageTxt, NotificationType.Error );
+                            
+                        );
+                        
+                        UpdateContext({ varSpin: false });
+                    Text: =PluginMonitorLoc.enableAllLogsTxt
+                    VerticalAlign: =""
+                    Width: =178
+                    X: =495
+                    Y: =0
+                    ZIndex: =1
+
+                EnableExceptionButton_1 As Button:
+                    Align: =""
+                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                    BasePaletteColor: =
+                    BorderStyle: =""
+                    DisplayMode: =If(IsAdmin,DisplayMode.Edit,DisplayMode.Disabled)
+                    FontColor: =
+                    Height: =36
+                    Icon: =""
+                    IconRotation: =0
+                    IconStyle: ="Outline"
+                    Layout: ="Icon before"
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: |-
+                        =UpdateContext({ varSpin: true });
+                        
+                        /* Update log settings to 'Exception' */
+                        Set( results,
+                            Patch( Organizations, Org, {
+                                    'Plug-in Trace Log Setting': 'Plug-in Trace Log Setting (Organizations)'.Exception
+                                }
+                            );
+                        );
+                        
+                        If(
+                            /* Success */
+                            !IsBlankOrError( results ),
+                                Notify( PluginMonitorLoc.logEnableMessageTxt, NotificationType.Success );
+                                Navigate( TraceLogScreen, ScreenTransition.Cover ),
+                            
+                            /* Update failed */
+                            Notify( PluginMonitorLoc.defaultErrorMessageTxt, NotificationType.Error );
+                            
+                        );
+                        
+                        UpdateContext({ varSpin: false });
+                    Text: =PluginMonitorLoc.enableExceptionOnlyTxt
+                    VerticalAlign: =""
+                    Width: =190
+                    X: =228
+                    Y: =0
+                    ZIndex: =2
+
+            cBuffer_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =80
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Y: =512
+                ZIndex: =6
+
+    LogSettingSpinner_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255,255,255, 0.7)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =varSpin
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Spinner_2 As Spinner:
+            Appearance: ='Spinner.Appearance'.Primary
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =Parent.Height
+            Label: ="Enabling logs ..."
+            LabelPosition: ='Spinner.LabelPosition'.Below
+            LayoutMinHeight: =200
+            LayoutMinWidth: =200
+            SpinnerSize: ='Spinner.SpinnerSize'.Huge
+            Visible: =true
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+

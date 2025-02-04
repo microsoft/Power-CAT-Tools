@@ -1,0 +1,49 @@
+{
+  "NamedValues": [
+    {
+      "Kind": "Page",
+      "Name": "Fluent UI Custom Page Template",
+      "Value": "custompage:cat_fluentuicustompagetemplate_e3ec8"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Power CAT Tools - Home",
+      "Value": "custompage:cat_landing_a3b7a"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Power Platform Review Tool",
+      "Value": "custompage:cat_homepage_f8fb3"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Plugin Monitor",
+      "Value": "custompage:cat_plugintracelog_d12af"
+    },
+    {
+      "Kind": "Page",
+      "Name": "AI Doc",
+      "Value": "custompage:cat_aidoc_311c3"
+    },
+    {
+      "Kind": "Page",
+      "Name": "API Playground",
+      "Value": "custompage:cat_apiplayground_62f25"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Risk Assessments",
+      "Value": "custompage:cat_riskassessments_2e193"
+    },
+    {
+      "Kind": "Page",
+      "Name": "DocuPilot",
+      "Value": "custompage:cat_docupilot_fa88a"
+    },
+    {
+      "Kind": "Page",
+      "Name": "AI Auto Doc",
+      "Value": "custompage:cat_aiautodoc_0bb25"
+    }
+  ]
+}

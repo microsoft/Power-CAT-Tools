@@ -1,0 +1,113 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "plugintracelogs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "plugintracelog",
+    "MaxGetRowsCount": 2000,
+    "Name": "Plug-in Trace Logs",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "configuration": "Configuration",
+      "correlationid": "Correlation Id",
+      "createdby": "Created By (Delegate) (createdby)",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate) (createdonbehalfby)",
+      "depth": "Depth",
+      "exceptiondetails": "Exception Details",
+      "issystemcreated": "System Created",
+      "messageblock": "Message Block",
+      "messagename": "Message Name",
+      "mode": "Mode",
+      "operationtype": "Operation Type",
+      "organizationid": "Organization Id",
+      "performanceconstructorduration": "Constructor Duration",
+      "performanceconstructorstarttime": "Constructor Start Time",
+      "performanceexecutionduration": "Execution Duration",
+      "performanceexecutionstarttime": "Execution Start Time",
+      "persistencekey": "Persistence Key",
+      "pluginstepid": "Plugin Step ID",
+      "plugintracelogid": "Plug-in Trace Log",
+      "primaryentity": "Primary Entity",
+      "profile": "Profile",
+      "requestid": "Request ID",
+      "secureconfiguration": "Secure Configuration",
+      "typename": "Type Name"
+    },
+    "PreferredName": "Plug-in Trace Logs",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Plug-in Trace Logs (Views)",
+    "Name": "_plugintracelog_views",
+    "RelatedEntityName": "Plug-in Trace Logs",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "16f97046-9cc9-40de-914f-13da29b681ec": "All Plug-in Trace Logs",
+      "f5c860c2-8aeb-4faa-8989-ac9dd5dbbb15": "Plug-in Trace Log Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "System Created (Plug-in Trace Logs)",
+    "Name": "plugintracelog_issystemcreated",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "issystemcreated",
+        "OptionSetReferenceEntityName": "Plug-in Trace Logs"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "issystemcreated",
+    "RelatedEntityName": "Plug-in Trace Logs",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Mode (Plug-in Trace Logs)",
+    "Name": "plugintracelog_mode",
+    "OptionSetInfoNameMapping": {
+      "0": "Synchronous",
+      "1": "Asynchronous"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "mode",
+        "OptionSetReferenceEntityName": "Plug-in Trace Logs"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "mode",
+    "RelatedEntityName": "Plug-in Trace Logs",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Operation Type (Plug-in Trace Logs)",
+    "Name": "plugintracelog_operationtype",
+    "OptionSetInfoNameMapping": {
+      "0": "Unknown",
+      "1": "Plug-in",
+      "2": "Workflow Activity"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "operationtype",
+        "OptionSetReferenceEntityName": "Plug-in Trace Logs"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "operationtype",
+    "RelatedEntityName": "Plug-in Trace Logs",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,97 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_environmentvariabledefinition_forms",
+      "Namespace": "Environment Variable Definitions (Forms)",
+      "Values": {
+        "Information": "3853733b-a351-455d-b686-d2d05027ba4d"
+      }
+    },
+    {
+      "Kind": "default.cds_solution_forms",
+      "Namespace": "Solutions (Forms)",
+      "Values": {
+        "Information": "75e0f489-3e68-11dd-81ce-00188b01dce6"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_customer_forms",
+      "Namespace": "Customers (Forms)",
+      "Values": {
+        "Information": "491627d0-d6ac-4e0f-b941-ccff0e3ed7a2"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_solutioncomponent_forms",
+      "Namespace": "Solution Components (Forms)",
+      "Values": {
+        "Information": "66c6f2d3-f07b-487d-80b6-fa2c88086e8b"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_patternresult_forms",
+      "Namespace": "Pattern Results (Forms)",
+      "Values": {
+        "Information": "4eefcb9e-e7d2-48a0-963e-64b804a53e62"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_solutionreview_forms",
+      "Namespace": "Solution Reviews (Forms)",
+      "Values": {
+        "Information": "27fa9fa3-c92c-4e56-9b8c-ef807f11fe81"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_patterndetails_forms",
+      "Namespace": "Pattern Details (Forms)",
+      "Values": {
+        "Information": "efb23718-9b0d-4859-83b7-f4920c9479b2"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_patternidentifier_forms",
+      "Namespace": "Pattern Identifiers (Forms)",
+      "Values": {
+        "Information": "d301756f-698a-4937-b467-bb788a8cd7db"
+      }
+    },
+    {
+      "Kind": "default.cds_fileattachment_forms",
+      "Namespace": "FileAttachments (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cr94a_result_forms",
+      "Namespace": "Results (Forms)",
+      "Values": {
+        "Information": "3c6aa2be-fe08-49e7-867a-eb1f4c77f890"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_patterninstance_forms",
+      "Namespace": "Pattern Instances (Forms)",
+      "Values": {
+        "Information": "a65c031f-69c6-4d70-abd7-a37f29f7d9c9"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_solutionreview_forms",
+      "Namespace": "SolutionReviews (Forms)",
+      "Values": {
+        "Information": "ba271037-4309-4cba-b7b0-7d93db8729fa"
+      }
+    }
+  ]
+}

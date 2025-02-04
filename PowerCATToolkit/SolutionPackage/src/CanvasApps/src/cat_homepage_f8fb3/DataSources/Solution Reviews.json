@@ -1,0 +1,105 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_solutionreviews",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_solutionreview",
+    "MaxGetRowsCount": 500,
+    "Name": "Solution Reviews",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_Customer": "Customer",
+      "cat_reviewdescription": "Review Description",
+      "cat_reviewname": "Review Name",
+      "cat_solutioncomponent_SolutionReview_cat_solutionreview": "Solution Components",
+      "cat_solutionfile": "Solution File",
+      "cat_solutionname": "Solution Name",
+      "cat_solutionreview_AsyncOperations": "System Jobs",
+      "cat_solutionreview_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_solutionreview_DuplicateBaseRecord": "Duplicate Records (cat_solutionreview_DuplicateBaseRecord)",
+      "cat_solutionreview_DuplicateMatchingRecord": "Duplicate Records (cat_solutionreview_DuplicateMatchingRecord)",
+      "cat_solutionreview_FileAttachments": "FileAttachments",
+      "cat_solutionreview_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_solutionreview_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_solutionreview_ProcessSession": "Process Sessions",
+      "cat_solutionreview_SyncErrors": "Sync Errors",
+      "cat_solutionreviewid": "Solution Review",
+      "cat_solutionzip": "Solution Zip",
+      "cat_totalscore": "Total Score",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Solution Reviews",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Solution Reviews (Views)",
+    "Name": "_cat_solutionreview_views",
+    "RelatedEntityName": "Solution Reviews",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0bd30468-a11a-4e07-b294-f8806de630ee": "Solution Review Advanced Find View",
+      "2fd05c4c-889d-4051-be27-bbf36cdadbbf": "Active Solution Reviews",
+      "3c13b389-7468-43bb-94ab-7680346ebe1b": "Solution Review Lookup View",
+      "bfa52d74-88b0-457f-9f25-90141ba9c45f": "Solution Review Associated View",
+      "eca28f64-b3de-4891-9c0c-e0dba70ec6d5": "Inactive Solution Reviews"
+    }
+  },
+  {
+    "DisplayName": "Status (Solution Reviews)",
+    "Name": "cat_solutionreview_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Solution Reviews"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Solution Reviews",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Solution Reviews)",
+    "Name": "cat_solutionreview_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Solution Reviews"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Solution Reviews",
+    "Type": "OptionSetInfo"
+  }
+]

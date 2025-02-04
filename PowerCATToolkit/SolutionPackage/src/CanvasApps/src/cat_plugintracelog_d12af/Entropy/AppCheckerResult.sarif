@@ -1,0 +1,1485 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+  "runs": [
+    {
+      "columnKind": "utf16CodeUnits",
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "results": [
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.SettingHorizontalContainer.SaveLogSettingBtn.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.SettingHorizontalContainer.SaveLogSettingBtn.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LogSettingScreen",
+                "type": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.SettingHorizontalContainer.SaveLogSettingBtn"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.cLogSettingMain.EnableLogContainer.KeywordFilterLabel_1.InfoButtonCanvas1_9.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.cLogSettingMain.EnableLogContainer.KeywordFilterLabel_1.InfoButtonCanvas1_9.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LogSettingScreen",
+                "type": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.cLogSettingMain.EnableLogContainer.KeywordFilterLabel_1.InfoButtonCanvas1_9"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.cLogSettingMain.EnableLogContainer_2.Container12_1.Container13.ButtonCanvas2_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.cLogSettingMain.EnableLogContainer_2.Container12_1.Container13.ButtonCanvas2_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LogSettingScreen",
+                "type": "LogSettingScreen.MainSettingContainer.LogSettingContentContainer.cLogSettingMain.EnableLogContainer_2.Container12_1.Container13.ButtonCanvas2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.Container8.ButtonCanvas4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.Container8.ButtonCanvas4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LogSettingScreen",
+                "type": "LogSettingScreen.MainSettingContainer.Container8.ButtonCanvas4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.Container8.ButtonCanvas4_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LogSettingScreen.MainSettingContainer.Container8.ButtonCanvas4_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LogSettingScreen",
+                "type": "LogSettingScreen.MainSettingContainer.Container8.ButtonCanvas4_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LogSettingScreen.LogSettingSpinner.Spinner.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LogSettingScreen.LogSettingSpinner.Spinner.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LogSettingScreen",
+                "type": "LogSettingScreen.LogSettingSpinner.Spinner"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.LeftScreenContainer.DetailListContainer.PluginHistoryContainer.DataListContainer.Spinner1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.LeftScreenContainer.DetailListContainer.PluginHistoryContainer.DataListContainer.Spinner1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.LeftScreenContainer.DetailListContainer.PluginHistoryContainer.DataListContainer.Spinner1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.LeftScreenContainer.DetailListContainer.PluginHistoryContainer.PaginationContainer.Container2.PageNumber.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.LeftScreenContainer.DetailListContainer.PluginHistoryContainer.PaginationContainer.Container2.PageNumber.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.LeftScreenContainer.DetailListContainer.PluginHistoryContainer.PaginationContainer.Container2.PageNumber"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cKeywordsFilter.KeywordFilterLabel.InfoButtonCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cKeywordsFilter.KeywordFilterLabel.InfoButtonCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cKeywordsFilter.KeywordFilterLabel.InfoButtonCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cKeywordsFilter.TraceLog_KeywordInput.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cKeywordsFilter.TraceLog_KeywordInput.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cKeywordsFilter.TraceLog_KeywordInput"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cNameFilter.NameFilterLabel_1.InfoButtonCanvas1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cNameFilter.NameFilterLabel_1.InfoButtonCanvas1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cNameFilter.NameFilterLabel_1.InfoButtonCanvas1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cNameFilter.TraceLog_NameDropdown.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cNameFilter.TraceLog_NameDropdown.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cNameFilter.TraceLog_NameDropdown"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cStartTimeFilter.cStartTimeFilterLabel.InfoButtonCanvas1_7.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cStartTimeFilter.cStartTimeFilterLabel.InfoButtonCanvas1_7.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cStartTimeFilter.cStartTimeFilterLabel.InfoButtonCanvas1_7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cStartTimeBeforeFilter.cStartTimeBeforeLabel.InfoButtonCanvas1_8.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cStartTimeBeforeFilter.cStartTimeBeforeLabel.InfoButtonCanvas1_8.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cStartTimeBeforeFilter.cStartTimeBeforeLabel.InfoButtonCanvas1_8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.DurationFilterLabel.InfoButtonCanvas1_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.DurationFilterLabel.InfoButtonCanvas1_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.DurationFilterLabel.InfoButtonCanvas1_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.spnDurationMin.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.spnDurationMin.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.spnDurationMin"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.Container11.ButtonCanvas3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.Container11.ButtonCanvas3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cDurationMinFilter.Container11.ButtonCanvas3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.cMaxDurationLabel.InfoButtonCanvas1_6.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.cMaxDurationLabel.InfoButtonCanvas1_6.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.cMaxDurationLabel.InfoButtonCanvas1_6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.spnDurationMax.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.spnDurationMax.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.spnDurationMax"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.Container11_1.HideMaxDurationButton.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.Container11_1.HideMaxDurationButton.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cMaxDurationFilter.Container11_1.HideMaxDurationButton"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cExceptionFilter.InfoButtonCanvas1_5.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cExceptionFilter.InfoButtonCanvas1_5.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cExceptionFilter.InfoButtonCanvas1_5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cExceptionFilter.TraceLog_ExceptionToggleButton.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cExceptionFilter.TraceLog_ExceptionToggleButton.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cExceptionFilter.TraceLog_ExceptionToggleButton"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cTypeFilter.cTypeFilterLabel.InfoButtonCanvas1_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cTypeFilter.cTypeFilterLabel.InfoButtonCanvas1_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cTypeFilter.cTypeFilterLabel.InfoButtonCanvas1_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cTypeFilter.TraceLog_TypeRadioGroup.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cTypeFilter.TraceLog_TypeRadioGroup.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cTypeFilter.TraceLog_TypeRadioGroup"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cModeFilter.ModeFilterLabel.InfoButtonCanvas1_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cModeFilter.ModeFilterLabel.InfoButtonCanvas1_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cModeFilter.ModeFilterLabel.InfoButtonCanvas1_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cModeFilter.TraceLog_ModeRadioGroup.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cModeFilter.TraceLog_ModeRadioGroup.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.FilterPaneContent.cModeFilter.TraceLog_ModeRadioGroup"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.cFilterPaneButtons.CancelFilterButton.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.cFilterPaneButtons.CancelFilterButton.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.FilterPaneContainer.cFilterPaneButtons.CancelFilterButton"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton2_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton2_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_1.tagButton2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_2.BadgeCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_2.BadgeCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_2.BadgeCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_2.BadgeCanvas1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_2.BadgeCanvas1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.TagsContainer_2.BadgeCanvas1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContextTab_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContextTab_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContextTab_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContainer_1.cBlocks.cMessageBlock.Container6_1.Container7_1.ButtonCanvas1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContainer_1.cBlocks.cMessageBlock.Container6_1.Container7_1.ButtonCanvas1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContainer_1.cBlocks.cMessageBlock.Container6_1.Container7_1.ButtonCanvas1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContainer_1.cBlocks.cExceptionBlock.Container6.Container7.ButtonCanvas1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContainer_1.cBlocks.cExceptionBlock.Container6.Container7.ButtonCanvas1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogPaneContent.DebugContainer_1.cBlocks.cExceptionBlock.Container6.Container7.ButtonCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogButtonContainer.CloseBtn.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogButtonContainer.CloseBtn.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen.MainScreenContainer.TraceLogContainer.TraceLogButtonContainer.CloseBtn"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LoggingOffScreen.MainSettingContainer_1.LoggingOffContainer_1.EnableLogsButtonContainer_1.EnableLogsButton_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LoggingOffScreen.MainSettingContainer_1.LoggingOffContainer_1.EnableLogsButtonContainer_1.EnableLogsButton_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LoggingOffScreen",
+                "type": "LoggingOffScreen.MainSettingContainer_1.LoggingOffContainer_1.EnableLogsButtonContainer_1.EnableLogsButton_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LoggingOffScreen.MainSettingContainer_1.LoggingOffContainer_1.EnableLogsButtonContainer_1.EnableExceptionButton_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LoggingOffScreen.MainSettingContainer_1.LoggingOffContainer_1.EnableLogsButtonContainer_1.EnableExceptionButton_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LoggingOffScreen",
+                "type": "LoggingOffScreen.MainSettingContainer_1.LoggingOffContainer_1.EnableLogsButtonContainer_1.EnableExceptionButton_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LoggingOffScreen.LogSettingSpinner_1.Spinner_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "LoggingOffScreen.LogSettingSpinner_1.Spinner_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "LoggingOffScreen",
+                "type": "LoggingOffScreen.LogSettingSpinner_1.Spinner_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.showHideSettingContainer"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showHideSettingContainer",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showHideSettingContainer",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.showHideContextContainer"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showHideContextContainer",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showHideContextContainer",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.showHideDebugContainer"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showHideDebugContainer",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showHideDebugContainer",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.AppThemeAltJson"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.AppThemeAltJson",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AppThemeAltJson",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.showHideLoggingOffContainer"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showHideLoggingOffContainer",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showHideLoggingOffContainer",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.showHideDetailListContainer"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showHideDetailListContainer",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showHideDetailListContainer",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-DataSourceDefaultMaxRowsLimit",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TraceLogScreen.ctxGridEvent"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TraceLogScreen.ctxGridEvent",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ctxGridEvent",
+                "module": "TraceLogScreen",
+                "type": "TraceLogScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        }
+      ],
+      "tool": {
+        "driver": {
+          "fullName": "PowerApps app checker",
+          "name": "PowerApps app checker",
+          "rules": [
+            {
+              "id": "acc-AccessibleLabelNeeded",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing accessible label"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Edit the accessible label property to describe the item."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "If there's no accessible text, people who can’t see the screen won't understand what’s in images and controls."
+              }
+            },
+            {
+              "id": "app-UnusedVariables",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unused variable"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Remove the unused variable."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "This variable is declared but is not referenced by any control, so it is not needed."
+              }
+            },
+            {
+              "id": "app-DataSourceDefaultMaxRowsLimit",
+              "messageStrings": {
+                "issue": {
+                  "text": "Data row limit for non-delegable queries is more than 500"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Update 'Data row limit for non-delegable queries' in the advanced app settings."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "A 'data row limit' more than 500 may result in a slower app when running non-delegable queries, because the app will have to process every row itself, rather than running the query on the server."
+              }
+            }
+          ],
+          "version": "1.343"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

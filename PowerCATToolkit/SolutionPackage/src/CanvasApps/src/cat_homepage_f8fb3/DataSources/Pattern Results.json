@@ -1,0 +1,167 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_patternresults",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_patternresult",
+    "MaxGetRowsCount": 500,
+    "Name": "Pattern Results",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "cat_category": "Category",
+      "cat_ComponentID": "Solution Component",
+      "cat_failurereason": "Failure Reason",
+      "cat_patterndescription": "Pattern Description",
+      "cat_PatternInstance_cat_PatternResult": "Pattern Instances",
+      "cat_patternname": "Pattern Name",
+      "cat_patternresult_Annotations": "Notes",
+      "cat_patternresult_AsyncOperations": "System Jobs",
+      "cat_patternresult_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_patternresult_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_patternresult_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_patternresult_ProcessSession": "Process Sessions",
+      "cat_patternresult_SyncErrors": "Sync Errors",
+      "cat_patternresultid": "Pattern Result",
+      "cat_recommendation": "Recommendation",
+      "cat_severity": "Severity",
+      "cat_status": "Status (cat_status)",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status (statecode)",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Pattern Results",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Pattern Results (Views)",
+    "Name": "_cat_patternresult_views",
+    "RelatedEntityName": "Pattern Results",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "337dd95c-ddf0-4b37-b7d4-7c3bc4e25038": "Pattern Result Advanced Find View",
+      "5076ba39-700e-4448-a70a-d756e1c0a3f6": "Pattern Result Lookup View",
+      "53a75013-d194-4dbe-b493-d5264a10276a": "Active Pattern Results",
+      "f376aa4e-7256-49ab-8edb-f7a72d9635b5": "Pattern Result Associated View",
+      "fe306a2b-30fa-457a-bf91-aeb81b5a7991": "Inactive Pattern Results"
+    }
+  },
+  {
+    "DisplayName": "Category (Pattern Results)",
+    "Name": "cat_patternresult_cat_category",
+    "OptionSetInfoNameMapping": {
+      "764860000": "Performance",
+      "764860001": "Usage",
+      "764860002": "Optimization"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_category",
+        "OptionSetReferenceEntityName": "Pattern Results"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_category",
+    "RelatedEntityName": "Pattern Results",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Severity (Pattern Results)",
+    "Name": "cat_patternresult_cat_severity",
+    "OptionSetInfoNameMapping": {
+      "764860000": "Low",
+      "764860001": "Medium",
+      "764860002": "High"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_severity",
+        "OptionSetReferenceEntityName": "Pattern Results"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_severity",
+    "RelatedEntityName": "Pattern Results",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Pattern Results)",
+    "Name": "cat_patternresult_cat_status",
+    "OptionSetInfoNameMapping": {
+      "0": "True",
+      "1": "False"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_status",
+        "OptionSetReferenceEntityName": "Pattern Results"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cat_status",
+    "RelatedEntityName": "Pattern Results",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Pattern Results)_1",
+    "Name": "cat_patternresult_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Pattern Results"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Pattern Results",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Pattern Results)",
+    "Name": "cat_patternresult_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Pattern Results"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Pattern Results",
+    "Type": "OptionSetInfo"
+  }
+]

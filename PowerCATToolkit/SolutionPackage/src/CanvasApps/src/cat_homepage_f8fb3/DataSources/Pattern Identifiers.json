@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_patternidentifiers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_patternidentifier",
+    "MaxGetRowsCount": 500,
+    "Name": "Pattern Identifiers",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_patternidentifier": "Pattern Identifier (cat_patternidentifier)",
+      "cat_patternidentifier_AsyncOperations": "System Jobs",
+      "cat_patternidentifier_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_patternidentifier_DuplicateBaseRecord": "Duplicate Records (cat_patternidentifier_DuplicateBaseRecord)",
+      "cat_patternidentifier_DuplicateMatchingRecord": "Duplicate Records (cat_patternidentifier_DuplicateMatchingRecord)",
+      "cat_patternidentifier_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_patternidentifier_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_patternidentifier_ProcessSession": "Process Sessions",
+      "cat_patternidentifier_SyncErrors": "Sync Errors",
+      "cat_patternidentifierid": "Pattern Identifier (cat_patternidentifierid)",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Pattern Identifiers",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Pattern Identifiers (Views)",
+    "Name": "_cat_patternidentifier_views",
+    "RelatedEntityName": "Pattern Identifiers",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2456b1d6-ec73-4721-8754-eb3cfe47de47": "Pattern Identifier Lookup View",
+      "34150a82-1a11-4523-85cf-bbeaa00b1cd2": "Inactive Pattern Identifiers",
+      "5439bceb-b694-42f8-8f46-d0a2926f7b84": "Pattern Identifier Advanced Find View",
+      "e0a8589a-7938-4876-87ea-f54591e54cde": "Pattern Identifier Associated View",
+      "f45fddac-0c7d-4f49-abb6-c287a17f116d": "Active Pattern Identifiers"
+    }
+  },
+  {
+    "DisplayName": "Status (Pattern Identifiers)",
+    "Name": "cat_patternidentifier_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Pattern Identifiers"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Pattern Identifiers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Pattern Identifiers)",
+    "Name": "cat_patternidentifier_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Pattern Identifiers"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Pattern Identifiers",
+    "Type": "OptionSetInfo"
+  }
+]

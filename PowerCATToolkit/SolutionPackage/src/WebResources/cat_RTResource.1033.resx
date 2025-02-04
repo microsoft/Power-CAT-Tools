@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Patterns" xml:space="preserve">
+    <value>{
+    "value": [
+        {
+            "@odata.etag": "W/\"5897722\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Review embedded asset compression/size optimization. Validate apps respect limitations related to media and audio asset sizes.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Ensure that all files do not exceed 300KB file size. Please consider compressing the listed files.&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "09366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": null,
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Medium",
+            "cat_patternseverity": 764860002,
+            "cat_patterndetails": "Asset Optimization",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-AssetOptimization"
+        },
+        {
+            "@odata.etag": "W/\"5897739\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Review accessibility checker. Notes: Alternate Text labels can reveal otherwise hidden media and context to users with disabilities. Use natural language text when naming screens to optimize results from screen readers.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Please address the listed accessibility issues in failure reason.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Accessibility",
+            "cat_patterncategory": 764860000,
+            "cat_patterndetailsid": "0a366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://docs.microsoft.com/power-apps/maker/canvas-apps/accessible-apps",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "High",
+            "cat_patternseverity": 764860003,
+            "cat_patterndetails": "Accessibility",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-Accessibility"
+        },
+        {
+            "@odata.etag": "W/\"5897746\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;This pattern refers to any variables, assets, or controls that has been defined but is not being or rarely used anywhere within the app.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0; background-color: rgb(250, 250, 250); color: rgb(66, 66, 66); display: block; font-family: &amp;quot; undefined: SegoeSans&amp;quot; undefined: ,&amp;quot; undefined: SegoeUI&amp;quot; undefined: ,&amp;quot; undefined: SegoeUIWeb(WestEuropean)&amp;quot; undefined: ,-apple-system,BlinkMacSystemFont,Roboto,&amp;quot; undefined: HelveticaNeue&amp;quot; undefined: ,sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; margin-bottom: 10px; margin-right: 0px; margin-top: 6px; max-width: 590px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; width: fit-content; word-spacing: 0px;\" width=\"fit-content\"&gt;To enhance the performance and maintainability of your Power Apps, consider minimizing the use of variables and collections. Here are some tips to achieve this:&lt;/p&gt;&lt;ol style=\"padding-inline-start: 40px; margin-inline-start: 0px; margin-inline-end: 0px; background-color: rgb(250, 250, 250); color: rgb(66, 66, 66); font-family: &amp;quot; undefined: SegoeSans&amp;quot; undefined: ,&amp;quot; undefined: SegoeUI&amp;quot; undefined: ,&amp;quot; undefined: SegoeUIWeb(WestEuropean)&amp;quot; undefined: ,-apple-system,BlinkMacSystemFont,Roboto,&amp;quot; undefined: HelveticaNeue&amp;quot; undefined: ,sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; width: fit-content; word-spacing: 0px;\" width=\"fit-content\"&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"margin: 0; display: block; font-weight: var(--fontWeightRegular); margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px;\"&gt;Use Direct Data Source Operations: Instead of storing data in collections, perform operations directly on data sources whenever possible. This reduces memory usage and improves app responsiveness. User for Named formulas is also strongly encouraged.&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"margin: 0; display: block; font-weight: var(--fontWeightRegular); margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px;\"&gt;Use Context Variables Sparingly: Context variables are useful for passing values between screens, but overusing them can lead to complex and hard-to-maintain code. Opt for direct data binding and formulas where feasible.&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"margin: 0; display: block; font-weight: var(--fontWeightRegular); margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px;\"&gt;Adopt Component-Based Design: Break down your app into reusable components. This modular approach can reduce the need for global variables and collections, as each component can manage its own state.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "0b366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://docs.microsoft.com/powerapps/maker/canvas-apps/performance-tips",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Medium",
+            "cat_patternseverity": 764860002,
+            "cat_patterndetails": "Formulas, Controls with Low/No Usage",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-UnusedVariables"
+        },
+        {
+            "@odata.etag": "W/\"5897743\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;N+1 queries pattern, which typically occurs using gallery control, is when we trigger too many requests to servers as each item in the gallery is performing a lookup on a direct data source&lt;/p&gt;&lt;p style=\"margin: 0;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;figure class=\"image image_resized\" style=\"display: table; clear: both; text-align: center; margin: 0.9em auto; min-width: 50px; width: 832px;\"&gt;&lt;img style=\"display: block; height: auto; aspect-ratio: 1722/1141;\" src=\"https://www.microsoft.com/en-us/power-platform/blog/wp-content/uploads/2018/01/df800421-83bf-4ff1-8e81-ab6b4ee09a6d.jpg\" width=\"832\" height=\"551\"&gt;&lt;/figure&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Consider creating a local collection for the data source used within each item withing the gallery. This is only recommended when the number of items fetched is small (&amp;lt; 2k) with a small over data size. &amp;nbsp;Alternatively, you can use server-side process using azure functions, custom APIs or Views for SQL to shape the data needed with the look ups already processed server-side.&amp;nbsp;&lt;/p&gt;&lt;p style=\"margin: 0;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;p style=\"margin: 0;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "0c366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://powerapps.microsoft.com/blog/considerations-for-optimized-performance-in-power-apps",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "High",
+            "cat_patternseverity": 764860003,
+            "cat_patterndetails": "N+1 Database or API requests",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-CheckForNplusOneCalls"
+        },
+        {
+            "@odata.etag": "W/\"5897777\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Using Filter or Search inside First or Last functions with external data sources.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Optimize data retrieval by avoiding inefficient use of functions.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "16366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://docs.microsoft.com/powerapps/maker/canvas-apps/performance-tips",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "High",
+            "cat_patternseverity": 764860003,
+            "cat_patterndetails": "Inefficient Data Retrieval",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-FormulaOptimization-FirstFilter"
+        },
+        {
+            "@odata.etag": "W/\"5897690\"",
+            "cat_patterndescription": "Ensure the second parameter is not using a LookUp() function. It is a best practice to use ThisItem whenever patching from a gallery or { id: userid }.",
+            "cat_patternrecommendation": "Optimize Patch formulas by avoiding unnecessary LookUp() functions.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "19366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": null,
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Patch Formula Optimization",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-FormulaOptimization-Patch"
+        },
+        {
+            "@odata.etag": "W/\"5897733\"",
+            "cat_patterndescription": "Check if all connection references are used and properly configured.",
+            "cat_patternrecommendation": "Ensure all connection references are correctly configured and utilized.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "25366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/power-automate/connection-references",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "ConnectionReferences",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "FlowPattern",
+            "cat_patterntype": 764860001,
+            "cat_patternid": "flow-ConnectionReferences"
+        },
+        {
+            "@odata.etag": "W/\"5897724\"",
+            "cat_patterndescription": "Check for unused variables in the flow.",
+            "cat_patternrecommendation": "Remove any variables that are declared but not used.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "26366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/power-automate/best-practices",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Unused Variables",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "FlowPattern",
+            "cat_patterntype": 764860001,
+            "cat_patternid": "flow-UnusedVariables"
+        },
+        {
+            "@odata.etag": "W/\"5897713\"",
+            "cat_patterndescription": "This pattern checks for overlapping trigger phrases between topics. If multiple topics have similar or identical phrases, it flags them to avoid conflicts in bot behavior.",
+            "cat_patternrecommendation": "Ensure no overlapping trigger queries across topics.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "27366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#1",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Duplicate Queries",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "BotPattern",
+            "cat_patterntype": 764860002,
+            "cat_patternid": "bot-DuplicateQueries"
+        },
+        {
+            "@odata.etag": "W/\"5897715\"",
+            "cat_patterndescription": "This pattern identifies single-word trigger phrases, recommending the use of multi-word phrases for more accurate and meaningful responses.",
+            "cat_patternrecommendation": "Ensure all trigger phrases are more than one word.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "28366da9-fcd4-ef11-a731-7c1e52166054",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#3",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Single Word Phrases",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "BotPattern",
+            "cat_patterntype": 764860002,
+            "cat_patternid": "bot-SingleWordPhrases"
+        },
+        {
+            "@odata.etag": "W/\"5897760\"",
+            "cat_patterndescription": "Ensure that all necessary settings are enabled for optimal performance.",
+            "cat_patternrecommendation": "Please consider turning on the listed settings.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "fb7a11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://www.microsoft.com/en-us/power-platform/blog/power-apps/app-checker-now-includes-performance-optimization-tips/",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Medium",
+            "cat_patternseverity": 764860002,
+            "cat_patterndetails": "App Settings flags",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-AppSettings"
+        },
+        {
+            "@odata.etag": "W/\"5897778\"",
+            "cat_patterndescription": "Always ensure apps have appropriate error handling methods. It is best to use the IfError() function to manage data validation for Patch() commands and the OnSuccess/OnFail properties when submitting form data.",
+            "cat_patternrecommendation": "Implement error handling using IfError() or similar mechanisms.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "fc7a11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://docs.microsoft.com/powerapps/maker/canvas-apps/functions/function-iferror",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Error Handling",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-ErrorHandling"
+        },
+        {
+            "@odata.etag": "W/\"5897779\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;This patterns checks for long PowerFx formulas that are hard to read and spans multiple lines of code.&amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;div class=\"ck-content stickystyles-wrapper-insert\" style=\"font-family:Segoe UI;font-size:11pt;width:fit-content;\" dir=\"ltr\" data-wrapper=\"true\" width=\"fit-content\"&gt;Avoid expressions or formulas that are very long as they will become hard to read. Examples include, but are not limited to nested If/Then/Else statements and nested operators such as OR or AND.&lt;/div&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Maintainability",
+            "cat_patterncategory": 764860007,
+            "cat_patterndetailsid": "fd7a11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": null,
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Code Readability",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-CodeReadability"
+        },
+        {
+            "@odata.etag": "W/\"5897770\"",
+            "cat_patterndescription": "Consider simplifying nested formulas with Search() and Filter() operations. Avoiding the nesting of these two together leads to a more compact/concise formula and performance improvement.",
+            "cat_patternrecommendation": "Simplify nested filters to improve performance.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "ff7a11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": null,
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Medium",
+            "cat_patternseverity": 764860002,
+            "cat_patterndetails": "Nested Filters",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-FormulaOptimization-NestedFilter"
+        },
+        {
+            "@odata.etag": "W/\"5897772\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;This pattern checks for nested API calls within Filter() and LookUp() operations which can lead to performance issues and make code readability harder. E.g. &lt;strong&gt;SortByColumns&lt;/strong&gt;(&lt;strong&gt;Filter&lt;/strong&gt;(Product, Email = &lt;strong&gt;Office365Users.MyProfile()&lt;/strong&gt;.Mail, \u201cTitle\u201d, TextSearchBox1.Text in Title), Ascending)&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"background-color: rgb(250, 250, 250); color: rgb(66, 66, 66); display: block; font-family: &amp;quot; undefined: SegoeSans&amp;quot; undefined: ,&amp;quot; undefined: SegoeUI&amp;quot; undefined: ,&amp;quot; undefined: SegoeUIWeb(WestEuropean)&amp;quot; undefined: ,-apple-system,BlinkMacSystemFont,Roboto,&amp;quot; undefined: HelveticaNeue&amp;quot; undefined: ,sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; margin: 6px 0px 10px; max-width: 590px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; width: fit-content; word-spacing: 0px;\" width=\"fit-content\"&gt;The &lt;strong style=\"font-weight:590;\"&gt;With function&lt;/strong&gt; in Power Apps can a powerful tool that can significantly enhance the readability and efficiency of your formulas. Here are some key reasons to use it:&lt;/p&gt;&lt;ol style=\"padding-inline-start: 40px; margin-inline-start: 0px; margin-inline-end: 0px; background-color: rgb(250, 250, 250); color: rgb(66, 66, 66); font-family: &amp;quot; undefined: SegoeSans&amp;quot; undefined: ,&amp;quot; undefined: SegoeUI&amp;quot; undefined: ,&amp;quot; undefined: SegoeUIWeb(WestEuropean)&amp;quot; undefined: ,-apple-system,BlinkMacSystemFont,Roboto,&amp;quot; undefined: HelveticaNeue&amp;quot; undefined: ,sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; width: fit-content; word-spacing: 0px;\" width=\"fit-content\"&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Improves Readability&lt;/strong&gt;: The With function allows you to break down complex formulas into smaller, named sub-formulas. This makes your code easier to read and understand. For example, instead of having a long, complicated formula, you can use With to define intermediate values and then use those values in your final calculation&lt;/p&gt;&lt;p style=\"margin: 0; margin-left: 0px;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Local Variables&lt;/strong&gt;: With acts like a local variable that is confined to the scope of the With function. This means you can define values that are only used within the With function, avoiding the need for global or context variables&lt;/p&gt;&lt;p style=\"margin: 0; margin-left: 0px;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Self-Contained&lt;/strong&gt;: Using With is preferred over context or global variables because it is self-contained and easy to understand. It can be used in any declarative formula context, making it versatile and powerful&lt;/p&gt;&lt;p style=\"margin: 0; margin-left: 0px;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Error Handling&lt;/strong&gt;: If the record argument to With is an error, the function will return that error and the formula will not be evaluated. This can help in managing errors more effectively&lt;/p&gt;&lt;p style=\"margin: 0; margin-left: 0px;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "007b11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": null,
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Medium",
+            "cat_patternseverity": 764860002,
+            "cat_patterndetails": "Nested API Calls",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-FormulaOptimization-NestedApiCalls"
+        },
+        {
+            "@odata.etag": "W/\"5897780\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;This pattern checks for the use of Named Formulas in your application. &amp;nbsp;&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"background-color: rgb(250, 250, 250); color: rgb(66, 66, 66); display: block; font-family: &amp;quot; undefined: SegoeSans&amp;quot; undefined: ,&amp;quot; undefined: SegoeUI&amp;quot; undefined: ,&amp;quot; undefined: SegoeUIWeb(WestEuropean)&amp;quot; undefined: ,-apple-system,BlinkMacSystemFont,Roboto,&amp;quot; undefined: HelveticaNeue&amp;quot; undefined: ,sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; margin: 6px 0px 10px; max-width: 590px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; width: fit-content; word-spacing: 0px;\" width=\"fit-content\"&gt;Named Formulas in Power Apps are a powerful feature that can significantly enhance the development and performance of your apps. Here are some key reasons why someone might use Named Formulas:&lt;/p&gt;&lt;ol style=\"padding-inline-start: 40px; margin-inline-start: 0px; margin-inline-end: 0px; background-color: rgb(250, 250, 250); color: rgb(66, 66, 66); font-family: &amp;quot; undefined: SegoeSans&amp;quot; undefined: ,&amp;quot; undefined: SegoeUI&amp;quot; undefined: ,&amp;quot; undefined: SegoeUIWeb(WestEuropean)&amp;quot; undefined: ,-apple-system,BlinkMacSystemFont,Roboto,&amp;quot; undefined: HelveticaNeue&amp;quot; undefined: ,sans-serif; font-size: 16px; font-style: normal; font-weight: 400; letter-spacing: normal; margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; width: fit-content; word-spacing: 0px;\" width=\"fit-content\"&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Simplify Initialization&lt;/strong&gt;: Named Formulas can simplify your app's initialization process. Unlike variables set in the &lt;code&gt;App.OnStart&lt;/code&gt; property, Named Formulas are always available and do not depend on the timing of the app's start-up sequence&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Improve Performance&lt;/strong&gt;: Named Formulas are recalculated automatically whenever their dependent values change, ensuring that the app always has the most up-to-date information without the need for manual updates.&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Reuse Logic&lt;/strong&gt;: They allow you to encapsulate and reuse logic throughout your app. This means you can define a formula once and use it in multiple places, reducing redundancy and making your app easier to maintain&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Enhance Readability&lt;/strong&gt;: By using Named Formulas, you can make your app's logic more readable and easier to understand. This is particularly useful for complex calculations or operations that are used in multiple places&lt;/p&gt;&lt;/li&gt;&lt;li style=\"padding-inline-start:4px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Reduce Errors&lt;/strong&gt;: Named Formulas help reduce errors by centralizing the logic in one place.&amp;nbsp;&lt;/p&gt;&lt;div class=\"___frx9oy0 f14t3ns0\" style=\"display:inline-block;\"&gt;&amp;nbsp;&lt;/div&gt;&lt;p style=\"margin: 0; margin-left: 0px;\"&gt;&amp;nbsp;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Maintainability",
+            "cat_patterncategory": 764860007,
+            "cat_patterndetailsid": "017b11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/power-platform/power-fx/formula-reuse-named-formulas",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Named Formulas",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-NamedFormulas"
+        },
+        {
+            "@odata.etag": "W/\"5897782\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;This patterns checks for use of layout containers in your app determine if you are app is responsive.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 6px 0px 10px; max-width: 590px; width: fit-content;\" width=\"fit-content\"&gt;Using layout containers can significantly enhance the design and functionality of your apps:&lt;/p&gt;&lt;ol style=\"padding-inline-start: 40px; margin-inline-start: 0px; margin-inline-end: 0px; margin-bottom: 8px; margin-right: 0px; margin-top: 0px; max-width: 590px; width: fit-content;\" width=\"fit-content\"&gt;&lt;li style=\"background-color:rgb(250, 250, 250);color:rgb(66, 66, 66);font-family:&amp;quot;Segoe Sans&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Segoe UI Web (West European)&amp;quot;, -apple-system, BlinkMacSystemFont, Roboto, &amp;quot;Helvetica Neue&amp;quot;, sans-serif;font-size:16px;font-style:normal;font-weight:400;letter-spacing:normal;padding-inline-start:4px;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Responsive Design&lt;/strong&gt;: Layout containers are essential for creating responsive designs that adapt to different screen sizes and orientations. By using containers, you can ensure that your app looks great on any device, whether it's a desktop, tablet, or mobile phone&lt;/p&gt;&lt;/li&gt;&lt;li style=\"background-color:rgb(250, 250, 250);color:rgb(66, 66, 66);font-family:&amp;quot;Segoe Sans&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Segoe UI Web (West European)&amp;quot;, -apple-system, BlinkMacSystemFont, Roboto, &amp;quot;Helvetica Neue&amp;quot;, sans-serif;font-size:16px;font-style:normal;font-weight:400;letter-spacing:normal;padding-inline-start:4px;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Organized Structure&lt;/strong&gt;: Containers help you organize your app's interface by grouping related controls together. This makes it easier to manage and maintain your app, especially as it grows in complexity&lt;/p&gt;&lt;/li&gt;&lt;li style=\"background-color:rgb(250, 250, 250);color:rgb(66, 66, 66);font-family:&amp;quot;Segoe Sans&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Segoe UI Web (West European)&amp;quot;, -apple-system, BlinkMacSystemFont, Roboto, &amp;quot;Helvetica Neue&amp;quot;, sans-serif;font-size:16px;font-style:normal;font-weight:400;letter-spacing:normal;padding-inline-start:4px;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Improved Accessibility&lt;/strong&gt;: Containers aid screen reader users in understanding the structure of the app. They provide a logical grouping of controls, which can enhance the accessibility of your app&lt;/p&gt;&lt;/li&gt;&lt;li style=\"background-color:rgb(250, 250, 250);color:rgb(66, 66, 66);font-family:&amp;quot;Segoe Sans&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Segoe UI Web (West European)&amp;quot;, -apple-system, BlinkMacSystemFont, Roboto, &amp;quot;Helvetica Neue&amp;quot;, sans-serif;font-size:16px;font-style:normal;font-weight:400;letter-spacing:normal;padding-inline-start:4px;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;\"&gt;&lt;p style=\"display: block; font-weight: var(--fontWeightRegular); margin: 0px 0px 8px; max-width: 590px;\"&gt;&lt;strong style=\"font-weight:590;\"&gt;Enhanced Performance&lt;/strong&gt;: By reducing the number of individual layout calculations, containers can improve the performance of your app. This is particularly important for apps with complex interfaces and many controls&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "UX",
+            "cat_patterncategory": 764860017,
+            "cat_patterndetailsid": "027b11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/powerapps/maker/canvas-apps/create-responsive-layout",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "UX Layout",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "PowerAppsPattern",
+            "cat_patterntype": 764860000,
+            "cat_patternid": "app-UxLayout"
+        },
+        {
+            "@odata.etag": "W/\"5897767\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Validate the types of triggers used in the flow.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: Segoe UI; font-size: 11pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;Ensure that the triggers are appropriate for the intended use of the flow.&lt;/p&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "037b11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/power-automate/trigger-types",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Trigger Types",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "FlowPattern",
+            "cat_patterntype": 764860001,
+            "cat_patternid": "flow-TriggerTypes"
+        },
+        {
+            "@odata.etag": "W/\"5897718\"",
+            "cat_patterndescription": "This pattern ensures that each topic contains at least 5 trigger phrases, which helps bots respond to a wider variety of user queries.",
+            "cat_patternrecommendation": "Ensure each topic has at least 5 trigger queries.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "047b11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#2",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": "Trigger Phase Count",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "BotPattern",
+            "cat_patterntype": 764860002,
+            "cat_patternid": "bot-TriggerPhraseCount"
+        },
+        {
+            "@odata.etag": "W/\"5897719\"",
+            "cat_patterndescription": "This pattern flags trigger phrases that exceed 10 words in length, encouraging shorter and more concise queries for better bot performance.",
+            "cat_patternrecommendation": "Ensure all trigger phrases have fewer than 10 words.",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Functionality",
+            "cat_patterncategory": 764860006,
+            "cat_patterndetailsid": "057b11aa-fcd4-ef11-a731-7c1e521c9e78",
+            "cat_patterndoclink": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#4",
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Low",
+            "cat_patternseverity": 764860001,
+            "cat_patterndetails": null,
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "BotPattern",
+            "cat_patterntype": 764860002,
+            "cat_patternid": "bot-LongPhrases"
+        },
+        {
+            "@odata.etag": "W/\"5897736\"",
+            "cat_patterndescription": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: 'Segoe UI','Helvetica Neue',sans-serif; font-size: 9pt;\"&gt;&lt;div style=\"font-family:'Segoe UI','Helvetica Neue',sans-serif;font-size:9pt;\"&gt;&lt;p style=\"margin: 0;\"&gt;&lt;span style=\"background-color:default;color:#0d0d0d;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;Nested \"For Each\" loops can be an expensive operation in Power Automate (and in many other programming contexts) due to their potential impact on performance and resource consumption.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=\"background-color:default;\"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;ul style=\"padding-inline-start: 40px; margin-inline-start: 0px; margin-inline-end: 0px;\"&gt;&lt;li class=\"paragraph\" style=\"list-style-position:inside;\"&gt;&lt;span style=\"background-color:default;color:black;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;&lt;strong&gt;Increased Execution Time&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=\"background-color:default;color:#0d0d0d;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;: With nested loops, the number of iterations multiply.&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style=\"margin: 0;\"&gt;&lt;span style=\"background-color:default;color:#0d0d0d;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;&amp;nbsp;For example, if you have 2 loops, each with 10 iterations, the total number of iterations becomes 10 x 10 = 100. This can significantly increase the execution time of your flow, especially if the loops process large datasets or perform complex operations within each iteration.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;ul style=\"padding-inline-start: 40px; margin-inline-start: 0px; margin-inline-end: 0px;\"&gt;&lt;li class=\"paragraph\" style=\"list-style-position:inside;\"&gt;&lt;span style=\"background-color:default;color:black;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;&lt;strong&gt;Limits and Quotas&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=\"background-color:default;color:#0d0d0d;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;: Power Automate imposes limits and quotas on various aspects of flow execution, such as the number of iterations allowed within a loop or the maximum execution time. Nested loops can quickly reach these limits, causing the flow to fail or be throttled, particularly if it operates on large datasets or runs frequently.&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style=\"margin: 0;\"&gt;&lt;br&gt;&lt;span style=\"background-color:default;\"&gt;&lt;img class=\"image_resized\" style=\"aspect-ratio:1092/762;width:556px;\" src=\"https://powercatexternal.blob.core.windows.net/creatorkit/Assets/ReviewTool/NestedLoops.png\" width=\"556\" height=\"387\"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;",
+            "cat_patternrecommendation": "&lt;div class=\"ck-content\" data-wrapper=\"true\" dir=\"ltr\" style=\"--ck-image-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2); --ck-color-selector-caption-background: hsl(0, 0%, 97%); --ck-color-selector-caption-text: hsl(0, 0%, 20%); font-family: 'Segoe UI','Helvetica Neue',sans-serif; font-size: 9pt;\"&gt;&lt;div style=\"font-family:'Segoe UI','Helvetica Neue',sans-serif;font-size:9pt;\"&gt;&lt;span style=\"font-family:&amp;quot;Calibri&amp;quot;,sans-serif;font-size:11.0pt;\"&gt;&lt;span style=\"vertical-align:baseline;\"&gt;A more efficient implementation is to use OData Query Expansion where we only need to work with a single Apply-for-Each loop. This also reduces the total requests against Dataverse to just one RetrieveMultiple call. Use the Expand Query parameter to specify the lookup column name. We can also add ($select=\u2026) to reduce the number of columns returned from the related table. The filter rows parameter can be used to apply conditions on the lookup table\u2019s column.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=\"font-family:'Segoe UI','Helvetica Neue',sans-serif;font-size:9pt;\"&gt;&amp;nbsp;&lt;/div&gt;&lt;div class=\"ck-content stickystyles-wrapper-insert\" style=\"font-family:'Segoe UI','Helvetica Neue',sans-serif;font-size:9pt;width:fit-content;\" dir=\"ltr\" data-wrapper=\"true\" width=\"fit-content\"&gt;&lt;img class=\"image_resized\" style=\"aspect-ratio:556/387;width:556px;\" src=\"https://powercatexternal.blob.core.windows.net/creatorkit/Assets/ReviewTool/NestedLoops.png\" width=\"556\" height=\"387\"&gt;&lt;/div&gt;&lt;/div&gt;",
+            "cat_patterncategory@OData.Community.Display.V1.FormattedValue": "Performance",
+            "cat_patterncategory": 764860009,
+            "cat_patterndetailsid": "ee81ac62-aedd-ef11-a72f-7c1e524a6e9c",
+            "cat_patterndoclink": null,
+            "cat_patternseverity@OData.Community.Display.V1.FormattedValue": "Medium",
+            "cat_patternseverity": 764860002,
+            "cat_patterndetails": "Avoid Nested For-Each Loops",
+            "cat_patterntype@OData.Community.Display.V1.FormattedValue": "FlowPattern",
+            "cat_patterntype": 764860001,
+            "cat_patternid": "flow-NestedLoops"
+        }
+    ]
+}</value>
+  </data>
+</root>

@@ -1,0 +1,11 @@
+[
+  {
+    "DataSetName": "default.cds",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "LogicalName": "cat_RTResource",
+    "Name": "RTResource",
+    "Schema": "![Patterns:s]",
+    "Type": "WebResourceInfo"
+  }
+]
