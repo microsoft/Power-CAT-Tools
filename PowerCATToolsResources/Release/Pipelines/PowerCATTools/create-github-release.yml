@@ -88,7 +88,7 @@ steps:
     releaseMonth: ${{parameters.ReleaseMonthNumber}}
     releaseYear: ${{parameters.ReleaseYearNumber}}
     connectionName: 'powercat-alm'
-    releaseNotesPath: 'Power-CAT-Tools/PowerCATToolsResources/Release/Notes/'
+    releaseNotesPath: 'Power-CAT-Tools/PowerCATToolsResources/Release/Notes/PowerCATTools/'
     issueClosingComment: 'This has been fixed in the latest release.'
     closeIssues: ${{parameters.CloseMilestoneIssues}}
     isDraft: ${{parameters.DraftRelease}}
