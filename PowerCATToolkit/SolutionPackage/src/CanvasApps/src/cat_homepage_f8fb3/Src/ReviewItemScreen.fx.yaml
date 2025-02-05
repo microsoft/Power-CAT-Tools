@@ -286,7 +286,7 @@ ReviewItemScreen As screen:
             Fill: |-
                 =Coalesce(SelectedTheme.'Neutral/Background/3/Rest',ColorValue("#FAFAFA"))
             FillPortions: =0
-            Height: =1200
+            Height: =1600
             LayoutGap: =10
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -314,7 +314,8 @@ ReviewItemScreen As screen:
                 ZIndex: =2
 
                 Container3 As groupContainer.verticalAutoLayoutContainer:
-                    Height: =1200
+                    FillPortions: =0
+                    Height: =2000
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =10
                     LayoutMinHeight: =100
@@ -358,6 +359,21 @@ ReviewItemScreen As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =10.5
+                        ZIndex: =2
+
+                    docLinks As Link:
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: ="Learn More"
+                        URL: =SelectedReviewItem.docLinks
+                        Visible: =!IsBlank(Self.Text)
+                        Width: =320
+                        X: =20
+                        Y: =20
                         ZIndex: =3
 
                     lblRecommendations_2 As Text:
@@ -365,12 +381,12 @@ ReviewItemScreen As screen:
                         AutoHeight: =false
                         DisplayMode: =DisplayMode.Edit
                         FontColor: =RGBA(40, 134, 222, 1)
-                        Height: =35
+                        Height: =45
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         Size: =18
                         Text: ="Recomendation"
-                        VerticalAlign: =VerticalAlign.Top
+                        VerticalAlign: =VerticalAlign.Bottom
                         Visible: =true
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width - Self.X
@@ -389,38 +405,140 @@ ReviewItemScreen As screen:
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =10.5
-                        ZIndex: =6
+                        ZIndex: =5
 
-                    docLinks As Link:
-                        AutoHeight: =true
+                    lblRecommendations_3 As Text:
+                        Align: ='TextCanvas.Align'.Start
+                        AutoHeight: =false
                         DisplayMode: =DisplayMode.Edit
-                        Height: =32
+                        FontColor: =RGBA(40, 134, 222, 1)
+                        Height: =35
                         LayoutMinHeight: =32
-                        LayoutMinWidth: =320
-                        Text: ="Learn More"
-                        URL: =SelectedReviewItem.docLinks
-                        Visible: =!IsBlank(Self.Text)
-                        Width: =320
+                        LayoutMinWidth: =96
+                        Size: =18
+                        Text: ="Debug Information"
+                        VerticalAlign: =VerticalAlign.Bottom
+                        Visible: =!IsBlank(Title2.Text) || !IsBlank(Title2_1.Text)
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - Self.X
                         X: =20
                         Y: =20
+                        ZIndex: =6
+
+                    Gallery2 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        DelayItemLoading: =true
+                        FillPortions: =0
+                        FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                        FocusedBorderThickness: =2
+                        Height: =200
+                        Items: =SelectedReviewItem.instanceValue
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =0
+                        TemplateSize: =24
+                        Visible: =PatternType = "PowerAutomate"
+                        Width: =483
+                        X: =825
+                        Y: =135
                         ZIndex: =7
+
+                        Rectangle2 As rectangle:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(0,0,0,0)
+                            Fill: =RGBA(0,0,0,0)
+                            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                            Height: =24
+                            HoverFill: =RGBA(0,0,0,0)
+                            OnSelect: =Select(Parent)
+                            PressedFill: =RGBA(0,0,0,0)
+                            TabIndex: =0
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =1
+
+                        Title2 As Label:
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =10.5
+                            FontWeight: =FontWeight.Semibold
+                            Height: =24
+                            OnChange: =false
+                            OnSelect: =Select(Parent)
+                            TabIndex: =-1
+                            Text: =ThisItem.Value
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Self.X - 8
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                    Gallery2_1 As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        DelayItemLoading: =true
+                        FillPortions: =0
+                        FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                        FocusedBorderThickness: =2
+                        Height: =200
+                        Items: =SelectedReviewItem.instanceValue
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =200
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =0
+                        TemplateSize: =200
+                        Visible: =PatternType = "Agents"
+                        Width: =483
+                        X: =825
+                        Y: =135
+                        ZIndex: =8
+
+                        Rectangle2_1 As rectangle:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(0,0,0,0)
+                            Fill: =RGBA(0,0,0,0)
+                            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                            Height: =24
+                            HoverFill: =RGBA(0,0,0,0)
+                            OnSelect: =Select(Parent)
+                            PressedFill: =RGBA(0,0,0,0)
+                            TabIndex: =0
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =1
+
+                        Title2_1 As Label:
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =10.5
+                            FontWeight: =FontWeight.Semibold
+                            Height: =24
+                            OnChange: =false
+                            OnSelect: =Select(Parent)
+                            TabIndex: =-1
+                            Text: |-
+                                =If(CountRows(ThisItem.Topic)>0, "Topics: " & Concat(ThisItem.Topic, TopicName, ", "))
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Self.X - 8
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
 
                     lblRecommendations_4 As Text:
                         Align: ='TextCanvas.Align'.Start
-                        AutoHeight: =true
+                        AutoHeight: =false
                         DisplayMode: =DisplayMode.Edit
-                        Height: =Parent.Height
+                        FontColor: =RGBA(40, 134, 222, 1)
+                        Height: =40
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         Size: =18
                         Text: ="Code View"
-                        VerticalAlign: =VerticalAlign.Top
+                        VerticalAlign: =VerticalAlign.Bottom
                         Visible: =ctxShowCode
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width - Self.X
                         X: =20
                         Y: =20
-                        ZIndex: =8
+                        ZIndex: =9
 
                     Container4 As groupContainer.horizontalAutoLayoutContainer:
                         LayoutMinHeight: =100
@@ -431,7 +549,7 @@ ReviewItemScreen As screen:
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         Visible: =ctxShowCode
-                        ZIndex: =9
+                        ZIndex: =10
 
                         CodeTreeContainer As groupContainer.verticalAutoLayoutContainer:
                             Fill: =ColorValue(AppTheme.palette.neutralLighter)
@@ -552,5 +670,14 @@ ReviewItemScreen As screen:
                         Width: =Parent.Width - Self.X * 2
                         X: =84
                         Y: =256
-                        ZIndex: =10
+                        ZIndex: =11
+
+    TextCanvas3 As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =308
+        Text: =//First(SelectedReviewItem.instanceValue).Value
+        Width: =561
+        X: =605
+        Y: =0
+        ZIndex: =2
 

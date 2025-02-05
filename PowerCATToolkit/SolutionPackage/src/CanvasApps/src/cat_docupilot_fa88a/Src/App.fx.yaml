@@ -175,28 +175,6 @@ App As appinfo:
             }
         );*/
         
-        RecentDocumentCollection = 
-            FirstN(
-                AddColumns(
-                    Filter(
-                        'DocuPilot Document Generation Requests',
-                        !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = User().Email)
-                    ), 
-                    ModifiedOn, 'Modified On',
-                    SolutionName, 'Solution Name',
-                    DocumentName, 'Solution Document'.FileName,
-                    DocumentOwner, 'Owning User'.'Full Name',
-                    LastModified, 'Modified On',
-                    SolutionDocument,'Solution Document',
-                    HTMLDataset, 'Document HTML Dataset',
-                    ConfigurationValue, ConfigurationKeys
-                ),
-                4
-            );
-        
-        
-        // Store count upfront to avoid multiple CountRows() calls
-        RecentDocCount = CountRows(RecentDocumentCollection);
         
         SampleMermaidSolutionDiagramExpression = "
             C4Context
@@ -581,6 +559,29 @@ App As appinfo:
                 JSONFormat.IndentFour
             )
         );
+        
+        ClearCollect(RecentDocumentCollection,
+            FirstN(
+                AddColumns(
+                    Filter(
+                        'DocuPilot Document Generation Requests',
+                        !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = User().Email)
+                    ), 
+                    ModifiedOn, 'Modified On',
+                    SolutionName, 'Solution Name',
+                    DocumentName, 'Solution Document'.FileName,
+                    DocumentOwner, 'Owning User'.'Full Name',
+                    LastModified, 'Modified On',
+                    SolutionDocument,'Solution Document',
+                    HTMLDataset, 'Document HTML Dataset',
+                    ConfigurationValue, ConfigurationKeys
+                ),
+                4
+            ));
+        
+        
+        // Store count upfront to avoid multiple CountRows() calls
+        Set(RecentDocCount, CountRows(RecentDocumentCollection));
         
         /*
         // Get top 4 Records having attachment & owner as the current logged-in user

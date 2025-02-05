@@ -308,6 +308,14 @@
           "InvariantPropertyName": "DisabledPreview",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "TriggerEvents",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "HasDynamicProperties": false,
@@ -352,6 +360,11 @@
         {
           "Category": "Data",
           "PropertyName": "DisabledPreview",
+          "RuleProviderType": "User"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "TriggerEvents",
           "RuleProviderType": "User"
         },
         {

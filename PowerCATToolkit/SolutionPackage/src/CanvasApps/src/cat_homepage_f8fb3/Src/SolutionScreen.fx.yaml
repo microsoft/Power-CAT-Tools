@@ -340,7 +340,7 @@ SolutionScreen As screen:
                             Width: =Parent.Width - Self.X
                             X: =1-1
                             Y: =1-1 
-                            ZIndex: =2
+                            ZIndex: =3
 
                             h2Title_8 As Text:
                                 Align: ='TextCanvas.Align'.Start
@@ -696,7 +696,7 @@ SolutionScreen As screen:
                         ZIndex: =4
 
                         "FluentDetailsList4 As 'Fluent Details List (1.1.39)'.pcfdataset":
-                            AlignInContainer: =If(/* workaround pcf upgrade bug */ true, AlignStretch)
+                            AlignInContainer: =AlignStretch
                             columns_Items: |-
                                 =With({
                                                 // If there is a selection column, we remove the width and the padding
@@ -748,7 +748,7 @@ SolutionScreen As screen:
                             HeaderVisible: =true
                             Height: =200
                             Items: =Search(If(tabForm_3.Selected.ItemKey="All", SolutionReviewsCol, Filter(SolutionReviewsCol, AppType = tabForm_3.Selected.ItemKey)), txtSearch_4.Value, Review)
-                            LayoutMinHeight: =200
+                            LayoutMinHeight: =600
                             LayoutMinWidth: =200
                             OnChange: |+
                                 =
@@ -759,35 +759,9 @@ SolutionScreen As screen:
                                         GUID(Self.EventRowKey)
                                     );
                                     Set(SelectedPowerPlatformItem,Self.EventRowKey);
-                                 /* ClearCollect(SelectedRowItem,Blank());
-                                  ForAll(
-                                        LookUp(SolutionReviewsCol,RecordKey = Self.EventRowKey).Item.result,
-                                
-                                            Collect(
-                                                SelectedRowItem,
-                                                {
-                                                    RecordKey: ThisRecord.patternName,
-                                                    //Item:ThisRecord
-                                                    category: ThisRecord.category,
-                                                    description:ThisRecord.description,
-                                                    instanceValue:ThisRecord.instanceValue,
-                                                    patternName:ThisRecord.patternName,
-                                                    status:ThisRecord.status,
-                                                    severity:ThisRecord.severity
-                                                    
-                                                }
-                                            )
-                                    );
-                                Collect(ABC,{RecordKey: "A", Item: SelectedRowItem});
-                                Collect(ABCD,{RecordKey: "A", Item:First(ABC) });
-                                
-                                //Set(reviewRecord,{SelectedRowItem});
+                                 
                                     Navigate(
-                                        ReviewScreen,ScreenTransition.None, { SelectedItem: First(ABCD)}
-                                    );*/
-                                
-                                    Navigate(
-                                        ReviewScreen,ScreenTransition.None, { SelectedReviewItem: LookUp(SolutionReviewsCol,RecordKey = Self.EventRowKey).Item }
+                                        ReviewScreen,ScreenTransition.None, { SelectedReviewItem: LookUp(SolutionReviewsCol,RecordKey = Self.EventRowKey).Item, PatternType: LookUp(SolutionReviewsCol,RecordKey = Self.EventRowKey).AppType }
                                     );
                                     
                                 )

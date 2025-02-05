@@ -13,6 +13,28 @@
         );
         UpdateContext({showSaveLoader:false});
         ResetForm(DocumentGeneratorRequestForm);
+        ClearCollect(RecentDocumentCollection,
+            FirstN(
+                AddColumns(
+                    Filter(
+                        'DocuPilot Document Generation Requests',
+                        !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = User().Email)
+                    ), 
+                    ModifiedOn, 'Modified On',
+                    SolutionName, 'Solution Name',
+                    DocumentName, 'Solution Document'.FileName,
+                    DocumentOwner, 'Owning User'.'Full Name',
+                    LastModified, 'Modified On',
+                    SolutionDocument,'Solution Document',
+                    HTMLDataset, 'Document HTML Dataset',
+                    ConfigurationValue, ConfigurationKeys
+                ),
+                4
+            ));
+        
+        
+        // Store count upfront to avoid multiple CountRows() calls
+        Set(RecentDocCount, CountRows(RecentDocumentCollection));
         /*ClearCollect(
             ProcessedDocumentCollection,
             AddColumns(
@@ -98,7 +120,6 @@
                         FillPortions: =0
                         Height: =55
                         LayoutAlignItems: =LayoutAlignItems.Center
-                        LayoutGap: =15
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
@@ -120,11 +141,29 @@
                             Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,20,ScreenSize.Medium,28,32)
                             Text: =pageTitle
                             Weight: ='TextCanvas.Weight'.Bold
-                            Width: =Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 500)
+                            Width: =370 //Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 500)
                             Wrap: =false
                             X: =374.49
                             Y: =0
                             ZIndex: =2
+
+                        h1LandingTitle_5 As Text:
+                            Align: ='TextCanvas.Align'.Start
+                            BorderStyle: =""
+                            DisplayMode: =DisplayMode.Edit
+                            FontColor: =RGBA(54, 176, 75, 1)
+                            Height: =48
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            PaddingLeft: =0
+                            Size: =14
+                            Text: ="Experimental"
+                            Weight: ='TextCanvas.Weight'.Semibold
+                            Width: =380 //Min(Parent.Width - (App.ActiveScreen.Width * 0.05)*2, 500)
+                            Wrap: =false
+                            X: =374.49
+                            Y: =0
+                            ZIndex: =3
 
                     Label3_4 As label:
                         AutoHeight: =true
@@ -261,12 +300,12 @@
                         Image: =
                         Items: =
                         ItemTooltip: =
-                        LayoutMinHeight: =Self.AutoHeight
-                        LayoutMinWidth: =300
                         OnSelect: |+
                             =/*Set(varRelatedFiles,GetRelatedDocumentRequestFiles.Run(Last(FirstN(RecentDocumentCollection, 1)).'DocuPilot Document Generation Request').solutiondataset);
                             
                             Navigate(DocumentGeneratorScreen,Transition.None,{varRelatedFiles: varRelatedFiles,DocumentRequestRecord: Last(FirstN(RecentDocumentCollection, 1)),showFlair:"ShowFlair"&Rand()});*/
+                            Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:Last(FirstN(RecentDocumentCollection, 1)), varStartReview: "StartReview"&Rand()});
+                            
                             
                         Size: ='PowerCAT.Card.Size'.Medium
                         Subtitle: |-
@@ -301,11 +340,10 @@
                         Image: =
                         ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Above header'
                         Items: =
-                        LayoutMinHeight: =Self.AutoHeight
-                        LayoutMinWidth: =300
                         OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
                             //Navigate(DocumentGeneratorScreen,Transition.None,{showFlair:"ShowFlair"&Rand()});
+                            Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:Last(FirstN(RecentDocumentCollection, 2)), varStartReview: "StartReview"&Rand()});
                         Size: ='PowerCAT.Card.Size'.Medium
                         Subtitle: |-
                             =Concatenate(If(
@@ -338,11 +376,10 @@
                         Height: =Self.AutoHeight
                         Image: =
                         Items: =
-                        LayoutMinHeight: =Self.AutoHeight
-                        LayoutMinWidth: =300
                         OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
                             //Navigate(DocumentGeneratorScreen,Transition.None,{showFlair:"ShowFlair"&Rand()});
+                            Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:Last(FirstN(RecentDocumentCollection, 3)), varStartReview: "StartReview"&Rand()});
                         Size: ='PowerCAT.Card.Size'.Medium
                         Subtitle: |-
                             =Concatenate(If(
@@ -375,10 +412,9 @@
                         Height: =Self.AutoHeight
                         Image: =
                         Items: =
-                        LayoutMinHeight: =Self.AutoHeight
-                        LayoutMinWidth: =300
-                        OnSelect: |
+                        OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
+                            Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:Last(FirstN(RecentDocumentCollection, 4)), varStartReview: "StartReview"&Rand()});
                         Size: ="Medium"
                         Subtitle: |-
                             =Concatenate(If(
@@ -505,7 +541,6 @@
                                             ItemDisplayName: "Edit",
                                             ItemIconName: "Edit",
                                             ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
-                                            ItemDisabled: true,
                                             ItemAppearance: "Subtle",
                                             ItemIconStyle: "Regular"
                                         },
@@ -514,7 +549,6 @@
                                             ItemDisplayName: "Download",
                                             ItemIconName: "ArrowDownload",
                                             ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
-                                            ItemDisabled: true,
                                             ItemAppearance: "Subtle",
                                             ItemIconStyle: "Regular"
                                         },    
@@ -523,7 +557,6 @@
                                             ItemDisplayName: "Delete",
                                             ItemIconName: "Delete",
                                             ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
-                                            ItemDisabled: true,
                                             ItemAppearance: "Subtle",
                                             ItemIconStyle: "Regular"
                                         },
@@ -532,7 +565,6 @@
                                             ItemDisplayName: "Refresh",
                                             ItemIconName: "ArrowClockwise",
                                             ItemVisible: !IsBlank(FluentDetailsList1_3.Selected),
-                                            ItemDisabled: true,
                                             ItemAppearance: "Subtle",
                                             ItemIconStyle: "Regular"
                                         }
@@ -540,8 +572,63 @@
                                 LayoutMinHeight: =55
                                 LayoutMinWidth: =280
                                 OnSelect: |
-                                    =
-                                    UpdateContext({ShowHideDialog:!ShowHideDialog});
+                                    =Switch(Self.Selected.ItemKey,
+                                    "new",
+                                    ResetForm(DocumentGeneratorRequestForm);
+                                    UpdateContext({ShowHideDialog:!ShowHideDialog});,
+                                    "edit",
+                                    Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:LookUp('DocuPilot Document Generation Requests','DocuPilot Document Generation Request' = FluentDetailsList1_3.Selected.'DocuPilot Document Generation Request'), varStartReview: "StartReview"&Rand()});,
+                                    "delete",
+                                    RemoveIf('DocuPilot Document Generation Requests','DocuPilot Document Generation Request' = FluentDetailsList1_3.Selected.'DocuPilot Document Generation Request');
+                                    ClearCollect(RecentDocumentCollection,
+                                        FirstN(
+                                            AddColumns(
+                                                Filter(
+                                                    'DocuPilot Document Generation Requests',
+                                                    !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = User().Email)
+                                                ), 
+                                                ModifiedOn, 'Modified On',
+                                                SolutionName, 'Solution Name',
+                                                DocumentName, 'Solution Document'.FileName,
+                                                DocumentOwner, 'Owning User'.'Full Name',
+                                                LastModified, 'Modified On',
+                                                SolutionDocument,'Solution Document',
+                                                HTMLDataset, 'Document HTML Dataset',
+                                                ConfigurationValue, ConfigurationKeys
+                                            ),
+                                            4
+                                        ));
+                                    
+                                    
+                                    // Store count upfront to avoid multiple CountRows() calls
+                                    Set(RecentDocCount, CountRows(RecentDocumentCollection));,
+                                    "download",
+                                    Download(LookUp('DocuPilot Document Generation Requests','DocuPilot Document Generation Request' = FluentDetailsList1_3.Selected.'DocuPilot Document Generation Request').'Solution Document URL'),
+                                    "refresh",
+                                    Refresh('DocuPilot Document Generation Requests');
+                                    ClearCollect(RecentDocumentCollection,
+                                        FirstN(
+                                            AddColumns(
+                                                Filter(
+                                                    'DocuPilot Document Generation Requests',
+                                                    !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = User().Email)
+                                                ), 
+                                                ModifiedOn, 'Modified On',
+                                                SolutionName, 'Solution Name',
+                                                DocumentName, 'Solution Document'.FileName,
+                                                DocumentOwner, 'Owning User'.'Full Name',
+                                                LastModified, 'Modified On',
+                                                SolutionDocument,'Solution Document',
+                                                HTMLDataset, 'Document HTML Dataset',
+                                                ConfigurationValue, ConfigurationKeys
+                                            ),
+                                            4
+                                        ));
+                                    
+                                    
+                                    // Store count upfront to avoid multiple CountRows() calls
+                                    Set(RecentDocCount, CountRows(RecentDocumentCollection));
+                                    );
                                 Width: =Parent.Width
                                 X: =0
                                 Y: =0
@@ -637,7 +724,6 @@
                             ZIndex: =4
 
                             "FluentDetailsList1_3 As 'Fluent Details List (1.1.39)'.pcfdataset":
-                                AlignInContainer: =AlignInContainer.Stretch
                                 AlternateRowColor: =
                                 ColDisplayName: =""
                                 ColName: =""
@@ -680,8 +766,6 @@
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =Max((CountIf(ListItems, true) * If(numCols<= 6, 85, 40) ), 100)
                                 Items: =ListItems
-                                LayoutMinHeight: =200
-                                LayoutMinWidth: =200
                                 OnChange: =
                                 RaiseOnRowSelectionChangeEvent: =true
                                 RecordKey: =""
@@ -1064,7 +1148,7 @@
                                 ItemHoverFill: =RGBA(212, 212, 212, 1)
                                 Items: =Parent.Default
                                 ItemSpacing: =12
-                                MaxAttachments: =10
+                                MaxAttachments: =1
                                 MaxAttachmentSize: =130
                                 MaxAttachmentsText: =""
                                 NoAttachmentsColor: =RGBA(166, 166, 166, 1)
