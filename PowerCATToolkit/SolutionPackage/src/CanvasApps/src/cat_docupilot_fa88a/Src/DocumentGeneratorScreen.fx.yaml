@@ -233,7 +233,7 @@ DocumentGeneratorScreen As screen:
                         SolutionDetailItemDisplayName: "",
                         SolutionDetailItemValue: Blank(),
                         SolutionDetailItemVisible: true,
-                        SolutionDetailItemHTML: "<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #134D67;'>Using Generative AI to understand the solution...</h2>"
+                        SolutionDetailItemHTML: "<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #0078d4;'>Using Generative AI to understand the solution...</h2>"
                     }));
             UpdateContext(
                 { 
@@ -282,7 +282,7 @@ DocumentGeneratorScreen As screen:
                         SolutionDetailItemDisplayName: "",
                         SolutionDetailItemValue: Blank(),
                         SolutionDetailItemVisible: true,
-                        SolutionDetailItemHTML: "<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #134D67;'>Looking for PowerApps and PowerAutomate...</h2>"
+                        SolutionDetailItemHTML: "<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #0078d4;'>Looking for PowerApps and PowerAutomate...</h2>"
                     }));
             // Limit the screen count to 30, so that, the input text does not exceeds the limit for the custom prompt   
             Concurrent(
@@ -336,10 +336,11 @@ DocumentGeneratorScreen As screen:
                     },
                     {
                         SolutionDetailItemKey: DocumentSectionString.SolutionOverview,
-                        SolutionDetailItemDisplayName: "Solution Details",
+                        SolutionDetailItemDisplayName: "",
                         SolutionDetailItemValue: { solutionoverview: ""},
                         SolutionDetailItemVisible: !IsBlank(Self.SolutionDetails.solutionOverview),
-                        SolutionDetailItemHTML: "<div class='solutionoverview'>
+                        SolutionDetailItemHTML: "<h2 style='font-size: 20px; font-weight: 600; color: #0078d4;'>Solution Details</h2><div class='solutionoverview'>
+                                                            <ul style='list-style-type: none;padding:0;margin:0'>
                                                             <li><strong>Solution Name:</strong>" & Self.SolutionDetails.solutionOverview.displayName & "</li>
                                                             <li><strong>Unique Name:</strong> " & Self.SolutionDetails.solutionOverview.uniqueName & "</li>
                                                             <li><strong>Description:</strong> " & Self.SolutionDetails.solutionOverview.description & "</li>
@@ -348,10 +349,10 @@ DocumentGeneratorScreen As screen:
                     
                     {
                     SolutionDetailItemKey: DocumentSectionString.ArchitectureDiagram,
-                    SolutionDetailItemDisplayName: "Solution Diagram",
+                    SolutionDetailItemDisplayName: "",
                     SolutionDetailItemValue: Blank(),
                     SolutionDetailItemVisible: !IsBlank(Mermaid2PngSolutionDiagram.MermaidSVG),
-                    SolutionDetailItemHTML:
+                    SolutionDetailItemHTML:"<h2 style='font-size: 20px; font-weight: 600; color: #0078d4;'>Solution Diagram</h2><div class='solutiondiagram'>" &
                     Substitute(
                         Substitute(
                             Mermaid2PngSolutionDiagram.MermaidPNG,
@@ -359,21 +360,23 @@ DocumentGeneratorScreen As screen:
                             ""
                         ),
                         "<img",
-                        "<br/><img width='650' height='450'"
+                        "<br/><img style='object-fit: cover' width='100%'"
                         // TODO: To find a better way to check or set aspect ratio of the image
                     )
                 },
                     {
                                 SolutionDetailItemKey: DocumentSectionString.Prerequisites,
-                                SolutionDetailItemDisplayName: "Pre-requisites",
+                                SolutionDetailItemDisplayName: "",
                                 SolutionDetailItemValue: { powerAutomate: ""},
                                 SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.environmentVariables),
-                                SolutionDetailItemHTML: Concatenate("<h3>Environment Variables</h3>",Concat(Self.SolutionDetails.environmentVariables,
+                                SolutionDetailItemHTML: "<h2 style='font-size: 20px; font-weight: 600; color: #0078d4;'>Pre-requisites</h2><div class='pre-requisites'>" & Concatenate("<h3>Environment Variables</h3>",Concat(Self.SolutionDetails.environmentVariables,
                                                 "<div class='environmentvariables'>
+                                                <ul style='list-style-type: none;padding:0;margin:0'>
                                                             <li><strong>Name:</strong>" & ThisRecord.displayName & "</li>
                                                             <li><strong>Description:</strong> " & ThisRecord.description & "</li></ul></div>")
                                                             ,"<h3>Connection References</h3>",Concat(Self.SolutionDetails.connectionReferences,
                                                 "<div class='connectionreferences'>
+                                                         <ul style='list-style-type: none;padding:0;margin:0'>
                                                             <li><strong>Name:</strong>" & ThisRecord.DisplayName & "</li>
                                                             <li><strong>Logical Name:</strong> " & ThisRecord.LogicalName & "</li></ul></div><br/>"))
                     },
@@ -382,12 +385,12 @@ DocumentGeneratorScreen As screen:
                     SolutionDetailItemDisplayName: "",
                     SolutionDetailItemValue:  { ux: ""},
                     SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.UXAndAutomations, Self.SelectedConfigValue)),
-                    SolutionDetailItemHTML: "<br/><h1  id='ux-automation' style='font-size: 30px; font-weight: bold; color: #134D67;'>User Experience and Automations</h1><br/>" // Used to generate navigation header
+                    SolutionDetailItemHTML: "<br/><h1  id='ux-automation' style='font-size: 30px; font-weight: bold; color: #0078d4;'>User Experience and Automations</h1><br/>" // Used to generate navigation header
                 },
                 {
                         SolutionDetailItemKey: DocumentSectionString.EntityRelationship,
                         SolutionDetailItemDisplayName: "Entity Relationship Diagram",
-                        SolutionDetailItemValue: { customcontrols: ""},
+                        SolutionDetailItemValue: { erDiagram: ""},
                         SolutionDetailItemVisible: !IsBlank(Mermaid2PngERDiagram.MermaidPNG),
                         SolutionDetailItemHTML: Substitute(
                         Substitute(
@@ -425,14 +428,14 @@ DocumentGeneratorScreen As screen:
                                                     <h3>" & ThisRecord.Name & "</h3>
                                                     <p><strong>Description:</strong> " & ThisRecord.Description & "</p>
                                                     <p><strong>Triggers:</strong></p>
-                                                    <ul>" & 
+                                                    <ul style='list-style-type: none;padding:0;margin:0'>" & 
                                                         Concat(
                                                             ThisRecord.Triggers,
                                                             "<li>" & ThisRecord.item & "</li>"
                                                         ) & 
                                                     "</ul>
                                                     <p><strong>Actions:</strong></p>
-                                                    <ul>" & 
+                                                    <ul style='list-style-type: none;padding:0;margin:0'>" & 
                                                         Concat(
                                                             ThisRecord.Actions,
                                                             "<li>" & ThisRecord.item & "</li>"
@@ -448,7 +451,7 @@ DocumentGeneratorScreen As screen:
                         SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.customApis),
                         SolutionDetailItemHTML: Concat(Self.SolutionDetails.customApis,
                                         "<br/><div class='customapi'>
-                                                    <ul>
+                                                    <ul style='list-style-type: none;padding:0;margin:0'>
                                                             <li><strong>Name:</strong>" & ThisRecord.displayName & "</li>
                                                             <li><strong>Description:</strong> " & ThisRecord.description & "</li>
                                                             <li><strong>IsFunction:</strong>" & ThisRecord.isFunction & "</li>
@@ -461,7 +464,7 @@ DocumentGeneratorScreen As screen:
                         SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.codeComponents),
                         SolutionDetailItemHTML: Concatenate("<br/>", Concat(Self.SolutionDetails.codeComponents,
                                         "<div class='customcontrol'>
-                                                    <ul>
+                                                    <ul style='list-style-type: none;padding:0;margin:0'>
                                                             <li><strong>Name:</strong>" & ThisRecord.displayName & "</li>
                                                             <li><strong>Description:</strong> " & ThisRecord.description & "</li>
                                                             <li><strong>Version:</strong>" & ThisRecord.version & "</li></ul></div>"),"<br/>")
@@ -484,7 +487,7 @@ DocumentGeneratorScreen As screen:
                     Self.SolutionDetails.tables,
                     "<div class='table'>
                         <strong>" & ThisRecord.DisplayName & "</strong>
-                        <ul>
+                        <ul style='list-style-type: none;padding:0;margin:0'>
                             <li><strong>Description:</strong> " & ThisRecord.Description & "</li>
                             <li><strong>Fields:</strong> " & Concat(ThisRecord.Fields, Name & ", ") & "</li>
                         </ul>
@@ -500,7 +503,7 @@ DocumentGeneratorScreen As screen:
                          SolutionDetailItemHTML: Concatenate("<br/>", Concat(
                             Self.SolutionDetails.securityRoles,
                             "<div class='securityroles'>
-                                <ul>
+                                <ul style='list-style-type: none;padding:0;margin:0'>
                                     <li><strong>Name:</strong> " & ThisRecord.name & "</li>
                                 </ul>
                             </div>","<br/>")
@@ -541,14 +544,14 @@ DocumentGeneratorScreen As screen:
                         SolutionDetailItemDisplayName: "",
                         SolutionDetailItemValue: { overview: ""},
                         SolutionDetailItemVisible: true,
-                        SolutionDetailItemHTML: "<h1 style='font-size: 34px;font-weight: 700; margin: 10px 0;color: #134D67;line-height: 1.2; font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;'>Technical Design Document for "&Self.SolutionDetails.solutionOverview.displayName&"</h1>"
+                        SolutionDetailItemHTML: "<h1 style='font-size: 34px;font-weight: 700; margin: 10px 0;color: #0078d4;line-height: 1.2; font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;'>Technical Design Document for "&Self.SolutionDetails.solutionOverview.displayName&"</h1><br/><br/>"
                     },      
                     {
                         SolutionDetailItemKey: DocumentSectionString.Overview,
                         SolutionDetailItemDisplayName: "",
                         SolutionDetailItemValue:{ overview: ""},
                         SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.Overview, Self.SelectedConfigValue)),
-                        SolutionDetailItemHTML: "<h1 id='overview' style='font-size: 30px; font-weight: bold; color: #134D67;'>Overview</h1>" // Used to generate navigation header
+                        SolutionDetailItemHTML: "<h1 id='overview' style='font-size: 24px; font-weight: bold; color: #0078d4;'>Overview</h1>" // Used to generate navigation header
                     },
                     {
                         SolutionDetailItemKey: "overview",
@@ -758,6 +761,7 @@ DocumentGeneratorScreen As screen:
                         background-color: white;'>"&Substitute(Mermaid2PngERDiagram.MermaidPNG, "visibility:hidden", "width: 100%;height: 100%;object-fit: cover;")&"</div>"
                 }/
             )*/
+        TriggerEvents: =
         Width: =App.Width
         X: =0
         Y: =0

@@ -96,6 +96,21 @@ ReviewScreen As screen:
                             Y: =0
                             ZIndex: =1
 
+                        Image2 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            Height: =45
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: =Switch(PatternType , "Agents",  Microsoft_Power_Platform_Icons_CopilotStudio, "PowerAutomate", Microsoft_Power_Platform_Icons_PowerAutomate, Microsoft_Power_Platform_Icons_PowerApps)
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =45
+                            ZIndex: =2
+
                         cHeaderText_9 As groupContainer.horizontalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             Height: =rDivider_PageHeader_9.Y
@@ -108,7 +123,7 @@ ReviewScreen As screen:
                             Width: =Parent.Width - Self.X
                             X: =1-1
                             Y: =1-1 
-                            ZIndex: =2
+                            ZIndex: =3
 
                             h2Title_9 As Text:
                                 Align: ='TextCanvas.Align'.Start
@@ -180,7 +195,7 @@ ReviewScreen As screen:
                             Width: =45
                             X: =0
                             Y: =0
-                            ZIndex: =3
+                            ZIndex: =4
 
                 cLargeToolbar_4 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignStretch
@@ -604,7 +619,7 @@ ReviewScreen As screen:
                                         ColIsBold:true,
                                         ColHeaderMultiline: true,
                                         ColMultiLine: true
-                                    },*/
+                                    },
                                     {
                                         ColName: "failureReason",
                                         ColDisplayName: "Comment",
@@ -612,13 +627,14 @@ ReviewScreen As screen:
                                         ColHeaderMultiline: true,
                                         ColMultiLine: true
                                 
-                                    },
+                                    },*/
                                     {
                                         ColName: "description",
                                         ColDisplayName: "Description",
-                                        ColWidth: Parent.Width - 700,
+                                        ColWidth: Parent.Width - 450,
                                         ColHeaderMultiline: true,
-                                        ColMultiLine: true
+                                        ColMultiLine: true,
+                                        ColIsBold:true
                                 
                                     },
                                     /*
@@ -644,15 +660,6 @@ ReviewScreen As screen:
                             LayoutMinWidth: =200
                             OnChange: |
                                 =
-                                /*If(Self.EventName="CellAction",UpdateContext({ShowItems:true});Set(SelectedReviewItem, LookUp(ReviewItemsShaped, ReviewItem = GUID(Self.EventRowKey))))*/
-                                
-                                /*If(Self.EventName="CellAction",UpdateContext({ShowItems:true});Set(SelectedReviewItem, SelectedItem.result));
-                                
-                                Navigate(ReviewItemScreen,ScreenTransition.None,{ SelectedReviewIt: { Name: SelectedReviewItem}})*/
-                                //Clear(SelectedRowItem);
-                                
-                                
-                                
                                 If(
                                     Self.EventName = "CellAction",
                                    /* Set(
@@ -673,7 +680,7 @@ ReviewScreen As screen:
                                     )
                                 );
                                 
-                                Navigate(ReviewItemScreen,ScreenTransition.None,{SelectedReviewItem: LookUp(SelectedReviewItem.result, patternName = Self.EventRowKey)});    
+                                Navigate(ReviewItemScreen,ScreenTransition.None,{SelectedReviewItem: LookUp(SelectedReviewItem.result, patternName = Self.EventRowKey), PatternType: PatternType});    
                                 )
                             RaiseOnRowSelectionChangeEvent: =false
                             RecordKey: =""

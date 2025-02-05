@@ -84,7 +84,7 @@
     "Name": "cat_PowerCAT.DocPreview",
     "OverridableProperties": {},
     "TemplateDisplayName": "DocPreview",
-    "Version": "2.0.67"
+    "Version": "2.0.76"
   },
   "Fluent Card (1.1.39) Preview": {
     "CustomGroupControlTemplateName": "",
@@ -1171,7 +1171,7 @@
       }
     },
     "TemplateDisplayName": "IntelligentReviewVisualizer",
-    "Version": "0.0.124"
+    "Version": "0.0.125"
   },
   "label": {
     "CustomGroupControlTemplateName": "",

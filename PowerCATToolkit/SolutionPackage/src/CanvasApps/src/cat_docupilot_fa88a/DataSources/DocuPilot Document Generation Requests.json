@@ -23,6 +23,7 @@
       "cat_docupilotdocumentgenerationrequestid": "DocuPilot Document Generation Request",
       "cat_requestnumber": "Request Number",
       "cat_solutiondocument": "Solution Document",
+      "cat_solutiondocumenturl": "Solution Document URL",
       "cat_solutionname": "Solution Name",
       "cat_solutionzipfile": "Solution Zip File",
       "createdby": "Created By",

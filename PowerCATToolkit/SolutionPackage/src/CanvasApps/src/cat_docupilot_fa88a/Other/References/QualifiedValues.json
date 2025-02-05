@@ -1,13 +1,6 @@
 {
   "QualifiedValues": [
     {
-      "Kind": "default.cds_cat_solutionreview_forms",
-      "Namespace": "Solution Reviews (Forms)",
-      "Values": {
-        "Information": "27fa9fa3-c92c-4e56-9b8c-ef807f11fe81"
-      }
-    },
-    {
       "Kind": "default.cds_systemuser_forms",
       "Namespace": "Users (Forms)",
       "Values": {
@@ -16,13 +9,6 @@
         "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
         "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
         "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
-      }
-    },
-    {
-      "Kind": "default.cds_cat_customer_forms",
-      "Namespace": "Customers (Forms)",
-      "Values": {
-        "Information": "491627d0-d6ac-4e0f-b941-ccff0e3ed7a2"
       }
     },
     {
@@ -45,6 +31,25 @@
       "Values": {
         "Information": "3853733b-a351-455d-b686-d2d05027ba4d"
       }
+    },
+    {
+      "Kind": "default.cds_cat_solutionreview_forms",
+      "Namespace": "Solution Reviews (Forms)",
+      "Values": {
+        "Information": "27fa9fa3-c92c-4e56-9b8c-ef807f11fe81"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_customer_forms",
+      "Namespace": "Customers (Forms)",
+      "Values": {
+        "Information": "491627d0-d6ac-4e0f-b941-ccff0e3ed7a2"
+      }
+    },
+    {
+      "Kind": "default.cds_canvasapp_forms",
+      "Namespace": "Canvas Apps (Forms)",
+      "Values": {}
     }
   ]
 }
