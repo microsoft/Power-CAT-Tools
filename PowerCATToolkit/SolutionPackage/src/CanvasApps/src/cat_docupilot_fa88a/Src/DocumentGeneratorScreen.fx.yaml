@@ -360,7 +360,7 @@ DocumentGeneratorScreen As screen:
                             ""
                         ),
                         "<img",
-                        "<br/><img style='object-fit: cover' width='100%'"
+                        "<br/><img width='650' height='650'"
                         // TODO: To find a better way to check or set aspect ratio of the image
                     )
                 },
@@ -593,7 +593,7 @@ DocumentGeneratorScreen As screen:
         Height: =App.Height
         InputEvent: =showFlair
         Items: =ConfigurationCollection
-        OnBackClick: =Back()
+        OnBackClick: =Navigate('Home Screen')
         OnConfigChange: |
             =
             // Update ConfigItemChecked based on selected keys

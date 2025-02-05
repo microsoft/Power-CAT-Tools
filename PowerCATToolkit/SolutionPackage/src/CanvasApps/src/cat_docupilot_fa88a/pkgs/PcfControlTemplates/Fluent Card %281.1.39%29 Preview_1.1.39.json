@@ -1181,7 +1181,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil109eus.blob.core.windows.net/ddf21bb4-1413-4f5a-88cf-7996b0885fc5-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work0ytgzr13g.rtq020S0Resources0Controls0PowerCAT.Card.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T12%3A38%3A30Z&ske=2025-02-06T12%3A53%3A30Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T12%3A53%3A30Z&sr=b&sp=r&sig=8ITKBJfo%2FME0X3HThaMb4eDp2lH%2F%2F32eOtqbtY0bD0Q%3D",
+      "ModifiedPath": "https://dsprdil109wus.blob.core.windows.net/2a7f0ff5-2e1e-4514-8c61-cd4e2e412bf4-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0b1dfoclh.1cg020S0Resources0Controls0PowerCAT.Card.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T13%3A45%3A45Z&ske=2025-02-06T14%3A00%3A45Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T14%3A00%3A45Z&sr=b&sp=r&sig=ezsptTQ482k5Gpx%2BhpUSDF2l1rBspBfiF4LxdHs9O0I%3D",
       "Path": "/PCFControls/cat_PowerCAT.Card/PowerCAT.Card.bundle.js",
       "Type": 0
     },
@@ -1195,7 +1195,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
-      "ModifiedPath": "https://dsprdil109eus.blob.core.windows.net/ddf21bb4-1413-4f5a-88cf-7996b0885fc5-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work0ytgzr13g.rtq020S0Resources0Controls0strings%252fPowerCAT.Card.Card.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T12%3A38%3A30Z&ske=2025-02-06T12%3A53%3A30Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T12%3A53%3A30Z&sr=b&sp=r&sig=O1RhVD1CjWrjLt2MCWJdYxC0zb5a3IiXNZ2PsLMQymA%3D",
+      "ModifiedPath": "https://dsprdil109wus.blob.core.windows.net/2a7f0ff5-2e1e-4514-8c61-cd4e2e412bf4-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0b1dfoclh.1cg020S0Resources0Controls0strings%252fPowerCAT.Card.Card.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T13%3A45%3A45Z&ske=2025-02-06T14%3A00%3A45Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T14%3A00%3A45Z&sr=b&sp=r&sig=rv26OrahaKcQ68Fe8XTA2I4MdNe6sgOSvioVYJ3Xmvk%3D",
       "Path": "/PCFControls/cat_PowerCAT.Card/strings/PowerCAT.Card.Card.1033.json",
       "Type": 5
     },
