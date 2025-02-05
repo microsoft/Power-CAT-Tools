@@ -45,7 +45,7 @@ steps:
   inputs:
     source: 'specific'
     project: 'Power-CAT-Tools'
-    pipeline: '56' #Production buildId
+    pipeline: '2461' #Production buildId
     runVersion: 'latest'
     patterns: '**/PowerCATToolkit*.zip'
   displayName: 'Download PowerCATToolkit solution'
