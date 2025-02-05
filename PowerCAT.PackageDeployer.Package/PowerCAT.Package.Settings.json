@@ -1,6 +1,28 @@
 {
   "Project": [
     {
+      "name": "Power-CAT-Tools",
+      "description": "Power-CAT-Tools",
+      "solutions": [
+        {
+          "name": "PowerCATToolkit",
+          "importorder": "1",
+          "publishworkflows-activate-plugins": "true",
+          "overwrite-unmanaged-customizations": "true",
+          "missing-dependency-behavior": "skip",
+          "import-mode": "async"
+        }
+      ],
+      "PreDeploymentSettings": [       
+      ],
+      "PostDeploymentSettings": [
+      ],
+      "Packages": [       
+      ],
+      "FlowConfiguration": [
+      ]
+    },
+    {
       "name": "powercat-business-approvals-kit",
       "description": "powercat-business-approvals-kit",
       "solutions": [
