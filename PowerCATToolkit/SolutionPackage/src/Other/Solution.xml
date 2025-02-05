@@ -103,6 +103,7 @@
       <RootComponent type="300" schemaName="cat_landing_a3b7a" behavior="0" />
       <RootComponent type="300" schemaName="cat_plugintracelog_d12af" behavior="0" />
       <RootComponent type="300" schemaName="cat_riskassessments_2e193" behavior="0" />
+      <RootComponent type="401" id="{169ee486-2e92-4bdb-9f88-187d8a507b20}" behavior="0" />
       <RootComponent type="401" id="{36c3283f-0505-4d24-a879-ff255ce15a61}" behavior="0" />
       <RootComponent type="401" id="{3a3dfb1c-b2a7-4c2f-b739-9e379a2715af}" behavior="0" />
       <RootComponent type="401" id="{a82aae61-6b11-494b-b988-e727f3eb0118}" behavior="0" />

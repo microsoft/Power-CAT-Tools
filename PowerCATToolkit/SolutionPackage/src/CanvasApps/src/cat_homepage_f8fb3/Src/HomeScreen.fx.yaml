@@ -998,7 +998,7 @@ HomeScreen As screen:
                         ZIndex: =1
 
                 cCardsRow_3 As groupContainer.horizontalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.Start
+                    AlignInContainer: =AlignStart
                     FillPortions: =0
                     Height: |-
                         =80//Responsive tip: Reference the last item in the container's vertical position and height */ Card1_15.Y + Card1_15.Height + 24

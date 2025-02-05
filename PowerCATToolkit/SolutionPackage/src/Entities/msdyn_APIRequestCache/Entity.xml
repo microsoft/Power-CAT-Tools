@@ -10,7 +10,7 @@
         <LocalizedCollectionName description="API Request Caches" languagecode="1033" />
       </LocalizedCollectionNames>
       <Descriptions>
-        <Description description="API Request Caches" languagecode="1033" />
+        <Description description="Store API Request Caches" languagecode="1033" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="CreatedBy">

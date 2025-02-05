@@ -25,7 +25,7 @@
       "MetaDataIDKey": "",
       "Name": "Action2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7071,7 +7071,7 @@
       "MetaDataIDKey": "",
       "Name": "description1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7529,7 +7529,7 @@
       "MetaDataIDKey": "",
       "Name": "docLinks1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7677,18 +7677,11 @@
           "PropertyName": "FillPortions"
         },
         {
-          "ControlPropertyState": {
-            "AFDDataSourceName": "",
-            "AutoRuleBindingEnabled": false,
-            "AutoRuleBindingString": "",
-            "InvariantPropertyName": "AlignInContainer",
-            "IsLockable": false,
-            "NameMapSourceSchema": "?"
-          },
+          "ControlPropertyState": "AlignInContainer",
           "Property": {
             "Category": "Design",
             "PropertyName": "AlignInContainer",
-            "RuleProviderType": "User"
+            "RuleProviderType": "Unknown"
           },
           "PropertyName": "AlignInContainer"
         },
@@ -7819,7 +7812,7 @@
       "MetaDataIDKey": "",
       "Name": "failureReason1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10289,7 +10282,7 @@
       "MetaDataIDKey": "",
       "Name": "patternID1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10371,7 +10364,7 @@
       "MetaDataIDKey": "",
       "Name": "patternName1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10964,7 +10957,7 @@
       "MetaDataIDKey": "",
       "Name": "recommendation1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11237,7 +11230,7 @@
       "MetaDataIDKey": "",
       "Name": "status1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11319,7 +11312,7 @@
       "MetaDataIDKey": "",
       "Name": "StatusCol1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11401,7 +11394,7 @@
       "MetaDataIDKey": "",
       "Name": "StatusIcon2_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

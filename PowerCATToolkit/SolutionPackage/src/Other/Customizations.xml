@@ -66,6 +66,53 @@
       </AIConfigurations>
     </AIModel>
     <AIModel>
+      <msdyn_aimodelid>{169ee486-2e92-4bdb-9f88-187d8a507b20}</msdyn_aimodelid>
+      <msdyn_name>Docu-pilot-GenerateSolutionDiagram v1.0</msdyn_name>
+      <msdyn_templateid>{edfdb190-3791-45d8-9a6c-8f90a37c278a}</msdyn_templateid>
+      <statecode>1</statecode>
+      <statuscode>1</statuscode>
+      <IsCustomizable>1</IsCustomizable>
+      <msdyn_activerunconfigurationid>{9b927fbf-19e3-ef11-8ee9-7c1e520bafa0}</msdyn_activerunconfigurationid>
+      <AIConfigurations>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{9b927fbf-19e3-ef11-8ee9-7c1e520bafa0}</msdyn_aiconfigurationid>
+          <msdyn_customconfiguration>{"version":"GptDynamicPrompt-2","prompt":[{"type":"literal","text":"You are provided with a   "},{"type":"inputVariable","id":"colSolutionDetailsDiagram"},{"type":"literal","text":" object representing a solution's components, their types, relationships, and dependencies. Your task is to generate a Mermaid diagram in graph TB format to visualize these components and their relationships clearly. Use the following styles and structure:\nRequirements:\nComponent Grouping:\nGroup components under appropriate categories such as Canvas Apps, Model-Driven Apps, Processes, Security Roles, Connections, Entities and .....\nVisualization Styles:\nApply the following styles using Mermaid's classDef:\nCanvas Apps: Fill: #E38AAE, Stroke: #E38AAE, Stroke Width: 2px\nModel-Driven Apps: Fill: #E38AAE, Stroke: #E38AAE, Stroke Width: 2px\nProcesses: Fill: #56A5EC, Stroke: #56A5EC, Stroke Width: 2px\nSecurity Roles: Fill: #FBE9E7, Stroke: #FF6F00, Stroke Width: 2px\nConnections: Fill: #B8BC86, Stroke: #B8BC86, Stroke Width: 2px\nEntities (Databases): Fill: #32CD32, Stroke: #32CD32, Stroke Width: 2px, Shape: database\nRelationships:\nUse Mermaid's arrow notation (--&gt;) to represent dependencies and relationships between components. Label relationships where appropriate.\nOutput: generate only mermaid code\n"}],"definitions":{"inputs":[{"id":"colSolutionDetailsDiagram","text":"colSolutionDetailsDiagram","type":"text","quickTestValue":"[\n    {\n        \"SolutionName\": \"My Solution\",\n        \"SolutionVersion\": \"1.0.0\",\n        \"CanvasApps\": [\n            { \"appName\": \"App1\", \"Screen\": \"HomeScreen\" },\n            { \"appName\": \"App2\", \"Screen\": \"DashboardScreen\" }\n        ],\n        \"Tables\": [\n            { \"DisplayName\": \"Account\", \"SchemaName\": \"account\", \"PrimaryField\": \"accountID\" },\n            { \"DisplayName\": \"Contact\", \"SchemaName\": \"contact\", \"PrimaryField\": \"contactID\" }\n        ],\n        \"Workflows\": [\n            { \"name\": \"ApprovalFlow\", \"PrimaryEntity\": \"Account\" }\n        ],\n        \"Relationships\": [\n            { \"RelSchema\": \"account_contact\", \"From\": \"Account\", \"To\": \"Contact\" }\n        ],\n        \"ConnectionReferences\": [\n            { \"LogicalName\": \"CommonDataService\", \"ConnectorID\": \"cds\" }\n        ],\n        \"SecurityRoles\": [\"Admin\"]\n    }\n]\n"}],"data":[],"output":{"formats":["json"],"jsonSchema":{"type":"object","properties":{"mermaid":{"type":"string"}}},"jsonExamples":[{"mermaid":"graph TB\n    classDef canvasApps fill:#E38AAE,stroke:#E38AAE,stroke-width:2px;\n    classDef modelDrivenApps fill:#E38AAE,stroke:#E38AAE,stroke-width:2px;\n    classDef processes fill:#56A5EC,stroke:#56A5EC,stroke-width:2px;\n    classDef securityRoles fill:#FBE9E7,stroke:#FF6F00,stroke-width:2px;\n    classDef connections fill:#B8BC86,stroke:#B8BC86,stroke-width:2px;\n    classDef entities fill:#32CD32,stroke:#32CD32,stroke-width:2px,shape:database;\n\n    subgraph CanvasApps\n        A1[App1]:::canvasApps\n        A2[App2]:::canvasApps\n    end\n\n    subgraph ModelDrivenApps\n        M1[Model-Driven App]:::modelDrivenApps\n    end\n\n    subgraph Processes\n        P1[ApprovalFlow]:::processes\n    end\n\n    subgraph SecurityRoles\n        S1[Admin]:::securityRoles\n    end\n\n    subgraph Connections\n        C1[CommonDataService]:::connections\n    end\n\n    subgraph Entities\n        E1[Account]:::entities\n        E2[Contact]:::entities\n    end\n\n    A1 --&gt; P1\n    A2 --&gt; P1\n    P1 --&gt; E1\n    P1 --&gt; E2\n    E1 --&gt;|account_contact| E2\n    C1 --&gt; E1\n    C1 --&gt; E2\n    S1 --&gt; A1\n    S1 --&gt; A2"}]}},"modelParameters":{"modelType":"gpt-35-turbo","gptParameters":{"temperature":0}},"settings":{"recordRetrievalLimit":30,"shouldPreserveRecordLinks":null}}</msdyn_customconfiguration>
+          <msdyn_majoriterationnumber>4</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_name>169ee486-2e92-4bdb-9f88-187d8a507b20_2025-02-04T17:02:01.879Z</msdyn_name>
+          <msdyn_modelrundataspecification>H4sIAAAAAAAACpVRzWoCMRB+lTLnXArFw97UrdBLF1zxPu6Odko2CckEuojv3qSrtBgFO8f5fic5QuuoW1k/oGzJB7YGqmcFb8ZFWVsrr0ZYRqiOUHNwGsd3HAgqAAVzEc+7KBQy3FndWh0lOdQkyDrUjAePQ6m9T1XQuLxGDdUedSAFm9FlTZuyzAFOCrDveeIsrRH6kjJgXlD+GouPv74LDDR7ubifkn8T5b+3326xmYKLA/ZsOHysCUN+7GvV6gd9OsM35CH17yR66qem2eJManaf1OXMh5sPlH6e+5J5AYoC03wD0IIrejgCAAA=</msdyn_modelrundataspecification>
+          <msdyn_type>190690001</msdyn_type>
+          <msdyn_aimodelid>{169ee486-2e92-4bdb-9f88-187d8a507b20}</msdyn_aimodelid>
+          <msdyn_trainedmodelaiconfigurationpareid>{a28d4d57-13e3-ef11-8ee9-7c1e520bafa0}</msdyn_trainedmodelaiconfigurationpareid>
+          <statecode>2</statecode>
+          <statuscode>7</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{a28d4d57-13e3-ef11-8ee9-7c1e520bafa0}</msdyn_aiconfigurationid>
+          <msdyn_databinding>{"schemaVersion":2}</msdyn_databinding>
+          <msdyn_majoriterationnumber>1</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_modeldata>9ded1b60-f98a-4840-ab37-2d69e41c1521</msdyn_modeldata>
+          <msdyn_name>169ee486-2e92-4bdb-9f88-187d8a507b20_2025-02-04T16:16:15.394Z</msdyn_name>
+          <msdyn_modelrundataspecification>
+        {
+          "schemaVersion": 2,
+          "input": {},
+          "output": {}
+        }
+      </msdyn_modelrundataspecification>
+          <msdyn_type>190690000</msdyn_type>
+          <msdyn_aimodelid>{169ee486-2e92-4bdb-9f88-187d8a507b20}</msdyn_aimodelid>
+          <statecode>2</statecode>
+          <statuscode>6</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+      </AIConfigurations>
+    </AIModel>
+    <AIModel>
       <msdyn_aimodelid>{3a3dfb1c-b2a7-4c2f-b739-9e379a2715af}</msdyn_aimodelid>
       <msdyn_name>Docu-Pilot-GenerateSolutionDiagram</msdyn_name>
       <msdyn_templateid>{edfdb190-3791-45d8-9a6c-8f90a37c278a}</msdyn_templateid>

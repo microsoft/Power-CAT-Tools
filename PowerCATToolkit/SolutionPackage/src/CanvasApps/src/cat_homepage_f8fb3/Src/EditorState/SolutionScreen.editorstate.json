@@ -6043,7 +6043,7 @@
           "ControlPropertyState": {
             "AFDDataSourceName": "",
             "AutoRuleBindingEnabled": false,
-            "AutoRuleBindingString": "",
+            "AutoRuleBindingString": "AlignInContainer.SetByContainer",
             "InvariantPropertyName": "AlignInContainer",
             "IsLockable": false,
             "NameMapSourceSchema": "?"

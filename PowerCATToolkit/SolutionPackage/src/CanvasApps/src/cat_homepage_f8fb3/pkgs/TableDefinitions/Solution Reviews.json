@@ -124,14 +124,6 @@
       "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.HorizontalBarChart",
       "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.CodeViewerTree",
-      "IdentifierType": 0
     }
   ],
   "DatasetName": "default.cds",

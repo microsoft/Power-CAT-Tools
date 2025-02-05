@@ -686,14 +686,6 @@ ReviewScreen As screen:
                             Y: =0
                             ZIndex: =1
 
-                            "patternID1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                                FieldDisplayName: ="patternID"
-                                FieldName: ="patternID"
-                                FieldType: ="s"
-                                FieldVariantName: ="textualColumn"
-                                Order: =10
-                                ZIndex: =0
-
                             "patternName1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
                                 FieldDisplayName: ="patternName"
                                 FieldName: ="patternName"
@@ -765,6 +757,14 @@ ReviewScreen As screen:
                                 FieldVariantName: ="textualColumn"
                                 Order: =9
                                 ZIndex: =26
+
+                            "patternID1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="patternID"
+                                FieldName: ="patternID"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =10
+                                ZIndex: =27
 
                     cBufferHub_2 As groupContainer.verticalAutoLayoutContainer:
                         FillPortions: =0
@@ -882,7 +882,6 @@ ReviewScreen As screen:
                             ZIndex: =2
 
                             "DonutChart1 As 'Fluent Donut Chart (1.1.39) Preview'.pcfdataset":
-                                AlignInContainer: =AlignInContainer
                                 CustomColors: =true
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =220
