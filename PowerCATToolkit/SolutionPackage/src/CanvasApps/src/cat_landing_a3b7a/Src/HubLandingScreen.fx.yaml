@@ -311,7 +311,7 @@ HubLandingScreen As screen:
                         OnSelect: |-
                             =UpdateContext({ toggleNav: false , gotopage: "cat_docupilot_fa88a" }); UpdateContext({ toggleNav: true });
                         Subtitle: =
-                        Title: ="DocuPilot"
+                        Title: ="AI Documentation"
                         Width: =300
                         X: =0
                         Y: =0

@@ -300,6 +300,8 @@
                         Image: =
                         Items: =
                         ItemTooltip: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
                         OnSelect: |+
                             =/*Set(varRelatedFiles,GetRelatedDocumentRequestFiles.Run(Last(FirstN(RecentDocumentCollection, 1)).'DocuPilot Document Generation Request').solutiondataset);
                             
@@ -340,6 +342,8 @@
                         Image: =
                         ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Above header'
                         Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
                         OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
                             //Navigate(DocumentGeneratorScreen,Transition.None,{showFlair:"ShowFlair"&Rand()});
@@ -376,6 +380,8 @@
                         Height: =Self.AutoHeight
                         Image: =
                         Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
                         OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
                             //Navigate(DocumentGeneratorScreen,Transition.None,{showFlair:"ShowFlair"&Rand()});
@@ -412,6 +418,8 @@
                         Height: =Self.AutoHeight
                         Image: =
                         Items: =
+                        LayoutMinHeight: =Self.AutoHeight
+                        LayoutMinWidth: =300
                         OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
                             Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:Last(FirstN(RecentDocumentCollection, 4)), varStartReview: "StartReview"&Rand()});
@@ -766,6 +774,8 @@
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =Max((CountIf(ListItems, true) * If(numCols<= 6, 85, 40) ), 100)
                                 Items: =ListItems
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 OnChange: =
                                 RaiseOnRowSelectionChangeEvent: =true
                                 RecordKey: =""
