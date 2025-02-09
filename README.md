@@ -1,33 +1,25 @@
 # Power CAT Tools
 
+The **Power CAT Tools** solution is your ultimate companion for enhancing the development experience within the Power Platform. This powerful suite of features is designed to streamline your development workflow by automating essential tasks and providing insightful guidance based on real-world best practices. Whether you're a seasoned developer or just getting started, Power CAT Tools offers valuable resources to help you build robust and efficient solutions with greater ease.
+
 ![Home](https://github.com/user-attachments/assets/55eeb901-60d4-454d-85d5-660e504be61c)
 
-## Key Features
+## Features
 
 ### Code Review Tool
 The Code Review Tool automatically reviews your code to ensure adherence to best practices and standards. This feature helps developers identify and rectify potential issues early in the development process, leading to higher quality code and reduced technical debt.
 
-![Code-review](https://github.com/user-attachments/assets/ddca3ace-b498-441c-a4de-92cdc24faab1)
-
 ### AI Generated Solution Documentation
 Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves developers time and effort, ensuring that documentation is always up-to-date and comprehensive.
-
-![ai-doc](https://github.com/user-attachments/assets/744de971-8e46-4f67-9e71-611098dadac1)
 
 ### Risk Assessment
 The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps developers address risks early, ensuring the stability and security of their solutions.
 
-![Risk-Assessment](https://github.com/user-attachments/assets/5b59b3ab-8aa5-4bc0-869b-fd1455f3cf02)
-
 ### API Playground
 Offering a Postman-like experience, the API Playground allows developers to test and explore APIs seamlessly. It simplifies the process of integrating and debugging APIs, enhancing overall productivity.
 
-![api-playground](https://github.com/user-attachments/assets/94992640-38dd-4902-85f2-17e3e91e2de6)
-
 ### Plugin Monitor
 This tool monitors and analyzes plugin performance and behavior, providing insights into plugin efficiency and helping developers optimize their plugins for better performance. 
-
-![plugin-monitor](https://github.com/user-attachments/assets/571d8231-5964-4246-956e-624ae6be690e)
 
 ## Get started
 
