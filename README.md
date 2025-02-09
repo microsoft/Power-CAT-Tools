@@ -14,6 +14,8 @@ More information on [code review](.CODE_REVIEW.md)
 ### AI generated solution documentation
 Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves developers time and effort, ensuring that documentation is always up-to-date and comprehensive.
 
+More information on [code review](.AI_DOCUMENTATION.md)
+
 ### Security roles risk assessment
 The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps developers address risks early, ensuring the stability and security of their solutions.
 
