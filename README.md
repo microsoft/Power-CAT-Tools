@@ -6,19 +6,21 @@ The **Power CAT Tools** solution is your ultimate companion for enhancing the de
 
 ## Features
 
-### Code Review Tool
+### Power Platform code review
 The Code Review Tool automatically reviews your code to ensure adherence to best practices and standards. This feature helps developers identify and rectify potential issues early in the development process, leading to higher quality code and reduced technical debt.
 
-### AI Generated Solution Documentation
+More information on [code review](.CODE_REVIEW.md)
+
+### AI generated solution documentation
 Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves developers time and effort, ensuring that documentation is always up-to-date and comprehensive.
 
-### Risk Assessment
+### Security roles risk assessment
 The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps developers address risks early, ensuring the stability and security of their solutions.
 
-### API Playground
+### API playground
 Offering a Postman-like experience, the API Playground allows developers to test and explore APIs seamlessly. It simplifies the process of integrating and debugging APIs, enhancing overall productivity.
 
-### Plugin Monitor
+### Plugin ponitor
 This tool monitors and analyzes plugin performance and behavior, providing insights into plugin efficiency and helping developers optimize their plugins for better performance. 
 
 ## Get started
