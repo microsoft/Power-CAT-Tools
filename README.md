@@ -1,6 +1,6 @@
 # Power CAT Tools
 
-The **Power CAT Tools** solution is your ultimate companion for enhancing the development experience within the Power Platform. This powerful suite of features is designed to streamline your development workflow by automating essential tasks and providing insightful guidance based on real-world best practices. Whether you're a seasoned developer or just getting started, Power CAT Tools offers valuable resources to help you build robust and efficient solutions with greater ease.
+The **Power CAT Tools** app is your ultimate companion for enhancing your development experience within Microsoft Power Platform. This powerful suite of features is designed to streamline your development workflow by automating essential tasks and providing insightful guidance based on real-world best practices. Whether you're a seasoned developer or just getting started, Power CAT Tools offers valuable resources to help you build robust and efficient solutions with greater ease.
 
 ![Home](https://github.com/user-attachments/assets/55eeb901-60d4-454d-85d5-660e504be61c)
 
