@@ -7,6 +7,13 @@ assignees: ''
 
 ---
 
+**Related feature**
+- [ ] Code review tool
+- [ ] AI Solution Doc
+- [ ] Risk assessment
+- [ ] API playground
+- [ ] Plugin Monitor
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
