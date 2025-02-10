@@ -26,7 +26,7 @@ The app owner is the maker who submits their solution for evaluation, so it can 
 
 •	Responsibilities: Ensure compliance of managed roles, address noncompliance issues.
 
-#### Environment admin
+### Environment admin
 
 The admin oversees the security of the production environment, and often times is in a tenant admin role, therefore the responsibility of the business' data security often rests with this team. They must review and filter out threats, which is why it's common for admins to take a defensive security posture. They can allow exceptions if they are closely monitored, but they broadly define the default threat tolerance that applies broadly. They may manually coordinate with individual cases to approve or reject special requests. They may also choose to configure auto-scan settings to proactively allow the for scans, or they may choose to periodically manually scan all roles.
 
@@ -104,9 +104,6 @@ A custom role gets a 'Compliant' status if all privileges are no risk. If any pr
 #### Actions for app owners
 
 If a role is marked as ‘Needs review’, it is considered non-compliant and carries some risk based on the threat tolerance defined in the settings. There are two actions the user can take to address the non-compliance status:
-•	Set privilege levels to baseline requirements.
-•	Request exceptions if needed.
+•	Set privilege levels to baseline requirements and re-import into environment.
+•	Request exceptions if needed by directly communicating with the admin.
 
-## Requesting an exception
-
-An exception request is a process that enables role owners to obtain approval for roles that do not comply with baseline policies but are essential for particular business requirements. This section details the procedures for requesting and reviewing exceptions.
