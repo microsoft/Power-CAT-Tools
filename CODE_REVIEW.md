@@ -30,6 +30,8 @@ The tool allows you to select specific solutions for evaluation. Follow these st
 
 This selection ensures that the review process is focused and relevant to your development objectives.
 
+![image](https://github.com/user-attachments/assets/6071cfea-bb6d-41f7-bad8-59c06476f614)
+
 ### Reading a review
 
 After selecting and reviewing a solution, the tool provides detailed analysis results.
@@ -42,7 +44,11 @@ The summary dashboard offers a high-level view of the review findings, including
 -  App checker issues: Highlights critical warnings and errors detected during the review.
 -  Performance Metrics: Provides insights into app complexity and media usage.
 
+![image](https://github.com/user-attachments/assets/d54fe2c3-7773-41f6-a494-6321565e149a)
+
 #### Detailed insights
+
+![image](https://github.com/user-attachments/assets/d6cfb441-7cc1-49dc-9d4f-3eaa6559735d)
 
 - Pattern details: Each pattern includes a status indicator, comments, and links to supporting documentation.
 - Code insights: View detailed formula breakdowns, search for specific control properties, and link directly to areas of concern.
