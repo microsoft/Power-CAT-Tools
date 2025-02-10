@@ -5,9 +5,9 @@ The Power Apps Code Review Tool is designed to streamline the evaluation of canv
 ## Features
 Today, the tool supports these features:
 
-- **Customizable checklist**. The tool presents a series of patterns to examine within your application. Users can mark each pattern as pass or fail, add comments for app makers, or view additional details. Some items are automatically assessed based on detectable patterns during the initial review setup.
+- **Checklist**. The tool presents a series of patterns to examine within your application. Users can mark each pattern as pass or fail, add comments for app makers, or view additional details. Some items are automatically assessed based on detectable patterns during the initial review setup.
   
-- **App Checker Integration**. Displays results from the app checker as of the app's last publication. While these results are accessible in Power Apps Studio during development, their inclusion here provides a consolidated view, helping to identify critical issues like inefficient loading or delegation problems.
+- **App checker integration**. Displays results from the app checker as of the app's last publication. While these results are accessible in Power Apps Studio during development, their inclusion here provides a consolidated view, helping to identify critical issues like inefficient loading or delegation problems.
   
 - **App analysis**. Offers a quick assessment of essential app settings that impact performance. This section includes:
   - Screen Information: Counts the number of controls per screen to ensure it remains below the recommended maximum of 300 controls.
