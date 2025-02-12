@@ -159,7 +159,7 @@ MainLandingScreen As screen:
                         Y: =0
                         ZIndex: =1
 
-                    DVCancelIcon As DVIcon:
+                    "DVCancelIcon As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         IconName: ="cancel"
@@ -337,7 +337,7 @@ MainLandingScreen As screen:
                         Width: =44
                         ZIndex: =1
 
-                    DVRequestsIcon_1 As DVIcon:
+                    "DVRequestsIcon_1 As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.View
                         FontColor: |-
                             ="#605E5C"
@@ -345,11 +345,11 @@ MainLandingScreen As screen:
                         Height: =20
                         HoverFontColor: ="Black"
                         IconName: ="Globe"
-                        IconType: ='PowerCAT.DVIcon.IconType'.Icon
+                        IconType: ='PowerCAT.Icon.IconType'.Icon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         Text: =APIPlayGroundLoc.savedRequestsTxt
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Tooltip: =APIPlayGroundLoc.savedRequestsTxt
                         Visible: =false
                         Width: =20
@@ -404,17 +404,17 @@ MainLandingScreen As screen:
                         Width: =44
                         ZIndex: =4
 
-                    DVIconCollapse As DVIcon:
+                    "DVIconCollapse As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =35
                         IconName: ="ClosePaneMirrored"
                         IconSize: =25
-                        IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =""
                         Visible: =false //!hideSidbar
@@ -423,17 +423,17 @@ MainLandingScreen As screen:
                         Y: =0
                         ZIndex: =5
 
-                    DVIconExpand As DVIcon:
+                    "DVIconExpand As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =35
                         IconName: ="OpenPaneMirrored"
                         IconSize: =25
-                        IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1});
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =""
                         Visible: =false //hideSidbar
@@ -442,7 +442,7 @@ MainLandingScreen As screen:
                         Y: =0
                         ZIndex: =6
 
-                    DVFilterIcon As DVIcon:
+                    "DVFilterIcon As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =35
                         IconName: ="ListMirrored"
@@ -451,7 +451,7 @@ MainLandingScreen As screen:
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({visibleSearch:true}); SetFocus(SearchRequests);
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =APIPlayGroundLoc.searchRequestsTxt
                         Visible: =false //!hideSidbar
@@ -487,7 +487,7 @@ MainLandingScreen As screen:
                         Width: =44
                         ZIndex: =8
 
-                    DVCommandBar1 As DVCommandBar.pcfdataset:
+                    "DVCommandBar1 As 'Fluent Command Bar (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         Height: =44
                         Items: |-
@@ -574,7 +574,7 @@ MainLandingScreen As screen:
                     Visible: =!hideSidbar && CountRows(Filter(SavedRequests,IsDummy=false)) > 0 && !(showFolderForm || manageFolder)
                     ZIndex: =5
 
-                    DVNavLandingPage As DVNav.pcfdataset:
+                    "DVNavLandingPage As 'Fluent Nav (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         Height: =Parent.Height
                         Items: =Filter(SavedRequests,IsDummy=false)
@@ -655,7 +655,7 @@ MainLandingScreen As screen:
                             FieldDisplayName: ="Folder"
                             FieldName: ="Folder"
                             FieldType: |-
-                                ="![_ownerid_value:P, createdby:E, createdon:d, createdonbehalfby:E, importsequencenumber:n, modifiedby:E, modifiedon:d, modifiedonbehalfby:E, msdyn_apirequestcache_FolderName_msdyn_apireque:E, msdyn_apirequestfolder_AsyncOperations:E, msdyn_apirequestfolder_BulkDeleteFailures:E, msdyn_apirequestfolder_DuplicateBaseRecord:E, msdyn_apirequestfolder_DuplicateMatchingRecord:E, msdyn_apirequestfolder_MailboxTrackingFolders:E, msdyn_apirequestfolder_PrincipalObjectAttributeAccesses:E, msdyn_apirequestfolder_ProcessSession:E, msdyn_apirequestfolder_SyncErrors:E, msdyn_apirequestfolderid:g, msdyn_foldername:s, overriddencreatedon:d, owningbusinessunit:E, owningteam:E, owninguser:E, statecode:l, statuscode:l, timezoneruleversionnumber:n, utcconversiontimezonecode:n, versionnumber:n]"
+                                ="![_ownerid_value:P, createdby:E, createdon:d, createdonbehalfby:E, importsequencenumber:n, modifiedby:E, modifiedon:d, modifiedonbehalfby:E, cat_apirequestcache_FolderName_cat_apireque:E, cat_apirequestfolder_AsyncOperations:E, cat_apirequestfolder_BulkDeleteFailures:E, cat_apirequestfolder_DuplicateBaseRecord:E, cat_apirequestfolder_DuplicateMatchingRecord:E, cat_apirequestfolder_MailboxTrackingFolders:E, cat_apirequestfolder_PrincipalObjectAttributeAccesses:E, cat_apirequestfolder_ProcessSession:E, cat_apirequestfolder_SyncErrors:E, cat_apirequestfolderid:g, cat_foldername:s, overriddencreatedon:d, owningbusinessunit:E, owningteam:E, owninguser:E, statecode:l, statuscode:l, timezoneruleversionnumber:n, utcconversiontimezonecode:n, versionnumber:n]"
                             FieldVariantName: ="textualColumn"
                             Order: =8
                             ZIndex: =19
@@ -772,25 +772,25 @@ MainLandingScreen As screen:
                             Order: =22
                             ZIndex: =33
 
-                        msdyn_apirequestfolderid1 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_apirequestfolderid"
-                            FieldName: ="msdyn_apirequestfolderid"
+                        cat_apirequestfolderid1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_apirequestfolderid"
+                            FieldName: ="cat_apirequestfolderid"
                             FieldType: ="g"
                             FieldVariantName: ="textualColumn"
                             Order: =23
                             ZIndex: =34
 
-                        msdyn_foldername1 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_foldername"
-                            FieldName: ="msdyn_foldername"
+                        cat_foldername1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_foldername"
+                            FieldName: ="cat_foldername"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =24
                             ZIndex: =35
 
-                        msdyn_name1 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_name"
-                            FieldName: ="msdyn_name"
+                        cat_name1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_name"
+                            FieldName: ="cat_name"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =25
@@ -924,7 +924,7 @@ MainLandingScreen As screen:
                         Size: =12
                         Text: |-
                             ="There are no saved requests. Create a new request to start working." //APIPlayGroundLoc.noRequestFound todo:loc
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                        VerticalAlign: =VerticalAlign.Top
                         Visible: =true
                         Weight: ='TextCanvas.Weight'.Regular
                         Width: =Parent.Width
@@ -979,7 +979,7 @@ MainLandingScreen As screen:
                         RadiusTopRight: =4
                         ZIndex: =1
 
-                        BackDVIcon As DVIcon:
+                        "BackDVIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.cancelBtnTxt
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -1010,7 +1010,7 @@ MainLandingScreen As screen:
                             Y: =0
                             ZIndex: =2
 
-                        SaveFolderIcon As DVIcon:
+                        "SaveFolderIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.saveTxt
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -1075,7 +1075,7 @@ MainLandingScreen As screen:
                             Y: =0
                             ZIndex: =3
 
-                        EditFolderIcon As DVIcon:
+                        "EditFolderIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.editFolder
                             DisplayMode: =If(!IsBlank(SelectedFolder), DisplayMode.Edit,DisplayMode.Disabled)
                             Height: =32
@@ -1092,7 +1092,7 @@ MainLandingScreen As screen:
                             Y: =0
                             ZIndex: =4
 
-                        DeleteDVIcon As DVIcon:
+                        "DeleteDVIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.deleteTxt
                             DisplayMode: =If(!IsBlank(SelectedFolder), DisplayMode.Edit,DisplayMode.Disabled)
                             Height: =32
@@ -1135,7 +1135,7 @@ MainLandingScreen As screen:
                             Y: =0
                             ZIndex: =5
 
-                        AddNewFolderIcon As DVIcon:
+                        "AddNewFolderIcon As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             IconName: ="add"
@@ -1212,9 +1212,8 @@ MainLandingScreen As screen:
                             Y: =0
                             ZIndex: =2
 
-                    FolderNav_2 As DVNav.pcfdataset:
+                    "FolderNav_2 As 'Fluent Nav (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
                         Height: =160
                         Items: =AllUserFolders
                         LayoutMinHeight: =200
@@ -1228,11 +1227,11 @@ MainLandingScreen As screen:
                         Y: =0
                         ZIndex: =5
 
-                ManageFolderButton As DVIcon:
+                "ManageFolderButton As 'Fluent Icon (1.1.39)'":
                     DisplayMode: =DisplayMode.Edit
                     Height: =35
                     IconName: ="FolderList"
-                    IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
                     OnChange: |-
@@ -1969,7 +1968,7 @@ MainLandingScreen As screen:
                     LayoutMinWidth: =24
                     Size: =20
                     Text: =const_landingTxt.discoverTitle //APIPlayGroundLoc.getStarted
-                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    VerticalAlign: =VerticalAlign.Middle
                     Weight: ='TextCanvas.Weight'.Semibold
                     Width: =1004
                     Wrap: =false
@@ -2116,7 +2115,7 @@ MainLandingScreen As screen:
                                     ZIndex: =3
 
                             LinkCanvas1_3 As Link:
-                                Align: ='LinkCanvas.Align'.End
+                                Align: =Align.Right
                                 Appearance: ="Default"
                                 BasePaletteColor: =
                                 BorderColor: =
@@ -2232,7 +2231,7 @@ MainLandingScreen As screen:
                                     ZIndex: =3
 
                             LinkCanvas1 As Link:
-                                Align: ='LinkCanvas.Align'.End
+                                Align: =Align.Right
                                 Appearance: ="Default"
                                 BasePaletteColor: =
                                 BorderColor: =
@@ -2348,7 +2347,7 @@ MainLandingScreen As screen:
                                     ZIndex: =3
 
                             LinkCanvas1_1 As Link:
-                                Align: ='LinkCanvas.Align'.End
+                                Align: =Align.Right
                                 Appearance: ="Default"
                                 BasePaletteColor: =
                                 BorderColor: =
@@ -2462,7 +2461,7 @@ MainLandingScreen As screen:
                                     ZIndex: =3
 
                             LinkCanvas1_2 As Link:
-                                Align: ='LinkCanvas.Align'.End
+                                Align: =Align.Right
                                 Appearance: ="Default"
                                 BasePaletteColor: =
                                 BorderColor: =
@@ -2535,11 +2534,11 @@ MainLandingScreen As screen:
                     Width: =CardInstantPluginRequest.Width*3+40
                     ZIndex: =9
 
-                    DVFluentDetailsList1 As DVFluentDetailsList.pcfdataset:
+                    "DVFluentDetailsList1 As 'Fluent Details List (1.1.39)'.pcfdataset":
                         columns_Items: |-
                             =Table(
                                 {
-                                    ColName: "msdyn_name",
+                                    ColName: "cat_name",
                                     ColDisplayName: "Name",
                                     ColSortable: true,
                                     ColWidth: Parent.Width - 590,
@@ -2580,7 +2579,7 @@ MainLandingScreen As screen:
                         RaiseOnRowSelectionChangeEvent: =true
                         RecordCanSelect: =
                         RecordKey: ="APIRequestCache"
-                        SelectionType: ='PowerCAT.DVFluentDetailsList.SelectionType'.None
+                        SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
                         SelectRowsOnFocus: =true
                         Theme: =AppThemeJson
                         Tooltip: =
@@ -2605,9 +2604,9 @@ MainLandingScreen As screen:
                             Order: =2
                             ZIndex: =55
 
-                        msdyn_name4 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_name"
-                            FieldName: ="msdyn_name"
+                        cat_name4 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_name"
+                            FieldName: ="cat_name"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =1
@@ -2629,9 +2628,9 @@ MainLandingScreen As screen:
                             Order: =6
                             ZIndex: =60
 
-                        msdyn_foldername5 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_foldername"
-                            FieldName: ="msdyn_foldername"
+                        cat_foldername5 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_foldername"
+                            FieldName: ="cat_foldername"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =4

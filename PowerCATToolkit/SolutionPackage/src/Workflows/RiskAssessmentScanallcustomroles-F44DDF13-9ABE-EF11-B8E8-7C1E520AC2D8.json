@@ -2,33 +2,30 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "runtimeSource": "embedded",
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
         "connection": {
           "connectionReferenceLogicalName": "msdyn_DVAcceleratorMicrosoftDataverse"
         },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
+        "runtimeSource": "embedded"
       }
     },
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$connections": {
-          "defaultValue": {},
-          "type": "Object"
-        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
         }
       },
       "triggers": {
         "manual": {
-          "metadata": {
-            "operationMetadataId": "57983a27-84b7-44d8-b8ec-6602065723e3"
-          },
           "type": "Request",
           "kind": "PowerAppV2",
           "inputs": {
@@ -37,68 +34,82 @@
               "properties": {},
               "required": []
             }
+          },
+          "metadata": {
+            "operationMetadataId": "57983a27-84b7-44d8-b8ec-6602065723e3"
           }
         }
       },
       "actions": {
         "Get_Default_Risk_Assessment_Setting": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cat_riskassessmentsettings",
+              "$filter": "cat_isdefault eq true and statecode eq 0",
+              "$top": 1
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
           "runAfter": {
             "Check_if_current_value_is_present_or_not": [
               "Succeeded"
             ]
           },
-          "metadata": {
-            "operationMetadataId": "8931e039-5aad-4c28-9409-a3ce356ac7ec"
-          },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "msdyn_riskassessmentsettings",
-              "$filter": "msdyn_isdefault eq true and statecode eq 0",
-              "$top": 1
-            },
-            "authentication": "@parameters('$authentication')"
-          },
           "runtimeConfiguration": {
             "paginationPolicy": {
               "minimumItemCount": 100000
             }
+          },
+          "metadata": {
+            "operationMetadataId": "8931e039-5aad-4c28-9409-a3ce356ac7ec"
           }
         },
         "Get_Risk_Assessments_which_are_not_Archived": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cat_riskassessments",
+              "$filter": "cat_isarchived eq false"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
           "runAfter": {
             "Get_Custom_Security_Roles": [
               "Succeeded"
             ]
           },
-          "metadata": {
-            "operationMetadataId": "ec12da91-0d6c-4338-99e4-f86f9b4e4b45"
-          },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "msdyn_riskassessments",
-              "$filter": "msdyn_isarchived eq false"
-            },
-            "authentication": "@parameters('$authentication')"
-          },
           "runtimeConfiguration": {
             "paginationPolicy": {
               "minimumItemCount": 100000
             }
+          },
+          "metadata": {
+            "operationMetadataId": "ec12da91-0d6c-4338-99e4-f86f9b4e4b45"
           }
         },
         "Get_Custom_Security_Roles": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "roles",
+              "$filter": "parentroleid eq null and ismanaged eq false",
+              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"role\">\n    <attribute name=\"name\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"roleid\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"parentroleid\" operator=\"null\" />\n<condition attribute=\"ismanaged\" operator=\"eq\" value=\"false\" />\n\n    </filter>\n    <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"createdby\" link-type=\"inner\" alias=\"ax\">\n      <filter type=\"and\">\n        <condition attribute=\"fullname\" operator=\"ne\" value=\"SYSTEM\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
           "runAfter": {
             "Get_Default_Risk_Assessment_Setting": [
               "Succeeded"
@@ -106,23 +117,11 @@
           },
           "metadata": {
             "operationMetadataId": "b18aaafd-1235-425d-b1ab-6d8430d82156"
-          },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "roles",
-              "$filter": "parentroleid eq null and ismanaged eq false",
-              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"role\">\n    <attribute name=\"name\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"roleid\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"parentroleid\" operator=\"null\" />\n<condition attribute=\"ismanaged\" operator=\"eq\" value=\"false\" />\n\n    </filter>\n    <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"createdby\" link-type=\"inner\" alias=\"ax\">\n      <filter type=\"and\">\n        <condition attribute=\"fullname\" operator=\"ne\" value=\"SYSTEM\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
-            },
-            "authentication": "@parameters('$authentication')"
           }
         },
         "Count_of_all_assessments_which_are_not_archived": {
+          "type": "Compose",
+          "inputs": "@length(outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value'])",
           "runAfter": {
             "Count_of_custom_security_roles": [
               "Succeeded"
@@ -130,11 +129,11 @@
           },
           "metadata": {
             "operationMetadataId": "4c8e7c30-5855-43c3-a47a-61ebc95f2e84"
-          },
-          "type": "Compose",
-          "inputs": "@length(outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value'])"
+          }
         },
         "Count_of_custom_security_roles": {
+          "type": "Compose",
+          "inputs": "@length(outputs('Get_Custom_Security_Roles')?['body/value'])",
           "runAfter": {
             "Get_Risk_Assessments_which_are_not_Archived": [
               "Succeeded"
@@ -142,19 +141,9 @@
           },
           "metadata": {
             "operationMetadataId": "06a1178b-7d66-45fd-8b5e-cbbeb0af0565"
-          },
-          "type": "Compose",
-          "inputs": "@length(outputs('Get_Custom_Security_Roles')?['body/value'])"
+          }
         },
         "Initialize_UnscannedRoles": {
-          "runAfter": {
-            "Initialize_CountOfScannedRoles": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "0f0e794d-6bea-455c-8ecd-cd74076acb18"
-          },
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -164,17 +153,17 @@
                 "value": []
               }
             ]
-          }
-        },
-        "Initialize_ExistingRoles": {
+          },
           "runAfter": {
-            "Initialize_UnscannedRoles": [
+            "Initialize_CountOfScannedRoles": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "8e4b6e27-8c48-47a6-8867-50b0833693b6"
-          },
+            "operationMetadataId": "0f0e794d-6bea-455c-8ecd-cd74076acb18"
+          }
+        },
+        "Initialize_ExistingRoles": {
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -184,17 +173,17 @@
                 "value": []
               }
             ]
-          }
-        },
-        "Initialize_NewAssessments": {
+          },
           "runAfter": {
-            "Initialize_BatchStatus": [
+            "Initialize_UnscannedRoles": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "35b05a75-63ee-4642-814a-4861409e9885"
-          },
+            "operationMetadataId": "8e4b6e27-8c48-47a6-8867-50b0833693b6"
+          }
+        },
+        "Initialize_NewAssessments": {
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -204,9 +193,30 @@
                 "value": []
               }
             ]
+          },
+          "runAfter": {
+            "Initialize_BatchStatus": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "35b05a75-63ee-4642-814a-4861409e9885"
           }
         },
         "Get_Environmentvariable_value": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "environmentvariablevalues",
+              "$filter": "EnvironmentVariableDefinitionId/schemaname eq 'msdyn_DVAcceleratorBatchStatus'",
+              "$expand": "EnvironmentVariableDefinitionId"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
           "runAfter": {
             "Initialize_EnvironmentVariableValueId": [
               "Succeeded"
@@ -214,31 +224,9 @@
           },
           "metadata": {
             "operationMetadataId": "8de36f8f-01e0-459b-a464-ea260bc5afe5"
-          },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "environmentvariablevalues",
-              "$filter": "EnvironmentVariableDefinitionId/schemaname eq 'msdyn_DVAcceleratorBatchStatus'",
-              "$expand": "EnvironmentVariableDefinitionId"
-            },
-            "authentication": "@parameters('$authentication')"
           }
         },
         "Initialize_BatchStatus": {
-          "runAfter": {
-            "Initialize_ExistingRoles": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "ca2986de-7967-4c83-b1d3-a8427aa176ce"
-          },
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -251,11 +239,31 @@
                 }
               }
             ]
+          },
+          "runAfter": {
+            "Initialize_ExistingRoles": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ca2986de-7967-4c83-b1d3-a8427aa176ce"
           }
         },
         "Check_if_current_value_is_present_or_not": {
+          "type": "If",
+          "expression": {
+            "greater": [
+              "@length(outputs('Get_Environmentvariable_value')?['body/value'])",
+              0
+            ]
+          },
           "actions": {
             "Set_VariableId": {
+              "type": "SetVariable",
+              "inputs": {
+                "name": "EnvironmentVariableValueId",
+                "value": "@{first(outputs('Get_Environmentvariable_value')?['body/value'])?['environmentvariablevalueid']}"
+              },
               "runAfter": {
                 "Condition": [
                   "Succeeded"
@@ -263,44 +271,39 @@
               },
               "metadata": {
                 "operationMetadataId": "9ba94a55-14d2-432d-abfb-48828176e75f"
-              },
-              "type": "SetVariable",
-              "inputs": {
-                "name": "EnvironmentVariableValueId",
-                "value": "@{first(outputs('Get_Environmentvariable_value')?['body/value'])?['environmentvariablevalueid']}"
               }
             },
             "Condition": {
+              "type": "If",
+              "expression": {
+                "equals": [
+                  "@empty(outputs('Get_Environmentvariable_value')?['body/value']?[0]?['value'])",
+                  "@true"
+                ]
+              },
               "actions": {
                 "Update_current_value_for_the_environment_variable_2": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "3669ad36-fdc7-4449-9337-311ac9f68c9b"
-                  },
                   "type": "OpenApiConnection",
                   "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "UpdateOnlyRecord",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
                     "parameters": {
                       "entityName": "environmentvariablevalues",
                       "recordId": "@first(outputs('Get_Environmentvariable_value')?['body/value'])?['environmentvariablevalueid']",
                       "item/value": "@variables('BatchStatus')"
                     },
-                    "authentication": "@parameters('$authentication')"
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "connectionName": "shared_commondataserviceforapps"
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "3669ad36-fdc7-4449-9337-311ac9f68c9b"
                   }
                 }
               },
-              "runAfter": {},
               "else": {
                 "actions": {
                   "Parse_Environmentalvariable_current_value": {
-                    "runAfter": {},
-                    "metadata": {
-                      "operationMetadataId": "638e5d71-fea3-40a5-9e15-cfd05560c3f9"
-                    },
                     "type": "ParseJson",
                     "inputs": {
                       "content": "@first(outputs('Get_Environmentvariable_value')?['body/value'])?['value']",
@@ -315,39 +318,13 @@
                           }
                         }
                       }
+                    },
+                    "metadata": {
+                      "operationMetadataId": "638e5d71-fea3-40a5-9e15-cfd05560c3f9"
                     }
                   },
                   "Check_if_the_batchstatus_is_running": {
-                    "actions": {},
-                    "runAfter": {
-                      "Parse_Environmentalvariable_current_value": [
-                        "Succeeded"
-                      ]
-                    },
-                    "else": {
-                      "actions": {
-                        "Update_current_value_for_the_environment_variable": {
-                          "runAfter": {},
-                          "metadata": {
-                            "operationMetadataId": "3669ad36-fdc7-4449-9337-311ac9f68c9b"
-                          },
-                          "type": "OpenApiConnection",
-                          "inputs": {
-                            "host": {
-                              "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "UpdateOnlyRecord",
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                            },
-                            "parameters": {
-                              "entityName": "environmentvariablevalues",
-                              "recordId": "@first(outputs('Get_Environmentvariable_value')?['body/value'])?['environmentvariablevalueid']",
-                              "item/value": "@variables('BatchStatus')"
-                            },
-                            "authentication": "@parameters('$authentication')"
-                          }
-                        }
-                      }
-                    },
+                    "type": "If",
                     "expression": {
                       "and": [
                         {
@@ -358,52 +335,79 @@
                         }
                       ]
                     },
+                    "actions": {},
+                    "else": {
+                      "actions": {
+                        "Update_current_value_for_the_environment_variable": {
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "parameters": {
+                              "entityName": "environmentvariablevalues",
+                              "recordId": "@first(outputs('Get_Environmentvariable_value')?['body/value'])?['environmentvariablevalueid']",
+                              "item/value": "@variables('BatchStatus')"
+                            },
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "operationId": "UpdateOnlyRecord",
+                              "connectionName": "shared_commondataserviceforapps"
+                            }
+                          },
+                          "metadata": {
+                            "operationMetadataId": "3669ad36-fdc7-4449-9337-311ac9f68c9b"
+                          }
+                        }
+                      }
+                    },
+                    "runAfter": {
+                      "Parse_Environmentalvariable_current_value": [
+                        "Succeeded"
+                      ]
+                    },
                     "metadata": {
                       "operationMetadataId": "c4b14195-a4d8-4acc-bcc7-8f7c91393fe9"
-                    },
-                    "type": "If"
+                    }
                   }
                 }
               },
-              "expression": {
-                "equals": [
-                  "@empty(outputs('Get_Environmentvariable_value')?['body/value']?[0]?['value'])",
-                  "@true"
-                ]
-              },
               "metadata": {
                 "operationMetadataId": "431c0939-c5f4-4e38-91a6-9c1c8386eb8f"
-              },
-              "type": "If"
+              }
             }
-          },
-          "runAfter": {
-            "Get_Environmentvariable_value": [
-              "Succeeded"
-            ]
           },
           "else": {
             "actions": {
               "Get_variable_definition": {
-                "runAfter": {},
-                "metadata": {
-                  "operationMetadataId": "26705b9c-177d-495d-a4c2-d8d707ef0376"
-                },
                 "type": "OpenApiConnection",
                 "inputs": {
-                  "host": {
-                    "connectionName": "shared_commondataserviceforapps",
-                    "operationId": "ListRecords",
-                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                  },
                   "parameters": {
                     "entityName": "environmentvariabledefinitions",
                     "$filter": "schemaname eq 'msdyn_DVAcceleratorBatchStatus'"
                   },
-                  "authentication": "@parameters('$authentication')"
+                  "host": {
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                    "operationId": "ListRecords",
+                    "connectionName": "shared_commondataserviceforapps"
+                  }
+                },
+                "metadata": {
+                  "operationMetadataId": "26705b9c-177d-495d-a4c2-d8d707ef0376"
                 }
               },
               "Add_a_current_value": {
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "parameters": {
+                    "entityName": "environmentvariablevalues",
+                    "item/schemaname": "msdyn_DVAcceleratorBatchStatus",
+                    "item/EnvironmentVariableDefinitionId@odata.bind": "/environmentvariabledefinitions(@{first(outputs('Get_variable_definition')?['body/value'])?['environmentvariabledefinitionid']})",
+                    "item/value": "{\"BatchId\":\"@{guid()}\",\"BatchStatus\":\"Running\"}"
+                  },
+                  "host": {
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                    "operationId": "CreateRecord",
+                    "connectionName": "shared_commondataserviceforapps"
+                  }
+                },
                 "runAfter": {
                   "Get_variable_definition": [
                     "Succeeded"
@@ -411,24 +415,14 @@
                 },
                 "metadata": {
                   "operationMetadataId": "a57dc576-1fa5-44f1-9c9d-3c346e3898f4"
-                },
-                "type": "OpenApiConnection",
-                "inputs": {
-                  "host": {
-                    "connectionName": "shared_commondataserviceforapps",
-                    "operationId": "CreateRecord",
-                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                  },
-                  "parameters": {
-                    "entityName": "environmentvariablevalues",
-                    "item/schemaname": "msdyn_DVAcceleratorBatchStatus",
-                    "item/EnvironmentVariableDefinitionId@odata.bind": "/environmentvariabledefinitions(@{first(outputs('Get_variable_definition')?['body/value'])?['environmentvariabledefinitionid']})",
-                    "item/value": "{\"BatchId\":\"@{guid()}\",\"BatchStatus\":\"Running\"}"
-                  },
-                  "authentication": "@parameters('$authentication')"
                 }
               },
               "Set_EnvVariableID": {
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "EnvironmentVariableValueId",
+                  "value": "@outputs('Add_a_current_value')?['body/environmentvariablevalueid']"
+                },
                 "runAfter": {
                   "Add_a_current_value": [
                     "Succeeded"
@@ -436,35 +430,20 @@
                 },
                 "metadata": {
                   "operationMetadataId": "3a20e313-af26-46d9-8d8c-c09be4913e7e"
-                },
-                "type": "SetVariable",
-                "inputs": {
-                  "name": "EnvironmentVariableValueId",
-                  "value": "@outputs('Add_a_current_value')?['body/environmentvariablevalueid']"
                 }
               }
             }
           },
-          "expression": {
-            "greater": [
-              "@length(outputs('Get_Environmentvariable_value')?['body/value'])",
-              0
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "8e1af887-e31e-406b-a710-df3c6acd9962"
-          },
-          "type": "If"
-        },
-        "Initialize_EnvironmentVariableValueId": {
           "runAfter": {
-            "Initialize_NewAssessments": [
+            "Get_Environmentvariable_value": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "16ba755c-4bc6-42b2-82a1-e2735ca95090"
-          },
+            "operationMetadataId": "8e1af887-e31e-406b-a710-df3c6acd9962"
+          }
+        },
+        "Initialize_EnvironmentVariableValueId": {
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -473,13 +452,17 @@
                 "type": "string"
               }
             ]
+          },
+          "runAfter": {
+            "Initialize_NewAssessments": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "16ba755c-4bc6-42b2-82a1-e2735ca95090"
           }
         },
         "Initialize_CountOfScannedRoles": {
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "968ebabb-321c-4596-bb10-ba0bae2ca641"
-          },
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -489,40 +472,71 @@
                 "value": 0
               }
             ]
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "968ebabb-321c-4596-bb10-ba0bae2ca641"
           }
         },
-        "Scope_2": {
+        "Scope_for_custom_security_roles": {
+          "type": "Scope",
           "actions": {
             "Apply_to_each_custom_security_role": {
+              "type": "Foreach",
               "foreach": "@outputs('Get_Custom_Security_Roles')?['body/value']",
               "actions": {
                 "Find_if_any_assessments_exist_for_the_current_security_role": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "6d5ac320-740a-4825-87b0-8d8149f1dcea"
-                  },
                   "type": "Query",
                   "inputs": {
                     "from": "@outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value']",
-                    "where": "@equals(item()?['_msdyn_roleid_value'], items('Apply_to_each_custom_security_role')?['roleid'])"
+                    "where": "@equals(item()?['_cat_roleid_value'],items('Apply_to_each_custom_security_role')?['roleid'])"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6d5ac320-740a-4825-87b0-8d8149f1dcea"
                   }
                 },
                 "Try_block": {
+                  "type": "Scope",
                   "actions": {
                     "Check_if_there_any_assessments_present_for_the_role": {
+                      "type": "If",
+                      "expression": {
+                        "and": [
+                          {
+                            "equals": [
+                              "@empty(body('Find_if_any_assessments_exist_for_the_current_security_role'))",
+                              "@true"
+                            ]
+                          }
+                        ]
+                      },
                       "actions": {
                         "Append_unscannedroles_role_id": {
-                          "runAfter": {},
-                          "metadata": {
-                            "operationMetadataId": "31f4b462-e3ad-4617-8cd2-55823a7c144b"
-                          },
                           "type": "AppendToArrayVariable",
                           "inputs": {
                             "name": "UnscannedRoles",
                             "value": "@items('Apply_to_each_custom_security_role')?['roleid']"
+                          },
+                          "metadata": {
+                            "operationMetadataId": "31f4b462-e3ad-4617-8cd2-55823a7c144b"
                           }
                         },
                         "Create_new_assessment_for_the_current_role_with_status_as_Inprogress_2": {
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "parameters": {
+                              "entityName": "cat_riskassessments",
+                              "item/cat_RoleId@odata.bind": "/roles(@{items('Apply_to_each_custom_security_role')?['roleid']})",
+                              "item/cat_isarchived": false,
+                              "item/cat_RiskAssessmentSettingId@odata.bind": "/cat_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['cat_riskassessmentsettingid']})",
+                              "item/statuscode": 192350002
+                            },
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "connectionName": "shared_commondataserviceforapps"
+                            }
+                          },
                           "runAfter": {
                             "Append_unscannedroles_role_id": [
                               "Succeeded"
@@ -530,25 +544,14 @@
                           },
                           "metadata": {
                             "operationMetadataId": "f45631ce-98b7-4319-900f-02258807e1de"
-                          },
-                          "type": "OpenApiConnection",
-                          "inputs": {
-                            "host": {
-                              "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "CreateRecord",
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                            },
-                            "parameters": {
-                              "entityName": "msdyn_riskassessments",
-                              "item/msdyn_RoleId@odata.bind": "/roles(@{items('Apply_to_each_custom_security_role')?['roleid']})",
-                              "item/msdyn_isarchived": false,
-                              "item/msdyn_RiskAssessmentSettingId@odata.bind": "/msdyn_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['msdyn_riskassessmentsettingid']})",
-                              "item/statuscode": 192350002
-                            },
-                            "authentication": "@parameters('$authentication')"
                           }
                         },
                         "Append_new_assessmentsid": {
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "NewAssessments",
+                            "value": "@outputs('Create_new_assessment_for_the_current_role_with_status_as_Inprogress_2')?['body/cat_riskassessmentid']"
+                          },
                           "runAfter": {
                             "Create_new_assessment_for_the_current_role_with_status_as_Inprogress_2": [
                               "Succeeded"
@@ -556,29 +559,37 @@
                           },
                           "metadata": {
                             "operationMetadataId": "cf9a7f8c-a80f-4441-8dba-b1ec359b98f2"
-                          },
-                          "type": "AppendToArrayVariable",
-                          "inputs": {
-                            "name": "NewAssessments",
-                            "value": "@outputs('Create_new_assessment_for_the_current_role_with_status_as_Inprogress_2')?['body/msdyn_riskassessmentid']"
                           }
                         }
                       },
-                      "runAfter": {},
                       "else": {
                         "actions": {
                           "Append_existingroleid": {
-                            "runAfter": {},
-                            "metadata": {
-                              "operationMetadataId": "594de3ed-3f0b-4637-b42d-240e8bbeade6"
-                            },
                             "type": "AppendToArrayVariable",
                             "inputs": {
                               "name": "ExistingRoles",
                               "value": "@items('Apply_to_each_custom_security_role')?['roleid']"
+                            },
+                            "metadata": {
+                              "operationMetadataId": "594de3ed-3f0b-4637-b42d-240e8bbeade6"
                             }
                           },
                           "Create_new_assessment_for_the_current_role_with_status_as_Inprogress": {
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "parameters": {
+                                "entityName": "cat_riskassessments",
+                                "item/cat_RoleId@odata.bind": "/roles(@{items('Apply_to_each_custom_security_role')?['roleid']})",
+                                "item/cat_isarchived": false,
+                                "item/cat_RiskAssessmentSettingId@odata.bind": "/cat_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['cat_riskassessmentsettingid']})",
+                                "item/statuscode": 192350002
+                              },
+                              "host": {
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                "operationId": "CreateRecord",
+                                "connectionName": "shared_commondataserviceforapps"
+                              }
+                            },
                             "runAfter": {
                               "Set_Existing_assessment_as_archived": [
                                 "Succeeded"
@@ -586,25 +597,22 @@
                             },
                             "metadata": {
                               "operationMetadataId": "f45631ce-98b7-4319-900f-02258807e1de"
-                            },
-                            "type": "OpenApiConnection",
-                            "inputs": {
-                              "host": {
-                                "connectionName": "shared_commondataserviceforapps",
-                                "operationId": "CreateRecord",
-                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                              },
-                              "parameters": {
-                                "entityName": "msdyn_riskassessments",
-                                "item/msdyn_RoleId@odata.bind": "/roles(@{items('Apply_to_each_custom_security_role')?['roleid']})",
-                                "item/msdyn_isarchived": false,
-                                "item/msdyn_RiskAssessmentSettingId@odata.bind": "/msdyn_riskassessmentsettings(@{first(body('Find_if_any_assessments_exist_for_the_current_security_role'))?['_msdyn_riskassessmentsettingid_value']})",
-                                "item/statuscode": 192350002
-                              },
-                              "authentication": "@parameters('$authentication')"
                             }
                           },
                           "Set_Existing_assessment_as_archived": {
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "parameters": {
+                                "entityName": "cat_riskassessments",
+                                "recordId": "@first(body('Find_if_any_assessments_exist_for_the_current_security_role'))?['cat_riskassessmentid']",
+                                "item/cat_isarchived": true
+                              },
+                              "host": {
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                "operationId": "UpdateOnlyRecord",
+                                "connectionName": "shared_commondataserviceforapps"
+                              }
+                            },
                             "runAfter": {
                               "Append_existingroleid": [
                                 "Succeeded"
@@ -612,23 +620,14 @@
                             },
                             "metadata": {
                               "operationMetadataId": "9265844e-fcd3-421a-ad92-f16faf076502"
-                            },
-                            "type": "OpenApiConnection",
-                            "inputs": {
-                              "host": {
-                                "connectionName": "shared_commondataserviceforapps",
-                                "operationId": "UpdateOnlyRecord",
-                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                              },
-                              "parameters": {
-                                "entityName": "msdyn_riskassessments",
-                                "recordId": "@first(body('Find_if_any_assessments_exist_for_the_current_security_role'))?['msdyn_riskassessmentid']",
-                                "item/msdyn_isarchived": true
-                              },
-                              "authentication": "@parameters('$authentication')"
                             }
                           },
                           "Append_new_assessments_guid": {
+                            "type": "AppendToArrayVariable",
+                            "inputs": {
+                              "name": "NewAssessments",
+                              "value": "@outputs('Create_new_assessment_for_the_current_role_with_status_as_Inprogress')?['body/cat_riskassessmentid']"
+                            },
                             "runAfter": {
                               "Create_new_assessment_for_the_current_role_with_status_as_Inprogress": [
                                 "Succeeded"
@@ -636,25 +635,13 @@
                             },
                             "metadata": {
                               "operationMetadataId": "6c328125-7cf9-49f4-bc94-a08e96a27e56"
-                            },
-                            "type": "AppendToArrayVariable",
-                            "inputs": {
-                              "name": "NewAssessments",
-                              "value": "@outputs('Create_new_assessment_for_the_current_role_with_status_as_Inprogress')?['body/msdyn_riskassessmentid']"
                             }
                           }
                         }
                       },
-                      "expression": {
-                        "equals": [
-                          "@length(body('Find_if_any_assessments_exist_for_the_current_security_role'))",
-                          0
-                        ]
-                      },
                       "metadata": {
                         "operationMetadataId": "4dcaf3f7-829d-4b4a-beb6-8c3a563b4a89"
-                      },
-                      "type": "If"
+                      }
                     }
                   },
                   "runAfter": {
@@ -664,22 +651,32 @@
                   },
                   "metadata": {
                     "operationMetadataId": "2c130ec1-62d6-49f9-9cf4-5f51f50491d7"
-                  },
-                  "type": "Scope"
+                  }
                 }
               },
-              "runAfter": {},
-              "metadata": {
-                "operationMetadataId": "7c883634-7a75-4127-ab2e-a659bf22121f"
-              },
-              "type": "Foreach",
               "runtimeConfiguration": {
                 "concurrency": {
                   "repetitions": 50
                 }
+              },
+              "metadata": {
+                "operationMetadataId": "7c883634-7a75-4127-ab2e-a659bf22121f"
               }
             },
             "Update_BatchStatus_to_Success": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "environmentvariablevalues",
+                  "recordId": "@variables('EnvironmentVariableValueId')",
+                  "item/value": "{\"BatchId\":\"@{guid()}\",\"BatchStatus\":\"Success\"}"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
               "runAfter": {
                 "Catch_block": [
                   "Skipped"
@@ -687,42 +684,27 @@
               },
               "metadata": {
                 "operationMetadataId": "b20faae5-53ff-4c09-be24-ec6cb8d1632a"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "UpdateOnlyRecord",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                },
-                "parameters": {
-                  "entityName": "environmentvariablevalues",
-                  "recordId": "@variables('EnvironmentVariableValueId')",
-                  "item/value": "{\"BatchId\":\"@{guid()}\",\"BatchStatus\":\"Success\"}"
-                },
-                "authentication": "@parameters('$authentication')"
               }
             },
             "Catch_block": {
+              "type": "Scope",
               "actions": {
                 "Update_BatchStatus_to_Error": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "b20faae5-53ff-4c09-be24-ec6cb8d1632a"
-                  },
                   "type": "OpenApiConnection",
                   "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "UpdateOnlyRecord",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
                     "parameters": {
                       "entityName": "environmentvariablevalues",
                       "recordId": "@variables('EnvironmentVariableValueId')",
                       "item/value": "{\"BatchId\":\"@{guid()}\",\"BatchStatus\":\"Error\",\"ErrorMessage\":\"@{length(variables('NewAssessments'))} of of total roles scanned successfully. \"}"
                     },
-                    "authentication": "@parameters('$authentication')"
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "connectionName": "shared_commondataserviceforapps"
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b20faae5-53ff-4c09-be24-ec6cb8d1632a"
                   }
                 }
               },
@@ -734,8 +716,7 @@
               },
               "metadata": {
                 "operationMetadataId": "a31f4260-9228-4df0-ba5e-b701608096bd"
-              },
-              "type": "Scope"
+              }
             }
           },
           "runAfter": {
@@ -745,12 +726,11 @@
           },
           "metadata": {
             "operationMetadataId": "c6c71682-05ea-4f2f-8a88-e547c70fc8c4"
-          },
-          "type": "Scope"
+          }
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

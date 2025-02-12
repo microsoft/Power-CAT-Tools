@@ -13,6 +13,21 @@
     "OverridableProperties": {},
     "Version": "1.0"
   },
+  "Auto Width Label (1.1.39)": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.AutoWidthLabel",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.AutoWidthLabel",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Auto Width Label (1.1.39)",
+    "Version": "1.1.39"
+  },
   "Badge": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -26,7 +41,7 @@
     "Name": "PowerApps_CoreControls_BadgeCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Badge",
-    "Version": "0.0.21"
+    "Version": "0.0.24"
   },
   "Button": {
     "CustomGroupControlTemplateName": "",
@@ -41,7 +56,7 @@
     "Name": "PowerApps_CoreControls_ButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Button",
-    "Version": "0.0.42"
+    "Version": "0.0.44"
   },
   "Combobox": {
     "CustomGroupControlTemplateName": "",
@@ -56,7 +71,7 @@
     "Name": "PowerApps_CoreControls_ComboboxCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Combobox",
-    "Version": "0.0.39"
+    "Version": "0.0.49"
   },
   "Dropdown": {
     "CustomGroupControlTemplateName": "",
@@ -71,67 +86,37 @@
     "Name": "PowerApps_CoreControls_DropdownCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Dropdown",
-    "Version": "0.0.41"
+    "Version": "0.0.44"
   },
-  "DV Auto Width Label": {
+  "Fluent Details List (1.1.39)": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.DVAutoWidthLabel",
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.FluentDetailsList",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": true,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": false,
     "LastModifiedTimestamp": "0",
-    "Name": "cat_PowerCAT.DVAutoWidthLabel",
+    "Name": "cat_PowerCAT.FluentDetailsList",
     "OverridableProperties": {},
-    "TemplateDisplayName": "DV Auto Width Label",
-    "Version": "0.0.3"
+    "TemplateDisplayName": "Fluent Details List (1.1.39)",
+    "Version": "1.1.39"
   },
-  "DVCommandBar": {
+  "Fluent Icon (1.1.39)": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.DVCommandBar",
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.Icon",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": true,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": false,
     "LastModifiedTimestamp": "0",
-    "Name": "cat_PowerCAT.DVCommandBar",
+    "Name": "cat_PowerCAT.Icon",
     "OverridableProperties": {},
-    "TemplateDisplayName": "DVCommandBar",
-    "Version": "0.0.1"
-  },
-  "DVFluentDetailsList": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.DVFluentDetailsList",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "cat_PowerCAT.DVFluentDetailsList",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "DVFluentDetailsList",
-    "Version": "0.2.4"
-  },
-  "DVIcon": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.DVIcon",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "cat_PowerCAT.DVIcon",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "DVIcon",
-    "Version": "0.0.1"
+    "TemplateDisplayName": "Fluent Icon (1.1.39)",
+    "Version": "1.1.39"
   },
   "groupContainer": {
     "CustomGroupControlTemplateName": "",
@@ -175,6 +160,21 @@
     "Name": "htmlViewer",
     "OverridableProperties": {},
     "Version": "2.1.0"
+  },
+  "Icon": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Icon",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_Icon",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Icon",
+    "Version": "0.0.7"
   },
   "image": {
     "CustomGroupControlTemplateName": "",
@@ -233,7 +233,7 @@
     "Name": "PowerApps_CoreControls_LinkCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Link",
-    "Version": "0.0.39"
+    "Version": "0.0.44"
   },
   "Number input": {
     "CustomGroupControlTemplateName": "",
@@ -248,7 +248,7 @@
     "Name": "PowerApps_CoreControls_NumberInput",
     "OverridableProperties": {},
     "TemplateDisplayName": "Number input",
-    "Version": "2.9.0"
+    "Version": "2.9.5"
   },
   "pcfDataField": {
     "CustomGroupControlTemplateName": "",
@@ -305,7 +305,7 @@
     "Name": "PowerApps_CoreControls_RadioGroupCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Radio",
-    "Version": "0.0.22"
+    "Version": "0.0.24"
   },
   "rectangle": {
     "CustomGroupControlTemplateName": "",
@@ -348,7 +348,7 @@
     "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
     "TemplateDisplayName": "Spinner",
-    "Version": "1.4.1"
+    "Version": "1.4.4"
   },
   "Tab list": {
     "CustomGroupControlTemplateName": "",
@@ -363,7 +363,7 @@
     "Name": "PowerApps_CoreControls_TabList",
     "OverridableProperties": {},
     "TemplateDisplayName": "Tab list",
-    "Version": "2.2.26"
+    "Version": "2.2.28"
   },
   "Text": {
     "CustomGroupControlTemplateName": "",
@@ -378,7 +378,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text",
-    "Version": "0.0.39"
+    "Version": "0.0.50"
   },
   "Text input": {
     "CustomGroupControlTemplateName": "",
@@ -393,7 +393,7 @@
     "Name": "PowerApps_CoreControls_TextInputCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text input",
-    "Version": "0.0.41"
+    "Version": "0.0.53"
   },
   "Toggle": {
     "CustomGroupControlTemplateName": "",
@@ -408,6 +408,21 @@
     "Name": "PowerApps_CoreControls_Toggle",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toggle",
-    "Version": "1.1.0"
+    "Version": "1.1.3"
+  },
+  "Toolbar": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Toolbar",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_Toolbar",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Toolbar",
+    "Version": "2.0.3"
   }
 }

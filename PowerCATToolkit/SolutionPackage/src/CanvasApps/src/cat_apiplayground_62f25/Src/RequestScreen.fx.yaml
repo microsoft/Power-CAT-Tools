@@ -187,17 +187,17 @@
                         Width: =44
                         ZIndex: =4
 
-                    DVIconCollapse_3 As DVIcon:
+                    "DVIconCollapse_3 As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =35
                         IconName: ="ClosePaneMirrored"
                         IconSize: =25
-                        IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =""
                         Visible: =false //!hideSidbar
@@ -206,17 +206,17 @@
                         Y: =0
                         ZIndex: =5
 
-                    DVIconExpand_3 As DVIcon:
+                    "DVIconExpand_3 As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =35
                         IconName: ="OpenPaneMirrored"
                         IconSize: =25
-                        IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1});
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =""
                         Visible: =false //hideSidbar
@@ -225,7 +225,7 @@
                         Y: =0
                         ZIndex: =6
 
-                    DVFilterIcon_3 As DVIcon:
+                    "DVFilterIcon_3 As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =35
                         IconName: ="ListMirrored"
@@ -234,7 +234,7 @@
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({visibleSearch:true});
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =APIPlayGroundLoc.searchRequestsTxt
                         Visible: =false //!hideSidbar
@@ -269,7 +269,7 @@
                         Width: =44
                         ZIndex: =8
 
-                    DVCommandBar1_2 As DVCommandBar.pcfdataset:
+                    "DVCommandBar1_2 As 'Fluent Command Bar (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         Height: =44
                         Items: |-
@@ -399,7 +399,7 @@
                         Y: =0
                         ZIndex: =1
 
-                    DVCancelIcon_1 As DVIcon:
+                    "DVCancelIcon_1 As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         IconName: ="cancel"
@@ -566,7 +566,7 @@
                     Visible: =!hideSidbar && CountRows(Filter(SavedRequests,IsDummy=false)) > 0 && !(showFolderForm || manageFolder)
                     ZIndex: =6
 
-                    RequestNav As DVNav.pcfdataset:
+                    "RequestNav As 'Fluent Nav (1.1.39)'.pcfdataset":
                         CollapseByDefault: =false
                         DisplayMode: =DisplayMode.Edit
                         Height: =Parent.Height
@@ -647,7 +647,7 @@
                             FieldDisplayName: ="Folder"
                             FieldName: ="Folder"
                             FieldType: |-
-                                ="![_ownerid_value:P, createdby:E, createdon:d, createdonbehalfby:E, importsequencenumber:n, modifiedby:E, modifiedon:d, modifiedonbehalfby:E, msdyn_apirequestcache_FolderName_msdyn_apireque:E, msdyn_apirequestfolder_AsyncOperations:E, msdyn_apirequestfolder_BulkDeleteFailures:E, msdyn_apirequestfolder_DuplicateBaseRecord:E, msdyn_apirequestfolder_DuplicateMatchingRecord:E, msdyn_apirequestfolder_MailboxTrackingFolders:E, msdyn_apirequestfolder_PrincipalObjectAttributeAccesses:E, msdyn_apirequestfolder_ProcessSession:E, msdyn_apirequestfolder_SyncErrors:E, msdyn_apirequestfolderid:g, msdyn_foldername:s, overriddencreatedon:d, owningbusinessunit:E, owningteam:E, owninguser:E, statecode:l, statuscode:l, timezoneruleversionnumber:n, utcconversiontimezonecode:n, versionnumber:n]"
+                                ="![_ownerid_value:P, createdby:E, createdon:d, createdonbehalfby:E, importsequencenumber:n, modifiedby:E, modifiedon:d, modifiedonbehalfby:E, cat_apirequestcache_FolderName_cat_apireque:E, cat_apirequestfolder_AsyncOperations:E, cat_apirequestfolder_BulkDeleteFailures:E, cat_apirequestfolder_DuplicateBaseRecord:E, cat_apirequestfolder_DuplicateMatchingRecord:E, cat_apirequestfolder_MailboxTrackingFolders:E, cat_apirequestfolder_PrincipalObjectAttributeAccesses:E, cat_apirequestfolder_ProcessSession:E, cat_apirequestfolder_SyncErrors:E, cat_apirequestfolderid:g, cat_foldername:s, overriddencreatedon:d, owningbusinessunit:E, owningteam:E, owninguser:E, statecode:l, statuscode:l, timezoneruleversionnumber:n, utcconversiontimezonecode:n, versionnumber:n]"
                             FieldVariantName: ="textualColumn"
                             Order: =4
                             ZIndex: =31
@@ -804,25 +804,25 @@
                             Order: =23
                             ZIndex: =51
 
-                        msdyn_apirequestfolderid2 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_apirequestfolderid"
-                            FieldName: ="msdyn_apirequestfolderid"
+                        cat_apirequestfolderid2 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_apirequestfolderid"
+                            FieldName: ="cat_apirequestfolderid"
                             FieldType: ="g"
                             FieldVariantName: ="textualColumn"
                             Order: =24
                             ZIndex: =52
 
-                        msdyn_foldername2 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_foldername"
-                            FieldName: ="msdyn_foldername"
+                        cat_foldername2 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_foldername"
+                            FieldName: ="cat_foldername"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =25
                             ZIndex: =53
 
-                        msdyn_name2 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="msdyn_name"
-                            FieldName: ="msdyn_name"
+                        cat_name2 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="cat_name"
+                            FieldName: ="cat_name"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =26
@@ -949,7 +949,7 @@
                         Size: =12
                         Text: |-
                             ="There are no saved requests. Create a new request to start working." //APIPlayGroundLoc.noRequestFound todo:loc
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                        VerticalAlign: =VerticalAlign.Top
                         Visible: =true
                         Weight: ='TextCanvas.Weight'.Regular
                         Width: =Parent.Width
@@ -1020,7 +1020,7 @@
                         RadiusTopRight: =4
                         ZIndex: =1
 
-                        BackDVIcon_R As DVIcon:
+                        "BackDVIcon_R As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.cancelBtnTxt
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -1051,7 +1051,7 @@
                             Y: =0
                             ZIndex: =2
 
-                        SaveFolderIcon_R As DVIcon:
+                        "SaveFolderIcon_R As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.saveTxt
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -1116,7 +1116,7 @@
                             Y: =0
                             ZIndex: =3
 
-                        EditFolderIcon_R As DVIcon:
+                        "EditFolderIcon_R As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.editFolder
                             DisplayMode: =If(!IsBlank(SelectedFolder), DisplayMode.Edit,DisplayMode.Disabled)
                             Height: =32
@@ -1133,7 +1133,7 @@
                             Y: =0
                             ZIndex: =4
 
-                        DeleteDVIcon_R As DVIcon:
+                        "DeleteDVIcon_R As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.deleteTxt
                             DisplayMode: =If(!IsBlank(SelectedFolder), DisplayMode.Edit,DisplayMode.Disabled)
                             Height: =32
@@ -1177,7 +1177,7 @@
                             Y: =0
                             ZIndex: =5
 
-                        AddNewFolderIcon_R As DVIcon:
+                        "AddNewFolderIcon_R As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             IconName: ="add"
@@ -1253,9 +1253,8 @@
                             Y: =0
                             ZIndex: =2
 
-                    FolderNav_R As DVNav.pcfdataset:
+                    "FolderNav_R As 'Fluent Nav (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =1
                         Height: =160
                         Items: =AllUserFolders
                         LayoutMinHeight: =200
@@ -1269,11 +1268,11 @@
                         Y: =0
                         ZIndex: =4
 
-                ManageFolderButton_R As DVIcon:
+                "ManageFolderButton_R As 'Fluent Icon (1.1.39)'":
                     DisplayMode: =DisplayMode.Edit
                     Height: =35
                     IconName: ="FolderList"
-                    IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
                     OnChange: |-
@@ -1333,7 +1332,7 @@
                     RadiusTopRight: =4
                     ZIndex: =1
 
-                    DVBreadcrumb As DVBreadcrumb.pcfdataset:
+                    "DVBreadcrumb As 'Fluent Breadcrumb (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =FlexOn
                         Height: =50
@@ -1345,9 +1344,9 @@
                                 },
                                 {
                                     ItemKey: "currentrequest",
-                                    ItemDisplayName:If(IsBlank(SelectedReq.msdyn_name),
+                                    ItemDisplayName:If(IsBlank(SelectedReq.cat_name),
                                     APIPlayGroundLoc.newRequestTxt
-                                    ,Left(SelectedReq.msdyn_name,50)& If(Len(SelectedReq.msdyn_name)>50, "...",""))
+                                    ,Left(SelectedReq.cat_name,50)& If(Len(SelectedReq.cat_name)>50, "...",""))
                                 }
                             )
                         LayoutMinHeight: =200
@@ -1358,13 +1357,13 @@
                                 "denv",
                                 Navigate(MainLandingScreen);
                             )
-                        Tooltip: =""
-                        Width: =200
+                        Theme: =AppThemeJson
+                        Width: =400
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-                    DVIcon1 As DVIcon:
+                    "DVIcon1 As 'Fluent Icon (1.1.39)'":
                         BorderRadius: =4
                         DisplayMode: =DisplayMode.View
                         FillColor: |-
@@ -1373,19 +1372,19 @@
                         Height: =28
                         HoverFontColor: ="black"
                         IconName: ="Link12"
-                        IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                        IconType: ='PowerCAT.Icon.IconType'.ActionButton
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         Text: =DefaultRequest
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =
                         Width: =156
                         X: =843
                         Y: =0
-                        ZIndex: =2
+                        ZIndex: =3
 
-                    DVSaveBtn As DVIcon:
+                    "DVSaveBtn As 'Fluent Icon (1.1.39)'":
                         AccessibilityLabel: =APIPlayGroundLoc.saveTxt
                         BorderColor: |-
                             ="#dedede"
@@ -1396,21 +1395,22 @@
                             ="#dedede"
                         IconName: ="Save"
                         IconSize: =20
-                        IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |
                             =UpdateContext({showDialog:true});
                         Text: =APIPlayGroundLoc.saveTxt
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Right
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Right
                         Theme: =AppThemeNeutralJson
                         Tooltip: =APIPlayGroundLoc.saveTxt
+                        Visible: =true
                         Width: =35
                         X: =0
                         Y: =0
-                        ZIndex: =3
+                        ZIndex: =4
 
-                    DVDeleteBtn As DVIcon:
+                    "DVDeleteBtn As 'Fluent Icon (1.1.39)'":
                         AccessibilityLabel: =APIPlayGroundLoc.deleteRequest
                         BorderColor: |-
                             ="#dedede"
@@ -1421,7 +1421,7 @@
                             ="#dedede"
                         IconName: ="Delete"
                         IconSize: =20
-                        IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |
@@ -1450,14 +1450,32 @@
                                 )
                             );
                         Text: =APIPlayGroundLoc.deleteRequest
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =APIPlayGroundLoc.deleteTxt
                         Visible: =If(!IsBlank(SelectedReq)&&!SelectedReq.IsDummy,true,false)
                         Width: =35
                         X: =0
                         Y: =0
-                        ZIndex: =4
+                        ZIndex: =5
+
+                    ButtonCanvas1 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Subtle
+                        DisplayMode: =If((!IsBlank(RequestCombobox.Selected) ||!IsBlank(ODataParamInput.Value))&&isRequestSend,DisplayMode.Edit,DisplayMode.Disabled)
+                        FontSize: =26
+                        Height: =36
+                        Icon: ="Save"
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |-
+                            =UpdateContext({showDialog:true});
+                        Text: =
+                        Visible: =false
+                        Width: =36
+                        X: =0
+                        Y: =0
+                        ZIndex: =6
 
                 RequestFillContainer As groupContainer.horizontalAutoLayoutContainer:
                     BorderStyle: =BorderStyle.None
@@ -1494,6 +1512,8 @@
                         OnChange: |-
                             =Set(APIRequestCacheId,Blank());
                             UpdateContext({Result:Blank()});
+                        Required: =false
+                        TriggerOutput: ="Keypress"
                         Width: =320
                         X: =0
                         Y: =0
@@ -1820,15 +1840,15 @@
                             Y: =0
                             ZIndex: =1
 
-                        DVinfoIconQueryParam As DVIcon:
+                        "DVinfoIconQueryParam As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =35
                             IconName: ="info"
-                            IconType: ='PowerCAT.DVIcon.IconType'.Icon
+                            IconType: ='PowerCAT.Icon.IconType'.Icon
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             Text: =APIPlayGroundLoc.queryParamInfoBtnTxt
-                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Tooltip: ="Select query parameters"
                             Width: =35
                             X: =0
@@ -2020,13 +2040,13 @@
                             Width: =Parent.Width
                             ZIndex: =3
 
-                            DVInfoIcon As DVIcon:
+                            "DVInfoIcon As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =35
                                 IconName: ="info"
-                                IconType: ='PowerCAT.DVIcon.IconType'.Icon
+                                IconType: ='PowerCAT.Icon.IconType'.Icon
                                 Text: =ThisItem.Name
-                                TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Tooltip: =ThisItem.Description
                                 Width: =35
                                 X: =lblParamText.Width + StringParamValue.Width+48
@@ -2238,12 +2258,14 @@
                         Items: =HTTPVerb
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        Required: =false
+                        TriggerOutput: ="Keypress"
                         Width: =100
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-                    "EnvURLText As 'DV Auto Width Label'":
+                    "EnvURLText As 'Auto Width Label (1.1.39)'":
                         DisplayMode: =DisplayMode.View
                         FontColor: |-
                             ="#666666" // todo:colormap grey40
@@ -2552,7 +2574,7 @@
                                 Y: =0
                                 ZIndex: =1
 
-                            DVIcon5 As DVIcon:
+                            "DVIcon5 As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =35
                                 IconName: ="info"
@@ -2577,16 +2599,16 @@
                             Width: =150
                             ZIndex: =4
 
-                            DVIcon4 As DVIcon:
+                            "DVIcon4 As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =32
                                 IconName: ="Add"
-                                IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
                                 LayoutMinHeight: =200
                                 LayoutMinWidth: =200
                                 OnChange: =Collect(SelectedODataInputs,DefaultCollection);
                                 Text: =APIPlayGroundLoc.addNewParamBtnTxt
-                                TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Right
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Right
                                 Theme: =AppThemeJson
                                 Tooltip: =APIPlayGroundLoc.addParamToolTipTxt
                                 Width: =150
@@ -2696,11 +2718,11 @@
                             Width: =Parent.Width
                             ZIndex: =2
 
-                            DVIcon2 As DVIcon:
+                            "DVIcon2 As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =32
                                 IconName: ="trash"
-                                IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: |-
                                     =If(!IsBlank(ThisItem.Name)||!IsBlank(ThisItem.Value),Remove(TempODataInputs,LookUp(SelectedODataInputs,Id=ThisItem.Id)));
                                     
@@ -2722,7 +2744,7 @@
                                     )});
                                     
                                     Remove(SelectedODataInputs,LookUp(SelectedODataInputs,Id=ThisItem.Id));
-                                TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Theme: =AppThemeJson
                                 Tooltip: =APIPlayGroundLoc.removeParamBtnTxt
                                 Width: =32
@@ -2937,7 +2959,7 @@
                                 Y: =0
                                 ZIndex: =1
 
-                            DVIcon5_1 As DVIcon:
+                            "DVIcon5_1 As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =35
                                 IconName: ="info"
@@ -2963,16 +2985,16 @@
                             Width: =150
                             ZIndex: =4
 
-                            DVIcon4_1 As DVIcon:
+                            "DVIcon4_1 As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =32
                                 IconName: ="Add"
-                                IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
                                 LayoutMinHeight: =200
                                 LayoutMinWidth: =200
                                 OnChange: =Collect(colHeaders,DefaultHeaderCollection);
                                 Text: =APIPlayGroundLoc.addHeaderTxt
-                                TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Right
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Right
                                 Theme: =AppThemeJson
                                 Tooltip: =APIPlayGroundLoc.addParamToolTipTxt
                                 Width: =150
@@ -3084,13 +3106,13 @@
                             Width: =Parent.Width
                             ZIndex: =2
 
-                            DVDeleteIcon_Header As DVIcon:
+                            "DVDeleteIcon_Header As 'Fluent Icon (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =32
                                 IconName: ="trash"
-                                IconType: ='PowerCAT.DVIcon.IconType'.IconButon
+                                IconType: ='PowerCAT.Icon.IconType'.IconButon
                                 OnChange: =Remove(colHeaders,LookUp(colHeaders,Id=ThisItem.Id));
-                                TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                 Theme: =AppThemeJson
                                 Tooltip: =APIPlayGroundLoc.removeParamBtnTxt
                                 Visible: =If(ThisItem.IsOptional, true,false)
@@ -3265,14 +3287,14 @@
                             Y: =0
                             ZIndex: =1
 
-                        DVResponseIcon As DVIcon:
+                        "DVResponseIcon As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =35
                             IconName: ="info"
-                            IconType: ='PowerCAT.DVIcon.IconType'.Icon
+                            IconType: ='PowerCAT.Icon.IconType'.Icon
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
-                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Tooltip: =APIPlayGroundLoc.responseLblTxt
                             Visible: =false
                             Width: =35
@@ -3318,14 +3340,14 @@
                                 RadiusTopRight: =4
                                 ZIndex: =1
 
-                                DVCloudIcon As DVIcon:
+                                "DVCloudIcon As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
                                     IconName: ="AzureAPIManagement"
-                                    IconType: ='PowerCAT.DVIcon.IconType'.Icon
+                                    IconType: ='PowerCAT.Icon.IconType'.Icon
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =32
                                     X: =0
@@ -3358,13 +3380,13 @@
                                         LayoutMinWidth: =96
                                         Text: |-
                                             =APIPlayGroundLoc.statusLblTxt&":"
-                                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Width: =50
                                         X: =0
                                         Y: =0
                                         ZIndex: =1
 
-                                    "DVStatusCode As 'DV Auto Width Label'":
+                                    "DVStatusCode As 'Auto Width Label (1.1.39)'":
                                         DisplayMode: =DisplayMode.View
                                         FontColor: =If((statusCode="500"||statusCode="404"||statusCode="400"||statusCode="401"), "Red","Green")
                                         Height: =35
@@ -3404,13 +3426,13 @@
                                         LayoutMinWidth: =96
                                         Text: |-
                                             =APIPlayGroundLoc.timeLblTxt&":"
-                                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Width: =40
                                         X: =0
                                         Y: =0
                                         ZIndex: =1
 
-                                    "DVTime As 'DV Auto Width Label'":
+                                    "DVTime As 'Auto Width Label (1.1.39)'":
                                         DisplayMode: =DisplayMode.View
                                         FontColor: ="Green"
                                         Height: =35
@@ -3451,13 +3473,13 @@
                                         LayoutMinWidth: =96
                                         Text: |-
                                             =APIPlayGroundLoc.sizeLblTxt&":"
-                                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Width: =40
                                         X: =0
                                         Y: =0
                                         ZIndex: =1
 
-                                    "DVSize As 'DV Auto Width Label'":
+                                    "DVSize As 'Auto Width Label (1.1.39)'":
                                         DisplayMode: =DisplayMode.View
                                         FontColor: ="Green"
                                         Height: =35
@@ -3487,7 +3509,7 @@
                                 RadiusTopRight: =4
                                 ZIndex: =9
 
-                                DVCopyIcon As DVIcon:
+                                "DVCopyIcon As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
                                     IconName: ="Copy"
@@ -3519,6 +3541,8 @@
                                             "xml",
                                             DVCodeEditor.ContentLanguage='PowerCAT.DVCodeEditor.Language'.xml
                                         )
+                                    Required: =false
+                                    TriggerOutput: ="Keypress"
                                     Visible: =false
                                     Width: =100
                                     X: =0
@@ -3543,7 +3567,6 @@
 
                         "DVCodeEditor As 'Code Editor'":
                             DisplayMode: =DisplayMode.View
-                            FillPortions: =FlexOn
                             FormatCode: =outputFormatCode
                             Height: =200
                             Language: =ResposneCombobox.Selected.DisplayName
@@ -3609,7 +3632,7 @@
 
                     LearnMoreLink As Link:
                         AccessibleLabel: =APIPlayGroundLoc.learnMoreTxt
-                        Align: ='LinkCanvas.Align'.Center
+                        Align: =Align.Center
                         Appearance: ="Default"
                         BasePaletteColor: =
                         BorderColor: =
@@ -3651,7 +3674,7 @@
                         Width: =Parent.Width
                         ZIndex: =4
 
-                        DVSampleButton As DVIcon:
+                        "DVSampleButton As 'Fluent Icon (1.1.39)'":
                             BorderColor: |-
                                 ="#f4f4f4"
                             BorderRadius: =4
@@ -3664,7 +3687,7 @@
                                 ="#f4f4f4"
                             HoverFontColor: ="black"
                             IconName: ="lightbulb"
-                            IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             OnChange: |-
@@ -3672,14 +3695,14 @@
                                 UpdateContext({varODataInput:LookUp(SampleRequests,Id=101).ODataRequest,showBody:false,ShowParameter:true,showHeaders:false});
                                 Select(ODataHiddenButton);
                             Text: =LookUp(SampleRequests,Id=101).Name
-                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Tooltip: =
                             Width: =Value(Len("List 10 accounts names and revenue")*8)
                             X: =0
                             Y: =0
                             ZIndex: =4
 
-                        DVSampleButton_1 As DVIcon:
+                        "DVSampleButton_1 As 'Fluent Icon (1.1.39)'":
                             BorderColor: |-
                                 ="#f4f4f4"
                             BorderRadius: =4
@@ -3692,7 +3715,7 @@
                                 ="#f4f4f4"
                             HoverFontColor: ="black"
                             IconName: ="lightbulb"
-                            IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             OnChange: |-
@@ -3700,14 +3723,14 @@
                                 UpdateContext({varODataInput:LookUp(SampleRequests,Id=102).ODataRequest,showBody:true,ShowParameter:false,showHeaders:false});
                                 Select(ODataHiddenButton);
                             Text: =LookUp(SampleRequests,Id=102).Name
-                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Tooltip: =
                             Width: =Value(Len("Create an account")*10)
                             X: =0
                             Y: =0
                             ZIndex: =5
 
-                        DVSampleButton_4 As DVIcon:
+                        "DVSampleButton_4 As 'Fluent Icon (1.1.39)'":
                             BorderColor: |-
                                 ="#f4f4f4"
                             BorderRadius: =4
@@ -3720,7 +3743,7 @@
                                 ="#f4f4f4"
                             HoverFontColor: ="black"
                             IconName: ="lightbulb"
-                            IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                            IconType: ='PowerCAT.Icon.IconType'.ActionButton
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             OnChange: |-
@@ -3728,7 +3751,7 @@
                                 UpdateContext({varODataInput:LookUp(SampleRequests,Id=103).ODataRequest,showBody:false,ShowParameter:true,showHeaders:false});
                                 Select(ODataHiddenButton);
                             Text: =LookUp(SampleRequests,Id=103).Name
-                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Tooltip: =
                             Width: =Value(Len("List upcoming appointments ordered by date")*8)
                             X: =0
@@ -3794,7 +3817,7 @@
                             Y: =0
                             ZIndex: =1
 
-                        DVCancelButtonIcon As DVIcon:
+                        "DVCancelButtonIcon As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             IconName: ="Cancel"
@@ -3852,7 +3875,7 @@
                         Value: |-
                             =If(
                                 !IsBlank(SelectedReq)&&!SelectedReq.NonClickable,
-                                SelectedReq.msdyn_name,
+                                SelectedReq.cat_name,
                                 If(
                                     varRequestType,
                                     ODataParamInput.Value,
@@ -3877,7 +3900,7 @@
                         RadiusTopRight: =4
                         ZIndex: =5
 
-                        "lblFolderDD As 'DV Auto Width Label'":
+                        "lblFolderDD As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.View
                             Height: =30
                             LayoutMinHeight: =200
@@ -3890,7 +3913,7 @@
                             Y: =0
                             ZIndex: =1
 
-                        FolderinfoDVIcon As DVIcon:
+                        "FolderinfoDVIcon As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             IconName: ="info"
@@ -3918,22 +3941,24 @@
                         LayoutMinWidth: =320
                         OnChange: =Set(SelectedFolder,FolderCombobox_1.Selected);
                         PaddingBottom: =0
+                        Required: =false
+                        TriggerOutput: ="Keypress"
                         Width: =Parent.Width-20
                         X: =0
                         Y: =0
                         ZIndex: =6
 
-                        msdyn_apirequestfolderid3_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-                            FieldDisplayName: ="msdyn_apirequestfolderid"
-                            FieldName: ="msdyn_apirequestfolderid"
+                        cat_apirequestfolderid3_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+                            FieldDisplayName: ="cat_apirequestfolderid"
+                            FieldName: ="cat_apirequestfolderid"
                             FieldType: ="g"
                             FieldVariantName: ="textualColumn"
                             Order: =2
                             ZIndex: =76
 
-                        msdyn_foldername3_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-                            FieldDisplayName: ="msdyn_foldername"
-                            FieldName: ="msdyn_foldername"
+                        cat_foldername3_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+                            FieldDisplayName: ="cat_foldername"
+                            FieldName: ="cat_foldername"
                             FieldType: ="s"
                             FieldVariantName: ="textualColumn"
                             Order: =1

@@ -202,7 +202,27 @@
       ],
       "From": "0.0.38",
       "To": "0.0.39"
+    },
+    {
+      "Action": [
+        {
+          "Name": "Required",
+          "Type": "add"
+        }
+      ],
+      "From": "0.0.43",
+      "To": "0.0.44"
+    },
+    {
+      "Action": [
+        {
+          "Name": "TriggerOutput",
+          "Type": "add"
+        }
+      ],
+      "From": "0.0.46",
+      "To": "0.0.47"
     }
   ],
-  "Version": "0.0.41"
+  "Version": "0.0.49"
 }

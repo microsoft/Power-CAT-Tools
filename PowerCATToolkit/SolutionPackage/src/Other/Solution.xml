@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.24123.252" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24123.252" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24123.00252">
+<ImportExportXml version="9.2.24123.252" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24123.252" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24124.00182">
   <SolutionManifest>
     <UniqueName>PowerCATToolkit</UniqueName>
     <LocalizedNames>
@@ -19,7 +19,7 @@
         <Description description="PowerCAT" languagecode="1033" />
       </Descriptions>
       <EMailAddress xsi:nil="true"></EMailAddress>
-      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <SupportingWebsiteUrl>http://crm.dynamics.com</SupportingWebsiteUrl>
       <CustomizationPrefix>cat</CustomizationPrefix>
       <CustomizationOptionValuePrefix>33535</CustomizationOptionValuePrefix>
       <Addresses>
@@ -82,20 +82,19 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="1" schemaName="cat_apirequestcache" behavior="0" />
+      <RootComponent type="1" schemaName="cat_apirequestfolder" behavior="0" />
       <RootComponent type="1" schemaName="cat_customer" behavior="0" />
       <RootComponent type="1" schemaName="cat_docupilotdocumentgenerationrequest" behavior="0" />
       <RootComponent type="1" schemaName="cat_patterndetails" behavior="0" />
       <RootComponent type="1" schemaName="cat_patternidentifier" behavior="0" />
       <RootComponent type="1" schemaName="cat_patterninstance" behavior="0" />
       <RootComponent type="1" schemaName="cat_patternresult" behavior="0" />
+      <RootComponent type="1" schemaName="cat_riskassessment" behavior="0" />
+      <RootComponent type="1" schemaName="cat_riskassessmentsetting" behavior="0" />
       <RootComponent type="1" schemaName="cat_solutioncomponent" behavior="0" />
       <RootComponent type="1" schemaName="cat_solutionreview" behavior="0" />
-      <RootComponent type="1" schemaName="msdyn_apirequestcache" behavior="0" />
-      <RootComponent type="1" schemaName="msdyn_apirequestfolder" behavior="0" />
-      <RootComponent type="1" schemaName="msdyn_riskassessment" behavior="0" />
-      <RootComponent type="1" schemaName="msdyn_riskassessmentsetting" behavior="0" />
       <RootComponent type="20" id="{b0ed6d52-daa7-ef11-8a6a-7c1e524711aa}" behavior="0" />
-      <RootComponent type="20" id="{e7a428fd-5ee3-ef11-8ee9-7c1e525bedeb}" behavior="0" />
       <RootComponent type="29" id="{c1677ec2-3be2-ef11-8ee9-7c1e520bafa0}" behavior="0" />
       <RootComponent type="29" id="{f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8}" behavior="0" />
       <RootComponent type="300" schemaName="cat_apiplayground_62f25" behavior="0" />
@@ -107,8 +106,11 @@
       <RootComponent type="401" id="{169ee486-2e92-4bdb-9f88-187d8a507b20}" behavior="0" />
       <RootComponent type="401" id="{36c3283f-0505-4d24-a879-ff255ce15a61}" behavior="0" />
       <RootComponent type="401" id="{3a3dfb1c-b2a7-4c2f-b739-9e379a2715af}" behavior="0" />
+      <RootComponent type="401" id="{8159b930-2b28-49a9-9aa7-4016edbd68d8}" behavior="0" />
       <RootComponent type="401" id="{a82aae61-6b11-494b-b988-e727f3eb0118}" behavior="0" />
+      <RootComponent type="401" id="{cc45d602-5fef-4f7e-9b17-34fa627ac02b}" behavior="0" />
       <RootComponent type="401" id="{d94ec8ba-800d-4058-842c-e1a90adace62}" behavior="0" />
+      <RootComponent type="401" id="{e5cf78e6-0960-4119-aaac-0ef22b9b941e}" behavior="0" />
       <RootComponent type="401" id="{fe62d7e3-1b72-4860-bf2e-038b71f01342}" behavior="0" />
       <RootComponent type="61" schemaName="cat_aidocumentgenerator" behavior="0" />
       <RootComponent type="61" schemaName="cat_APIPlayGroundLoc.1033.resx" behavior="0" />
@@ -148,17 +150,18 @@
       <RootComponent type="9" schemaName="cat_patterntypechoices" behavior="0" />
       <RootComponent type="9" schemaName="cat_severity" behavior="0" />
       <RootComponent type="9" schemaName="cat_solutioncomponent" behavior="0" />
-      <RootComponent type="91" id="{c56fdf5d-ac42-491b-b3a8-44be163d29f3}" schemaName="Microsoft.DVAccelerator.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" behavior="0" />
-      <RootComponent type="92" id="{03ca35d9-8737-ef11-8409-002248326418}" behavior="0" />
-      <RootComponent type="92" id="{32b268fa-8737-ef11-8409-6045bdd2ec3c}" behavior="0" />
-      <RootComponent type="92" id="{35a693e8-8637-ef11-8409-002248326418}" behavior="0" />
-      <RootComponent type="92" id="{7d8a918a-8637-ef11-8409-002248326418}" behavior="0" />
-      <RootComponent type="92" id="{ea57a0b7-8637-ef11-8409-002248326418}" behavior="0" />
-      <RootComponent type="92" id="{fd610c02-8737-ef11-8409-002248326418}" behavior="0" />
+      <RootComponent type="91" id="{6694475e-4df0-4ab2-9dfc-5e516858a451}" schemaName="Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" behavior="0" />
+      <RootComponent type="92" id="{591f692e-43e8-ef11-8eea-000d3a5933f1}" behavior="0" />
+      <RootComponent type="92" id="{59a4b3cd-42e8-ef11-9341-6045bd062583}" behavior="0" />
+      <RootComponent type="92" id="{68d39e51-43e8-ef11-9341-6045bd062583}" behavior="0" />
+      <RootComponent type="92" id="{915e31ce-43e8-ef11-9341-6045bd062583}" behavior="0" />
+      <RootComponent type="92" id="{c890068f-43e8-ef11-8eea-6045bd09d758}" behavior="0" />
+      <RootComponent type="92" id="{d330dbf3-42e8-ef11-8eea-000d3a5933f1}" behavior="0" />
+      <RootComponent type="92" id="{e820da65-43e8-ef11-8eea-6045bd09d758}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
-        <Required type="1" schemaName="cat_sample" displayName="Sample" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="1" schemaName="cat_sample" displayName="Sample" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_landing_a3b7a" displayName="Power CAT Tools - Home" />
       </MissingDependency>
       <MissingDependency>
@@ -222,8 +225,8 @@
         <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202412.2.3.1)">
-          <package appName="PowerAI" version="202412.2.3.1">msdyn_AISolutionAnchor (202412.2.3.1)</package>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202412.4.18.2)">
+          <package appName="PowerAI" version="202412.4.18.2">msdyn_AISolutionAnchor (202412.4.18.2)</package>
         </Required>
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
@@ -231,54 +234,62 @@
         <Required type="2" schemaName="name" displayName="Name" parentSchemaName="customapi" parentDisplayName="Custom API" solution="msft_CustomAPIFramework (1.0.0.24)">
           <package appName="CustomAPIExtensions Package" version="1.0.0.2">msft_DefaultCatalogs (1.0.0.2)</package>
         </Required>
-        <Dependent type="10" schemaName="msdyn_apirequestcache_CustomAPI_customapi" displayName="msdyn_apirequestcache_CustomAPI_customapi" parentSchemaName="customapi" parentDisplayName="Custom API" />
+        <Dependent type="10" schemaName="cat_apirequestcache_CustomAPI_customapi" displayName="cat_apirequestcache_CustomAPI_customapi" parentSchemaName="customapi" parentDisplayName="Custom API" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.AutoWidthLabel" displayName="cat_PowerCAT.AutoWidthLabel" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.AutoWidthLabel" displayName="cat_PowerCAT.AutoWidthLabel" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.AutoWidthLabel" displayName="cat_PowerCAT.AutoWidthLabel" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_landing_a3b7a" displayName="Power CAT Tools - Home" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.DonutChart" displayName="cat_PowerCAT.DonutChart" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.DonutChart" displayName="cat_PowerCAT.DonutChart" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.DonutChart" displayName="cat_PowerCAT.DonutChart" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.DonutChart" displayName="cat_PowerCAT.DonutChart" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.HorizontalBarChart" displayName="cat_PowerCAT.HorizontalBarChart" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.HorizontalBarChart" displayName="cat_PowerCAT.HorizontalBarChart" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.Icon" displayName="cat_PowerCAT.Icon" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.Icon" displayName="cat_PowerCAT.Icon" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.StackedBarChart" displayName="cat_PowerCAT.StackedBarChart" solution="CreatorKitCore (1.0.20241119.1)" />
+        <Required type="66" schemaName="cat_PowerCAT.StackedBarChart" displayName="cat_PowerCAT.StackedBarChart" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
@@ -311,12 +322,6 @@
           <package appName="PowerAppsThemingApp Package" version="1.0.0.12">PowerAppsThemingApp_Anchor (1.0.0.12)</package>
         </Required>
         <Dependent type="OrganizationSetting" displayName="OverrideAppHeaderColor" id.settingdefinitionid.uniquename="OverrideAppHeaderColor" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="SettingDefinition" displayName="OverrideAppHeaderColor" solution="msdyn_PowerAppsThemingSettings (1.0.0.13)" id.uniquename="OverrideAppHeaderColor">
-          <package appName="PowerAppsThemingApp Package" version="1.0.0.12">PowerAppsThemingApp_Anchor (1.0.0.12)</package>
-        </Required>
-        <Dependent type="SettingDefinition" displayName="OverrideAppHeaderColor" id.uniquename="OverrideAppHeaderColor" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

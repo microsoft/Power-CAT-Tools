@@ -16,6 +16,9 @@ App As appinfo:
             }
         ];
         
+        pageTitle= "Solution Documentation";
+        pageSubtext = "A native tool for documenting Power Platform solutions using generative AI";
+        
         /* Add formulas here */
         ListItems = SortByColumns(AddColumns(Filter(
                     'DocuPilot Document Generation Requests', 'Document Status' =

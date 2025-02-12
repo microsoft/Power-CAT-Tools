@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin: ReplacePrivileges of any Entity" SdkMessageProcessingStepId="{d330dbf3-42e8-ef11-8eea-000d3a5933f1}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>f0bdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a</PluginTypeName>
+  <PluginTypeId>8bbaecd4-bc09-4ef6-891f-5f05a774f628</PluginTypeId>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin: ReplacePrivileges of any Entity</Description>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

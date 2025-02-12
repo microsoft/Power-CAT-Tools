@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin: Update of cat_riskassessmentsetting" SdkMessageProcessingStepId="{59a4b3cd-42e8-ef11-9341-6045bd062583}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a</PluginTypeName>
+  <PluginTypeId>201a3ba0-8d2d-4feb-8432-5137a4764a40</PluginTypeId>
+  <PrimaryEntity>cat_riskassessmentsetting</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin: Update of cat_riskassessmentsetting</Description>
+  <FilteringAttributes>cat_buappend,cat_buappendto,cat_buassign,cat_bucreate,cat_budelete,cat_buread,cat_bushare,cat_buwrite,cat_orgappend,cat_orgappendto,cat_orgassign,cat_orgcreate,cat_orgdelete,cat_orgread,cat_orgshare,cat_orgwrite,cat_pcbuappend,cat_pcbuappendto,cat_pcbuassign,cat_pcbucreate,cat_pcbudelete,cat_pcburead,cat_pcbushare,cat_pcbuwrite,cat_userassign,cat_usercreate,cat_userdelete,cat_userread,cat_usershare,cat_userwrite</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

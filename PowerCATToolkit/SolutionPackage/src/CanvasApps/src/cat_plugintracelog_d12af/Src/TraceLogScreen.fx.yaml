@@ -42,28 +42,28 @@ TraceLogScreen As screen:
                 Fill: =ColorValue(AppTheme.palette.neutralLighter)
                 FillPortions: =0
                 Height: =50
+                LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutMinHeight: =50
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                PaddingLeft: =16
                 RadiusBottomLeft: =4
                 RadiusBottomRight: =4
                 RadiusTopLeft: =4
                 RadiusTopRight: =4
                 ZIndex: =1
 
-                HeaderCommandBar As DVCommandBar.pcfdataset:
-                    AccessibilityLabel: =PluginMonitorLoc.logSettingsTxt
-                    AlignInContainer: =AlignInContainer.Start
+                Toolbar1 As Toolbar.pcfdataset:
+                    Alignment: ='Toolbar.Alignment'.Horizontal
                     DisplayMode: =DisplayMode.Edit
-                    FillPortions: =1
-                    Height: =Parent.Height
+                    FillPortions: =FlexOn
+                    Height: =44
                     Items: =LogScreenCommandBarItems
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
+                    ItemTooltip: =
+                    LayoutMinHeight: =55
+                    LayoutMinWidth: =280
                     OnSelect: |-
                         =Switch(
-                            HeaderCommandBar.Selected.ItemKey,
+                            Self.Selected.ItemKey,
                             "logsettings",
                                 Navigate(LogSettingScreen),
                             
@@ -92,161 +92,36 @@ TraceLogScreen As screen:
                                 );
                                 UpdateContext({ctxTableEvent:"ClearSelection"&Text(Rand())})
                         );
-                        
-                        
-                        /* OLD ?
-                        
-                            ClearCollect(
-                                PluginTraceLogs,
-                                RenameColumns(
-                                    AddColumns(
-                                        'Plug-in Trace Logs',
-                                        "CreatedBy",
-                                        'Created By (Delegate) (createdby)',
-                                        "Status",
-                                        If(
-                                            IsBlank(ThisRecord.'Exception Details'),
-                                            "Success",
-                                            "Failed"
-                                        ),
-                                        "TagColor",
-                                        If(
-                                            !IsBlank(ThisRecord.'Exception Details'),
-                                            "rgb(255, 0, 0)",
-                                            "rgb(5, 122, 52)"
-                                        ),
-                                        "TagBorderColor",
-                                        If(
-                                            !IsBlank(ThisRecord.'Exception Details'),
-                                            "rgb(255, 0, 0)",
-                                            "rgb(5, 122, 52)"
-                                        ),
-                                        "Type",
-                                        If(
-                                            IsBlank(
-                                                LookUp(
-                                                    'Sdk Message Processing Steps',
-                                                    ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
-                                                    fxexpressionid
-                                                )
-                                            ),
-                                            If(
-                                                LookUp(
-                                                    'Sdk Message Processing Steps',
-                                                    ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
-                                                    'Execution Stage'
-                                                ) = 30,
-                                                PluginMonitorLoc.radioCustomApiTxt,
-                                                PluginMonitorLoc.radioPluginTxt
-                                            ),
-                                            If(
-                                                LookUp(
-                                                    'Sdk Message Processing Steps',
-                                                    ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
-                                                    'Execution Stage'
-                                                ) = 30,
-                                                PluginMonitorLoc.radioInstantTxt,
-                                                PluginMonitorLoc.radioAutomatedTxt
-                                            )
-                                        ),
-                                        "Duration",
-                                        'Execution Duration' & " ms",
-                                        "StartTime",
-                                        Text(
-                                            'Constructor Start Time',
-                                            "dd/mm/yyy hh:mm AM/PM"
-                                        )
-                                    ),
-                                    "messagename",
-                                    "messagename",
-                                    "typename",
-                                    "typename",
-                                    "messageblock",
-                                    "messageblock",
-                                    "createdon",
-                                    "createdon",
-                                    "performanceexecutionduration",
-                                    "performanceexecutionduration",
-                                    "configuration",
-                                    "configuration",
-                                    "correlationid",
-                                    "correlationid",
-                                    "depth",
-                                    "depth",
-                                    "mode",
-                                    "mode",
-                                    "operationtype",
-                                    "operationtype",
-                                    "organizationid",
-                                    "organizationid",
-                                    "primaryentity",
-                                    "primaryentity",
-                                    "performanceexecutionstarttime",
-                                    "performanceexecutionstarttime",
-                                    "persistencekey",
-                                    "persistencekey",
-                                    "requestid",
-                                    "requestid",
-                                    "pluginstepid",
-                                    "pluginstepid",
-                                    "plugintracelogid",
-                                    "plugintracelogid",
-                                    "secureconfiguration",
-                                    "secureconfiguration",
-                                    "profile",
-                                    "profile",
-                                    "exceptiondetails",
-                                    "exceptiondetails",
-                                    "performanceconstructorduration",
-                                    "performanceconstructorduration"
-                                )
-                            );
-                        
-                        */
-                    Theme: =AppThemeNeutralJson
-                    Width: =300
-                    X: =0
+                    Padding: ='Toolbar.Padding'.Medium
+                    Width: =532
+                    X: =-221
                     Y: =0
                     ZIndex: =1
 
-                DVCommandBar2_1 As DVCommandBar.pcfdataset:
+                ButtonCanvas2 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Subtle
                     DisplayMode: =DisplayMode.Edit
-                    Height: =Parent.Height
-                    Items: |-
-                        =Table(
-                            {
-                                ItemKey: "filter",
-                                ItemDisplayName: If(App.ActiveScreen.Size > ScreenSize.Small,PluginMonitorLoc.lblFilters),
-                                ItemIconName: "Filter",
-                                ItemHeader:true,
-                                ItemFarItem:true
-                            }
-                        )
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
+                    FontWeight: =If(showHideFilterPanel, FontWeight.Bold, FontWeight.Semibold)
+                    Height: =32  
+                    Icon: ="Filter"
+                    IconStyle: =If(showHideFilterPanel, 'ButtonCanvas.IconStyle'.Filled, 'ButtonCanvas.IconStyle'.Outline)
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
                     OnSelect: |-
-                        =Switch(
-                            DVCommandBar2_1.Selected.ItemKey,
-                            "filter",
-                            UpdateContext(
-                                {
-                                    showHideFilterPanel: true,
-                                    showHideTraceLogPanel: false
-                                }
-                            )
+                        =UpdateContext(
+                            {
+                                showHideFilterPanel: !showHideFilterPanel,
+                                showHideTraceLogPanel: false
+                            }
                         );
-                        
-                        UpdateContext({ctxTableEvent:"ClearSelection"&Text(Rand())});
-                    Theme: =AppThemeNeutralJson
-                    Tooltip: ="Add Filters"
-                    Visible: =false
-                    Width: =100
-                    X: =
-                    Y: =
-                    ZIndex: =2
+                        UpdateContext({ctxTableEvent:"ClearSelection"&Text(Rand())})
+                    Text: ="Filter"
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
 
                 TraceLogPaneDivider_2 As rectangle:
-                    AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =RGBA(166, 166, 166, 1)
                     BorderStyle: =BorderStyle.None
                     DisabledFill: =RGBA(166, 166, 166, 1)
@@ -258,18 +133,18 @@ TraceLogScreen As screen:
                     LayoutMinHeight: =40
                     PressedFill: =RGBA(230, 230, 230, 1)
                     Width: =1
-                    ZIndex: =3
+                    ZIndex: =5
 
                 "SearchInput As 'Text input'":
                     AccessibleLabel: =PluginMonitorLoc.searchTxt
-                    Align: ='TextInputCanvas.Align'.Start
-                    AlignInContainer: =AlignInContainer.Stretch
+                    Align: =Align.Left
                     Appearance: ="FilledDarker"
                     BasePaletteColor: =
                     BorderStyle: =""
                     DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0,0,0,0)
                     FontColor: =
-                    Height: =32
+                    Height: =Parent.Height
                     LayoutMinHeight: =32
                     LayoutMinWidth: =320
                     OnChange: =false
@@ -279,22 +154,7 @@ TraceLogScreen As screen:
                     Width: =206
                     X: =1135
                     Y: =0
-                    ZIndex: =4
-
-                divFilterPane_1 As rectangle:
-                    AlignInContainer: =AlignInContainer.Stretch
-                    BorderColor: =RGBA(166, 166, 166, 1)
-                    BorderStyle: =BorderStyle.None
-                    DisabledFill: =RGBA(166, 166, 166, 1)
-                    DisplayMode: =DisplayMode.View
-                    Fill: =RGBA(230, 230, 230, 1)
-                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
-                    Height: =1
-                    HoverFill: =RGBA(230, 230, 230, 1)
-                    LayoutMinHeight: =40
-                    PressedFill: =RGBA(230, 230, 230, 1)
-                    Width: =1   
-                    ZIndex: =5
+                    ZIndex: =6
 
             cPluginMonitoringHeader As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
@@ -407,7 +267,7 @@ TraceLogScreen As screen:
                         ListFilterContainer As groupContainer.horizontalAutoLayoutContainer:
                             BorderStyle: =BorderStyle.None
                             FillPortions: =FlexOff
-                            Height: =DVIcon1_2.Y + DVIcon1_2.Height + 8
+                            Height: =IconResetFilters.Y + IconResetFilters.Height + 8
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutGap: =5
                             LayoutMinHeight: =100
@@ -432,7 +292,7 @@ TraceLogScreen As screen:
                                 || DateFilterPill.Visible)
                             ZIndex: =1
 
-                            "DVAutoWidthLabel3 As 'DV Auto Width Label'":
+                            "DVAutoWidthLabel3 As 'Auto Width Label (1.1.39)'":
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =20
                                 LayoutMinHeight: =200
@@ -466,7 +326,7 @@ TraceLogScreen As screen:
                                 Width: =DVAutoWidthLabel1.Width+DVFilterCancel.Width+16
                                 ZIndex: =2
 
-                                "DVAutoWidthLabel1 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -478,14 +338,14 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel As DVIcon:
+                                "DVFilterCancel As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =30
                                     IconName: ="Cancel"
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Reset(TraceLog_KeywordInput);
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Theme: =AppThemeNeutralJson
                                     Tooltip: ="Close"
                                     Width: =30
@@ -515,7 +375,7 @@ TraceLogScreen As screen:
                                 Width: =DVAutoWidthLabel1_1.Width+DVFilterCancel_1.Width+16
                                 ZIndex: =3
 
-                                "DVAutoWidthLabel1_1 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1_1 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -527,14 +387,14 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel_1 As DVIcon:
+                                "DVFilterCancel_1 As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =30
                                     IconName: ="Cancel"
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Reset(TraceLog_NameDropdown);
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Theme: =AppThemeNeutralJson
                                     Tooltip: ="Close"
                                     Width: =30
@@ -565,7 +425,7 @@ TraceLogScreen As screen:
                                 Width: =DVAutoWidthLabel1_2.Width+DVFilterCancel_2.Width+16
                                 ZIndex: =4
 
-                                "DVAutoWidthLabel1_2 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1_2 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -577,14 +437,14 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel_2 As DVIcon:
+                                "DVFilterCancel_2 As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =30
                                     IconName: ="Cancel"
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Reset(TraceLog_TypeRadioGroup);
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Theme: =AppThemeNeutralJson
                                     Tooltip: ="Close"
                                     Width: =30
@@ -612,10 +472,10 @@ TraceLogScreen As screen:
                                 RadiusTopLeft: =20
                                 RadiusTopRight: =20
                                 Visible: =!(IsBlank(TraceLog_ModeRadioGroup.Selected.Value) || TraceLog_ModeRadioGroup.Selected.DisplayName=PluginMonitorLoc.radioAllTxt)
-                                Width: =DVAutoWidthLabel1_3.Width+DVFilterCancel_3.Width+16
+                                Width: =DVAutoWidthLabel1_3.Width+btnDismiss_1.Width+16
                                 ZIndex: =5
 
-                                "DVAutoWidthLabel1_3 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1_3 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -627,20 +487,20 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel_3 As DVIcon:
+                                btnDismiss_1 As Button:
+                                    Appearance: ='ButtonCanvas.Appearance'.Subtle
                                     DisplayMode: =DisplayMode.Edit
-                                    Height: =30
-                                    IconName: ="Cancel"
-                                    LayoutMinHeight: =200
-                                    LayoutMinWidth: =200
-                                    OnChange: =Reset(TraceLog_ModeRadioGroup);
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
-                                    Theme: =AppThemeNeutralJson
-                                    Tooltip: ="Close"
-                                    Width: =30
+                                    Height: =32
+                                    Icon: ="Dismiss"
+                                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: =Reset(TraceLog_ModeRadioGroup);
+                                    Text: =
+                                    Width: =32
                                     X: =0
                                     Y: =0
-                                    ZIndex: =5
+                                    ZIndex: =6
 
                             DurationFilterPill As groupContainer.horizontalAutoLayoutContainer:
                                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -665,7 +525,7 @@ TraceLogScreen As screen:
                                 Width: =DVAutoWidthLabel1_4.Width+DVFilterCancel_4.Width+16
                                 ZIndex: =6
 
-                                "DVAutoWidthLabel1_4 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1_4 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -677,14 +537,14 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel_4 As DVIcon:
+                                "DVFilterCancel_4 As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =30
                                     IconName: ="Cancel"
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Reset(spnDurationMin);Reset(spnDurationMax);Set(SetMaxDuration,false);
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Theme: =AppThemeNeutralJson
                                     Tooltip: ="Close"
                                     Width: =30
@@ -711,10 +571,10 @@ TraceLogScreen As screen:
                                 RadiusTopLeft: =20
                                 RadiusTopRight: =20
                                 Visible: =TraceLog_ExceptionToggleButton.Checked
-                                Width: =DVAutoWidthLabel1_5.Width+DVFilterCancel_5.Width+16
+                                Width: =DVAutoWidthLabel1_5.Width+btnDismiss_0.Width+16
                                 ZIndex: =7
 
-                                "DVAutoWidthLabel1_5 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1_5 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -725,20 +585,36 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel_5 As DVIcon:
+                                btnDismiss_0 As Button:
+                                    Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                    DisplayMode: =DisplayMode.Edit
+                                    Height: =32
+                                    Icon: ="Dismiss"
+                                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    OnSelect: =Reset(TraceLog_ExceptionToggleButton);
+                                    Text: =
+                                    Width: =32
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =2
+
+                                "DVFilterCancel_5 As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =30
                                     IconName: ="Cancel"
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Reset(TraceLog_ExceptionToggleButton);
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Theme: =AppThemeNeutralJson
                                     Tooltip: ="Close"
+                                    Visible: =false
                                     Width: =30
                                     X: =0
                                     Y: =0
-                                    ZIndex: =5
+                                    ZIndex: =3
 
                             DateFilterPill As groupContainer.horizontalAutoLayoutContainer:
                                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -762,7 +638,7 @@ TraceLogScreen As screen:
                                 Width: =DVAutoWidthLabel1_6.Width+DVFilterCancel_6.Width+16
                                 ZIndex: =8
 
-                                "DVAutoWidthLabel1_6 As 'DV Auto Width Label'":
+                                "DVAutoWidthLabel1_6 As 'Auto Width Label (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     LayoutMinHeight: =200
@@ -782,14 +658,14 @@ TraceLogScreen As screen:
                                     Y: =5
                                     ZIndex: =1
 
-                                DVFilterCancel_6 As DVIcon:
+                                "DVFilterCancel_6 As 'Fluent Icon (1.1.39)'":
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =30
                                     IconName: ="Cancel"
                                     LayoutMinHeight: =200
                                     LayoutMinWidth: =200
                                     OnChange: =Reset(ddStartTime);Reset(ddEndTime)
-                                    TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Theme: =AppThemeNeutralJson
                                     Tooltip: ="Close"
                                     Width: =30
@@ -797,15 +673,17 @@ TraceLogScreen As screen:
                                     Y: =0
                                     ZIndex: =4
 
-                            DVIcon1_2 As DVIcon:
-                                AlignInContainer: =AlignInContainer.Center
+                            IconResetFilters As Button:
+                                Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                BasePaletteColor: =
                                 DisplayMode: =DisplayMode.Edit
+                                FontColor: =
+                                FontSize: =14
                                 Height: =32
-                                IconName: ="refresh"
-                                IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
-                                LayoutMinHeight: =200
-                                LayoutMinWidth: =200
-                                OnChange: |-
+                                Icon: ="ArrowReset"
+                                LayoutMinHeight: =32
+                                LayoutMinWidth: =96
+                                OnSelect: |-
                                     =Reset(TraceLog_TypeRadioGroup);
                                     Reset(TraceLog_ModeRadioGroup);
                                     Reset(TraceLog_NameDropdown);
@@ -816,15 +694,13 @@ TraceLogScreen As screen:
                                     Reset(spnDurationMin);
                                     Reset(spnDurationMax);
                                     Set(SetMaxDuration, false);
-                                Text: =PluginMonitorLoc.resetAllTxt
-                                Theme: =AppThemeJson
-                                Width: =100
-                                X: =0
-                                Y: =71
-                                ZIndex: =10
+                                Text: ="Reset all"
+                                Width: =102
+                                X: =476
+                                Y: =8
+                                ZIndex: =11
 
-                        DVFluentDetailsList As DVFluentDetailsList.pcfdataset:
-                            AlignInContainer: =AlignInContainer.Stretch
+                        "DVFluentDetailsList As 'Fluent Details List (1.1.39)'.pcfdataset":
                             ColSortable: =""
                             ColSortBy: =""
                             columns_Items: |-
@@ -894,10 +770,9 @@ TraceLogScreen As screen:
                             CurrentSortColumn: =ctxSortCol
                             CurrentSortDirection: |-
                                 =If(ctxSortAsc,
-                                    'PowerCAT.DVFluentDetailsList.CurrentSortDirection'.Ascending,
-                                    'PowerCAT.DVFluentDetailsList.CurrentSortDirection'.Descending) //'PowerCAT.DVFluentDetailsList.CurrentSortDirection'.Descending
+                                    'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending,
+                                    'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending) //'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending
                             DisplayMode: =DisplayMode.Edit
-                            FillPortions: =1
                             HeaderVisible: =true
                             Height: =200
                             InputEvent: =ctxTableEvent
@@ -951,7 +826,7 @@ TraceLogScreen As screen:
                                 If(Self.EventName="Sort", 
                                     UpdateContext({
                                         ctxSortCol:Self.SortEventColumn,
-                                        ctxSortAsc:If(Self.SortEventDirection='PowerCAT.DVFluentDetailsList.SortEventDirection'.Ascending,true,false)
+                                        ctxSortAsc:If(Self.SortEventDirection='PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,true,false)
                                     })
                                 );
                             RaiseOnRowSelectionChangeEvent: =true
@@ -1321,7 +1196,7 @@ TraceLogScreen As screen:
                         Visible: =DVFluentDetailsList.Visible
                         ZIndex: =6
 
-                        prevEndIcon As DVIcon:
+                        "prevEndIcon As 'Fluent Icon (1.1.39)'":
                             BorderRadius: =4
                             DisplayMode: |-
                                 =If(
@@ -1343,7 +1218,7 @@ TraceLogScreen As screen:
                             Y: =0
                             ZIndex: =1
 
-                        prevIcon As DVIcon:
+                        "prevIcon As 'Fluent Icon (1.1.39)'":
                             BorderRadius: =4
                             DisplayMode: |-
                                 =If(
@@ -1394,7 +1269,7 @@ TraceLogScreen As screen:
                             Y: =0
                             ZIndex: =3
 
-                        nextIcon As DVIcon:
+                        "nextIcon As 'Fluent Icon (1.1.39)'":
                             BorderRadius: =4
                             DisplayMode: |-
                                 =If(
@@ -1416,7 +1291,7 @@ TraceLogScreen As screen:
                             Y: =0
                             ZIndex: =4
 
-                        nextEndIcon As DVIcon:
+                        "nextEndIcon As 'Fluent Icon (1.1.39)'":
                             BorderRadius: =4
                             DisplayMode: |-
                                 =If(
@@ -1552,14 +1427,14 @@ TraceLogScreen As screen:
                         LayoutMinWidth: =96
                         Size: =20
                         Text: =PluginMonitorLoc.lblFilters
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                        VerticalAlign: =VerticalAlign.Middle
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =96
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-                    DVFilterPaneClose As DVIcon:
+                    "DVFilterPaneClose As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
                         IconName: ="Cancel"
@@ -1567,7 +1442,7 @@ TraceLogScreen As screen:
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({showHideFilterPanel:false});
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: ="Close"
                         Width: =30
@@ -1575,12 +1450,11 @@ TraceLogScreen As screen:
                         Y: =0
                         ZIndex: =4
 
-                DVIcon1 As DVIcon:
-                    AlignInContainer: =AlignInContainer.Stretch
+                "DVIcon1 As 'Fluent Icon (1.1.39)'":
                     DisplayMode: =DisplayMode.Edit
                     Height: =32
                     IconName: ="refresh"
-                    IconType: ='PowerCAT.DVIcon.IconType'.ActionButton
+                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
                     OnChange: |-
@@ -1628,7 +1502,7 @@ TraceLogScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -1646,6 +1520,7 @@ TraceLogScreen As screen:
                             Content: =PluginMonitorLoc.refineByKeywordInfoTxt
                             DisplayMode: =DisplayMode.Edit
                             FontColor: =
+                            FontSize: =0
                             Height: =32
                             LayoutMinHeight: =32
                             LayoutMinWidth: =32
@@ -1698,7 +1573,7 @@ TraceLogScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_1 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_1 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -1734,6 +1609,8 @@ TraceLogScreen As screen:
                         Items: =Sort(Distinct('Plug-in Trace Logs','Message Name'),SortOrder.Ascending)
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        Required: =false
+                        TriggerOutput: ="Keypress"
                         Width: =Parent.Width-20
                         X: =27
                         Y: =87
@@ -1771,7 +1648,7 @@ TraceLogScreen As screen:
                         Y: =-3
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_7 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_7 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -1846,13 +1723,13 @@ TraceLogScreen As screen:
                         Y: =19
                         ZIndex: =3
 
-                        "DVAutoWidthLabel2_8 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_8 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
                             Height: =18
                             LayoutMinHeight: =200
-                            LayoutMinWidth: =10
+                            LayoutMinWidth: =200
                             PaddingTop: =6
                             Text: ="—"
                             Width: =13
@@ -1892,7 +1769,7 @@ TraceLogScreen As screen:
                         Y: =-3
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_9 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_9 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -1978,7 +1855,7 @@ TraceLogScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_4 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_4 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -2013,6 +1890,7 @@ TraceLogScreen As screen:
                         LayoutMinHeight: =32
                         LayoutMinWidth: =100
                         Max: =spnDurationMax.Value
+                        Min: =0
                         Precision: ='NumberInput.Precision'.Auto
                         Value: =0
                         Width: =Parent.Width-20
@@ -2084,7 +1962,7 @@ TraceLogScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_6 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_6 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -2178,7 +2056,7 @@ TraceLogScreen As screen:
                     Y: =674
                     ZIndex: =10
 
-                    "DVAutoWidthLabel2_5 As 'DV Auto Width Label'":
+                    "DVAutoWidthLabel2_5 As 'Auto Width Label (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         FontSize: =10
                         FontWeight: ="600"
@@ -2249,7 +2127,7 @@ TraceLogScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_2 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_2 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -2317,7 +2195,7 @@ TraceLogScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =1
 
-                        "DVAutoWidthLabel2_3 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_3 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -2494,14 +2372,14 @@ TraceLogScreen As screen:
                         LayoutMinWidth: =180
                         Size: =16
                         Text: =PluginMonitorLoc.lblTraceLog
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                        VerticalAlign: =VerticalAlign.Middle
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =350
                         X: =0
                         Y: =0
                         ZIndex: =1
 
-                    DVCloseIcon As DVIcon:
+                    "DVCloseIcon As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         HoverBorderColor: =""
@@ -2510,7 +2388,7 @@ TraceLogScreen As screen:
                         LayoutMinWidth: =200
                         OnChange: |-
                             =UpdateContext({showHideTraceLogPanel:false}); UpdateContext({ctxTableEvent:"ClearSelection"&Text(Rand())})
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: ="Close"
                         Width: =32
@@ -2984,8 +2862,7 @@ TraceLogScreen As screen:
                                         Width: =Parent.Width
                                         ZIndex: =1
 
-                                        DVUpMsgBlockIcon As DVIcon:
-                                            AlignInContainer: =AlignInContainer.Center
+                                        "DVUpMsgBlockIcon As 'Fluent Icon (1.1.39)'":
                                             DisplayMode: =DisplayMode.Edit
                                             Height: =32
                                             HoverBorderColor: =""
@@ -2994,7 +2871,7 @@ TraceLogScreen As screen:
                                             LayoutMinHeight: =200
                                             LayoutMinWidth: =200
                                             OnChange: =Set(ShowMessageBlock,true);
-                                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                             Theme: =AppThemeNeutralJson
                                             Tooltip: ="Close"
                                             Visible: =!ExpandMessageBlock
@@ -3075,6 +2952,7 @@ TraceLogScreen As screen:
                                     Font: =Font.'Segoe UI'
                                     HtmlText: =pluginData.messageblock
                                     PaddingLeft: =8
+                                    Size: =10.5
                                     ZIndex: =2
 
                                 Container5 As groupContainer.verticalAutoLayoutContainer:
@@ -3087,8 +2965,7 @@ TraceLogScreen As screen:
                                     Width: =44
                                     ZIndex: =4
 
-                                    DVFullScreenIcon As DVIcon:
-                                        AlignInContainer: =AlignInContainer.Center
+                                    "DVFullScreenIcon As 'Fluent Icon (1.1.39)'":
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =30
                                         HoverBorderColor: =""
@@ -3100,7 +2977,7 @@ TraceLogScreen As screen:
                                         LayoutMinWidth: =200
                                         OnChange: |-
                                             =UpdateContext({ExpandMessageBlock:!ExpandMessageBlock});
-                                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                         Theme: =AppThemeNeutralJson
                                         Tooltip: ="Close"
                                         Width: =30
@@ -3108,8 +2985,7 @@ TraceLogScreen As screen:
                                         Y: =0
                                         ZIndex: =1
 
-                                    DVCopyIcon As DVIcon:
-                                        AlignInContainer: =AlignInContainer.Center
+                                    "DVCopyIcon As 'Fluent Icon (1.1.39)'":
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =30
                                         HoverBorderColor: =""
@@ -3121,7 +2997,7 @@ TraceLogScreen As screen:
                                         LayoutMinWidth: =200
                                         OnChange: |-
                                             =Copy(Text(pluginData.messageblock)); Notify(PluginMonitorLoc.copyClipboardMessageTxt); // todo: LOC
-                                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                         Theme: =AppThemeNeutralJson
                                         Tooltip: ="Copy to clipboard"
                                         Width: =30
@@ -3182,8 +3058,7 @@ TraceLogScreen As screen:
                                         Width: =Parent.Width
                                         ZIndex: =1
 
-                                        DVUpExBlockIcon As DVIcon:
-                                            AlignInContainer: =AlignInContainer.Center
+                                        "DVUpExBlockIcon As 'Fluent Icon (1.1.39)'":
                                             DisplayMode: =DisplayMode.Edit
                                             Height: =32
                                             HoverBorderColor: =""
@@ -3192,7 +3067,7 @@ TraceLogScreen As screen:
                                             LayoutMinHeight: =200
                                             LayoutMinWidth: =200
                                             OnChange: =
-                                            TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                             Theme: =AppThemeNeutralJson
                                             Tooltip: ="Close"
                                             Visible: =!ExpandExceptionBlock
@@ -3274,6 +3149,7 @@ TraceLogScreen As screen:
                                     HtmlText: =pluginData.exceptiondetails
                                     LayoutMinHeight: =Parent.Height
                                     PaddingLeft: =8
+                                    Size: =10.5
                                     ZIndex: =2
 
                                 Container5_1 As groupContainer.verticalAutoLayoutContainer:
@@ -3286,8 +3162,7 @@ TraceLogScreen As screen:
                                     Width: =44
                                     ZIndex: =4
 
-                                    DVFullScreenIcon_1 As DVIcon:
-                                        AlignInContainer: =AlignInContainer.Center
+                                    "DVFullScreenIcon_1 As 'Fluent Icon (1.1.39)'":
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =30
                                         HoverBorderColor: =""
@@ -3298,7 +3173,7 @@ TraceLogScreen As screen:
                                         LayoutMinWidth: =200
                                         OnChange: |-
                                             =UpdateContext({ExpandExceptionBlock:!ExpandExceptionBlock});
-                                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                         Theme: =AppThemeNeutralJson
                                         Tooltip: ="Expand"
                                         Width: =30
@@ -3306,8 +3181,7 @@ TraceLogScreen As screen:
                                         Y: =0
                                         ZIndex: =1
 
-                                    DVCopyIcon_1 As DVIcon:
-                                        AlignInContainer: =AlignInContainer.Center
+                                    "DVCopyIcon_1 As 'Fluent Icon (1.1.39)'":
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =30
                                         HoverBorderColor: =""
@@ -3318,7 +3192,7 @@ TraceLogScreen As screen:
                                         LayoutMinWidth: =200
                                         OnChange: |-
                                             =Copy(Text(pluginData.exceptiondetails)); Notify(PluginMonitorLoc.copyClipboardMessageTxt); // todo: LOC
-                                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
+                                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                         Theme: =AppThemeNeutralJson
                                         Tooltip: ="Copy to clipboard"
                                         Width: =30
@@ -3403,7 +3277,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =150
                             Text: =PluginMonitorLoc.lblPrimaryTable
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                            VerticalAlign: =VerticalAlign.Top
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =130
                             X: =0
@@ -3420,7 +3294,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =300
                             Text: =pluginData.primaryentity
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                            VerticalAlign: =VerticalAlign.Top
                             Width: =Parent.Width - context_lblPrimaryTable_1.Width - 4
                             X: =0
                             Y: =0
@@ -3450,7 +3324,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =96
                             Text: =PluginMonitorLoc.lblName
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                            VerticalAlign: =VerticalAlign.Top
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =130
                             X: =0
@@ -3501,7 +3375,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =20
                             LayoutMinWidth: =130
                             Text: =PluginMonitorLoc.lblMessageNameTxt
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                            VerticalAlign: =VerticalAlign.Middle
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =135
                             Wrap: =true
@@ -3622,7 +3496,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =30
                             LayoutMinWidth: =120
                             Text: =pluginData.persistencekey
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                            VerticalAlign: =VerticalAlign.Middle
                             Width: =96
                             Wrap: =false
                             X: =0
@@ -3903,7 +3777,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =30
                             LayoutMinWidth: =96
                             Text: =pluginData.correlationid
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                            VerticalAlign: =VerticalAlign.Top
                             Width: =96
                             Wrap: =false
                             X: =0
@@ -3953,7 +3827,7 @@ TraceLogScreen As screen:
                             LayoutMinHeight: =30
                             LayoutMinWidth: =96
                             Text: =pluginData.requestid
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                            VerticalAlign: =VerticalAlign.Top
                             Width: =96
                             Wrap: =false
                             X: =0

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ef26f85d-6226-4fc0-8601-82820bd9ece8}</savedqueryid>
+    <layoutxml>
+      <grid name="cat_riskassessments" jump="cat_name" select="1" icon="1" preview="0">
+        <row name="cat_riskassessment" id="cat_riskassessmentid">
+          <cell name="cat_name" width="145" />
+          <cell name="cat_roleid" width="175" />
+          <cell name="cat_assessedrisklevel" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_riskassessment">
+          <attribute name="cat_riskassessmentid" />
+          <attribute name="cat_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cat_roleid" />
+          <order attribute="cat_name" descending="false" />
+          <attribute name="cat_assessedrisklevel" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Risk Assessment Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

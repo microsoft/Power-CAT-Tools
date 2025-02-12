@@ -69,13 +69,10 @@ EditSettingsScreen As screen:
         =/* Load data for this page while spinner is loading */
         If(
             init <> true,
-            UpdateContext(
-                {
-                    lblSelectedAssessmentSettingId: currentSelectedAssessmentSetting.'Risk Assessment Setting'
-                }
-            );
-            
+            false,
+            true
         );
+        UpdateContext({lblSelectedAssessmentSettingId: currentSelectedAssessmentSetting.'Risk Assessment Setting'});
         ClearCollect(
             col_temp_prvRisk,
             Table(
@@ -133,8 +130,6 @@ EditSettingsScreen As screen:
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
-                LayoutMinHeight: =200
-                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -191,8 +186,6 @@ EditSettingsScreen As screen:
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -220,8 +213,6 @@ EditSettingsScreen As screen:
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -249,8 +240,6 @@ EditSettingsScreen As screen:
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -567,6 +556,7 @@ EditSettingsScreen As screen:
 
                     tlbRight_6 As Toolbar.pcfdataset:
                         AccessibleLabel: ="Toolbar"
+                        BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =0.2
                         Height: =44
@@ -912,15 +902,14 @@ EditSettingsScreen As screen:
                                 ZIndex: =1
 
                                 NameFieldText As Text:
-                                    AlignInContainer: =AlignInContainer.Start
                                     DisplayMode: =DisplayMode.Edit
-                                    FillPortions: =1
                                     Font: =Font.'Segoe UI'
                                     FontColor: =RGBA(36, 36, 36, 1)
                                     Height: =32
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
                                     Text: =DVAssessmentPageLoc.name
+                                    VerticalAlign: =VerticalAlign.Middle
                                     Weight: ='TextCanvas.Weight'.Semibold
                                     Width: =50
                                     X: =0
@@ -1007,6 +996,7 @@ EditSettingsScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 Text: =DVAssessmentPageLoc.riskRatingsColumn
+                                VerticalAlign: =VerticalAlign.Middle
                                 Weight: ='TextCanvas.Weight'.Semibold
                                 Width: =Parent.Width-20
                                 X: =0
@@ -1097,6 +1087,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.privilegeColumnName
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Width: =96
                                         X: =0
                                         Y: =0
@@ -1141,6 +1132,7 @@ EditSettingsScreen As screen:
                                             LayoutMinHeight: =32
                                             LayoutMinWidth: =96
                                             Text: =DVAssessmentPageLoc.organizationColumnName
+                                            VerticalAlign: =VerticalAlign.Middle
                                             Weight: ='TextCanvas.Weight'.Semibold
                                             Width: =86
                                             X: =0
@@ -1148,6 +1140,7 @@ EditSettingsScreen As screen:
                                             ZIndex: =2
 
                                         "InfoButton_Organization As 'Information button'":
+                                            AlignInContainer: =AlignInContainer.Center
                                             Content: ="Access to all records across the entire organization, regardless of ownership. Intended for global-level users or administrators."
                                             DisplayMode: =DisplayMode.Edit
                                             Height: =28
@@ -1199,6 +1192,7 @@ EditSettingsScreen As screen:
                                             LayoutMinHeight: =32
                                             LayoutMinWidth: =96
                                             Text: =DVAssessmentPageLoc.parentChildBuColumnName
+                                            VerticalAlign: =VerticalAlign.Middle
                                             Weight: ='TextCanvas.Weight'.Semibold
                                             Width: =170
                                             X: =0
@@ -1206,6 +1200,7 @@ EditSettingsScreen As screen:
                                             ZIndex: =2
 
                                         "InfoButton_PCBU As 'Information button'":
+                                            AlignInContainer: =AlignInContainer.Center
                                             Content: ="Access to records within the user’s business unit and all subordinate business units. For users who need visibility across multiple levels of the hierarchy."
                                             DisplayMode: =DisplayMode.Edit
                                             Height: =28
@@ -1255,6 +1250,7 @@ EditSettingsScreen As screen:
                                             LayoutMinHeight: =32
                                             LayoutMinWidth: =96
                                             Text: =DVAssessmentPageLoc.businessUnitColumnName
+                                            VerticalAlign: =VerticalAlign.Middle
                                             Weight: ='TextCanvas.Weight'.Semibold
                                             Width: =88
                                             X: =0
@@ -1262,6 +1258,7 @@ EditSettingsScreen As screen:
                                             ZIndex: =2
 
                                         "InfoButton_BU As 'Information button'":
+                                            AlignInContainer: =AlignInContainer.Center
                                             Content: ="Access to records within the same business unit as the user. Ideal for team-level data visibility."
                                             DisplayMode: =DisplayMode.Edit
                                             Height: =28
@@ -1310,6 +1307,7 @@ EditSettingsScreen As screen:
                                             LayoutMinHeight: =32
                                             LayoutMinWidth: =96
                                             Text: =DVAssessmentPageLoc.userColumnName
+                                            VerticalAlign: =VerticalAlign.Middle
                                             Weight: ='TextCanvas.Weight'.Semibold
                                             Width: =35
                                             X: =0
@@ -1317,6 +1315,7 @@ EditSettingsScreen As screen:
                                             ZIndex: =2
 
                                         "InfoButton_User As 'Information button'":
+                                            AlignInContainer: =AlignInContainer.Center
                                             Content: ="Access to records that the user owns or records shared with them. Suitable for personal data management."
                                             DisplayMode: =DisplayMode.Edit
                                             Height: =28
@@ -1353,6 +1352,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.createPrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -1792,6 +1792,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.readPrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -2241,6 +2242,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.update
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -2689,6 +2691,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.deletePrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -3133,6 +3136,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.appendPrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -3585,6 +3589,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.appendToPrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -4032,6 +4037,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.assignPrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -4477,6 +4483,7 @@ EditSettingsScreen As screen:
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.sharePrivilege
+                                        VerticalAlign: =VerticalAlign.Middle
                                         Weight: ='TextCanvas.Weight'.Semibold
                                         Width: =96
                                         X: =0
@@ -5056,6 +5063,7 @@ EditSettingsScreen As screen:
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
                                     Text: =DVAssessmentPageLoc.description
+                                    VerticalAlign: =VerticalAlign.Middle
                                     Weight: ='TextCanvas.Weight'.Semibold
                                     Width: =96
                                     X: =0
