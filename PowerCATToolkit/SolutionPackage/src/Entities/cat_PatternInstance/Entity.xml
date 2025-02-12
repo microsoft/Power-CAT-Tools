@@ -96,7 +96,7 @@
           <Name>cat_patterninstance1</Name>
           <LogicalName>cat_patterninstance1</LogicalName>
           <RequiredLevel>required</RequiredLevel>
-          <DisplayMask>PrimaryName|ValidForForm|ValidForGrid|RequiredForForm</DisplayMask>
+          <DisplayMask>PrimaryName|ValidForAdvancedFind|ValidForForm|ValidForGrid|RequiredForForm</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>

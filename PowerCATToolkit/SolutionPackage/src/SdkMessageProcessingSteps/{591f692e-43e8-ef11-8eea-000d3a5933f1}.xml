@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePlugin: Create of role" SdkMessageProcessingStepId="{591f692e-43e8-ef11-8eea-000d3a5933f1}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>9ebdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a</PluginTypeName>
+  <PluginTypeId>1f12977b-c385-4f32-b81f-00974726366f</PluginTypeId>
+  <PrimaryEntity>role</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePlugin: Create of role</Description>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

@@ -31,8 +31,6 @@
       "modifiedby": "Modified By",
       "modifiedon": "Modified On",
       "modifiedonbehalfby": "Modified By (Delegate)",
-      "msdyn_customapirequestparameter_msdyn_customapirulesetconfiguration_CustomAPIRequestParameter": "Custom API Ruleset Configurations",
-      "msdynmkt_customapirequestparameter_eventparameter": "EventParameterMetadataSet",
       "name": "Name",
       "overriddencreatedon": "Record Created On",
       "overwritetime": "Record Overwrite Time",

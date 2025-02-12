@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{b15b790a-5e08-4bb4-a000-032db87da585}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Document Status" languagecode="1033" />
                         </labels>
                         <control id="cat_documentstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cat_documentstatus" disabled="false" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{6a3caeb4-2679-4575-9f7b-dbb19fd60846}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Document HTML Dataset" languagecode="1033" />
                         </labels>
                         <control id="cat_documenthtmldataset" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="cat_documenthtmldataset" disabled="false" />
                       </cell>
@@ -54,7 +54,7 @@
                     <row>
                       <cell id="{4a63390b-d8ca-4eb7-8877-af0489a3195c}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Solution Document" languagecode="1033" />
                         </labels>
                         <control id="cat_solutiondocument" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="cat_solutiondocument" disabled="false" />
                       </cell>
@@ -62,7 +62,7 @@
                     <row>
                       <cell id="{2b1389f8-b9a0-44d9-8518-678d9f0fc152}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Solution Zip File" languagecode="1033" />
                         </labels>
                         <control id="cat_solutionzipfile" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="cat_solutionzipfile" disabled="false" />
                       </cell>
@@ -70,7 +70,7 @@
                     <row>
                       <cell id="{4569c515-9b90-4f27-941f-3a032d7e27f8}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Solution Name" languagecode="1033" />
                         </labels>
                         <control id="cat_solutionname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cat_solutionname" disabled="false" />
                       </cell>

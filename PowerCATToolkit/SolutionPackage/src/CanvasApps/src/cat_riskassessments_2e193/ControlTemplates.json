@@ -142,7 +142,7 @@
     "Name": "cat_PowerCAT.DVAPITester",
     "OverridableProperties": {},
     "TemplateDisplayName": "DVAPITester",
-    "Version": "0.1.2"
+    "Version": "0.1.4"
   },
   "DVFluentDetailsListWithContextMenu": {
     "CustomGroupControlTemplateName": "",

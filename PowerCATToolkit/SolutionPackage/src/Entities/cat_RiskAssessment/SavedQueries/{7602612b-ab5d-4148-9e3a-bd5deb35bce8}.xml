@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7602612b-ab5d-4148-9e3a-bd5deb35bce8}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cat_name" select="1" icon="1" preview="1">
+        <row name="result" id="cat_riskassessmentid">
+          <cell name="cat_roleid" width="177" />
+          <cell name="cat_assessmentdate" width="137" />
+          <cell name="statuscode" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_riskassessment">
+          <attribute name="cat_riskassessmentid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cat_name" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cat_assessmentdate" />
+          <order attribute="cat_assessmentdate" descending="true" />
+          <attribute name="statuscode" />
+          <attribute name="cat_roleid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Risk Assessments" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

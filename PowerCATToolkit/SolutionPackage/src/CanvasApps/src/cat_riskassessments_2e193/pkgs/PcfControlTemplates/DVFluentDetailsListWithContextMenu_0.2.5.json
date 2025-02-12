@@ -2920,14 +2920,14 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/be4f4d16-028d-467b-af6e-505e6387b723-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App970work04cfhln1q.4vh020S0Resources0Controls0PowerCAT.DVFluentDetailsListWithContextMenu.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-11-29T11%3A12%3A26Z&ske=2024-11-30T11%3A27%3A26Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-11-30T11%3A27%3A26Z&sr=b&sp=r&sig=%2FK09QVkO8t77V7YvTKUkeqZ9IvEwQhc%2F4%2FSaCaF87fE%3D",
+      "ModifiedPath": "https://dsprdil104eus.blob.core.windows.net/ca6c96b4-7058-459f-8e91-bf9bd8f1bad6-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App1000work03lfupsxj.tzj020S0Resources0Controls0PowerCAT.DVFluentDetailsListWithContextMenu.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T18%3A46%3A02Z&ske=2025-02-12T19%3A01%3A02Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T19%3A01%3A02Z&sr=b&sp=r&sig=5oKRHT2sbIIiBPFdUUniNAkBrhZ35arJh9NZbIUIa%2FU%3D",
       "Path": "/PCFControls/cat_PowerCAT.DVFluentDetailsListWithContextMenu/PowerCAT.DVFluentDetailsListWithContextMenu.bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/be4f4d16-028d-467b-af6e-505e6387b723-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App970work04cfhln1q.4vh020S0Resources0Controls0css%252fPowerCAT.DVFluentDetailsListWithContextMenu.DetailsList.css?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-11-29T11%3A12%3A26Z&ske=2024-11-30T11%3A27%3A26Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-11-30T11%3A27%3A26Z&sr=b&sp=r&sig=SdY1GQZNVC40paQXOx7EwSkkQTomRnFKgRLTmUtCREI%3D",
+      "ModifiedPath": "https://dsprdil104eus.blob.core.windows.net/ca6c96b4-7058-459f-8e91-bf9bd8f1bad6-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App1000work03lfupsxj.tzj020S0Resources0Controls0css%252fPowerCAT.DVFluentDetailsListWithContextMenu.DetailsList.css?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T18%3A46%3A02Z&ske=2025-02-12T19%3A01%3A02Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T19%3A01%3A02Z&sr=b&sp=r&sig=9%2Fbd9H3hmjQ1vk%2BL7dCuh%2FuewpzCpDf7GK2Abrh%2F%2BLs%3D",
       "Path": "/PCFControls/cat_PowerCAT.DVFluentDetailsListWithContextMenu/css/PowerCAT.DVFluentDetailsListWithContextMenu.DetailsList.css",
       "Type": 1
     },
@@ -2935,14 +2935,14 @@
       "IsControlSpecific": true,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "/PCFControls/cat_PowerCAT.DVFluentDetailsListWithContextMenu/strings/PowerCAT.DVFluentDetailsListWithContextMenu.DetailsList.1033.resx",
+      "Path": "/PCFControls/cat_PowerCAT.DVFluentDetailsListWithContextMenu/strings/PowerCAT.DVFluentDetailsListWithContextMenu.DVDetailsList.1033.resx",
       "Type": 2
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 14,
-      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/be4f4d16-028d-467b-af6e-505e6387b723-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App970work04cfhln1q.4vh020S0Resources0Controls0strings%252fPowerCAT.DVFluentDetailsListWithContextMenu.DetailsList.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-11-29T11%3A12%3A26Z&ske=2024-11-30T11%3A27%3A26Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-11-30T11%3A27%3A26Z&sr=b&sp=r&sig=jwlK6Q%2B0VRFafQe2NgKD8expL%2FIlnx6DHsB4jzNzgXw%3D",
-      "Path": "/PCFControls/cat_PowerCAT.DVFluentDetailsListWithContextMenu/strings/PowerCAT.DVFluentDetailsListWithContextMenu.DetailsList.1033.json",
+      "ModifiedPath": "https://dsprdil104eus.blob.core.windows.net/ca6c96b4-7058-459f-8e91-bf9bd8f1bad6-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App1000work03lfupsxj.tzj020S0Resources0Controls0strings%252fPowerCAT.DVFluentDetailsListWithContextMenu.DVDetailsList.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T18%3A46%3A02Z&ske=2025-02-12T19%3A01%3A02Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T19%3A01%3A02Z&sr=b&sp=r&sig=Cc69KM0fI1pFfc%2BVBv4z85I4PpFyQ8d92uYjhqwVFMo%3D",
+      "Path": "/PCFControls/cat_PowerCAT.DVFluentDetailsListWithContextMenu/strings/PowerCAT.DVFluentDetailsListWithContextMenu.DVDetailsList.1033.json",
       "Type": 5
     },
     {

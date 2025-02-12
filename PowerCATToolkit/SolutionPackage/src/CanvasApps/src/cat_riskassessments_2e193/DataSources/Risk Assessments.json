@@ -1,15 +1,52 @@
 [
   {
     "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
-    "EntitySetName": "msdyn_riskassessments",
+    "EntitySetName": "cat_riskassessments",
     "IsHidden": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "LogicalName": "msdyn_riskassessment",
+    "LogicalName": "cat_riskassessment",
     "MaxGetRowsCount": 2000,
     "Name": "Risk Assessments",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
+      "cat_assessedrisklevel": "Assessed Risk Level",
+      "cat_assessmentdate": "Assessment Date",
+      "cat_assessmentlogjson": "Assessment Log JSON",
+      "cat_ExceptionApprovedBy": "Exception Approved By",
+      "cat_exceptionapprovedon": "Exception Approved On",
+      "cat_exceptionflagged": "Exception Flagged",
+      "cat_ExceptionFlaggedBy": "Exception Flagged By",
+      "cat_exceptionflaggedon": "Exception Flagged On",
+      "cat_exceptionreason": "Exception Reason",
+      "cat_isarchived": "Is Archived",
+      "cat_membercount": "Member Count",
+      "cat_name": "Request Number",
+      "cat_riskassessment_AsyncOperations": "System Jobs",
+      "cat_riskassessment_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_riskassessment_DuplicateBaseRecord": "Duplicate Records (cat_riskassessment_DuplicateBaseRecord)",
+      "cat_riskassessment_DuplicateMatchingRecord": "Duplicate Records (cat_riskassessment_DuplicateMatchingRecord)",
+      "cat_riskassessment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_riskassessment_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_riskassessment_ProcessSession": "Process Sessions",
+      "cat_riskassessment_SyncErrors": "Sync Errors",
+      "cat_riskassessmentid": "Risk Assessment",
+      "cat_RiskAssessmentSettingId": "Risk Assessment Setting",
+      "cat_RoleId": "Security Role",
+      "cat_tagbordercolorforstatusreason": "Tag Border Color For Status Reason",
+      "cat_tagcolorforassessedrisklevel": "Tag Color For Assessed Risk Level",
+      "cat_tagcolorforrisklevel": "Tag Color For Risk Level",
+      "cat_tagcolorforstatusreason": "Tag Color For Status Reason",
+      "cat_totalbulevelprivileges": "Total BU Level Privileges",
+      "cat_totalcriticalrisk": "Total Critical Risk",
+      "cat_totalhighrisk": "Total High Risk",
+      "cat_totallowrisk": "Total Low Risk",
+      "cat_totalmoderaterisk": "Total Moderate Risk",
+      "cat_totalnorisk": "Total No Risk",
+      "cat_totalorglevelprivileges": "Total Org Level Privileges",
+      "cat_totalpcbulevelprivileges": "Total PCBU Level Privileges",
+      "cat_totalprivileges": "Total Privileges",
+      "cat_totaluserlevelprivileges": "Total User Level Privileges",
       "createdby": "Created By",
       "createdon": "Created On",
       "createdonbehalfby": "Created By (Delegate)",
@@ -17,43 +54,6 @@
       "modifiedby": "Modified By",
       "modifiedon": "Modified On",
       "modifiedonbehalfby": "Modified By (Delegate)",
-      "msdyn_assessedrisklevel": "Assessed Risk Level",
-      "msdyn_assessmentdate": "Assessment Date",
-      "msdyn_assessmentlogjson": "Assessment Log JSON",
-      "msdyn_ExceptionApprovedBy": "Exception Approved By",
-      "msdyn_exceptionapprovedon": "Exception Approved On",
-      "msdyn_exceptionflagged": "Exception Flagged",
-      "msdyn_ExceptionFlaggedBy": "Exception Flagged By",
-      "msdyn_exceptionflaggedon": "Exception Flagged On",
-      "msdyn_exceptionreason": "Exception Reason",
-      "msdyn_isarchived": "Is Archived",
-      "msdyn_membercount": "Member Count",
-      "msdyn_name": "Request Number",
-      "msdyn_riskassessment_AsyncOperations": "System Jobs",
-      "msdyn_riskassessment_BulkDeleteFailures": "Bulk Delete Failures",
-      "msdyn_riskassessment_DuplicateBaseRecord": "Duplicate Records (msdyn_riskassessment_DuplicateBaseRecord)",
-      "msdyn_riskassessment_DuplicateMatchingRecord": "Duplicate Records (msdyn_riskassessment_DuplicateMatchingRecord)",
-      "msdyn_riskassessment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
-      "msdyn_riskassessment_PrincipalObjectAttributeAccesses": "Field Sharing",
-      "msdyn_riskassessment_ProcessSession": "Process Sessions",
-      "msdyn_riskassessment_SyncErrors": "Sync Errors",
-      "msdyn_riskassessmentid": "Risk Assessment",
-      "msdyn_RiskAssessmentSettingId": "Risk Assessment Setting",
-      "msdyn_RoleId": "Security Role",
-      "msdyn_tagbordercolorforstatusreason": "Tag Border Color For Status Reason",
-      "msdyn_tagcolorforassessedrisklevel": "Tag Color For Assessed Risk Level",
-      "msdyn_tagcolorforrisklevel": "Tag Color For Risk Level",
-      "msdyn_tagcolorforstatusreason": "Tag Color For Status Reason",
-      "msdyn_totalbulevelprivileges": "Total BU Level Privileges",
-      "msdyn_totalcriticalrisk": "Total Critical Risk",
-      "msdyn_totalhighrisk": "Total High Risk",
-      "msdyn_totallowrisk": "Total Low Risk",
-      "msdyn_totalmoderaterisk": "Total Moderate Risk",
-      "msdyn_totalnorisk": "Total No Risk",
-      "msdyn_totalorglevelprivileges": "Total Org Level Privileges",
-      "msdyn_totalpcbulevelprivileges": "Total PCBU Level Privileges",
-      "msdyn_totalprivileges": "Total Privileges",
-      "msdyn_totaluserlevelprivileges": "Total User Level Privileges",
       "overriddencreatedon": "Record Created On",
       "owningbusinessunit": "Owning Business Unit",
       "owningteam": "Owning Team",
@@ -69,7 +69,7 @@
   },
   {
     "DisplayName": "Risk Assessments (Views)",
-    "Name": "_msdyn_riskassessment_views",
+    "Name": "_cat_riskassessment_views",
     "RelatedEntityName": "Risk Assessments",
     "TrimmedViewName": true,
     "Type": "ViewInfo",
@@ -84,7 +84,7 @@
   },
   {
     "DisplayName": "Assessed Risk Level (Risk Assessments)",
-    "Name": "msdyn_riskassessment_msdyn_assessedrisklevel",
+    "Name": "cat_riskassessment_cat_assessedrisklevel",
     "OptionSetInfoNameMapping": {
       "192350000": "No Risk",
       "192350001": "Low",
@@ -96,18 +96,18 @@
     "OptionSetIsGlobal": false,
     "OptionSetReference": {
       "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "msdyn_assessedrisklevel",
+        "OptionSetReferenceColumnName": "cat_assessedrisklevel",
         "OptionSetReferenceEntityName": "Risk Assessments"
       }
     },
     "OptionSetTypeKey": "PicklistType",
-    "RelatedColumnInvariantName": "msdyn_assessedrisklevel",
+    "RelatedColumnInvariantName": "cat_assessedrisklevel",
     "RelatedEntityName": "Risk Assessments",
     "Type": "OptionSetInfo"
   },
   {
     "DisplayName": "Exception Flagged (Risk Assessments)",
-    "Name": "msdyn_riskassessment_msdyn_exceptionflagged",
+    "Name": "cat_riskassessment_cat_exceptionflagged",
     "OptionSetInfoNameMapping": {
       "0": "No",
       "1": "Yes"
@@ -116,18 +116,18 @@
     "OptionSetIsGlobal": false,
     "OptionSetReference": {
       "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "msdyn_exceptionflagged",
+        "OptionSetReferenceColumnName": "cat_exceptionflagged",
         "OptionSetReferenceEntityName": "Risk Assessments"
       }
     },
     "OptionSetTypeKey": "BooleanType",
-    "RelatedColumnInvariantName": "msdyn_exceptionflagged",
+    "RelatedColumnInvariantName": "cat_exceptionflagged",
     "RelatedEntityName": "Risk Assessments",
     "Type": "OptionSetInfo"
   },
   {
     "DisplayName": "Is Archived (Risk Assessments)",
-    "Name": "msdyn_riskassessment_msdyn_isarchived",
+    "Name": "cat_riskassessment_cat_isarchived",
     "OptionSetInfoNameMapping": {
       "0": "No",
       "1": "Yes"
@@ -136,18 +136,18 @@
     "OptionSetIsGlobal": false,
     "OptionSetReference": {
       "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "msdyn_isarchived",
+        "OptionSetReferenceColumnName": "cat_isarchived",
         "OptionSetReferenceEntityName": "Risk Assessments"
       }
     },
     "OptionSetTypeKey": "BooleanType",
-    "RelatedColumnInvariantName": "msdyn_isarchived",
+    "RelatedColumnInvariantName": "cat_isarchived",
     "RelatedEntityName": "Risk Assessments",
     "Type": "OptionSetInfo"
   },
   {
     "DisplayName": "Status (Risk Assessments)",
-    "Name": "msdyn_riskassessment_statecode",
+    "Name": "cat_riskassessment_statecode",
     "OptionSetInfoNameMapping": {
       "0": "Active",
       "1": "Inactive"
@@ -167,7 +167,7 @@
   },
   {
     "DisplayName": "Status Reason (Risk Assessments)",
-    "Name": "msdyn_riskassessment_statuscode",
+    "Name": "cat_riskassessment_statuscode",
     "OptionSetInfoNameMapping": {
       "1": "Pending",
       "192350001": "Needs Review",

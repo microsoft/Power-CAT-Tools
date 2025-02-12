@@ -14,6 +14,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_17.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_17.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Home Screen",
+                "type": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_17"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_11.AccessibleLabel"
                 }
               ],
@@ -87,36 +117,6 @@
                 "member": "AccessibleLabel",
                 "module": "Home Screen",
                 "type": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_19"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_17.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_17.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Home Screen",
-                "type": "'Home Screen'.cAppFrameContainer_1.cMainContainer_3.Container2_7.cCardsRow_5.Card1_17"
               }
             }
           ],

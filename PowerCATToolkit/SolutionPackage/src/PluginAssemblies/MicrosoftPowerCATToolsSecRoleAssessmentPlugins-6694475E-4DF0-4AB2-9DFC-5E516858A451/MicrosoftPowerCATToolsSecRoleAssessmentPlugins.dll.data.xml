@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginAssemblyId="6694475e-4df0-4ab2-9dfc-5e516858a451" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/MicrosoftPowerCATToolsSecRoleAssessmentPlugins-6694475E-4DF0-4AB2-9DFC-5E516858A451/MicrosoftPowerCATToolsSecRoleAssessmentPlugins.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentPlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="6add725f-45d5-4bfb-85e6-db99caa20b4a" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentPlugin">
+      <FriendlyName>1b091547-001b-4fe0-bf04-133c53fa67cf</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="201a3ba0-8d2d-4feb-8432-5137a4764a40" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin">
+      <FriendlyName>dc7773d5-934b-4b4b-a14d-e94b5b6a31b7</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="1f12977b-c385-4f32-b81f-00974726366f" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePlugin">
+      <FriendlyName>60804c7e-94cb-4baa-a417-8b73ba30a1f9</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="8bbaecd4-bc09-4ef6-891f-5f05a774f628" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin">
+      <FriendlyName>17cb6ffd-30ec-449b-a79d-61ca674f44b2</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

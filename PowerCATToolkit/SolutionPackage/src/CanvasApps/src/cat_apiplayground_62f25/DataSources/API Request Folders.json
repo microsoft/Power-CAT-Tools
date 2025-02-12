@@ -1,15 +1,26 @@
 [
   {
     "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
-    "EntitySetName": "msdyn_apirequestfolders",
+    "EntitySetName": "cat_apirequestfolders",
     "IsHidden": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "LogicalName": "msdyn_apirequestfolder",
+    "LogicalName": "cat_apirequestfolder",
     "MaxGetRowsCount": 2000,
     "Name": "API Request Folders",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
+      "cat_apirequestcache_FolderName_msdyn_apireque": "API Request Caches",
+      "cat_apirequestfolder_AsyncOperations": "System Jobs",
+      "cat_apirequestfolder_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_apirequestfolder_DuplicateBaseRecord": "Duplicate Records (cat_apirequestfolder_DuplicateBaseRecord)",
+      "cat_apirequestfolder_DuplicateMatchingRecord": "Duplicate Records (cat_apirequestfolder_DuplicateMatchingRecord)",
+      "cat_apirequestfolder_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_apirequestfolder_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_apirequestfolder_ProcessSession": "Process Sessions",
+      "cat_apirequestfolder_SyncErrors": "Sync Errors",
+      "cat_apirequestfolderid": "API Request Folder",
+      "cat_foldername": "Folder Name",
       "createdby": "Created By",
       "createdon": "Created On",
       "createdonbehalfby": "Created By (Delegate)",
@@ -17,17 +28,6 @@
       "modifiedby": "Modified By",
       "modifiedon": "Modified On",
       "modifiedonbehalfby": "Modified By (Delegate)",
-      "msdyn_apirequestcache_FolderName_msdyn_apireque": "API Request Caches",
-      "msdyn_apirequestfolder_AsyncOperations": "System Jobs",
-      "msdyn_apirequestfolder_BulkDeleteFailures": "Bulk Delete Failures",
-      "msdyn_apirequestfolder_DuplicateBaseRecord": "Duplicate Records (msdyn_apirequestfolder_DuplicateBaseRecord)",
-      "msdyn_apirequestfolder_DuplicateMatchingRecord": "Duplicate Records (msdyn_apirequestfolder_DuplicateMatchingRecord)",
-      "msdyn_apirequestfolder_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
-      "msdyn_apirequestfolder_PrincipalObjectAttributeAccesses": "Field Sharing",
-      "msdyn_apirequestfolder_ProcessSession": "Process Sessions",
-      "msdyn_apirequestfolder_SyncErrors": "Sync Errors",
-      "msdyn_apirequestfolderid": "API Request Folder",
-      "msdyn_foldername": "Folder Name",
       "overriddencreatedon": "Record Created On",
       "owningbusinessunit": "Owning Business Unit",
       "owningteam": "Owning Team",
@@ -43,7 +43,7 @@
   },
   {
     "DisplayName": "API Request Folders (Views)",
-    "Name": "_msdyn_apirequestfolder_views",
+    "Name": "_cat_apirequestfolder_views",
     "RelatedEntityName": "API Request Folders",
     "TrimmedViewName": true,
     "Type": "ViewInfo",
@@ -57,7 +57,7 @@
   },
   {
     "DisplayName": "Status (API Request Folders)",
-    "Name": "msdyn_apirequestfolder_statecode",
+    "Name": "cat_apirequestfolder_statecode",
     "OptionSetInfoNameMapping": {
       "0": "Active",
       "1": "Inactive"
@@ -77,7 +77,7 @@
   },
   {
     "DisplayName": "Status Reason (API Request Folders)",
-    "Name": "msdyn_apirequestfolder_statuscode",
+    "Name": "cat_apirequestfolder_statuscode",
     "OptionSetInfoNameMapping": {
       "1": "Active",
       "2": "Inactive"

@@ -1,14 +1,7 @@
 {
   "QualifiedValues": [
     {
-      "Kind": "default.cds_msdyn_riskassessment_forms",
-      "Namespace": "Risk Assessments (Forms)",
-      "Values": {
-        "Information": "db76d448-ee37-49a6-a826-b542f9ac032b"
-      }
-    },
-    {
-      "Kind": "default.cds_msdyn_riskassessmentsetting_forms",
+      "Kind": "default.cds_cat_riskassessmentsetting_forms",
       "Namespace": "Risk Assessment Settings (Forms)",
       "Values": {
         "Information": "aa2fe833-5f77-4fda-b5ca-dd2a549783ed"
@@ -60,6 +53,27 @@
       }
     },
     {
+      "Kind": "default.cds_cat_riskassessment_forms",
+      "Namespace": "Risk Assessments (Forms)",
+      "Values": {
+        "Information": "db76d448-ee37-49a6-a826-b542f9ac032b"
+      }
+    },
+    {
+      "Kind": "default.cds_msdyn_riskassessment_forms",
+      "Namespace": "Risk Assessments (Forms)1",
+      "Values": {
+        "Information": "db76d448-ee37-49a6-a826-b542f9ac032b"
+      }
+    },
+    {
+      "Kind": "default.cds_msdyn_riskassessmentsetting_forms",
+      "Namespace": "Risk Assessment Settings (Forms)1",
+      "Values": {
+        "Information": "aa2fe833-5f77-4fda-b5ca-dd2a549783ed"
+      }
+    },
+    {
       "Kind": "default.cds_account_forms",
       "Namespace": "Accounts (Forms)",
       "Values": {
@@ -90,6 +104,41 @@
       "Kind": "default.cds_flowlog_forms",
       "Namespace": "Flow Logs (Forms)",
       "Values": {}
+    },
+    {
+      "Kind": "default.cds_cat_riskassessment_forms",
+      "Namespace": "Risk Assessments_1 (Forms)",
+      "Values": {
+        "Information": "db76d448-ee37-49a6-a826-b542f9ac032b"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_riskassessment_forms",
+      "Namespace": "Risk Assessments (Forms)11",
+      "Values": {
+        "Information": "db76d448-ee37-49a6-a826-b542f9ac032b"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_riskassessmentsetting_forms",
+      "Namespace": "Risk Assessment Settings_1 (Forms)",
+      "Values": {
+        "Information": "aa2fe833-5f77-4fda-b5ca-dd2a549783ed"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_riskassessmentsetting_forms",
+      "Namespace": "Risk Assessment Settings (Forms)11",
+      "Values": {
+        "Information": "aa2fe833-5f77-4fda-b5ca-dd2a549783ed"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_riskassessmentsetting_forms",
+      "Namespace": "Risk Assessment Settings (Forms)2",
+      "Values": {
+        "Information": "aa2fe833-5f77-4fda-b5ca-dd2a549783ed"
+      }
     }
   ]
 }

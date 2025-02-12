@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>cat_landing_a3b7a</Name>
-  <AppVersion>2025-02-05T13:36:05Z</AppVersion>
+  <AppVersion>2025-02-12T11:45:58Z</AppVersion>
   <Status>Ready</Status>
   <CreatedByClientVersion>3.25013.14.0</CreatedByClientVersion>
   <MinClientVersion>3.25013.14.0</MinClientVersion>
@@ -10,21 +10,20 @@
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
   <DisplayName>Power CAT Tools - Home</DisplayName>
-  <Description xsi:nil="true"></Description>
-  <CommitMessage xsi:nil="true"></CommitMessage>
-  <Publisher xsi:nil="true"></Publisher>
+  <Description></Description>
+  <CommitMessage></CommitMessage>
+  <Publisher></Publisher>
   <AuthorizationReferences>[]</AuthorizationReferences>
   <ConnectionReferences>{}</ConnectionReferences>
   <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Samples":{"entitySetName":"cat_samples","logicalName":"cat_sample"}},"components":[{"componentName":"CustomControl","identifier":"cat_PowerCAT.NavigationComponentPCF","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"},{"componentName":"CustomControl","identifier":"cat_PowerCAT.Card","identifierType":"LogicalName"}]}}</DatabaseReferences>
   <AppComponents>[]</AppComponents>
   <AppComponentDependencies>[]</AppComponentDependencies>
-  <CanConsumeAppPass>0</CanConsumeAppPass>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
   <CanvasAppType>2</CanvasAppType>
   <BypassConsent>0</BypassConsent>
-  <AdminControlBypassConsent>0</AdminControlBypassConsent>
   <EmbeddedApp xsi:nil="true"></EmbeddedApp>
   <IntroducedVersion>1.0</IntroducedVersion>
-  <CdsDependencies>{"cdsdependencies":[{"logicalname":"cat_sample","componenttype":1},{"dependencyid":"","logicalname":"cat_PowerCAT.NavigationComponentPCF","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"},{"dependencyid":"","logicalname":"cat_PowerCAT.Card","componenttype":66,"componenttypeplatformname":"CustomControl"}]}</CdsDependencies>
+  <CdsDependencies>{"cdsdependencies":[{"componenttype":1,"logicalname":"cat_sample"},{"componenttype":66,"logicalname":"cat_PowerCAT.NavigationComponentPCF","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"},{"componenttype":66,"logicalname":"cat_PowerCAT.Card","componenttypeplatformname":"CustomControl"}]}</CdsDependencies>
   <IsCustomizable>1</IsCustomizable>
   <BackgroundImageUri>/CanvasApps/cat_landing_a3b7a_BackgroundImageUri</BackgroundImageUri>
   <DocumentUri>/CanvasApps/cat_landing_a3b7a_DocumentUri.msapp</DocumentUri>

@@ -1,15 +1,31 @@
 [
   {
     "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
-    "EntitySetName": "msdyn_apirequestcaches",
+    "EntitySetName": "cat_apirequestcaches",
     "IsHidden": false,
     "IsSampleData": false,
     "IsWritable": true,
-    "LogicalName": "msdyn_apirequestcache",
+    "LogicalName": "cat_apirequestcache",
     "MaxGetRowsCount": 2000,
     "Name": "API Request Caches",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
+      "cat_apicategory": "APICategory",
+      "cat_apirequestcache_AsyncOperations": "System Jobs",
+      "cat_apirequestcache_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_apirequestcache_DuplicateBaseRecord": "Duplicate Records (cat_apirequestcache_DuplicateBaseRecord)",
+      "cat_apirequestcache_DuplicateMatchingRecord": "Duplicate Records (cat_apirequestcache_DuplicateMatchingRecord)",
+      "cat_apirequestcache_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_apirequestcache_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_apirequestcache_ProcessSession": "Process Sessions",
+      "cat_apirequestcache_SyncErrors": "Sync Errors",
+      "cat_apirequestcacheid": "API Request Cache",
+      "cat_CustomAPI": "Custom API",
+      "cat_FolderName": "Folder Name",
+      "cat_name": "Name",
+      "cat_odatarequest": "OData Request",
+      "cat_requestparam": "Request Param",
+      "cat_requesttype": "Request Type",
       "createdby": "Created By",
       "createdon": "Created On",
       "createdonbehalfby": "Created By (Delegate)",
@@ -17,22 +33,6 @@
       "modifiedby": "Modified By",
       "modifiedon": "Modified On",
       "modifiedonbehalfby": "Modified By (Delegate)",
-      "msdyn_apicategory": "APICategory",
-      "msdyn_apirequestcache_AsyncOperations": "System Jobs",
-      "msdyn_apirequestcache_BulkDeleteFailures": "Bulk Delete Failures",
-      "msdyn_apirequestcache_DuplicateBaseRecord": "Duplicate Records (msdyn_apirequestcache_DuplicateBaseRecord)",
-      "msdyn_apirequestcache_DuplicateMatchingRecord": "Duplicate Records (msdyn_apirequestcache_DuplicateMatchingRecord)",
-      "msdyn_apirequestcache_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
-      "msdyn_apirequestcache_PrincipalObjectAttributeAccesses": "Field Sharing",
-      "msdyn_apirequestcache_ProcessSession": "Process Sessions",
-      "msdyn_apirequestcache_SyncErrors": "Sync Errors",
-      "msdyn_apirequestcacheid": "API Request Cache",
-      "msdyn_CustomAPI": "Custom API",
-      "msdyn_FolderName": "Folder Name",
-      "msdyn_name": "Name",
-      "msdyn_odatarequest": "OData Request",
-      "msdyn_requestparam": "Request Param",
-      "msdyn_requesttype": "Request Type",
       "overriddencreatedon": "Record Created On",
       "owningbusinessunit": "Owning Business Unit",
       "owningteam": "Owning Team",
@@ -48,7 +48,7 @@
   },
   {
     "DisplayName": "API Request Caches (Views)",
-    "Name": "_msdyn_apirequestcache_views",
+    "Name": "_cat_apirequestcache_views",
     "RelatedEntityName": "API Request Caches",
     "TrimmedViewName": true,
     "Type": "ViewInfo",
@@ -62,7 +62,7 @@
   },
   {
     "DisplayName": "APICategory (API Request Caches)",
-    "Name": "msdyn_apirequestcache_msdyn_apicategory",
+    "Name": "cat_apirequestcache_cat_apicategory",
     "OptionSetInfoNameMapping": {
       "192350000": "Instant Plugin",
       "192350001": "OData Request",
@@ -72,18 +72,18 @@
     "OptionSetIsGlobal": false,
     "OptionSetReference": {
       "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "msdyn_apicategory",
+        "OptionSetReferenceColumnName": "cat_apicategory",
         "OptionSetReferenceEntityName": "API Request Caches"
       }
     },
     "OptionSetTypeKey": "PicklistType",
-    "RelatedColumnInvariantName": "msdyn_apicategory",
+    "RelatedColumnInvariantName": "cat_apicategory",
     "RelatedEntityName": "API Request Caches",
     "Type": "OptionSetInfo"
   },
   {
     "DisplayName": "Request Type (API Request Caches)",
-    "Name": "msdyn_apirequestcache_msdyn_requesttype",
+    "Name": "cat_apirequestcache_cat_requesttype",
     "OptionSetInfoNameMapping": {
       "192360000": "GET",
       "192360001": "POST",
@@ -95,18 +95,18 @@
     "OptionSetIsGlobal": false,
     "OptionSetReference": {
       "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "msdyn_requesttype",
+        "OptionSetReferenceColumnName": "cat_requesttype",
         "OptionSetReferenceEntityName": "API Request Caches"
       }
     },
     "OptionSetTypeKey": "PicklistType",
-    "RelatedColumnInvariantName": "msdyn_requesttype",
+    "RelatedColumnInvariantName": "cat_requesttype",
     "RelatedEntityName": "API Request Caches",
     "Type": "OptionSetInfo"
   },
   {
     "DisplayName": "Status (API Request Caches)",
-    "Name": "msdyn_apirequestcache_statecode",
+    "Name": "cat_apirequestcache_statecode",
     "OptionSetInfoNameMapping": {
       "0": "Active",
       "1": "Inactive"
@@ -126,7 +126,7 @@
   },
   {
     "DisplayName": "Status Reason (API Request Caches)",
-    "Name": "msdyn_apirequestcache_statuscode",
+    "Name": "cat_apirequestcache_statuscode",
     "OptionSetInfoNameMapping": {
       "1": "Active",
       "2": "Inactive"
