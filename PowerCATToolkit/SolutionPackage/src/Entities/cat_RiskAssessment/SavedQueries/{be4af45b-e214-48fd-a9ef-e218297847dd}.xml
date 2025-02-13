@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{be4af45b-e214-48fd-a9ef-e218297847dd}</savedqueryid>
+    <layoutxml>
+      <grid name="cat_riskassessments" jump="cat_name" select="1" icon="1" preview="1">
+        <row name="cat_riskassessment" id="cat_riskassessmentid">
+          <cell name="cat_roleid" width="187" />
+          <cell name="cat_assessedrisklevel" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="cat_assessmentdate" width="137" />
+          <cell name="cat_totalcriticalrisk" width="144" />
+          <cell name="cat_totalhighrisk" width="130" />
+          <cell name="cat_totalmoderaterisk" width="155" />
+          <cell name="cat_totallowrisk" width="127" />
+          <cell name="cat_totalnorisk" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_riskassessment">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cat_assessmentdate" />
+          <attribute name="cat_roleid" />
+          <order attribute="cat_assessmentdate" descending="true" />
+          <attribute name="cat_totalcriticalrisk" />
+          <attribute name="cat_totalhighrisk" />
+          <attribute name="cat_totalmoderaterisk" />
+          <attribute name="cat_totallowrisk" />
+          <attribute name="cat_totalnorisk" />
+          <attribute name="cat_assessedrisklevel" />
+          <attribute name="cat_riskassessmentid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Risk Assessment Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

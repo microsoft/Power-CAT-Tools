@@ -1175,7 +1175,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil109wus.blob.core.windows.net/2a7f0ff5-2e1e-4514-8c61-cd4e2e412bf4-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0b1dfoclh.1cg020S0Resources0Controls0PowerCAT.DocPreview.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T13%3A45%3A47Z&ske=2025-02-06T14%3A00%3A47Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T14%3A00%3A47Z&sr=b&sp=r&sig=nldnUbUT21hg4YzX85w9bgSjB132b9snRRgeNZBLyV4%3D",
+      "ModifiedPath": "https://dsprdil104wus.blob.core.windows.net/2762244c-2f48-4b87-a0cd-b03172dd8122-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work02nep1a3m.trs020S0Resources0Controls0PowerCAT.DocPreview.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T15%3A01%3A04Z&ske=2025-02-12T15%3A16%3A04Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T15%3A16%3A04Z&sr=b&sp=r&sig=mInJvyc414dVWJ%2BpDzM3FV5KbUVFejp0m9fsPSQVfrc%3D",
       "Path": "/PCFControls/cat_PowerCAT.DocPreview/PowerCAT.DocPreview.bundle.js",
       "Type": 0
     },
@@ -1189,7 +1189,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
-      "ModifiedPath": "https://dsprdil109wus.blob.core.windows.net/2a7f0ff5-2e1e-4514-8c61-cd4e2e412bf4-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0b1dfoclh.1cg020S0Resources0Controls0strings%252fPowerCAT.DocPreview.DocPreview.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T13%3A45%3A47Z&ske=2025-02-06T14%3A00%3A47Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T14%3A00%3A47Z&sr=b&sp=r&sig=k2sDxWOkQptyOxO9RCmNecJ4f8Icm6LilvEqXrCY%2Bf4%3D",
+      "ModifiedPath": "https://dsprdil104wus.blob.core.windows.net/2762244c-2f48-4b87-a0cd-b03172dd8122-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work02nep1a3m.trs020S0Resources0Controls0strings%252fPowerCAT.DocPreview.DocPreview.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T15%3A01%3A04Z&ske=2025-02-12T15%3A16%3A04Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T15%3A16%3A04Z&sr=b&sp=r&sig=h9bdtDs94DUn1mRK%2BIpfsi%2BFLJ%2BfXdvx4t06kc6iquc%3D",
       "Path": "/PCFControls/cat_PowerCAT.DocPreview/strings/PowerCAT.DocPreview.DocPreview.1033.json",
       "Type": 5
     },

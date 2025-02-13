@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EntityRelationship Name="msdyn_apirequestcache_CustomAPI_customapi">
+  <EntityRelationship Name="cat_apirequestcache_CustomAPI_customapi">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>0</IsCustomizable>
     <IntroducedVersion>1.0.4.0</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>msdyn_APIRequestCache</ReferencingEntityName>
+    <ReferencingEntityName>cat_APIRequestCache</ReferencingEntityName>
     <ReferencedEntityName>CustomAPI</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>
     <CascadeDelete>RemoveLink</CascadeDelete>
@@ -15,7 +15,7 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>msdyn_CustomAPI</ReferencingAttributeName>
+    <ReferencingAttributeName>cat_CustomAPI</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
         <Description description="" languagecode="1033" />
@@ -26,11 +26,11 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>msdyn_CustomAPI</NavigationPropertyName>
+        <NavigationPropertyName>cat_CustomAPI</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>msdyn_apirequestcache_CustomAPI_customapi</NavigationPropertyName>
+        <NavigationPropertyName>cat_apirequestcache_CustomAPI_customapi</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>

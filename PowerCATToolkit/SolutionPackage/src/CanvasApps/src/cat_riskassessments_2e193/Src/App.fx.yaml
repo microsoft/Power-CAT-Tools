@@ -320,18 +320,18 @@ App As appinfo:
                 RoleName
             ) As assessedRisk,
             {
-                ItemTitle: Text(assessedRisk.msdyn_assessedrisklevel),
-                ItemKey: assessedRisk.msdyn_assessedrisklevel,
+                ItemTitle: Text(assessedRisk.cat_assessedrisklevel),
+                ItemKey: assessedRisk.cat_assessedrisklevel,
                 ItemValue: CountRows(assessedRisk.RoleName),
                 ItemColor: If(
-                    IsBlankOrError(assessedRisk.msdyn_assessedrisklevel),
+                    IsBlankOrError(assessedRisk.cat_assessedrisklevel),
                     LookUp(
                         ChartThemeRisk,
                         status = Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
                     ).color,
                     LookUp(
                         ChartThemeRisk,
-                        status = Text(assessedRisk.msdyn_assessedrisklevel)
+                        status = Text(assessedRisk.cat_assessedrisklevel)
                     ).color
                 )
             }
@@ -789,11 +789,11 @@ App As appinfo:
             GroupBy(
                 NotArchivedRiskAssessments,
                 statuscode,
-                msdyn_riskassessmentid
+                cat_riskassessmentid
             ) As assessmentCount,
             {
                 ItemLegend: Text(assessmentCount.statuscode),
-                ItemValue: CountRows(assessmentCount.msdyn_riskassessmentid),
+                ItemValue: CountRows(assessmentCount.cat_riskassessmentid),
                 ItemColor: LookUp(
                     DoNutChartTheme,
                     status = Text(assessmentCount.statuscode)

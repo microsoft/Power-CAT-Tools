@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d47a23fd-1247-4907-ad68-913e528dc1af}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cat_name" select="1" icon="1" preview="1">
+        <row name="result" id="cat_riskassessmentid">
+          <cell name="cat_roleid" width="178" />
+          <cell name="cat_assessedrisklevel" width="125" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="cat_isarchived" width="106" />
+          <cell name="cat_assessmentdate" width="137" />
+          <cell name="cat_membercount" width="126" />
+          <cell name="cat_totalcriticalrisk" width="144" />
+          <cell name="cat_totalhighrisk" width="130" />
+          <cell name="cat_totalmoderaterisk" width="155" />
+          <cell name="cat_totallowrisk" width="127" />
+          <cell name="cat_totalnorisk" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_riskassessment">
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="cat_assessmentdate" />
+          <attribute name="cat_totalcriticalrisk" />
+          <attribute name="cat_totalhighrisk" />
+          <attribute name="cat_totalmoderaterisk" />
+          <attribute name="cat_totallowrisk" />
+          <attribute name="cat_totalnorisk" />
+          <order attribute="cat_assessmentdate" descending="true" />
+          <attribute name="cat_roleid" />
+          <attribute name="cat_membercount" />
+          <attribute name="cat_assessedrisklevel" />
+          <attribute name="cat_riskassessmentid" />
+          <attribute name="cat_isarchived" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Risk Assessments" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

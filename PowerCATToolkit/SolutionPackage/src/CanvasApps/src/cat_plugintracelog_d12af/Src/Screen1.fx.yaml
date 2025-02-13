@@ -1,0 +1,28 @@
+Screen1 As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Icon1 As Icon:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Icon: ="Info"
+        Width: =32
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    "FluentDetailsList1 As 'Fluent Details List (1.1.39)'.pcfdataset":
+        DisplayMode: =DisplayMode.Edit
+        Height: =200
+        Width: =200
+        X: =56
+        Y: =184
+        ZIndex: =2
+
+    "AutoWidthLabel1 As 'Auto Width Label (1.1.39)'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =200
+        Width: =200
+        X: =436
+        Y: =104
+        ZIndex: =3
+

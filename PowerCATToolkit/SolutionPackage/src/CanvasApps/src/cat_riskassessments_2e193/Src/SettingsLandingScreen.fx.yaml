@@ -44,8 +44,6 @@ SettingsLandingScreen As screen:
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
-                LayoutMinHeight: =200
-                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -102,8 +100,6 @@ SettingsLandingScreen As screen:
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -131,8 +127,6 @@ SettingsLandingScreen As screen:
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -160,8 +154,6 @@ SettingsLandingScreen As screen:
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -507,8 +499,11 @@ SettingsLandingScreen As screen:
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
                                     OnSelect: |-
-                                        =Set(currentSelectedAssessmentSetting,DefaultRiskAssessmentSetting);
-                                        Navigate(EditSettingsScreen);
+                                        =Navigate(EditSettingsScreen);
+                                        Set(
+                                            currentSelectedAssessmentSetting,
+                                            DefaultRiskAssessmentSetting
+                                        )
                                     Text: ="Review default "
                                     Width: =120
                                     X: =0

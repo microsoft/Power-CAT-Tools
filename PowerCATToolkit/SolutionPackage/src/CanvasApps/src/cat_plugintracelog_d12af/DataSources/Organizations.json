@@ -27,8 +27,9 @@
       "allowclientmessagebarad": "Allow Outlook Client Message Bar Advertisement",
       "allowconnectorsonpowerfxactions": "Enable connectors on power fx actions.",
       "allowedapplicationsfordvaccess": "List of Applications that are in allow list for the accessing DV resources.",
-      "allowediprangeforfirewall": "List of IP Ranges to be allowed by the firewall rule",
+      "allowediprangeforfirewall": "List of IP Ranges to be allowed by the firewall rule (allowediprangeforfirewall)",
       "allowediprangeforstorageaccesssignatures": "List of IP Ranges to be allowed for generating the SAS URIs.",
+      "allowedlistofiprangesforfirewall": "List of IP Ranges to be allowed by the firewall rule (allowedlistofiprangesforfirewall)",
       "allowedmimetypes": "List of allowed mime types.",
       "allowedservicetagsforfirewall": "List of Service Tags to be allowed by the firewall rule",
       "allowentityonlyaudit": "Allow Entity Level Auditing",
@@ -45,6 +46,7 @@
       "allowuserformmodepreference": "Allow User Form Mode Preference",
       "allowusershidingsystemviews": "Allow users hiding system views",
       "allowusersseeappdownloadmessage": "Allow the showing tablet application notification bars in a browser.",
+      "allowvirtualentitypluginexecutiononnestedpipeline": "Allow Virtual Entity Plugin Execution In Nested Pipeline.",
       "allowwebexcelexport": "Allow Export to Excel",
       "amdesignator": "AM Designator",
       "appdesignerexperienceenabled": "Enable App Designer Experience for this Organization",
@@ -52,7 +54,6 @@
       "appointmentricheditorexperience": "Enable Rich Editing Experience for Appointment (appointmentricheditorexperience)",
       "appointmentwithteamsmeeting": "Enable teams Meeting experience for appointment",
       "appointmentwithteamsmeetingv2": "Enable Teams meetings for appointments",
-      "aresalesaddresssuggestionsenabled": "Indicates whether Address Suggestions has been enabled for the organization",
       "auditretentionperiod": "Audit Retention Period Settings (auditretentionperiod)",
       "auditretentionperiodv2": "Audit Retention Period Settings (auditretentionperiodv2)",
       "auditsettings": "Audit Settings of the organization",
@@ -64,9 +65,12 @@
       "basecurrencyprecision": "Base Currency Precision",
       "basecurrencysymbol": "Base Currency Symbol",
       "bingmapsapikey": "Bing Maps API Key",
+      "blockaccesstosessiontranscriptsforcopilotstudio": "Block access to session transcripts for Copilot Studio",
+      "blockcopilotauthorauthentication": "Block makers from allowing end-users to use their credentials during authentication to use connectors, actions, flows, and triggers that are connected to an agent",
       "blockedapplicationsfordvaccess": "List of Applications that are in block list for the accessing DV resources.",
       "blockedattachments": "Block Attachments",
       "blockedmimetypes": "List of blocked mime types.",
+      "blocktranscriptrecordingforcopilotstudio": "Block access to session transcripts and conversational transcript recording for Copilot Studio",
       "bounddashboarddefaultcardexpanded": "Display cards in expanded state for Interactive Dashboard",
       "bulkoperationprefix": "Bulk Operation Prefix",
       "businesscardoptions": "Enable New BusinessCardOptions",
@@ -110,7 +114,6 @@
       "defaultemailserverprofileid": "Email Server Profile",
       "defaultemailsettings": "Default Email Settings",
       "defaultrecurrenceendrangetype": "Default Recurrence End Range Type",
-      "defaultteamschattitlerecordname": "Indicates whether the default teams linked chat title is the record name",
       "defaultthemedata": "Default Theme Data",
       "delegatedadminuserid": "Delegated Admin",
       "desktopflowqueuelogsttlinminutes": "The TTL for new desktop flow queue log records.",
@@ -121,18 +124,13 @@
       "disablesystemlabelscachesharing": "Disable System Labels Cache Sharing.",
       "discountcalculationmethod": "Discount calculation method",
       "displaynavigationtour": "Display Navigation Tour",
-      "dynamicproperty_organization": "Properties",
-      "DynamicPropertyAssociation_organization": "Property Associations",
-      "DynamicPropertyOptionSetItem_organization": "Property Option Set Items",
       "emailconnectionchannel": "Email Connection Channel",
       "emailcorrelationenabled": "Use Email Correlation",
       "emailsendpollingperiod": "Email Send Polling Frequency",
-      "emailtemplatedefaultview": "Select the default view in the enhanced insert e-mail template experience.",
       "enableasyncmergeapiforuci": "Asynchronous merge enabled for UCI",
       "enablebingmapsintegration": "Enable Integration with Bing Maps",
-      "enablecalendarimportexport": "Allow calendar export import with SLA",
       "enablecanvasappsinsolutionsbydefault": "Enable the creation of Canvas apps in Dataverse / Solution by default",
-      "enableemailtemplateviews": "Allow email template views in Enhanced Email Template",
+      "enableenvironmentsettingsapp": "Enable Environment Settings App",
       "enableflowsinsolutionbydefault": "Enable the creation of flows within a solution by default.",
       "enableflowsinsolutionbydefaultgraceperiod": "Indicates whether the organization is opted into a grace period for auto-enablement of 'creation of flows within a solution by default' functionality.",
       "enableimmersiveskypeintegration": "Enable Integration with Immersive Skype",
@@ -145,15 +143,10 @@
       "enablemakerswitchtoclassic": "Switch Maker Portal to Classic",
       "enablemicrosoftflowintegration": "Enable Integration with Microsoft Flow",
       "enablepricingoncreate": "Enable Pricing On Create",
-      "enablesensitivitylabelsforteamscollab": "Indicates whether privacy and sensitivity attributes for new team creation has been enabled",
       "enablesmartmatching": "Enable Smart Matching",
       "enableunifiedclientcdn": "Enable UCI CDN for organization",
       "enableunifiedinterfaceshellrefresh": "Enable site map and commanding update",
       "enforcereadonlyplugins": "Organization setting to enforce read only plugins.",
-      "enhancedoqoiaddproductssettings": "Enhanced Add Products Settings",
-      "entitlementchannel_organization": "Entitlement Channels",
-      "entitlementtemplate_organization": "Entitlement Templates",
-      "entitlementtemplatechannel_organization": "Entitlement Template Channels",
       "entityimage": "Entity Image",
       "entityimageid": "Entity Image Id",
       "expirechangetrackingindays": "Days to Expire Change Tracking Deleted Records",
@@ -232,6 +225,7 @@
       "isdesktopflowruntimerepairattendedenabled": "Enable the Desktop Flows UI Automation Runtime Repair for Attended feature for this organization",
       "isdesktopflowruntimerepairunattendedenabled": "Enable the Desktop Flows UI Automation Runtime Repair for Unattended feature for this organization",
       "isdesktopflowschemav2enabled": "Enable v2 schema for Desktop Flows in this organization.",
+      "isdesktopflowvanillaimagesharingenabled": "Enable Sharing the Windows Vanilla Image with every Desktop Flow user in this organization.",
       "isdisabled": "Is Organization Disabled",
       "isduplicatedetectionenabled": "Is Duplicate Detection Enabled",
       "isduplicatedetectionenabledforimport": "Is Duplicate Detection Enabled For Import",
@@ -240,7 +234,6 @@
       "isemailaddressvalidationenabled": "Enable Smart Email Address Validation.",
       "isemailmonitoringallowed": "Allow tracking recipient activity on sent emails",
       "isemailserverprofilecontentfilteringenabled": "Is Email Server Profile Content Filtering Enabled",
-      "isembedteamscollabenabled": "Indicates whether embed Teams collaboration has been enabled for the organization",
       "isenabledforallroles": "option set values for isenabledforallroles",
       "isexternalfilestorageenabled": "Enable external file storage",
       "isexternalsearchindexenabled": "Enable external search data syncing",
@@ -276,6 +269,7 @@
       "ispreviewforautocaptureenabled": "Enable Auto Capture for this Organization at Preview Settings",
       "ispreviewforemailmonitoringallowed": "Allows Preview For Email Monitoring",
       "ispricelistmandatory": "Indicates whether PriceList is mandatory for adding existing products to sales entities",
+      "isprocesscapacityautoclaimenabled": "Enable the Process capacity auto-claim feature for this organization",
       "isquickcreateenabledforopportunityclose": "Enable quick create form for opportunity close feature for this organization",
       "isreadauditenabled": "Is Read Auditing Enabled",
       "isrelationshipinsightsenabled": "Enable Relationship Insights for this Organization",
@@ -287,7 +281,6 @@
       "isrpaboxenabled": "Enable RPA Box feature for this organization",
       "isrpaunattendedenabled": "Enable RPA Unattended feature for this organization",
       "issalesassistantenabled": "Enable Sales Assistant mobile app",
-      "issalesmobilepreviewenabled": "Indicates whether Sales Mobile Preview has been enabled for the organization",
       "issharinginorgallowed": "IsSharingInOrgAllowed",
       "issopintegrationenabled": "Is Sales Order Integration Enabled",
       "istextwrapenabled": "Enable Text Wrap",
@@ -370,191 +363,48 @@
       "organization_appconfig": "App Configuration",
       "organization_appconfiginstance": "App Configuration Instance",
       "organization_appconfigmaster": "App Config Master",
+      "organization_application": "Applications",
       "organization_appmodule": "Model-driven Apps",
       "Organization_AsyncOperations": "System Jobs",
       "Organization_BulkDeleteFailures": "Bulk Delete Failures",
       "organization_business_unit_news_articles": "Announcements",
       "organization_business_units": "Business Units",
-      "organization_calendars": "Calendars",
       "organization_catalog": "Catalogs",
       "organization_catalogassignment": "Catalog Assignments",
-      "organization_competitors": "Competitors",
       "organization_complexcontrols": "Process Configurations",
       "organization_connection_roles": "Connection Roles",
-      "organization_constraint_based_groups": "Resource Groups",
-      "organization_contract_templates": "Contract Templates",
       "organization_copilotexamplequestion": "CopilotExampleQuestions",
       "organization_custom_displaystrings": "Display Strings",
       "organization_datalakeworkspace": "Data Lake Workspaces",
       "organization_datalakeworkspacepermission": "Data Lake Workspace Permissions",
       "organization_dataprocessingconfiguration": "Data Processing configurations",
       "organization_delegatedauthorization": "DelegatedAuthorizations",
-      "organization_discount_types": "Discount Lists",
       "organization_emailserverprofile": "Email Server Profiles",
       "organization_entityanalyticsconfig": "Entity Analytics Config",
       "organization_entitydataprovider": "Virtual Entity Data Providers",
       "organization_entityrecordfilter": "EntityRecordFilters",
-      "organization_equipment": "Facilities/Equipment",
       "organization_expiredprocess": "Expired Process",
       "organization_importjob": "Import Jobs",
-      "organization_kb_article_templates": "Article Templates",
-      "organization_kb_articles": "Articles",
-      "organization_KnowledgeBaseRecord": "Knowledge Base Records",
-      "organization_leadtoopportunitysalesprocess": "Lead To Opportunity Sales Process",
       "organization_mailbox": "Mailboxes",
       "Organization_MailboxTrackingFolder": "Mailbox Auto Tracking Folders",
       "organization_mainfewshot": "MainFewShot",
       "organization_makerfewshot": "MakerFewShot",
-      "organization_marketingformdisplayattributes": "Marketing Form Display Attributes Set",
       "organization_maskingrule": "Secured Masking Rules",
       "organization_metadataforarchival": "MetadataForArchival",
-      "organization_metric": "Goal Metrics",
       "organization_mobileofflineprofileextension": "MobileOfflineProfileExtensions",
-      "organization_msdyn_accountkpiitem": "Account KPI Items",
-      "organization_msdyn_activityanalysiscleanupstate": "Activity Analysis CleanUp States",
-      "organization_msdyn_activityanalysisconfig": "RelationshipAnalysisConfigs",
-      "organization_msdyn_adaptivecardconfiguration": "Adaptive Card Configuration",
-      "organization_msdyn_agentcopilotsetting": "Agent Copilot Settings",
-      "organization_msdyn_agentresourceforecasting": "Agent Resource Forecastings",
-      "organization_msdyn_appcopilotconfiguration": "App Profile Copilot Configurations",
       "organization_msdyn_appinsightsmetadata": "App Insights Metadatas",
-      "organization_msdyn_attributeinfluencestatistics": "msdyn_attributeinfluencestatistics_set",
-      "organization_msdyn_cannedmessage": "Quick replies",
-      "organization_msdyn_caseenrichment": "Case Enrichments",
-      "organization_msdyn_casesuggestionrequestpayload": "Case Suggestion Request Payloads",
-      "organization_msdyn_casetopic": "Case Topics",
-      "organization_msdyn_casetopic_incident": "Case topic incidents",
-      "organization_msdyn_casetopicsetting": "Case Topic Settings",
-      "organization_msdyn_casetopicsummary": "Case Topic Summaries",
-      "organization_msdyn_channelcapability": "Channel Capabilites",
-      "organization_msdyn_ciprovider": "Channel Integration Framework v1.0 Providers",
-      "organization_msdyn_consoleapplicationtype": "ConsoleApplicationTypes (Deprecated)",
-      "organization_msdyn_consoleappparameterdefinition": "App Parameter Definitions (Deprecated)",
-      "organization_msdyn_contactkpiitem": "Contact KPI Items",
-      "organization_msdyn_conversationsummaryinteraction": "Conversation Summary Interactions",
-      "organization_msdyn_conversationsummarysetting": "Conversation Summary Settings",
-      "organization_msdyn_conversationtopic": "Conversation Topics",
-      "organization_msdyn_conversationtopic_conversation": "Conversation topic conversations",
-      "organization_msdyn_conversationtopicsetting": "Conversation Topic Settings",
-      "organization_msdyn_conversationtopicsummary": "Conversation Topic Summaries",
-      "organization_msdyn_copilotinteraction": "Copilot Interactions",
-      "organization_msdyn_copilotsummarizationsetting": "Copilot Summarization Settings",
-      "organization_msdyn_cskeyvalueconfig": "Customer Service Key Value Configurations",
-      "organization_msdyn_customeremailcommunication": "Customer email communication",
-      "organization_msdyn_dailyaccountkpiitem": "dailyaccountkpiitems",
-      "organization_msdyn_dailycontactkpiitem": "dailycontactkpiitems",
-      "organization_msdyn_dailyleadkpiitem": "dailyleadkpiitems",
-      "organization_msdyn_dailyopportunitykpiitem": "dailyopportunitykpiitems",
-      "organization_msdyn_dataanalyticsreport_copilot": "Copilot Analytics",
-      "organization_msdyn_dataanalyticsreport_csrmanager": "Customer Service historical analytics",
-      "organization_msdyn_dataanalyticsreport_forecast": "Forecast",
-      "organization_msdyn_dataanalyticsreport_ksinsights": "Knowledge analytics",
-      "organization_msdyn_dataanalyticsreport_oc": "Omnichannel historical analytics",
-      "organization_msdyn_dataanalyticsreport_oc_rt": "Omnichannel Realtime analytics",
-      "organization_msdyn_dataanalyticsreport_ocvoice": "Omnichannel voice historical analytics (preview) (Deprecated)",
-      "organization_msdyn_dataanalyticsreport_sareporting": "Sales acceleration reports",
-      "organization_msdyn_dataanalyticsreport_sutreporting": "Sales usage telemetry reports",
-      "organization_msdyn_databaseversion": "Database Version",
-      "organization_msdyn_datahygienesettinginfo": "Data Hygiene Setting Info",
-      "organization_msdyn_datainsightsandanalyticsfeature": "Insights",
-      "organization_msdyn_digitalsellingactivetask": "DigitalSellingActiveTasks",
-      "organization_msdyn_digitalsellingcompletedtask": "DigitalSellingCompletedTasks",
-      "organization_msdyn_distributedlock": "Distributed Locks",
-      "organization_msdyn_duplicatedetectionpluginrun": "Duplicate Detection Plugin Runs",
       "organization_msdyn_federatedarticleincident": "Knowledge Federated Article Incidents",
-      "organization_msdyn_forecastingcache": "Forecasting Cache",
-      "organization_msdyn_forecastpredictionstatus": "Forecast Prediction Status",
-      "organization_msdyn_forecastsettingsandsummary": "Forecast Summary and Setting",
       "organization_msdyn_helppage": "Help Pages",
-      "organization_msdyn_inboxcardconfiguration": "Inbox card configurations",
-      "organization_msdyn_inboxconfiguration": "Inbox Configurations",
-      "organization_msdyn_inboxentityconfig": "Inbox Entity Configurations",
       "organization_msdyn_insightsstorevirtualentity": "Insights Store Virtual Entities",
-      "organization_msdyn_iottocaseprocess": "IoT Alert to Case Process",
-      "organization_msdyn_kbenrichment": "KB Enrichments",
-      "organization_msdyn_kbkeywordsdescsuggestionsetting": "Keywords Description Suggestion Settings",
       "organization_msdyn_kmpersonalizationsetting": "Knowledge personalizations",
       "organization_msdyn_knowledgeconfiguration": "Knowledge Configurations",
-      "organization_msdyn_leadhygienesetting": "Lead Hygiene Settings",
-      "organization_msdyn_leadkpiitem": "Lead KPI Items",
-      "organization_msdyn_linkedentityattributevalidity": "Linked Entity Attribute Validations",
-      "organization_msdyn_maskingrule": "Masking Rules",
       "organization_msdyn_modulerundetail": "Module Run Details",
-      "organization_msdyn_mostcontacted": "Most Contacted",
-      "organization_msdyn_mostcontactedby": "Most Contacted By",
-      "organization_msdyn_occhannelconfiguration": "Channel Configurations",
-      "organization_msdyn_occhannelstateconfiguration": "Channel State Configurations",
-      "organization_msdyn_oclocalizationdata": "Localizations",
-      "organization_msdyn_ocsystemmessage": "Messages",
-      "organization_msdyn_octag": "tags",
-      "organization_msdyn_odosfeaturemetadata": "ODOSFeatureMetadata",
-      "organization_msdyn_odosmetadata": "ODOSMetadata",
-      "organization_msdyn_omnichannelconfiguration": "Omnichannel Configurations",
-      "organization_msdyn_opportunitykpiitem": "Opportunity KPI Items",
-      "organization_msdyn_paneconfiguration": "Productivity pane configurations",
-      "organization_msdyn_panetabconfiguration": "Pane tab configurations",
-      "organization_msdyn_panetoolconfiguration": "Pane tool configurations",
-      "organization_msdyn_personasecurityrolemapping": "Persona Security Role Mappings",
-      "organization_msdyn_postconfig": "Post Configurations",
-      "organization_msdyn_postruleconfig": "Post Rule Configurations",
-      "organization_msdyn_predictivemodelscore": "Predictive Model Score",
-      "organization_msdyn_predictivescore": "Predictive Score",
-      "organization_msdyn_presence": "Presence",
-      "organization_msdyn_provider": "Providers",
-      "organization_msdyn_readtrackingenabledinfo": "Read tracking enabled information",
-      "organization_msdyn_recomputetracker": "Recompute Tracker",
-      "organization_msdyn_recurringsalesaction": "Recurring Sales Actions",
-      "organization_msdyn_recurringsalesactionv2": "Recurring Sales Actions V2",
-      "organization_msdyn_relationshipanalyticsmetadata": "Relationship Analytics Metadatas",
-      "organization_msdyn_routingrulesetsetting": "Routing Rule Set Settings",
-      "organization_msdyn_sabackupdiagnostic": "sabackupdiagnostics",
-      "organization_msdyn_sabatchruninstance": "SABatchRunInstances",
-      "organization_msdyn_salesaccelerationinsight": "Sales acceleration insights",
-      "organization_msdyn_salesaccelerationsettings": "Sales Acceleration settings set",
-      "organization_msdyn_salesassignmentsetting": "msdyn_salesassignmentsettings",
-      "organization_msdyn_salescopilotorgsettings": "Org level settings for Sales Copilot apps",
-      "organization_msdyn_salesroutingdiagnostic": "salesroutingdiagnostics",
-      "organization_msdyn_saruninstance": "SARunInstances",
-      "organization_msdyn_scienvironmentsettings": "EnvironmentSettings",
-      "organization_msdyn_segmentationsetting": "segmentsettings",
-      "organization_msdyn_segmentattribute": "Segment properties",
-      "organization_msdyn_segmentcatalogue": "SegmentsUtils",
-      "organization_msdyn_sentimentanalysis": "Sentiment analysis",
-      "organization_msdyn_servicecopilotplugin": "Service Copilot Plugins",
-      "organization_msdyn_servicecopilotpluginrole": "Service Copilot Plugin Roles",
-      "organization_msdyn_shareasconfiguration": "ShareAs Configuration",
-      "organization_msdyn_sikeyvalueconfig": "SI Key Value Configs",
-      "organization_msdyn_similarentitiesfeatureimportance": "msdyn_similarentitiesfeatureimportances",
-      "organization_msdyn_smartassistconfig": "Smartassist configurations",
       "organization_msdyn_solutionhealthruleset": "Solution Health Rule Sets",
-      "organization_msdyn_soundfile": "Audio Files",
-      "organization_msdyn_suggestioninteraction": "Suggestion Interactions",
-      "organization_msdyn_suggestionrequestpayload": "Suggestion request payloads",
-      "organization_msdyn_suggestionsmodelsummary": "Suggestions Model Summaries",
-      "organization_msdyn_suggestionssetting": "Suggestions Settings",
-      "organization_msdyn_surveysetting": "surveysettings",
-      "organization_msdyn_teamsdialeradminsettings": "Teams Dialer Admin settings set",
       "organization_msdyn_tour": "Tours",
-      "organization_msdyn_unifiedroutingsetuptracker": "Unified Routing Setup Trackers",
-      "organization_msdyn_upgraderun": "Upgrade Runs",
-      "organization_msdyn_upgradestep": "Upgrade Steps",
-      "organization_msdyn_upgradeversion": "Upgrade Versions",
-      "organization_msdyn_usagemetric": "Usage Metrics",
-      "organization_msdyn_usagereporting": "Sales usage reporting",
-      "organization_msdyn_usersetting": "User settings",
-      "organization_msdyn_vivaentitysetting": "msdyn_vivaentitysettings",
-      "organization_msdyn_vivaorgextensioncred": "msdyn_vivaorgextensioncred",
-      "organization_msdyn_vivaorgsetting": "msdyn_vivaorgsettings",
-      "organization_msdyn_wallsavedquery": "Wall Views",
-      "organization_msdyn_wkwcolleaguesforcompany": "wkwcolleaguesforcompanies",
-      "organization_msdyn_wkwcolleaguesforcontact": "wkwcolleaguesforcontacts",
       "organization_msdyn_workflowactionstatus": "Workflow Action Statuses",
-      "organization_msdyn_worklistviewconfiguration": "Work List View Configurations",
-      "organization_msdynmkt_eventmetadata_sdkmessageprocessingstep": "Triggers To Sdk Message Processing Steps",
       "organization_navigationsetting": "Navigation Settings",
       "organization_newprocess": "New Process",
       "organization_officegraphdocument": "Office Graph Documents",
-      "organization_opportunitysalesprocess": "Opportunity Sales Process",
       "organization_organizationdatasyncfnostate": "OrganizationDataSyncFnoStates",
       "organization_organizationdatasyncstate": "OrganizationDataSyncStates",
       "organization_organizationdatasyncsubscription": "OrganizationDataSyncSubscriptions",
@@ -562,7 +412,6 @@
       "organization_organizationdatasyncsubscriptionfnotable": "OrganizationDataSyncSubscriptionFnoTables",
       "organization_package": "Packages",
       "organization_packagehistory": "Package Histories",
-      "organization_phonetocaseprocess": "Phone To Case Process",
       "organization_pluginassembly": "Plug-in Assemblies",
       "organization_pluginpackage": "Plugin Packages",
       "organization_plugintype": "Plug-in Types",
@@ -571,11 +420,7 @@
       "organization_post": "Posts",
       "organization_PostComment": "Comments",
       "organization_postlike": "Likes",
-      "organization_price_levels": "Price Lists",
       "organization_privilegesremovalsetting": "Privileges Removal Settings",
-      "organization_ProductAssociation": "Product Associations",
-      "organization_products": "Products",
-      "organization_ProductSubstitute": "Product Relationships",
       "organization_publisher": "Publishers",
       "organization_queueitems": "Queue Items",
       "organization_queues": "Queues",
@@ -583,13 +428,9 @@
       "organization_recordfilter": "Record Filters",
       "organization_recyclebinconfig": "Restore Deleted Records Configurations",
       "organization_relationshipattribute": "Relationship Attributes",
-      "organization_resource_groups": "Scheduling Groups",
-      "organization_resource_specs": "Resource Specifications",
-      "organization_resources": "Resources",
       "organization_retentionoperationdetail": "RetentionOperationDetail",
       "organization_roleeditorlayout": "RoleEditorLayouts",
       "organization_roles": "Security Roles",
-      "organization_sales_literature": "Sales Literature",
       "organization_saved_queries": "Views",
       "organization_saved_query_visualizations": "System Charts",
       "organization_sdkmessage": "Sdk Messages",
@@ -601,15 +442,13 @@
       "organization_searchcustomanalyzer": "SearchCustomAnalyzer",
       "organization_searchrelationshipsettings": "SearchRelationshipSettings",
       "organization_serviceendpoint": "Service Endpoints",
-      "organization_services": "Services",
       "organization_sharedlinksetting": "Shared Link Settings",
+      "organization_sharepointmanagedidentity": "SharePoint Managed Identities",
       "organization_sitemap": "Site Maps",
-      "organization_sites": "Sites",
       "organization_solution": "Solutions",
       "organization_solutioncomponentattributeconfiguration": "Solution Component Attribute Configurations",
       "organization_solutioncomponentconfiguration": "Solution Component Configurations",
       "organization_solutioncomponentrelationshipconfiguration": "Solution Component Relationship Configurations",
-      "organization_subjects": "Subjects",
       "organization_supportusertable": "SupportUserTables",
       "organization_synapselinkexternaltablestate": "Synapse Link External Table States",
       "organization_synapselinkprofile": "Synapse Link Profiles",
@@ -621,12 +460,10 @@
       "organization_systemforms": "System Forms",
       "organization_teammobileofflineprofilemembership": "TeamMobileOfflineProfileMemberships",
       "organization_teams": "Teams",
-      "organization_territories": "Territories",
       "organization_theme": "Themes",
       "organization_tracelog": "Traces",
       "organization_transactioncurrencies": "Currencies",
       "organization_translationprocess": "Translation Process",
-      "organization_uof_schedules": "Unit Groups",
       "organization_usermobileofflineprofilemembership": "UserMobileOfflineProfileMemberships",
       "organization_userrating": "User Ratings",
       "organization_viewasexamplequestion": "ViewAsExampleQuestion",
@@ -683,12 +520,8 @@
       "restrictstatusupdate": "Restrict Status Update",
       "reverseproxyipaddresses": "List of reverse proxy IP addresses to be allowed.",
       "rierrorstatus": "Error status of Relationship Insights provisioning.",
-      "salesmobilequickcreatedisabled": "Disable the option to quick create new records and activities in the Sales mobile application",
-      "salesmobileuseuciformsforcreate": "Indicates whether Sales Mobile should use UCI forms for create",
-      "salesmobileuseuciformsforview": "Indicates whether Sales Mobile should use UCI forms for view",
       "samesitemodeforsessioncookie": "Samesite mode for Session Cookie",
       "sampledataimportid": "Sample Data Import",
-      "schedulingengine": "Scheduling engine for Appointments and Service Activities",
       "schemanameprefix": "Customization Name Prefix",
       "sendbulkemailinuci": "Send Bulk Email in UCI",
       "servestaticresourcesfromazurecdn": "Serve Static Content From CDN",
@@ -701,7 +534,6 @@
       "showkbarticledeprecationnotification": "Show KBArticle deprecation message to user",
       "showweeknumber": "Show Week Number",
       "signupoutlookdownloadfwlink": "CRMForOutlookDownloadURL",
-      "skipselectrecorddialog": "Allow select record dialog in Enhanced Email Template",
       "slapausestates": "SLA pause states",
       "socialinsightsenabled": "Social Insights Enabled",
       "socialinsightsinstance": "Social Insights instance identifier",
@@ -1090,6 +922,26 @@
     },
     "OptionSetTypeKey": "BooleanType",
     "RelatedColumnInvariantName": "allowusersseeappdownloadmessage",
+    "RelatedEntityName": "Organizations",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Allow Virtual Entity Plugin Execution In Nested Pipeline. (Organizations)",
+    "Name": "organization_allowvirtualentitypluginexecutiononnestedpipelines",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "allowvirtualentitypluginexecutiononnestedpipeline",
+        "OptionSetReferenceEntityName": "Organizations"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "allowvirtualentitypluginexecutiononnestedpipeline",
     "RelatedEntityName": "Organizations",
     "Type": "OptionSetInfo"
   },
@@ -1800,71 +1652,51 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem100": {
-        "OptionSetReferenceColumnName": "salesmobileuseuciformsforview",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem101": {
-        "OptionSetReferenceColumnName": "sendbulkemailinuci",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem102": {
-        "OptionSetReferenceColumnName": "servestaticresourcesfromazurecdn",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem103": {
-        "OptionSetReferenceColumnName": "sessionrecordingenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem104": {
         "OptionSetReferenceColumnName": "sessiontimeoutenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem105": {
-        "OptionSetReferenceColumnName": "skipselectrecorddialog",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem106": {
+      "OptionSetReferenceItem101": {
         "OptionSetReferenceColumnName": "suppressvalidationemails",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem107": {
+      "OptionSetReferenceItem102": {
         "OptionSetReferenceColumnName": "tablescopeddvsearchinapps",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem108": {
+      "OptionSetReferenceItem103": {
         "OptionSetReferenceColumnName": "textanalyticsenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem109": {
+      "OptionSetReferenceItem104": {
         "OptionSetReferenceColumnName": "usequickfindviewforgridsearch",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem105": {
+        "OptionSetReferenceColumnName": "userratingenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem11": {
         "OptionSetReferenceColumnName": "allowusershidingsystemviews",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem110": {
-        "OptionSetReferenceColumnName": "userratingenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
       "OptionSetReferenceItem12": {
-        "OptionSetReferenceColumnName": "aresalesaddresssuggestionsenabled",
+        "OptionSetReferenceColumnName": "blockaccesstosessiontranscriptsforcopilotstudio",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem13": {
-        "OptionSetReferenceColumnName": "canoptoutnewsearchexperience",
+        "OptionSetReferenceColumnName": "blockcopilotauthorauthentication",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem14": {
-        "OptionSetReferenceColumnName": "defaultteamschattitlerecordname",
+        "OptionSetReferenceColumnName": "blocktranscriptrecordingforcopilotstudio",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem15": {
-        "OptionSetReferenceColumnName": "enableasyncmergeapiforuci",
+        "OptionSetReferenceColumnName": "canoptoutnewsearchexperience",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem16": {
-        "OptionSetReferenceColumnName": "enablecalendarimportexport",
+        "OptionSetReferenceColumnName": "enableasyncmergeapiforuci",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem17": {
@@ -1872,7 +1704,7 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem18": {
-        "OptionSetReferenceColumnName": "enableemailtemplateviews",
+        "OptionSetReferenceColumnName": "enableenvironmentsettingsapp",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem19": {
@@ -1908,19 +1740,19 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem26": {
-        "OptionSetReferenceColumnName": "enablesensitivitylabelsforteamscollab",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem27": {
         "OptionSetReferenceColumnName": "enableunifiedclientcdn",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem28": {
+      "OptionSetReferenceItem27": {
         "OptionSetReferenceColumnName": "enableunifiedinterfaceshellrefresh",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem29": {
+      "OptionSetReferenceItem28": {
         "OptionSetReferenceColumnName": "improvesearchloggingenabled",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem29": {
+        "OptionSetReferenceColumnName": "inactivitytimeoutenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem3": {
@@ -1928,43 +1760,43 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem30": {
-        "OptionSetReferenceColumnName": "inactivitytimeoutenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem31": {
         "OptionSetReferenceColumnName": "isactioncardenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem32": {
+      "OptionSetReferenceItem31": {
         "OptionSetReferenceColumnName": "isactionsupportfeatureenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem33": {
+      "OptionSetReferenceItem32": {
         "OptionSetReferenceColumnName": "isactivityanalysisenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem34": {
+      "OptionSetReferenceItem33": {
         "OptionSetReferenceColumnName": "isallmoneydecimal",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem35": {
+      "OptionSetReferenceItem34": {
         "OptionSetReferenceColumnName": "isautodatacaptureenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem36": {
+      "OptionSetReferenceItem35": {
         "OptionSetReferenceColumnName": "isautodatacapturev2enabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem37": {
+      "OptionSetReferenceItem36": {
         "OptionSetReferenceColumnName": "isbasicgeospatialintegrationenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem38": {
+      "OptionSetReferenceItem37": {
         "OptionSetReferenceColumnName": "isbpfentitycustomizationfeatureenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem39": {
+      "OptionSetReferenceItem38": {
         "OptionSetReferenceColumnName": "isconflictdetectionenabledformobileclient",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem39": {
+        "OptionSetReferenceColumnName": "iscontentsecuritypolicyenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem4": {
@@ -1972,43 +1804,43 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem40": {
-        "OptionSetReferenceColumnName": "iscontentsecuritypolicyenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem41": {
         "OptionSetReferenceColumnName": "iscontentsecuritypolicyenabledforcanvas",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem42": {
+      "OptionSetReferenceItem41": {
         "OptionSetReferenceColumnName": "iscontextualemailenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem43": {
+      "OptionSetReferenceItem42": {
         "OptionSetReferenceColumnName": "iscontextualhelpenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem44": {
+      "OptionSetReferenceItem43": {
         "OptionSetReferenceColumnName": "iscopilotfeedbackenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem45": {
+      "OptionSetReferenceItem44": {
         "OptionSetReferenceColumnName": "iscustomcontrolsincanvasappsenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem46": {
+      "OptionSetReferenceItem45": {
         "OptionSetReferenceColumnName": "isdelveactionhubintegrationenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem47": {
+      "OptionSetReferenceItem46": {
         "OptionSetReferenceColumnName": "isdesktopflowconnectionembeddingenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem48": {
+      "OptionSetReferenceItem47": {
         "OptionSetReferenceColumnName": "isdesktopflowruntimerepairattendedenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem49": {
+      "OptionSetReferenceItem48": {
         "OptionSetReferenceColumnName": "isdesktopflowruntimerepairunattendedenabled",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem49": {
+        "OptionSetReferenceColumnName": "isdesktopflowschemav2enabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem5": {
@@ -2016,43 +1848,43 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem50": {
-        "OptionSetReferenceColumnName": "isdesktopflowschemav2enabled",
+        "OptionSetReferenceColumnName": "isdesktopflowvanillaimagesharingenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem51": {
-        "OptionSetReferenceColumnName": "isembedteamscollabenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem52": {
         "OptionSetReferenceColumnName": "isfolderautocreatedonsp",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem53": {
+      "OptionSetReferenceItem52": {
         "OptionSetReferenceColumnName": "isgeospatialazuremapsintegrationenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem54": {
+      "OptionSetReferenceItem53": {
         "OptionSetReferenceColumnName": "isideasdatacollectionenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem55": {
+      "OptionSetReferenceItem54": {
         "OptionSetReferenceColumnName": "isluisenabledford365bot",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem56": {
+      "OptionSetReferenceItem55": {
         "OptionSetReferenceColumnName": "ismanualsalesforecastingenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem57": {
+      "OptionSetReferenceItem56": {
         "OptionSetReferenceColumnName": "ismobileclientondemandsyncenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem58": {
+      "OptionSetReferenceItem57": {
         "OptionSetReferenceColumnName": "ismodeldrivenappsinmsteamsenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem59": {
+      "OptionSetReferenceItem58": {
         "OptionSetReferenceColumnName": "ismsteamscollaborationenabled",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem59": {
+        "OptionSetReferenceColumnName": "ismsteamsenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem6": {
@@ -2060,43 +1892,43 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem60": {
-        "OptionSetReferenceColumnName": "ismsteamsenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem61": {
         "OptionSetReferenceColumnName": "ismsteamsusersyncenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem62": {
+      "OptionSetReferenceItem61": {
         "OptionSetReferenceColumnName": "isnewaddproductexperienceenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem63": {
+      "OptionSetReferenceItem62": {
         "OptionSetReferenceColumnName": "isnotesanalysisenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem64": {
+      "OptionSetReferenceItem63": {
         "OptionSetReferenceColumnName": "ispaienabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem65": {
+      "OptionSetReferenceItem64": {
         "OptionSetReferenceColumnName": "isperprocesscapacityoverageenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem66": {
+      "OptionSetReferenceItem65": {
         "OptionSetReferenceColumnName": "isplaybookenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem67": {
+      "OptionSetReferenceItem66": {
         "OptionSetReferenceColumnName": "ispreviewenabledforactioncard",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem68": {
+      "OptionSetReferenceItem67": {
         "OptionSetReferenceColumnName": "ispreviewforautocaptureenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem69": {
+      "OptionSetReferenceItem68": {
         "OptionSetReferenceColumnName": "ispricelistmandatory",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem69": {
+        "OptionSetReferenceColumnName": "isprocesscapacityautoclaimenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem7": {
@@ -2148,43 +1980,43 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem80": {
-        "OptionSetReferenceColumnName": "issalesmobilepreviewenabled",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem81": {
         "OptionSetReferenceColumnName": "iswriteinproductsallowed",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem82": {
+      "OptionSetReferenceItem81": {
         "OptionSetReferenceColumnName": "modernadvancedfindfiltering",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem83": {
+      "OptionSetReferenceItem82": {
         "OptionSetReferenceColumnName": "modernappdesignercoauthoringenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem84": {
+      "OptionSetReferenceItem83": {
         "OptionSetReferenceColumnName": "naturallanguageassistfilter",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem85": {
+      "OptionSetReferenceItem84": {
         "OptionSetReferenceColumnName": "newsearchexperienceenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem86": {
+      "OptionSetReferenceItem85": {
         "OptionSetReferenceColumnName": "optoutschemav2enabledbydefault",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem87": {
+      "OptionSetReferenceItem86": {
         "OptionSetReferenceColumnName": "orginsightsenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem88": {
+      "OptionSetReferenceItem87": {
         "OptionSetReferenceColumnName": "paipreviewscenarioenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem89": {
+      "OptionSetReferenceItem88": {
         "OptionSetReferenceColumnName": "powerappsmakerbotenabled",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
+      "OptionSetReferenceItem89": {
+        "OptionSetReferenceColumnName": "powerbiallowcrossregionoperations",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem9": {
@@ -2192,43 +2024,43 @@
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem90": {
-        "OptionSetReferenceColumnName": "powerbiallowcrossregionoperations",
-        "OptionSetReferenceEntityName": "Organizations"
-      },
-      "OptionSetReferenceItem91": {
         "OptionSetReferenceColumnName": "powerbiautomaticpermissionsassignment",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem92": {
+      "OptionSetReferenceItem91": {
         "OptionSetReferenceColumnName": "powerbicomponentscreate",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem93": {
+      "OptionSetReferenceItem92": {
         "OptionSetReferenceColumnName": "productrecommendationsenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem94": {
+      "OptionSetReferenceItem93": {
         "OptionSetReferenceColumnName": "quickactiontoopenrecordsinsidepaneenabled",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem95": {
+      "OptionSetReferenceItem94": {
         "OptionSetReferenceColumnName": "recalculatesla",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem96": {
+      "OptionSetReferenceItem95": {
         "OptionSetReferenceColumnName": "relevancesearchenabledbyplatform",
         "OptionSetReferenceEntityName": "Organizations"
       },
-      "OptionSetReferenceItem97": {
+      "OptionSetReferenceItem96": {
         "OptionSetReferenceColumnName": "restrictGuestUserAccess",
         "OptionSetReferenceEntityName": "Organizations"
       },
+      "OptionSetReferenceItem97": {
+        "OptionSetReferenceColumnName": "sendbulkemailinuci",
+        "OptionSetReferenceEntityName": "Organizations"
+      },
       "OptionSetReferenceItem98": {
-        "OptionSetReferenceColumnName": "salesmobilequickcreatedisabled",
+        "OptionSetReferenceColumnName": "servestaticresourcesfromazurecdn",
         "OptionSetReferenceEntityName": "Organizations"
       },
       "OptionSetReferenceItem99": {
-        "OptionSetReferenceColumnName": "salesmobileuseuciformsforcreate",
+        "OptionSetReferenceColumnName": "sessionrecordingenabled",
         "OptionSetReferenceEntityName": "Organizations"
       }
     },
@@ -3690,25 +3522,6 @@
     "Type": "OptionSetInfo"
   },
   {
-    "DisplayName": "Scheduling engine for Appointments and Service Activities (Organizations)",
-    "Name": "organization_schedulingengine",
-    "OptionSetInfoNameMapping": {
-      "0": "(Default) Scheduling Engine"
-    },
-    "OptionSetIsBooleanValued": false,
-    "OptionSetIsGlobal": false,
-    "OptionSetReference": {
-      "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "schedulingengine",
-        "OptionSetReferenceEntityName": "Organizations"
-      }
-    },
-    "OptionSetTypeKey": "PicklistType",
-    "RelatedColumnInvariantName": "schedulingengine",
-    "RelatedEntityName": "Organizations",
-    "Type": "OptionSetInfo"
-  },
-  {
     "DisplayName": "Choose SharePoint Deployment Type (Organizations)",
     "Name": "organization_sharepointdeploymenttype",
     "OptionSetInfoNameMapping": {
@@ -4161,27 +3974,6 @@
     },
     "OptionSetTypeKey": "BooleanType",
     "RelatedColumnInvariantName": "socialinsightstermsaccepted",
-    "RelatedEntityName": "Organizations",
-    "Type": "OptionSetInfo"
-  },
-  {
-    "DisplayName": "Template Default View",
-    "Name": "templatedefaultview",
-    "OptionSetInfoNameMapping": {
-      "1": "Tiles View",
-      "2": "Grid View",
-      "3": "List View"
-    },
-    "OptionSetIsBooleanValued": false,
-    "OptionSetIsGlobal": true,
-    "OptionSetReference": {
-      "OptionSetReferenceItem0": {
-        "OptionSetReferenceColumnName": "emailtemplatedefaultview",
-        "OptionSetReferenceEntityName": "Organizations"
-      }
-    },
-    "OptionSetTypeKey": "PicklistType",
-    "RelatedColumnInvariantName": "emailtemplatedefaultview",
     "RelatedEntityName": "Organizations",
     "Type": "OptionSetInfo"
   }

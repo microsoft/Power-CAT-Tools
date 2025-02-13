@@ -17,18 +17,8 @@
     },
     {
       "Kind": "Page",
-      "Name": "AI Doc",
-      "Value": "custompage:cat_aidoc_311c3"
-    },
-    {
-      "Kind": "Page",
       "Name": "API Playground",
       "Value": "custompage:cat_apiplayground_62f25"
-    },
-    {
-      "Kind": "Page",
-      "Name": "Fluent UI Custom Page Template",
-      "Value": "custompage:cat_fluentuicustompagetemplate_e3ec8"
     },
     {
       "Kind": "Page",
@@ -42,8 +32,23 @@
     },
     {
       "Kind": "Page",
-      "Name": "AI Auto Doc",
-      "Value": "custompage:cat_aiautodoc_0bb25"
+      "Name": "Overview",
+      "Value": "custompage:cat_overview_3dbf5"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Dataverse Actions Page",
+      "Value": "custompage:cat_dataverseactiondetailspage_eec36"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Prompt Advisor Page",
+      "Value": "custompage:msdyn_promptadvisor_3ada1"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Dataverse Actions Page - Prompt Advisor Preview",
+      "Value": "custompage:cat_dataverseactionspagepromptadvisorpreview_96f1d"
     }
   ]
 }

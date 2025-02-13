@@ -77,8 +77,6 @@ ListScreen As screen:
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
-                LayoutMinHeight: =200
-                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -149,8 +147,6 @@ ListScreen As screen:
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -178,8 +174,6 @@ ListScreen As screen:
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -207,8 +201,6 @@ ListScreen As screen:
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -687,7 +679,10 @@ ListScreen As screen:
                                             'Risk Assessments',
                                             'Security Role'.Role = DVUnscannedCustomRolesList.Selected.RoleId
                                         )
-                                    )
+                                    ) || (LookUp(
+                                        'Risk Assessments',
+                                        'Risk Assessment' = AllSecurityRolesAssessmentsList.Selected.'Risk Assessment'
+                                    ).'Status Reason' = 'Status Reason (Risk Assessments)'.'In Progress')
                                 },
                                 {
                                     ItemKey: "refresh",
@@ -748,7 +743,10 @@ ListScreen As screen:
                                         ,
                                         Patch(
                                             'Risk Assessments',
-                                            selectedRoleAssessments,
+                                            LookUp(
+                                                'Risk Assessments',
+                                                'Security Role'.Role = selectedId
+                                            ),
                                             {'Is Archived': true}
                                         )
                                     );
@@ -1054,7 +1052,6 @@ ListScreen As screen:
                     CurrentSortColumn: =assessedRiskDetailsSortCol
                     CurrentSortDirection: =assessedRiskDetailsSortOrder
                     DisplayMode: =DisplayMode.Edit
-                    FillPortions: =FlexOff
                     Height: =(CountRows(ListItems) * 55) + 60//Max(60 + (CountRows(ListItems) * 48), 200)
                     InputEvent: =ctxAssessmentsEvent
                     Items: |-
@@ -1068,8 +1065,6 @@ ListScreen As screen:
                             )
                         )
                     LargeDatasetPaging: =true
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     menu_Items: =contextMenuButtonsForListScreen
                     OnChange: |
                         =If(
@@ -1278,11 +1273,10 @@ ListScreen As screen:
 
                 "AllSecurityRolesAssessmentsList As 'Fluent Details List (1.1.39)'.pcfdataset":
                     AccessibilityLabel: =DVAssessmentPageLoc.rolesByStatus
-                    AlignInContainer: =AlignInContainer.Stretch
                     columns_Items: |-
                         =Table(
                             {
-                                ColName: "msdyn_assessedrisklevel",
+                                ColName: "cat_assessedrisklevel",
                                 ColDisplayName: DVAssessmentPageLoc.severityColumn,
                                 ColWidth: Max(
                                     Self.Width / 10,
@@ -1294,19 +1288,19 @@ ListScreen As screen:
                                 ColRowHeader: true,
                                 ColVerticalAlign: "Center",
                                 ColCellType: "indicatortag",
-                                ColTagColorColumn: "msdyn_tagcolorforassessedrisklevel",
-                                ColTagBorderColorColumn: "msdyn_tagbordercolorforstatusreason",
-                                ColSortBy: "msdyn_assessedrisklevel"
+                                ColTagColorColumn: "cat_tagcolorforassessedrisklevel",
+                                ColTagBorderColorColumn: "cat_tagbordercolorforstatusreason",
+                                ColSortBy: "cat_assessedrisklevel"
                             },
                             {
-                                ColName: "msdyn_RoleId",
+                                ColName: "cat_RoleId",
                                 ColDisplayName: DVAssessmentPageLoc.nameColumn,
                                 ColRowHeader: true,
                                 ColCellType: "Link",
                                 ColWidth: Self.Width * 0.40//Self.Width * 0.30
                             },
                             {
-                                ColName: "msdyn_totalprivileges",
+                                ColName: "cat_totalprivileges",
                                 ColDisplayName: DVAssessmentPageLoc.privilegesColumnName,
                                 //ColHorizontalAlign: "Center",
                                 ColVerticalAlign: "Center",
@@ -1315,7 +1309,7 @@ ListScreen As screen:
                                 ColWidth: 80
                             },
                            /* {
-                                ColName: "msdyn_exceptionflagged",
+                                ColName: "cat_exceptionflagged",
                                 ColDisplayName: DVAssessmentPageLoc.flaggedExceptionColumnName,
                                 //ColHorizontalAlign: "Center",
                                 ColVerticalAlign: "Center",
@@ -1327,7 +1321,7 @@ ListScreen As screen:
                                 )
                             },*/
                             {
-                                ColName: "msdyn_assessmentdate",
+                                ColName: "cat_assessmentdate",
                                 ColDisplayName: DVAssessmentPageLoc.dateRunColumn,
                                 //ColHorizontalAlign: "Center",
                                 ColVerticalAlign: "Center",
@@ -1350,8 +1344,8 @@ ListScreen As screen:
                                 //ColHorizontalAlign: "Center",
                                 ColVerticalAlign: "Center",
                                 ColCellType: "tag",
-                                ColTagColorColumn: "msdyn_tagcolorforstatusreason",
-                                ColTagBorderColorColumn: "msdyn_tagbordercolorforstatusreason",
+                                ColTagColorColumn: "cat_tagcolorforstatusreason",
+                                ColTagBorderColorColumn: "cat_tagbordercolorforstatusreason",
                                 ColSortable: true
                             }
                         )
@@ -1359,7 +1353,6 @@ ListScreen As screen:
                     CurrentSortColumn: =allAssessmentsSortCol
                     CurrentSortDirection: =allAssessmentsSortOrder
                     DisplayMode: =DisplayMode.Edit
-                    FillPortions: =FlexOff
                     Height: =(CountRows(RisksAssessmentsToBeDisplayed) * 55) + 100//Max(70 + (CountRows(RisksAssessmentsToBeDisplayed) * 48), 200)//Parent.Height//-Self.Y
                     InputEvent: =ctxAssessmentsEvent
                     Items: |-
@@ -1412,8 +1405,6 @@ ListScreen As screen:
                             )
                         )
                     LargeDatasetPaging: =true
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
                     OnChange: |
                         =If(
                             Self.EventName = "Sort",
@@ -1427,7 +1418,7 @@ ListScreen As screen:
                         If(
                             Self.EventName = "CellAction",
                             If(
-                                Self.EventColumn = "msdyn_RoleId",
+                                Self.EventColumn = "cat_RoleId",
                                 UpdateContext(
                                     {
                                         selectedRiskAssessmentRecord: LookUp(
@@ -1467,7 +1458,7 @@ ListScreen As screen:
                             ).'Risk Assessment'
                         )
                     RaiseOnRowSelectionChangeEvent: =true
-                    RecordKey: ="msdyn_riskassessmentid"//"AssessmentId"
+                    RecordKey: ="cat_riskassessmentid"//"AssessmentId"
                     SelectionAlwaysVisible: =true
                     SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.Single
                     Theme: =DetailsListThemeJson//AppThemeJson
@@ -1478,65 +1469,105 @@ ListScreen As screen:
                     Y: =0
                     ZIndex: =5
 
-                    "msdyn_assessedrisklevel1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_assessedrisklevel"
-                        FieldName: ="msdyn_assessedrisklevel"
+                    "cat_assessedrisklevel1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_assessedrisklevel"
+                        FieldName: ="cat_assessedrisklevel"
                         FieldType: ="l"
-                        Order: =17
-                        ZIndex: =1
+                        FieldVariantName: ="textualColumn"
+                        Order: =5
+                        ZIndex: =0
 
-                    "msdyn_assessmentdate1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_assessmentdate"
-                        FieldName: ="msdyn_assessmentdate"
+                    "cat_assessmentdate1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_assessmentdate"
+                        FieldName: ="cat_assessmentdate"
                         FieldType: ="d"
-                        Order: =18
-                        ZIndex: =2
+                        FieldVariantName: ="textualColumn"
+                        Order: =6
+                        ZIndex: =0
 
-                    "msdyn_exceptionflagged1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_exceptionflagged"
-                        FieldName: ="msdyn_exceptionflagged"
+                    "cat_isarchived1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_isarchived"
+                        FieldName: ="cat_isarchived"
                         FieldType: ="l"
-                        Order: =19
-                        ZIndex: =3
+                        FieldVariantName: ="textualColumn"
+                        Order: =7
+                        ZIndex: =0
 
-                    "msdyn_name2_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_name"
-                        FieldName: ="msdyn_name"
+                    "cat_name1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_name"
+                        FieldName: ="cat_name"
                         FieldType: ="s"
-                        Order: =20
-                        ZIndex: =4
+                        FieldVariantName: ="textualColumn"
+                        Order: =8
+                        ZIndex: =0
 
-                    "msdyn_RoleId2_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_RoleId"
-                        FieldName: ="msdyn_RoleId"
+                    "cat_RoleId1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_RoleId"
+                        FieldName: ="cat_RoleId"
                         FieldType: ="E"
-                        Order: =21
-                        ZIndex: =5
+                        FieldVariantName: ="textualColumn"
+                        Order: =10
+                        ZIndex: =0
 
-                    "msdyn_tagbordercolorforstatusreason1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_tagbordercolorforstatusreason"
-                        FieldName: ="msdyn_tagbordercolorforstatusreason"
-                        FieldType: ="s"
-                        Order: =22
-                        ZIndex: =6
+                    "cat_RiskAssessmentSettingId1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_RiskAssessmentSettingId"
+                        FieldName: ="cat_RiskAssessmentSettingId"
+                        FieldType: ="E"
+                        FieldVariantName: ="textualColumn"
+                        Order: =11
+                        ZIndex: =0
 
-                    "msdyn_tagcolorforassessedrisklevel1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_tagcolorforassessedrisklevel"
-                        FieldName: ="msdyn_tagcolorforassessedrisklevel"
+                    "cat_tagbordercolorforstatusreason1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_tagbordercolorforstatusreason"
+                        FieldName: ="cat_tagbordercolorforstatusreason"
                         FieldType: ="s"
-                        Order: =23
-                        ZIndex: =7
+                        FieldVariantName: ="textualColumn"
+                        Order: =12
+                        ZIndex: =0
 
-                    "msdyn_tagcolorforstatusreason1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_tagcolorforstatusreason"
-                        FieldName: ="msdyn_tagcolorforstatusreason"
+                    "cat_tagcolorforassessedrisklevel1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_tagcolorforassessedrisklevel"
+                        FieldName: ="cat_tagcolorforassessedrisklevel"
                         FieldType: ="s"
-                        Order: =25
-                        ZIndex: =8
+                        FieldVariantName: ="textualColumn"
+                        Order: =13
+                        ZIndex: =0
+
+                    "cat_tagcolorforstatusreason1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_tagcolorforstatusreason"
+                        FieldName: ="cat_tagcolorforstatusreason"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =14
+                        ZIndex: =0
+
+                    "cat_totalorglevelprivileges1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_totalorglevelprivileges"
+                        FieldName: ="cat_totalorglevelprivileges"
+                        FieldType: ="n"
+                        FieldVariantName: ="textualColumn"
+                        Order: =15
+                        ZIndex: =0
+
+                    "statecode1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="statecode"
+                        FieldName: ="statecode"
+                        FieldType: ="l"
+                        FieldVariantName: ="textualColumn"
+                        Order: =16
+                        ZIndex: =0
+
+                    "cat_riskassessmentid1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                        FieldDisplayName: ="cat_riskassessmentid"
+                        FieldName: ="cat_riskassessmentid"
+                        FieldType: ="g"
+                        FieldVariantName: ="textualColumn"
+                        Order: =15
+                        ZIndex: =0
 
                     "msdyn_totalprivileges1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_totalprivileges"
-                        FieldName: ="msdyn_totalprivileges"
+                        FieldDisplayName: ="cat_totalprivileges"
+                        FieldName: ="cat_totalprivileges"
                         FieldType: ="n"
                         Order: =26
                         ZIndex: =9
@@ -1549,8 +1580,8 @@ ListScreen As screen:
                         ZIndex: =10
 
                     "msdyn_tagcolorforrisklevel1_1 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
-                        FieldDisplayName: ="msdyn_tagcolorforrisklevel"
-                        FieldName: ="msdyn_tagcolorforrisklevel"
+                        FieldDisplayName: ="cat_tagcolorforrisklevel"
+                        FieldName: ="cat_tagcolorforrisklevel"
                         FieldType: ="s"
                         Order: =11
                         ZIndex: =11
