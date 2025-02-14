@@ -1325,13 +1325,13 @@
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"0.0.125\",\"IsFirstParty\":false}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"0.0.132\",\"IsFirstParty\":false}}",
       "Type": 3
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil109eus.blob.core.windows.net/82dba5e7-fa02-4211-a414-e08ea215ef90-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work0oazspdqo.enj020S0Resources0Controls0PowerCAT.IntelligentReviewVisualizer.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T05%3A06%3A06Z&ske=2025-02-06T05%3A21%3A06Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T05%3A21%3A06Z&sr=b&sp=r&sig=8B9tittAGP8VSFZ0OFaZQlM4xXUw5IXpnF5vnIuZEWg%3D",
+      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/0d983545-3749-4dd9-b93e-d07de279531e-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4wunibn.xso020S0Resources0Controls0PowerCAT.IntelligentReviewVisualizer.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-13T03%3A50%3A22Z&ske=2025-02-14T04%3A05%3A22Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-14T04%3A05%3A22Z&sr=b&sp=r&sig=RdOHd2zQsYCC5iKTb%2FxTFxLNhFfUf0Pkjr86IRqSo3g%3D",
       "Path": "/PCFControls/cat_PowerCAT.IntelligentReviewVisualizer/PowerCAT.IntelligentReviewVisualizer.bundle.js",
       "Type": 0
     },
@@ -1345,7 +1345,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
-      "ModifiedPath": "https://dsprdil109eus.blob.core.windows.net/82dba5e7-fa02-4211-a414-e08ea215ef90-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work0oazspdqo.enj020S0Resources0Controls0strings%252fPowerCAT.IntelligentReviewVisualizer.IntelligentReviewVisualizer.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-05T05%3A06%3A06Z&ske=2025-02-06T05%3A21%3A06Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-06T05%3A21%3A06Z&sr=b&sp=r&sig=kH9MzTC0kX2q3xCvk9pukTAkNiZsH9UxDH1WuYMoDds%3D",
+      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/0d983545-3749-4dd9-b93e-d07de279531e-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4wunibn.xso020S0Resources0Controls0strings%252fPowerCAT.IntelligentReviewVisualizer.IntelligentReviewVisualizer.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-13T03%3A50%3A22Z&ske=2025-02-14T04%3A05%3A22Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-14T04%3A05%3A22Z&sr=b&sp=r&sig=wmVqzTp%2FCz6JprXF4dh7re7kjOMmPHmZ6FnXg46qumg%3D",
       "Path": "/PCFControls/cat_PowerCAT.IntelligentReviewVisualizer/strings/PowerCAT.IntelligentReviewVisualizer.IntelligentReviewVisualizer.1033.json",
       "Type": 5
     },
@@ -1381,5 +1381,5 @@
   "SubscribedFunctionalities": {
     "sharedTemplate": "false"
   },
-  "Version": "0.0.125"
+  "Version": "0.0.132"
 }

@@ -66,10 +66,6 @@
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =16
         LayoutMode: =LayoutMode.Auto
-        RadiusBottomLeft: =4
-        RadiusBottomRight: =4
-        RadiusTopLeft: =4
-        RadiusTopRight: =4
         Width: =Parent.Width
         ZIndex: =1
 
@@ -81,10 +77,6 @@
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowY: =LayoutOverflow.Scroll
             LayoutWrap: =true
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
             ZIndex: =3
 
             SidebarContainer As groupContainer.verticalAutoLayoutContainer:
@@ -97,10 +89,6 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                RadiusBottomLeft: =8
-                RadiusBottomRight: =8
-                RadiusTopLeft: =8
-                RadiusTopRight: =8
                 Width: =If(hideSidbar,const_dims.sidebar.widthCollapsed,const_dims.sidebar.widthExpanded) //Coalesce(sidebarWidth, const_dims.sidebar.widthCollapsed)
                 ZIndex: =1
 
@@ -1270,7 +1258,7 @@
 
                 "ManageFolderButton_R As 'Fluent Icon (1.1.39)'":
                     DisplayMode: =DisplayMode.Edit
-                    Height: =35
+                    Height: =44
                     IconName: ="FolderList"
                     IconType: ='PowerCAT.Icon.IconType'.ActionButton
                     LayoutMinHeight: =200
@@ -1399,12 +1387,12 @@
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |
-                            =UpdateContext({showDialog:true});
+                            =UpdateContext({showDialog:false});UpdateContext({showDialog:true});
                         Text: =APIPlayGroundLoc.saveTxt
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Right
                         Theme: =AppThemeNeutralJson
                         Tooltip: =APIPlayGroundLoc.saveTxt
-                        Visible: =true
+                        Visible: =false
                         Width: =35
                         X: =0
                         Y: =0
@@ -1469,9 +1457,9 @@
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnSelect: |-
-                            =UpdateContext({showDialog:true});
+                            =UpdateContext({showDialog:false});UpdateContext({showDialog:true});
                         Text: =
-                        Visible: =false
+                        Visible: =true
                         Width: =36
                         X: =0
                         Y: =0
@@ -3567,6 +3555,7 @@
 
                         "DVCodeEditor As 'Code Editor'":
                             DisplayMode: =DisplayMode.View
+                            FillPortions: =FlexOn
                             FormatCode: =outputFormatCode
                             Height: =200
                             Language: =ResposneCombobox.Selected.DisplayName
@@ -3766,10 +3755,6 @@
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 PaddingLeft: =10
-                RadiusBottomLeft: =4
-                RadiusBottomRight: =4
-                RadiusTopLeft: =4
-                RadiusTopRight: =4
                 Visible: =showDialog
                 ZIndex: =4
 

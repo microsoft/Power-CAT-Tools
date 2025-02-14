@@ -59,6 +59,8 @@ BaselineSettingsScreen As screen:
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -115,6 +117,8 @@ BaselineSettingsScreen As screen:
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -142,6 +146,8 @@ BaselineSettingsScreen As screen:
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -169,6 +175,8 @@ BaselineSettingsScreen As screen:
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -703,6 +711,8 @@ BaselineSettingsScreen As screen:
                             Height: =44
                             IconName: ="help"
                             IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
                             Text: =DVAssessmentPageLoc.helpButtonText
                             Theme: =AppThemeJson
                             Tooltip: ="Risk assessment settings assign threat levels to different privilege access levels, helping calculate a security role's overall risk."
@@ -929,6 +939,8 @@ BaselineSettingsScreen As screen:
                             )
                         )
                     LargeDatasetPaging: =true
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |
                         =If(
                             Self.EventName = "OnRowSelectionChange",

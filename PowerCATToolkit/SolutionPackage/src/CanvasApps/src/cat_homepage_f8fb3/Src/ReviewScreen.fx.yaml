@@ -652,6 +652,7 @@ ReviewScreen As screen:
                             Compact: =false
                             CurrentSortColumn: =""
                             DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
                             Height: =Parent.Height
                             Items: |-
                                 =Search(AddColumns(SelectedReviewItem.result, StatusCol,If(status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass, "#76DB91", status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail, "#cc412f", "#333333"),

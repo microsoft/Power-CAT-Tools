@@ -92,7 +92,6 @@
     <RolePrivilege name="prvReadReport" level="Basic" />
     <RolePrivilege name="prvReadRole" level="Global" />
     <RolePrivilege name="prvReadSavedQueryVisualizations" level="Global" />
-    <RolePrivilege name="prvReadSdkMessage" level="Global" />
     <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
     <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
     <RolePrivilege name="prvReadSharePointData" level="Global" />

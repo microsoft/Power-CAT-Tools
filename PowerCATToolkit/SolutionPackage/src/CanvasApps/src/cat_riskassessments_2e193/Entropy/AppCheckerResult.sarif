@@ -3374,19 +3374,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnEnableAutoScan_SettingsScreen.AccessibleLabel"
+                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnScanAllRoles_SettingScreen.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnEnableAutoScan_SettingsScreen.AccessibleLabel",
+                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnScanAllRoles_SettingScreen.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "SettingsLandingScreen",
-                "type": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnEnableAutoScan_SettingsScreen"
+                "type": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnScanAllRoles_SettingScreen"
               }
             }
           ],
@@ -3404,19 +3404,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnScanAllRoles_SettingScreen.AccessibleLabel"
+                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnEnableAutoScan_SettingsScreen.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnScanAllRoles_SettingScreen.AccessibleLabel",
+                  "fullyQualifiedName": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnEnableAutoScan_SettingsScreen.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "SettingsLandingScreen",
-                "type": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnScanAllRoles_SettingScreen"
+                "type": "SettingsLandingScreen.cAppFrame_5.cScreenContainer_3.Container2_2.MainContainer1_4.cGetStartedPane.cSetupRight.Container32.btnEnableAutoScan_SettingsScreen"
               }
             }
           ],
