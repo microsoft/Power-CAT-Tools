@@ -696,7 +696,7 @@ SolutionScreen As screen:
                         ZIndex: =4
 
                         "FluentDetailsList4 As 'Fluent Details List (1.1.39)'.pcfdataset":
-                            AlignInContainer: =AlignStretch
+                            AlignInContainer: =AlignInContainer.Stretch
                             columns_Items: |-
                                 =With({
                                                 // If there is a selection column, we remove the width and the padding
@@ -745,10 +745,11 @@ SolutionScreen As screen:
                                             )
                             Compact: =true
                             DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
                             HeaderVisible: =true
                             Height: =200
                             Items: =Search(If(tabForm_3.Selected.ItemKey="All", SolutionReviewsCol, Filter(SolutionReviewsCol, AppType = tabForm_3.Selected.ItemKey)), txtSearch_4.Value, Review)
-                            LayoutMinHeight: =600
+                            LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             OnChange: |+
                                 =

@@ -4083,7 +4083,7 @@
       "MetaDataIDKey": "",
       "Name": "cCreateCards",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5304,7 +5304,7 @@
       "MetaDataIDKey": "",
       "Name": "cLearnCards",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11709,7 +11709,7 @@
       "MetaDataIDKey": "",
       "Name": "cSavedRequestsList",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22944,7 +22944,7 @@
       "MetaDataIDKey": "",
       "Name": "NoRequestFoundContainer",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24466,7 +24466,7 @@
       "MetaDataIDKey": "",
       "Name": "SavedRequestContainer_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24768,7 +24768,7 @@
       "MetaDataIDKey": "",
       "Name": "SavedRequestsSection",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30609,7 +30609,7 @@
       "MetaDataIDKey": "",
       "Name": "txtDiscover",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30834,7 +30834,7 @@
       "MetaDataIDKey": "",
       "Name": "txtDiscoverSub",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31032,7 +31032,7 @@
       "MetaDataIDKey": "",
       "Name": "txtGetStarted",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31247,7 +31247,7 @@
       "MetaDataIDKey": "",
       "Name": "txtGetStartedSub",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

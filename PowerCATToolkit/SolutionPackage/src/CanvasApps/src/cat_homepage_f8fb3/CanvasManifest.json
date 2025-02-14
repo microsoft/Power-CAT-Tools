@@ -107,7 +107,7 @@
       "zeroalltabindexes": true
     },
     "Author": "",
-    "BindingErrorCount": 1,
+    "BindingErrorCount": 0,
     "ConnectionString": "",
     "ContainsThirdPartyPcfControls": true,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,

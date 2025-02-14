@@ -148,6 +148,8 @@ PaneListScreen As screen:
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -208,6 +210,8 @@ PaneListScreen As screen:
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -235,6 +239,8 @@ PaneListScreen As screen:
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -262,6 +268,8 @@ PaneListScreen As screen:
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -292,6 +300,8 @@ PaneListScreen As screen:
                         ItemDisabled: false
                     }
                 )
+            LayoutMinHeight: =Self.AutoHeight
+            LayoutMinWidth: =300
             OnDismiss: |-
                 =UpdateContext({showBaseLineSettingsMessageBar:false});
             OnSelect: |-
@@ -461,6 +471,8 @@ PaneListScreen As screen:
                         ItemVisible: false
                     }
                 )
+            LayoutMinHeight: =Self.AutoHeight
+            LayoutMinWidth: =300
             OnDismiss: |-
                 =UpdateContext({showInProgressMessageBar:false});
             OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
@@ -488,6 +500,8 @@ PaneListScreen As screen:
                         ItemDisabled: false
                     }
                 )
+            LayoutMinHeight: =Self.AutoHeight
+            LayoutMinWidth: =300
             OnDismiss: |-
                 =UpdateContext({showMessageBarForPaneScreen:false});
             OnSelect: |-
@@ -1331,6 +1345,8 @@ PaneListScreen As screen:
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =55
                                 Items: =CurrentRoleSeverityStatusBarChart
+                                LayoutMinHeight: =180
+                                LayoutMinWidth: =350
                                 Title: ="Risk breakdown"
                                 Width: =Parent.Width
                                 X: =0
@@ -1773,7 +1789,7 @@ PaneListScreen As screen:
                                         )
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
-                                    Items: =Filter('Risk Assessment Settings',Status='Status (Risk Assessment Settings)'.Active)
+                                    Items: =Filter('Risk Assessment Settings', Status='Status (Risk Assessment Settings)'.Active)
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =320
                                     OnChange: |-
@@ -1795,21 +1811,21 @@ PaneListScreen As screen:
                                     Y: =0
                                     ZIndex: =2
 
-                                    Name4 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+                                    Name1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
                                         FieldDisplayName: ="Name"
-                                        FieldName: ="msdyn_name"
+                                        FieldName: ="cat_name"
                                         FieldType: ="s"
                                         FieldVariantName: ="textualColumn"
                                         Order: =1
-                                        ZIndex: =18
+                                        ZIndex: =0
 
-                                    "'Risk Assessment Setting2' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
+                                    "'Risk Assessment Setting1' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
                                         FieldDisplayName: ="Risk Assessment Setting"
-                                        FieldName: ="msdyn_riskassessmentsettingid"
+                                        FieldName: ="cat_riskassessmentsettingid"
                                         FieldType: ="g"
                                         FieldVariantName: ="textualColumn"
                                         Order: =2
-                                        ZIndex: =19
+                                        ZIndex: =0
 
                                 txtCaption1_1 As Text:
                                     Align: ='TextCanvas.Align'.Start
@@ -2437,6 +2453,8 @@ PaneListScreen As screen:
                             InputEvent: =ctxTableEvent
                             Items: =PrivilegesListToBeDisplayed
                             LargeDatasetPaging: =true
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
                             OnChange: |
                                 =
                                 // Logic for changing the page
@@ -2775,6 +2793,8 @@ PaneListScreen As screen:
                                 Height: =32
                                 IconName: ="ChevronLeftEnd6"
                                 IconSize: =11
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 OnChange: |-
                                     =Set(varPageNumber,1);UpdateContext({ctxGridEvent:"LoadNextPageSetFocusOnRow" & Text(Rand())});
                                 Theme: =AppThemeNeutralJson
@@ -2795,6 +2815,8 @@ PaneListScreen As screen:
                                 Height: =32
                                 IconName: ="ChevronLeftmed"
                                 IconSize: =11
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 OnChange: |-
                                     =Set(varPageNumber,varPageNumber-1);UpdateContext({ctxGridEvent:"LoadNextPageSetFocusOnRow" & Text(Rand())});
                                 Theme: =AppThemeNeutralJson
@@ -2843,6 +2865,8 @@ PaneListScreen As screen:
                                 Height: =32
                                 IconName: ="ChevronRightmed"
                                 IconSize: =11
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 OnChange: |
                                     =Set(
                                         varPageNumber,
@@ -2867,6 +2891,8 @@ PaneListScreen As screen:
                                 Height: =32
                                 IconName: ="ChevronrightEnd6"
                                 IconSize: =11
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 OnChange: |
                                     =Set(
                                         varPageNumber,
@@ -2979,7 +3005,7 @@ PaneListScreen As screen:
                 PaddingRight: =16
                 PaddingTop: =16
                 Visible: =showPane <> false && CountRows(PrivilegesList.SelectedItems)>0
-                Width: =490//320
+                Width: =320
                 ZIndex: =2
 
                 Container6 As groupContainer.verticalAutoLayoutContainer:
@@ -3383,7 +3409,7 @@ PaneListScreen As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
-                        PaddingLeft: =6
+                        PaddingLeft: =2
                         PaddingRight: =6
                         PaddingTop: =12
                         ZIndex: =2
@@ -3394,19 +3420,19 @@ PaneListScreen As screen:
                             BorderThickness: =1
                             Fill: =RGBA(0, 0, 0, 0.01)
                             FillPortions: =0
-                            Height: =If(!hidePanelBackButton,200,160)//160
+                            Height: =PrivDescContainer.Y+PrivDescContainer.Height //If(!hidePanelBackButton,200,160)//160
                             LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutGap: =12
                             LayoutMinHeight: =200
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
-                            PaddingLeft: =5
+                            PaddingLeft: =12
                             PaddingTop: =10
-                            RadiusBottomLeft: =4
-                            RadiusBottomRight: =4
-                            RadiusTopLeft: =4
-                            RadiusTopRight: =4
+                            RadiusBottomLeft: =8
+                            RadiusBottomRight: =8
+                            RadiusTopLeft: =8
+                            RadiusTopRight: =8
                             Visible: |-
                                 =//If(prvSeverityLabel="No Risk",false,true)
                                 If(
@@ -3463,7 +3489,7 @@ PaneListScreen As screen:
                                     LayoutMinWidth: =96
                                     Text: =DVAssessmentPageLoc.reduceRiskLevelHeaderText
                                     VerticalAlign: =VerticalAlign.Middle
-                                    Weight: ='TextCanvas.Weight'.Bold
+                                    Weight: ='TextCanvas.Weight'.Semibold
                                     Width: =150
                                     X: =0
                                     Y: =0
@@ -3472,14 +3498,15 @@ PaneListScreen As screen:
                             PrivDescContainer As groupContainer.verticalAutoLayoutContainer:
                                 AlignInContainer: =AlignInContainer.Start
                                 FillPortions: =0
-                                Height: =If(!hidePanelBackButton,140,100)//100
+                                Height: =PrivDescTextCanvas.Height + PrivWarningContainer.Height + 24 //If(!hidePanelBackButton,160,140) + 
                                 LayoutAlignItems: =LayoutAlignItems.Stretch
                                 LayoutDirection: =LayoutDirection.Vertical
+                                LayoutGap: =8
                                 LayoutMinHeight: =80
                                 LayoutMinWidth: =190
                                 LayoutMode: =LayoutMode.Auto
                                 LayoutWrap: =true
-                                PaddingLeft: =30
+                                PaddingLeft: =24
                                 PaddingRight: =10
                                 RadiusBottomLeft: =4
                                 RadiusBottomRight: =4
@@ -3490,6 +3517,7 @@ PaneListScreen As screen:
 
                                 PrivDescTextCanvas As Text:
                                     AlignInContainer: =AlignInContainer.Start
+                                    AutoHeight: =true
                                     DisplayMode: =DisplayMode.Edit
                                     FontColor: =RGBA(0, 0, 0, 1)
                                     Height: =If(PaneListScreen.Size=1,100,60)//560//60
@@ -3497,17 +3525,16 @@ PaneListScreen As screen:
                                     LayoutMinWidth: =96
                                     Text: =DVAssessmentPageLoc.prvOrgRiskInfo
                                     VerticalAlign: =VerticalAlign.Middle
-                                    Width: =Parent.Width-20
+                                    Width: =Parent.Width-Self.X
                                     X: =0
                                     Y: =0
                                     ZIndex: =1
 
                                 PrivWarningContainer As groupContainer.verticalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.Start
-                                    DropShadow: =DropShadow.Light
                                     Fill: =RGBA(255, 184, 174, 1)
                                     FillPortions: =0
-                                    Height: =35
+                                    Height: =32
                                     LayoutAlignItems: =LayoutAlignItems.Center
                                     LayoutDirection: =LayoutDirection.Vertical
                                     LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -3760,7 +3787,7 @@ PaneListScreen As screen:
                                     BorderColor: =RGBA(255, 255, 255, 1)
                                     BorderStyle: =BorderStyle.None
                                     FillPortions: =0
-                                    Height: =90//If(EditPrivilegeScreen.Size=1,136,90)//60
+                                    Height: =FluentMessageBar1.Height+12
                                     LayoutMinHeight: =100
                                     LayoutMinWidth: =250
                                     LayoutMode: =LayoutMode.Auto
@@ -3770,7 +3797,7 @@ PaneListScreen As screen:
                                     RadiusTopLeft: =4
                                     RadiusTopRight: =4
                                     Visible: = If(CmbPrivilegeLevel.Selected.ItemValue = PrivilegesList.Selected.level,false,true) && showWarningMessageBar
-                                    Width: =Parent.Width-20
+                                    Width: =Parent.Width - Self.X
                                     ZIndex: =3
 
                                     Icon1_1 As icon.Warning:
@@ -3820,8 +3847,11 @@ PaneListScreen As screen:
                                             ="Warning: This form will update the actual security role privilege, impacting user access"
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =Self.AutoHeight
+                                        HideDismiss: =true
                                         Intent: ='PowerCAT.FluentMessageBar.Intent'.warning
                                         Items: =
+                                        LayoutMinHeight: =Self.AutoHeight
+                                        LayoutMinWidth: =300
                                         OnDismiss: =false
                                         OnSelect: =false
                                         Shape: ='PowerCAT.FluentMessageBar.Shape'.rounded
@@ -3976,6 +4006,8 @@ PaneListScreen As screen:
                         Data: =updatedPrivileges
                         DisplayMode: =DisplayMode.Edit
                         Height: =1
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
                         Method: ='PowerCAT.DVAPITester.Method'.Post
                         OnChange: |
                             =Set(

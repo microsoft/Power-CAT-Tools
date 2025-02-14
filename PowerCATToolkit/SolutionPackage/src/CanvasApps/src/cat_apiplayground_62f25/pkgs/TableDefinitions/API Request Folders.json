@@ -50,14 +50,6 @@
         "PCFExternalServiceUsageAllowed": false
       },
       "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Nav",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.Icon",
       "IdentifierType": 0
     },
@@ -106,7 +98,7 @@
         "PCFExternalServiceUsageAllowed": false
       },
       "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
+      "Identifier": "cat_PowerCAT.Nav",
       "IdentifierType": 0
     },
     {
@@ -115,110 +107,6 @@
       },
       "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.AutoWidthLabel",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.DVAPITester",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.DVAPITester",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.DVCodeEditor",
       "IdentifierType": 0
     },
     {
@@ -275,14 +163,6 @@
       },
       "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.DVCodeEditor",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
       "IdentifierType": 0
     },
     {
@@ -314,6 +194,70 @@
         "PCFExternalServiceUsageAllowed": false
       },
       "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.DVAPITester",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.DVAPITester",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.DVAPITester",
       "IdentifierType": 0
     },
@@ -339,6 +283,62 @@
       },
       "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.DVCodeEditor",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.AutoWidthLabel",
       "IdentifierType": 0
     },
     {
@@ -410,47 +410,47 @@
         "PCFExternalServiceUsageAllowed": false
       },
       "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.Icon",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.Nav",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
-      "IdentifierType": 0
-    },
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "cat_PowerCAT.Icon",
       "IdentifierType": 0
     },
     {

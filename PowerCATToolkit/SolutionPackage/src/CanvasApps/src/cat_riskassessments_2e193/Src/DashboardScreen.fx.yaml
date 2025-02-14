@@ -190,6 +190,8 @@
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -247,6 +249,8 @@
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -274,6 +278,8 @@
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -301,6 +307,8 @@
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -344,6 +352,8 @@
                             ItemDisabled: false
                         }
                     )
+                LayoutMinHeight: =Self.AutoHeight
+                LayoutMinWidth: =300
                 LinkText: ="Learn more"
                 OnDismiss: |-
                     =UpdateContext({showMessageBar:false});
@@ -449,6 +459,8 @@
                             ItemDisabled: false
                         }
                     )
+                LayoutMinHeight: =Self.AutoHeight
+                LayoutMinWidth: =300
                 OnDismiss: |
                     =UpdateContext({showBatchStatusMessageBar: false});
                     If(
@@ -1211,6 +1223,8 @@
                                                         )
                                                     )
                                                 LargeDatasetPaging: =true
+                                                LayoutMinHeight: =200
+                                                LayoutMinWidth: =200
                                                 OnChange: |
                                                     =/* Runs when a user selects a column with ColCellType set to 'link' */
                                                     UpdateContext(
@@ -1572,6 +1586,8 @@
                                                     col_RiskAssessmentStatusChartData//RiskAssessmentStatusChartData
                                                 )
                                             )
+                                        LayoutMinHeight: =350
+                                        LayoutMinWidth: =350
                                         ShowLabelsInPercentage: =false
                                         ValueInsideDonut: =CountRows(RetrieveAssessableSecurityRoles)
                                         Width: =Parent.Width/2 + 30
@@ -1989,6 +2005,8 @@
                                 IconName: ="Lightbulb"
                                 IconSize: =20
                                 IconType: ='PowerCAT.Icon.IconType'.Icon
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                                 Visible: =false
                                 Width: =20
@@ -2230,6 +2248,8 @@
                                         ="#096C7D"
                                     IconName: ="Certificate"
                                     IconSize: =20
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2281,6 +2301,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2333,6 +2355,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2385,6 +2409,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2520,6 +2546,8 @@
                                         ="#096C7D"
                                     IconName: ="Certificate"
                                     IconSize: =20
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2572,6 +2600,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2624,6 +2654,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -2676,6 +2708,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3055,6 +3089,8 @@
                                         ="#096C7D"
                                     IconName: ="Certificate"
                                     IconSize: =20
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3107,6 +3143,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3159,6 +3197,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3211,6 +3251,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3377,6 +3419,8 @@
                                 IconName: ="Lightbulb"
                                 IconSize: =25
                                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
                                 OnChange: |-
                                     =//Navigate(EditSettingsScreen);
                                     Set(
@@ -3512,6 +3556,8 @@
                                         ="#096C7D"
                                     IconName: ="Certificate"
                                     IconSize: =20
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3564,6 +3610,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3616,6 +3664,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3668,6 +3718,8 @@
                                     IconName: ="Dictionary"
                                     IconSize: =20
                                     IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    LayoutMinHeight: =200
+                                    LayoutMinWidth: =200
                                     TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                                     Tooltip: =""
                                     Width: =20
@@ -3770,6 +3822,8 @@
                             DisplayMode: =DisplayMode.Edit
                             FontWeight: ="600"
                             Height: =20
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
                             Text: ="Preview"
                             Width: =Self.AutoWidth
                             X: =0

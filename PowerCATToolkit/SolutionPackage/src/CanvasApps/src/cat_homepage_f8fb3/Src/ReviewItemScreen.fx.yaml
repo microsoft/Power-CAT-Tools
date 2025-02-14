@@ -286,7 +286,7 @@ ReviewItemScreen As screen:
             Fill: |-
                 =Coalesce(SelectedTheme.'Neutral/Background/3/Rest',ColorValue("#FAFAFA"))
             FillPortions: =0
-            Height: =1600
+            Height: =1800
             LayoutGap: =10
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -568,7 +568,9 @@ ReviewItemScreen As screen:
                             ZIndex: =1
 
                             CodeViewerTree1 As CodeViewerTree.pcfdataset:
+                                AlignInContainer: =AlignInContainer.Stretch
                                 DisplayMode: =DisplayMode.Edit
+                                FillPortions: =1
                                 Height: =200
                                 Items: =SelectedReviewItem.instanceValue
                                 LayoutMinHeight: =200

@@ -238,11 +238,19 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.AutoWidthLabel" displayName="cat_PowerCAT.AutoWidthLabel" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.AutoWidthLabel" displayName="cat_PowerCAT.AutoWidthLabel" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.AutoWidthLabel" displayName="cat_PowerCAT.AutoWidthLabel" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.Breadcrumb" displayName="cat_PowerCAT.Breadcrumb" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.Card" displayName="cat_PowerCAT.Card" solution="CreatorKitCore (1.0.20241119.2)" />
@@ -257,12 +265,20 @@
         <Dependent type="300" schemaName="cat_landing_a3b7a" displayName="Power CAT Tools - Home" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.CommandBar" displayName="cat_PowerCAT.CommandBar" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.DonutChart" displayName="cat_PowerCAT.DonutChart" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.DonutChart" displayName="cat_PowerCAT.DonutChart" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.FluentDetailsList" displayName="cat_PowerCAT.FluentDetailsList" solution="CreatorKitCore (1.0.20241119.2)" />
@@ -286,7 +302,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.Icon" displayName="cat_PowerCAT.Icon" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.Icon" displayName="cat_PowerCAT.Icon" solution="CreatorKitCore (1.0.20241119.2)" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.Nav" displayName="cat_PowerCAT.Nav" solution="CreatorKitCore (1.0.20241119.2)" />
+        <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.StackedBarChart" displayName="cat_PowerCAT.StackedBarChart" solution="CreatorKitCore (1.0.20241119.2)" />

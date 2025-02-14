@@ -617,6 +617,7 @@ HomeScreen As screen:
                             ZIndex: =4
 
                             "FluentDetailsList1_2 As 'Fluent Details List (1.1.39)'.pcfdataset":
+                                AlignInContainer: =AlignInContainer.Stretch
                                 AlternateRowColor: =
                                 ColDisplayName: =""
                                 ColName: =""

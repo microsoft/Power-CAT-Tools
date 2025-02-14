@@ -77,6 +77,8 @@ ListScreen As screen:
                 FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
                 FontWeight: ="600"
                 Height: =24
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
                 Text: =_featureName
                 Tooltip: ="AutoWidthLabel_Desc"
                 Width: =Self.AutoWidth
@@ -147,6 +149,8 @@ ListScreen As screen:
                         ="#424242"
                     IconName: ="BookAnswers"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess",
@@ -174,6 +178,8 @@ ListScreen As screen:
                         ="#424242"
                     IconName: ="StatusCircleQuestionMark"
                     IconSize: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/help",
@@ -201,6 +207,8 @@ ListScreen As screen:
                         ="#424242"
                     IconName: ="Bug"
                     IconSize: =20
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |-
                         =Launch(
                             "https://aka.ms/dvacc/riskassess/bug",
@@ -1065,6 +1073,8 @@ ListScreen As screen:
                             )
                         )
                     LargeDatasetPaging: =true
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     menu_Items: =contextMenuButtonsForListScreen
                     OnChange: |
                         =If(
@@ -1405,6 +1415,8 @@ ListScreen As screen:
                             )
                         )
                     LargeDatasetPaging: =true
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
                     OnChange: |
                         =If(
                             Self.EventName = "Sort",

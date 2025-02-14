@@ -29,21 +29,6 @@
       "Kind": "Page",
       "Name": "Power Platform Review Tool",
       "Value": "custompage:cat_homepage_f8fb3"
-    },
-    {
-      "Kind": "Page",
-      "Name": "AI Doc",
-      "Value": "custompage:cat_aidoc_311c3"
-    },
-    {
-      "Kind": "Page",
-      "Name": "Fluent UI Custom Page Template",
-      "Value": "custompage:cat_fluentuicustompagetemplate_e3ec8"
-    },
-    {
-      "Kind": "Page",
-      "Name": "AI Auto Doc",
-      "Value": "custompage:cat_aiautodoc_0bb25"
     }
   ]
 }

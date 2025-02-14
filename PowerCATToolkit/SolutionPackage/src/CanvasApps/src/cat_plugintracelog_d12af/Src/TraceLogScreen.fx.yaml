@@ -774,7 +774,7 @@ TraceLogScreen As screen:
                                     'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending) //'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending
                             DisplayMode: =DisplayMode.Edit
                             HeaderVisible: =true
-                            Height: =200
+                            Height: =Parent.Height
                             InputEvent: =ctxTableEvent
                             Items: |-
                                 =SortByColumns(
@@ -834,7 +834,7 @@ TraceLogScreen As screen:
                             Theme: =AppThemeJson
                             Tooltip: =""
                             Visible: =!IsEmpty(LogResults1)
-                            Width: =230
+                            Width: =Parent.Width
                             X: =0
                             Y: =0
                             ZIndex: =2
