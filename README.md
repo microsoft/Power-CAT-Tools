@@ -7,17 +7,17 @@ The **Power CAT Tools** app is your ultimate companion for enhancing your develo
 ## Features
 
 ### Power Platform code review
-The Code Review Tool automatically reviews your code to ensure adherence to best practices and standards. This feature helps developers identify and rectify potential issues early in the development process, leading to higher quality code and reduced technical debt.
+The Code Review Tool automatically analyzes your code to ensure compliance with best practices and standards. It helps makers and advanced makers detect and resolve potential issues early in development, resulting in higher-quality code and reduced technical debt.
 
 More information on [code review](CODE_REVIEW.md)
 
 ### AI solution documentation
-Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves developers time and effort, ensuring that documentation is always up-to-date and comprehensive.
+Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves makers and advanced makers time and effort, ensuring that documentation is always up-to-date and comprehensive.
 
 More information on [AI solution documentation](AI_DOCUMENTATION.md)
 
 ### Security roles risk assessment
-The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps developers address risks early, ensuring the stability and security of their solutions.
+The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps admins address risks early, ensuring the stability and security of their solutions.
 
 More information on [risk assessment](RISK_ASSESSMENT.md)
 
