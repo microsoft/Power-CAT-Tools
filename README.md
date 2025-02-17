@@ -39,6 +39,20 @@ To get started with Power CAT Tools, follow these steps:
 2. **Explore features**: Take some time to familiarize yourself with the various features and tools available. You can find detailed information on each capability in the feature documentation (links above).
 3. **Start building**: Begin using Power CAT Tools to enhance your development projects.
 
+# Prerequisites
+
+1. **Microsoft Dataverse Environment** – Ensure AI Builder prompts are enabled in the admin center.  
+   - 📌 [Enable AI Builder in Dataverse](https://learn.microsoft.com/en-us/ai-builder/administrator-settings)  
+
+2. **AI Builder Credits** – Verify that AI Builder credits are assigned to your environment.  
+   - 📌 [AI Builder licensing and credits](https://learn.microsoft.com/en-us/ai-builder/licensing)  
+
+3. **Creator Kit Core** (*Not required for AppSource installation*) – Ensure the latest Creator Kit Core is installed.  
+   - 📌 [Microsoft Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/)  
+
+4. **Power Apps Component Framework Feature** (*Not required for AppSource installation*) – Enable the Power Apps Component Framework Feature.  
+   - 📌 [Enable PCF in Power Apps](https://learn.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-powerapps-component-framework)  
+
 ## Latest release
 
 The latest shipped version is available via **[Releases](https://github.com/microsoft/Power-CAT-Tools/releases)**. From there, you can download the latest version of all managed solutions that have been tested and are ready for use. 
@@ -46,6 +60,10 @@ The latest shipped version is available via **[Releases](https://github.com/micr
 Stay up to date with our releases by **subscribing** to them: 
 1. Select **Watch**
 2. Select **Custom** > **Releases** > **Apply** to receive notifications about our releases
+
+### Important Note
+Power Platform Review Tool and AI Documentation rely on the YAML representation of canvas apps when reading Canvas Apps. To ensure compatibility, export the solution from an early release cycle environment if you intend to use the Upload Solution option for reviewing or generating technical documentation.
+For more details, see : [View source code files for canvas apps](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/power-apps-yaml).
 
 # About this GitHub repo
 
