@@ -7,26 +7,31 @@ The **Power CAT Tools** app is your ultimate companion for enhancing your develo
 ## Features
 
 ### Power Platform code review
-The Code Review Tool automatically reviews your code to ensure adherence to best practices and standards. This feature helps developers identify and rectify potential issues early in the development process, leading to higher quality code and reduced technical debt.
+
+The Code Review Tool automatically analyzes your code to ensure compliance with best practices and standards. It helps makers and advanced makers detect and resolve potential issues early in development, resulting in higher-quality code and reduced technical debt.
 
 More information on [code review](CODE_REVIEW.md)
 
 ### AI solution documentation
-Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves developers time and effort, ensuring that documentation is always up-to-date and comprehensive.
+
+Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves citizen and advanced makers time and effort, ensuring that documentation is always up-to-date and comprehensive.
 
 More information on [AI solution documentation](AI_DOCUMENTATION.md)
 
 ### Security roles risk assessment
-The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps developers address risks early, ensuring the stability and security of their solutions.
+
+The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps admins address risks early, ensuring the stability and security of their solutions.
 
 More information on [risk assessment](RISK_ASSESSMENT.md)
 
 ### API playground
+
 Offering a Postman-like experience, the API Playground allows developers to test and explore APIs seamlessly. It simplifies the process of integrating and debugging APIs, enhancing overall productivity.
 
 More information on [API playground](https://learn.microsoft.com/power-apps/maker/data-platform/dataverse-accelerator/api-playground)
 
-### Plugin ponitor
+### Plugin monitor
+
 This tool monitors and analyzes plugin performance and behavior, providing insights into plugin efficiency and helping developers optimize their plugins for better performance. 
 
 More information on [plugin monitor](https://learn.microsoft.com/power-apps/maker/data-platform/dataverse-accelerator/plugin-monitoring)
@@ -42,15 +47,15 @@ The Power CAT Tools app is built using Power Platform and requires adequate lice
 - A [**Power Platform environment with Dataverse as a data store**](https://learn.microsoft.com/power-platform/admin/create-environment). <br>
   Microsoft Dataverse is used to store the Power CAT Tools app configuration and test tables data. <br>
   The user performing the installation of the Power CAT Tools app must have the **system administrator** security role on the environment.
+- Ensure AI Builder prompts are enabled in the admin center. [Enable AI Builder in Dataverse](https://learn.microsoft.com/en-us/ai-builder/administrator-settings)  
 - Adequate licensing to run a **Power Apps model-driven application**.
 - Adequate licensing to run **Power Automate cloud flows** using **Premium** connectors.
   **AI Builder credits**.<br>
-  This integration is useful to use AI Builder prompts to analyze an AI-generated answer and compare it with a sample answer or validation instructions. <br>
-  Learn more about AI Builder prompts licensing [here](https://learn.microsoft.com/ai-builder/credit-management#ai-prompt-licensing).
+  This integration is useful to use AI Builder prompts to analyze an AI-generated answer and compare it with a sample answer or validation instructions. Learn more about AI Builder prompts licensing [here](https://learn.microsoft.com/ai-builder/credit-management#ai-prompt-licensing).
 
 #### Dependencies
 
-- Power CAT Tools app is using advanced components from the Creator Kit, please make sure to deploy it before deploying Power CAT Tools app - [Creator Kit installation instructions](https://learn.microsoft.com/power-platform/guidance/creator-kit/setup)
+- Power CAT Tools app is using advanced components from the Creator Kit. If you install Power CAT Tools solution manually, please make sure to deploy it before deploying Power CAT Tools app - [Creator Kit installation instructions](https://learn.microsoft.com/power-platform/guidance/creator-kit/setup)
 
 #### Connector requirements
 
@@ -58,9 +63,11 @@ The Power CAT Tools app is built using Power Platform and requires adequate lice
 
 ### Installation instructions
 
-1. **Install Power CAT Tools**: You can install Power CAT Tools via the [App Source offering](https://aka.ms/cattools/appsource) or manually. For manual installation, first install the [latest version of Creator Kit](https://github.com/microsoft/powercat-creator-kit/releases/latest) (core solution), then download and install the managed solution from the provided downloads.
-2. **Explore features**: Take some time to familiarize yourself with the various features and tools available. You can find detailed information on each capability in the feature documentation (links above).
-3. **Start building**: Begin using Power CAT Tools to enhance your development projects.
+#### From AppSource
+Install Power CAT Tools via the [App Source offering](https://aka.ms/cattools/appsource). Make sure you're signed in, click the "Get it now" button, then follow the prompts to choose your target install environment.
+
+#### Manual installation 
+First install the [latest version of Creator Kit](https://github.com/microsoft/powercat-creator-kit/releases/latest) (core solution), then download and install the managed solution from the provided downloads.
 
 ## Latest release
 
