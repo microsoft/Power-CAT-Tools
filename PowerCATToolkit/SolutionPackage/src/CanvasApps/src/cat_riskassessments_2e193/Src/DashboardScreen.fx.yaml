@@ -336,14 +336,13 @@
             ZIndex: =4
 
             FluentMessageBar2 As FluentMessageBar.pcfdataset:
-                AlignInContainer: =AlignInContainer.Center
                 Body: ="You must manually scan roles to view insights, and changes to roles will not be automatically assessed for risk."
                 DisplayMode: =DisplayMode.Edit
                 Height: =Self.AutoHeight
                 Items: |-
                     =Table(
                         {
-                            ItemKey: "mail",
+                            ItemKey: "enablecontinuousscanning",
                             ItemDisplayName: "Enable continuous scanning",
                             //ItemIconName: "Mail",
                             ItemAppearance: "",
@@ -436,13 +435,13 @@
                 Title: ="Continuous scanning is not enabled"
                 URL: |-
                     ="https://aka.ms/dvacc/riskassess#auto-scan"
+                Visible: =showMessageBar && AutoScanEnabled
                 Width: =Parent.Width
                 X: =0
                 Y: =0
                 ZIndex: =1
 
             FluentMessageBar_BatchStatus As FluentMessageBar.pcfdataset:
-                AlignInContainer: =AlignInContainer.Center
                 Body: =statusMessageBarText
                 DisplayMode: =DisplayMode.Edit
                 Height: =Min(Self.AutoHeight, 44)
@@ -517,7 +516,15 @@
                             Select(btnRefresh);
                             ,
                             "Retry",
-                            Select(btnScanAllRoles),
+                            Select(btnScanAllRoles);
+                            UpdateContext(
+                                {
+                                    statusMessageBarText: "Currently scanning all roles, this might take a few minutes. Refresh to get the latest status",
+                                    statusMessageBarIntent: 'PowerCAT.FluentMessageBar.Intent'.info,
+                                    statusMessageBarButtonName: "Refresh"
+                                }
+                            );
+                            ,
                             "Got it",
                             UpdateContext({showBatchStatusMessageBar: false});
                             With(
@@ -1122,7 +1129,6 @@
 
                                             "FluentDetailsAssessedRisk As 'Fluent Details List (1.1.39)'.pcfdataset":
                                                 AccessibilityLabel: =DVAssessmentPageLoc.statusTooltip
-                                                AlignInContainer: =AlignInContainer.Start
                                                 columns_Items: |-
                                                     =Table(
                                                         {
@@ -1180,7 +1186,7 @@
                                                             ColSortable: true,
                                                             ColHorizontalAlign: "Center",
                                                             ColVerticalAlign: "Center",
-                                                    		ColSortBy:"Privileges"//"msdyn_totalprivileges"
+                                                    		ColSortBy:"Privileges"//"cat_totalprivileges"
                                                         },
                                                         {
                                                             ColName: "DateRun",
@@ -1232,7 +1238,7 @@
                                                     If(
                                                         Self.EventName = "CellAction",
                                                         If(
-                                                            Self.EventColumn = "RoleName",//"msdyn_RoleId",
+                                                            Self.EventColumn = "RoleName",//"cat_RoleId",
                                                             UpdateContext({init: false});
                                                             Set(
                                                                 currentAssessmentGUID,
@@ -1266,7 +1272,7 @@
                                                         )
                                                     );
                                                 PageSize: =5
-                                                RecordKey: ="AssessmentId"//"msdyn_riskassessmentid"
+                                                RecordKey: ="AssessmentId"//"cat_riskassessmentid"
                                                 SelectionAlwaysVisible: =false
                                                 SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
                                                 Theme: =DetailsListThemeJson
@@ -1992,7 +1998,6 @@
                                     ZIndex: =2
 
                             "BulbIcon As 'Fluent Icon (1.1.39)'":
-                                AlignInContainer: =AlignInContainer.Start
                                 DisplayMode: =DisplayMode.Disabled
                                 Height: =22
                                 IconColor: |-
@@ -2146,7 +2151,6 @@
                         DropShadow: =DropShadow.Light
                         Fill: =RGBA(255, 255, 255, 1)
                         FillPortions: =FlexOff //If(Self.Y > 2, FlexOff, FlexOff)
-                        Height: =220
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =8
                         LayoutMinHeight: =100
@@ -2238,7 +2242,6 @@
 
                                 "CertificateIcon_HomeScreen As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.riskAssessmentTool
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2291,7 +2294,6 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2346,7 +2348,6 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_HomeScreen As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2401,7 +2402,6 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_HomeScreen As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2540,7 +2540,6 @@
 
                                 "CertificateIcon_HomeScreen_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2594,7 +2593,6 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2649,7 +2647,6 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2704,7 +2701,6 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3087,7 +3083,6 @@
 
                                 "CertificateIcon_HomeScreen_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3141,7 +3136,6 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3196,7 +3190,6 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3251,7 +3244,6 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3558,7 +3550,6 @@
 
                                 "CertificateIcon_HomeScreen_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3612,7 +3603,6 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3667,7 +3657,6 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3722,7 +3711,6 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
-                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-

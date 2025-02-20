@@ -19,7 +19,7 @@
           "value": "f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8"
         },
         "workflowName": {
-          "value": "4640734c-ffc6-4fca-b565-ee3203fbcd96"
+          "value": "91b9ed1e-e0dd-45e0-80a0-a24ce98a7afd"
         }
       },
       "parameterHintsV2": {
@@ -33,7 +33,7 @@
           "value": "f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8"
         },
         "workflowName": {
-          "value": "4640734c-ffc6-4fca-b565-ee3203fbcd96"
+          "value": "91b9ed1e-e0dd-45e0-80a0-a24ce98a7afd"
         }
       }
     },
@@ -53,7 +53,7 @@
       "apiTier": "Premium",
       "bypassConsent": true,
       "displayName": "Microsoft Dataverse",
-      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1729/1.0.1729.4043/commondataserviceforapps/icon.png",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1735/1.0.1735.4099/commondataserviceforapps/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
       "parameterHints": {},
       "parameterHintsV2": {}

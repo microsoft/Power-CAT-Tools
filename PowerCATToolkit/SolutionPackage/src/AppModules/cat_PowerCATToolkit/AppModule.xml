@@ -13,6 +13,7 @@
     <AppModuleComponent type="62" schemaName="cat_PowerCATToolkit" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
+    <Role id="{b0ed6d52-daa7-ef11-8a6a-7c1e524711aa}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
     <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
   </AppModuleRoleMaps>

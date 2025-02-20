@@ -3,14 +3,6 @@
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
     OnVisible: |-
         =/* Load data for this page while spinner is loading */
-        If( init <> true,
-            UpdateContext({ pageTitle: "Solution Documentation" });
-            UpdateContext({ pageSubtext: "A native tool for documenting Power Platform solutions using generative AI"});
-        
-            // TODO: Additional Dataloading Loading 
-        
-            UpdateContext({ init: true });
-        );
         UpdateContext({showSaveLoader:false});
         ResetForm(DocumentGeneratorRequestForm);
         ClearCollect(RecentDocumentCollection,
@@ -1087,15 +1079,11 @@
                         OnFailure: |-
                             =UpdateContext({showSaveLoader:false});
                         OnSuccess: |-
-                            =Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:DocumentGeneratorRequestForm.LastSubmit, varStartReview: "StartReview"&Rand()});
-                            
-                            
-                            
-                            
-                                
+                            =Patch('DocuPilot Document Generation Requests',DocumentGeneratorRequestForm.LastSubmit, {'Document Status': 'Document Status (DocuPilot Document Generation Requests)'.Draft});
+                            Navigate(DocumentGeneratorScreen,Transition.None, { showSaveLoader: true, varRequestRecord:DocumentGeneratorRequestForm.LastSubmit, varStartReview: "StartReview"&Rand()});
                         UseFluentV9Cards: =true
                         Width: =500
-                        ZIndex: =1
+                        ZIndex: =2
 
                         "'Solution Zip File_DataCard1' As typedDataCard.fluentV9FileEditCard":
                             BorderColor: =RGBA(166, 166, 166, 1)
@@ -1135,7 +1123,7 @@
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                DisplayMode: =Parent.DisplayMode
+                                DisplayMode: =If(IsBlank(DataCardValue8_7.Selected.Name),DisplayMode.Edit, DisplayMode.Disabled)
                                 FocusedBorderThickness: =2
                                 Font: =Font.'Segoe UI'
                                 Height: =170
@@ -1225,7 +1213,7 @@
                             BorderColor: =RGBA(166, 166, 166, 1)
                             BorderStyle: =BorderStyle.Solid
                             DataField: ="cat_documentstatus"
-                            Default: =ThisItem.'Document Status'
+                            Default: ='Document Status (DocuPilot Document Generation Requests)'.Draft
                             DisplayMode: =DisplayMode.View
                             DisplayName: =DataSourceInfo([@'DocuPilot Document Generation Requests'],DataSourceInfo.DisplayName,'Document Status')
                             Fill: =RGBA(0, 0, 0, 0)
@@ -1258,6 +1246,70 @@
                                 X: =24
                                 Y: =DataCardKey1.Y + DataCardKey1.Height + 4
                                 ZIndex: =2
+
+                        "'Solution Name_DataCard3' As typedDataCard.fluentV9TextualEditCard":
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="cat_solutionname"
+                            Default: =DataCardValue8_7.Selected.uniquename 
+                            DisplayMode: =Parent.DisplayMode
+                            DisplayName: =DataSourceInfo([@'DocuPilot Document Generation Requests'],DataSourceInfo.DisplayName,'cat_solutionname')
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =70
+                            MaxLength: =DataSourceInfo([@'DocuPilot Document Generation Requests'], DataSourceInfo.MaxLength, 'cat_solutionname')
+                            Required: =false
+                            Update: =DataCardValue10.Value
+                            Visible: =false
+                            Width: =460
+                            X: =0
+                            Y: =2
+                            ZIndex: =1
+
+                            DataCardKey10 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =22
+                                Text: =Parent.DisplayName
+                                Weight: ='TextCanvas.Weight'.Semibold
+                                Width: =Parent.Width - 48
+                                Wrap: =false
+                                X: =24
+                                Y: =10
+                                ZIndex: =1
+
+                            "DataCardValue10 As 'Text input'":
+                                AccessibleLabel: =Parent.DisplayName
+                                DisplayMode: =Parent.DisplayMode
+                                Height: =32
+                                Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                Required: =Parent.Required
+                                ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                Value: =Parent.Default
+                                Width: =Parent.Width - 48
+                                X: =24
+                                Y: =DataCardKey10.Y + DataCardKey10.Height + 4
+                                ZIndex: =2
+
+                            ErrorMessage5 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =30
+                                Text: =Parent.Error
+                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                Width: =Parent.Width - 48
+                                Wrap: =true
+                                X: =24
+                                Y: =DataCardValue10.Y + DataCardValue10.Height
+                                ZIndex: =3
+
+                            StarVisible5 As Text:
+                                Align: ='TextCanvas.Align'.Center
+                                DisplayMode: =DisplayMode.Edit
+                                Height: =30
+                                Text: ="*"
+                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                Width: =30
+                                X: =0
+                                Y: =DataCardKey10.Y
+                                ZIndex: =4
 
                     Container4_4 As groupContainer.horizontalAutoLayoutContainer:
                         FillPortions: =0
@@ -1305,7 +1357,6 @@
                             OnSelect: |
                                 =UpdateContext({ShowHideDialog:!ShowHideDialog, showSaveLoader:true});
                                 SubmitForm(DocumentGeneratorRequestForm);
-                                Patch('DocuPilot Document Generation Requests',DocumentGeneratorRequestForm.LastSubmit, {'Document Status': 'Document Status (DocuPilot Document Generation Requests)'.Draft});
                             Text: ="Generate"
                             VerticalAlign: =""
                             Width: =140

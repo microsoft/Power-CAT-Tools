@@ -3,8 +3,8 @@
   <description default="Environment variable to hold the status of the flow running which scans all the custom roles in the environment">
     <label description="Environment variable to hold the status of the flow running which scans all the custom roles in the environment" languagecode="1033" />
   </description>
-  <displayname default="DVAcceleratorBatchStatus">
-    <label description="DVAcceleratorBatchStatus" languagecode="1033" />
+  <displayname default="BatchStatus">
+    <label description="BatchStatus" languagecode="1033" />
   </displayname>
   <introducedversion>1.0.3.74</introducedversion>
   <iscustomizable>1</iscustomizable>

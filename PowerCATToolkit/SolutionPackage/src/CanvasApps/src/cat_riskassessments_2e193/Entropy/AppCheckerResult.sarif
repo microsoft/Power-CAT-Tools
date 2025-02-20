@@ -614,66 +614,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnReviewScanSettings_2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnReviewScanSettings_2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ListScreen",
-                "type": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnReviewScanSettings_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnSystemRoles_EmptyDashboardScreen_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnSystemRoles_EmptyDashboardScreen_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ListScreen",
-                "type": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnSystemRoles_EmptyDashboardScreen_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.cPageHeaderMain_3.cPageHeaderTop_1.cPageHeaderTitle_3.ButtonCanvas4_6.AccessibleLabel"
                 }
               ],
@@ -927,6 +867,66 @@
                 "member": "AccessibleLabel",
                 "module": "ListScreen",
                 "type": "ListScreen.cAppFrame_3.ScreenContainer_2.MainContainer1_1.cEmptyStateForRiskAssessments.Container9_6.btnScanAllRoles_ListScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnReviewScanSettings_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnReviewScanSettings_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ListScreen",
+                "type": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnReviewScanSettings_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnSystemRoles_EmptyDashboardScreen_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnSystemRoles_EmptyDashboardScreen_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ListScreen",
+                "type": "ListScreen.cAppFrame_3.ScreenContainer_2.NoRolesMainContainer_SecurityRolesScreen.btnNoRolesContainer_SecurityRoles.btnSystemRoles_EmptyDashboardScreen_1"
               }
             }
           ],
@@ -3847,36 +3847,6 @@
           },
           "ruleId": "app-DataSourceDefaultMaxRowsLimit",
           "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DashboardScreen.showMessageBar"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DashboardScreen.showMessageBar",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "showMessageBar",
-                "module": "DashboardScreen",
-                "type": "DashboardScreen"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 2
         },
         {
           "locations": [

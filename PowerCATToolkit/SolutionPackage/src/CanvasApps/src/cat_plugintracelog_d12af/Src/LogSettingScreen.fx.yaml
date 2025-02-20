@@ -16,6 +16,7 @@ LogSettingScreen As screen:
             Fill: =ColorValue(AppTheme.palette.neutralLighter)
             FillPortions: =0
             Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Center
             LayoutMinHeight: =50
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -23,39 +24,16 @@ LogSettingScreen As screen:
             PaddingRight: =16
             ZIndex: =1
 
-            HeaderCommandBar_1 As DVCommandBar.pcfdataset:
+            ButtonCanvas5 As Button:
+                Appearance: ='ButtonCanvas.Appearance'.Subtle
                 DisplayMode: =DisplayMode.Edit
-                FillPortions: =1
-                Height: =Parent.Height
-                Items: |-
-                    =Table(
-                        {
-                            ItemKey: "back",
-                            ItemDisplayName: "Back",
-                            ItemIconName: "back"
-                        }
-                        /*
-                        {
-                            ItemKey: "refresh",
-                            ItemDisplayName: PluginMonitorLoc.refreshTxt,
-                            ItemIconName: "Refresh"
-                        }
-                        */
-                    )
-                LayoutMinHeight: =200
-                LayoutMinWidth: =200
-                OnSelect: |-
-                    =Switch(
-                        HeaderCommandBar_1.Selected.ItemKey,
-                        "back", 
-                        Back(),
-                        
-                        "refresh",
-                        Refresh(Organizations);
-                        Reset(radLogOptions);
-                    )
-                Theme: =AppThemeNeutralJson
-                Width: =300
+                Height: =32
+                Icon: ="ArrowLeft"
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: =Back()
+                Text: ="Back"
+                Width: =96
                 X: =0
                 Y: =0
                 ZIndex: =1
@@ -155,7 +133,7 @@ LogSettingScreen As screen:
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 PaddingLeft: =margin
                 PaddingRight: =margin
-                PaddingTop: =24
+                PaddingTop: =margin
                 Width: =Parent.Width
                 ZIndex: =3
 
@@ -258,7 +236,7 @@ LogSettingScreen As screen:
                         Width: =Parent.Width-20
                         ZIndex: =2
 
-                        "DVAutoWidthLabel2_11 As 'DV Auto Width Label'":
+                        "DVAutoWidthLabel2_11 As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10
                             FontWeight: ="600"
@@ -320,20 +298,17 @@ LogSettingScreen As screen:
                     Y: =335
                     ZIndex: =3
 
-                    DVIcon1_1 As DVIcon:
+                    Icon2 As Icon:
                         DisplayMode: =DisplayMode.Edit
                         Height: =20
-                        IconName: ="lightbulb"
-                        IconSize: =16
-                        IconType: ='PowerCAT.DVIcon.IconType'.Icon
-                        LayoutMinHeight: =200
-                        LayoutMinWidth: =200
-                        TextAlignment: ='PowerCAT.DVIcon.TextAlignment'.Center
-                        Theme: =AppThemeNeutralJson
-                        Width: =16
-                        X: =6
+                        Icon: ="Info"
+                        IconColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =32
+                        Width: =20
+                        X: =0
                         Y: =0
-                        ZIndex: =1
+                        ZIndex: =2
 
                     Container12_1 As groupContainer.horizontalAutoLayoutContainer:
                         Height: =128
@@ -344,7 +319,7 @@ LogSettingScreen As screen:
                         LayoutMode: =LayoutMode.Auto
                         Width: =444
                         Y: =19
-                        ZIndex: =2
+                        ZIndex: =3
 
                         TextCanvas3_2 As Text:
                             AlignInContainer: =AlignInContainer.Stretch
@@ -356,7 +331,7 @@ LogSettingScreen As screen:
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
                             Text: =PluginMonitorLoc.lblEnableApplicationInsights
-                            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                            VerticalAlign: =VerticalAlign.Top
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =468
                             X: =0
@@ -454,13 +429,13 @@ LogSettingScreen As screen:
                         FontColor: =
                         Height: =30
                         Text: =If(!IsAdmin,"System admin permission required","")
-                        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                        VerticalAlign: =VerticalAlign.Middle
                         Width: =334
                         X: =32
                         Y: =0
                         ZIndex: =2
 
-                    DVIcon2 As DVIcon:
+                    "DVIcon2 As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         IconName: ="WarningSolid"

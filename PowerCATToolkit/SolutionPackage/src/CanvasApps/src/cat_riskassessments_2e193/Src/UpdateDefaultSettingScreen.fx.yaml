@@ -397,7 +397,6 @@ UpdateDefaultSettingScreen As screen:
                     CurrentSortColumn: =defaultSettingsSortCol
                     CurrentSortDirection: =defaultSettingsSortOrder
                     DisplayMode: =DisplayMode.Edit
-                    FillPortions: =FlexOff
                     HeaderVisible: =false
                     Height: =Max(60 + (CountRows(RiskAssessmentsSettingsToBeDisplayed) * 48), 200)
                     InputEvent: ="SetFocusOnRowSetSelection "&Text(Rand())

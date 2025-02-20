@@ -17,18 +17,8 @@
     },
     {
       "Kind": "Page",
-      "Name": "AI Doc",
-      "Value": "custompage:cat_aidoc_311c3"
-    },
-    {
-      "Kind": "Page",
       "Name": "API Playground",
       "Value": "custompage:cat_apiplayground_62f25"
-    },
-    {
-      "Kind": "Page",
-      "Name": "Fluent UI Custom Page Template",
-      "Value": "custompage:cat_fluentuicustompagetemplate_e3ec8"
     },
     {
       "Kind": "Page",
@@ -39,11 +29,6 @@
       "Kind": "Page",
       "Name": "DocuPilot",
       "Value": "custompage:cat_docupilot_fa88a"
-    },
-    {
-      "Kind": "Page",
-      "Name": "AI Auto Doc",
-      "Value": "custompage:cat_aiautodoc_0bb25"
     }
   ]
 }

@@ -7,14 +7,13 @@ The **Power CAT Tools** app is your ultimate companion for enhancing your develo
 ## Features
 
 ### Power Platform code review
-
 The Code Review Tool automatically analyzes your code to ensure compliance with best practices and standards. It helps makers and advanced makers detect and resolve potential issues early in development, resulting in higher-quality code and reduced technical debt.
 
 More information on [code review](CODE_REVIEW.md)
 
 ### AI solution documentation
 
-Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves citizen and advanced makers time and effort, ensuring that documentation is always up-to-date and comprehensive.
+Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves makers and advanced makers time and effort, ensuring that documentation is always up-to-date and comprehensive.
 
 More information on [AI solution documentation](AI_DOCUMENTATION.md)
 
@@ -38,7 +37,7 @@ More information on [plugin monitor](https://learn.microsoft.com/power-apps/make
 
 ## Get started
 
-See [setup information and installation instructions](./SETUP.md).
+See [setup information and installation instructions](./SETUP.md). 
 
 ## Latest release
 
@@ -47,6 +46,10 @@ The latest shipped version is available via **[Releases](https://github.com/micr
 Stay up to date with our releases by **subscribing** to them: 
 1. Select **Watch**
 2. Select **Custom** > **Releases** > **Apply** to receive notifications about our releases
+
+### Important Note
+Power Platform Review Tool and AI Documentation rely on the YAML representation of canvas apps when reading Canvas Apps. To ensure compatibility, export the solution from an early release cycle environment if you intend to use the Upload Solution option for reviewing or generating technical documentation.
+For more details, see : [View source code files for canvas apps](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/power-apps-yaml).
 
 # About this GitHub repo
 

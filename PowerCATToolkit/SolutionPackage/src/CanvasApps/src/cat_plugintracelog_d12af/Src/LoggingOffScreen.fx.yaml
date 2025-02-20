@@ -32,48 +32,6 @@ LoggingOffScreen As screen:
             Visible: =false
             ZIndex: =1
 
-            HeaderCommandBar_2 As DVCommandBar.pcfdataset:
-                AlignInContainer: =AlignInContainer.Start
-                DisplayMode: =DisplayMode.Edit
-                FillPortions: =1
-                Height: =Parent.Height
-                Items: |-
-                    =Table(
-                        {
-                            ItemKey: "logsettings",
-                            ItemDisplayName: PluginMonitorLoc.logSettingsTxt,
-                            ItemIconName: "settings"
-                        },
-                        {
-                            ItemKey: "refresh",
-                            ItemDisplayName: PluginMonitorLoc.refreshTxt,
-                            ItemIconName: "Refresh"
-                        }
-                    )
-                LayoutMinHeight: =200
-                LayoutMinWidth: =200
-                OnSelect: |-
-                    =Switch(
-                        HeaderCommandBar_2.Selected.ItemKey,
-                        "logsettings",
-                        Navigate(LogSettingScreen),
-                        "refresh",
-                        If(
-                            First(Organizations).'Plug-in Trace Log Setting' = 0,
-                            Navigate(
-                                LoggingOffScreen
-                            ),
-                             Navigate(
-                                TraceLogScreen
-                            )
-                        );
-                    )
-                Theme: =AppThemeNeutralJson
-                Width: =300
-                X: =0
-                Y: =0
-                ZIndex: =1
-
         LoggingOffContainer_1 As groupContainer.horizontalAutoLayoutContainer:
             BorderStyle: =BorderStyle.None
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -126,13 +84,13 @@ LoggingOffScreen As screen:
                     FontColor: =
                     Height: =30
                     Text: =If(!IsAdmin,"System admin permission required","")
-                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    VerticalAlign: =VerticalAlign.Middle
                     Width: =334
                     X: =32
                     Y: =0
                     ZIndex: =2
 
-                DVIcon3 As DVIcon:
+                "DVIcon3 As 'Fluent Icon (1.1.39)'":
                     DisplayMode: =DisplayMode.Edit
                     Height: =30
                     IconName: ="WarningSolid"
@@ -208,7 +166,7 @@ LoggingOffScreen As screen:
 
                 Log_LearnMoreLink_1 As Link:
                     AccessibleLabel: ="Link"
-                    Align: ='LinkCanvas.Align'.Center
+                    Align: =Align.Center
                     Appearance: ="Default"
                     AutoHeight: =true
                     BasePaletteColor: =

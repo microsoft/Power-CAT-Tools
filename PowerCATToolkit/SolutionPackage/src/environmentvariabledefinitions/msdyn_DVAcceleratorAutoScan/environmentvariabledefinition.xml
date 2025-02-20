@@ -1,7 +1,7 @@
 <environmentvariabledefinition schemaname="msdyn_DVAcceleratorAutoScan">
   <defaultvalue>no</defaultvalue>
-  <displayname default="DVAcceleratorAutoScan">
-    <label description="DVAcceleratorAutoScan" languagecode="1033" />
+  <displayname default="AutoScan">
+    <label description="AutoScan" languagecode="1033" />
   </displayname>
   <introducedversion>1.0.3.73</introducedversion>
   <iscustomizable>1</iscustomizable>

@@ -1,0 +1,36 @@
+cat_tagbordercolorforstatusreason: |
+    =Switch(statuscode,
+        cat_riskassessment_cat_riskassessment_statuscode.'1', "#C4C4C4",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350002', "#f5bf26",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350001', "#F9E2AE",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350003', "#CFE5AF",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350004', "#A6E9ED",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350005', "#F9E2AE",
+        "#D8DFE0"
+    )
+cat_tagcolorforassessedrisklevel: |-
+    =Switch(cat_assessedrisklevel,
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350004',"#D83A00",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350003',"#FF9349",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350002',"#FFBA01",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350001',"#029DCC",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350000',"#18AB58",
+        "#E3008C"
+    )
+cat_tagcolorforrisklevel: |-
+    =Switch(cat_assessedrisklevel,
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350004',"#F1BBBC",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350003',"#F4BEAA",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350002',"#FCEFD3",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350001',"#FFFAD6",
+        cat_riskassessment_cat_riskassessment_cat_assessedrisklevel.'192350000',"#F7F7F7",
+        "RGBA(225,223,221,1)"
+    )
+cat_tagcolorforstatusreason: |-
+    =Switch(statuscode,
+        cat_riskassessment_cat_riskassessment_statuscode.'1', "#F7F7F7",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350002', "#F7F7F7",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350001', "#FEFBF4",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350003', "#F8FCF4",
+        cat_riskassessment_cat_riskassessment_statuscode.'192350004', "#F0FAFA",cat_riskassessment_cat_riskassessment_statuscode.'192350005',"#FFF9F5"
+    )

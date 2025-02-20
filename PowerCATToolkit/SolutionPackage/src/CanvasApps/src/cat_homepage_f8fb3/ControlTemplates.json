@@ -97,7 +97,7 @@
     "Name": "cat_PowerCAT.CodeViewerTree",
     "OverridableProperties": {},
     "TemplateDisplayName": "CodeViewerTree",
-    "Version": "0.0.24"
+    "Version": "0.0.26"
   },
   "Combobox": {
     "CustomGroupControlTemplateName": "",
@@ -1272,7 +1272,7 @@
       }
     },
     "TemplateDisplayName": "IntelligentReviewVisualizer",
-    "Version": "0.0.125"
+    "Version": "0.0.132"
   },
   "label": {
     "CustomGroupControlTemplateName": "",

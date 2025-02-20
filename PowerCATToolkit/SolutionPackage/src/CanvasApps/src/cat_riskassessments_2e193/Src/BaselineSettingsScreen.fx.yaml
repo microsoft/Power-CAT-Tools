@@ -1,5 +1,11 @@
 BaselineSettingsScreen As screen:
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnHidden: |
+        =Set(
+            selectedStatusValue,
+            Choices('Status (Risk Assessment Settings)'.Active)
+        );
+        Reset(SettingsSearchInput);
     OnVisible: |
         =/* Load data for this page while spinner is loading */
         If(
@@ -701,7 +707,6 @@ BaselineSettingsScreen As screen:
                         ZIndex: =2
 
                         "SettingHelpIcon_2 As 'Fluent Icon (1.1.39)'":
-                            AlignInContainer: =AlignInContainer.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =44
                             IconName: ="help"

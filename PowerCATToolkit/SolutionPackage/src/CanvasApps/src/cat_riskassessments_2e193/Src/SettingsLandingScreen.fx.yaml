@@ -507,8 +507,11 @@ SettingsLandingScreen As screen:
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
                                     OnSelect: |-
-                                        =Set(currentSelectedAssessmentSetting,DefaultRiskAssessmentSetting);
-                                        Navigate(EditSettingsScreen);
+                                        =Navigate(EditSettingsScreen);
+                                        Set(
+                                            currentSelectedAssessmentSetting,
+                                            DefaultRiskAssessmentSetting
+                                        )
                                     Text: ="Review default "
                                     Width: =120
                                     X: =0

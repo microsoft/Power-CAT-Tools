@@ -375,116 +375,6 @@ App As appinfo:
         Set(showHideSettingContainer,true);
         Set(showHideDetailListContainer,false);
         Set(showHideLoggingOffContainer,false);
-        //Set(LogSetting,First(Organizations).'Plug-in Trace Log Setting');
-        
-        /* Create collection for Plugin Trace Logs 
-        ClearCollect(
-            PluginTraceLogs,
-            RenameColumns(
-                AddColumns(
-                    'Plug-in Trace Logs',
-                    "CreatedBy",
-                    'Created By (Delegate) (createdby)',
-                    "Status",
-                    If(
-                        IsBlank(ThisRecord.'Exception Details'),
-                        "Success",
-                        "Failed"
-                    ),
-                    "TagColor",
-                    If(
-                        !IsBlank(ThisRecord.'Exception Details'),
-                        "rgb(255, 0, 0)",
-                        "rgb(5, 122, 52)"
-                    ),
-                    "TagBorderColor",
-                    If(
-                        !IsBlank(ThisRecord.'Exception Details'),
-                        "rgb(255, 0, 0)",
-                        "rgb(5, 122, 52)"
-                    ),
-                    "Type",
-                    If(
-                        IsBlank(
-                            LookUp(
-                                'Sdk Message Processing Steps',
-                                ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
-                                fxexpressionid
-                            )
-                        ),
-                        If(
-                            LookUp(
-                                'Sdk Message Processing Steps',
-                                ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
-                                'Execution Stage'
-                            ) = 30,
-                            PluginMonitorLoc.radioCustomApiTxt,
-                            PluginMonitorLoc.radioPluginTxt
-                        ),
-                        If(
-                            LookUp(
-                                'Sdk Message Processing Steps',
-                                ThisRecord.SdkMessageProcessingStepId = 'Plugin Step ID',
-                                'Execution Stage'
-                            ) = 30,
-                            PluginMonitorLoc.radioInstantTxt,
-                            PluginMonitorLoc.radioAutomatedTxt
-                        )
-                    ),
-                    "Duration",
-                    'Execution Duration' & " ms",
-                    "StartTime",
-                    Text(
-                        'Constructor Start Time',
-                        "dd/mm/yyy hh:mm AM/PM"
-                    )
-                ),
-                "messagename",
-                "messagename",
-                "typename",
-                "typename",
-                "messageblock",
-                "messageblock",
-                "createdon",
-                "createdon",
-                "performanceexecutionduration",
-                "performanceexecutionduration",
-                "configuration",
-                "configuration",
-                "correlationid",
-                "correlationid",
-                "depth",
-                "depth",
-                "mode",
-                "mode",
-                "operationtype",
-                "operationtype",
-                "organizationid",
-                "organizationid",
-                "primaryentity",
-                "primaryentity",
-                "performanceexecutionstarttime",
-                "performanceexecutionstarttime",
-                "persistencekey",
-                "persistencekey",
-                "requestid",
-                "requestid",
-                "pluginstepid",
-                "pluginstepid",
-                "plugintracelogid",
-                "plugintracelogid",
-                "secureconfiguration",
-                "secureconfiguration",
-                "profile",
-                "profile",
-                "exceptiondetails",
-                "exceptiondetails",
-                "performanceconstructorduration",
-                "performanceconstructorduration"
-            )
-        );
-        
-        */
         
         //Collection for check user have system admin permission or not
         ClearCollect(
@@ -502,26 +392,31 @@ App As appinfo:
             {
                 ItemKey: "logsettings",
                 ItemDisplayName: PluginMonitorLoc.headingLogSetting,
-                ItemIconName: "settings"
+                ItemIconName: "Settings",
+                ItemAppearance: "Subtle"
             },
             {
                 ItemKey: "refresh",
                 ItemDisplayName: PluginMonitorLoc.refreshTxt,
-                ItemIconName: "Refresh"
+                ItemIconName: "ArrowClockwise",
+                ItemAppearance: "Subtle"
             },
             {
                 ItemKey: "learn",
                 ItemDisplayName: If(App.ActiveScreen.Size > ScreenSize.Small,PluginMonitorLoc.learnMoreTxt),
-                ItemIconName: "info",
+                ItemIconName: "Info",
                 ItemHeader:true,
-                ItemFarItem:true
-            },{
+                ItemFarItem:true,
+                ItemAppearance: "Subtle"
+            }
+            /*
+            ,{
                 ItemKey: "filter",
                 ItemDisplayName: If(App.ActiveScreen.Size > ScreenSize.Small,PluginMonitorLoc.lblFilters),
                 ItemIconName: "Filter",
                 ItemHeader:true,
                 ItemFarItem:true
-            }
+            }*/
         ));
         
         Set(init, true);
