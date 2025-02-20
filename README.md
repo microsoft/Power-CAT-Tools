@@ -12,46 +12,32 @@ The Code Review Tool automatically analyzes your code to ensure compliance with 
 More information on [code review](CODE_REVIEW.md)
 
 ### AI solution documentation
+
 Leveraging artificial intelligence, this feature creates detailed and accurate documentation for your solutions. It saves makers and advanced makers time and effort, ensuring that documentation is always up-to-date and comprehensive.
 
 More information on [AI solution documentation](AI_DOCUMENTATION.md)
 
 ### Security roles risk assessment
+
 The Risk Assessment feature evaluates potential risks in your solutions and provides actionable mitigation strategies. This proactive approach helps admins address risks early, ensuring the stability and security of their solutions.
 
 More information on [risk assessment](RISK_ASSESSMENT.md)
 
 ### API playground
+
 Offering a Postman-like experience, the API Playground allows developers to test and explore APIs seamlessly. It simplifies the process of integrating and debugging APIs, enhancing overall productivity.
 
 More information on [API playground](https://learn.microsoft.com/power-apps/maker/data-platform/dataverse-accelerator/api-playground)
 
-### Plugin ponitor
+### Plugin monitor
+
 This tool monitors and analyzes plugin performance and behavior, providing insights into plugin efficiency and helping developers optimize their plugins for better performance. 
 
 More information on [plugin monitor](https://learn.microsoft.com/power-apps/maker/data-platform/dataverse-accelerator/plugin-monitoring)
 
 ## Get started
 
-To get started with Power CAT Tools, follow these steps:
-
-1. **Install Power CAT Tools**: You can install Power CAT Tools via the [App Source offering](https://aka.ms/cattools/appsource) or manually. For manual installation, first install the [latest version of Creator Kit](https://github.com/microsoft/powercat-creator-kit/releases/latest) (core solution), then download and install the managed solution from the provided downloads.
-2. **Explore features**: Take some time to familiarize yourself with the various features and tools available. You can find detailed information on each capability in the feature documentation (links above).
-3. **Start building**: Begin using Power CAT Tools to enhance your development projects.
-
-# Prerequisites
-
-1. **Microsoft Dataverse Environment** – Ensure AI Builder prompts are enabled in the admin center.  
-   - 📌 [Enable AI Builder in Dataverse](https://learn.microsoft.com/en-us/ai-builder/administrator-settings)  
-
-2. **AI Builder Credits** – Verify that AI Builder credits are assigned to your environment.  
-   - 📌 [AI Builder licensing and credits](https://learn.microsoft.com/en-us/ai-builder/licensing)  
-
-3. **Creator Kit Core** (*Not required for AppSource installation*) – Ensure the latest Creator Kit Core is installed.  
-   - 📌 [Microsoft Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/)  
-
-4. **Power Apps Component Framework Feature** (*Not required for AppSource installation*) – Enable the Power Apps Component Framework Feature.  
-   - 📌 [Enable PCF in Power Apps](https://learn.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-powerapps-component-framework)  
+See [setup information and installation instructions](./SETUP.md). 
 
 ## Latest release
 
