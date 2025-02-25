@@ -7,13 +7,60 @@ Strengthen your organization's security with the risk assessment tool to monitor
 1.	Automated scanning: Monitors all custom security roles for changes to minimize need for manual audits.
 2.	Noncompliance flagging: Identifies roles that do not meet baseline policies.
 3.	Customize risk tolerance: Allows tailoring of security settings to specific business needs.
+
+## Incorporating risk assessment into the Power Platform application lifecycle
+
+The purpose of following overview is to outline the application lifecycle process including the integration of Security Roles Risk Assessment to ensure compliance and prevent noncompliant solutions from being deployed to production.
+
+### Application Lifecycle Process
+
+The application lifecycle process involves several stages, starting from development, moving through testing, and finally reaching deployment. This process ensures that applications are built, tested, and deployed in a structured and secure manner.
+
+### Security Roles Risk Assessment
+
+The Security Roles Risk Assessment can be incorporated into development workstreams as a crucial part of this lifecycle. It involves dynamic analysis and risk assessment recommendations to streamline role management. The tool helps makers ensure that they are building the right security constructs into their solutions. It provides a comprehensive view of security roles' impact, promoting proactive and informed decision-making in access control and user provisioning.
+
+### Scenario for makers
+
+In a typical scenario, makers develop their solutions in a separate environment. When a solution is ready to be shipped, it is brought to a deployment team for review. This team then imports the solution into a preproduction environment for further validation.
+
+### Preproduction Environment
+
+The preproduction environment plays a critical role in validating the solution's security roles. It allows for the assessment of security roles against predefined risk assessment settings. For instance, if a security role grants critical privileges like creating or deleting accounts at an organization level, it is flagged for review. The risk assessment tool evaluates these roles and provides a compliance status.
+
+### Validation Blocker
+
+If the risk assessment identifies any level of noncompliance, it acts as a validation blocker, preventing the solution from being deployed to production. This ensures that only compliant solutions, which adhere to the principle of least privilege and other security guidelines, are moved to the production environment.
+
+By incorporating these steps, the application lifecycle process ensures that security roles are properly managed and validated, reducing the risk of security breaches and ensuring compliance with organizational policies.
+
+### Mermaid Flowchart
+
+Here is a mermaid flowchart demonstrating the application lifecycle process with a boolean split for the risk assessment process:
+
+```mermaid
+graph TD
+    A[Development Stage] --> B[Import solution into preproduction environment]
+    B --> C{Risk assessment}
+    C -->|Compliant| D[Validation]
+    C -->|Not Compliant| E[Update Security Roles]
+    E --> A
+    D --> F[Deployment to Production]
+```
+
+In this flowchart:
+- The process starts at the **Development Stage**.
+- The solution is then moved to the **Preproduction Environment**.
+- A **Risk Assessment** is conducted.
+  - If the solution is **Compliant**, it moves to **Validation** and then to **Deployment to Production**.
+  - If the solution is **Not Compliant**, the app owner must **Update Security Roles**, and the process returns to the **Development Stage**.
    
 ## Get started
 
 To get started with the risk assessment tool, follow the steps below:
-1.	Install the Power CAT Toolkit in a Dataverse environment
+1.	[Install the Power CAT Toolkit in a Dataverse environment](./SETUP.md)
 2.	Set your risk tolerance preferences
-3.	Decide whether to enable auto-scan
+3.	Decide whether to enable auto-scan or perform manual scans
 4.	Provide access and instructions to app owners and integrate into development pipeline
  
 ## Personas and permissions
@@ -101,12 +148,12 @@ The "Assessment State" status field on the Risk Assessment indicates the current
 
 A custom role gets a 'Compliant' status if all privileges are no risk. If any privilege has higher risk, the role gets a 'Needs review' status.
 
+#### Actions for admins
+
+If a role is marked as 'Needs review', use your discretion on whether to allow the role to continue in the application lifecycle (whether that's deployment to production, or if this is a production environment whether the role needs to be adjusted to match your threat tolerance levels). 
+
 #### Actions for app owners
 
 If a role is marked as ‘Needs review’, it is considered non-compliant and carries some risk based on the threat tolerance defined in the settings. There are two actions the user can take to address the non-compliance status:
 •	Set privilege levels to baseline requirements.
 •	Request exceptions if needed.
-
-## Requesting an exception
-
-An exception request is a process that enables role owners to obtain approval for roles that do not comply with baseline policies but are essential for particular business requirements. This section details the procedures for requesting and reviewing exceptions.
