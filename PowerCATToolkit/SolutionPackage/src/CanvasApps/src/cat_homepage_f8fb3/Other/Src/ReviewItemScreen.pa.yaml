@@ -1,0 +1,564 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  ReviewItemScreen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnVisible: |+
+        =UpdateContext({ctxShowCode:false, ctxSelectedPropery:Blank()});
+
+        If(!IsEmpty(SelectedReviewItem.instanceValue),
+
+        UpdateContext(
+            {
+                ctxSelectedPropery: First(SelectedReviewItem.instanceValue),
+                ctxShowCode: !IsBlank(First(SelectedReviewItem.instanceValue).Code)
+            }
+        );
+        );
+
+
+    Children:
+      - Container5:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            Width: =Parent.Width
+          Children:
+            - cPageHeaderMain_7:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.None
+                  Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                  FillPortions: =0
+                  Height: =div_11.Y + 1
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =4
+                  PaddingLeft: =Margins
+                  PaddingRight: |+
+                    =Margins
+                  PaddingTop: =16
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: '=Parent.Width '
+                  X: =92
+                  Y: =40
+                Children:
+                  - cPageHeaderTop_5:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =FlexOff
+                        Height: =75
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =1042
+                        X: =68
+                        Y: =52
+                      Children:
+                        - cPageHeaderTitle_7:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOn
+                              Height: =cHeaderText_10.Height
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =16
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =431
+                              X: =36
+                              Y: =40
+                            Children:
+                              - ButtonCanvas4_10:
+                                  Control: Button@0.0.44
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                    Icon: ="ArrowLeft"
+                                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                                    OnSelect: =Back()
+                                    Text: =
+                                    Width: =32
+                              - cHeaderText_10:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =rDivider_PageHeader_10.Y
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =4
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =Parent.Width - Self.X
+                                    X: =1-1
+                                    Y: '=1-1 '
+                                  Children:
+                                    - h2Title_10:
+                                        Control: Text@0.0.50
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Start
+                                          AlignInContainer: =AlignInContainer.Start
+                                          AutoHeight: =true
+                                          Height: =36
+                                          Size: =20
+                                          Text: =Coalesce(SelectedReviewItem.patternName, "Review Results")
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - Self.X * 2
+                                          X: =394.49
+                                    - Label3_12:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Start
+                                          AutoHeight: =true
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Color: =ColorValue("#424242")
+                                          Font: =Font.'Segoe UI'
+                                          LineHeight: =1.4
+                                          PaddingBottom: =0
+                                          PaddingLeft: =0
+                                          PaddingRight: =0
+                                          PaddingTop: =0
+                                          Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                          Text: =SelectedReviewItem.patternID
+                                          VerticalAlign: =VerticalAlign.Top
+                                          Visible: =!IsBlank(Self.Text)
+                                          Width: =Min(600, Parent.Width)
+                                          X: =394.49
+                                    - rDivider_PageHeader_10:
+                                        Control: Rectangle@2.3.0
+                                        Properties:
+                                          Fill: =RGBA(0,0,0,0)
+                                          Height: =1
+                                          Width: =Parent.Width - Self.X * 2
+                                          X: =72
+                                          Y: =52
+                  - cLargeToolbar_5:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignStretch
+                        DropShadow: =DropShadow.None
+                        FillPortions: =FlexOff
+                        Height: =tlbMain_5.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =60
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Visible: =false
+                        Width: =Parent.Width - Self.X * 2
+                      Children:
+                        - tlbMain_5:
+                            Control: Toolbar@2.0.3
+                            Properties:
+                              AccessibleLabel: ="Toolbar"
+                              FillPortions: =3
+                              Height: =48
+                              Items: |-
+                                =Table(
+                                    {
+                                        ItemKey: "1",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle",
+                                        ItemTooltip: "Action"
+                                    },
+                                    {
+                                        ItemKey: "2",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle"
+                                    },
+                                    {
+                                        ItemKey: "3",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemDisabled: false,
+                                        ItemAppearance: "Subtle"
+                                        //,ItemIconStyle: "Filled"
+                                    },
+                                    {
+                                        ItemKey: "4",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle"
+                                    },
+                                    {
+                                        ItemKey: "4",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle",
+                                        ItemFarItem: true
+                                    }
+                                )
+                              Width: =Parent.Width
+                        - tlbRight_11:
+                            Control: Toolbar@2.0.3
+                            Properties:
+                              AccessibleLabel: ="Toolbar"
+                              FillPortions: =FlexOn
+                              Height: =44
+                              Items: |-
+                                =Table(
+                                    {
+                                        ItemKey: "1",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle",
+                                        ItemTooltip: "Action"
+                                    },
+                                    {
+                                        ItemKey: "2",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle"
+                                    },
+                                    {
+                                        ItemKey: "3",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemDisabled: false,
+                                        ItemAppearance: "Subtle"
+                                        //,ItemIconStyle: "Filled"
+                                    },
+                                    {
+                                        ItemKey: "4",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle"
+                                    },
+                                    {
+                                        ItemKey: "4",
+                                        ItemDisplayName: "Action",
+                                        ItemIconName: "Circle",
+                                        ItemAppearance: "Subtle",
+                                        ItemIconStyle: "Subtle",
+                                        ItemFarItem: true
+                                    }
+                                )
+                              Width: =258
+                              X: =899
+                  - div_11:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        AlignInContainer: =AlignStart
+                        Fill: =ColorValue(AppTheme.palette.neutralLight)
+                        Height: =1
+                        Width: =Parent.Width - Self.X * 2
+                        X: =84
+                        Y: =256
+            - cNav:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  Fill: =Coalesce(SelectedTheme.'Neutral/Background/3/Rest',ColorValue("#FAFAFA"))
+                  FillPortions: =0
+                  Height: =1800
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =10
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =10
+                  PaddingLeft: =Margins
+                  PaddingRight: '=Margins '
+                Children:
+                  - Container7:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =10
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - Container3:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =2000
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =10
+                              PaddingLeft: '=20  '
+                              PaddingRight: =20
+                              PaddingTop: =20
+                            Children:
+                              - lblDescription:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    FontColor: =RGBA(40, 134, 222, 1)
+                                    Height: =30
+                                    Size: =18
+                                    Text: ="Description"
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - Self.X
+                                    X: =20
+                                    Y: =20
+                              - HtmlText1:
+                                  Control: HtmlViewer@2.1.0
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    Font: =Font.'Segoe UI'
+                                    HtmlText: =LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternDescription
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =10.5
+                              - docLinks:
+                                  Control: Link@0.0.44
+                                  Properties:
+                                    AutoHeight: =true
+                                    FontSize: =12
+                                    Text: ="Learn More"
+                                    URL: =SelectedReviewItem.docLinks
+                                    Visible: =!IsBlank(Self.Text)
+                                    X: =20
+                                    Y: =20
+                              - lblRecommendations_2:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    FontColor: =RGBA(40, 134, 222, 1)
+                                    Height: =45
+                                    Size: =18
+                                    Text: ="Recomendation"
+                                    VerticalAlign: =VerticalAlign.Bottom
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - Self.X
+                                    X: =20
+                                    Y: =20
+                              - HtmlText1_1:
+                                  Control: HtmlViewer@2.1.0
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    Font: =Font.'Segoe UI'
+                                    HtmlText: =LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternRecommendation
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =10.5
+                              - lblRecommendations_3:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    FontColor: =RGBA(40, 134, 222, 1)
+                                    Height: =35
+                                    Size: =18
+                                    Text: ="Debug Information"
+                                    VerticalAlign: =VerticalAlign.Bottom
+                                    Visible: =!IsBlank(Title2.Text) || !IsBlank(Title2_1.Text)
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - Self.X
+                                    X: =20
+                                    Y: =20
+                              - Gallery2:
+                                  Control: Gallery@2.15.0
+                                  Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore
+                                  Properties:
+                                    BorderColor: =RGBA(166, 166, 166, 1)
+                                    FillPortions: =0
+                                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                    FocusedBorderThickness: =2
+                                    Height: =200
+                                    Items: =SelectedReviewItem.instanceValue
+                                    TemplateSize: =24
+                                    Visible: =PatternType = "PowerAutomate"
+                                    Width: =483
+                                    X: =825
+                                    Y: =135
+                                  Children:
+                                    - Rectangle2:
+                                        Control: Rectangle@2.3.0
+                                        Properties:
+                                          BorderColor: =RGBA(166, 166, 166, 1)
+                                          DisabledFill: =RGBA(0,0,0,0)
+                                          Fill: =RGBA(0,0,0,0)
+                                          FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                          Height: =24
+                                          HoverFill: =RGBA(0,0,0,0)
+                                          OnSelect: =Select(Parent)
+                                          PressedFill: =RGBA(0,0,0,0)
+                                          TabIndex: =0
+                                          Width: =Parent.TemplateWidth
+                                    - Title2:
+                                        Control: FluentV8/Label@1.6.0
+                                        Properties:
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          OnSelect: =Select(Parent)
+                                          TabIndex: =-1
+                                          Text: =ThisItem.Value
+                                          VerticalAlignment: =VerticalAlign.Top
+                                          Width: =Parent.TemplateWidth - Self.X - 8
+                              - Gallery2_1:
+                                  Control: Gallery@2.15.0
+                                  Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore
+                                  Properties:
+                                    BorderColor: =RGBA(166, 166, 166, 1)
+                                    FillPortions: =0
+                                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                    FocusedBorderThickness: =2
+                                    Height: =200
+                                    Items: =SelectedReviewItem.instanceValue
+                                    LayoutMinWidth: =200
+                                    TemplateSize: =200
+                                    Visible: =PatternType = "Agents"
+                                    Width: =483
+                                    X: =825
+                                    Y: =135
+                                  Children:
+                                    - Rectangle2_1:
+                                        Control: Rectangle@2.3.0
+                                        Properties:
+                                          BorderColor: =RGBA(166, 166, 166, 1)
+                                          DisabledFill: =RGBA(0,0,0,0)
+                                          Fill: =RGBA(0,0,0,0)
+                                          FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                          Height: =24
+                                          HoverFill: =RGBA(0,0,0,0)
+                                          OnSelect: =Select(Parent)
+                                          PressedFill: =RGBA(0,0,0,0)
+                                          TabIndex: =0
+                                          Width: =Parent.TemplateWidth
+                                    - Title2_1:
+                                        Control: FluentV8/Label@1.6.0
+                                        Properties:
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =24
+                                          OnSelect: =Select(Parent)
+                                          TabIndex: =-1
+                                          Text: |-
+                                            =If(CountRows(ThisItem.Topic)>0, "Topics: " & Concat(ThisItem.Topic, TopicName, ", "))
+                                          VerticalAlignment: =VerticalAlign.Top
+                                          Width: =Parent.TemplateWidth - Self.X - 8
+                              - lblRecommendations_4:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    FontColor: =RGBA(40, 134, 222, 1)
+                                    Height: =40
+                                    Size: =18
+                                    Text: ="Code View"
+                                    VerticalAlign: =VerticalAlign.Bottom
+                                    Visible: =ctxShowCode
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - Self.X
+                                    X: =20
+                                    Y: =20
+                              - Container4:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    Visible: =ctxShowCode
+                                  Children:
+                                    - CodeTreeContainer:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          Fill: =ColorValue(AppTheme.palette.neutralLighter)
+                                          FillPortions: =0
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutOverflowX: =LayoutOverflow.Scroll
+                                          LayoutOverflowY: =LayoutOverflow.Scroll
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =25
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Visible: =!IsEmpty(SelectedReviewItem.instanceValue)
+                                          Width: =280
+                                        Children:
+                                          - CodeViewerTree1:
+                                              Control: CodeComponent
+                                              ComponentName: cat_PowerCAT.CodeViewerTree
+                                              Properties:
+                                                Items: =SelectedReviewItem.instanceValue
+                                                OnSelect: =UpdateContext({ctxSelectedPropery:Self.Selected});
+                                                Width: =Parent.Width - Self.X - (Parent.PaddingLeft * 2)
+                                    - PFxCodeEditor1:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.PFxCodeEditor
+                                        Properties:
+                                          DisplayMode: =DisplayMode.View
+                                          Height: =Parent.Height
+                                          PowerFx: |-
+                                            =If(!IsBlank(ctxSelectedPropery),
+                                            Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1)))
+                                          ShowLineNumber: =false
+                                          Value: =Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1))
+                                          Visible: =ctxShowCode
+                                          Width: =Parent.Width
+                              - div_18:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    AlignInContainer: =AlignStart
+                                    Fill: =RGBA(0,0,0,0)
+                                    Height: =2
+                                    Width: =Parent.Width - Self.X * 2
+                                    X: =84
+                                    Y: =256
+      - TextCanvas3:
+          Control: Text@0.0.50
+          Properties:
+            Height: =308
+            Text: =//First(SelectedReviewItem.instanceValue).Value
+            Width: =561
+            X: =605

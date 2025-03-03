@@ -1,0 +1,148 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_apirequests",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_apirequest",
+    "MaxGetRowsCount": 2000,
+    "Name": "API Requests",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "cat_apicategory": "APICategory",
+      "cat_apirequest_Annotations": "Notes",
+      "cat_apirequest_AsyncOperations": "System Jobs",
+      "cat_apirequest_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_apirequest_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_apirequest_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_apirequest_ProcessSession": "Process Sessions",
+      "cat_apirequest_SyncErrors": "Sync Errors",
+      "cat_apirequestid": "API Request",
+      "cat_createddate": "Created Date",
+      "cat_CustomAPI": "Custom API",
+      "cat_FolderName": "Folder Name",
+      "cat_name": "Name",
+      "cat_odatarequest": "OData Request",
+      "cat_requestparam": "Request Param",
+      "cat_requesttype": "Request Type",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "API Requests",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "API Requests (Views)",
+    "Name": "_cat_apirequest_views",
+    "RelatedEntityName": "API Requests",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1bdc7d53-b90e-4b98-8ca9-5b261791a0a9": "Active API Requests",
+      "201104ba-489c-4a14-bd8a-504b25f89b3c": "API Request Advanced Find View",
+      "31ddbd97-81e8-4bb5-9b57-21c2b49e73b6": "API Request Lookup View",
+      "af97777f-5122-48c8-a036-c7c478c76d56": "Inactive API Requests",
+      "db438896-4f0a-45f8-bf5a-e5ccbeeb0793": "API Request Associated View"
+    }
+  },
+  {
+    "DisplayName": "APICategory (API Requests)",
+    "Name": "cat_apirequest_cat_apicategory",
+    "OptionSetInfoNameMapping": {
+      "335350000": "Fx Function",
+      "335350001": "OData Request",
+      "335350002": "Custom API"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_apicategory",
+        "OptionSetReferenceEntityName": "API Requests"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_apicategory",
+    "RelatedEntityName": "API Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Request Type (API Requests)",
+    "Name": "cat_apirequest_cat_requesttype",
+    "OptionSetInfoNameMapping": {
+      "335350000": "GET",
+      "335350001": "POST",
+      "335350002": "PATCH",
+      "335350003": "PUT",
+      "335350004": "DELETE"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_requesttype",
+        "OptionSetReferenceEntityName": "API Requests"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_requesttype",
+    "RelatedEntityName": "API Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (API Requests)",
+    "Name": "cat_apirequest_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "API Requests"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "API Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (API Requests)",
+    "Name": "cat_apirequest_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "API Requests"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "API Requests",
+    "Type": "OptionSetInfo"
+  }
+]

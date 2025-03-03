@@ -1,0 +1,418 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  ArchitectureScreen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - cAppFrame_4:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingRight: =Self.PaddingLeft
+            Width: =Parent.Width
+          Children:
+            - cTopNav_4:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =ColorValue(AppTheme.palette.neutralLighter)
+                  FillPortions: =FlexOff
+                  Height: =60
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =24
+                  PaddingLeft: =20
+                  PaddingRight: =20
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                Children:
+                  - h2Title_14:
+                      Control: Text@0.0.50
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        AlignInContainer: =AlignInContainer.Center
+                        AutoHeight: =true
+                        Height: =36
+                        Size: =18
+                        Text: ="Power Platform Review Tool"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =270
+                        X: =394.49
+                  - TabList1_4:
+                      Control: TabList@2.2.28
+                      Properties:
+                        DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
+                        FillPortions: =FlexOn
+                        Items: =Nav
+                        OnChange: =Navigate(Self.Selected.Screen);
+                      Children:
+                        - DisplayName1_4:
+                            Control: TabListDataField@1.5.0
+                            Variant: textualColumn
+                            IsLocked: true
+                            Properties:
+                              FieldDisplayName: ="DisplayName"
+                              FieldName: ="DisplayName"
+                              FieldType: ="s"
+                              Order: =1
+            - cScreenContainer_4:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                  Height: =Parent.Height
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingLeft: =Margins
+                  PaddingRight: =Margins
+                  Width: =Parent.Width
+                Children:
+                  - cPageHeaderMain_9:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                        FillPortions: =0
+                        Height: =div_13.Y + 1
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =4
+                        PaddingLeft: =If(Self.X = 0, Margins, 0)
+                        PaddingRight: =Self.PaddingLeft
+                        PaddingTop: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width - Margins
+                        X: =92
+                        Y: =40
+                      Children:
+                        - cPageHeaderTop_7:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =75
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =1042
+                              X: =68
+                              Y: =52
+                            Children:
+                              - cPageHeaderTitle_9:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =FlexOn
+                                    Height: =cHeaderText_12.Height
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =431
+                                    X: =36
+                                    Y: =40
+                                  Children:
+                                    - ButtonCanvas4_12:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="ArrowLeft"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =Back()
+                                          Text: =
+                                          Width: =32
+                                    - cHeaderText_12:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =rDivider_PageHeader_12.Y
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =4
+                                          LayoutJustifyContent: =LayoutJustifyContent.Center
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width - Self.X
+                                          X: =1-1
+                                          Y: '=1-1 '
+                                        Children:
+                                          - h2Title_15:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                Height: =36
+                                                Size: =20
+                                                Text: |+
+                                                  ="Dashboard"
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =394.49
+                                          - Label3_14:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                BorderColor: =RGBA(0, 18, 107, 1)
+                                                Color: =ColorValue("#424242")
+                                                Font: =Font.'Segoe UI'
+                                                LineHeight: =1.4
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                                Text: ="Solution Review Result"
+                                                VerticalAlign: =VerticalAlign.Top
+                                                Visible: =!IsBlank(Self.Text)
+                                                Width: =Min(600, Parent.Width)
+                                                X: =394.49
+                                          - rDivider_PageHeader_12:
+                                              Control: Rectangle@2.3.0
+                                              Properties:
+                                                Fill: =RGBA(0,0,0,0)
+                                                Height: =1
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =72
+                                                Y: =52
+                              - tlbRight_8:
+                                  Control: Toolbar@2.0.3
+                                  Properties:
+                                    AccessibleLabel: ="Toolbar"
+                                    FillPortions: =FlexOff
+                                    Height: =44
+                                    Items: |-
+                                      =Table({ItemKey:"save",ItemDisplayName:"Save",ItemIconName:"Save",ItemDisabled: false ,ItemAppearance:"Primary"})
+                                    OnSelect: "=Switch(\n    Self.Selected.ItemKey,\n    \n    /* Action for Key 'new' */\n    \"save\",\n    SubmitForm(Form1_1);\n)"
+                                    Visible: =false
+                                    Width: =110
+                                    X: =1020
+                        - cLargeToolbar_7:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignStretch
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =tlbMain_7.Height
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutJustifyContent: =LayoutJustifyContent.End
+                              LayoutMinHeight: =60
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =false
+                              Width: =Parent.Width - Self.X * 2
+                            Children:
+                              - tlbMain_7:
+                                  Control: Toolbar@2.0.3
+                                  Properties:
+                                    AccessibleLabel: ="Toolbar"
+                                    FillPortions: =3
+                                    Height: =48
+                                    Items: |-
+                                      =Table(
+                                          {
+                                              ItemKey: "1",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle",
+                                              ItemTooltip: "Action"
+                                          },
+                                          {
+                                              ItemKey: "2",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle"
+                                          },
+                                          {
+                                              ItemKey: "3",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemDisabled: false,
+                                              ItemAppearance: "Subtle"
+                                              //,ItemIconStyle: "Filled"
+                                          },
+                                          {
+                                              ItemKey: "4",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle"
+                                          },
+                                          {
+                                              ItemKey: "4",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle",
+                                              ItemFarItem: true
+                                          }
+                                      )
+                                    Width: =Parent.Width
+                              - tlbRight_13:
+                                  Control: Toolbar@2.0.3
+                                  Properties:
+                                    AccessibleLabel: ="Toolbar"
+                                    FillPortions: =FlexOn
+                                    Height: =44
+                                    Items: |-
+                                      =Table(
+                                          {
+                                              ItemKey: "1",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle",
+                                              ItemTooltip: "Action"
+                                          },
+                                          {
+                                              ItemKey: "2",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle"
+                                          },
+                                          {
+                                              ItemKey: "3",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemDisabled: false,
+                                              ItemAppearance: "Subtle"
+                                              //,ItemIconStyle: "Filled"
+                                          },
+                                          {
+                                              ItemKey: "4",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle"
+                                          },
+                                          {
+                                              ItemKey: "4",
+                                              ItemDisplayName: "Action",
+                                              ItemIconName: "Circle",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Subtle",
+                                              ItemFarItem: true
+                                          }
+                                      )
+                                    Width: =258
+                                    X: =899
+                        - div_13:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignStart
+                              Fill: =ColorValue(AppTheme.palette.neutralLight)
+                              Height: =1
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+                  - cBuffer_6:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =FlexOff
+                        Height: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                  - Container2_5:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =Max(cBufferHub_4.Y + cBufferHub_4.Height, Parent.Height-Self.Y)
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =16
+                        PaddingLeft: =2
+                        PaddingRight: =2
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width - Margins
+                      Children:
+                        - cBufferHub_4:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =24
+                              LayoutDirection: =LayoutDirection.Vertical
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                        - TextCanvas1_2:
+                            Control: Text@0.0.50
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              FontColor: =RGBA(139, 154, 159, 1)
+                              Size: =38
+                              Text: ="Coming soon"
+      - cSpinner_7:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorValue("#fafafa")
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            Visible: =false
+            Width: =Parent.Width
+          Children:
+            - Spinner1_12:
+                Control: Spinner@1.4.4
+                Properties:
+                  Height: =Parent.Height
+                  Label: ="Generating results"
+                  SpinnerSize: ='Spinner.SpinnerSize'.Large
+                  Visible: =false
+                  Width: =Parent.Width

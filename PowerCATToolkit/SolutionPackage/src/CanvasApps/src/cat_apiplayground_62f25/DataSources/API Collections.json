@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_apicollections",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_apicollection",
+    "MaxGetRowsCount": 2000,
+    "Name": "API Collections",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "cat_apicollection_Annotations": "Notes",
+      "cat_apicollection_AsyncOperations": "System Jobs",
+      "cat_apicollection_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_apicollection_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_apicollection_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_apicollection_ProcessSession": "Process Sessions",
+      "cat_apicollection_SyncErrors": "Sync Errors",
+      "cat_apicollectionid": "API Collection",
+      "cat_apirequest_FolderName_cat_apicollection": "API Requests",
+      "cat_apiversion": "API Version",
+      "cat_documentationurl": "Documentation URL",
+      "cat_foldername": "Folder Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "API Collections",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "API Collections (Views)",
+    "Name": "_cat_apicollection_views",
+    "RelatedEntityName": "API Collections",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "30a079ee-437c-42cf-b88c-22a9b5562d2c": "API Collection Advanced Find View",
+      "8eba0698-6220-408c-8c35-0268f59c4a13": "Inactive API Collections",
+      "9648fe28-1f63-4ca4-9318-c61f34634ce3": "API Collection Lookup View",
+      "af26fbb5-8e2a-41d6-9cf7-e5c62201f0a9": "API Collection Associated View",
+      "cf0cab95-a895-412e-bc25-677052d08013": "Active API Collections"
+    }
+  },
+  {
+    "DisplayName": "Status (API Collections)",
+    "Name": "cat_apicollection_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "API Collections"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "API Collections",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (API Collections)",
+    "Name": "cat_apicollection_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "API Collections"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "API Collections",
+    "Type": "OptionSetInfo"
+  }
+]

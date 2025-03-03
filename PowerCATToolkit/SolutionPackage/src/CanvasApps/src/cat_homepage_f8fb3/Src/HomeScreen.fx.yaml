@@ -674,6 +674,7 @@ HomeScreen As screen:
                                 CurrentSortColumn: =""
                                 CurrentSortDirection: ='PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending
                                 DisplayMode: =DisplayMode.Edit
+                                FillPortions: =1
                                 Height: =Max((CountIf(ListItems, true) * If(numCols<= 6, 85, 50) ), 200)
                                 Items: =ListItems
                                 LayoutMinHeight: =200
@@ -1523,7 +1524,7 @@ HomeScreen As screen:
                                 PressedFill: =RGBA(214, 221, 224, 1)
                                 Size: =10.5
                                 Tooltip: =Parent.DisplayName
-                                Width: =Parent.Width - 60
+                                Width: =Parent.Width - 48
                                 X: =25
                                 Y: =DataCardValue8_4.Y+DataCardValue8_4.Height + 15
                                 ZIndex: =1

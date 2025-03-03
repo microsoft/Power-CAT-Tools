@@ -31,17 +31,17 @@
   "Button": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_Button",
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_ButtonCanvas",
     "IsComponentTemplate": false,
     "IsCustomGroupControlTemplate": false,
     "IsPcfControl": true,
     "IsPremiumPcfControl": false,
     "IsWidgetTemplate": false,
     "LastModifiedTimestamp": "0",
-    "Name": "Microsoft_CoreControls_Button",
+    "Name": "PowerApps_CoreControls_ButtonCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Button",
-    "Version": "1.5.2"
+    "Version": "0.0.44"
   },
   "Checkbox": {
     "CustomGroupControlTemplateName": "",

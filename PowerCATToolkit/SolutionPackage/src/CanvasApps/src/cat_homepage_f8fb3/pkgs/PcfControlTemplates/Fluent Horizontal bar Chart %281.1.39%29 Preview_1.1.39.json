@@ -1144,7 +1144,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/0d983545-3749-4dd9-b93e-d07de279531e-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4wunibn.xso020S0Resources0Controls0PowerCAT.HorizontalBarChart.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-13T03%3A50%3A24Z&ske=2025-02-14T04%3A05%3A24Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-14T04%3A05%3A24Z&sr=b&sp=r&sig=HFofWFF8pdRREjhceoEn1l%2BcNadBOlNRdZn0Zy4LBeE%3D",
+      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/e987cb94-0e25-40a3-93f2-60055504af55-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work04mvzrq0n.2rk020S0Resources0Controls0PowerCAT.HorizontalBarChart.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-20T06%3A19%3A46Z&ske=2025-02-21T06%3A34%3A46Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-21T06%3A34%3A46Z&sr=b&sp=r&sig=qakkUZ2frH2tf3dBLSNdJDKDbJDmdbNQBi4vGhOjg9c%3D",
       "Path": "/PCFControls/cat_PowerCAT.HorizontalBarChart/PowerCAT.HorizontalBarChart.bundle.js",
       "Type": 0
     },
@@ -1158,7 +1158,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
-      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/0d983545-3749-4dd9-b93e-d07de279531e-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4wunibn.xso020S0Resources0Controls0strings%252fPowerCAT.HorizontalBarChart.HorizontalBarChart.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-13T03%3A50%3A24Z&ske=2025-02-14T04%3A05%3A24Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-14T04%3A05%3A24Z&sr=b&sp=r&sig=7075tTivxD8hB%2FbpmEc2pmROT%2Fskr4xMqQJBLHoPwik%3D",
+      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/e987cb94-0e25-40a3-93f2-60055504af55-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work04mvzrq0n.2rk020S0Resources0Controls0strings%252fPowerCAT.HorizontalBarChart.HorizontalBarChart.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-20T06%3A19%3A46Z&ske=2025-02-21T06%3A34%3A46Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-21T06%3A34%3A46Z&sr=b&sp=r&sig=asPsSF%2B71Kv1NJoq%2Bd2BI0tMCm%2B%2FAPfKUv%2BAnEhLL5M%3D",
       "Path": "/PCFControls/cat_PowerCAT.HorizontalBarChart/strings/PowerCAT.HorizontalBarChart.HorizontalBarChart.1033.json",
       "Type": 5
     },

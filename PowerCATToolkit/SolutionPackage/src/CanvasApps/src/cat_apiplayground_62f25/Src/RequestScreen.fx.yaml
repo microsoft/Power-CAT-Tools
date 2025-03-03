@@ -1,7 +1,9 @@
 "RequestScreen As screen.'autoLayout_Sidebar_ver1.0'":
     Fill: =RGBA(245, 245, 245, 1)
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
-    OnVisible: |
+    OnHidden: |-
+        =UpdateContext({showDialog:false});
+    OnVisible: |-
         =UpdateContext(
             {
                 envTrigger: !envTrigger,
@@ -16,13 +18,13 @@
         );
         Switch(
             DefaultRequest,
-            Text('APICategory (API Request Caches)'.'Custom API');
-            Text('APICategory (API Request Caches)'.'Instant Plugin'),
+            Text('APICategory (API Requests)'.'Custom API');
+            Text('APICategory (API Requests)'.'Fx Function'),
             If(
                 IsBlank(SelectedReq),
                 Reset(RequestCombobox);
             ),
-            Text('APICategory (API Request Caches)'.'OData Request'),
+            Text('APICategory (API Requests)'.'OData Request'),
             UpdateContext(
                 {
                     varODataInput: If(
@@ -58,6 +60,7 @@
             )
         );
         Reset(SearchRequests);
+        UpdateContext({showDialog:false});
 
     RequestScreenContainer As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -147,115 +150,39 @@
                         Width: =125
                         X: =0
                         Y: =16
+                        ZIndex: =2
+
+                    btn_filter_2 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Subtle
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Icon: =If(hideSidbar=true,"ChevronRight","ChevronLeft")
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |-
+                            =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                        Text: =
+                        Width: =36
+                        X: =234
+                        Y: =0
                         ZIndex: =3
 
-                    imgCollapseLeft_4 As image:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        BorderStyle: =BorderStyle.None
-                        BorderThickness: =2
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledFill: =RGBA(0, 0, 0, 0)
-                        Height: =44
-                        HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverFill: |-
-                            =ColorValue("#EBEBEB")
-                        Image: ='panel-left-contract'
+                    btn_filter_3 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Subtle
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Icon: ="Filter"
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
                         OnSelect: |-
-                            =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
-                        PaddingBottom: =8
-                        PaddingTop: =8
-                        PressedBorderColor: =RGBA(0, 0, 0, 0)
-                        PressedFill: =RGBA(0, 0, 0, 0)
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
-                        Tooltip: ="Collapse"
-                        Visible: =!hideSidbar
-                        Width: =44
+                            =UpdateContext({visibleSearch:true}); SetFocus(SearchRequestsMain);
+                        Text: =
+                        Width: =36
+                        X: =234
+                        Y: =0
                         ZIndex: =4
-
-                    "DVIconCollapse_3 As 'Fluent Icon (1.1.39)'":
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =35
-                        IconName: ="ClosePaneMirrored"
-                        IconSize: =25
-                        IconType: ='PowerCAT.Icon.IconType'.IconButon
-                        LayoutMinHeight: =200
-                        LayoutMinWidth: =200
-                        OnChange: |-
-                            =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Theme: =AppThemeNeutralJson
-                        Tooltip: =""
-                        Visible: =false //!hideSidbar
-                        Width: =35
-                        X: =0
-                        Y: =0
-                        ZIndex: =5
-
-                    "DVIconExpand_3 As 'Fluent Icon (1.1.39)'":
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =35
-                        IconName: ="OpenPaneMirrored"
-                        IconSize: =25
-                        IconType: ='PowerCAT.Icon.IconType'.IconButon
-                        LayoutMinHeight: =200
-                        LayoutMinWidth: =200
-                        OnChange: |-
-                            =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1});
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Theme: =AppThemeNeutralJson
-                        Tooltip: =""
-                        Visible: =false //hideSidbar
-                        Width: =35
-                        X: =0
-                        Y: =0
-                        ZIndex: =6
-
-                    "DVFilterIcon_3 As 'Fluent Icon (1.1.39)'":
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =35
-                        IconName: ="ListMirrored"
-                        IconSize: =20
-                        LayoutMinHeight: =200
-                        LayoutMinWidth: =200
-                        OnChange: |-
-                            =UpdateContext({visibleSearch:true});
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Theme: =AppThemeNeutralJson
-                        Tooltip: =APIPlayGroundLoc.searchRequestsTxt
-                        Visible: =false //!hideSidbar
-                        Width: =35
-                        X: =0
-                        Y: =0
-                        ZIndex: =7
-
-                    imgCollapseLeft_5 As image:
-                        BorderColor: =RGBA(0, 0, 0, 0)
-                        BorderStyle: =BorderStyle.None
-                        BorderThickness: =2
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledFill: =RGBA(0, 0, 0, 0)
-                        Height: =44
-                        HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverFill: |-
-                            =ColorValue("#EBEBEB")
-                        Image: =filter
-                        OnSelect: |-
-                            =UpdateContext({visibleSearch:true}); 
-                        PaddingBottom: =8
-                        PaddingTop: =8
-                        PressedBorderColor: =RGBA(0, 0, 0, 0)
-                        PressedFill: =RGBA(0, 0, 0, 0)
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
-                        Tooltip: =APIPlayGroundLoc.searchRequestsTxt
-                        Visible: =!hideSidbar
-                        Width: =44
-                        ZIndex: =8
 
                     "DVCommandBar1_2 As 'Fluent Command Bar (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
@@ -296,11 +223,11 @@
                         OnSelect: |
                             =Switch( Self.Selected.ItemKey,
                                 "newOdataReq", 
-                                    Set(DefaultRequest, ""); Reset(ODataParamInput); Set(DefaultRequest,Text('APICategory (API Request Caches)'.'OData Request')); Set(APIRequestCacheId,Blank()),
+                                    Set(DefaultRequest, ""); Reset(ODataParamInput); Set(DefaultRequest,Text('APICategory (API Requests)'.'OData Request')); Set(APIRequestCacheId,Blank()),
                                 "newCustomApiReq",
-                                    Set(DefaultRequest, ""); Reset(RequestCombobox);Set(DefaultRequest,Text('APICategory (API Request Caches)'.'Custom API'));Set(APIRequestCacheId,Blank());,
+                                    Set(DefaultRequest, ""); Reset(RequestCombobox);Set(DefaultRequest,Text('APICategory (API Requests)'.'Custom API'));Set(APIRequestCacheId,Blank());,
                                 "newInstantPluginReq", 
-                                    Set(DefaultRequest, "");Set(DefaultRequest,Text('APICategory (API Request Caches)'.'Instant Plugin')); Set(APIRequestCacheId,Blank()),
+                                    Set(DefaultRequest, "");Set(DefaultRequest,Text('APICategory (API Requests)'.'Fx Function')); Set(APIRequestCacheId,Blank()),
                                 "createFolder",
                                         UpdateContext({showFolderForm:true,manageFolder:false});
                                         Set(SelectedFolder,Blank());
@@ -319,13 +246,13 @@
                             );
                             Switch(
                                 DefaultRequest,
-                                Text('APICategory (API Request Caches)'.'Custom API');
-                                Text('APICategory (API Request Caches)'.'Instant Plugin'),
+                                Text('APICategory (API Requests)'.'Custom API');
+                                Text('APICategory (API Requests)'.'Fx Function'),
                                 If(
                                     IsBlank(SelectedReq),
                                     Reset(RequestCombobox);
                                 ),
-                                Text('APICategory (API Request Caches)'.'OData Request'),
+                                Text('APICategory (API Requests)'.'OData Request'),
                                 UpdateContext(
                                     {
                                         varODataInput: If(
@@ -345,10 +272,118 @@
                             Reset(SearchRequests);
                         Theme: =AppThemeNeutralJson
                         Visible: =!hideSidbar
-                        Width: =200
+                        Width: =92
+                        X: =226
+                        Y: =0
+                        ZIndex: =5
+
+                    imgCollapseLeft_4 As image:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =44
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: |-
+                            =ColorValue("#EBEBEB")
+                        Image: ='panel-left-contract'
+                        OnSelect: |-
+                            =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                        PaddingBottom: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Tooltip: ="Collapse"
+                        Visible: =false //!hideSidbar
+                        Width: =44
+                        ZIndex: =6
+
+                    "DVIconCollapse_3 As 'Fluent Icon (1.1.39)'":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =35
+                        IconName: ="ClosePaneMirrored"
+                        IconSize: =25
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |-
+                            =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Theme: =AppThemeNeutralJson
+                        Tooltip: =""
+                        Visible: =false //!hideSidbar
+                        Width: =35
+                        X: =0
+                        Y: =0
+                        ZIndex: =7
+
+                    "DVIconExpand_3 As 'Fluent Icon (1.1.39)'":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =35
+                        IconName: ="OpenPaneMirrored"
+                        IconSize: =25
+                        IconType: ='PowerCAT.Icon.IconType'.IconButon
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |-
+                            =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1});
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Theme: =AppThemeNeutralJson
+                        Tooltip: =""
+                        Visible: =false //hideSidbar
+                        Width: =35
+                        X: =0
+                        Y: =0
+                        ZIndex: =8
+
+                    "DVFilterIcon_3 As 'Fluent Icon (1.1.39)'":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =35
+                        IconName: ="ListMirrored"
+                        IconSize: =20
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |-
+                            =UpdateContext({visibleSearch:true});
+                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                        Theme: =AppThemeNeutralJson
+                        Tooltip: =APIPlayGroundLoc.searchRequestsTxt
+                        Visible: =false //!hideSidbar
+                        Width: =35
                         X: =0
                         Y: =0
                         ZIndex: =9
+
+                    imgCollapseLeft_5 As image:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =44
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: |-
+                            =ColorValue("#EBEBEB")
+                        Image: =filter
+                        OnSelect: |-
+                            =UpdateContext({visibleSearch:true}); 
+                        PaddingBottom: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Tooltip: =APIPlayGroundLoc.searchRequestsTxt
+                        Visible: =false //!hideSidbar
+                        Width: =44
+                        ZIndex: =10
 
                 SearchContainer_1 As groupContainer.horizontalAutoLayoutContainer:
                     BorderStyle: =BorderStyle.None
@@ -380,7 +415,7 @@
                         LayoutMinHeight: =32
                         LayoutMinWidth: =100
                         Placeholder: =APIPlayGroundLoc.searchRequestsTxt
-                        TriggerOutput: ="FocusOut"
+                        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
                         Type: ='TextInputCanvas.Type'.Text
                         Width: =Parent.Width
                         X: =0
@@ -436,7 +471,7 @@
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
                             =If(
-                                RequestCategory= 'APICategory (API Request Caches)'.'OData Request',
+                                RequestCategory= 'APICategory (API Requests)'.'OData Request',
                                 RGBA(214, 221, 224, 1),
                                 RGBA(245, 245, 245, 1)
                             )
@@ -447,7 +482,7 @@
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnChange: =false
-                        OnSelect: =Set(RequestCategory,'APICategory (API Request Caches)'.'OData Request')
+                        OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'OData Request')
                         PressedBorderColor: =RGBA(233, 237, 240, 1)
                         PressedFillColor: =RGBA(214, 221, 224, 1)
                         PressedTextColor: =
@@ -470,7 +505,7 @@
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
                             =If(
-                                RequestCategory= 'APICategory (API Request Caches)'.'Custom API',
+                                RequestCategory= 'APICategory (API Requests)'.'Custom API',
                                 RGBA(214, 221, 224, 1),
                                 RGBA(245, 245, 245, 1)
                             )
@@ -481,7 +516,7 @@
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnChange: =false
-                        OnSelect: =Set(RequestCategory,'APICategory (API Request Caches)'.'Custom API')
+                        OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'Custom API')
                         PressedBorderColor: =RGBA(233, 237, 240, 1)
                         PressedFillColor: =RGBA(214, 221, 224, 1)
                         PressedTextColor: =
@@ -504,7 +539,7 @@
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
                             =If(
-                                RequestCategory= 'APICategory (API Request Caches)'.'Instant Plugin',
+                                RequestCategory= 'APICategory (API Requests)'.'Fx Function',
                                 RGBA(214, 221, 224, 1),
                                 RGBA(245, 245, 245, 1)
                             )
@@ -515,7 +550,7 @@
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnChange: =false
-                        OnSelect: =Set(RequestCategory,'APICategory (API Request Caches)'.'Instant Plugin')
+                        OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'Fx Function')
                         PressedBorderColor: =RGBA(233, 237, 240, 1)
                         PressedFillColor: =RGBA(214, 221, 224, 1)
                         PressedTextColor: =
@@ -583,7 +618,7 @@
                                 );
                                 
                                 If(
-                                    Text(SelectedReq.Category) = Text('APICategory (API Request Caches)'.'OData Request'),
+                                    Text(SelectedReq.Category) = Text('APICategory (API Requests)'.'OData Request'),
                                     UpdateContext(
                                         {
                                             varODataInput: If(
@@ -1054,18 +1089,18 @@
                                         Set(
                                             result,
                                             Patch(
-                                                'API Request Folders',
-                                                Defaults('API Request Folders'),
+                                                'API Collections',
+                                                Defaults('API Collections'),
                                                 {'Folder Name': FolderNameTextInput_1.Value}
                                             )
                                         ),
                                         Set(
                                             result,
                                             Patch(
-                                                'API Request Folders',
+                                                'API Collections',
                                                 LookUp(
-                                                    'API Request Folders',
-                                                    'API Request Folder' = SelectedFolder.'API Request Folder'
+                                                    'API Collections',
+                                                    'API Collection' = SelectedFolder.'API Collection'
                                                 ),
                                                 {'Folder Name': FolderNameTextInput_1.Value}
                                             )
@@ -1134,7 +1169,7 @@
                                     Set(
                                         folderResponse,
                                         Remove(
-                                            'API Request Folders',
+                                            'API Collections',
                                             SelectedFolder
                                         );
                                     );
@@ -1248,7 +1283,7 @@
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnSelect: =Set(SelectedFolder,FolderNav_R.Selected);
-                        SelectedKey: =SelectedFolder.'API Request Folder'
+                        SelectedKey: =SelectedFolder.'API Collection'
                         Tooltip: =""
                         Visible: =manageFolder && !showFolderForm
                         Width: =Parent.Width-20
@@ -1267,11 +1302,30 @@
                         =UpdateContext({manageFolder:true,showFolderForm:false});
                     Text: =APIPlayGroundLoc.manageFolder
                     Tooltip: =
-                    Visible: =!hideSidbar
+                    Visible: |-
+                        =false //!hideSidbar //todo: Delete
                     Width: =Parent.Width
                     X: =0
                     Y: =0
                     ZIndex: =11
+
+                ButtonCanvas4_1 As Button:
+                    Align: =Align.Left
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Appearance: ='ButtonCanvas.Appearance'.Subtle
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =44
+                    Icon: ="Copy"
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: |-
+                        =UpdateContext({manageFolder:true,showFolderForm:false}); 
+                    Text: ="Manage folders"
+                    Visible: =!hideSidbar
+                    Width: =290
+                    X: =0
+                    Y: =727
+                    ZIndex: =12
 
             MainContainer As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -1418,10 +1472,10 @@
                                 Set(
                                     DeleteRequestResponse,
                                     Remove(
-                                        'API Request Caches',
+                                        'API Requests',
                                         LookUp(
-                                            'API Request Caches',
-                                            'API Request Cache' = SelectedReq.APIRequestCache
+                                            'API Requests',
+                                            'API Request' = SelectedReq.APIRequestCache
                                         )
                                     )
                                 )
@@ -1493,7 +1547,7 @@
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         Height: =32
-                        InputTextPlaceholder: =If(Text(DefaultRequest)<>Text('APICategory (API Request Caches)'.'Custom API'), APIPlayGroundLoc.requestPlaceholderInstantTxt,APIPlayGroundLoc.requestPlaceholderCustomApiTxt)
+                        InputTextPlaceholder: =If(Text(DefaultRequest)<>Text('APICategory (API Requests)'.'Custom API'), APIPlayGroundLoc.requestPlaceholderInstantTxt,APIPlayGroundLoc.requestPlaceholderCustomApiTxt)
                         Items: =CustomAPIs
                         LayoutMinHeight: =32
                         LayoutMinWidth: =100
@@ -1733,7 +1787,7 @@
                         LayoutMinWidth: =160
                         OnCheck: =false
                         OnUncheck: =false
-                        Visible: =false //If(Text(DefaultRequest)=Text('APICategory (API Request Caches)''Custom API'), true,false)
+                        Visible: =false //If(Text(DefaultRequest)=Text('APICategory (API Requests)''Custom API'), true,false)
                         Width: =100
                         X: =0
                         Y: =0
@@ -2239,7 +2293,7 @@
                         Appearance: ="FilledDarker"
                         BasePaletteColor: =
                         BorderStyle: =""
-                        DefaultSelectedItems: =LookUp(HTTPVerb,ThisRecord.Value=If(!IsBlank(SelectedReq),SelectedReq.RequestType,'Request Type (API Request Caches)'.GET))
+                        DefaultSelectedItems: =LookUp(HTTPVerb,ThisRecord.Value=If(!IsBlank(SelectedReq),SelectedReq.RequestType,'Request Type (API Requests)'.GET))
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         InputTextPlaceholder: ="Select Request"
@@ -2356,7 +2410,7 @@
                         ZIndex: =5
 
                     DVODataAPICaller As DVAPITester:
-                        Data: =If(HttpCombobox.Selected.Value='Request Type (API Request Caches)'.GET,"",DataObj) 
+                        Data: =If(HttpCombobox.Selected.Value='Request Type (API Requests)'.GET,"",DataObj) 
                         DisplayMode: =DisplayMode.Edit
                         Headers: =InputHeaders
                         Height: =1
@@ -3085,7 +3139,7 @@
                             FocusedBorderColor: =RGBA(0, 120, 212, 1)
                             FocusedBorderThickness: =2
                             Height: =Parent.Height-45
-                            Items: =If(HttpCombobox.Selected.Value='Request Type (API Request Caches)'.GET,Filter(colHeaders,Name<>"Prefer"),colHeaders)
+                            Items: =If(HttpCombobox.Selected.Value='Request Type (API Requests)'.GET,Filter(colHeaders,Name<>"Prefer"),colHeaders)
                             Layout: =Layout.Vertical
                             LayoutMinHeight: =100
                             LayoutMinWidth: =320
@@ -3754,9 +3808,71 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                PaddingLeft: =10
-                Visible: =showDialog
+                Visible: =showDialog = true
                 ZIndex: =4
+
+                SaveRequestHeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    FillPortions: =FlexOff
+                    Height: =50
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    SaveRequestHeaderText As Text:
+                        BorderColor: =
+                        DisplayMode: =DisplayMode.Edit
+                        Fill: =
+                        FillPortions: =1
+                        FontColor: =
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =APIPlayGroundLoc.saveRequest
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "DVCancelButtonIcon As 'Fluent Icon (1.1.39)'":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        IconName: ="Cancel"
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |-
+                            =UpdateContext({showDialog:false});
+                        Tooltip: =
+                        Width: =32
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                Rectangle2_7 As rectangle:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    DisabledFill: =RGBA(214, 221, 224, 1)
+                    Fill: =RGBA(0, 0, 0, 0.05)
+                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                    Height: =1
+                    OnSelect: =
+                    PressedFill: =RGBA(214, 221, 224, 1)
+                    Visible: =!hideSidbar
+                    Width: =2
+                    ZIndex: =2
 
                 SaveFormContainer As groupContainer.verticalAutoLayoutContainer:
                     BorderStyle: =BorderStyle.None
@@ -3765,88 +3881,52 @@
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =16
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
-                    ZIndex: =8
+                    ZIndex: =3
 
-                    SaveRequestHeaderContainer As groupContainer.horizontalAutoLayoutContainer:
-                        BorderStyle: =BorderStyle.None
-                        FillPortions: =FlexOff
-                        Height: =50
+                    Container1 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =30
+                        LayoutGap: =4
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        PaddingBottom: =10
-                        PaddingRight: =10
-                        PaddingTop: =10
-                        RadiusBottomLeft: =4
-                        RadiusBottomRight: =4
-                        RadiusTopLeft: =4
-                        RadiusTopRight: =4
                         ZIndex: =1
 
-                        SaveRequestHeaderText As Text:
-                            BorderColor: =
-                            DisplayMode: =DisplayMode.Edit
-                            Fill: =
-                            FillPortions: =1
-                            FontColor: =
-                            Height: =32
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =96
-                            Text: =APIPlayGroundLoc.saveRequest
-                            Width: =96
+                        "lblName As 'Auto Width Label (1.1.39)'":
+                            DisplayMode: =DisplayMode.View
+                            Height: =30
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            PaddingTop: =5
+                            Text: =APIPlayGroundLoc.nameTxt
+                            Tooltip: =
+                            Width: =Self.AutoWidth
                             X: =0
                             Y: =0
                             ZIndex: =1
 
-                        "DVCancelButtonIcon As 'Fluent Icon (1.1.39)'":
+                        TextCanvas1 As Text:
                             DisplayMode: =DisplayMode.Edit
+                            FontColor: =RGBA(255, 0, 0, 1)
                             Height: =32
-                            IconName: ="Cancel"
-                            LayoutMinHeight: =200
-                            LayoutMinWidth: =200
-                            OnChange: |-
-                                =UpdateContext({showDialog:false});
-                            Tooltip: =
-                            Width: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            Text: ="*"
+                            Width: =10
                             X: =0
                             Y: =0
                             ZIndex: =2
 
-                    Rectangle2_7 As rectangle:
-                        AlignInContainer: =AlignInContainer.Stretch
-                        BorderColor: =RGBA(166, 166, 166, 1)
-                        BorderStyle: =BorderStyle.None
-                        BorderThickness: =1
-                        DisabledFill: =RGBA(214, 221, 224, 1)
-                        Fill: =RGBA(0, 0, 0, 0.05)
-                        FocusedBorderColor: =RGBA(0, 120, 212, 1)
-                        Height: =1
-                        OnSelect: =
-                        PressedFill: =RGBA(214, 221, 224, 1)
-                        Visible: =!hideSidbar
-                        Width: =2
-                        ZIndex: =2
-
-                    lblRequestText As Text:
-                        BorderColor: =
-                        DisplayMode: =DisplayMode.Edit
-                        Fill: =
-                        FontColor: =
-                        Height: =32
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =96
-                        Text: =APIPlayGroundLoc.nameTxt
-                        Width: =96
-                        X: =0
-                        Y: =0
-                        ZIndex: =3
-
                     "RequestNameTextInput As 'Text input'":
                         AccessibleLabel: =APIPlayGroundLoc.phEnterRequestName
+                        AlignInContainer: =AlignInContainer.Stretch
                         BasePaletteColor: =
                         BorderColor: =
                         DisplayMode: =DisplayMode.Edit
@@ -3854,7 +3934,7 @@
                         FontColor: =
                         Height: =32
                         LayoutMinHeight: =32
-                        LayoutMinWidth: =320
+                        LayoutMinWidth: =100
                         Placeholder: =APIPlayGroundLoc.phEnterRequestName
                         TriggerOutput: ="FocusOut"
                         Value: |-
@@ -3870,7 +3950,14 @@
                         Width: =Parent.Width-20
                         X: =0
                         Y: =0
-                        ZIndex: =4
+                        ZIndex: =2
+
+                    Container2 As groupContainer.manualLayoutContainer:
+                        FillPortions: =FlexOff
+                        Height: =16
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =3
 
                     FolderSelectionContainer As groupContainer.horizontalAutoLayoutContainer:
                         BorderStyle: =BorderStyle.None
@@ -3883,7 +3970,7 @@
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
-                        ZIndex: =5
+                        ZIndex: =4
 
                         "lblFolderDD As 'Auto Width Label (1.1.39)'":
                             DisplayMode: =DisplayMode.View
@@ -3904,13 +3991,14 @@
                             IconName: ="info"
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
-                            Tooltip: =APIPlayGroundLoc.folderTxt
+                            Tooltip: ="Optionally select the folder this request is saved under."
                             Width: =32
                             X: =0
                             Y: =0
                             ZIndex: =2
 
                     FolderCombobox_1 As Combobox.pcfdataset:
+                        AlignInContainer: =AlignInContainer.Stretch
                         Appearance: ="FilledDarker"
                         BorderStyle: =""
                         DefaultSelectedItems: |-
@@ -3923,7 +4011,7 @@
                         InputTextPlaceholder: =APIPlayGroundLoc.selectFolderTxt
                         Items: =AllUserFolders
                         LayoutMinHeight: =32
-                        LayoutMinWidth: =320
+                        LayoutMinWidth: =100
                         OnChange: =Set(SelectedFolder,FolderCombobox_1.Selected);
                         PaddingBottom: =0
                         Required: =false
@@ -3931,7 +4019,7 @@
                         Width: =Parent.Width-20
                         X: =0
                         Y: =0
-                        ZIndex: =6
+                        ZIndex: =5
 
                         cat_apirequestfolderid3_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
                             FieldDisplayName: ="cat_apirequestfolderid"
@@ -3952,17 +4040,20 @@
                 SaveActionContainer As groupContainer.horizontalAutoLayoutContainer:
                     BorderStyle: =BorderStyle.None
                     FillPortions: =0
-                    Height: =50
+                    Height: =62
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutGap: =10
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =16
                     RadiusBottomLeft: =4
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
-                    ZIndex: =9
+                    Width: =269
+                    Y: =709
+                    ZIndex: =4
 
                     DVSaveReqBtn_1 As Button:
                         AccessibleLabel: =APIPlayGroundLoc.saveRequest
@@ -3971,7 +4062,7 @@
                         BasePaletteColor: =
                         BorderColor: =
                         BorderStyle: =""
-                        DisplayMode: =DisplayMode.Edit
+                        DisplayMode: =If(!IsBlank(RequestNameTextInput.Value), DisplayMode.Edit, DisplayMode.Disabled)
                         FontColor: =
                         Height: =32
                         Icon: =""
@@ -3988,11 +4079,11 @@
                                     Set(
                                         res,
                                         Patch(
-                                            'API Request Caches',
-                                            Defaults('API Request Caches'),
+                                            'API Requests',
+                                            Defaults('API Requests'),
                                             {
                                                 'Custom API': If(
-                                                    DefaultRequest <> Text('APICategory (API Request Caches)'.'OData Request'),
+                                                    DefaultRequest <> Text('APICategory (API Requests)'.'OData Request'),
                                                     LookUp(
                                                         'Custom APIs',
                                                         'Custom API' = RequestCombobox.Selected.'Custom API'
@@ -4002,11 +4093,11 @@
                                                 APICategory: Switch(
                                                     DefaultRequest,
                                                     "Custom API",
-                                                    'APICategory (API Request Caches)'.'Custom API',
-                                                    "Instant Plugin",
-                                                    'APICategory (API Request Caches)'.'Instant Plugin',
+                                                    'APICategory (API Requests)'.'Custom API',
+                                                    "Fx Function",
+                                                    'APICategory (API Requests)'.'Fx Function',
                                                     "OData Request",
-                                                    'APICategory (API Request Caches)'.'OData Request'
+                                                    'APICategory (API Requests)'.'OData Request'
                                                 ),
                                                 'Request Param': If(
                                                     DefaultRequest = "OData Request",
@@ -4027,7 +4118,7 @@
                                                 'Request Type': If(
                                                     DefaultRequest = "OData Request",
                                                     HttpCombobox.Selected.Value,
-                                                    'Request Type (API Request Caches)'.POST
+                                                    'Request Type (API Requests)'.POST
                                                 )
                                             }
                                         )
@@ -4035,14 +4126,14 @@
                                     Set(
                                         res,
                                         Patch(
-                                            'API Request Caches',
+                                            'API Requests',
                                             LookUp(
-                                                'API Request Caches',
-                                                'API Request Cache' = SelectedReq.APIRequestCache
+                                                'API Requests',
+                                                'API Request' = SelectedReq.APIRequestCache
                                             ),
                                             {
                                                 'Custom API': If(
-                                                    DefaultRequest <> Text('APICategory (API Request Caches)'.'OData Request'),
+                                                    DefaultRequest <> Text('APICategory (API Requests)'.'OData Request'),
                                                     LookUp(
                                                         'Custom APIs',
                                                         'Custom API' = RequestCombobox.Selected.'Custom API'
@@ -4052,11 +4143,11 @@
                                                 APICategory: Switch(
                                                     DefaultRequest,
                                                     "Custom API",
-                                                    'APICategory (API Request Caches)'.'Custom API',
-                                                    "Instant Plugin",
-                                                    'APICategory (API Request Caches)'.'Instant Plugin',
+                                                    'APICategory (API Requests)'.'Custom API',
+                                                    "Fx Function",
+                                                    'APICategory (API Requests)'.'Fx Function',
                                                     "OData Request",
-                                                    'APICategory (API Request Caches)'.'OData Request'
+                                                    'APICategory (API Requests)'.'OData Request'
                                                 ),
                                                 'Request Param': If(
                                                     DefaultRequest = "OData Request",
@@ -4077,7 +4168,7 @@
                                                 'Request Type': If(
                                                     DefaultRequest = "OData Request",
                                                     HttpCombobox.Selected.Value,
-                                                    'Request Type (API Request Caches)'.POST
+                                                    'Request Type (API Requests)'.POST
                                                 )
                                             }
                                         )
@@ -4095,14 +4186,14 @@
                                     NotificationType.Success,8000
                                 )
                             );
-                            //Refresh('API Request Caches');
-                            //Refresh('API Request Folders');
+                            //Refresh('API Requests');
+                            //Refresh('API Collections');
                             UpdateContext({showDialog: false});
                             UpdateContext({isRequestSend: false});
                         Text: =APIPlayGroundLoc.saveTxt
                         VerticalAlign: =""
-                        Width: =96
-                        X: =0
+                        Width: =84
+                        X: =22
                         Y: =0
                         ZIndex: =1
 
@@ -4125,8 +4216,8 @@
                             =UpdateContext({showDialog:false});
                         Text: =APIPlayGroundLoc.cancelBtnTxt
                         VerticalAlign: =""
-                        Width: =96
-                        X: =0
+                        Width: =84
+                        X: =119
                         Y: =0
                         ZIndex: =2
 

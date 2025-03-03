@@ -1,0 +1,1837 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  MainLandingScreen:
+    Properties:
+      Fill: =RGBA(245, 245, 245, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnVisible: |-
+        =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1,visibleSearch:false});
+
+        Reset(SearchRequestsMain);
+
+        If( init <> true,
+
+            ClearCollect(LatestSavedRequest, FirstN(
+                Sort(
+                    Filter(
+                        AllSavedRequests,
+                        !IsBlank(APIRequestCache)
+                    ),
+                    CreatedOn,
+                    SortOrder.Descending
+                ),
+                5
+            ));
+
+        );
+
+        UpdateContext({ init: true });
+
+        // Loading for request screen
+        If( initReqScreen <> true,
+
+        Concurrent(
+            Set(
+                envTrigger,
+                false
+            ),
+            Set(
+                runTrigger,
+                false
+            ),
+            Set(
+                entityDeftrigger,
+                false
+            ),
+            Set(
+                ODataTrigger,
+                false
+            ),
+            Set(
+                DefaultRequest,
+                Text( 'APICategory (API Requests)'.'Fx Function')
+            ),
+            Set(
+                IsRunning,
+                false
+            ),
+            Set(
+                IsLoadingAPIs,
+                false
+            ),
+            Set(
+                APIRequestCacheId,
+                Blank()
+            ),
+            Set(
+                RequestCategory,
+                Blank()
+            ),
+
+            //Collection for HTTP Verb
+            ClearCollect(
+                HTTPVerb,
+                //'Request Type (API Requests)'.GET 
+                Choices('Request Type (API Requests)')
+            )
+        )
+
+        );
+
+        UpdateContext({ initReqScreen: true });
+    Children:
+      - NewRequestScreenContainer:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            Width: =Parent.Width
+          Children:
+            - MainScreenRequestContainer:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  DropShadow: =DropShadow.None
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutWrap: =true
+                  Visible: =init = true
+                Children:
+                  - SidebarContainer_1:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =RGBA(214, 221, 224, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =1
+                        DropShadow: =DropShadow.None
+                        Fill: =ColorValue("#F5F5F5")
+                        FillPortions: =FlexOff
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Coalesce(If(hideSidbar,const_dims.sidebar.widthCollapsed,const_dims.sidebar.widthExpanded),const_dims.sidebar.widthExpanded) //Coalesce(sidebarWidth, const_dims.sidebar.widthCollapsed)
+                      Children:
+                        - SearchContainer:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =50
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingRight: =8
+                              Visible: =visibleSearch
+                            Children:
+                              - SearchRequests:
+                                  Control: TextInput@0.0.53
+                                  Properties:
+                                    FillPortions: =FlexOn
+                                    LayoutMinWidth: =200
+                                    Placeholder: =APIPlayGroundLoc.searchRequestsTxt
+                                    TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+                                    Type: ='TextInputCanvas.Type'.Text
+                                    Width: =Parent.Width
+                              - DVCancelIcon:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.Icon
+                                  Properties:
+                                    Height: =32
+                                    IconName: ="cancel"
+                                    OnChange: |-
+                                      =UpdateContext({visibleSearch:false});
+                                      Reset(SearchRequests);
+                                      Set(RequestCategory,Blank());
+                                    Theme: =AppThemeNeutralJson
+                                    Tooltip: ="Cancel"
+                                    Width: =32
+                        - FilterContainer:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =100
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =10
+                              LayoutWrap: =true
+                              PaddingBottom: =10
+                              PaddingLeft: =10
+                              PaddingRight: =10
+                              PaddingTop: =10
+                              Visible: =visibleSearch
+                              Width: =290
+                              Y: =74
+                            Children:
+                              - ODataFilterBtn:
+                                  Control: FluentV8/Button@1.5.2
+                                  Properties:
+                                    BorderColor: =RGBA(214, 221, 224, 1)
+                                    BorderRadius: =20
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =1
+                                    ButtonType: ='Button.ButtonType'.Standard
+                                    DisabledFillColor: =RGBA(214, 221, 224, 1)
+                                    FillColor: |-
+                                      =If(
+                                          RequestCategory= 'APICategory (API Requests)'.'OData Request',
+                                          RGBA(214, 221, 224, 1),
+                                          RGBA(245, 245, 245, 1)
+                                      )
+                                    HoverBorderColor: =RGBA(214, 221, 224, 1)
+                                    HoverFillColor: =RGBA(214, 221, 224, 1)
+                                    OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'OData Request')
+                                    PressedBorderColor: =RGBA(233, 237, 240, 1)
+                                    PressedFillColor: =RGBA(214, 221, 224, 1)
+                                    Text: =APIPlayGroundLoc.oDataRequestTxt
+                                    Width: =120
+                                    X: =-2
+                              - CustomAPIFilterBtn:
+                                  Control: FluentV8/Button@1.5.2
+                                  Properties:
+                                    BorderColor: =RGBA(214, 221, 224, 1)
+                                    BorderRadius: =20
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =1
+                                    ButtonType: ='Button.ButtonType'.Standard
+                                    FillColor: |-
+                                      =If(
+                                          RequestCategory= 'APICategory (API Requests)'.'Custom API',
+                                          RGBA(214, 221, 224, 1),
+                                          RGBA(245, 245, 245, 1)
+                                      )
+                                    HoverBorderColor: =RGBA(214, 221, 224, 1)
+                                    HoverFillColor: =RGBA(214, 221, 224, 1)
+                                    OnSelect: =Set(RequestCategory, 'APICategory (API Requests)'.'Custom API')
+                                    PressedBorderColor: =RGBA(233, 237, 240, 1)
+                                    PressedFillColor: =RGBA(214, 221, 224, 1)
+                                    Text: =APIPlayGroundLoc.customAPITxt
+                              - InstantPluginFilterBtn:
+                                  Control: FluentV8/Button@1.5.2
+                                  Properties:
+                                    BorderColor: =RGBA(214, 221, 224, 1)
+                                    BorderRadius: =20
+                                    BorderStyle: =BorderStyle.Solid
+                                    BorderThickness: =1
+                                    ButtonType: ='Button.ButtonType'.Standard
+                                    FillColor: |-
+                                      =If(
+                                          RequestCategory= 'APICategory (API Requests)'.'Fx Function',
+                                          RGBA(214, 221, 224, 1),
+                                          RGBA(245, 245, 245, 1)
+                                      )
+                                    HoverBorderColor: =RGBA(214, 221, 224, 1)
+                                    HoverFillColor: =RGBA(214, 221, 224, 1)
+                                    OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'Fx Function')
+                                    PressedBorderColor: =RGBA(233, 237, 240, 1)
+                                    PressedFillColor: =RGBA(214, 221, 224, 1)
+                                    Text: =APIPlayGroundLoc.instantPluginTxt
+                                    Width: =180
+                        - SidebarHeader_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0-0
+                              Height: =60
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingLeft: =If(!hideSidbar,20,0)
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =!visibleSearch && !(showFolderForm || manageFolder)
+                            Children:
+                              - imgExpandLeft:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    Height: =44
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =ColorValue("#EBEBEB")
+                                    Image: ='panel-left-expand'
+                                    OnSelect: =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1});
+                                    PaddingBottom: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    Visible: =hideSidbar
+                                    Width: =44
+                              - DVRequestsIcon_1:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.Icon
+                                  Properties:
+                                    DisplayMode: =DisplayMode.View
+                                    FontColor: ="#605E5C"
+                                    FontSize: =16
+                                    Height: =20
+                                    HoverFontColor: ="Black"
+                                    IconName: ="Globe"
+                                    IconType: ='PowerCAT.Icon.IconType'.Icon
+                                    Text: =APIPlayGroundLoc.savedRequestsTxt
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                    Tooltip: =APIPlayGroundLoc.savedRequestsTxt
+                                    Visible: =false
+                                    Width: =20
+                                    Y: =17
+                              - TextCanvas1_5:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    FontColor: =ColorValue("#292929") //todo:colormap
+                                    Height: =25
+                                    Size: =16
+                                    Text: =APIPlayGroundLoc.requestTxt
+                                    Visible: =!hideSidbar
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =125
+                                    Y: =16
+                              - imgCollapseLeft:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    Height: =44
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =ColorValue("#EBEBEB")
+                                    Image: ='panel-left-contract'
+                                    OnSelect: =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                                    PaddingBottom: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    TabIndex: =0
+                                    Tooltip: ="Collapse"
+                                    Visible: =false //!hideSidbar
+                                    Width: =44
+                              - btn_filter_1:
+                                  Control: Button@0.0.44
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                    Icon: =If(hideSidbar=true,"ChevronRight","ChevronLeft")
+                                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                                    OnSelect: =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                                    Text: =
+                                    Width: =36
+                                    X: =234
+                              - btn_filter:
+                                  Control: Button@0.0.44
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                    Icon: ="Filter"
+                                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                                    OnSelect: =UpdateContext({visibleSearch:true}); SetFocus(SearchRequests);
+                                    Text: =
+                                    Width: =36
+                                    X: =234
+                              - DVIconCollapse:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.Icon
+                                  Properties:
+                                    Height: =35
+                                    IconName: ="ClosePaneMirrored"
+                                    IconSize: =25
+                                    IconType: ='PowerCAT.Icon.IconType'.IconButon
+                                    OnChange: =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                                    TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                                    Theme: =AppThemeNeutralJson
+                                    Tooltip: =""
+                                    Visible: =false //!hideSidbar
+                                    Width: =35
+                              - imgFilter:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    Height: =44
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =ColorValue("#EBEBEB")
+                                    Image: =filter
+                                    OnSelect: =UpdateContext({visibleSearch:true}); SetFocus(SearchRequests);
+                                    PaddingBottom: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    TabIndex: =0
+                                    Tooltip: =APIPlayGroundLoc.searchRequestsTxt
+                                    Visible: =false //!hideSidbar
+                                    Width: =44
+                              - DVCommandBar1:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.CommandBar
+                                  Properties:
+                                    Height: =44
+                                    Items: "=Table({ItemKey:\"new\",ItemIconName:\"Add\"},\r\n    {\r\n        ItemKey: \"newOdataReq\",\r\n        ItemDisplayName: APIPlayGroundLoc.newODataRequest,\r\n        ItemIconName: \"\",\r\n        ItemParentKey: \"new\"\r\n    },{\r\n        ItemKey: \"newCustomApiReq\",\r\n        ItemDisplayName: APIPlayGroundLoc.newCustomAPIRequest,\r\n        ItemIconName: \"\",\r\n        ItemParentKey: \"new\"\r\n    },{\r\n        ItemKey: \"newInstantPluginReq\",\r\n        ItemDisplayName: APIPlayGroundLoc.newPluginRequest,\r\n        ItemIconName: \"\",\r\n        ItemParentKey: \"new\"\r\n    }\r\n    ,\r\n    {\r\n        ItemDivider:true,\r\n        ItemParentKey: \"new\"\r\n    },\r\n    {\r\n        ItemKey: \"createFolder\",\r\n        ItemDisplayName: APIPlayGroundLoc.createFolderTxt,\r\n        ItemIconName: \"\",\r\n        ItemParentKey: \"new\"\r\n    }\r\n    \r\n)"
+                                    OnSelect: |-
+                                      =Switch(
+                                          Self.Selected.ItemKey,
+                                          "newOdataReq",
+                                          Select(btnNewOData),
+                                          "newCustomApiReq",
+                                          Select(btnNewCustomApi),
+                                          "newInstantPluginReq",
+                                          Select(btnNewInstantPluginReq),
+                                          "createFolder",
+                                          UpdateContext({showFolderForm:true,manageFolder:false});
+                                          Set(SelectedFolder,Blank());
+                                      )
+                                    Theme: =AppThemeNeutralJson
+                                    Visible: =!hideSidbar
+                                    Width: =100
+                        - HtmlText1:
+                            Control: HtmlViewer@2.1.0
+                            Properties:
+                              Color: =ColorValue("#292929") //todo:colormap
+                              DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Font: =Font.'Segoe UI'
+                              Height: =240
+                              HtmlText: |-
+                                =$"<div style='text-align:center;transform:rotate(90deg);white-space:nowrap;font-weight:600;padding-left:2px;width:" & Self.Height & ";height:" & Self.Width & "'>
+                                  " & "Requests" //APIPlayGroundLoc.savedRequestsTxt todo: update loc
+                                  & "
+                                </div>"
+                              Size: =12
+                              Visible: =hideSidbar
+                              Width: =35
+                        - SavedRequestContainer_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOn
+                              Height: =
+                              LayoutDirection: =LayoutDirection.Vertical
+                              Visible: =!hideSidbar && CountRows(Filter(SavedRequests,IsDummy=false)) > 0 && !(showFolderForm || manageFolder)
+                            Children:
+                              - DVNavLandingPage:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.Nav
+                                  Properties:
+                                    Height: =Parent.Height
+                                    Items: =Filter(SavedRequests, IsDummy=false)
+                                    OnChange: |+
+                                      =If(!Self.Selected.NonClickable,
+                                      Set(APIRequestCacheId,Self.Selected.APIRequestCache);
+                                      Set(DefaultRequest,Text(SelectedReq.Category));
+                                      Navigate(RequestScreen);,Set(APIRequestCacheId,Blank());
+                                      );
+                                    SelectedKey: =SelectedReq.APIRequestCache
+                                    Theme: =AppThemeNeutralJson
+                                    Tooltip: =APIPlayGroundLoc.savedRequestsTxt
+                                    Width: =Parent.Width
+                        - NoRequestFoundContainer:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOn
+                              Height: =Parent.Height - Self.Y
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =24
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              PaddingLeft: =24
+                              PaddingRight: =24
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =IsEmpty(Filter(SavedRequests,IsDummy=false)) && !hideSidbar && !showFolderForm && !manageFolder
+                              Width: =Parent.Width
+                            Children:
+                              - Image3:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    Height: =Self.Width
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: =empty
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =48
+                              - TextCanvas1_3:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    FontColor: =ColorValue("#424242") //todo:colormap
+                                    Height: =56
+                                    LayoutMinWidth: =100
+                                    Size: =12
+                                    Text: ="There are no saved requests. Create a new request to start working." //APIPlayGroundLoc.noRequestFound todo:loc
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Weight: ='TextCanvas.Weight'.Regular
+                                    Width: =Parent.Width
+                        - Rectangle2_2:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Stretch
+                              BorderColor: =RGBA(166, 166, 166, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =1
+                              DisabledFill: =RGBA(214, 221, 224, 1)
+                              Fill: =RGBA(0, 0, 0, 0.05)
+                              FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                              Height: =1
+                              OnSelect: =
+                              PressedFill: =RGBA(214, 221, 224, 1)
+                              Visible: =!hideSidbar
+                              Width: =2
+                        - FolderContainer:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              Height: =50
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =5
+                              PaddingBottom: =10
+                              PaddingLeft: =10
+                              PaddingRight: =10
+                              PaddingTop: =10
+                              Visible: =showFolderForm || manageFolder
+                            Children:
+                              - FolderHeaderContainer:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =35
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                  Children:
+                                    - ButtonCanvas2:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="ArrowLeft"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =UpdateContext({showFolderForm:false,manageFolder:false});
+                                          Width: =30
+                                          X: =237
+                                    - BackDVIcon:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.Icon
+                                        Properties:
+                                          AccessibilityLabel: =APIPlayGroundLoc.cancelBtnTxt
+                                          Height: =32
+                                          IconName: ="back"
+                                          OnChange: =UpdateContext({showFolderForm:false,manageFolder:false});
+                                          Text: =APIPlayGroundLoc.cancelBtnTxt
+                                          Tooltip: =
+                                          Visible: =false
+                                          Width: =32
+                                    - newFolderTxt:
+                                        Control: Text@0.0.50
+                                        Properties:
+                                          FillPortions: =1
+                                          Text: =If(showFolderForm && !manageFolder ,APIPlayGroundLoc.newFolder, If(manageFolder && !showFolderForm,APIPlayGroundLoc.folders,If(manageFolder && showFolderForm,APIPlayGroundLoc.editFolder)))
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                    - SaveFolderIcon:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.Icon
+                                        Properties:
+                                          AccessibilityLabel: =APIPlayGroundLoc.saveTxt
+                                          Height: =32
+                                          IconName: ="save"
+                                          IconSize: =18
+                                          OnChange: |
+                                            =If(
+                                                !IsBlank(FolderNameTextInput.Value),
+                                                If(
+                                                    IsBlank(SelectedFolder),
+                                                    Set(
+                                                        result,
+                                                        Patch(
+                                                            'API Collections',
+                                                            Defaults('API Collections'),
+                                                            {'Folder Name': FolderNameTextInput.Value}
+                                                        )
+                                                    ),
+                                                    Set(
+                                                        result,
+                                                        Patch(
+                                                            'API Collections',
+                                                            LookUp(
+                                                                'API Collections',
+                                                                'API Collection' = SelectedFolder.'API Collection'
+                                                            ),
+                                                            {'Folder Name': FolderNameTextInput.Value}
+                                                        )
+                                                    );
+                                                );
+                                                If(
+                                                    !IsBlankOrError(result),
+                                                    Notify(
+                                                        If(!IsBlank(SelectedFolder),APIPlayGroundLoc.folderUpdateMsg, APIPlayGroundLoc.saveFolderMessageTxt),
+                                                        NotificationType.Success,8000
+                                                    );
+                                                    Set(SelectedFolder,Blank());
+                                                    UpdateContext(
+                                                        {
+                                                            showFolderForm: false,
+                                                            manageFolder: false
+                                                        }
+                                                    );
+                                                    ,
+                                                    Notify(
+                                                        APIPlayGroundLoc.defaultErrorMessageTxt,
+                                                        NotificationType.Error,8000
+                                                    )
+                                                );
+                                                ,
+                                                Notify(
+                                                    APIPlayGroundLoc.validationFolderCreateMsg,
+                                                    NotificationType.Error,8000
+                                                )
+                                            );
+                                          Text: =APIPlayGroundLoc.saveTxt
+                                          Tooltip: =
+                                          Visible: =showFolderForm
+                                          Width: =32
+                                    - EditFolderIcon:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.Icon
+                                        Properties:
+                                          AccessibilityLabel: =APIPlayGroundLoc.editFolder
+                                          DisplayMode: =If(!IsBlank(SelectedFolder), DisplayMode.Edit,DisplayMode.Disabled)
+                                          Height: =32
+                                          IconName: ="edit"
+                                          OnChange: =UpdateContext({showFolderForm:true});
+                                          Text: =APIPlayGroundLoc.editTxt
+                                          Tooltip: =
+                                          Visible: =false //!IsBlank(SelectedFolder) && manageFolder && !showFolderForm
+                                          Width: =32
+                                    - DeleteDVIcon:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.Icon
+                                        Properties:
+                                          AccessibilityLabel: =APIPlayGroundLoc.deleteTxt
+                                          DisplayMode: =If(!IsBlank(SelectedFolder), DisplayMode.Edit,DisplayMode.Disabled)
+                                          Height: =32
+                                          IconName: ="delete"
+                                          OnChange: |+
+                                            =If(
+                                                !IsBlank(SelectedFolder),
+                                                Set(
+                                                    folderResponse,
+                                                    Remove(
+                                                        'API Collections',
+                                                        SelectedFolder
+                                                    );
+                                                );
+                                                    If(
+                                                    !IsBlankOrError(folderResponse),
+                                                    Notify(
+                                                        APIPlayGroundLoc.folderDeletedTxt,
+                                                        NotificationType.Success,8000
+                                                    )
+                                                    ,
+                                                    Notify(
+                                                        APIPlayGroundLoc.defaultErrorMessageTxt,
+                                                        NotificationType.Error,8000
+                                                    )
+                                                )
+                                                ,
+                                                Notify(
+                                                    APIPlayGroundLoc.validationFolderMsg,
+                                                    NotificationType.Error,8000
+                                                )
+                                            );
+                                          Text: =APIPlayGroundLoc.deleteTxt
+                                          Tooltip: =
+                                          Visible: =false //!IsBlank(SelectedFolder) && manageFolder
+                                          Width: =32
+                                    - AddNewFolderIcon:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.Icon
+                                        Properties:
+                                          Height: =32
+                                          IconName: ="add"
+                                          OnChange: =UpdateContext({showFolderForm:true,manageFolder:false});
+                                          Tooltip: =
+                                          Visible: =manageFolder && IsBlank(SelectedFolder)
+                                          Width: =32
+                                    - ButtonCanvas2_1:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: =APIPlayGroundLoc.editFolder
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="Edit"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =UpdateContext({showFolderForm:true});
+                                          Text: =
+                                          Visible: =!IsBlank(SelectedFolder) && manageFolder && !showFolderForm
+                                          Width: =30
+                                          X: =237
+                                    - ButtonCanvas2_2:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: =APIPlayGroundLoc.deleteTxt
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="Delete"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: |+
+                                            =If(
+                                                !IsBlank(SelectedFolder),
+                                                Set(
+                                                    folderResponse,
+                                                    Remove(
+                                                        'API Collections',
+                                                        SelectedFolder
+                                                    );
+                                                );
+                                                    If(
+                                                    !IsBlankOrError(folderResponse),
+                                                    Notify(
+                                                        APIPlayGroundLoc.folderDeletedTxt,
+                                                        NotificationType.Success,8000
+                                                    )
+                                                    ,
+                                                    Notify(
+                                                        APIPlayGroundLoc.defaultErrorMessageTxt,
+                                                        NotificationType.Error,8000
+                                                    )
+                                                )
+                                                ,
+                                                Notify(
+                                                    APIPlayGroundLoc.validationFolderMsg,
+                                                    NotificationType.Error,8000
+                                                )
+                                            );
+                                          Text: =
+                                          Visible: =!IsBlank(SelectedFolder) && manageFolder
+                                          Width: =30
+                                          X: =237
+                              - Rectangle2_3:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(166, 166, 166, 1)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =1
+                                    DisabledFill: =RGBA(214, 221, 224, 1)
+                                    Fill: =RGBA(0, 0, 0, 0.05)
+                                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                    Height: =1
+                                    OnSelect: =
+                                    PressedFill: =RGBA(214, 221, 224, 1)
+                                    Visible: =!hideSidbar
+                                    Width: =2
+                              - AddEditFolderContainer:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =75
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    Visible: '=showFolderForm '
+                                  Children:
+                                    - lblFolderName:
+                                        Control: Text@0.0.50
+                                        Properties:
+                                          Text: =APIPlayGroundLoc.nameTxt
+                                    - FolderNameTextInput:
+                                        Control: TextInput@0.0.53
+                                        Properties:
+                                          Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                          Placeholder: =APIPlayGroundLoc.folderNameTxt
+                                          Value: =If(!IsBlank(SelectedFolder),SelectedFolder.'Folder Name',"")
+                                          Width: =Parent.Width
+                              - FolderNav_2:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.Nav
+                                  Properties:
+                                    Height: =160
+                                    Items: =AllUserFolders
+                                    OnSelect: =Set(SelectedFolder,FolderNav_2.Selected);
+                                    SelectedKey: =SelectedFolder.'API Collection'
+                                    Theme: =AppThemeNeutralJson
+                                    Tooltip: =""
+                                    Visible: =manageFolder && !showFolderForm
+                                    Width: =Parent.Width-20
+                        - ButtonCanvas4:
+                            Control: Button@0.0.44
+                            Properties:
+                              Align: =Align.Left
+                              AlignInContainer: =AlignInContainer.Stretch
+                              Appearance: ='ButtonCanvas.Appearance'.Subtle
+                              Height: =44
+                              Icon: ="Copy"
+                              OnSelect: '=UpdateContext({manageFolder:true,showFolderForm:false}); '
+                              Text: ="Manage folders"
+                              Visible: =!hideSidbar && !FolderContainer.Visible
+                              Width: =290
+                              Y: =727
+                  - MainLandingContainer:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderStyle: =BorderStyle.None
+                        Fill: =ColorValue("#FAFAFA") // todo:colormap grey98
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =8
+                        LayoutOverflowY: =LayoutOverflow.Scroll
+                        PaddingBottom: =24
+                        PaddingLeft: =Min(App.ActiveScreen.Width * 0.05, 36)
+                        PaddingRight: =0 //Self.PaddingLeft
+                        PaddingTop: =24
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - txtGetStarted:
+                            Control: Text@0.0.50
+                            Properties:
+                              AlignInContainer: =Stretch
+                              FillPortions: =FlexOff
+                              Height: =28
+                              Size: =20
+                              Text: =const_landingTxt.getStarted
+                              Weight: ='TextCanvas.Weight'.Semibold
+                        - txtGetStartedSub:
+                            Control: Text@0.0.50
+                            Properties:
+                              AlignInContainer: =Stretch
+                              AutoHeight: =true
+                              FillPortions: =FlexOff
+                              FontColor: =ColorValue("#525252") // todo:colormap grey32
+                              Height: =22
+                              LayoutMinHeight: =20
+                              Size: =12
+                              Text: =const_landingTxt.getStartedSubtitle
+                              Weight: ='TextCanvas.Weight'.Regular
+                              Wrap: =false
+                        - cCreateCards:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =CardInstantPluginRequest.Y + CardInstantPluginRequest.Height + 36
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =16
+                              LayoutWrap: =true
+                              PaddingLeft: =2
+                              PaddingRight: =2
+                              PaddingTop: =16
+                              Width: =Min(Parent.Width-Self.X*2, 1024)
+                            Children:
+                              - CardCustomAPI:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semilight
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =0
+                                    Height: =170
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    PaddingBottom: =5
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =5
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Visible: =!IsBlank(LookUp(ColCards, key ="customapi"))
+                                    Width: =300
+                                  Children:
+                                    - Container4:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =70
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          LayoutMinHeight: =35
+                                          PaddingBottom: =10
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - Image1:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =60
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =LookUp(ColCards, key ="customapi").image
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =60
+                                          - TextCanvas2:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                FillPortions: =1
+                                                Size: =16
+                                                Text: =LookUp(ColCards, key ="customapi").title
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                    - Container5:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - TextCanvas3:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Height: =40
+                                                Text: =LookUp(ColCards, key ="customapi").description
+                                                Width: =Parent.Width-10
+                                    - Container6:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =55
+                                          PaddingLeft: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - btnNewCustomApi:
+                                              Control: Button@0.0.44
+                                              Properties:
+                                                AccessibleLabel: =APIPlayGroundLoc.createCustomAPI
+                                                Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                                OnSelect: |
+                                                  =Set(DefaultRequest,Text('APICategory (API Requests)'.'Custom API'));
+                                                  Set(APIRequestCacheId,Blank());
+                                                  //Set(IsLoadingAPIs,true);
+                                                  Navigate(RequestScreen);
+                                                Text: =APIPlayGroundLoc.createTxt
+                                                Width: =70
+                              - CardODataRequest:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semilight
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =0
+                                    Height: =170
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    PaddingBottom: =5
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =5
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Width: =300
+                                  Children:
+                                    - Container4_1:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =70
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          LayoutMinHeight: =35
+                                          PaddingBottom: =10
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - Image1_1:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =60
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =LookUp(ColCards, key ="odatarequest").image
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =60
+                                          - TextCanvas2_1:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                FillPortions: =1
+                                                Size: =16
+                                                Text: =LookUp(ColCards, key ="odatarequest").title
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                    - Container5_1:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - TextCanvas3_1:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Height: =40
+                                                Text: =LookUp(ColCards, key ="odatarequest").description
+                                                Width: =Parent.Width-10
+                                    - Container6_1:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =55
+                                          PaddingLeft: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - btnNewOData:
+                                              Control: Button@0.0.44
+                                              Properties:
+                                                AccessibleLabel: =APIPlayGroundLoc.createODataRequet
+                                                AlignInContainer: =AlignInContainer.Center
+                                                Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                                OnSelect: |+
+                                                  =Set(DefaultRequest,Text('APICategory (API Requests)'.'OData Request'));
+                                                  Set(APIRequestCacheId,Blank());
+                                                  //Set(IsLoadingAPIs,true);
+                                                  Navigate(RequestScreen);
+                                                Text: =APIPlayGroundLoc.createTxt
+                                                Width: =70
+                              - CardInstantPluginRequest:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semilight
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =0
+                                    Height: =170
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    PaddingBottom: =5
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =5
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Width: =300
+                                  Children:
+                                    - Container4_2:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =70
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          LayoutMinHeight: =35
+                                          PaddingBottom: =10
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - Image1_2:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =60
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =LookUp(ColCards, key ="lowcodeinstantplugin").image
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =60
+                                          - TextCanvas2_2:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                FillPortions: =1
+                                                Size: =16
+                                                Text: =LookUp(ColCards, key ="lowcodeinstantplugin").title
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                    - Container5_2:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =10
+                                          PaddingRight: =16
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - TextCanvas3_2:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Height: =40
+                                                Text: =LookUp(ColCards, key ="lowcodeinstantplugin").description
+                                                Width: =Parent.Width-Self.X * 2
+                                    - Container6_2:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =55
+                                          PaddingLeft: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - btnNewInstantPluginReq:
+                                              Control: Button@0.0.44
+                                              Properties:
+                                                AccessibleLabel: =APIPlayGroundLoc.createLowCodePlugin
+                                                Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                                OnSelect: |+
+                                                  =Set(DefaultRequest,Text('APICategory (API Requests)'.'Fx Function'));
+                                                  Set(APIRequestCacheId,Blank());
+                                                  //Set(IsLoadingAPIs,true);
+                                                  Navigate(RequestScreen);
+                                                Text: =APIPlayGroundLoc.createTxt
+                                                Width: =70
+                              - CardFolderRequest:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    BorderStyle: =BorderStyle.None
+                                    DropShadow: =DropShadow.Semilight
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =0
+                                    Height: =170
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    PaddingBottom: =5
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =5
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Visible: =false
+                                    Width: =300
+                                  Children:
+                                    - Container4_3:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =70
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          LayoutMinHeight: =35
+                                          PaddingBottom: =10
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - Image1_3:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =60
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =60
+                                          - TextCanvas2_3:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                FillPortions: =1
+                                                Size: =16
+                                                Text: =APIPlayGroundLoc.folders
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                    - Container5_3:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - TextCanvas3_3:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                AutoHeight: =true
+                                                Text: =APIPlayGroundLoc.folderDesTxt
+                                                Width: =Parent.Width-10
+                                    - Container6_3:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =45
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =55
+                                          PaddingLeft: =10
+                                          Width: =Parent.Width-10
+                                        Children:
+                                          - ButtonCanvas1_3:
+                                              Control: Button@0.0.44
+                                              Properties:
+                                                Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                                OnSelect: |+
+                                                  =UpdateContext({showDialog:true});
+                                                Text: =APIPlayGroundLoc.createTxt
+                                                Width: =70
+                        - txtDiscover:
+                            Control: Text@0.0.50
+                            Properties:
+                              AlignInContainer: =Stretch
+                              FillPortions: =FlexOff
+                              Height: =28
+                              LayoutMinWidth: =24
+                              Size: =20
+                              Text: =const_landingTxt.discoverTitle //APIPlayGroundLoc.getStarted
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =1004
+                              Wrap: =false
+                              Y: =300
+                        - txtDiscoverSub:
+                            Control: Text@0.0.50
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Stretch
+                              AutoHeight: =true
+                              FillPortions: =FlexOff
+                              FontColor: =ColorValue("#525252") // todo:colormap grey32
+                              Height: =16
+                              LayoutMinHeight: =20
+                              Size: =12
+                              Text: =const_landingTxt.discoverSubtitle
+                              Weight: ='TextCanvas.Weight'.Regular
+                              Width: =1004
+                              Wrap: =false
+                              Y: =367
+                        - cLearnCards:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =cLearnCard_3.Y + cLearnCard_3.Height + 20
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =16
+                              LayoutWrap: =true
+                              PaddingLeft: =2
+                              PaddingRight: =2
+                              PaddingTop: =16
+                              Width: =Min(Parent.Width-Self.X*2, 1024)
+                            Children:
+                              - cLearnCard_4:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =FlexOff
+                                    Height: =const_dims.learnCard.height
+                                    Width: =300
+                                  Children:
+                                    - Container4_21:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          Height: =64
+                                          LayoutAlignItems: =LayoutAlignItems.End
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          PaddingRight: =12
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Image1_21:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =Parent.Height
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =book
+                                                ImagePosition: =ImagePosition.Fill
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =Self.Height
+                                          - Container5_11:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.SetByContainer
+                                                BorderStyle: =BorderStyle.None
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =FlexOn
+                                                Height: =Parent.Height
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                LayoutMinWidth: =100
+                                                Width: =Parent.Width-10
+                                              Children:
+                                                - TextCanvas3_14:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Height: =20
+                                                      Text: =const_landingTxt.appname
+                                                      Weight: ='TextCanvas.Weight'.Semibold
+                                                      Width: =974
+                                                      Y: =9
+                                                - TextCanvas3_15:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      FontColor: '=ColorValue("#616161") // todo:colormap '
+                                                      Height: =22
+                                                      Size: =12
+                                                      Text: =const_landingTxt.howtoUseTool
+                                                      Width: =974
+                                                      Wrap: =false
+                                                      Y: =20
+                                          - LinkCanvas1_3:
+                                              Control: Link@0.0.44
+                                              Properties:
+                                                Align: =Align.Right
+                                                FontSize: =12
+                                                Height: =44
+                                                PaddingBottom: =16
+                                                Text: =const_landingTxt.learn
+                                                URL: ="https://aka.ms/dvacc/api-playground"
+                                                VerticalAlign: =VerticalAlign.Bottom
+                                                Width: =44
+                                                X: =274
+                                                Y: =17
+                              - cLearnCard_1:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =FlexOff
+                                    Height: =const_dims.learnCard.height
+                                    Width: =300
+                                  Children:
+                                    - Container4_18:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          Height: =64
+                                          LayoutAlignItems: =LayoutAlignItems.End
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          PaddingRight: =12
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Image1_18:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =Parent.Height
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =book
+                                                ImagePosition: =ImagePosition.Fill
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =Self.Height
+                                          - Container5_8:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.SetByContainer
+                                                BorderStyle: =BorderStyle.None
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =FlexOn
+                                                Height: =Parent.Height
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                LayoutMinWidth: =100
+                                                Width: =Parent.Width-10
+                                              Children:
+                                                - TextCanvas3_8:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Height: =20
+                                                      Text: =const_landingTxt.queryData
+                                                      Weight: ='TextCanvas.Weight'.Semibold
+                                                      Width: =974
+                                                      Y: =9
+                                                - TextCanvas3_9:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      FontColor: '=ColorValue("#616161") // todo:colormap '
+                                                      Height: =22
+                                                      Size: =12
+                                                      Text: =const_landingTxt.queryDataSubTxt
+                                                      Width: =974
+                                                      Wrap: =false
+                                                      Y: =20
+                                          - LinkCanvas1:
+                                              Control: Link@0.0.44
+                                              Properties:
+                                                Align: =Align.Right
+                                                FontSize: =12
+                                                Height: =44
+                                                PaddingBottom: =16
+                                                Text: =const_landingTxt.learn
+                                                URL: ="https://learn.microsoft.com/power-apps/developer/data-platform/webapi/query-data-web-api"
+                                                VerticalAlign: =VerticalAlign.Bottom
+                                                Width: =44
+                                                X: =274
+                                                Y: =17
+                              - cLearnCard_2:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =FlexOff
+                                    Height: =const_dims.learnCard.height
+                                    Width: =300
+                                  Children:
+                                    - Container4_19:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          Height: =64
+                                          LayoutAlignItems: =LayoutAlignItems.End
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          PaddingRight: =12
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Image1_19:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =Parent.Height
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =book
+                                                ImagePosition: =ImagePosition.Fill
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =Self.Height
+                                          - Container5_9:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.SetByContainer
+                                                BorderStyle: =BorderStyle.None
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =FlexOn
+                                                Height: =Parent.Height
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                LayoutMinWidth: =100
+                                                Width: =Parent.Width-10
+                                              Children:
+                                                - TextCanvas3_10:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Height: =20
+                                                      Text: =const_landingTxt.actionsAndFunctions
+                                                      Weight: ='TextCanvas.Weight'.Semibold
+                                                      Width: =974
+                                                      Y: =9
+                                                - TextCanvas3_11:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      FontColor: '=ColorValue("#616161") // todo:colormap '
+                                                      Height: =22
+                                                      Size: =12
+                                                      Text: =const_landingTxt.actionsAndFunctionsSubTxt
+                                                      Width: =974
+                                                      Wrap: =false
+                                                      Y: =20
+                                          - LinkCanvas1_1:
+                                              Control: Link@0.0.44
+                                              Properties:
+                                                Align: =Align.Right
+                                                FontSize: =12
+                                                Height: =44
+                                                PaddingBottom: =16
+                                                Text: =const_landingTxt.learn
+                                                URL: ="https://learn.microsoft.com/power-apps/developer/data-platform/webapi/use-web-api-actions?view=dataverse-latest"
+                                                VerticalAlign: =VerticalAlign.Bottom
+                                                Width: =44
+                                                X: =274
+                                                Y: =17
+                              - cLearnCard_3:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    FillPortions: =FlexOff
+                                    Height: =const_dims.learnCard.height
+                                    Width: =300
+                                  Children:
+                                    - Container4_20:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          DropShadow: =DropShadow.None
+                                          Height: =64
+                                          LayoutAlignItems: =LayoutAlignItems.End
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          PaddingRight: =12
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Image1_20:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =Parent.Height
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Image: =book
+                                                ImagePosition: =ImagePosition.Fill
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =Self.Height
+                                          - Container5_10:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.SetByContainer
+                                                BorderStyle: =BorderStyle.None
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =FlexOn
+                                                Height: =Parent.Height
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                LayoutMinWidth: =100
+                                                Width: =Parent.Width-10
+                                              Children:
+                                                - TextCanvas3_12:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      Height: =20
+                                                      Text: =const_landingTxt.serviceDoc
+                                                      Weight: ='TextCanvas.Weight'.Semibold
+                                                      Width: =974
+                                                      Y: =9
+                                                - TextCanvas3_13:
+                                                    Control: Text@0.0.50
+                                                    Properties:
+                                                      FontColor: '=ColorValue("#616161") // todo:colormap '
+                                                      Height: =22
+                                                      Size: =12
+                                                      Text: =const_landingTxt.serviceDocSubTxt
+                                                      Width: =974
+                                                      Wrap: =false
+                                                      Y: =20
+                                          - LinkCanvas1_2:
+                                              Control: Link@0.0.44
+                                              Properties:
+                                                Align: =Align.Right
+                                                FontSize: =12
+                                                Height: =44
+                                                PaddingBottom: =16
+                                                Text: =const_landingTxt.learn
+                                                URL: ="https://learn.microsoft.com/power-apps/developer/data-platform/webapi/web-api-service-documents"
+                                                VerticalAlign: =VerticalAlign.Bottom
+                                                Width: =44
+                                                X: =274
+                                                Y: =17
+                        - SavedRequestsSection:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =44
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              Visible: =!IsEmpty(LatestSavedRequest)
+                              Width: =Parent.Width
+                            Children:
+                              - TextCanvas1_1:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    FillPortions: =1
+                                    Height: =30
+                                    Size: =20
+                                    Text: =const_landingTxt.recentRequests
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                        - cSavedRequestsList:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Height: =Max(DVFluentDetailsList1.TotalRecords * 66 , 100)
+                              LayoutDirection: =LayoutDirection.Vertical
+                              PaddingTop: =4
+                              RadiusBottomLeft: =8
+                              RadiusBottomRight: =8
+                              RadiusTopLeft: =8
+                              RadiusTopRight: =8
+                              Visible: =!IsEmpty(LatestSavedRequest)
+                              Width: =CardInstantPluginRequest.Width*3+40
+                            Children:
+                              - DVFluentDetailsList1:
+                                  Control: CodeComponent
+                                  ComponentName: cat_PowerCAT.FluentDetailsList
+                                  Properties:
+                                    Compact: =false
+                                    Height: =100
+                                    Items: =LatestSavedRequest //AllSavedRequests
+                                    OnChange: |-
+                                      =If(
+                                          Self.EventName = "CellAction", 
+                                          Set(APIRequestCacheId, GUID(DVFluentDetailsList1.EventRowKey));
+                                          Set(DefaultRequest,Text(SelectedReq.Category));
+                                          Navigate(RequestScreen);
+                                      )
+                                    RaiseOnRowSelectionChangeEvent: =true
+                                    RecordKey: ="APIRequestCache"
+                                    SelectRowsOnFocus: =true
+                                    SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
+                                    Theme: =AppThemeJson
+                                    Tooltip: =
+                                    Width: =Parent.Width
+                                    columns_Items: |-
+                                      =Table(
+                                          {
+                                              ColName: "cat_name",
+                                              ColDisplayName: "Name",
+                                              ColSortable: true,
+                                              ColWidth: Parent.Width - 590,
+                                              ColRowHeader: true
+                                              ,ColPaddingLeft:4
+                                          },
+                                          {
+                                              ColName: "Category",
+                                              ColDisplayName: "Category",
+                                              ColWidth: 200
+                                          },
+                                          {
+                                              ColName: "CreatedOn",
+                                              ColDisplayName: "Created On",
+                                              ColWidth: 200
+                                          },
+                                          {
+                                              ColName: "Action",
+                                              ColDisplayName: "",
+                                              ColWidth: 100,
+                                              ColCellType: "link",
+                                              ColRowHeader: true
+                                          }
+                                      )
+      - SpinnerContainer_1:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =RGBA(255,255,255,0.85)
+            Height: =App.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            Visible: =init <> true
+            Width: =App.Width
+          Children:
+            - Spinner1_1:
+                Control: Spinner@1.4.4
+                Properties:
+                  AccessibleLabel: =APIPlayGroundLoc.loadingTxt
+                  Height: =74
+                  Label: =APIPlayGroundLoc.loadingTxt
+                  LabelPosition: ='Spinner.LabelPosition'.Below
+                  Width: =166
+                  X: =690
+                  Y: =495

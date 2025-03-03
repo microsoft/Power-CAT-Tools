@@ -648,7 +648,9 @@ ReviewItemScreen As screen:
                                     ZIndex: =14
 
                         "PFxCodeEditor1 As 'PowerFx Code Editor'":
+                            AlignInContainer: =AlignInContainer.Stretch
                             DisplayMode: =DisplayMode.View
+                            FillPortions: =1
                             Height: =Parent.Height
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
