@@ -14,6 +14,7 @@
       "allowedcustomprocessingsteptype": "Allowed Custom Processing Step Type",
       "bindingtype": "Binding Type",
       "boundentitylogicalname": "Bound Entity Logical Name",
+      "cat_apirequest_CustomAPI_customapi": "API Requests",
       "cat_apirequestcache_CustomAPI_customapi": "API Request Caches",
       "CatalogAssignments": "Catalog Assignments",
       "componentidunique": "Row id unique",

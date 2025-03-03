@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{cf0cab95-a895-412e-bc25-677052d08013}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cat_foldername" select="1" icon="1" preview="1">
+        <row name="result" id="cat_apicollectionid">
+          <cell name="cat_foldername" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cat_apiversion" width="150" />
+          <cell name="cat_documentationurl" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_apicollection">
+          <attribute name="cat_apicollectionid" />
+          <attribute name="cat_foldername" />
+          <attribute name="createdon" />
+          <order attribute="cat_foldername" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cat_apiversion" />
+          <attribute name="cat_documentationurl" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active API Collections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

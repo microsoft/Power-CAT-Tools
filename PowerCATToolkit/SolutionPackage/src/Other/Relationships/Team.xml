@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EntityRelationship Name="team_cat_apirequestcache">
+  <EntityRelationship Name="team_cat_apicollection">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
-    <IsCustomizable>0</IsCustomizable>
+    <IsCustomizable>1</IsCustomizable>
     <IntroducedVersion>1.0</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>cat_APIRequestCache</ReferencingEntityName>
+    <ReferencingEntityName>cat_APICollection</ReferencingEntityName>
     <ReferencedEntityName>Team</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>
     <CascadeDelete>NoCascade</CascadeDelete>
@@ -20,12 +20,12 @@
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
-  <EntityRelationship Name="team_cat_apirequestfolder">
+  <EntityRelationship Name="team_cat_apirequest">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
-    <IsCustomizable>0</IsCustomizable>
+    <IsCustomizable>1</IsCustomizable>
     <IntroducedVersion>1.0</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>cat_APIRequestFolder</ReferencingEntityName>
+    <ReferencingEntityName>cat_APIRequest</ReferencingEntityName>
     <ReferencedEntityName>Team</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>
     <CascadeDelete>NoCascade</CascadeDelete>

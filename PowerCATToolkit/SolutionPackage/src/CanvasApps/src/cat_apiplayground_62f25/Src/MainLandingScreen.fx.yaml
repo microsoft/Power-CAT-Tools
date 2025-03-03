@@ -46,7 +46,7 @@ MainLandingScreen As screen:
             ),
             Set(
                 DefaultRequest,
-                Text( 'APICategory (API Request Caches)'.'Instant Plugin')
+                Text( 'APICategory (API Requests)'.'Fx Function')
             ),
             Set(
                 IsRunning,
@@ -68,8 +68,8 @@ MainLandingScreen As screen:
             //Collection for HTTP Verb
             ClearCollect(
                 HTTPVerb,
-                //'Request Type (API Request Caches)'.GET 
-                Choices('Request Type (API Request Caches)')
+                //'Request Type (API Requests)'.GET 
+                Choices('Request Type (API Requests)')
             )
         )
         
@@ -152,7 +152,7 @@ MainLandingScreen As screen:
                         LayoutMinHeight: =32
                         LayoutMinWidth: =200
                         Placeholder: =APIPlayGroundLoc.searchRequestsTxt
-                        TriggerOutput: ="FocusOut"
+                        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
                         Type: ='TextInputCanvas.Type'.Text
                         Width: =Parent.Width
                         X: =0
@@ -210,7 +210,7 @@ MainLandingScreen As screen:
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
                             =If(
-                                RequestCategory= 'APICategory (API Request Caches)'.'OData Request',
+                                RequestCategory= 'APICategory (API Requests)'.'OData Request',
                                 RGBA(214, 221, 224, 1),
                                 RGBA(245, 245, 245, 1)
                             )
@@ -221,7 +221,7 @@ MainLandingScreen As screen:
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnChange: =false
-                        OnSelect: =Set(RequestCategory,'APICategory (API Request Caches)'.'OData Request')
+                        OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'OData Request')
                         PressedBorderColor: =RGBA(233, 237, 240, 1)
                         PressedFillColor: =RGBA(214, 221, 224, 1)
                         PressedTextColor: =
@@ -244,7 +244,7 @@ MainLandingScreen As screen:
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
                             =If(
-                                RequestCategory= 'APICategory (API Request Caches)'.'Custom API',
+                                RequestCategory= 'APICategory (API Requests)'.'Custom API',
                                 RGBA(214, 221, 224, 1),
                                 RGBA(245, 245, 245, 1)
                             )
@@ -255,7 +255,7 @@ MainLandingScreen As screen:
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnChange: =false
-                        OnSelect: =Set(RequestCategory,'APICategory (API Request Caches)'.'Custom API')
+                        OnSelect: =Set(RequestCategory, 'APICategory (API Requests)'.'Custom API')
                         PressedBorderColor: =RGBA(233, 237, 240, 1)
                         PressedFillColor: =RGBA(214, 221, 224, 1)
                         PressedTextColor: =
@@ -278,7 +278,7 @@ MainLandingScreen As screen:
                         DisplayMode: =DisplayMode.Edit
                         FillColor: |-
                             =If(
-                                RequestCategory= 'APICategory (API Request Caches)'.'Instant Plugin',
+                                RequestCategory= 'APICategory (API Requests)'.'Fx Function',
                                 RGBA(214, 221, 224, 1),
                                 RGBA(245, 245, 245, 1)
                             )
@@ -289,7 +289,7 @@ MainLandingScreen As screen:
                         LayoutMinHeight: =32
                         LayoutMinWidth: =96
                         OnChange: =false
-                        OnSelect: =Set(RequestCategory,'APICategory (API Request Caches)'.'Instant Plugin')
+                        OnSelect: =Set(RequestCategory,'APICategory (API Requests)'.'Fx Function')
                         PressedBorderColor: =RGBA(233, 237, 240, 1)
                         PressedFillColor: =RGBA(214, 221, 224, 1)
                         PressedTextColor: =
@@ -400,9 +400,41 @@ MainLandingScreen As screen:
                         RadiusTopRight: =4
                         TabIndex: =0
                         Tooltip: ="Collapse"
-                        Visible: =!hideSidbar
+                        Visible: =false //!hideSidbar
                         Width: =44
                         ZIndex: =4
+
+                    btn_filter_1 As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Subtle
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Icon: =If(hideSidbar=true,"ChevronRight","ChevronLeft")
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |-
+                            =UpdateContext({hideSidbar:true,sidebarWidth:const_dims.sidebar.widthCollapsed,fillportion:0});
+                        Text: =
+                        Width: =36
+                        X: =234
+                        Y: =0
+                        ZIndex: =5
+
+                    btn_filter As Button:
+                        Appearance: ='ButtonCanvas.Appearance'.Subtle
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Icon: ="Filter"
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |-
+                            =UpdateContext({visibleSearch:true}); SetFocus(SearchRequests);
+                        Text: =
+                        Width: =36
+                        X: =234
+                        Y: =0
+                        ZIndex: =6
 
                     "DVIconCollapse As 'Fluent Icon (1.1.39)'":
                         DisplayMode: =DisplayMode.Edit
@@ -417,43 +449,6 @@ MainLandingScreen As screen:
                         TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                         Theme: =AppThemeNeutralJson
                         Tooltip: =""
-                        Visible: =false //!hideSidbar
-                        Width: =35
-                        X: =0
-                        Y: =0
-                        ZIndex: =5
-
-                    "DVIconExpand As 'Fluent Icon (1.1.39)'":
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =35
-                        IconName: ="OpenPaneMirrored"
-                        IconSize: =25
-                        IconType: ='PowerCAT.Icon.IconType'.IconButon
-                        LayoutMinHeight: =200
-                        LayoutMinWidth: =200
-                        OnChange: |-
-                            =UpdateContext({hideSidbar:false,sidebarWidth:const_dims.sidebar.widthExpanded,fillportion:1});
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Theme: =AppThemeNeutralJson
-                        Tooltip: =""
-                        Visible: =false //hideSidbar
-                        Width: =35
-                        X: =0
-                        Y: =0
-                        ZIndex: =6
-
-                    "DVFilterIcon As 'Fluent Icon (1.1.39)'":
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =35
-                        IconName: ="ListMirrored"
-                        IconSize: =20
-                        LayoutMinHeight: =200
-                        LayoutMinWidth: =200
-                        OnChange: |-
-                            =UpdateContext({visibleSearch:true}); SetFocus(SearchRequests);
-                        TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
-                        Theme: =AppThemeNeutralJson
-                        Tooltip: =APIPlayGroundLoc.searchRequestsTxt
                         Visible: =false //!hideSidbar
                         Width: =35
                         X: =0
@@ -483,9 +478,9 @@ MainLandingScreen As screen:
                         RadiusTopRight: =4
                         TabIndex: =0
                         Tooltip: =APIPlayGroundLoc.searchRequestsTxt
-                        Visible: =!hideSidbar
+                        Visible: =false //!hideSidbar
                         Width: =44
-                        ZIndex: =8
+                        ZIndex: =10
 
                     "DVCommandBar1 As 'Fluent Command Bar (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
@@ -541,7 +536,7 @@ MainLandingScreen As screen:
                         Width: =100
                         X: =0
                         Y: =0
-                        ZIndex: =9
+                        ZIndex: =11
 
                 HtmlText1 As htmlViewer:
                     Color: |-
@@ -577,7 +572,7 @@ MainLandingScreen As screen:
                     "DVNavLandingPage As 'Fluent Nav (1.1.39)'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         Height: =Parent.Height
-                        Items: =Filter(SavedRequests,IsDummy=false)
+                        Items: =Filter(SavedRequests, IsDummy=false)
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnChange: |
@@ -979,6 +974,21 @@ MainLandingScreen As screen:
                         RadiusTopRight: =4
                         ZIndex: =1
 
+                        ButtonCanvas2 As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="ArrowLeft"
+                            Layout: ='ButtonCanvas.Layout'.IconOnly
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =UpdateContext({showFolderForm:false,manageFolder:false});
+                            Width: =30
+                            X: =237
+                            Y: =0
+                            ZIndex: =1
+
                         "BackDVIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.cancelBtnTxt
                             DisplayMode: =DisplayMode.Edit
@@ -990,10 +1000,11 @@ MainLandingScreen As screen:
                                 =UpdateContext({showFolderForm:false,manageFolder:false});
                             Text: =APIPlayGroundLoc.cancelBtnTxt
                             Tooltip: =
+                            Visible: =false
                             Width: =32
                             X: =0
                             Y: =0
-                            ZIndex: =1
+                            ZIndex: =2
 
                         newFolderTxt As Text:
                             BorderColor: =
@@ -1004,17 +1015,21 @@ MainLandingScreen As screen:
                             Height: =32
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
+                            PaddingTop: =
                             Text: =If(showFolderForm && !manageFolder ,APIPlayGroundLoc.newFolder, If(manageFolder && !showFolderForm,APIPlayGroundLoc.folders,If(manageFolder && showFolderForm,APIPlayGroundLoc.editFolder)))
+                            VerticalAlign: =VerticalAlign.Middle
+                            Weight: ='TextCanvas.Weight'.Semibold
                             Width: =96
                             X: =0
                             Y: =0
-                            ZIndex: =2
+                            ZIndex: =3
 
                         "SaveFolderIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.saveTxt
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             IconName: ="save"
+                            IconSize: =18
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             OnChange: |
@@ -1025,18 +1040,18 @@ MainLandingScreen As screen:
                                         Set(
                                             result,
                                             Patch(
-                                                'API Request Folders',
-                                                Defaults('API Request Folders'),
+                                                'API Collections',
+                                                Defaults('API Collections'),
                                                 {'Folder Name': FolderNameTextInput.Value}
                                             )
                                         ),
                                         Set(
                                             result,
                                             Patch(
-                                                'API Request Folders',
+                                                'API Collections',
                                                 LookUp(
-                                                    'API Request Folders',
-                                                    'API Request Folder' = SelectedFolder.'API Request Folder'
+                                                    'API Collections',
+                                                    'API Collection' = SelectedFolder.'API Collection'
                                                 ),
                                                 {'Folder Name': FolderNameTextInput.Value}
                                             )
@@ -1073,7 +1088,7 @@ MainLandingScreen As screen:
                             Width: =32
                             X: =0
                             Y: =0
-                            ZIndex: =3
+                            ZIndex: =4
 
                         "EditFolderIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.editFolder
@@ -1086,11 +1101,11 @@ MainLandingScreen As screen:
                                 =UpdateContext({showFolderForm:true});
                             Text: =APIPlayGroundLoc.editTxt
                             Tooltip: =
-                            Visible: =!IsBlank(SelectedFolder) && manageFolder && !showFolderForm
+                            Visible: =false //!IsBlank(SelectedFolder) && manageFolder && !showFolderForm
                             Width: =32
                             X: =0
                             Y: =0
-                            ZIndex: =4
+                            ZIndex: =5
 
                         "DeleteDVIcon As 'Fluent Icon (1.1.39)'":
                             AccessibilityLabel: =APIPlayGroundLoc.deleteTxt
@@ -1105,7 +1120,7 @@ MainLandingScreen As screen:
                                     Set(
                                         folderResponse,
                                         Remove(
-                                            'API Request Folders',
+                                            'API Collections',
                                             SelectedFolder
                                         );
                                     );
@@ -1129,11 +1144,11 @@ MainLandingScreen As screen:
                                 );
                             Text: =APIPlayGroundLoc.deleteTxt
                             Tooltip: =
-                            Visible: =!IsBlank(SelectedFolder) && manageFolder
+                            Visible: =false //!IsBlank(SelectedFolder) && manageFolder
                             Width: =32
                             X: =0
                             Y: =0
-                            ZIndex: =5
+                            ZIndex: =6
 
                         "AddNewFolderIcon As 'Fluent Icon (1.1.39)'":
                             DisplayMode: =DisplayMode.Edit
@@ -1148,7 +1163,69 @@ MainLandingScreen As screen:
                             Width: =32
                             X: =0
                             Y: =0
-                            ZIndex: =6
+                            ZIndex: =7
+
+                        ButtonCanvas2_1 As Button:
+                            AccessibleLabel: =APIPlayGroundLoc.editFolder
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="Edit"
+                            Layout: ='ButtonCanvas.Layout'.IconOnly
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =UpdateContext({showFolderForm:true});
+                            Text: =
+                            Visible: =!IsBlank(SelectedFolder) && manageFolder && !showFolderForm
+                            Width: =30
+                            X: =237
+                            Y: =0
+                            ZIndex: =8
+
+                        ButtonCanvas2_2 As Button:
+                            AccessibleLabel: =APIPlayGroundLoc.deleteTxt
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="Delete"
+                            Layout: ='ButtonCanvas.Layout'.IconOnly
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |
+                                =If(
+                                    !IsBlank(SelectedFolder),
+                                    Set(
+                                        folderResponse,
+                                        Remove(
+                                            'API Collections',
+                                            SelectedFolder
+                                        );
+                                    );
+                                        If(
+                                        !IsBlankOrError(folderResponse),
+                                        Notify(
+                                            APIPlayGroundLoc.folderDeletedTxt,
+                                            NotificationType.Success,8000
+                                        )
+                                        ,
+                                        Notify(
+                                            APIPlayGroundLoc.defaultErrorMessageTxt,
+                                            NotificationType.Error,8000
+                                        )
+                                    )
+                                    ,
+                                    Notify(
+                                        APIPlayGroundLoc.validationFolderMsg,
+                                        NotificationType.Error,8000
+                                    )
+                                );
+                            Text: =
+                            Visible: =!IsBlank(SelectedFolder) && manageFolder
+                            Width: =30
+                            X: =237
+                            Y: =0
+                            ZIndex: =9
 
                     Rectangle2_3 As rectangle:
                         AlignInContainer: =AlignInContainer.Stretch
@@ -1219,7 +1296,8 @@ MainLandingScreen As screen:
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
                         OnSelect: =Set(SelectedFolder,FolderNav_2.Selected);
-                        SelectedKey: =SelectedFolder.'API Request Folder'
+                        SelectedKey: =SelectedFolder.'API Collection'
+                        Theme: =AppThemeNeutralJson
                         Tooltip: =""
                         Visible: =manageFolder && !showFolderForm
                         Width: =Parent.Width-20
@@ -1227,22 +1305,23 @@ MainLandingScreen As screen:
                         Y: =0
                         ZIndex: =5
 
-                "ManageFolderButton As 'Fluent Icon (1.1.39)'":
+                ButtonCanvas4 As Button:
+                    Align: =Align.Left
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Appearance: ='ButtonCanvas.Appearance'.Subtle
                     DisplayMode: =DisplayMode.Edit
-                    Height: =35
-                    IconName: ="FolderList"
-                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
-                    OnChange: |-
-                        =UpdateContext({manageFolder:true,showFolderForm:false});
-                    Text: =APIPlayGroundLoc.manageFolder
-                    Tooltip: =
-                    Visible: =!hideSidbar
-                    Width: =Parent.Width
+                    Height: =44
+                    Icon: ="Copy"
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: |-
+                        =UpdateContext({manageFolder:true,showFolderForm:false}); 
+                    Text: ="Manage folders"
+                    Visible: =!hideSidbar && !FolderContainer.Visible
+                    Width: =290
                     X: =0
-                    Y: =0
-                    ZIndex: =9
+                    Y: =727
+                    ZIndex: =10
 
             MainLandingContainer As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -1472,7 +1551,7 @@ MainLandingScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 OnSelect: |
-                                    =Set(DefaultRequest,Text('APICategory (API Request Caches)'.'Custom API'));
+                                    =Set(DefaultRequest,Text('APICategory (API Requests)'.'Custom API'));
                                     Set(APIRequestCacheId,Blank());
                                     //Set(IsLoadingAPIs,true);
                                     Navigate(RequestScreen);
@@ -1631,7 +1710,7 @@ MainLandingScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 OnSelect: |
-                                    =Set(DefaultRequest,Text('APICategory (API Request Caches)'.'OData Request'));
+                                    =Set(DefaultRequest,Text('APICategory (API Requests)'.'OData Request'));
                                     Set(APIRequestCacheId,Blank());
                                     //Set(IsLoadingAPIs,true);
                                     Navigate(RequestScreen);
@@ -1730,7 +1809,7 @@ MainLandingScreen As screen:
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
                             PaddingLeft: =10
-                            PaddingRight: =10
+                            PaddingRight: =16
                             RadiusBottomLeft: =4
                             RadiusBottomRight: =4
                             RadiusTopLeft: =4
@@ -1749,7 +1828,7 @@ MainLandingScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 Text: =LookUp(ColCards, key ="lowcodeinstantplugin").description
-                                Width: =Parent.Width-10
+                                Width: =Parent.Width-Self.X * 2
                                 X: =0
                                 Y: =0
                                 ZIndex: =1
@@ -1788,7 +1867,7 @@ MainLandingScreen As screen:
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =96
                                 OnSelect: |
-                                    =Set(DefaultRequest,Text('APICategory (API Request Caches)'.'Instant Plugin'));
+                                    =Set(DefaultRequest,Text('APICategory (API Requests)'.'Fx Function'));
                                     Set(APIRequestCacheId,Blank());
                                     //Set(IsLoadingAPIs,true);
                                     Navigate(RequestScreen);
@@ -2126,9 +2205,11 @@ MainLandingScreen As screen:
                                 Height: =44
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
+                                PaddingBottom: =16
                                 Text: =const_landingTxt.learn
                                 URL: |-
                                     ="https://aka.ms/dvacc/api-playground"
+                                VerticalAlign: =VerticalAlign.Bottom
                                 Width: =44
                                 X: =274
                                 Y: =17
@@ -2242,9 +2323,11 @@ MainLandingScreen As screen:
                                 Height: =44
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
+                                PaddingBottom: =16
                                 Text: =const_landingTxt.learn
                                 URL: |-
                                     ="https://learn.microsoft.com/power-apps/developer/data-platform/webapi/query-data-web-api"
+                                VerticalAlign: =VerticalAlign.Bottom
                                 Width: =44
                                 X: =274
                                 Y: =17
@@ -2358,9 +2441,11 @@ MainLandingScreen As screen:
                                 Height: =44
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
+                                PaddingBottom: =16
                                 Text: =const_landingTxt.learn
                                 URL: |-
                                     ="https://learn.microsoft.com/power-apps/developer/data-platform/webapi/use-web-api-actions?view=dataverse-latest"
+                                VerticalAlign: =VerticalAlign.Bottom
                                 Width: =44
                                 X: =274
                                 Y: =17
@@ -2472,9 +2557,11 @@ MainLandingScreen As screen:
                                 Height: =44
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
+                                PaddingBottom: =16
                                 Text: =const_landingTxt.learn
                                 URL: |-
                                     ="https://learn.microsoft.com/power-apps/developer/data-platform/webapi/web-api-service-documents"
+                                VerticalAlign: =VerticalAlign.Bottom
                                 Width: =44
                                 X: =274
                                 Y: =17

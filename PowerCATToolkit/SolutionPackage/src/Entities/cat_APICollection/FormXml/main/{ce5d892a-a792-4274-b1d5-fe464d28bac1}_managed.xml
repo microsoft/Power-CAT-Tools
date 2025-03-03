@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ce5d892a-a792-4274-b1d5-fe464d28bac1}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{f7e532d6-4e63-4c96-9db7-33ed015e4ab7}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{1018beac-b146-40fd-b881-612fa6ece9f8}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{514ce967-2f52-4783-86ac-af54bca6315c}">
+                        <labels>
+                          <label description="Folder Name" languagecode="1033" />
+                        </labels>
+                        <control id="cat_foldername" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cat_foldername" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{68b66a2f-ed12-443d-84b4-1de6987a5f57}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d40747ef-f076-45e9-889d-b147be3e7d51}">
+                        <labels>
+                          <label description="API Version" languagecode="1033" />
+                        </labels>
+                        <control id="cat_apiversion" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="cat_apiversion" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e43d538f-207b-421b-9635-ff97e3618d35}">
+                        <labels>
+                          <label description="Documentation URL" languagecode="1033" />
+                        </labels>
+                        <control id="cat_documentationurl" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="cat_documentationurl" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

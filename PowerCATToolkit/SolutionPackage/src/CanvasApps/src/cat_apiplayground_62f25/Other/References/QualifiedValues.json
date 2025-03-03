@@ -20,13 +20,6 @@
       }
     },
     {
-      "Kind": "default.cds_cat_apirequestfolder_forms",
-      "Namespace": "API Request Folders (Forms)",
-      "Values": {
-        "Information": "47aa71d8-962a-45e0-9838-e70acd7b50d0"
-      }
-    },
-    {
       "Kind": "default.cds_systemuser_forms",
       "Namespace": "Users (Forms)",
       "Values": {
@@ -35,6 +28,27 @@
         "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
         "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
         "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_apirequest_forms",
+      "Namespace": "API Requests (Forms)",
+      "Values": {
+        "Information": "d93e3ec3-ba91-438f-8b17-d704012c70d1"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_apicollection_forms",
+      "Namespace": "API Collections (Forms)",
+      "Values": {
+        "Information": "ce5d892a-a792-4274-b1d5-fe464d28bac1"
+      }
+    },
+    {
+      "Kind": "default.cds_cat_apirequestfolder_forms",
+      "Namespace": "API Request Folders (Forms)",
+      "Values": {
+        "Information": "47aa71d8-962a-45e0-9838-e70acd7b50d0"
       }
     },
     {

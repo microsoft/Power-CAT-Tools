@@ -982,7 +982,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/0d983545-3749-4dd9-b93e-d07de279531e-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4wunibn.xso020S0Resources0Controls0PowerCAT.DonutChart.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-13T03%3A50%3A23Z&ske=2025-02-14T04%3A05%3A23Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-14T04%3A05%3A23Z&sr=b&sp=r&sig=MdDhLLc5IP7%2Ft3Rm1PJKRLM5GmBYpXy6VA%2BkWySLEbw%3D",
+      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/e987cb94-0e25-40a3-93f2-60055504af55-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work04mvzrq0n.2rk020S0Resources0Controls0PowerCAT.DonutChart.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-20T06%3A19%3A45Z&ske=2025-02-21T06%3A34%3A45Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-21T06%3A34%3A45Z&sr=b&sp=r&sig=CJds58ni1t2Zx6KcSPuQM%2Fic6rE7%2FnFxYuxURvSmruQ%3D",
       "Path": "/PCFControls/cat_PowerCAT.DonutChart/PowerCAT.DonutChart.bundle.js",
       "Type": 0
     },
@@ -996,7 +996,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
-      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/0d983545-3749-4dd9-b93e-d07de279531e-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4wunibn.xso020S0Resources0Controls0strings%252fPowerCAT.DonutChart.DonutChart.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-13T03%3A50%3A23Z&ske=2025-02-14T04%3A05%3A23Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-14T04%3A05%3A23Z&sr=b&sp=r&sig=3uEwYHrggKPcR%2B2IXt9bvKA1ZtuIWleFxoJhb8p%2BgTA%3D",
+      "ModifiedPath": "https://dsprdil107eus.blob.core.windows.net/e987cb94-0e25-40a3-93f2-60055504af55-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work04mvzrq0n.2rk020S0Resources0Controls0strings%252fPowerCAT.DonutChart.DonutChart.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-20T06%3A19%3A46Z&ske=2025-02-21T06%3A34%3A46Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-21T06%3A34%3A46Z&sr=b&sp=r&sig=v43riKb%2B2Uu%2Fm%2FPaiOJQt63F7R9iPCBnBtI4dNWoyos%3D",
       "Path": "/PCFControls/cat_PowerCAT.DonutChart/strings/PowerCAT.DonutChart.DonutChart.1033.json",
       "Type": 5
     },

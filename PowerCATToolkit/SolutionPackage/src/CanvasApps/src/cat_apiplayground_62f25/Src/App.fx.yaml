@@ -1,65 +1,7 @@
 App As appinfo:
     BackEnabled: =true
     Formulas: |
-        =/** /
-        // Main theme
-        AppTheme = {
-            palette: {
-                themePrimary: "#0078d4",
-                themeLighterAlt: "#eff6fc",
-                themeLighter: "#deecf9",
-                themeLight: "#c7e0f4",
-                themeTertiary: "#71afe5",
-                themeSecondary: "#2b88d8",
-                themeDarkAlt: "#106ebe",
-                themeDark: "#005a9e",
-                themeDarker: "#004578",
-                neutralLighterAlt: "#faf9f8",
-                neutralLighter: "#f3f2f1",
-                neutralLight: "#edebe9",
-                neutralQuaternaryAlt: "#e1dfdd",
-                neutralQuaternary: "#d0d0d0",
-                neutralTertiaryAlt: "#c8c6c4",
-                neutralTertiary: "#a19f9d",
-                neutralSecondary: "#605e5c",
-                neutralPrimaryAlt: "#3b3a39",
-                neutralPrimary: "#323130",
-                neutralDark: "#201f1e",
-                black: "#000000",
-                white: "#ffffff"
-            }
-        };
-        /**/
-        /** /
-        // Searchbox theme
-        SearchBoxTheme = {
-            palette: {
-                themePrimary: ColorValue("#0078d4"),
-                themeLighterAlt: ColorValue("#eff6fc"),
-                themeLighter: ColorValue("#deecf9"),
-                themeLight: ColorValue("#c7e0f4"),
-                themeTertiary: ColorValue("#71afe5"),
-                themeSecondary: ColorValue("#2b88d8"),
-                themeDarkAlt: ColorValue("#106ebe"),
-                themeDark: ColorValue("#005a9e"),
-                themeDarker: ColorValue("#004578"),
-                neutralLighterAlt: ColorValue("#faf9f8"),
-                neutralLighter: ColorValue("#f3f2f1"),
-                neutralLight: ColorValue("#edebe9"),
-                neutralQuaternaryAlt: ColorValue("#e1dfdd"),
-                neutralQuaternary: ColorValue("#d0d0d0"),
-                neutralTertiaryAlt: ColorValue("#c8c6c4"),
-                neutralTertiary: ColorValue("#a19f9d"),
-                neutralSecondary: ColorValue("#605e5c"),
-                neutralPrimaryAlt: ColorValue("#3b3a39"),
-                neutralPrimary: ColorValue("#323130"),
-                neutralDark: ColorValue("#201f1e"),
-                black: ColorValue("#000000"),
-                white: ColorValue("#f3f2f1")
-            }
-        };
-        /**/
-        // Neutral theme
+        =// Neutral theme
         AppThemeAlt = {
             palette: {
                 themePrimary: "#0074cc",
@@ -121,7 +63,7 @@ App As appinfo:
             AddColumns(
                Search(
                 Filter(
-                    'API Request Caches',
+                    'API Requests',
                     'Created By'.'Azure AD Object ID' = CurrentUser.EntraObjectId
                 ),
                 If(
@@ -132,25 +74,25 @@ App As appinfo:
                 Name
             ),
                 ItemKey,
-                'API Request Cache',
+                'API Request',
                 ItemDisplayName,
                 Name,
                 ItemIconName,
                 If(
-                    ThisRecord.APICategory <> 'APICategory (API Request Caches)'.'OData Request',
+                    ThisRecord.APICategory <> 'APICategory (API Requests)'.'OData Request',
                     "IncreaseIndentArrow",
                     "DecreaseIndentArrow"
                 ),
                 ItemIconColor,
                 If(
-                    ThisRecord.APICategory <> 'APICategory (API Request Caches)'.'OData Request',
+                    ThisRecord.APICategory <> 'APICategory (API Requests)'.'OData Request',
                     "Red",
                     "Green"
                 ),
                 ItemParentKey,
                 If(
                     !IsBlank(ThisRecord.'Folder Name'),
-                    ThisRecord.'Folder Name'.'API Request Folder',
+                    ThisRecord.'Folder Name'.'API Collection',
                     ""
                 ),
                 Folder,
@@ -162,7 +104,7 @@ App As appinfo:
                 IsDummy,
                 false
             ),
-            'API Request Cache',
+            'API Request',
             'APIRequestCache',
             'APICategory',
             'Category',
@@ -184,11 +126,11 @@ App As appinfo:
         
         AllUserFolders = AddColumns(
            Filter(
-            'API Request Folders',
+            'API Collections',
            'Created By'.'Azure AD Object ID' = CurrentUser.EntraObjectId
            ),
             ItemKey,
-            'API Request Folder',
+            'API Collection',
             ItemDisplayName,
             'Folder Name',
             ItemIconName,
@@ -200,7 +142,7 @@ App As appinfo:
             Text(
                 LookUp(
                     AllSavedRequests,
-                    ThisRecord.Folder.'API Request Folder' = 'API Request Folders'[@'API Request Folder']
+                    ThisRecord.Folder.'API Collection' = 'API Collections'[@'API Collection']
                 ).Category
             ),*/
             NonClickable,
@@ -213,29 +155,29 @@ App As appinfo:
             {
                 'Id':101,
                 'APIRequestCache':GUID(),
-                'Category':'APICategory (API Request Caches)'.'OData Request',
+                'Category':'APICategory (API Requests)'.'OData Request',
                 'ODataRequest':"accounts?$select=name,revenue&$top=10",
                 'RequestParam':"{}",
                 'Name':APIPlayGroundLoc.sampleButton1Txt,
-                'RequestType':'Request Type (API Request Caches)'.GET
+                'RequestType':'Request Type (API Requests)'.GET
             },
             {
                 'Id':102,
                 'APIRequestCache':GUID(),
-                'Category':'APICategory (API Request Caches)'.'OData Request',
+                'Category':'APICategory (API Requests)'.'OData Request',
                 'ODataRequest':"accounts",
                 'RequestParam':"{""name"":""Sample Account"",""creditonhold"": false,""address1_latitude"": 47.639583,""description"": ""This is the description of the sample account"",""revenue"": 5000000,""accountcategorycode"": 1}",
                 'Name':APIPlayGroundLoc.sampleButton2Txt,
-                'RequestType':'Request Type (API Request Caches)'.POST
+                'RequestType':'Request Type (API Requests)'.POST
             },
             {
                 'Id':103,
                 'APIRequestCache':GUID(),
-                'Category':'APICategory (API Request Caches)'.'OData Request',
+                'Category':'APICategory (API Requests)'.'OData Request',
                 'ODataRequest':"appointments?$orderby=actualstart desc",
                 'RequestParam':"{}",
                 'Name':APIPlayGroundLoc.sampleButton3Txt,
-                'RequestType':'Request Type (API Request Caches)'.GET
+                'RequestType':'Request Type (API Requests)'.GET
             }
             );
         
@@ -269,55 +211,9 @@ App As appinfo:
             ),DummyRequests
         );
         
-        // TODO: Remove this
-        /*Col1Request = If(
-            CountRows(LatestSavedRequest) > 0,
-            Last(
-                FirstN(
-                    LatestSavedRequest,
-                    1
-                )
-            )
-        );
-        Col2Request = If(
-            CountRows(LatestSavedRequest) > 1,
-            Last(
-                FirstN(
-                    LatestSavedRequest,
-                    2
-                )
-            )
-        );
-        Col3Request = If(
-            CountRows(LatestSavedRequest) > 2,
-            Last(
-                FirstN(
-                    LatestSavedRequest,
-                    3
-                )
-            )
-        );
-        Col4Request = If(
-            CountRows(LatestSavedRequest) > 3,
-            Last(
-                FirstN(
-                    LatestSavedRequest,
-                    4
-                )
-            )
-        );
-        Col5Request = If(
-            CountRows(LatestSavedRequest) > 4,
-            Last(
-                FirstN(
-                    LatestSavedRequest,
-                    5
-                )
-            )
-        );*/
-        //Custom API and Instant Plugin Data --Started
+        //Custom API and Fx Function Data --Started
         CustomAPIs = If(
-            DefaultRequest = Text('APICategory (API Request Caches)'.'Custom API'),
+            DefaultRequest = Text('APICategory (API Requests)'.'Custom API'),
             Filter(
                 'Custom APIs',
                 IsBlank('Custom APIs'[@FxExpression]),
@@ -333,15 +229,15 @@ App As appinfo:
         //Get the Selected Request as per Nav selection
         SelectedReq = LookUp(
             SavedRequests,
-            'APIRequestCache' = If(!IsBlank(APIRequestCacheId),APIRequestCacheId,GUID())
+            'APIRequestCache' = If(!IsBlank(APIRequestCacheId), APIRequestCacheId, GUID())
         );
         //SelectedAction = RequestCombobox.Selected;
         varRequestType = If(
-            DefaultRequest = Text('APICategory (API Request Caches)'.'OData Request'),
+            DefaultRequest = Text('APICategory (API Requests)'.'OData Request'),
             true,
             false
         );
-        //Load Parameter for Custom APIs and Instant Plugin
+        //Load Parameter for Custom APIs and Fx Function
         SelectedActionInputs = Filter(
             'Custom API Request Parameters',
             'Custom API'.'Custom API' = If(
@@ -350,9 +246,9 @@ App As appinfo:
                 SelectedReq.'CustomAPI'.'Custom API'
             )
         );
-        //Fill parameter value for Custom APIs and Instant Plugin
+        //Fill parameter value for Custom APIs and Fx Function
         myJSONObject = If(
-            !IsBlank(APIRequestCacheId) && SelectedReq.Category <> 'APICategory (API Request Caches)'.'OData Request' && !IsBlank(SelectedReq.'RequestParam'),
+            !IsBlank(APIRequestCacheId) && SelectedReq.Category <> 'APICategory (API Requests)'.'OData Request' && !IsBlank(SelectedReq.'RequestParam'),
             ParseJSON(
                 Substitute(
                     Right(
@@ -490,7 +386,7 @@ App As appinfo:
                 "},{"
             ) & "}]"
         );
-        //Custom API and Instant Plugin Data --End
+        //Custom API and Fx Function Data --End
         //OData Logics--Started
         ODataEndPointUrl = $"/api/data/v9.2/" & ODataParamInput.Value;
         AllODataParam = ForAll(
@@ -575,8 +471,8 @@ App As appinfo:
             image:odata
         },{
             key:"lowcodeinstantplugin",
-            title:APIPlayGroundLoc.instantPluginTxt,
-            description:APIPlayGroundLoc.instantPluginDesTxt,
+            title:"Power Fx functions",//APIPlayGroundLoc.instantPluginTxt,
+            description:"Invoke instant Power Fx functions, a low code version of Custom API plugin actions.", //APIPlayGroundLoc.instantPluginDesTxt,
             image:'inst-plugin'
         });
         
@@ -644,30 +540,6 @@ App As appinfo:
                     }
                 })
             ),
-        //current User
-            //Set(CurrentUser,User()),
-            /** /
-            Set(
-                envTrigger,
-                false
-            ),
-            Set(
-                runTrigger,
-                false
-            ),
-            Set(
-                entityDeftrigger,
-                false
-            ),
-            Set(
-                ODataTrigger,
-                false
-            ),
-            Set(
-                DefaultRequest,
-                Text('APICategory (API Request Caches)''Instant Plugin')
-            ),
-            /**/
             Set(
                 showDialog,
                 false
@@ -676,28 +548,6 @@ App As appinfo:
                 newFolder,
                 false
             ),
-            /** /
-            Set(
-                IsRunning,
-                false
-            ),
-            Set(
-                IsLoadingAPIs,
-                false
-            ),
-            Set(APIRequestCacheId,Blank()),
-            Set(
-                RequestCategory,
-                Blank()
-            ),
-            /** /
-        //Request Types
-            ClearCollect(
-                APITypes,
-                Choices(ApiCategory)
-            ),
-        
-            /**/
         
             Set(FlexOff, 0);
             Set(FlexOn, 1),
@@ -724,7 +574,7 @@ App As appinfo:
             
         With({ recordId: GUID(Param("recordId")) }, 
             If( !IsBlank( recordId ),
-                Set(DefaultRequest, Text('APICategory (API Request Caches)'.'Instant Plugin'));
+                Set(DefaultRequest, Text('APICategory (API Requests)'.'Fx Function'));
                 Set(DeepLinkPlugin, LookUp('Custom APIs', 'Custom API' = recordId ) );
         ));
             

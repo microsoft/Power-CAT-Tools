@@ -1,0 +1,471 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+App:
+  Properties:
+    Formulas: |
+      =// Neutral theme
+      AppThemeAlt = {
+          palette: {
+              themePrimary: "#0074cc",
+              themeLighterAlt: "#f3f9fd",
+              themeLighter: "#cfe6f7",
+              themeLight: "#a8d1f0",
+              themeTertiary: "#5aa6e0",
+              themeSecondary: "#1982d2",
+              themeDarkAlt: "#0068b8",
+              themeDark: "#00589b",
+              themeDarker: "#004172",
+              neutralLighterAlt: "#f3f3f3",
+              neutralLighter: "#efefef",
+              neutralLight: "#e5e5e5",
+              neutralQuaternaryAlt: "#d6d6d6",
+              neutralQuaternary: "#cccccc",
+              neutralTertiaryAlt: "#c4c4c4",
+              neutralTertiary: "#a19f9d",
+              neutralSecondary: "#605e5c",
+              neutralPrimaryAlt: "#3b3a39",
+              neutralPrimary: "#323130",
+              neutralDark: "#201f1e",
+              black: "#000000",
+              white: "#fafafa"
+          }
+      };
+      // Neutral theme (connectors pane)
+      AppThemeNeutral = {
+          palette: {
+              themePrimary: "#000000",
+              themeLighterAlt: "#898989",
+              themeLighter: "#737373",
+              themeLight: "#595959",
+              themeTertiary: "#373737",
+              themeSecondary: "#2f2f2f",
+              themeDarkAlt: "#252525",
+              themeDark: "#151515",
+              themeDarker: "#0b0b0b",
+              neutralLighterAlt: "#faf9f8",
+              neutralLighter: "#f3f2f1",
+              neutralLight: "#edebe9",
+              neutralQuaternaryAlt: "#e1dfdd",
+              neutralQuaternary: "#d0d0d0",
+              neutralTertiaryAlt: "#c8c6c4",
+              neutralTertiary: "#595959",
+              neutralSecondary: "#373737",
+              neutralPrimaryAlt: "#2f2f2f",
+              neutralPrimary: "#000000",
+              neutralDark: "#151515",
+              black: "#0b0b0b",
+              white: "#ffffff"
+          }
+      };
+
+      CurrentUser=User();
+
+      AllSavedRequests = 
+      RenameColumns(
+          AddColumns(
+             Search(
+              Filter(
+                  'API Requests',
+                  'Created By'.'Azure AD Object ID' = CurrentUser.EntraObjectId
+              ),
+              If(
+                  !IsBlank(SearchRequests.Value),
+                  SearchRequests.Value,
+                If(!IsBlank(SearchRequestsMain.Value),SearchRequestsMain.Value,"")
+             ),
+              Name
+          ),
+              ItemKey,
+              'API Request',
+              ItemDisplayName,
+              Name,
+              ItemIconName,
+              If(
+                  ThisRecord.APICategory <> 'APICategory (API Requests)'.'OData Request',
+                  "IncreaseIndentArrow",
+                  "DecreaseIndentArrow"
+              ),
+              ItemIconColor,
+              If(
+                  ThisRecord.APICategory <> 'APICategory (API Requests)'.'OData Request',
+                  "Red",
+                  "Green"
+              ),
+              ItemParentKey,
+              If(
+                  !IsBlank(ThisRecord.'Folder Name'),
+                  ThisRecord.'Folder Name'.'API Collection',
+                  ""
+              ),
+              Folder,
+              'Folder Name',
+              NonClickable,
+              false,
+              'Action',
+              "Open",
+              IsDummy,
+              false
+          ),
+          'API Request',
+          'APIRequestCache',
+          'APICategory',
+          'Category',
+          'Custom API',
+          'CustomAPI',
+          'Folder Name',
+          'FolderName',
+          'OData Request',
+          'ODataRequest',
+          'Request Param',
+          'RequestParam',
+          'Created By',
+          'CreatedBy',
+          'Created On',
+          'CreatedOn',
+          'Request Type',
+          'RequestType'
+      );
+
+      AllUserFolders = AddColumns(
+         Filter(
+          'API Collections',
+         'Created By'.'Azure AD Object ID' = CurrentUser.EntraObjectId
+         ),
+          ItemKey,
+          'API Collection',
+          ItemDisplayName,
+          'Folder Name',
+          ItemIconName,
+          "folder",
+          ItemIconColor,
+          "#742774",
+          //ItemParentKey,
+      /* 'Category',
+          Text(
+              LookUp(
+                  AllSavedRequests,
+                  ThisRecord.Folder.'API Collection' = 'API Collections'[@'API Collection']
+              ).Category
+          ),*/
+          NonClickable,
+          true,
+          IsDummy,
+          false
+      );
+      //Sample request to show on OData screen
+      SampleRequests= Table(
+          {
+              'Id':101,
+              'APIRequestCache':GUID(),
+              'Category':'APICategory (API Requests)'.'OData Request',
+              'ODataRequest':"accounts?$select=name,revenue&$top=10",
+              'RequestParam':"{}",
+              'Name':APIPlayGroundLoc.sampleButton1Txt,
+              'RequestType':'Request Type (API Requests)'.GET
+          },
+          {
+              'Id':102,
+              'APIRequestCache':GUID(),
+              'Category':'APICategory (API Requests)'.'OData Request',
+              'ODataRequest':"accounts",
+              'RequestParam':"{""name"":""Sample Account"",""creditonhold"": false,""address1_latitude"": 47.639583,""description"": ""This is the description of the sample account"",""revenue"": 5000000,""accountcategorycode"": 1}",
+              'Name':APIPlayGroundLoc.sampleButton2Txt,
+              'RequestType':'Request Type (API Requests)'.POST
+          },
+          {
+              'Id':103,
+              'APIRequestCache':GUID(),
+              'Category':'APICategory (API Requests)'.'OData Request',
+              'ODataRequest':"appointments?$orderby=actualstart desc",
+              'RequestParam':"{}",
+              'Name':APIPlayGroundLoc.sampleButton3Txt,
+              'RequestType':'Request Type (API Requests)'.GET
+          }
+          );
+
+      DummyRequests=  AddColumns(
+         SampleRequests,
+          ItemKey,
+          'APIRequestCache',
+          ItemDisplayName,
+          'Name',
+          ItemIconName,
+          "folder",
+          ItemIconColor,
+          "#742774",
+          NonClickable,
+          false,
+          IsDummy,
+          true
+      );
+      //Sample request to show on OData screen -end
+
+      //Merge Collection to display folders and its requests
+      SavedRequests = Table(
+          AllUserFolders,
+          Filter(
+              AllSavedRequests,
+              If(
+                  !IsBlank(RequestCategory),
+                  Category = RequestCategory,
+                  true
+              )
+          ),DummyRequests
+      );
+
+      //Custom API and Fx Function Data --Started
+      CustomAPIs = If(
+          DefaultRequest = Text('APICategory (API Requests)'.'Custom API'),
+          Filter(
+              'Custom APIs',
+              IsBlank('Custom APIs'[@FxExpression]),
+              Not('Is Private' = true && 'Created By'.'Full Name'="SYSTEM"),
+              Status = 'Status (Custom APIs)'.Active
+          ),
+          Filter(
+              'Custom APIs',
+              !IsBlank('Custom APIs'[@FxExpression]),
+              Status = 'Status (Custom APIs)'.Active
+          )
+      );
+      //Get the Selected Request as per Nav selection
+      SelectedReq = LookUp(
+          SavedRequests,
+          'APIRequestCache' = If(!IsBlank(APIRequestCacheId), APIRequestCacheId, GUID())
+      );
+      //SelectedAction = RequestCombobox.Selected;
+      varRequestType = If(
+          DefaultRequest = Text('APICategory (API Requests)'.'OData Request'),
+          true,
+          false
+      );
+      //Load Parameter for Custom APIs and Fx Function
+      SelectedActionInputs = Filter(
+          'Custom API Request Parameters',
+          'Custom API'.'Custom API' = If(
+              IsBlank(APIRequestCacheId),
+              RequestCombobox.Selected.'Custom API',
+              SelectedReq.'CustomAPI'.'Custom API'
+          )
+      );
+      //Fill parameter value for Custom APIs and Fx Function
+      myJSONObject = If(
+          !IsBlank(APIRequestCacheId) && SelectedReq.Category <> 'APICategory (API Requests)'.'OData Request' && !IsBlank(SelectedReq.'RequestParam'),
+          ParseJSON(
+              Substitute(
+                  Right(
+                      Left(
+                          SelectedReq.'RequestParam',
+                          Len(SelectedReq.'RequestParam') - 1
+                      ),
+                      Len(
+                          Left(
+                              SelectedReq.'RequestParam',
+                              Len(SelectedReq.'RequestParam') - 1
+                          )
+                      ) - 1
+                  ),
+                  "\",
+                  ""
+              )
+          ),
+          Blank()
+      );
+      SavedParameters = If(
+          !IsBlank(myJSONObject),
+          ForAll(
+              Table(myJSONObject),
+              {
+                  Key: Text(ThisRecord.Value.key),
+                  Value: Text(ThisRecord.Value.value)
+              }
+          ),
+          Blank()
+      );
+      CombinedLogicalNames = Table(
+          ShowColumns(
+              SelectedActionInputs,
+              'Bound Entity Logical Name'
+          ),
+          {logicalentityname: RequestCombobox.Selected.'Bound Entity Logical Name'}
+      );
+      filterParams = Concat(
+          CombinedLogicalNames,
+          "LogicalName%20eq%20%27" & ThisRecord.logicalentityname & "%27",
+          "%20or%20"
+      );
+      PrimaryAttributeCollection = If(
+          !IsBlank(DVAPICallerEntityReference.OutputString),
+          ForAll(
+              ParseJSON(DVAPICallerEntityReference.OutputString).value,
+              {
+                  EntitySetName: ThisRecord.EntitySetName,
+                  LogicalName: ThisRecord.LogicalName,
+                  PrimaryIdAttribute: ThisRecord.PrimaryIdAttribute
+              }
+          ),
+          Blank()
+      );
+      ValuePairCollection = ForAll(
+          Filter(
+              InputParamGallery.AllItems,
+              InputParamCheckbox.Checked = true
+          ),
+          Switch(
+              ThisRecord.Type,
+              'Custom API Field Type'.String,
+              $"""{ThisRecord.Name}"" :""{ThisRecord.StringParamValue.Value}""",
+              'Custom API Field Type'.StringArray,
+              $"""{ThisRecord.Name}"" :""{ThisRecord.StringParamValue.Value}""",
+              'Custom API Field Type'.Guid,
+              $"""{ThisRecord.Name}"" :""{ThisRecord.GuidParamValue.Value}""",
+              'Custom API Field Type'.Integer,
+              $"""{ThisRecord.Name}"" : {Coalesce(
+                  ThisRecord.NumberParam.Value,
+                  0
+              )}",
+              'Custom API Field Type'.Decimal,
+              $"""{ThisRecord.Name}"" : {Coalesce(
+                  ThisRecord.NumberParam.Value,
+                  0
+              )}",
+              'Custom API Field Type'.Float,
+              $"""{ThisRecord.Name}"" : {Coalesce(
+                  ThisRecord.NumberParam.Value,
+                  0
+              )}",
+              'Custom API Field Type'.Boolean,
+              $"""{ThisRecord.Name}"" : {ThisRecord.BoolParamToggle.Checked}",
+              'Custom API Field Type'.EntityReference,
+              $"""{ThisRecord.Name}"" : {{""{LookUp(
+                  PrimaryAttributeCollection,
+                  LogicalName = 'Bound Entity Logical Name'
+              ).PrimaryIdAttribute}"":""{ThisRecord.GuidParamValue.Value}"",""@odata.type"":""Microsoft.Dynamics.CRM.{ThisRecord.'Bound Entity Logical Name'}""}}"
+          )
+      );
+      payload = JSON(
+          "{" & Concat(
+              ValuePairCollection,
+              Value,
+              ","
+          ) & "}"
+      );
+      //Create Key Value Pair Collection to store parameter in dataverse
+      //Create Key Value Pair for all parameters
+      KeyValuePairCollection = ForAll(
+          Filter(
+              InputParamGallery.AllItems,
+              InputParamCheckbox.Checked = true
+          ),
+          Switch(
+              ThisRecord.Type,
+              'Custom API Field Type'.String,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.StringParamValue.Value}""",
+              'Custom API Field Type'.StringArray,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.StringParamValue.Value}""",
+              'Custom API Field Type'.Guid,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.GuidParamValue.Value}""",
+              'Custom API Field Type'.Integer,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.NumberParam.Value}""",
+              'Custom API Field Type'.Decimal,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.NumberParam.Value}""",
+              'Custom API Field Type'.Float,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.NumberParam.Value}""",
+              'Custom API Field Type'.Boolean,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.BoolParamToggle.Checked}""",
+              'Custom API Field Type'.EntityReference,
+              $"""key"" :""{ThisRecord.Name}"",""value"" :""{ThisRecord.GuidParamValue.Value}"""
+          )
+      );
+      boundEntityObj = If(
+          !IsBlank(RequestCombobox.Selected.'Bound Entity Logical Name'),
+          "{" & $"""key"" :""{RequestCombobox.Selected.'Bound Entity Logical Name'}"",""value"" :""{txtBoundEntityGuid.Value}""" & "},"
+      );
+      parameterJson = JSON(
+          "[" & boundEntityObj & "{" & Concat(
+              KeyValuePairCollection,
+              Value,
+              "},{"
+          ) & "}]"
+      );
+      //Custom API and Fx Function Data --End
+      //OData Logics--Started
+      ODataEndPointUrl = $"/api/data/v9.2/" & ODataParamInput.Value;
+      AllODataParam = ForAll(
+          Filter(
+              ODataInputParamGallery.AllItems,
+              ThisRecord.ODataInputParamCheckbox.Checked = true
+          ),
+          Switch(
+              ThisRecord.Type,
+              'Custom API Field Type'.String,
+              ThisRecord.lblODataParamText.Value & "=" & ThisRecord.StringODataParamValue.Value,
+              'Custom API Field Type'.Guid,
+              ThisRecord.lblODataParamText.Value & "=" & ThisRecord.GuidODataParamValue.Value,
+              'Custom API Field Type'.Integer,
+              ThisRecord.lblODataParamText.Value & "=" & ThisRecord.NumberODataParam.Value,
+              'Custom API Field Type'.Decimal,
+              ThisRecord.lblODataParamText.Value & "=" & ThisRecord.NumberODataParam.Value,
+              'Custom API Field Type'.Float,
+              ThisRecord.lblODataParamText.Value & "=" & ThisRecord.NumberODataParam.Value,
+              'Custom API Field Type'.Boolean,
+              ThisRecord.lblODataParamText.Value & "=" & ThisRecord.BoolODataParamToggle.Checked
+          )
+      );
+      //OData Logics--End
+      //Response Types
+      ResponseTypes = Table(
+          {
+              DisplayName: APIPlayGroundLoc.jsonDDtxt,
+              Value: "json"
+          },
+          {
+              DisplayName: APIPlayGroundLoc.xmlDDTxt,
+              Value: "xml"
+          }
+      );
+      DefaultCollection = Table(
+          {
+              Id: GUID(),
+              Name: "",
+              Value: "",
+              Type: 'Custom API Field Type'.String,
+              IsOptional: 'Is Optional (Custom API Request Parameters)'.Yes
+          }
+      );
+
+      SelectedCustomAPI = LookUp(
+          CustomAPIs,
+          ThisRecord.'Custom API' = SelectedReq.'CustomAPI'.'Custom API'
+      );
+
+
+      DefaultHeaderCollection = Table(
+          {
+              Id: GUID(),
+              Name: "",
+              Value: "",
+              IsOptional: true
+          }
+      );
+
+      AllODataHeaders = ForAll(
+          Filter(
+              ODataInputHeaderGallery.AllItems,
+              ThisRecord.ODataInputHeaderCheckbox.Checked = true
+          ),
+              $"""key"" :""{ThisRecord.lblODataHeaderText.Value}"",""value"" :""{ThisRecord.StringODataHeaderValue.Value}"""
+      );
+
+      InputHeaders="[{"& Concat(AllODataHeaders,Value,"},{")&"}]";
+    OnStart: "=ClearCollect(ColCards, \n{\n    key:\"customapi\",\n    title:APIPlayGroundLoc.customAPITxt,\n    description:APIPlayGroundLoc.customApiDesTxt,\n    image:'custom-api'\n},\n{\n    key:\"odatarequest\",\n    title:APIPlayGroundLoc.oDataRequestTxt,\n    description:APIPlayGroundLoc.oDataDesTxt,\n    image:odata\n},{\n    key:\"lowcodeinstantplugin\",\n    title:\"Power Fx functions\",//APIPlayGroundLoc.instantPluginTxt,\n    description:\"Invoke instant Power Fx functions, a low code version of Custom API plugin actions.\", //APIPlayGroundLoc.instantPluginDesTxt,\n    image:'inst-plugin'\n});\n\n// THEMING INFO: DO NOT REMOVE\nConcurrent(\n    Set(\n        AppThemeJson,\n        JSON({\n            palette: {\n                themePrimary: \"#0078d4\",\n                themeLighterAlt: \"#eff6fc\",\n                themeLighter: \"#deecf9\",\n                themeLight: \"#c7e0f4\",\n                themeTertiary: \"#71afe5\",\n                themeSecondary: \"#2b88d8\",\n                themeDarkAlt: \"#106ebe\",\n                themeDark: \"#005a9e\",\n                themeDarker: \"#004578\",\n                neutralLighterAlt: \"#faf9f8\",\n                neutralLighter: \"#f3f2f1\",\n                neutralLight: \"#edebe9\",\n                neutralQuaternaryAlt: \"#e1dfdd\",\n                neutralQuaternary: \"#d0d0d0\",\n                neutralTertiaryAlt: \"#c8c6c4\",\n                neutralTertiary: \"#a19f9d\",\n                neutralSecondary: \"#605e5c\",\n                neutralPrimaryAlt: \"#3b3a39\",\n                neutralPrimary: \"#323130\",\n                neutralDark: \"#201f1e\",\n                black: \"#000000\",\n                white: \"#ffffff\"\n            }\n        })\n    ),\n    Set(\n        AppThemeAltJson,\n        JSON(AppThemeAlt)\n    ),\n    Set(\n        AppThemeNeutralJson,\n        JSON({\n            palette: {\n                themePrimary: \"#000000\",\n                themeLighterAlt: \"#898989\",\n                themeLighter: \"#737373\",\n                themeLight: \"#595959\",\n                themeTertiary: \"#373737\",\n                themeSecondary: \"#2f2f2f\",\n                themeDarkAlt: \"#252525\",\n                themeDark: \"#151515\",\n                themeDarker: \"#0b0b0b\",\n                neutralLighterAlt: \"#faf9f8\",\n                neutralLighter: \"#f3f2f1\",\n                neutralLight: \"#edebe9\",\n                neutralQuaternaryAlt: \"#e1dfdd\",\n                neutralQuaternary: \"#d0d0d0\",\n                neutralTertiaryAlt: \"#c8c6c4\",\n                neutralTertiary: \"#595959\",\n                neutralSecondary: \"#373737\",\n                neutralPrimaryAlt: \"#2f2f2f\",\n                neutralPrimary: \"#000000\",\n                neutralDark: \"#151515\",\n                black: \"#0b0b0b\",\n                white: \"#ffffff\"\n            }\n        })\n    ),\n    Set(\n        showDialog,\n        false\n    ),\n    Set(\n        newFolder,\n        false\n    ),\n\n    Set(FlexOff, 0);\n    Set(FlexOn, 1),\n    Set(Stretch, AlignInContainer.Stretch);\n    Set(const_dims, { sidebar: {widthExpanded:290, widthCollapsed:44}, learnCard: { height: 64, minWidth: 290 } } );\n    // todo:loc\n    Set(const_landingTxt, { \n        getStarted: APIPlayGroundLoc.getStarted, \n        getStartedSubtitle: APIPlayGroundLoc.getStartedSubtitle,\n        recentRequests: APIPlayGroundLoc.recentRequests,    \n        discoverTitle: APIPlayGroundLoc.discoverTitle,\n        discoverSubtitle: APIPlayGroundLoc.discoverSubtitle,\n        appname:APIPlayGroundLoc.appName,\n        howtoUseTool:APIPlayGroundLoc.howToUseTxt,\n        learn:APIPlayGroundLoc.learnTxt,\n        queryData: APIPlayGroundLoc.queryData,\n        queryDataSubTxt: APIPlayGroundLoc.queryDataSubTxt,\n        actionsAndFunctions: APIPlayGroundLoc.actionsAndFunctions,\n        actionsAndFunctionsSubTxt: APIPlayGroundLoc.actionsAndFunctionsSubTxt,\n        serviceDoc: APIPlayGroundLoc.serviceDoc,\n        serviceDocSubTxt: APIPlayGroundLoc.serviceDocSubTxt\n    });\n\n    \nWith({ recordId: GUID(Param(\"recordId\")) }, \n    If( !IsBlank( recordId ),\n        Set(DefaultRequest, Text('APICategory (API Requests)'.'Fx Function'));\n        Set(DeepLinkPlugin, LookUp('Custom APIs', 'Custom API' = recordId ) );\n));\n    \n    ClearCollect(tabsList,Table(\n    {\n      ItemKey: \"param\",\n      ItemDisplayName: APIPlayGroundLoc.parametersTabTxt\n    },\n    {\n      ItemKey: \"headers\",\n      ItemDisplayName: APIPlayGroundLoc.headersTxt\n    },\n    {\n      ItemKey: \"body\",\n      ItemDisplayName: APIPlayGroundLoc.bodyTabTxt\n    }));\n\n    ClearCollect(colHeaders,Table(\n        {\n            Id:GUID(),\n            Name: \"Content-Type\",\n            Value:\"application/json\",\n            IsOptional: false\n        },\n        {\n            Id:GUID(),\n            Name: \"Prefer\",\n            Value:\"return=representation\",\n            IsOptional: false\n        }\n    ));\n);\n"
+    SizeBreakpoints: =[600,900, 1200, 1920]
+    StartScreen: =If( !IsBlank( Param("entityName") ), RequestScreen, MainLandingScreen )
+    Theme: =PowerAppsTheme
