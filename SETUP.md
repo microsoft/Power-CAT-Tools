@@ -9,7 +9,7 @@ The Power CAT Tools app is built using Power Platform and requires adequate lice
 - A [**Power Platform environment with Dataverse as a data store**](https://learn.microsoft.com/power-platform/admin/create-environment). <br>
   Microsoft Dataverse is used to store the Power CAT Tools app configuration and test tables data. <br>
   The user performing the installation of the Power CAT Tools app must have the **system administrator** security role on the environment.
-- Ensure AI Builder prompts are enabled in the admin center. [Enable AI Builder in Dataverse](https://learn.microsoft.com/en-us/ai-builder/administrator-settings)  
+- Ensure AI Builder prompts are enabled in the admin center. [Enable AI Builder in Dataverse](https://learn.microsoft.com/en-us/ai-builder/administer).
 - Adequate licensing to run a **Power Apps model-driven application**.
 - Adequate licensing to run **Power Automate cloud flows** using **Premium** connectors.
   **AI Builder credits**.<br>
