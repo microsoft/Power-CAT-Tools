@@ -26,10 +26,13 @@ The Power CAT Tools app is built using Power Platform and requires adequate lice
 ## Installation instructions
 
 ### From AppSource
+
 Install Power CAT Tools via the [App Source offering](https://aka.ms/cattools/appsource). Make sure you're signed in, click the "Get it now" button, then follow the prompts to choose your target install environment.
 
 ### Manual installation 
-First install the [latest version of Creator Kit](https://github.com/microsoft/powercat-creator-kit/releases/latest) (core solution), then download and install the managed solution from the provided downloads.
+
+1. First install the [latest version of Creator Kit](https://github.com/microsoft/powercat-creator-kit/releases/latest) (core solution)
+2. Download and install the managed solution from the desired release. We recommend installing the managed solution from the [latest release](https://github.com/microsoft/Power-CAT-Tools/releases/latest).
 
 ## Troubleshooting guide (TSG)
 
