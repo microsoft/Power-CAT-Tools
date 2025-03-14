@@ -29,6 +29,16 @@
       "Kind": "Page",
       "Name": "Risk Assessments",
       "Value": "custompage:cat_riskassessments_2e193"
+    },
+    {
+      "Kind": "Page",
+      "Name": "App-FlowRelationship1",
+      "Value": "custompage:cat_appflowrelationship1_fd925"
+    },
+    {
+      "Kind": "Page",
+      "Name": "App-FlowRelationship",
+      "Value": "custompage:cat_appflowrelationship_da5bf"
     }
   ]
 }

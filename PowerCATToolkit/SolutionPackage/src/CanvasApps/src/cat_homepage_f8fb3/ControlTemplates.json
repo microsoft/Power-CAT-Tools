@@ -174,6 +174,21 @@
     "TemplateDisplayName": "Fluent Horizontal bar Chart (1.1.39) Preview",
     "Version": "1.1.39"
   },
+  "Fluent Icon (1.1.39)": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.Icon",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.Icon",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Fluent Icon (1.1.39)",
+    "Version": "1.1.39"
+  },
   "form": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -855,6 +870,164 @@
                 },
                 {
                   "EnumString": "",
+                  "Kind": "Record",
+                  "Name": "sarifLog",
+                  "Type": [
+                    {
+                      "EnumString": "",
+                      "Kind": "Table",
+                      "Name": "runs",
+                      "Type": [
+                        {
+                          "EnumString": "",
+                          "Kind": "Table",
+                          "Name": "results",
+                          "Type": [
+                            {
+                              "EnumString": "",
+                              "Kind": "Table",
+                              "Name": "locations",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "Record",
+                                  "Name": "physicalLocation",
+                                  "Type": [
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "Record",
+                                      "Name": "address",
+                                      "Type": [
+                                        {
+                                          "EnumString": "",
+                                          "Kind": "String",
+                                          "Name": "fullyQualifiedName",
+                                          "Type": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "Record",
+                              "Name": "messageStrings",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "Record",
+                                  "Name": "issue",
+                                  "Type": [
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "String",
+                                      "Name": "text",
+                                      "Type": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "Record",
+                              "Name": "properties",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "String",
+                                  "Name": "level",
+                                  "Type": []
+                                }
+                              ]
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "ruleId",
+                              "Type": []
+                            }
+                          ]
+                        },
+                        {
+                          "EnumString": "",
+                          "Kind": "Record",
+                          "Name": "tool",
+                          "Type": [
+                            {
+                              "EnumString": "",
+                              "Kind": "Record",
+                              "Name": "driver",
+                              "Type": [
+                                {
+                                  "EnumString": "",
+                                  "Kind": "String",
+                                  "Name": "name",
+                                  "Type": []
+                                },
+                                {
+                                  "EnumString": "",
+                                  "Kind": "Table",
+                                  "Name": "rules",
+                                  "Type": [
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "String",
+                                      "Name": "id",
+                                      "Type": []
+                                    },
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "Record",
+                                      "Name": "messageStrings",
+                                      "Type": [
+                                        {
+                                          "EnumString": "",
+                                          "Kind": "Record",
+                                          "Name": "issue",
+                                          "Type": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "EnumString": "",
+                                      "Kind": "Record",
+                                      "Name": "properties",
+                                      "Type": [
+                                        {
+                                          "EnumString": "",
+                                          "Kind": "String",
+                                          "Name": "howToFix",
+                                          "Type": []
+                                        },
+                                        {
+                                          "EnumString": "",
+                                          "Kind": "String",
+                                          "Name": "primaryCategory",
+                                          "Type": []
+                                        },
+                                        {
+                                          "EnumString": "",
+                                          "Kind": "String",
+                                          "Name": "whyFix",
+                                          "Type": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "EnumString": "",
                   "Kind": "Table",
                   "Name": "screens",
                   "Type": [
@@ -985,6 +1158,31 @@
                   "Type": []
                 }
               ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "String",
+              "Name": "mermaidERDiagramExpression",
+              "Type": []
+            },
+            {
+              "EnumString": "",
+              "Kind": "Table",
+              "Name": "mermaidSolutionArchitectureExpressions",
+              "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "Value",
+                  "Type": []
+                }
+              ]
+            },
+            {
+              "EnumString": "",
+              "Kind": "String",
+              "Name": "mermaidSolutionOverviewExpression",
+              "Type": []
             },
             {
               "EnumString": "",
@@ -1267,12 +1465,12 @@
         "PCFSkipValidation": false
       },
       "SolutionDetails": {
-        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"solutionOverview\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"uniqueName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"uniqueName\",\"version\"]},\"canvasApps\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"appName\":{\"type\":\"string\"},\"appDescription\":{\"type\":\"string\"},\"screens\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"screenName\":{\"type\":\"string\"},\"screenYaml\":{\"type\":\"string\"}},\"required\":[\"screenName\",\"screenYaml\"]}}},\"required\":[\"appName\",\"appDescription\",\"screens\"]}},\"tables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"DisplayName\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"Description\":{\"type\":\"string\"},\"Fields\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DataType\":{\"type\":\"string\"}},\"required\":[\"Name\",\"SchemaName\",\"DataType\"]}},\"Relationships\":{\"type\":\"object\",\"properties\":{\"OneToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"ReferencingEntity\":{\"type\":\"string\"},\"ReferencingAttribute\":{\"type\":\"string\"},\"ReferencedEntity\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"ReferencingEntity\",\"ReferencingAttribute\",\"ReferencedEntity\"]}},\"ManyToOne\":{\"type\":\"array\",\"items\":{\"type\":\"object\"}},\"ManyToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"Entity1LogicalName\":{\"type\":\"string\"},\"Entity2LogicalName\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"Entity1LogicalName\",\"Entity2LogicalName\"]}}}}},\"required\":[\"DisplayName\",\"SchemaName\",\"Fields\",\"Relationships\"]}},\"workflows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"primaryEntity\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"json\":{\"type\":\"string\"}},\"required\":[\"name\",\"primaryEntity\",\"category\"]}},\"codeComponents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\",\"version\"]}},\"customApis\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"isPrivate\":{\"type\":\"boolean\"},\"isFunction\":{\"type\":\"boolean\"}},\"required\":[\"displayName\",\"description\",\"isPrivate\",\"isFunction\"]}},\"environmentVariables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\"]}},\"securityRoles\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}}}},\"plugins\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"connectionReferences\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"LogicalName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"ConnectorID\":{\"type\":\"string\"}}}},\"aiModels\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"missingDependencies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Required\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"Solution\":{\"type\":\"string\"}}},\"Dependent\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"}}}}}}},\"required\":[\"solutionOverview\",\"canvasApps\",\"tables\",\"workflows\",\"codeComponents\",\"customApis\",\"environmentVariables\",\"securityRoles\",\"plugins\",\"connectionReferences\",\"aiModels\",\"missingDependencies\"]}",
+        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"solutionOverview\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"uniqueName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"uniqueName\",\"version\"]},\"canvasApps\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"appName\":{\"type\":\"string\"},\"appDescription\":{\"type\":\"string\"},\"screens\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"screenName\":{\"type\":\"string\"},\"screenYaml\":{\"type\":\"string\"}},\"required\":[\"screenName\",\"screenYaml\"]}},\"sarifLog\":{\"type\":\"object\",\"properties\":{\"runs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"tool\":{\"type\":\"object\",\"properties\":{\"driver\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"rules\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"properties\":{\"type\":\"object\",\"properties\":{\"howToFix\":{\"type\":\"string\"},\"whyFix\":{\"type\":\"string\"},\"primaryCategory\":{\"type\":\"string\"}},\"additionalProperties\":true},\"messageStrings\":{\"type\":\"object\",\"properties\":{\"issue\":{\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}}}}}},\"required\":[\"id\"]}}},\"required\":[\"name\",\"rules\"]}},\"required\":[\"driver\"]},\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ruleId\":{\"type\":\"string\"},\"messageStrings\":{\"type\":\"object\",\"properties\":{\"issue\":{\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}}}}},\"locations\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"physicalLocation\":{\"type\":\"object\",\"properties\":{\"address\":{\"type\":\"object\",\"properties\":{\"fullyQualifiedName\":{\"type\":\"string\"}}}}}}}},\"properties\":{\"type\":\"object\",\"properties\":{\"level\":{\"type\":\"string\"}},\"additionalProperties\":true}},\"required\":[\"ruleId\"]}}},\"required\":[\"tool\",\"results\"]}}},\"required\":[\"runs\"]}},\"required\":[\"appName\",\"appDescription\",\"screens\",\"sarifLog\"]}},\"tables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"DisplayName\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"Description\":{\"type\":\"string\"},\"Fields\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DataType\":{\"type\":\"string\"}},\"required\":[\"Name\",\"SchemaName\",\"DataType\"]}},\"Relationships\":{\"type\":\"object\",\"properties\":{\"OneToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"ReferencingEntity\":{\"type\":\"string\"},\"ReferencingAttribute\":{\"type\":\"string\"},\"ReferencedEntity\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"ReferencingEntity\",\"ReferencingAttribute\",\"ReferencedEntity\"]}},\"ManyToOne\":{\"type\":\"array\",\"items\":{\"type\":\"object\"}},\"ManyToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"Entity1LogicalName\":{\"type\":\"string\"},\"Entity2LogicalName\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"Entity1LogicalName\",\"Entity2LogicalName\"]}}}}},\"required\":[\"DisplayName\",\"SchemaName\",\"Fields\",\"Relationships\"]}},\"workflows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"primaryEntity\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"json\":{\"type\":\"string\"}},\"required\":[\"name\",\"primaryEntity\",\"category\"]}},\"codeComponents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\",\"version\"]}},\"customApis\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"isPrivate\":{\"type\":\"boolean\"},\"isFunction\":{\"type\":\"boolean\"}},\"required\":[\"displayName\",\"description\",\"isPrivate\",\"isFunction\"]}},\"environmentVariables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\"]}},\"securityRoles\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}}}},\"plugins\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"mermaidERDiagramExpression\":{\"type\":\"string\"},\"mermaidSolutionOverviewExpression\":{\"type\":\"string\"},\"mermaidSolutionArchitectureExpressions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"connectionReferences\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"LogicalName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"ConnectorID\":{\"type\":\"string\"}}}},\"aiModels\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"missingDependencies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Required\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"Solution\":{\"type\":\"string\"}}},\"Dependent\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"}}}}}}},\"required\":[\"solutionOverview\",\"canvasApps\",\"tables\",\"workflows\",\"codeComponents\",\"customApis\",\"environmentVariables\",\"securityRoles\",\"plugins\",\"connectionReferences\",\"aiModels\",\"missingDependencies\"]}",
         "PCFSkipValidation": false
       }
     },
     "TemplateDisplayName": "IntelligentReviewVisualizer",
-    "Version": "0.0.138"
+    "Version": "0.0.156"
   },
   "label": {
     "CustomGroupControlTemplateName": "",
@@ -1373,7 +1571,7 @@
     "Name": "cat_PowerCAT.PFxCodeEditor",
     "OverridableProperties": {},
     "TemplateDisplayName": "PowerFx Code Editor",
-    "Version": "0.0.6"
+    "Version": "0.0.8"
   },
   "rectangle": {
     "CustomGroupControlTemplateName": "",
@@ -1416,7 +1614,7 @@
     "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
     "TemplateDisplayName": "Spinner",
-    "Version": "1.4.4"
+    "Version": "1.4.5"
   },
   "Tab list": {
     "CustomGroupControlTemplateName": "",
@@ -1431,7 +1629,7 @@
     "Name": "PowerApps_CoreControls_TabList",
     "OverridableProperties": {},
     "TemplateDisplayName": "Tab list",
-    "Version": "2.2.28"
+    "Version": "2.2.29"
   },
   "Text": {
     "CustomGroupControlTemplateName": "",
@@ -1491,7 +1689,7 @@
     "Name": "PowerApps_CoreControls_Toolbar",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toolbar",
-    "Version": "2.0.3"
+    "Version": "2.0.4"
   },
   "typedDataCard": {
     "CustomGroupControlTemplateName": "",

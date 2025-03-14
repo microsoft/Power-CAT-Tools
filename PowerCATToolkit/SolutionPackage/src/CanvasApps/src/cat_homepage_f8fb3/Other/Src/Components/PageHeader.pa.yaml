@@ -9,6 +9,7 @@
 # ************************************************************************************************
 ComponentDefinitions:
   PageHeader:
+    DefinitionType: CanvasComponent
     CustomProperties:
       AutoHeight:
         PropertyKind: Output
@@ -20,32 +21,39 @@ ComponentDefinitions:
         DisplayName: Description text
         Description: A custom property
         DataType: Text
+        Default: ="Secondary text"
       IconName:
         PropertyKind: Input
         DisplayName: IconName
         Description: Icon name
         DataType: Text
+        Default: ="ArrowLeft"
       LinkText:
         PropertyKind: Input
         DisplayName: Link text
         Description: A custom property
         DataType: Text
+        Default: =
       OnIconSelectNavScreen:
         PropertyKind: Input
         DisplayName: On Icon Select Nav Screen
         Description: On icon select navigate to input screen
         DataType: Screen
+        Default: =App.ActiveScreen
       TitleFontSize:
         PropertyKind: Input
         DisplayName: Title Font Size
         Description: Title font Size
         DataType: Number
+        Default: =28
       TitleText:
         PropertyKind: Input
         DisplayName: Title text
         Description: A custom property
         DataType: Text
+        Default: ="Page title"
     Properties:
+      AutoHeight: =If(Label3_3.Visible, Label3_3.Height) + If(LinkCanvas3_1.Visible, LinkCanvas3_1.Height) + h2DashboardTitle_2.Height
       Height: =PageHeader.AutoHeight
       Width: =600
     Children:

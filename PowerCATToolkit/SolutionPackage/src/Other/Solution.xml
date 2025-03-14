@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25013.202" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25013.202" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25014.00220">
+<ImportExportXml version="9.2.25021.206" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25021.206" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25021.00206">
   <SolutionManifest>
     <UniqueName>PowerCATToolkit</UniqueName>
     <LocalizedNames>
@@ -210,23 +210,29 @@
         <Required type="1" schemaName="environmentvariablevalue" displayName="Environment Variable Value" solution="EnvironmentVariables (1.0.2406.4)">
           <package appName="EnvironmentVariables" version="1.0.2406.4">EnvironmentVariablesSolutionAnchor (1.0.2406.4)</package>
         </Required>
+        <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="environmentvariablevalue" displayName="Environment Variable Value" solution="EnvironmentVariables (1.0.2406.4)">
+          <package appName="EnvironmentVariables" version="1.0.2406.4">EnvironmentVariablesSolutionAnchor (1.0.2406.4)</package>
+        </Required>
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="fxexpression" displayName="FxExpression" solution="msft_PowerfxRuleSolution (1.0.0.67)">
-          <package appName="PowerfxRuleApp Package" version="1.0.0.67">PowerfxRuleApp_Anchor (1.0.0.67)</package>
+        <Required type="1" schemaName="fxexpression" displayName="FxExpression" solution="msft_PowerfxRuleSolution (1.0.0.71)">
+          <package appName="PowerfxRuleApp Package" version="1.0.0.71">PowerfxRuleApp_Anchor (1.0.0.71)</package>
         </Required>
         <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="fxexpression" displayName="FxExpression" solution="msft_PowerfxRuleSolution (1.0.0.67)">
-          <package appName="PowerfxRuleApp Package" version="1.0.0.67">PowerfxRuleApp_Anchor (1.0.0.67)</package>
+        <Required type="1" schemaName="fxexpression" displayName="FxExpression" solution="msft_PowerfxRuleSolution (1.0.0.71)">
+          <package appName="PowerfxRuleApp Package" version="1.0.0.71">PowerfxRuleApp_Anchor (1.0.0.71)</package>
         </Required>
         <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202501.2.7.1)">
-          <package appName="PowerAI" version="202501.2.7.1">msdyn_AISolutionAnchor (202501.2.7.1)</package>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202501.3.14.3)">
+          <package appName="PowerAI" version="202501.3.14.3">msdyn_AISolutionAnchor (202501.3.14.3)</package>
         </Required>
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
@@ -306,6 +312,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.Icon" displayName="cat_PowerCAT.Icon" solution="Active" />
+        <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.Icon" displayName="cat_PowerCAT.Icon" solution="Active" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
@@ -317,9 +327,9 @@
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.4915)">
-          <package appName="msdynce_Activities" version="9.0.24122.241206000">msdynce_EnableUCIByDefault (9.0.24122.241206000)</package>
-          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2344">msdyn_TimelineExtended (1.0.0.2344)</package>
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5081)">
+          <package appName="msdynce_Activities" version="9.0.25021.250219000">msdynce_EnableUCIByDefault (9.0.25021.250219000)</package>
+          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2510">msdyn_TimelineExtended (1.0.0.2510)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Pattern Details" id="{efb23718-9b0d-4859-83b7-f4920c9479b2}" />
       </MissingDependency>

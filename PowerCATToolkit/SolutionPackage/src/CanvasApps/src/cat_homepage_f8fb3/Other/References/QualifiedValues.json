@@ -92,6 +92,13 @@
       "Values": {
         "Information": "ba271037-4309-4cba-b7b0-7d93db8729fa"
       }
+    },
+    {
+      "Kind": "default.cds_environmentvariablevalue_forms",
+      "Namespace": "Environment Variable Values (Forms)",
+      "Values": {
+        "Information": "f574a3ab-1060-43ee-a95f-9aa922b497db"
+      }
     }
   ]
 }
