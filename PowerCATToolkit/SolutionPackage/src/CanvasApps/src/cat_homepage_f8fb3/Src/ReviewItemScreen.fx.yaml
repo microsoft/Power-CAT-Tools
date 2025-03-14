@@ -353,7 +353,9 @@ ReviewItemScreen As screen:
                         AutoHeight: =true
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         Font: =Font.'Segoe UI'
-                        HtmlText: =LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternDescription
+                        HtmlText: |-
+                            =
+                            LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternDescription
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -418,7 +420,7 @@ ReviewItemScreen As screen:
                         Size: =18
                         Text: ="Debug Information"
                         VerticalAlign: =VerticalAlign.Bottom
-                        Visible: =!IsBlank(Title2.Text) || !IsBlank(Title2_1.Text)
+                        Visible: =!IsBlank(Title2.Text) || !IsBlank(Title2_1.Text) || !IsBlank(TextCanvas3.Text)
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =Parent.Width - Self.X
                         X: =20
@@ -659,6 +661,7 @@ ReviewItemScreen As screen:
                                 Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1)))
                             ShowLineNumber: =false
                             ShowminiMap: =true
+                            Showsearchbox: =true
                             Value: =Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1))
                             Visible: =ctxShowCode
                             Width: =Parent.Width
@@ -676,12 +679,17 @@ ReviewItemScreen As screen:
                         Y: =256
                         ZIndex: =11
 
-    TextCanvas3 As Text:
-        DisplayMode: =DisplayMode.Edit
-        Height: =308
-        Text: =//First(SelectedReviewItem.instanceValue).Value
-        Width: =561
-        X: =605
-        Y: =0
-        ZIndex: =2
+                    TextCanvas3 As Text:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =45
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =SelectedReviewItem.failureReason
+                        Visible: =true//SelectedReviewItem.patternID = "app-AssetOptimization"
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =12
 

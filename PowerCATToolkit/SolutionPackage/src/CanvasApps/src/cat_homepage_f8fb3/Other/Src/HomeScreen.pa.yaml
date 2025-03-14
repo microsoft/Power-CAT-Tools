@@ -41,7 +41,7 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_4:
-                Control: Spinner@1.4.4
+                Control: Spinner@1.4.5
                 Properties:
                   Label: ="Loading ..."
                   LabelPosition: ='Spinner.LabelPosition'.Below
@@ -458,7 +458,7 @@ Screens:
                                           Width: =Parent.Width
                                         Children:
                                           - Toolbar1_8:
-                                              Control: Toolbar@2.0.3
+                                              Control: Toolbar@2.0.4
                                               Properties:
                                                 AccessibleLabel: ="Toolbar"
                                                 Height: =44
@@ -556,7 +556,7 @@ Screens:
                                                             LayoutMinWidth: =100
                                                             Placeholder: ="Search"
                                     - Spinner1_9:
-                                        Control: Spinner@1.4.4
+                                        Control: Spinner@1.4.5
                                         Properties:
                                           SpinnerSize: ='Spinner.SpinnerSize'.Small
                                           Visible: =showLoader
@@ -813,7 +813,7 @@ Screens:
                                     Items: =
                                     OnSelect: |-
                                       =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-                                      Launch("https://aka.ms/CodeReviewToolkit")
+                                      Launch("https://www.microsoft.com/en-us/power-platform/blog/2025/03/04/elevate-your-microsoft-power-platform-development-experience-with-power-cat-tools/")
                                     Size: ='PowerCAT.Card.Size'.Small
                                     Subtitle: ="Discover how the code review blog"
                                     Title: ="Blog"
@@ -1099,9 +1099,9 @@ Screens:
                                                 PressedFill: =RGBA(214, 221, 224, 1)
                                                 Size: =10.5
                                                 Tooltip: =Parent.DisplayName
-                                                Width: =Parent.Width - 48
-                                                X: =25
-                                                Y: =DataCardValue8_4.Y+DataCardValue8_4.Height + 15
+                                                Width: =Parent.Width - 60
+                                                X: =27
+                                                Y: =96
                                           - ErrorMessage3_1:
                                               Control: Text@0.0.50
                                               Properties:
@@ -1145,8 +1145,8 @@ Screens:
                                                 Items: =Filter(Solutions, 'Solutions (Views)'.'Unmanaged Solutions')
                                                 ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                                                 Width: =Parent.Width - 48
-                                                X: =24
-                                                Y: =DataCardKey7_2.Y + DataCardKey7_2.Height + 7
+                                                X: =25
+                                                Y: =34
                                               Children:
                                                 - Display Name1_2:
                                                     Control: ComboBoxDataField@1.5.0
@@ -1174,6 +1174,17 @@ Screens:
                                                 Width: =22
                                                 X: =StarVisible3_1.X +StarVisible3_1.Width  - 10
                                                 Y: =DataCardKey7_2.Y + Self.Height /2 - 5
+                                          - TextCanvas4:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                FontColor: =RGBA(215, 58, 60, 1)
+                                                Height: =17
+                                                Size: =11
+                                                Text: |-
+                                                  ="Note: This tool only supports solution exported after March 1st 2025"
+                                                Width: =413
+                                                X: =27
+                                                Y: =77
                               - Container4_1:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -1239,7 +1250,7 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_7:
-                Control: Spinner@1.4.4
+                Control: Spinner@1.4.5
                 Properties:
                   Height: =Parent.Height
                   Label: ="Saving Review"

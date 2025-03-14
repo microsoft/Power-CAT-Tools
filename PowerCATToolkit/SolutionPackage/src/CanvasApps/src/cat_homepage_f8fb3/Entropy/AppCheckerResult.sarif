@@ -464,19 +464,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.cEmptyState_6.Container9_6.btnEmptyActionPrimary_6.AccessibleLabel"
+                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.Spinner1_10.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.cEmptyState_6.Container9_6.btnEmptyActionPrimary_6.AccessibleLabel",
+                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.Spinner1_10.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "SolutionScreen",
-                "type": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.cEmptyState_6.Container9_6.btnEmptyActionPrimary_6"
+                "type": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.Spinner1_10"
               }
             }
           ],
@@ -494,19 +494,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.Spinner1_10.AccessibleLabel"
+                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.cEmptyState_6.Container9_6.btnEmptyActionPrimary_6.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.Spinner1_10.AccessibleLabel",
+                  "fullyQualifiedName": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.cEmptyState_6.Container9_6.btnEmptyActionPrimary_6.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "SolutionScreen",
-                "type": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.Spinner1_10"
+                "type": "SolutionScreen.cAppFrame_1.cScreenContainer_1.Container2_1.cListCard_3.cEmptyState_6.Container9_6.btnEmptyActionPrimary_6"
               }
             }
           ],
@@ -1034,36 +1034,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_18.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_18.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "HomeScreen",
-                "type": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_14.AccessibleLabel"
                 }
               ],
@@ -1107,6 +1077,36 @@
                 "member": "AccessibleLabel",
                 "module": "HomeScreen",
                 "type": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_18.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_18.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "HomeScreen",
+                "type": "HomeScreen.cAppFrameContainer.cMainContainer.Container2_2.cCardsRow_3.Card1_18"
               }
             }
           ],
@@ -1454,6 +1454,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.cPageHeaderMain_6.cPageHeaderTop_4.cPageHeaderTitle_6.btnViewSourceCode.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.cPageHeaderMain_6.cPageHeaderTop_4.cPageHeaderTitle_6.btnViewSourceCode.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ReviewScreen",
+                "type": "ReviewScreen.cAppFrame_2.cScreenContainer_2.cPageHeaderMain_6.cPageHeaderTop_4.cPageHeaderTitle_6.btnViewSourceCode"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.cPageHeaderMain_6.cPageHeaderTop_4.cPageHeaderTitle_6.ButtonCanvas1.AccessibleLabel"
                 }
               ],
@@ -1664,19 +1694,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.ButtonCanvas1_4.AccessibleLabel"
+                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.Container1_12.InfoButtonCanvas1_11.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.ButtonCanvas1_4.AccessibleLabel",
+                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.Container1_12.InfoButtonCanvas1_11.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ReviewScreen",
-                "type": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.ButtonCanvas1_4"
+                "type": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.Container1_12.InfoButtonCanvas1_11"
               }
             }
           ],
@@ -1694,19 +1724,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.Container1_12.InfoButtonCanvas1_11.AccessibleLabel"
+                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.ButtonCanvas1_4.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.Container1_12.InfoButtonCanvas1_11.AccessibleLabel",
+                  "fullyQualifiedName": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.ButtonCanvas1_4.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ReviewScreen",
-                "type": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.Container1_12.InfoButtonCanvas1_11"
+                "type": "ReviewScreen.cAppFrame_2.cScreenContainer_2.Container2_3.cStatCards.cCard_10.ButtonCanvas1_4"
               }
             }
           ],
@@ -1827,6 +1857,246 @@
                 "member": "AccessibleLabel",
                 "module": "TelemetryScreen",
                 "type": "TelemetryScreen.ButtonCanvas2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cPageHeaderMain_11.cPageHeaderTop_9.cPageHeaderTitle_11.ButtonCanvas4_14.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cPageHeaderMain_11.cPageHeaderTop_9.cPageHeaderTitle_11.ButtonCanvas4_14.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "PowerFxScreen",
+                "type": "PowerFxScreen.Container5_1.cPageHeaderMain_11.cPageHeaderTop_9.cPageHeaderTitle_11.ButtonCanvas4_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.Icon1_13.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.Icon1_13.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "PowerFxScreen",
+                "type": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.Icon1_13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.Icon1_13.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.Icon1_13.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "PowerFxScreen",
+                "type": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.Icon1_13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.cSearchTeams_7.txtSearch_7.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.cSearchTeams_7.txtSearch_7.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "PowerFxScreen",
+                "type": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.Container2.cListToolbar_12.Container9_15.cSearchTeams_7.txtSearch_7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cPageHeaderMain_12.cPageHeaderTop_10.cPageHeaderTitle_12.ButtonCanvas4_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cPageHeaderMain_12.cPageHeaderTop_10.cPageHeaderTitle_12.ButtonCanvas4_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AppCheckerScreen",
+                "type": "AppCheckerScreen.Container5_2.cPageHeaderMain_12.cPageHeaderTop_10.cPageHeaderTitle_12.ButtonCanvas4_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.Icon1_14.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.Icon1_14.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AppCheckerScreen",
+                "type": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.Icon1_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.Icon1_14.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.Icon1_14.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "AppCheckerScreen",
+                "type": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.Icon1_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.cSearchTeams_8.txtSearch_8.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.cSearchTeams_8.txtSearch_8.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AppCheckerScreen",
+                "type": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.Container2_7.cListToolbar_13.Container9_16.cSearchTeams_8.txtSearch_8"
               }
             }
           ],
@@ -2647,6 +2917,66 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.CodeTreeContainer_1.CodeViewerTree1_1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.CodeTreeContainer_1.CodeViewerTree1_1.Items",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "PowerFxScreen",
+                "type": "PowerFxScreen.Container5_1.cNav_1.Container7_1.Container3_1.Container4_3.CodeTreeContainer_1.CodeViewerTree1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.CodeTreeContainer_2.CodeViewerTree1_2.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.CodeTreeContainer_2.CodeViewerTree1_2.Items",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "AppCheckerScreen",
+                "type": "AppCheckerScreen.Container5_2.cNav_2.Container7_2.Container3_2.Container4_4.CodeTreeContainer_2.CodeViewerTree1_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 5
         }
       ],
       "tool": {
@@ -2737,6 +3067,23 @@
                 "level": "Low",
                 "primaryCategory": "performance",
                 "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
+              }
+            },
+            {
+              "id": "app-InefficientDelayLoading",
+              "messageStrings": {
+                "issue": {
+                  "text": "Inefficient delay loading"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Use variables, collections, and navigation context to share state across screens instead."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "Controls that reference controls on other screens can slow down app loading and navigation. Doing this may force the app to load the other screens immediately, rather than waiting until the user navigates to that screen."
               }
             }
           ],

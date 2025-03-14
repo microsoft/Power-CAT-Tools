@@ -171,6 +171,24 @@ ReviewScreen As screen:
                                 Y: =52
                                 ZIndex: =3
 
+                        btnViewSourceCode As Button:
+                            Appearance: ='ButtonCanvas.Appearance'.Subtle
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Icon: ="Open"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =96
+                            OnSelect: |-
+                                =Navigate(PowerFxScreen,ScreenTransition.None, {SelectedReviewItem:SelectedReviewItem})
+                            Text: ="Source Code"
+                            Visible: |-
+                                =PatternType = "Canvas" && ( CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Warning
+                                                                           || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail )) >= 14)
+                            Width: =140
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
                         ButtonCanvas1 As Button:
                             Appearance: ='ButtonCanvas.Appearance'.Subtle
                             DisplayMode: =DisplayMode.Edit
@@ -195,128 +213,38 @@ ReviewScreen As screen:
                             Width: =45
                             X: =0
                             Y: =0
-                            ZIndex: =4
+                            ZIndex: =5
 
                 cLargeToolbar_4 As groupContainer.horizontalAutoLayoutContainer:
                     AlignInContainer: =AlignStretch
                     FillPortions: =FlexOff
-                    Height: =tlbMain_4.Height
+                    Height: =TextCanvas7.Height
                     LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutJustifyContent: =LayoutJustifyContent.End
                     LayoutMinHeight: =60
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    Visible: =false
                     Width: =Parent.Width - Self.X * 2
                     ZIndex: =3
 
-                    tlbMain_4 As Toolbar.pcfdataset:
-                        AccessibleLabel: ="Toolbar"
+                    TextCanvas7 As Text:
                         DisplayMode: =DisplayMode.Edit
-                        FillPortions: =3
-                        Height: =48
-                        Items: |-
-                            =Table(
-                                {
-                                    ItemKey: "1",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle",
-                                    ItemTooltip: "Action"
-                                },
-                                {
-                                    ItemKey: "2",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle"
-                                },
-                                {
-                                    ItemKey: "3",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemDisabled: false,
-                                    ItemAppearance: "Subtle"
-                                    //,ItemIconStyle: "Filled"
-                                },
-                                {
-                                    ItemKey: "4",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle"
-                                },
-                                {
-                                    ItemKey: "4",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle",
-                                    ItemFarItem: true
-                                }
-                            )
-                        LayoutMinHeight: =55
-                        LayoutMinWidth: =280
-                        OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'new' */"new",Notify("New clicked"),/* Action for 'edit' */"edit",Notify("Edit clicked"),/* Action for 'delete' */ "delete",Notify("Delete clicked"),/* Action for 'info' */ "info",Notify("Info clicked"), /* Default action */  Notify("Unrecognized button clicked"))
-                        Width: =Parent.Width
+                        FillPortions: =1
+                        FontColor: =RGBA(215, 58, 60, 1)
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: |-
+                            ="Note: It appears that solution used in this review is outdated. Please re-export the solution and re-upload to ensure all patterns are executed."
+                        VerticalAlign: =VerticalAlign.Middle
+                        Visible: |-
+                            =PatternType = "Canvas" && ( CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass 
+                                                                       || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail
+                                                                        || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Warning )) <= 14)
+                        Width: =96
                         X: =0
                         Y: =0
                         ZIndex: =1
-
-                    tlbRight_10 As Toolbar.pcfdataset:
-                        AccessibleLabel: ="Toolbar"
-                        DisplayMode: =DisplayMode.Edit
-                        FillPortions: =FlexOn
-                        Height: =44
-                        Items: |-
-                            =Table(
-                                {
-                                    ItemKey: "1",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle",
-                                    ItemTooltip: "Action"
-                                },
-                                {
-                                    ItemKey: "2",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle"
-                                },
-                                {
-                                    ItemKey: "3",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemDisabled: false,
-                                    ItemAppearance: "Subtle"
-                                    //,ItemIconStyle: "Filled"
-                                },
-                                {
-                                    ItemKey: "4",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle"
-                                },
-                                {
-                                    ItemKey: "4",
-                                    ItemDisplayName: "Action",
-                                    ItemIconName: "Circle",
-                                    ItemAppearance: "Subtle",
-                                    ItemIconStyle: "Subtle",
-                                    ItemFarItem: true
-                                }
-                            )
-                        LayoutMinHeight: =55
-                        LayoutMinWidth: =280
-                        OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'new' */"new",Notify("New clicked"),/* Action for 'edit' */"edit",Notify("Edit clicked"),/* Action for 'delete' */ "delete",Notify("Delete clicked"),/* Action for 'info' */ "info",Notify("Info clicked"), /* Default action */  Notify("Unrecognized button clicked"))
-                        Width: =258
-                        X: =899
-                        Y: =0
-                        ZIndex: =2
 
                 div_10 As rectangle:
                     AlignInContainer: =AlignStart
@@ -381,6 +309,92 @@ ReviewScreen As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
+                        Container6 As groupContainer.horizontalAutoLayoutContainer:
+                            LayoutMinHeight: =40
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =1
+
+                            "IconPass As 'Fluent Icon (1.1.39)'":
+                                DisplayMode: =DisplayMode.Edit
+                                FillColor: =
+                                FontColor: =
+                                Height: =45
+                                IconColor: |-
+                                    ="#76DB91"
+                                IconName: ="SkypeCircleCheck"
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                Text: ="Pass"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                Tooltip: ="Pass"
+                                Width: =70
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                            "IconFail As 'Fluent Icon (1.1.39)'":
+                                DisplayMode: =DisplayMode.Edit
+                                FillColor: =
+                                FontColor: =
+                                Height: =45
+                                IconColor: |-
+                                    ="#cc412f"
+                                IconName: ="StatusErrorFull"
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                Text: ="Fail"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                Tooltip: ="Fail"
+                                Width: =60
+                                X: =0
+                                Y: =0
+                                ZIndex: =2
+
+                            "IconWarning As 'Fluent Icon (1.1.39)'":
+                                DisplayMode: =DisplayMode.Edit
+                                FillColor: =
+                                FontColor: =
+                                Height: =45
+                                IconColor: |-
+                                    ="#f6894b"
+                                IconName: ="AlertSolid"
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                Text: ="Warning"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                Tooltip: ="Warning"
+                                Width: =90
+                                X: =0
+                                Y: =0
+                                ZIndex: =3
+
+                            "IconWarning_1 As 'Fluent Icon (1.1.39)'":
+                                DisplayMode: =DisplayMode.Edit
+                                FillColor: =
+                                FontColor: =
+                                Height: =45
+                                IconColor: |-
+                                    ="#afafaf"
+                                IconName: ="StatusErrorFull"
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                Text: ="Not Executed"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                Tooltip: ="Skipped"
+                                Width: =145
+                                X: =0
+                                Y: =0
+                                ZIndex: =4
+
                         Container9_14 As groupContainer.horizontalAutoLayoutContainer:
                             Height: =40
                             LayoutAlignItems: =LayoutAlignItems.Center
@@ -433,7 +447,7 @@ ReviewScreen As screen:
                                 RadiusTopRight: =4
                                 Visible: =App.ActiveScreen.Size > ScreenSize.Small || showSearch
                                 Width: =200
-                                ZIndex: =4
+                                ZIndex: =3
 
                                 "txtSearch_5 As 'Text input'":
                                     Appearance: ='TextInputCanvas.Appearance'.FilledLighter
@@ -573,7 +587,7 @@ ReviewScreen As screen:
 
                     cGrid_4 As groupContainer.horizontalAutoLayoutContainer:
                         AlignInContainer: =AlignStretch
-                        Height: =Max((CountIf(SelectedReviewItem.result,true) * 48), 200)
+                        Height: =Max((CountIf(SelectedReviewItem.result,true) * 50), 200)
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -631,7 +645,7 @@ ReviewScreen As screen:
                                     {
                                         ColName: "description",
                                         ColDisplayName: "Description",
-                                        ColWidth: Parent.Width - 450,
+                                        ColWidth: Parent.Width - 520,
                                         ColHeaderMultiline: true,
                                         ColMultiLine: true,
                                         ColIsBold:true
@@ -655,8 +669,43 @@ ReviewScreen As screen:
                             FillPortions: =1
                             Height: =Parent.Height
                             Items: |-
-                                =Search(AddColumns(SelectedReviewItem.result, StatusCol,If(status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass, "#76DB91", status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail, "#cc412f", "#333333"),
-                                StatusIcon, If(status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass, "icon:SkypeCircleCheck", "icon:SkypeCircleMinus"), Action, "Details",RecordKey,patternName), txtSearch_5.Value, patternName, description)
+                                =Search(
+                                    AddColumns(
+                                      SelectedReviewItem.result ,
+                                        StatusCol,
+                                        Switch(status,
+                                            'PowerCAT.IntelligentReviewVisualizer.Status'.Pass,
+                                            "#76DB91",
+                                            'PowerCAT.IntelligentReviewVisualizer.Status'.Fail,
+                                            "#cc412f",
+                                            'PowerCAT.IntelligentReviewVisualizer.Status'.Skipped,
+                                            "#afafaf",
+                                             'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
+                                            "#f6894b",
+                                              'PowerCAT.IntelligentReviewVisualizer.Status'.NotExecuted,
+                                            "#afafaf",
+                                            "#333333"
+                                        ),
+                                        StatusIcon,
+                                        Switch(
+                                            status,
+                                            'PowerCAT.IntelligentReviewVisualizer.Status'.Pass,
+                                            "icon:SkypeCircleCheck",
+                                            'PowerCAT.IntelligentReviewVisualizer.Status'.Fail,
+                                            "icon:StatusErrorFull",
+                                            'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
+                                            "icon:AlertSolid",
+                                            "icon:StatusErrorFull"
+                                        ),
+                                        Action,
+                                        "Details",
+                                        RecordKey,
+                                        patternName
+                                    ),
+                                    txtSearch_5.Value,
+                                    patternName,
+                                    description
+                                )
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
                             OnChange: |
@@ -794,11 +843,10 @@ ReviewScreen As screen:
                     RadiusBottomRight: =4
                     RadiusTopLeft: =4
                     RadiusTopRight: =4
-                    Width: =370
+                    Width: =320
                     ZIndex: =8
 
                     cCard_9 As groupContainer.verticalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.Start
                         DropShadow: =DropShadow.Light
                         Fill: =RGBA(255, 255, 255, 1)
                         FillPortions: =0
@@ -816,7 +864,7 @@ ReviewScreen As screen:
                         RadiusBottomRight: =8
                         RadiusTopLeft: =8
                         RadiusTopRight: =8
-                        Width: =370
+                        Width: =300
                         X: =92
                         Y: =-18
                         ZIndex: =1
@@ -880,16 +928,17 @@ ReviewScreen As screen:
                             Height: =230
                             LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
-                            LayoutGap: =8
+                            LayoutGap: =2
                             LayoutJustifyContent: =LayoutJustifyContent.Center
                             LayoutMinHeight: =100
-                            LayoutMinWidth: =250
+                            LayoutMinWidth: =200
                             LayoutMode: =LayoutMode.Auto
                             Width: =297
                             Y: =179
                             ZIndex: =2
 
                             "DonutChart1 As 'Fluent Donut Chart (1.1.39) Preview'.pcfdataset":
+                                AlignInContainer: =AlignInContainer.Stretch
                                 CustomColors: =true
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =220
@@ -914,11 +963,11 @@ ReviewScreen As screen:
                                         }
                                     )
                                 LayoutMinHeight: =350
-                                LayoutMinWidth: =350
+                                LayoutMinWidth: =200
                                 ShowLabelsInPercentage: =true
                                 Theme: =AppThemeJson
                                 Title: =
-                                Width: =250
+                                Width: =180
                                 X: =0
                                 Y: =58
                                 ZIndex: =1
@@ -939,7 +988,7 @@ ReviewScreen As screen:
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =8
                         LayoutMinHeight: =100
-                        LayoutMinWidth: =370
+                        LayoutMinWidth: =220
                         LayoutMode: =LayoutMode.Auto
                         PaddingBottom: =16
                         PaddingLeft: =16
@@ -1014,13 +1063,14 @@ ReviewScreen As screen:
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutGap: =8
                             LayoutMinHeight: =40
-                            LayoutMinWidth: =250
+                            LayoutMinWidth: =200
                             LayoutMode: =LayoutMode.Auto
                             Width: =297
                             Y: =86
                             ZIndex: =2
 
                             "HorizontalBarChart1 As 'Fluent Horizontal bar Chart (1.1.39) Preview'.pcfdataset":
+                                AlignInContainer: =AlignInContainer.Stretch
                                 BarHeight: =12
                                 ChartDataMode: ='PowerCAT.HorizontalBarChart.ChartDataMode'.Percentage
                                 CustomColors: =true
@@ -1051,7 +1101,7 @@ ReviewScreen As screen:
                                         }
                                     )
                                 LayoutMinHeight: =400
-                                LayoutMinWidth: =400
+                                LayoutMinWidth: =200
                                 Theme: =
                                 Variant: ='PowerCAT.HorizontalBarChart.Variant'.PartToWhole
                                 Width: =Parent.Width - Self.X * 2

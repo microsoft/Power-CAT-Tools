@@ -143,7 +143,7 @@
       "MetaDataIDKey": "",
       "Name": "ButtonCanvas4_13",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1005,7 +1005,7 @@
       "MetaDataIDKey": "",
       "Name": "cHeaderText_13",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1300,7 +1300,7 @@
       "MetaDataIDKey": "",
       "Name": "cLargeToolbar_8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2128,7 +2128,7 @@
       "MetaDataIDKey": "",
       "Name": "cPageHeaderTitle_10",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2381,7 +2381,7 @@
       "MetaDataIDKey": "",
       "Name": "cPageHeaderTop_8",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3653,7 +3653,7 @@
       "MetaDataIDKey": "",
       "Name": "h2Title_16",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4555,7 +4555,7 @@
       "MetaDataIDKey": "",
       "Name": "TabList1_5",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5099,7 +5099,7 @@
       "MetaDataIDKey": "",
       "Name": "tlbRight_14",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

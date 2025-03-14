@@ -1027,7 +1027,7 @@ HomeScreen As screen:
                         LayoutMinWidth: =300
                         OnSelect: |-
                             =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-                            Launch("https://aka.ms/CodeReviewToolkit")
+                            Launch("https://www.microsoft.com/en-us/power-platform/blog/2025/03/04/elevate-your-microsoft-power-platform-development-experience-with-power-cat-tools/")
                         Size: ='PowerCAT.Card.Size'.Small
                         Subtitle: ="Discover how the code review blog"
                         Title: ="Blog"
@@ -1524,9 +1524,9 @@ HomeScreen As screen:
                                 PressedFill: =RGBA(214, 221, 224, 1)
                                 Size: =10.5
                                 Tooltip: =Parent.DisplayName
-                                Width: =Parent.Width - 48
-                                X: =25
-                                Y: =DataCardValue8_4.Y+DataCardValue8_4.Height + 15
+                                Width: =Parent.Width - 60
+                                X: =27
+                                Y: =96
                                 ZIndex: =1
 
                             ErrorMessage3_1 As Text:
@@ -1579,8 +1579,8 @@ HomeScreen As screen:
                                 TriggerOutput: ="Keypress"
                                 ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                                 Width: =Parent.Width - 48
-                                X: =24
-                                Y: =DataCardKey7_2.Y + DataCardKey7_2.Height + 7
+                                X: =25
+                                Y: =34
                                 ZIndex: =6
 
                                 "'Display Name1_2' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
@@ -1608,6 +1608,18 @@ HomeScreen As screen:
                                 X: =StarVisible3_1.X +StarVisible3_1.Width  - 10
                                 Y: =DataCardKey7_2.Y + Self.Height /2 - 5
                                 ZIndex: =7
+
+                            TextCanvas4 As Text:
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: =RGBA(215, 58, 60, 1)
+                                Height: =17
+                                Size: =11
+                                Text: |-
+                                    ="Note: This tool only supports solution exported after March 1st 2025"
+                                Width: =413
+                                X: =27
+                                Y: =77
+                                ZIndex: =8
 
                         "'Solution Name_DataCard1' As typedDataCard.pcfCoreTextualEditCard":
                             BorderColor: =RGBA(166, 166, 166, 1)

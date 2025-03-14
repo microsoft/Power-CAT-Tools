@@ -4,11 +4,13 @@ SolutionScreen As screen:
     IntelligentReviewVisualizer1_5 As IntelligentReviewVisualizer.pcfdataset:
         ChooseButtonTitle: ="Upload Solution"
         DisplayMode: =DisplayMode.Edit
-        ExtractSolutionDetails: =false
+        ExtractSolutionDetails: =true
         Height: =20
         HideUserInterface: =true
         InputEvent: =varStartReview
-        Items: ='Pattern Details'
+        Items: |
+            =//PatternDetailz
+            AddColumns('Pattern Details', description, PatternDescription)
         OnReviewComplete: |
             =//Notify("review completed");
             Clear(SolutionReviewsCol);
@@ -211,9 +213,9 @@ SolutionScreen As screen:
             h2Title_12 As Text:
                 Align: ='TextCanvas.Align'.Start
                 AlignInContainer: =AlignInContainer.Center
-                AutoHeight: =true
+                AutoHeight: =false
                 DisplayMode: =DisplayMode.Edit
-                Height: =36
+                Height: =30
                 LayoutMinHeight: =32
                 LayoutMinWidth: =96
                 Size: =18

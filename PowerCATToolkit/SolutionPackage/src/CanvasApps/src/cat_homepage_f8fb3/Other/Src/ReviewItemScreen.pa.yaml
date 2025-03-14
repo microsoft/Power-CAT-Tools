@@ -182,7 +182,7 @@ Screens:
                         Width: =Parent.Width - Self.X * 2
                       Children:
                         - tlbMain_5:
-                            Control: Toolbar@2.0.3
+                            Control: Toolbar@2.0.4
                             Properties:
                               AccessibleLabel: ="Toolbar"
                               FillPortions: =3
@@ -230,7 +230,7 @@ Screens:
                                 )
                               Width: =Parent.Width
                         - tlbRight_11:
-                            Control: Toolbar@2.0.3
+                            Control: Toolbar@2.0.4
                             Properties:
                               AccessibleLabel: ="Toolbar"
                               FillPortions: =FlexOn
@@ -349,7 +349,9 @@ Screens:
                                     AlignInContainer: =AlignInContainer.Stretch
                                     AutoHeight: =true
                                     Font: =Font.'Segoe UI'
-                                    HtmlText: =LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternDescription
+                                    HtmlText: |-
+                                      =
+                                      LookUp('Pattern Details', PatternID = SelectedReviewItem.patternID).PatternDescription
                                     PaddingBottom: =0
                                     PaddingLeft: =0
                                     PaddingRight: =0
@@ -399,7 +401,7 @@ Screens:
                                     Size: =18
                                     Text: ="Debug Information"
                                     VerticalAlign: =VerticalAlign.Bottom
-                                    Visible: =!IsBlank(Title2.Text) || !IsBlank(Title2_1.Text)
+                                    Visible: =!IsBlank(Title2.Text) || !IsBlank(Title2_1.Text) || !IsBlank(TextCanvas3.Text)
                                     Weight: ='TextCanvas.Weight'.Semibold
                                     Width: =Parent.Width - Self.X
                                     X: =20
@@ -543,6 +545,7 @@ Screens:
                                             =If(!IsBlank(ctxSelectedPropery),
                                             Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1)))
                                           ShowLineNumber: =false
+                                          Showsearchbox: =true
                                           Value: =Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1))
                                           Visible: =ctxShowCode
                                           Width: =Parent.Width
@@ -555,10 +558,11 @@ Screens:
                                     Width: =Parent.Width - Self.X * 2
                                     X: =84
                                     Y: =256
-      - TextCanvas3:
-          Control: Text@0.0.50
-          Properties:
-            Height: =308
-            Text: =//First(SelectedReviewItem.instanceValue).Value
-            Width: =561
-            X: =605
+                              - TextCanvas3:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    Height: =45
+                                    Text: =SelectedReviewItem.failureReason
+                                    Visible: =true//SelectedReviewItem.patternID = "app-AssetOptimization"

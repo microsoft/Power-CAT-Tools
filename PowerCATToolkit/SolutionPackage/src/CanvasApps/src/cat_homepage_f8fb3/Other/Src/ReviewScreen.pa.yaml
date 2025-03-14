@@ -177,6 +177,17 @@ Screens:
                                                 Width: =Parent.Width - Self.X * 2
                                                 X: =72
                                                 Y: =52
+                                    - btnViewSourceCode:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="Open"
+                                          OnSelect: =Navigate(PowerFxScreen,ScreenTransition.None, {SelectedReviewItem:SelectedReviewItem})
+                                          Text: ="Source Code"
+                                          Visible: |-
+                                            =PatternType = "Canvas" && ( CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Warning
+                                                                                       || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail )) >= 14)
+                                          Width: =140
                                     - ButtonCanvas1:
                                         Control: Button@0.0.44
                                         Properties:
@@ -204,7 +215,7 @@ Screens:
                               AlignInContainer: =AlignStretch
                               DropShadow: =DropShadow.None
                               FillPortions: =FlexOff
-                              Height: =tlbMain_4.Height
+                              Height: =TextCanvas7.Height
                               LayoutAlignItems: =LayoutAlignItems.Center
                               LayoutDirection: =LayoutDirection.Horizontal
                               LayoutJustifyContent: =LayoutJustifyContent.End
@@ -213,106 +224,20 @@ Screens:
                               RadiusBottomRight: =0
                               RadiusTopLeft: =0
                               RadiusTopRight: =0
-                              Visible: =false
                               Width: =Parent.Width - Self.X * 2
                             Children:
-                              - tlbMain_4:
-                                  Control: Toolbar@2.0.3
+                              - TextCanvas7:
+                                  Control: Text@0.0.50
                                   Properties:
-                                    AccessibleLabel: ="Toolbar"
-                                    FillPortions: =3
-                                    Height: =48
-                                    Items: |-
-                                      =Table(
-                                          {
-                                              ItemKey: "1",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle",
-                                              ItemTooltip: "Action"
-                                          },
-                                          {
-                                              ItemKey: "2",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle"
-                                          },
-                                          {
-                                              ItemKey: "3",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemDisabled: false,
-                                              ItemAppearance: "Subtle"
-                                              //,ItemIconStyle: "Filled"
-                                          },
-                                          {
-                                              ItemKey: "4",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle"
-                                          },
-                                          {
-                                              ItemKey: "4",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle",
-                                              ItemFarItem: true
-                                          }
-                                      )
-                                    Width: =Parent.Width
-                              - tlbRight_10:
-                                  Control: Toolbar@2.0.3
-                                  Properties:
-                                    AccessibleLabel: ="Toolbar"
-                                    FillPortions: =FlexOn
-                                    Height: =44
-                                    Items: |-
-                                      =Table(
-                                          {
-                                              ItemKey: "1",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle",
-                                              ItemTooltip: "Action"
-                                          },
-                                          {
-                                              ItemKey: "2",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle"
-                                          },
-                                          {
-                                              ItemKey: "3",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemDisabled: false,
-                                              ItemAppearance: "Subtle"
-                                              //,ItemIconStyle: "Filled"
-                                          },
-                                          {
-                                              ItemKey: "4",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle"
-                                          },
-                                          {
-                                              ItemKey: "4",
-                                              ItemDisplayName: "Action",
-                                              ItemIconName: "Circle",
-                                              ItemAppearance: "Subtle",
-                                              ItemIconStyle: "Subtle",
-                                              ItemFarItem: true
-                                          }
-                                      )
-                                    Width: =258
-                                    X: =899
+                                    FillPortions: =1
+                                    FontColor: =RGBA(215, 58, 60, 1)
+                                    Text: |-
+                                      ="Note: It appears that solution used in this review is outdated. Please re-export the solution and re-upload to ensure all patterns are executed."
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Visible: |-
+                                      =PatternType = "Canvas" && ( CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass 
+                                                                                 || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail
+                                                                                  || status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Warning )) <= 14)
                         - div_10:
                             Control: Rectangle@2.3.0
                             Properties:
@@ -388,6 +313,70 @@ Screens:
                                     RadiusTopRight: =0
                                     Width: =Parent.Width
                                   Children:
+                                    - Container6:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =40
+                                        Children:
+                                          - IconPass:
+                                              Control: CodeComponent
+                                              ComponentName: cat_PowerCAT.Icon
+                                              Properties:
+                                                FillColor: =
+                                                FontColor: =
+                                                Height: =45
+                                                IconColor: ="#76DB91"
+                                                IconName: ="SkypeCircleCheck"
+                                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                                Text: ="Pass"
+                                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                                Tooltip: ="Pass"
+                                                Width: =70
+                                          - IconFail:
+                                              Control: CodeComponent
+                                              ComponentName: cat_PowerCAT.Icon
+                                              Properties:
+                                                FillColor: =
+                                                FontColor: =
+                                                Height: =45
+                                                IconColor: ="#cc412f"
+                                                IconName: ="StatusErrorFull"
+                                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                                Text: ="Fail"
+                                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                                Tooltip: ="Fail"
+                                                Width: =60
+                                          - IconWarning:
+                                              Control: CodeComponent
+                                              ComponentName: cat_PowerCAT.Icon
+                                              Properties:
+                                                FillColor: =
+                                                FontColor: =
+                                                Height: =45
+                                                IconColor: ="#f6894b"
+                                                IconName: ="AlertSolid"
+                                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                                Text: ="Warning"
+                                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                                Tooltip: ="Warning"
+                                                Width: =90
+                                          - IconWarning_1:
+                                              Control: CodeComponent
+                                              ComponentName: cat_PowerCAT.Icon
+                                              Properties:
+                                                FillColor: =
+                                                FontColor: =
+                                                Height: =45
+                                                IconColor: ="#afafaf"
+                                                IconName: ="StatusErrorFull"
+                                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                                Text: ="Not Executed"
+                                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                                Tooltip: ="Skipped"
+                                                Width: =145
                                     - Container9_14:
                                         Control: GroupContainer@1.3.0
                                         Variant: AutoLayout
@@ -452,7 +441,7 @@ Screens:
                                                       Placeholder: ="Search"
                                                       TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
                               - Spinner1_11:
-                                  Control: Spinner@1.4.4
+                                  Control: Spinner@1.4.5
                                   Properties:
                                     SpinnerSize: ='Spinner.SpinnerSize'.Small
                                     Visible: =false
@@ -560,7 +549,7 @@ Screens:
                                   Properties:
                                     AlignInContainer: =AlignStretch
                                     DropShadow: =DropShadow.None
-                                    Height: =Max((CountIf(SelectedReviewItem.result,true) * 48), 200)
+                                    Height: =Max((CountIf(SelectedReviewItem.result,true) * 50), 200)
                                     LayoutAlignItems: =LayoutAlignItems.Stretch
                                     LayoutDirection: =LayoutDirection.Horizontal
                                     LayoutOverflowY: =LayoutOverflow.Scroll
@@ -578,8 +567,43 @@ Screens:
                                           Compact: =false
                                           Height: =Parent.Height
                                           Items: |-
-                                            =Search(AddColumns(SelectedReviewItem.result, StatusCol,If(status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass, "#76DB91", status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail, "#cc412f", "#333333"),
-                                            StatusIcon, If(status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass, "icon:SkypeCircleCheck", "icon:SkypeCircleMinus"), Action, "Details",RecordKey,patternName), txtSearch_5.Value, patternName, description)
+                                            =Search(
+                                                AddColumns(
+                                                  SelectedReviewItem.result ,
+                                                    StatusCol,
+                                                    Switch(status,
+                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Pass,
+                                                        "#76DB91",
+                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Fail,
+                                                        "#cc412f",
+                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Skipped,
+                                                        "#afafaf",
+                                                         'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
+                                                        "#f6894b",
+                                                          'PowerCAT.IntelligentReviewVisualizer.Status'.NotExecuted,
+                                                        "#afafaf",
+                                                        "#333333"
+                                                    ),
+                                                    StatusIcon,
+                                                    Switch(
+                                                        status,
+                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Pass,
+                                                        "icon:SkypeCircleCheck",
+                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Fail,
+                                                        "icon:StatusErrorFull",
+                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
+                                                        "icon:AlertSolid",
+                                                        "icon:StatusErrorFull"
+                                                    ),
+                                                    Action,
+                                                    "Details",
+                                                    RecordKey,
+                                                    patternName
+                                                ),
+                                                txtSearch_5.Value,
+                                                patternName,
+                                                description
+                                            )
                                           OnChange: |+
                                             =
                                             If(
@@ -609,7 +633,7 @@ Screens:
                                             ='PowerCAT.FluentDetailsList.SelectionType'.None
                                           Theme: =AppThemeJson
                                           Width: =Parent.Width - cGrid_4.PaddingLeft
-                                          columns_Items: "=Table(\r\n    {\r\n        ColName: \"StatusIcon\",\r\n        ColDisplayName: \"Status\",\r\n        ColWidth: 40,\r\n        ColSortable: false,\r\n        ColCellType: \"ClickableImage\",\r\n        ColImageWidth: 18,\r\n        ColImagePadding: 8,\r\n        ColVerticalAlign: \"Top\",\r\n        ColTagColorColumn:\"StatusCol\"\r\n  \r\n    },\r\n    {\r\n        ColName: \"patternName\",\r\n        ColDisplayName: \"Title\",\r\n        ColWidth: 250,\r\n        ColSortable: true,\r\n        ColResizable: true,\r\n        ColSortBy: \"Index\",\r\n        ColIsBold:true,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n    },\r\n    /*{\r\n        ColName: \"patternID\",\r\n        ColDisplayName: \"Title\",\r\n        ColWidth: 250,\r\n        ColSortable: true,\r\n        ColResizable: true,\r\n        ColSortBy: \"Index\",\r\n        ColIsBold:true,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n    },\r\n    {\r\n        ColName: \"failureReason\",\r\n        ColDisplayName: \"Comment\",\r\n        ColWidth: 200,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n\r\n    },*/\r\n    {\r\n        ColName: \"description\",\r\n        ColDisplayName: \"Description\",\r\n        ColWidth: Parent.Width - 450,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true,\r\n        ColIsBold:true\r\n\r\n    },\r\n    /*\r\n     {\r\n        ColName: \"status\",\r\n        ColDisplayName: \"Status\",\r\n        ColWidth: Parent.Width - 650,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n\r\n    },*/\r\n    {ColName:\"Action\",\r\n    ColDisplayName:\"\",ColWidth:100,ColCellType:\"link\"}\r\n)"
+                                          columns_Items: "=Table(\r\n    {\r\n        ColName: \"StatusIcon\",\r\n        ColDisplayName: \"Status\",\r\n        ColWidth: 40,\r\n        ColSortable: false,\r\n        ColCellType: \"ClickableImage\",\r\n        ColImageWidth: 18,\r\n        ColImagePadding: 8,\r\n        ColVerticalAlign: \"Top\",\r\n        ColTagColorColumn:\"StatusCol\"\r\n  \r\n    },\r\n    {\r\n        ColName: \"patternName\",\r\n        ColDisplayName: \"Title\",\r\n        ColWidth: 250,\r\n        ColSortable: true,\r\n        ColResizable: true,\r\n        ColSortBy: \"Index\",\r\n        ColIsBold:true,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n    },\r\n    /*{\r\n        ColName: \"patternID\",\r\n        ColDisplayName: \"Title\",\r\n        ColWidth: 250,\r\n        ColSortable: true,\r\n        ColResizable: true,\r\n        ColSortBy: \"Index\",\r\n        ColIsBold:true,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n    },\r\n    {\r\n        ColName: \"failureReason\",\r\n        ColDisplayName: \"Comment\",\r\n        ColWidth: 200,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n\r\n    },*/\r\n    {\r\n        ColName: \"description\",\r\n        ColDisplayName: \"Description\",\r\n        ColWidth: Parent.Width - 520,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true,\r\n        ColIsBold:true\r\n\r\n    },\r\n    /*\r\n     {\r\n        ColName: \"status\",\r\n        ColDisplayName: \"Status\",\r\n        ColWidth: Parent.Width - 650,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n\r\n    },*/\r\n    {ColName:\"Action\",\r\n    ColDisplayName:\"\",ColWidth:100,ColCellType:\"link\"}\r\n)"
                               - cBufferHub_2:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -630,13 +654,12 @@ Screens:
                               FillPortions: =0
                               LayoutDirection: =LayoutDirection.Vertical
                               LayoutGap: =20
-                              Width: =370
+                              Width: =320
                             Children:
                               - cCard_9:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
                                   Properties:
-                                    AlignInContainer: =AlignInContainer.Start
                                     Fill: =RGBA(255, 255, 255, 1)
                                     FillPortions: =0
                                     Height: =350
@@ -650,7 +673,7 @@ Screens:
                                     RadiusBottomRight: =8
                                     RadiusTopLeft: =8
                                     RadiusTopRight: =8
-                                    Width: =370
+                                    Width: =300
                                     X: =92
                                     Y: =-18
                                   Children:
@@ -704,8 +727,9 @@ Screens:
                                           Height: =230
                                           LayoutAlignItems: =LayoutAlignItems.Stretch
                                           LayoutDirection: =LayoutDirection.Vertical
-                                          LayoutGap: =8
+                                          LayoutGap: =2
                                           LayoutJustifyContent: =LayoutJustifyContent.Center
+                                          LayoutMinWidth: =200
                                           RadiusBottomLeft: =0
                                           RadiusBottomRight: =0
                                           RadiusTopLeft: =0
@@ -740,7 +764,7 @@ Screens:
                                                   )
                                                 Theme: =AppThemeJson
                                                 Title: =
-                                                Width: =250
+                                                Width: =180
                                                 Y: =58
                                     - rCardDivider_9:
                                         Control: Rectangle@2.3.0
@@ -758,7 +782,7 @@ Screens:
                                     FillPortions: =0
                                     LayoutDirection: =LayoutDirection.Vertical
                                     LayoutGap: =8
-                                    LayoutMinWidth: =370
+                                    LayoutMinWidth: =220
                                     PaddingBottom: =16
                                     PaddingLeft: =16
                                     PaddingRight: =16
@@ -822,6 +846,7 @@ Screens:
                                           LayoutDirection: =LayoutDirection.Vertical
                                           LayoutGap: =8
                                           LayoutMinHeight: =40
+                                          LayoutMinWidth: =200
                                           RadiusBottomLeft: =0
                                           RadiusBottomRight: =0
                                           RadiusTopLeft: =0

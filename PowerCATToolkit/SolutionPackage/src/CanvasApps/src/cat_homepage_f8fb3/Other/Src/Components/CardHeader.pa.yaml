@@ -9,22 +9,26 @@
 # ************************************************************************************************
 ComponentDefinitions:
   CardHeader:
+    DefinitionType: CanvasComponent
     CustomProperties:
       Image:
         PropertyKind: Input
         DisplayName: Image
         Description: A custom property
         DataType: Image
+        Default: =SampleImage
       InfoText:
         PropertyKind: Input
         DisplayName: Info text
         Description: A custom property
         DataType: Text
+        Default: ="Text"
       Text:
         PropertyKind: Input
         DisplayName: Text
         Description: A custom property
         DataType: Text
+        Default: ="Text"
     Properties:
       Height: =24
       Width: =290

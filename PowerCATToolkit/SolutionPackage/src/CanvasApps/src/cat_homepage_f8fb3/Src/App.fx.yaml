@@ -1,7 +1,10 @@
 App As appinfo:
     BackEnabled: =true
     Formulas: |-
-        =Pattern := Type({ cat_patternscore:Number, cat_patterndoclink:Text, cat_patternrecommendation:Text, cat_patterncategory:Text, cat_patterntype:Text, cat_patterndescription:Text,cat_patternseverity:Text});
+        =latestVersion = 2;
+        patternsVersionEnvVar = LookUp('Environment Variable Values','Environment Variable Definition'.'Schema Name' = "cat_RTVersion");
+        
+        Pattern := Type({ cat_patternscore:Number, cat_patterndoclink:Text, cat_patternrecommendation:Text, cat_patterncategory:Text, cat_patterntype:Text, cat_patterndescription:Text,cat_patternseverity:Text});
         
         
         Nav = Table({DisplayName:"Results", Screen:SolutionScreen} ,{DisplayName:"Dashboard", Screen:DashboardScreen, ItemKeyEnabled:false });
@@ -131,7 +134,12 @@ App As appinfo:
         );
     OnError: =
     OnStart: |-
-        =If(IsEmpty('Pattern Details'),
+        =If(IsBlank(patternsVersionEnvVar), Set(patternsVersion, 1), Set(patternsVersion ,Value(patternsVersionEnvVar.Value)));
+        
+        If(patternsVersion < latestVersion ,
+        RemoveIf('Pattern Details', true);
+        
+        //If(IsEmpty('Pattern Details'),
         Set(PatternDetails, Table( ParseJSON( RTResource.Patterns ).value ));
         ForAll(PatternDetails, 
         
@@ -168,91 +176,8 @@ App As appinfo:
             
             )
         );
-        
+        Environment.UpsertEnvironmentVariable({SchemaName:"cat_RTVersion",Value:latestVersion, Type:1})
         );
-        
-        ClearCollect(PatternDetailz, Table(
-            {
-                PatternType: "PowerAppsPattern",
-                PatternID: "app-AssetOptimization",
-                PatternName: "Asset Optimization",
-                PatternDescription: "Review embedded asset compression/size optimization. Validate apps respect limitations related to media and audio asset sizes.",
-                PatternDocLink: "",
-                PatternRecommendation: "Ensure that all files do not exceed 300KB file size. Please consider compressing the listed files.",
-                PatternSeverity: "Medium",
-                PatternCategory: "Performance",
-                PatternScore: 1,
-                PatternActive: true
-            },
-            {
-                PatternType: "PowerAppsPattern",
-                PatternID: "app-AppSettings",
-                PatternName: "App Settings flags",
-                PatternDescription: "Ensure that all necessary settings are enabled for optimal performance.",
-                PatternDocLink: "https://www.microsoft.com/en-us/power-platform/blog/power-apps/app-checker-now-includes-performance-optimization-tips/",
-                PatternRecommendation: "Please consider turning on the listed setting.",
-                PatternSeverity: "Medium",
-                PatternCategory: "Performance",
-                PatternScore: 1,
-                PatternActive: true
-            },
-            {
-                PatternType: "PowerAppsPattern",
-                PatternID: "app-Accessibility",
-                PatternName: "Accessibility",
-                PatternDescription: "Review accessibility checker. Notes: Alternate Text labels can reveal otherwise hidden media and context to users with disabilities. Use natural language text when naming screens to optimize results from screen readers.",
-                PatternDocLink: "https://docs.microsoft.com/power-apps/maker/canvas-apps/accessible-apps",
-                PatternRecommendation: "Please address the listed accessibility issues in failure reason.",
-                PatternSeverity: "High",
-                PatternCategory: "Accessibility",
-                PatternScore: 1,
-                PatternActive: true
-            },
-            {
-                PatternType: "FlowPattern",
-                PatternID: "flow-ConnectionReferences",
-                PatternDescription: "Check if all connection references are used and properly configured.",
-                PatternDocLink: "https://learn.microsoft.com/en-us/power-automate/connection-references",
-                PatternRecommendation: "Ensure all connection references are correctly configured and utilized.",
-                PatternSeverity: "",
-                PatternCategory: "",
-                PatternScore: 1,
-                PatternActive: true
-            },
-            {
-                PatternType: "FlowPattern",
-                PatternID: "flow-UnusedVariables",
-                PatternDescription: "Check for unused variable in the flow.",
-                PatternDocLink: "https://learn.microsoft.com/en-us/power-automate/best-practices",
-                PatternRecommendation: "Remove any variable(s) that are declared but not used.",
-                PatternSeverity: "",
-                PatternCategory: "",
-                PatternScore: 1,
-                PatternActive: true
-            },
-            {
-                PatternType: "BotPattern",
-                PatternID: "bot-DuplicateQueries",
-                PatternDescription: "This pattern checks for overlapping trigger phrases between topics. If multiple topics have similar or identical phrases, it flags them to avoid conflicts in bot behavior.",
-                PatternDocLink: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#1",
-                PatternRecommendation: "Ensure no overlapping trigger queries across topics.",
-                PatternSeverity: "",
-                PatternCategory: "",
-                PatternScore: 1,
-                PatternActive: true
-            },
-            {
-                PatternType: "BotPattern",
-                PatternID: "bot-SingleWordPhrases",
-                PatternDescription: "This pattern identifies single-word trigger phrases, recommending the use of multi-word phrases for more accurate and meaningful responses.",
-                PatternDocLink: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/trigger-phrases-best-practices#3",
-                PatternRecommendation: "Ensure all trigger phrases are more than one word.",
-                PatternSeverity: "",
-                PatternCategory: "",
-                PatternScore: 1,
-                PatternActive: true
-            }
-        ));
         
         Concurrent(
             Set(FlexOff, 0);
