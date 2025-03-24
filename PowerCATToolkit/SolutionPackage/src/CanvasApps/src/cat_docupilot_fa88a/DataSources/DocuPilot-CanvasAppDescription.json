@@ -1,0 +1,77 @@
+[
+  {
+    "DataBoundServiceDataSetName": "default.cds",
+    "DataBoundServiceFunctionNamesKey": [
+      "Predict-202502.2.4.1"
+    ],
+    "DataBoundServiceOperationGroupNameKey": "AIBuilder\\cc45d602-5fef-4f7e-9b17-34fa627ac02b",
+    "DataBoundServiceRawMetadata": {
+      "Input": {
+        "Attributes": {
+          "additionalContext": {
+            "Attributes": null,
+            "IsCollection": false,
+            "RequiredAttributes": null,
+            "SchemaName": null,
+            "Title": "AdditionalContext",
+            "Type": "string/byte"
+          },
+          "ScreenDescriptions": {
+            "Attributes": null,
+            "IsCollection": false,
+            "RequiredAttributes": null,
+            "SchemaName": null,
+            "Title": "ScreenDescriptions",
+            "Type": "string"
+          }
+        },
+        "RequiredAttributes": [
+          "ScreenDescriptions"
+        ]
+      },
+      "Output": {
+        "Attributes": {
+          "FinishReason": {
+            "Attributes": null,
+            "IsCollection": false,
+            "RequiredAttributes": null,
+            "SchemaName": null,
+            "Title": "Finish Reason",
+            "Type": "string"
+          },
+          "StructuredOutput": {
+            "Attributes": {
+              "appDescription": {
+                "Attributes": null,
+                "IsCollection": false,
+                "RequiredAttributes": null,
+                "SchemaName": null,
+                "Title": "appDescription",
+                "Type": "string"
+              }
+            },
+            "IsCollection": false,
+            "RequiredAttributes": null,
+            "SchemaName": null,
+            "Title": "",
+            "Type": "object"
+          },
+          "Text": {
+            "Attributes": null,
+            "IsCollection": false,
+            "RequiredAttributes": null,
+            "SchemaName": null,
+            "Title": "Text",
+            "Type": "string"
+          }
+        }
+      },
+      "Source": true,
+      "TemplateName": "GptPowerPrompt"
+    },
+    "DataBoundSourceDataSourceName": "43b0dc67-68af-47ae-9a9c-9e69d396ba3e",
+    "Name": "DocuPilot-CanvasAppDescription",
+    "ServiceKind": "DataBound",
+    "Type": "ServiceInfo"
+  }
+]

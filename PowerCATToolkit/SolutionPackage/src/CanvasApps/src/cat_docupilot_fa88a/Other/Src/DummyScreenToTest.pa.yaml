@@ -1,0 +1,536 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  DummyScreenToTest:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - DocPreview1_1:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.DocPreview
+          Properties:
+            DisabledPreview: =
+            EnableTyping: =
+            Height: =App.Height
+            InputEvent: =
+            Items: =ConfigurationCollection
+            LatencyMessage: =latencyMessage
+            OnBackClick: =Navigate('Home Screen')
+            OnConfigChange: |-
+              =Set(
+                  SelectedKeys,
+                  ForAll(
+                      Split(Self.SelectedConfigValue, ","),
+                      Trim(Value)
+                  )
+              );
+              Notify(Self.SelectedConfigValue);
+              // Step 2: Loop over all records and set visibility based on key presence
+              ForAll(
+                  DummySolutionDetailsDataset,
+                  Patch(
+                      DummySolutionDetailsDataset,
+                      ThisRecord,
+                      {
+                          SolutionDetailItemVisible: ThisRecord.SolutionDetailItemKey in SelectedKeys
+                      }
+                  )
+              );
+            RecordID: =
+            SolutionDetails_Items: =DummySolutionDetailsDataset
+            Width: =App.Width
+      - ButtonCanvas2:
+          Control: Button@0.0.44
+          Properties:
+            OnSelect: |-
+              =ClearCollect(
+                  DummySolutionDetailsDataset, Blank())
+            Text: ="Show Blank"
+            Width: =152
+            X: =385
+            Y: =25
+      - ButtonCanvas1:
+          Control: Button@0.0.44
+          Properties:
+            Height: =33
+            OnSelect: |+
+              =//Prepare Configration Collection
+              ClearCollect(ConfigurationCollection,Table(
+                  {
+                      ConfigItemValue: DocumentSectionString.Overview,
+                      ConfigItemDisplayName: OverviewSection.DisplayName,
+                      ConfigItemParentValue: Blank(),
+                      ConfigItemChecked: true
+                  },
+                  {
+                      ConfigItemValue: DocumentSectionString.SolutionDetails,
+                      ConfigItemDisplayName: SolutionDetails.DisplayName,
+                      ConfigItemParentValue: DocumentSectionString.Overview,
+                      ConfigItemChecked: true
+                  },
+                  {
+                      ConfigItemValue: DocumentSectionString.SolutionOverview,
+                      ConfigItemDisplayName: SolutionOverview.DisplayName,
+                      ConfigItemParentValue: DocumentSectionString.Overview,
+                      ConfigItemChecked: true
+                  },
+                  {
+                      ConfigItemValue: DocumentSectionString.ArchitectureDiagram,
+                      ConfigItemDisplayName: ArchitectureDiagramSection.DisplayName,
+                      ConfigItemParentValue: DocumentSectionString.Overview,
+                      ConfigItemChecked: true
+                  },
+                  {
+                      ConfigItemValue: DocumentSectionString.Prerequisites,
+                      ConfigItemDisplayName: PrerequisitesSection.DisplayName,
+                      ConfigItemParentValue: DocumentSectionString.Overview,
+                      ConfigItemChecked: true
+                  },
+                  {
+                      ConfigItemValue: DocumentSectionString.UXAndAutomations,
+                      ConfigItemDisplayName: UXAndAutomationsSection.DisplayName,
+                      ConfigItemParentValue: Blank(),
+                      ConfigItemChecked: false
+                  }));
+
+              ClearCollect(
+                  DummySolutionDetailsDataset,
+                  Table(
+                      {
+                          SolutionDetailItemKey: "SolutionOverview",
+                          SolutionDetailItemDisplayName: "Solution Overview",
+                          SolutionDetailItemValue: { overview: "The Copilot Studio Kit is a comprehensive set of capabilities designed to help makers test agents, validate AI-generated content, track Agent KPIs, and design advanced functionalities through a user-friendly interface." },
+                          SolutionDetailItemVisible: true,
+                          SolutionDetailItemHTML: 
+                              "<h1 id='SolutionOverview' style='font-size: 26px; font-weight: bold; color: #0078d4;'>📖 Solution Overview</h1>
+                              <p>The Copilot Studio Kit helps makers build and test AI-powered agents effectively.</p>"
+                      },
+                       {
+                          SolutionDetailItemKey: "SolutionDetails",
+                          SolutionDetailItemDisplayName: "",
+                          SolutionDetailItemValue: {solutionOverview:{displayName: "Test"}},
+                          SolutionDetailItemVisible: false,
+                          SolutionDetailItemHTML: ""
+                      },        
+                      {
+                          SolutionDetailItemKey: DocumentSectionString.ArchitectureDiagram,
+                          SolutionDetailItemDisplayName: "",
+                          SolutionDetailItemValue: Blank(),
+                          SolutionDetailItemVisible: !IsEmpty(Mermaid2PngSolutionDiagram_1.MermaidPNG),
+                          SolutionDetailItemHTML: "<h2 style='font-size: 20px; font-weight: 600; color: #0078d4;'>Solution Diagram</h2><div class='solutiondiagram'>" & 
+                              Concat(
+                                  Mermaid2PngSolutionDiagram_1.MermaidPNG,
+                                  Substitute(
+                                      Substitute(
+                                          Value,
+                                          "visibility:hidden", 
+                                          ""
+                                      ),
+                                      "<img",
+                                      "<br/><img width='650' height='400'"
+                                  )
+                              ) 
+                      },
+                      {
+                          SolutionDetailItemKey: "Tables",
+                          SolutionDetailItemDisplayName: "Dataverse Tables",
+                          SolutionDetailItemValue: { tables: "Agent Transcripts, Chatbot Style, Agent Configuration, Copilot Studio Kit Logs" },
+                          SolutionDetailItemVisible: true,
+                          SolutionDetailItemHTML:
+                              "<h2 id='Tables' style='font-size: 22px; font-weight: bold; color: #0078d4;'>Dataverse Tables</h2>
+                              <ul>
+                                  <li>Agent Transcripts</li>
+                                  <li>Chatbot Style</li>
+                                  <li>Agent Configuration</li>
+                                  <li>Copilot Studio Kit Logs</li>
+                              </ul>"
+                      },
+                      {
+                          SolutionDetailItemKey: "Flows",
+                          SolutionDetailItemDisplayName: "Power Automate Flows",
+                          SolutionDetailItemValue: { flows: "Adaptive Card Account Summary, Adaptive Card Approval Request, Adaptive Card Order Confirmation" },
+                          SolutionDetailItemVisible: true,
+                          SolutionDetailItemHTML:
+                              "<h2 id='Flows' style='font-size: 22px; font-weight: bold; color: #0078d4;'>Power Automate Flows</h2>
+                              <ul>
+                                  <li>Adaptive Card Account Summary</li>
+                                  <li>Adaptive Card Approval Request</li>
+                                  <li>Adaptive Card Order Confirmation</li>
+                              </ul>"
+                      }
+                  )
+              );
+            Text: ="Show HTML"
+            Width: =171
+            X: =174
+            Y: =25
+      - Mermaid2PngSolutionDiagram_1:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.Mermaid2Png
+          Properties:
+            MermaidCode: |-
+              ={mermaidCode:[
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ",
+                  "graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  ","graph TB;
+                      classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;
+
+                      subgraph Solution['Adaptive Cards']
+                          style Solution stroke-width:0px;
+                          subgraph AppCluster['PowerApps']
+                              style AppCluster fill:#f5f5f5,stroke-width:0px;
+                              App0['Adaptive Cards']:::CanvasApps
+                          end
+
+                          subgraph TableCluster['Dataverse Tables']
+                              style TableCluster fill:#edfaf1,stroke-width:0px;
+                              Table0_0['cat_copilotcards']
+                              Table0_1['environmentvariabledefinitions']
+                              Table0_2['environmentvariablevalues']
+                              Table0_3['bots']
+                              Table0_4['canvasapps']
+                              Table0_5['botcomponents']
+                          end
+
+                          App0 -->|depends on| Table0_0
+                          App0 -->|depends on| Table0_1
+                          App0 -->|depends on| Table0_2
+                          App0 -->|depends on| Table0_3
+                          App0 -->|depends on| Table0_4
+                          App0 -->|depends on| Table0_5
+                      end
+                  "
+              ]}
+            X: =60
+            Y: =372
+      - ButtonCanvas3:
+          Control: Button@0.0.44
+          Properties:
+            OnSelect: =UpdateContext({varTimerStart:false});UpdateContext({varTimerStart:true}); Set(CurrentTimerStep,0);
+            X: =32
+            Y: =112
+      - TimerChangeTypingEffect_1:
+          Control: Timer@2.1.0
+          Properties:
+            AutoPause: =false
+            BorderColor: =RGBA(0, 120, 212, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            Duration: |-
+              =Switch(
+                  CurrentTimerStep,
+                  1, 2000,    
+                  2, 5500,    
+                  3, 9900,    
+                  13000         
+              )
+            Fill: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnTimerEnd: |+
+              =Switch(
+                  CurrentTimerStep,
+                  0,
+                  UpdateContext({latencyMessage:"✨ Using Generative AI to understand the solution..."}),
+                  1,
+                  UpdateContext({latencyMessage:"📖 Unpacking and understanding the Apps..."}),
+                  2,
+                  UpdateContext({latencyMessage:"🔍 Taking a closer look at Flows "}),
+                  3,
+                  UpdateContext({latencyMessage:"✨ Using Generative AI to understand the solution..."});
+              );
+
+              // Then increment (if not done)
+              If(
+                  CurrentTimerStep < 3,
+                  Set(CurrentTimerStep, CurrentTimerStep + 1);
+                  UpdateContext({varTimerStart: false});
+                  UpdateContext({varTimerStart: true});
+              )
+
+            OnTimerStart: |-
+              =UpdateContext({varEnableTypingEffect:true});
+              /*If(!varTimerReset,
+              ClearCollect(
+                          SolutionDetailsDataset,
+                          {
+                              SolutionDetailItemKey: "information",
+                              SolutionDetailItemDisplayName: "",
+                              SolutionDetailItemValue: Blank(),
+                              SolutionDetailItemVisible: true,
+                              SolutionDetailItemHTML: "<h2 style='font-size: 26px; font-weight: bold;color: #0078d4;'>📖 Unpacking and understanding the Apps :</h2><br/>"
+                          }));*/
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Repeat: =
+            Size: =10.5
+            Start: =varTimerStart
+            X: =1204
+            Y: =700
+      - TextCanvas1:
+          Control: Text@0.0.50
+          Properties:
+            Text: =CurrentTimerStep
+            X: =128
+            Y: =199

@@ -7,7 +7,7 @@
     },
     "DocVersion": "1.345",
     "MinVersionToLoad": "1.331",
-    "MSAppStructureVersion": "2.0"
+    "MSAppStructureVersion": "2.4.0"
   },
   "Properties": {
     "AppCopilotSchemaName": "",
@@ -50,6 +50,7 @@
       "enableeditinmcs": true,
       "enableexcelonlinebusinessv2connector": true,
       "enableideaspanel": true,
+      "enableideaspanelbyexample": false,
       "enablelegacybarcodescanner": false,
       "enablelegacydatatable": false,
       "enableonstart": true,
@@ -141,6 +142,7 @@
   },
   "ScreenOrder": [
     "Home Screen",
-    "DocumentGeneratorScreen"
+    "DocumentGeneratorScreen",
+    "DummyScreenToTest"
   ]
 }

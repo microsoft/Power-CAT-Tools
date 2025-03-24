@@ -32,23 +32,38 @@
     },
     {
       "Kind": "Page",
-      "Name": "Overview",
-      "Value": "custompage:cat_overview_3dbf5"
+      "Name": "App-FlowRelationship1",
+      "Value": "custompage:cat_appflowrelationship1_fd925"
     },
     {
       "Kind": "Page",
-      "Name": "Dataverse Actions Page",
-      "Value": "custompage:cat_dataverseactiondetailspage_eec36"
+      "Name": "App-FlowRelationship",
+      "Value": "custompage:cat_appflowrelationship_da5bf"
     },
     {
       "Kind": "Page",
-      "Name": "Prompt Advisor Page",
-      "Value": "custompage:msdyn_promptadvisor_3ada1"
+      "Name": "Prompt Advisor Studio",
+      "Value": "custompage:cat_promptadvisorstudio_6e1ce"
     },
     {
       "Kind": "Page",
-      "Name": "Dataverse Actions Page - Prompt Advisor Preview",
-      "Value": "custompage:cat_dataverseactionspagepromptadvisorpreview_96f1d"
+      "Name": "Conversation KPI",
+      "Value": "custompage:cat_conversationkpi_6082b"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Adaptive Cards",
+      "Value": "custompage:cat_adaptivecards_4476e"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Webchat Customizer",
+      "Value": "custompage:cat_webchatcustomizer_48d6e"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Home",
+      "Value": "custompage:cat_home_c8017"
     }
   ]
 }
