@@ -15,6 +15,7 @@ App As appinfo:
                 Color: "#c7d3fc"
             }
         ];
+        LoaderValue = ["Processing your solution..." ,"Reading the solution..." ,"Extracting key details...", "Almost there..." ];
         
         pageTitle= "Solution Documentation";
         pageSubtext = "A native tool for documenting Power Platform solutions using generative AI";
@@ -53,11 +54,12 @@ App As appinfo:
         
         DocumentSectionString = {
             Overview: "Overview",
-            SolutionDetails: "SolutionDetails",
+            SolutionDetails: "SolutionDetail",
             SolutionOverview: "SolutionOverview",
             ArchitectureDiagram: "ArchitectureDiagram",
             Prerequisites: "Prerequisites",
             UXAndAutomations: "UXAndAutomations",
+            DatanSecurity: "DatanSecurity",
             Reporting: "Reporting",
             ConnectionReferences: "ConnectionReferences",
             MaintenanceKPIs: "MaintenanceKPIs",
@@ -69,7 +71,9 @@ App As appinfo:
             CustomAPI: "CustomAPI",
             CustomControls: "CustomControls",
             Securityrole: "Securityrole",
-            Plugins: "Plugins"
+            Plugins: "Plugins",
+            AIModel: "AIModel",
+            Summary:"Summary"
         };
         
         DocumentSection = Table(
@@ -79,6 +83,7 @@ App As appinfo:
             { Value: DocumentSectionString.ArchitectureDiagram, DisplayName: "Architecture Diagram" },
             { Value: DocumentSectionString.Prerequisites, DisplayName: "Prerequisites" },
             { Value: DocumentSectionString.UXAndAutomations, DisplayName: "UX and Automations" },
+            { Value: DocumentSectionString.DatanSecurity, DisplayName: "Data and Security" },
             { Value: DocumentSectionString.Reporting, DisplayName: "Reporting" },
             { Value: DocumentSectionString.ConnectionReferences, DisplayName: "Connection References" },
             { Value: DocumentSectionString.MaintenanceKPIs, DisplayName: "Maintenance KPIs" },
@@ -86,21 +91,27 @@ App As appinfo:
             { Value: DocumentSectionString.Tables, DisplayName: "Tables" },
             { Value: DocumentSectionString.CustomAPI, DisplayName: "CustomAPI" },
             { Value: DocumentSectionString.Securityrole, DisplayName: "Security Role" },
-            { Value: DocumentSectionString.Plugins, DisplayName: "Plugins" }
+            { Value: DocumentSectionString.Plugins, DisplayName: "Plugins" },
+            { Value: DocumentSectionString.AIModel, DisplayName: "AI Model" },
+            { Value: DocumentSectionString.Summary, DisplayName: "Summary" }
         );
         
         // Pre-fetch Document Section and Solution Component LookUp values
         OverviewSection = LookUp(DocumentSection, Value = DocumentSectionString.Overview);
+        SolutionDetails = LookUp(DocumentSection, Value = DocumentSectionString.SolutionDetails);
         SolutionOverview = LookUp(DocumentSection, Value = DocumentSectionString.SolutionOverview);
         ArchitectureDiagramSection = LookUp(DocumentSection, Value = DocumentSectionString.ArchitectureDiagram);
         PrerequisitesSection = LookUp(DocumentSection, Value = DocumentSectionString.Prerequisites);
         UXAndAutomationsSection = LookUp(DocumentSection, Value = DocumentSectionString.UXAndAutomations);
+        DatanSecuritySection = LookUp(DocumentSection, Value = DocumentSectionString.DatanSecurity);
         ConnectionReferencesSection = LookUp(DocumentSection, Value = DocumentSectionString.ConnectionReferences);
         EntityRelationshipSection = LookUp(DocumentSection, Value = DocumentSectionString.EntityRelationship);
         TableSection = LookUp(DocumentSection, Value = DocumentSectionString.Tables);
         CustomAPISection = LookUp(DocumentSection, Value = DocumentSectionString.CustomAPI);
         SecurityRoleSection = LookUp(DocumentSection, Value = DocumentSectionString.Securityrole);
         PluginsSection = LookUp(DocumentSection, Value = DocumentSectionString.Plugins);
+        AIModelSection = LookUp(DocumentSection, Value = DocumentSectionString.AIModel);
+        Summary = LookUp(DocumentSection, Value = DocumentSectionString.Summary);
         
         /*AppsComponent = LookUp(SolutionComponent, Value = "Apps");
         FlowsComponent = LookUp(SolutionComponent, Value = "Flows");

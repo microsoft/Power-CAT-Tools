@@ -1,0 +1,256 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  DocumentGeneratorScreen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnVisible: |-
+        =Concurrent(
+            UpdateContext(
+                {
+                    solutionName: Blank(),
+                    varDisablePreview: true
+                }
+            ),
+            Clear(ConfigurationCollection),
+            Clear(SolutionDetailsDataset)
+        );
+        Set(CurrentTimerStep, 0); // To track which duration we are on
+        Set(MaxTimerSteps, 3);    // Total number of runs
+    Children:
+      - TimerChangeTypingEffect:
+          Control: Timer@2.1.0
+          Properties:
+            AutoPause: =false
+            BorderColor: =RGBA(0, 120, 212, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            Duration: |-
+              =Switch(
+                  CurrentTimerStep,
+                  0, 3000,  
+                  1, CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.canvasApps)*500 + 3000,    
+                  2, CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.canvasApps)*500 + CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.workflows)*800 + 3000,   
+                  3, CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.canvasApps)*500 + CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.workflows)*800 + 15000,    
+                  CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.canvasApps)*500 + CountRows(IntelligentReviewVisualizer1_6.SolutionDetails.workflows)*800 + 28000         
+              )
+            Fill: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnTimerEnd: |+
+              =Switch(
+                  CurrentTimerStep,
+                  0,
+                  UpdateContext({latencyMessage:"✨ Using Generative AI to understand the solution..."}),
+                  1,
+                  UpdateContext({latencyMessage:"📖 Unpacking and understanding the Apps..."}),
+                  2,
+                  UpdateContext({latencyMessage:"🔍 Taking a closer look at Flows... "}),
+                  3,
+                  UpdateContext({latencyMessage:"📑 Almost there..."});
+              );
+
+              // Then increment (if not done)
+              If(
+                  CurrentTimerStep < 3,
+                  Set(CurrentTimerStep, CurrentTimerStep + 1);
+                  UpdateContext({varTimerStart: false});
+                  UpdateContext({varTimerStart: true});
+              )
+
+            OnTimerStart: |-
+              =UpdateContext({varEnableTypingEffect:true});
+              /*If(!varTimerReset,
+              ClearCollect(
+                          SolutionDetailsDataset,
+                          {
+                              SolutionDetailItemKey: "information",
+                              SolutionDetailItemDisplayName: "",
+                              SolutionDetailItemValue: Blank(),
+                              SolutionDetailItemVisible: true,
+                              SolutionDetailItemHTML: "<h2 style='font-size: 26px; font-weight: bold;color: #0078d4;'>📖 Unpacking and understanding the Apps :</h2><br/>"
+                          }));*/
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Repeat: =
+            Size: =10.5
+            Start: =varTimerStart
+            X: =1204
+            Y: =700
+      - TimerChangeScrLoadMsg:
+          Control: Timer@2.1.0
+          Properties:
+            AutoStart: =true
+            BorderColor: =RGBA(0, 120, 212, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            Duration: =15000
+            Fill: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnTimerEnd: =Set(CurrentLoaderMessage, Last(FirstN(LoaderValue, Rand() * CountRows(LoaderValue) + 1)))
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Repeat: =true
+            Size: =10.5
+            X: =1184
+            Y: =680
+      - Mermaid2PngSolutionDiagram:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.Mermaid2Png
+          Properties:
+            MermaidCode: "={mermaidCode:FirstN(IntelligentReviewVisualizer1_6.SolutionDetails.mermaidSolutionArchitectureExpressions,10)}\n\n/*\"\n%%{init: {'theme': 'neutral'}}%%\ngraph TB;\n classDef CanvasApps fill:#e7bfcf, stroke-width:0px,font-size: 24px;\n \n    subgraph TestSolution[\"\"Copilot Studio Kit\"\"]\n        style TestSolution stroke-width:0px\n        subgraph AppCluster[\"\"PowerApps\"\"]\n            style AppCluster fill:#f5f5f5,stroke-width:0px;\n            App0[\"\"Webchat Playground\"\"]:::CanvasApps\n            App1[\"\"Adaptive Cards\"\"]:::CanvasApps\n            App2[\"\"Conversation KPI\"\"]:::CanvasApps\n        end\n \n        subgraph FlowCluster[\"\"Power Automate\"\"]\n            style FlowCluster fill:#edf5fa,stroke-width:0px;\n            Flow0[\"\"Adaptive Card Account Summary\"\"]\n            Flow1[\"\"Adaptive Card Approval Request\"\"]\n            Flow2[\"\"Adaptive Card Approval Request Change Id\"\"]\n        end\n \n        subgraph TableCluster[\"\"Dataverse Tables\"\"]\n            style TableCluster fill:#edfaf1,stroke-width:0px;\n            Table0[\"\"cat_AgentTranscripts\"\"]\n            Table1[\"\"cat_ChatbotStyle\"\"]\n            Table2[\"\"cat_CopilotCard\"\"]\n        end\n        App0 -->|depends on| Flow0\n        App0 -->|depends on| Flow1\n        App0 -->|depends on| Flow2\n        App0 -->|depends on| Table0\n        App0 -->|depends on| Table1\n        App0 -->|depends on| Table2\n        Table2 -->|depends on| Flow2\n    end\n    \"*/"
+            OnChange: |-
+              = ClearCollect(TemporarySolutionDetailsDataset, SolutionDetailsDataset);
+               ClearCollect(SolutionDetailsDataset, Blank());
+                ClearCollect(SolutionDetailsDataset, TemporarySolutionDetailsDataset);
+            X: =52
+            Y: =336
+      - Mermaid2PngERDiagram:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.Mermaid2Png
+          Properties:
+            MermaidCode: ={mermaidCode:[IntelligentReviewVisualizer1_6.SolutionDetails.mermaidERDiagramExpression]}
+            X: =52
+            Y: =466
+      - IntelligentReviewVisualizer1_6:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.IntelligentReviewVisualizer
+          Properties:
+            ChooseButtonTitle: ="Upload Solution"
+            ExtractSolutionDetails: =true
+            Height: =20
+            HideUserInterface: =true
+            InputEvent: =varStartReview
+            OnReviewComplete: "=// Identify & Isolated valid and non-repetitive solution extraction\r\nIf(!IsBlank(Self.SolutionDetails) && Self.SolutionDetails.solutionOverview.uniqueName <> solutionName,\r\nUpdateContext({varDisablePreview: true,showSaveLoader: false,varEnableTypingEffect:true, solutionName:Self.SolutionDetails.solutionOverview.uniqueName});\r\nSet(CurrentTimerStep, 0);\r\nUpdateContext({varTimerStart:false});\r\nUpdateContext({varTimerStart:true});\r\n// Show type of activity on the UI\r\n//Prepare Configration Collection\r\nCollect(ConfigurationCollection,Table(\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Overview,\r\n        ConfigItemDisplayName: OverviewSection.DisplayName,\r\n        ConfigItemParentValue: Blank(),\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.SolutionOverview,\r\n        ConfigItemDisplayName: SolutionOverview.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.SolutionDetails,\r\n        ConfigItemDisplayName: SolutionDetails.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.ArchitectureDiagram,\r\n        ConfigItemDisplayName: ArchitectureDiagramSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Prerequisites,\r\n        ConfigItemDisplayName: PrerequisitesSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemDisplayName: UXAndAutomationsSection.DisplayName,\r\n        ConfigItemParentValue: Blank(),\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemDisplayName: DatanSecuritySection.DisplayName,\r\n        ConfigItemParentValue: Blank(),\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Summary,\r\n        ConfigItemDisplayName: Summary.DisplayName,\r\n        ConfigItemParentValue: Blank(),\r\n        ConfigItemChecked: true\r\n    }));\r\nIf(!IsEmpty(Self.SolutionDetails.canvasApps),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Apps,\r\n        ConfigItemDisplayName: DocumentSectionString.Apps,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: true\r\n    }));\r\nIf(!IsEmpty(Self.SolutionDetails.workflows),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Flows,\r\n        ConfigItemDisplayName: DocumentSectionString.Flows,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: true\r\n    }));\r\nIf(!IsEmpty(Self.SolutionDetails.plugins),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Plugins,\r\n        ConfigItemDisplayName: DocumentSectionString.Plugins,\r\n        ConfigItemParentValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemChecked: true\r\n    }));\r\nIf(!IsEmpty(Self.SolutionDetails.codeComponents),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.CustomControls,\r\n        ConfigItemDisplayName: DocumentSectionString.CustomControls,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: true\r\n    })););\r\nIf(!IsEmpty(Self.SolutionDetails.tables),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Tables,\r\n        ConfigItemDisplayName: TableSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemChecked: true\r\n    }\r\n));\r\nIf(!IsBlank(Trim(IntelligentReviewVisualizer1_6.SolutionDetails.mermaidERDiagramExpression)) && CountRows(Self.SolutionDetails.tables) < 25,\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.EntityRelationship,\r\n        ConfigItemDisplayName: EntityRelationshipSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemChecked: true\r\n    }\r\n));\r\nIf(!IsEmpty(Self.SolutionDetails.customApis),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.CustomAPI,\r\n        ConfigItemDisplayName: CustomAPISection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemChecked: true\r\n    }\r\n));\r\nIf(!IsEmpty(Self.SolutionDetails.aiModels),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.AIModel,\r\n        ConfigItemDisplayName: AIModelSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemChecked: true\r\n    }\r\n));\r\nIf(!IsEmpty(Self.SolutionDetails.securityRoles),\r\nCollect(ConfigurationCollection,\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Securityrole,\r\n        ConfigItemDisplayName: SecurityRoleSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.DatanSecurity,\r\n        ConfigItemChecked: true\r\n    }\r\n));\r\n\r\nUpdateContext(\r\n    { \r\n        varSolutionArchitectureDiagram:  Blank(),\r\n        varERDiagram: Blank()\r\n    }\r\n);\r\nClear(AllAppDetails);\r\nClear(FlowCollection);\r\n\r\n/*\r\nClearCollect(\r\n    SolutionDetailsDataset,\r\n    Table(\r\n        {\r\n            SolutionDetailItemKey: \"information\",\r\n            SolutionDetailItemDisplayName: \"\",\r\n            SolutionDetailItemValue: Blank(),\r\n            SolutionDetailItemVisible: true,\r\n            SolutionDetailItemHTML: \"<h2 id='overview' style='font-size: 26px; font-weight: bold; color: #0078d4;'>Looking for PowerApps and PowerAutomate...</h2>\"\r\n        }));\r\n*/\r\n// Limit the screen count to 30, so that, the input text does not exceeds the limit for the custom prompt   \r\n/*ClearCollect(\r\n            SolutionDetailsDataset,\r\n            {\r\n                SolutionDetailItemKey: \"information\",\r\n                SolutionDetailItemDisplayName: \"\",\r\n                SolutionDetailItemValue: Blank(),\r\n                SolutionDetailItemVisible: true,\r\n                SolutionDetailItemHTML: \"<h2 style='font-size: 26px; font-weight: bold; color: #0078d4;'>Unpacking and understanding the Apps :</h2>\"\r\n            });*/\r\n// Timer to stop the typing effect\r\n  \r\nIfError(\r\n    ForAll(\r\n        Self.SolutionDetails.canvasApps,\r\n        With(\r\n            {\r\n                currentAppName: appName,\r\n                screenSummary:\r\n                    If(\r\n                        !IsEmpty(screens),\r\n                        ForAll(\r\n                            screens,\r\n                            If(\r\n                                !IsBlank(Trim(ThisRecord.screenYaml)),\r\n                                'DocuPilot-CanvasAppScreenDescription'.Predict(JSON(ThisRecord, JSONFormat.Compact)).StructuredOutput,\r\n                                {\r\n                                    screenName: ThisRecord.screenName,\r\n                                    screenDescription: \"Screen description is not available. The YAML representation of this canvas screen might be missing. Please re-export the solution from an early release environment.\"\r\n                                }\r\n                            )\r\n                        ),\r\n                        Table({\r\n                            screenName: \"Unknown\",\r\n                            screenDescription: \"No screens found in this app. Please re-export the solution from an early release environment.\"\r\n                        })\r\n                    )\r\n            },\r\n            Collect(\r\n                AllAppDetails,\r\n                {\r\n                    appName: currentAppName,\r\n                    appDescription: 'DocuPilot-CanvasAppDescription'.Predict(JSON(FirstN(screenSummary,40), JSONFormat.Compact)).StructuredOutput.appDescription,\r\n                    screenSummary: screenSummary\r\n                }\r\n            )\r\n        )\r\n    ),\r\nClearCollect(AllAppDetails, Blank())); // If an error occurs, return Blank()\r\n /*\r\nClearCollect(SolutionDetailsDataset,\r\n                {\r\n                    SolutionDetailItemKey: \"information\",\r\n                    SolutionDetailItemDisplayName: \"\",\r\n                    SolutionDetailItemValue: Blank(),\r\n                    SolutionDetailItemVisible: true,\r\n                    SolutionDetailItemHTML: \"<h2 style='font-size: 26px; font-weight: bold; color: #0078d4;'> \U0001F50D Taking a closer look at Flows:</h2><br/>\"\r\n                });*/\r\nIfError(ForAll(\r\n        Filter(Self.SolutionDetails.workflows, category = \"Modern Flow\"),\r\n        With(\r\n            {\r\n                flowDetails: 'DocuPilot-GetEachFlowSummary'.Predict(\r\n                    JSON(ThisRecord, JSONFormat.Compact)\r\n                ).StructuredOutput\r\n            },\r\n            If(\r\n                !IsBlank(flowDetails),\r\n                Collect(\r\n                    FlowCollection,\r\n                    {\r\n                        Name: flowDetails.Name,\r\n                        Description: flowDetails.Description,\r\n                        Actions: flowDetails.Actions,\r\n                        Triggers: flowDetails.Triggers\r\n                    }\r\n                )\r\n            )\r\n        )\r\n    ),\r\n    Clear(FlowCollection));\r\n\r\n// Temporarily store the solution details HTML in a collection to be used to generate the technical design document\r\nClearCollect(\r\n    TemporarySolutionDetailsDataset,\r\n    Table(\r\n        {\r\n            SolutionDetailItemKey: \"SolutionDetails\",\r\n            SolutionDetailItemDisplayName: \"\",\r\n            SolutionDetailItemValue: Self.SolutionDetails,\r\n            SolutionDetailItemVisible: false,\r\n            SolutionDetailItemHTML: \"\"\r\n        },\r\n        {\r\n    SolutionDetailItemKey: DocumentSectionString.SolutionDetails,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { solutionoverview: \"\" },\r\n    SolutionDetailItemVisible: !IsBlank(Self.SolutionDetails.solutionOverview),\r\n    SolutionDetailItemHTML: \"\r\n        <h2 id='\" & DocumentSectionString.SolutionDetails & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Solution Details</h2><br/>\r\n        <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='text-align: left; padding: 8px;width:200px; border: 1px solid #0078d4;'>Property</th>\r\n                <th style='text-align: left; padding: 8px;width:500px; border: 1px solid #0078d4;'>Value</th>\r\n            </tr>\r\n            <tr>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'><strong>Solution Name</strong></td>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & Coalesce(Self.SolutionDetails.solutionOverview.displayName, \"N/A\") & \"</td>\r\n            </tr>\r\n            <tr>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'><strong>Unique Name</strong></td>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & Coalesce(Self.SolutionDetails.solutionOverview.uniqueName, \"N/A\") & \"</td>\r\n            </tr>\r\n            <tr>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'><strong>Description</strong></td>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & If(!IsBlank(Self.SolutionDetails.solutionOverview.description), Self.SolutionDetails.solutionOverview.description, \"No description provided.\") & \"</td>\r\n            </tr>\r\n             <tr>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'><strong>Solution Type</strong></td>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & Coalesce(Self.SolutionDetails.solutionOverview.solutionType, \"N/A\") & \"</td>\r\n            </tr>\r\n            <tr>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'><strong>Version</strong></td>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & Coalesce(Self.SolutionDetails.solutionOverview.version, \"N/A\") & \"</td>\r\n            </tr>\r\n        </table></div><br/>\"\r\n},{\r\n    SolutionDetailItemKey: DocumentSectionString.ArchitectureDiagram,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: Blank(),\r\n    SolutionDetailItemVisible: !IsBlank(First(Mermaid2PngSolutionDiagram.MermaidPNG).Value),\r\n    SolutionDetailItemHTML: \"<br/><h2 id='\" & DocumentSectionString.ArchitectureDiagram & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Solution Diagram</h2><br/><div class='solutiondiagram'>\" & \r\n        Concat(\r\n            Mermaid2PngSolutionDiagram.MermaidPNG,\r\n                Substitute(\r\n                    Value,\r\n                    \"visibility:hidden\", \r\n                    \"\"\r\n                )\r\n        ) & \r\n    \"</div>\"\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.Prerequisites,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { powerAutomate: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.environmentVariables) || !IsEmpty(Self.SolutionDetails.connectionReferences),\r\n    SolutionDetailItemHTML: \r\n\"<br/><h2 id='\" & DocumentSectionString.Prerequisites & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Pre-requisites</h2><br/>\" &\r\n\r\nIf(\r\n    !IsEmpty(Self.SolutionDetails.environmentVariables),\r\n    \"\r\n    <h3 style='color: #0078d4;'>Environment Variables</h3><br/>\r\n    <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n    <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n        <tr style='background-color: #0078d4; color: white;'>\r\n            <th style='text-align: left; padding: 8px;width:200px; border: 1px solid #0078d4;'>Name</th>\r\n            <th style='text-align: left; padding: 8px;width:500px; border: 1px solid #0078d4;'>Description</th>\r\n        </tr>\" &\r\n        Concat(\r\n            Self.SolutionDetails.environmentVariables,\r\n            \"<tr>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & ThisRecord.displayName & \"</td>\r\n                <td style='padding: 8px; border: 1px solid #0078d4;'>\" & If(!IsBlank(ThisRecord.description), ThisRecord.description, \"No description provided.\") & \"</td>\r\n            </tr>\"\r\n        ) &\r\n    \"</table></div><br/>\",\r\n    \"\"\r\n) &\r\n\r\nIf(\r\n    !IsEmpty(Self.SolutionDetails.connectionReferences),\r\n    \"\r\n    <h3 style='color: #0078d4;'>Connection References</h3><br/>\r\n    <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n    <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n        <tr style='background-color: #0078d4; color: white;'>\r\n            <th style='text-align: left; padding: 8px; border: 1px solid #0078d4;'>Display Name</th>\r\n            <th style='text-align: left; padding: 8px; border: 1px solid #0078d4;'>Logical Name</th>\r\n        </tr>\" &\r\n        Concat(\r\n            Self.SolutionDetails.connectionReferences,\r\n            \"<tr>\r\n                <td style='padding: 8px;width:350px; border: 1px solid #0078d4;'>\" & ThisRecord.DisplayName & \"</td>\r\n                <td style='padding: 8px;width:350px; border: 1px solid #0078d4;'>\" & ThisRecord.LogicalName & \"</td>\r\n            </tr>\"\r\n        ) &\r\n    \"</table></div><br/>\",\r\n    \"\"\r\n)\r\n},\r\n    {\r\n        SolutionDetailItemKey: DocumentSectionString.UXAndAutomations,\r\n        SolutionDetailItemDisplayName: \"\",\r\n        SolutionDetailItemValue:  { ux: \"\"},\r\n        SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.UXAndAutomations, Self.SelectedConfigValue)),\r\n        SolutionDetailItemHTML: \"<br/><h1  id='ux-automation' style='font-size: 30px; font-weight: bold; color: #0078d4;'>User Experience and Automations</h1><br/>\" // Used to generate navigation header\r\n    },\r\n    {\r\n    SolutionDetailItemKey: DocumentSectionString.Apps,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { canvasApps: Blank() },\r\n    SolutionDetailItemVisible: !IsEmpty(AllAppDetails),\r\n    SolutionDetailItemHTML: \r\n    \"<h2 id='\" & DocumentSectionString.Apps & \"' style='font-size: 20px; font-weight: bold; color: #0078d4;'>Canvas Apps / Custom Pages</h2><br/>\" &\r\n    Concat(\r\n        AllAppDetails,\r\n        \"<h3 style='font-size: 14px; color: #0078d4;'>\" & appName & \":</h3><br/>\" &\r\n        \"<p><strong>Description:</strong> \" & appDescription & \"</p><br/>\" &\r\n        \"<h4 style='font-size: 16px; color: #0078d4;'>Screens</h4><br/>\" &\r\n        Concat(\r\n            screenSummary,\r\n            \"<h5 style='font-size: 14px;'>\" & screenName & \"</h5>\" &\r\n            \"<p><strong>Description:</strong> \" &screenDescription &\r\n            \"</p><br/>\"\r\n        )\r\n    )\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.Flows,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { powerAutomate: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(FlowCollection),\r\n    SolutionDetailItemHTML: \"\r\n    <br/><h2 id='\" & DocumentSectionString.Flows & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Power Automate</h2>\r\n    <br/>\r\n    <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='text-align: left; padding: 8px;width:150px; border: 1px solid #0078d4;'>Flow Name</th>\r\n                <th style='text-align: left; padding: 8px;width:270px; border: 1px solid #0078d4;'>Description</th>\r\n                <th style='text-align: left; padding: 8px;width:100px; border: 1px solid #0078d4;'>Triggers</th>\r\n                <th style='text-align: left; padding: 8px;width:180px; border: 1px solid #0078d4;'>Actions</th>\r\n            </tr>\r\n            \" & Concat(\r\n                FlowCollection,\r\n                \"<tr>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.Name & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & \r\n                        If(!IsBlank(ThisRecord.Description), ThisRecord.Description, \"No description provided.\") & \r\n                    \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\r\n                        <ul style='padding-left: 16px; margin: 0;'>\" &\r\n                            Concat(ThisRecord.Triggers, \"<li>\" & ThisRecord.item & \"</li>\") &\r\n                        \"</ul>\r\n                    </td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\r\n                        <ul style='padding-left: 16px; margin: 0;'>\" &\r\n                            Concat(ThisRecord.Actions, \"<li>\" & ThisRecord.item & \"</li>\") &\r\n                        \"</ul>\r\n                    </td>\r\n                </tr>\"\r\n            ) & \"\r\n        </table>\r\n    </div>\r\n    <br/>\"\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.CustomControls,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { customcontrols: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.codeComponents),\r\n    SolutionDetailItemHTML: \"\r\n         <br/><h2 id='\" & DocumentSectionString.CustomControls & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Custom Controls</h2> <br/>\r\n        <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='padding: 8px; border: 1px solid #0078d4;'>Name</th>\r\n                <th style='padding: 8px; border: 1px solid #0078d4;'>Description</th>\r\n                <th style='padding: 8px; border: 1px solid #0078d4;'>Version</th>\r\n            </tr>\r\n            \" & Concat(\r\n                Self.SolutionDetails.codeComponents,\r\n                \"<tr>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.displayName & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.description & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.version & \"</td>\r\n                </tr>\"\r\n            ) & \"\r\n        </table></div>\"\r\n}, \r\n{\r\n        SolutionDetailItemKey: DocumentSectionString.DatanSecurity,\r\n        SolutionDetailItemDisplayName: \"\",\r\n        SolutionDetailItemValue:  { datansecurity: \"\"},\r\n        SolutionDetailItemVisible: true,//!IsBlank(Find(DocumentSectionString.UXAndAutomations, Self.SelectedConfigValue)),\r\n        SolutionDetailItemHTML: \"<br/><h1  id='\" &DocumentSectionString.DatanSecurity& \"' style='font-size: 30px; font-weight: bold; color: #0078d4;'>Data and Security</h1><br/>\" // Used to generate navigation header\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.Plugins,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { plugin: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.plugins),\r\n    SolutionDetailItemHTML: \"\r\n         <br/><h2 id='\" & DocumentSectionString.Plugins & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Plugins</h2> <br/>\r\n         <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='padding: 8px; border: 1px solid #0078d4;'>Plugin Name</th>\r\n            </tr>\r\n            \" & Concat(\r\n                Self.SolutionDetails.plugins,\r\n                \"<tr>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4;'>\" & ThisRecord.Name & \"</td>\r\n                </tr>\"\r\n            ) & \"\r\n        </table></div>\"\r\n}, \r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.Tables,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { table: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.tables),\r\n    SolutionDetailItemHTML: \"\r\n        <br/> <h2 id='\" & DocumentSectionString.Tables & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Tables</h2> <br/>\r\n        <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='padding: 8px;width: 150px;border: 1px solid #0078d4;'>Table Name</th>\r\n                <th style='padding: 8px;width: 300px;border: 1px solid #0078d4;'>Description</th>\r\n                <th style='padding: 8px;width: 200px;border: 1px solid #0078d4;'>Fields</th>\r\n            </tr>\r\n            \" & Concat(\r\n                Self.SolutionDetails.tables,\r\n                \"<tr>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.DisplayName & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.Description & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\r\n                        <ul style='padding-left: 16px; margin: 0;'>\" & \r\n                            Concat(ThisRecord.Fields, \"<li>\" & Name & \"</li>\") & \"\r\n                        </ul>\r\n                    </td>\r\n                </tr>\"\r\n            ) & \"\r\n        </table></div>\"\r\n}, \r\n\r\n   {\r\n    SolutionDetailItemKey: DocumentSectionString.EntityRelationship,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { erDiagram: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Mermaid2PngERDiagram.MermaidPNG) && CountRows(Self.SolutionDetails.tables) < 25,\r\n    SolutionDetailItemHTML: \r\n        \" <br/><h2 id='\" & DocumentSectionString.EntityRelationship & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Entity Relationship Diagram</h2> <br/>\r\n        <div class='erdiagram'>\"  & \r\n        Concat(\r\n            Mermaid2PngERDiagram.MermaidPNG,\r\n                Substitute(\r\n                    Value,\r\n                    \"visibility:hidden\", \r\n                    \"\"\r\n                )\r\n        ) & \r\n    \"</div>\"\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.CustomAPI,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { customapi: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.customApis),\r\n    SolutionDetailItemHTML: \"\r\n         <br/><h2 id='\" & DocumentSectionString.CustomAPI & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Custom APIs</h2> <br/>\r\n        <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='padding: 8px;width:150px; border: 1px solid #0078d4;'>Name</th>\r\n                <th style='padding: 8px;width:390px; border: 1px solid #0078d4;'>Description</th>\r\n                <th style='padding: 8px;width:90px; border: 1px solid #0078d4;'>Is Function</th>\r\n                <th style='padding: 8px;width:70px; border: 1px solid #0078d4;'>Is Private</th>\r\n            </tr>\r\n            \" & Concat(\r\n                Self.SolutionDetails.customApis,\r\n                \"<tr>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.displayName & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.description & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & If(ThisRecord.isFunction, \"Yes\", \"No\") & \"</td>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4'>\" & If(ThisRecord.isPrivate, \"Yes\", \"No\") & \"</td>\r\n                </tr>\"\r\n            ) & \"\r\n        </table></div>\"\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.AIModel,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { aiModel: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.aiModels),\r\n    SolutionDetailItemHTML:\r\n        \"<br/><h2 id='\" & DocumentSectionString.AIModel & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>AI Model(s)</h2><br/>\" &\r\n        \"<div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\" &\r\n            \"<tr style='background-color: #0078d4; color: white;'>\" &\r\n                \"<th style='padding: 8px; border: 1px solid #0078d4;'>Model Name</th>\" &\r\n                \"<th style='padding: 8px; border: 1px solid #0078d4;'>Model Type</th>\" &\r\n            \"</tr>\" &\r\n            Concat(\r\n                Self.SolutionDetails.aiModels,\r\n                \"<tr>\" &\r\n                    \"<td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.Name & \"</td>\" &\r\n                    \"<td style='padding: 8px; border: 1px solid #0078d4'>\" & ThisRecord.Model & \"</td>\" &\r\n                \"</tr>\"\r\n            ) &\r\n        \"</table></div>\"\r\n},\r\n{\r\n    SolutionDetailItemKey: DocumentSectionString.Securityrole,\r\n    SolutionDetailItemDisplayName: \"\",\r\n    SolutionDetailItemValue: { securityroles: \"\" },\r\n    SolutionDetailItemVisible: !IsEmpty(Self.SolutionDetails.securityRoles),\r\n    SolutionDetailItemHTML: \"\r\n         <br/><h2 id='\" & DocumentSectionString.Securityrole & \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Security Role(s)</h2> <br/>\r\n        <div style='max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;'>\r\n        <table style='width: 100%; border-collapse: collapse; border: 1px solid #0078d4;'>\r\n            <tr style='background-color: #0078d4; color: white;'>\r\n                <th style='padding: 8px; border: 1px solid #0078d4;'>Role Name</th>\r\n            </tr>\r\n            \" & Concat(\r\n                Self.SolutionDetails.securityRoles,\r\n                \"<tr>\r\n                    <td style='padding: 8px; border: 1px solid #0078d4;'>\" & ThisRecord.name & \"</td>\r\n                </tr>\"\r\n            ) & \"\r\n        </table></div>\"\r\n}\r\n));\r\nUpdateContext(\r\n    { overviewsummaryResults: 'DocupilotOverviewSummary_v1'.Predict(\r\n        Concat(\r\n            Filter(\r\n                TemporarySolutionDetailsDataset,\r\n                Not(SolutionDetailItemKey in [DocumentSectionString.ArchitectureDiagram, DocumentSectionString.EntityRelationship]) // Exclude specific keys representing image to limit characters\r\n            ),\r\n            SolutionDetailItemHTML & \" \"\r\n        )\r\n    ).StructuredOutput });\r\n    \r\nIf(\r\n    IsError(overviewsummaryResults),\r\n    UpdateContext({ varOveriewSummary: Blank() }), \r\n    UpdateContext({ varOveriewSummary: overviewsummaryResults })\r\n);\r\nClear(SolutionDetailsDataset);\r\nUpdateContext({latencyMessage:\"\"});\r\n// Generate document's overview & summary based on the information/html collected so far\r\nCollect(SolutionDetailsDataset,   \r\n        // This first item is to provide all the information necessary related to solution details for the doc preview component\r\n        // It is important to set the visibility to false and set -{ SolutionDetailItemKey: \"SolutionDetails\"}\r\n        Table(\r\n            {\r\n            SolutionDetailItemKey: \"SolutionDetails\",\r\n            SolutionDetailItemDisplayName: \"\",\r\n            SolutionDetailItemValue: Self.SolutionDetails,\r\n            SolutionDetailItemVisible: false,//!IsBlank(Find(DocumentSectionString.Overview, Self.SelectedConfigValue)),\r\n            SolutionDetailItemHTML: \"\"\r\n        },\r\n        {\r\n            SolutionDetailItemKey: \"SolutionDocumentTitle\",\r\n            SolutionDetailItemDisplayName: \"\",\r\n            SolutionDetailItemValue: { overview: \"\"},\r\n            SolutionDetailItemVisible: true,\r\n            SolutionDetailItemHTML: \"<h1 style='font-size: 34px;font-weight: 700; margin: 10px 0;color: #0078d4;line-height: 1.2; font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;'>Technical Design Document for \"&Self.SolutionDetails.solutionOverview.displayName&\"</h1><br/>\"\r\n        },  \r\n        {\r\n            SolutionDetailItemKey: DocumentSectionString.Overview,\r\n            SolutionDetailItemDisplayName: \"\",\r\n            SolutionDetailItemValue: { overview: \"\"},\r\n            SolutionDetailItemVisible: !IsBlank(varOveriewSummary),\r\n             SolutionDetailItemHTML: \r\n                \"<h1 id='\" & DocumentSectionString.Overview & \"' style='font-size: 24px; font-weight: bold; color: #0078d4;'>Overview</h1><br/>\r\n                <div class='overview'>\r\n                    <span>\"&varOveriewSummary.overview&\"</span>\r\n                </div><br/>\"\r\n }));\r\n // Using temporary dataset to readjust order\r\n // TODO: Make order as one of the key to define sort order\r\n Collect(SolutionDetailsDataset,  TemporarySolutionDetailsDataset );\r\n Collect(SolutionDetailsDataset,  {\r\n            SolutionDetailItemKey: DocumentSectionString.Summary,\r\n            SolutionDetailItemDisplayName: \"\",\r\n            SolutionDetailItemValue: { summary: \"\"},\r\n            SolutionDetailItemVisible: !IsBlank(varOveriewSummary),\r\n             SolutionDetailItemHTML: \r\n           \"<br/><h1 id='\"&DocumentSectionString.Summary& \"' style='font-size: 20px; font-weight: 600; color: #0078d4;'>Summary</h1><br/>\r\n        <p>\r\n            \" & If(!IsBlank(varOveriewSummary.summary), varOveriewSummary.summary, \"No summary available.\") & \"\r\n        </p><br/>\"\r\n });\r\n ClearCollect(TemporarySolutionDetailsDataset, SolutionDetailsDataset);\r\n ClearCollect(SolutionDetailsDataset, Blank());\r\n ClearCollect(SolutionDetailsDataset, TemporarySolutionDetailsDataset);\r\nUpdateContext({varDisablePreview: false,varEnableTypingEffect:false, showFlair:\"ShowFlair\"&Rand()});"
+            ReviewSolution: =false
+            SolutionFile: =varRequestRecord.'Solution Zip'
+            SolutionName: =varRequestRecord.'Solution Name'
+            Width: =226
+            X: =788
+            Y: =148
+      - DocPreview1:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.DocPreview
+          Properties:
+            DisabledPreview: =varDisablePreview
+            EnableTyping: =varEnableTypingEffect
+            Height: =App.Height
+            InputEvent: =showFlair
+            Items: =ConfigurationCollection
+            LatencyMessage: =latencyMessage
+            OnBackClick: =Navigate('Home Screen')
+            OnConfigChange: |+
+              =Set(
+                  SelectedKeys,
+                  ForAll(
+                      Split(Self.SelectedConfigValue, ","),
+                      Trim(Value)
+                  )
+              );
+
+              // Step 2: Loop over all records and set visibility based on key presence
+              If(
+                  IsBlank(Self.SelectedConfigValue),
+                  // Case 1: No config selected – hide all items
+                  ForAll(
+                      SolutionDetailsDataset,
+                      Patch(
+                          SolutionDetailsDataset,
+                          ThisRecord,
+                          { SolutionDetailItemVisible: false }
+                      )
+                  ),
+                  // Case 2: Config selected – apply filtering logic
+                  With(
+                      {
+                          SelectedKeys: ForAll(
+                              Split(Self.SelectedConfigValue, ","),
+                              Trim(Value)
+                          )
+                      },
+                      ForAll(
+                          SolutionDetailsDataset,
+                          Patch(
+                              SolutionDetailsDataset,
+                              ThisRecord,
+                              {
+                                  SolutionDetailItemVisible:
+                                      SolutionDetailItemKey in SelectedKeys &&
+                                      !IsBlank(
+                                          LookUp(
+                                              ConfigurationCollection,
+                                              ConfigItemValue = SolutionDetailItemKey
+                                          )
+                                      )
+                              }
+                          )
+                      )
+                  )
+              );
+              // Default section and header should remain selected
+              Patch(SolutionDetailsDataset,
+                              LookUp(SolutionDetailsDataset, SolutionDetailItemKey = "SolutionDocumentTitle"),
+                              {
+                                  SolutionDetailItemVisible:true
+                              }
+                          );
+
+              If(!IsBlank(Self.SelectedConfigValue),
+              Patch(SolutionDetailsDataset,
+                              LookUp(SolutionDetailsDataset, SolutionDetailItemKey = DocumentSectionString.UXAndAutomations),
+                              {
+                                  SolutionDetailItemVisible:true
+                              }
+                          );
+
+              Patch(SolutionDetailsDataset,
+                              LookUp(SolutionDetailsDataset, SolutionDetailItemKey = DocumentSectionString.Overview),
+                              {
+                                  SolutionDetailItemVisible:true
+                              }
+                          );
+              Patch(SolutionDetailsDataset,
+                              LookUp(SolutionDetailsDataset, SolutionDetailItemKey = DocumentSectionString.DatanSecurity),
+                              {
+                                  SolutionDetailItemVisible:true
+                              }
+                          ));
+
+            RecordID: =varRequestRecord.'DocuPilot Document Generation Request'
+            SolutionDetails_Items: =SolutionDetailsDataset
+            Width: =App.Width
+      - cSpinner_6:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorValue("#fafafa")
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            Visible: =showSaveLoader
+            Width: =Parent.Width
+          Children:
+            - Spinner1_8:
+                Control: Spinner@1.4.5
+                Properties:
+                  Height: =Parent.Height
+                  Label: =If(IsBlank(CurrentLoaderMessage.Value),"Reading Solution",CurrentLoaderMessage.Value)
+                  SpinnerSize: ='Spinner.SpinnerSize'.Large
+                  Visible: =showSaveLoader
+                  Width: =Parent.Width

@@ -5,6 +5,7 @@
   "DocPreview_Display_Key": "DocPreview",
   "DocPreview_EnableTyping_Display_Key": "Enable Typing",
   "DocPreview_InputEvent_Display_Key": "Input Event",
+  "DocPreview_LatencyMessage_Display_Key": "Latency Message",
   "DocPreview_RecordID_Display_Key": "Record ID",
   "DocPreview_SolutionDetails": "Solution Details",
   "DocPreview_SolutionDetails_Display_Key": "Solution Details",

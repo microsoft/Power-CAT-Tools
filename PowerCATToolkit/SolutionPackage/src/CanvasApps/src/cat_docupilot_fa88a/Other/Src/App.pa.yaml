@@ -1,0 +1,285 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+App:
+  Properties:
+    Formulas: "=AppTypeStyles=[\r\n    {\r\n        AppTypeKey: \"Copilot\",\r\n        Color: \"#ffe5a3\"\r\n    },\r\n    {\r\n        AppTypeKey: \"Canvas\",\r\n        Color: \"#ecd2f7\"\r\n    },\r\n    {\r\n        AppTypeKey: \"PowerAutomate\",\r\n        Color: \"#c7d3fc\"\r\n    }\r\n];\r\nLoaderValue = [\"Processing your solution...\" ,\"Reading the solution...\" ,\"Extracting key details...\", \"Almost there...\" ];\r\n\r\npageTitle= \"Solution Documentation\";\r\npageSubtext = \"A native tool for documenting Power Platform solutions using generative AI\";\r\n\r\n/* Add formulas here */\r\nListItems = SortByColumns(AddColumns(Filter(\r\n            'DocuPilot Document Generation Requests', 'Document Status' =\r\n            'Document Status (DocuPilot Document Generation Requests)'.Complete \r\n        ),\r\n        Icon, \"https://static2.sharepointonline.com/files/fabric/assets/item-types/16/docx.svg\",\r\n        SolutionName, 'Solution Name',\r\n        DocumentName, 'Solution Document'.FileName,\r\n        DocumentOwner, 'Owning User'.'Full Name',\r\n        LastModified, 'Modified On',\r\n        SolutionDocument,'Solution Document',\r\n        HTMLDataset, 'Document HTML Dataset'\r\n    ), \"modifiedon\",SortOrder.Descending);\r\n/* Navigation */\r\n// Displayed on top Nav; if not using delete these and the topnav controls\r\nFeatureName = \"Feature Name\";\r\n\r\n//Nav = Table({DisplayName:\"Home\", Screen:HubLandingScreen},{DisplayName:\"Feature home\", Screen:FeatureLandingScreen},{DisplayName:\"Dashboard\", Screen:DashboardScreen},{DisplayName:\"List items\", Screen:ListScreen},{DisplayName:\"Details\", Screen:FormScreen});\r\n\r\n\r\n//FilterItems = Table({Value:\"All\"},Distinct(Samples, Category));\r\n\r\n\r\n// Solution Component\r\n\r\nSolutionComponent = Table(\r\n    { Value: \"Apps\", DisplayName: \"Apps\" },\r\n    { Value: \"Flows\", DisplayName: \"Flows\" },\r\n    { Value: \"Agents\", DisplayName: \"Agents\" },\r\n    { Value: \"PluginsAndCustomAPIs\", DisplayName: \"Plugins and Custom APIs\" }\r\n);\r\n\r\nDocumentSectionString = {\r\n    Overview: \"Overview\",\r\n    SolutionDetails: \"SolutionDetail\",\r\n    SolutionOverview: \"SolutionOverview\",\r\n    ArchitectureDiagram: \"ArchitectureDiagram\",\r\n    Prerequisites: \"Prerequisites\",\r\n    UXAndAutomations: \"UXAndAutomations\",\r\n    DatanSecurity: \"DatanSecurity\",\r\n    Reporting: \"Reporting\",\r\n    ConnectionReferences: \"ConnectionReferences\",\r\n    MaintenanceKPIs: \"MaintenanceKPIs\",\r\n    Apps: \"Apps\",\r\n    Flows: \"Flows\",\r\n    Agents: \"Agents\",\r\n    Tables: \"Tables\",\r\n    EntityRelationship: \"EntityRelationship\",\r\n    CustomAPI: \"CustomAPI\",\r\n    CustomControls: \"CustomControls\",\r\n    Securityrole: \"Securityrole\",\r\n    Plugins: \"Plugins\",\r\n    AIModel: \"AIModel\",\r\n    Summary:\"Summary\"\r\n};\r\n\r\nDocumentSection = Table(\r\n    { Value: DocumentSectionString.Overview, DisplayName: \"Overview\" },\r\n    { Value: DocumentSectionString.SolutionDetails, DisplayName: \"Solution Details\" },\r\n    { Value: DocumentSectionString.SolutionOverview, DisplayName: \"Solution Overview\" },\r\n    { Value: DocumentSectionString.ArchitectureDiagram, DisplayName: \"Architecture Diagram\" },\r\n    { Value: DocumentSectionString.Prerequisites, DisplayName: \"Prerequisites\" },\r\n    { Value: DocumentSectionString.UXAndAutomations, DisplayName: \"UX and Automations\" },\r\n    { Value: DocumentSectionString.DatanSecurity, DisplayName: \"Data and Security\" },\r\n    { Value: DocumentSectionString.Reporting, DisplayName: \"Reporting\" },\r\n    { Value: DocumentSectionString.ConnectionReferences, DisplayName: \"Connection References\" },\r\n    { Value: DocumentSectionString.MaintenanceKPIs, DisplayName: \"Maintenance KPIs\" },\r\n    { Value: DocumentSectionString.EntityRelationship, DisplayName: \"EntityRelationship Diagram\" },\r\n    { Value: DocumentSectionString.Tables, DisplayName: \"Tables\" },\r\n    { Value: DocumentSectionString.CustomAPI, DisplayName: \"CustomAPI\" },\r\n    { Value: DocumentSectionString.Securityrole, DisplayName: \"Security Role\" },\r\n    { Value: DocumentSectionString.Plugins, DisplayName: \"Plugins\" },\r\n    { Value: DocumentSectionString.AIModel, DisplayName: \"AI Model\" },\r\n    { Value: DocumentSectionString.Summary, DisplayName: \"Summary\" }\r\n);\r\n\r\n// Pre-fetch Document Section and Solution Component LookUp values\r\nOverviewSection = LookUp(DocumentSection, Value = DocumentSectionString.Overview);\r\nSolutionDetails = LookUp(DocumentSection, Value = DocumentSectionString.SolutionDetails);\r\nSolutionOverview = LookUp(DocumentSection, Value = DocumentSectionString.SolutionOverview);\r\nArchitectureDiagramSection = LookUp(DocumentSection, Value = DocumentSectionString.ArchitectureDiagram);\r\nPrerequisitesSection = LookUp(DocumentSection, Value = DocumentSectionString.Prerequisites);\r\nUXAndAutomationsSection = LookUp(DocumentSection, Value = DocumentSectionString.UXAndAutomations);\r\nDatanSecuritySection = LookUp(DocumentSection, Value = DocumentSectionString.DatanSecurity);\r\nConnectionReferencesSection = LookUp(DocumentSection, Value = DocumentSectionString.ConnectionReferences);\r\nEntityRelationshipSection = LookUp(DocumentSection, Value = DocumentSectionString.EntityRelationship);\r\nTableSection = LookUp(DocumentSection, Value = DocumentSectionString.Tables);\r\nCustomAPISection = LookUp(DocumentSection, Value = DocumentSectionString.CustomAPI);\r\nSecurityRoleSection = LookUp(DocumentSection, Value = DocumentSectionString.Securityrole);\r\nPluginsSection = LookUp(DocumentSection, Value = DocumentSectionString.Plugins);\r\nAIModelSection = LookUp(DocumentSection, Value = DocumentSectionString.AIModel);\r\nSummary = LookUp(DocumentSection, Value = DocumentSectionString.Summary);\r\n\r\n/*AppsComponent = LookUp(SolutionComponent, Value = \"Apps\");\r\nFlowsComponent = LookUp(SolutionComponent, Value = \"Flows\");\r\nAgentsComponent = LookUp(SolutionComponent, Value = \"Agents\");\r\nPluginsComponent = LookUp(SolutionComponent, Value = \"PluginsAndCustomAPIs\");\r\nCustomControlsComponent = LookUp(SolutionComponent, Value = \"CustomControls\");*/\r\n\r\n// Create Configuration Collection\r\n/*ConfigurationCollections = Table(\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Overview,\r\n        ConfigItemDisplayName: OverviewSection.DisplayName,\r\n        ConfigItemParentValue: Blank(),\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.SolutionDetails,\r\n        ConfigItemDisplayName: SolutionDetailsSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.ArchitectureDiagram,\r\n        ConfigItemDisplayName: ArchitectureDiagramSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.Prerequisites,\r\n        ConfigItemDisplayName: PrerequisitesSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.Overview,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemDisplayName: UXAndAutomationsSection.DisplayName,\r\n        ConfigItemParentValue: Blank(),\r\n        ConfigItemChecked: false\r\n    },\r\n    {\r\n        ConfigItemValue: AppsComponent.Value,\r\n        ConfigItemDisplayName: AppsComponent.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: true\r\n    },\r\n    {\r\n        ConfigItemValue: FlowsComponent.Value,\r\n        ConfigItemDisplayName: FlowsComponent.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: false\r\n    },\r\n    {\r\n        ConfigItemValue: AgentsComponent.Value,\r\n        ConfigItemDisplayName: AgentsComponent.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: false\r\n    },\r\n    {\r\n        ConfigItemValue: PluginsComponent.Value,\r\n        ConfigItemDisplayName: PluginsComponent.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: false\r\n    },\r\n    {\r\n        ConfigItemValue: CustomControlsComponent.Value,\r\n        ConfigItemDisplayName: CustomControlsComponent.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: false\r\n    },\r\n    {\r\n        ConfigItemValue: DocumentSectionString.ConnectionReferences,\r\n        ConfigItemDisplayName: ConnectionReferencesSection.DisplayName,\r\n        ConfigItemParentValue: DocumentSectionString.UXAndAutomations,\r\n        ConfigItemChecked: false\r\n    }\r\n);*/\r\n\r\n\r\nSampleMermaidSolutionDiagramExpression = \"\r\n    C4Context\r\n        title Power Platform Architecture\r\n        \r\n        Person(EndUser, \"\"End User\"\", \"\"Interacts with Power Apps and Power BI\"\")\r\n        \r\n        System_Boundary(PowerPlatform, \"\"Microsoft Power Platform\"\") {\r\n            System(PowerApps, \"\"Power Apps\"\", \"\"Low-code applications for business solutions\"\")\r\n            System(PowerAutomate, \"\"Power Automate\"\", \"\"Workflow automation engine\"\")\r\n            System(PowerBI, \"\"Power BI\"\", \"\"Business Intelligence and reporting\"\")\r\n            System(Dataverse, \"\"Dataverse\"\", \"\"Common Data Service for data storage and management\"\")\r\n        }\r\n        \r\n        System_Ext(ExternalSystem, \"\"External API\"\", \"\"Third-party services (e.g., Salesforce, SAP, Azure Services)\"\")\r\n        System_Ext(SharePoint, \"\"SharePoint\"\", \"\"Microsoft 365 Content Management\"\")\r\n\r\n        BiRel(EndUser, PowerApps, \"\"Uses\"\")\r\n        BiRel(EndUser, PowerBI, \"\"Views Reports and Dashboards\"\")\r\n        BiRel(PowerApps, PowerAutomate, \"\"Triggers automated workflows\"\")\r\n        BiRel(PowerApps, Dataverse, \"\"Reads and Writes Data\"\")\r\n        BiRel(PowerAutomate, ExternalSystem, \"\"Connects via APIs\"\")\r\n        BiRel(PowerAutomate, SharePoint, \"\"Uploads and Reads Documents\"\")\r\n        BiRel(PowerBI, Dataverse, \"\"Extracts and Visualizes Data\"\")\r\n        BiRel(Dataverse, ExternalSystem, \"\"Integrates via Connectors\"\")\r\n\";\r\n\r\n\r\nSampleMermaidERDiagram =   \"\r\n    erDiagram direction LR\r\n        CustomerTable {\r\n            int CustomerID PK\r\n            string Name\r\n            string Email\r\n            string Phone\r\n            string Address\r\n            string PurchaseHistory\r\n        }\r\n        \r\n        EmployeesTable {\r\n            int EmployeeID PK\r\n            string Name\r\n            string Role\r\n            string Email\r\n            string Phone\r\n            string Department\r\n        }\r\n        \r\n        OrdersTable {\r\n            int OrderID PK\r\n            int CustomerID FK\r\n            int ProductID FK\r\n            date OrderDate\r\n            string Status\r\n            int Quantity\r\n            float TotalAmount\r\n        }\r\n        \r\n        ProductsTable {\r\n            int ProductID PK\r\n            string ProductName\r\n            string Description\r\n            float Price\r\n            int StockQuantity\r\n        }\r\n        \r\n        InventoryTable {\r\n            int InventoryID PK\r\n            int ProductID FK\r\n            int StockCount\r\n            int ReorderPoint\r\n        }\r\n        \r\n        %% Relationships\r\n        CustomerTable ||--o{ OrdersTable : \"\"has orders\"\"\r\n        OrdersTable }o--|| ProductsTable : \"\"contains products\"\"\r\n        ProductsTable ||--o{ InventoryTable : \"\"tracks products\"\"\r\n\";\r\n\r\n/* Do not edit below */\r\n\r\n/* Responsive properties */\r\nMargins = App.ActiveScreen.Width * 0.05; //Min( App.ActiveScreen.Width * 0.05, 32 );\r\n\r\n//* Grid calculations *//\r\n\r\n// Viewport presets\r\n// Edit presets based on design (leave as-is for Defaults)\r\n// - PARAM: numCols (Int) - Count of columns for the viewport\r\n// - PARAM: gutterWidth - Width (in pixels) of the gutters for the viewport\r\nviewportPresets = Table({\r\n    size: ScreenSize.Small,\r\n    numCols: 3,\r\n    gutterWidth: 16\r\n},{\r\n    size: ScreenSize.Medium,\r\n    numCols: 6,\r\n    gutterWidth: 16\r\n},{\r\n    size: ScreenSize.Large,\r\n    numCols: 6,\r\n    gutterWidth: 16\r\n},{\r\n    size: ScreenSize.ExtraLarge,\r\n    numCols: 9,\r\n    gutterWidth: 24\r\n});\r\n\r\n/* Do not modify below this point */\r\ncontentSize = Min((App.ActiveScreen.Width-(Margins*2)),1920);\r\n// Number of columns determined by viewport\r\nnumCols = Index( viewportPresets, App.ActiveScreen.Size).numCols;\r\n// Gutter width presets\r\nGutters = Index( viewportPresets, App.ActiveScreen.Size).gutterWidth;\r\n// Column width is calculated for flexible layout \r\ncolWidth = With({ numGutters : numCols - 1}, (Min((App.ActiveScreen.Width-(Margins*2)),1920) - (Gutters * numGutters)) / Max(numCols,1));\r\n// Visual element width can be calculated to align with columns\r\nitemWidth = With({ maxCols: Max(viewportPresets, numCols) }, ForAll(Sequence(numCols), {count: ThisRecord.Value, width: (colWidth * ThisRecord.Value) + (Gutters * (ThisRecord.Value-1)) }));\r\n\r\n\r\nAppTheme = \r\n    /* START THEME OBJECT */\r\n    {\r\n        palette: {\r\n            themePrimary: \"#0078d4\",\r\n            themeLighterAlt: \"#eff6fc\",\r\n            themeLighter: \"#deecf9\",\r\n            themeLight: \"#c7e0f4\",\r\n            themeTertiary: \"#71afe5\",\r\n            themeSecondary: \"#2b88d8\",\r\n            themeDarkAlt: \"#106ebe\",\r\n            themeDark: \"#005a9e\",\r\n            themeDarker: \"#004578\",\r\n            neutralLighterAlt: \"#faf9f8\",\r\n            neutralLighter: \"#f3f2f1\",\r\n            neutralLight: \"#edebe9\",\r\n            neutralQuaternaryAlt: \"#e1dfdd\",\r\n            neutralQuaternary: \"#d0d0d0\",\r\n            neutralTertiaryAlt: \"#c8c6c4\",\r\n            neutralTertiary: \"#a19f9d\",\r\n            neutralSecondary: \"#605e5c\",\r\n            neutralPrimaryAlt: \"#3b3a39\",\r\n            neutralPrimary:\"#323130\",\r\n            neutralDark: \"#201f1e\",\r\n            black: \"#000000\",\r\n            white: \"#ffffff\"\r\n        }\r\n    }\r\n    /* END THEME OBJECT */\r\n;\r\n\r\nTyperamp = Table(\r\n    { name: \"Caption2\", fontSize: 10, fontFamily: \"SegoeUI\", fontWeight: \"Regular\", lineHeight: 14 },\r\n    { name: \"Caption2Strong\", fontSize: 10, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 14 },\r\n    { name: \"Caption1\", fontSize: 12, fontFamily: \"SegoeUI\", fontWeight: \"Regular\", lineHeight: 18 },\r\n    { name: \"Caption1Strong\", fontSize: 12, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 18 },\r\n    { name: \"Caption1Stronger\", fontSize: 12, fontFamily: \"SegoeUI\", fontWeight: \"Bold\", lineHeight: 18 },\r\n    { name: \"Body1\", fontSize: 14, fontFamily: \"SegoeUI\", fontWeight: \"Regular\", lineHeight: 20 },\r\n    { name: \"Body1Strong\", fontSize: 14, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 20 },\r\n    { name: \"Body1Stronger\", fontSize: 14, fontFamily: \"SegoeUI\", fontWeight: \"Bold\", lineHeight: 20 },\r\n    { name: \"Body2\", fontSize: 16, fontFamily: \"SegoeUI\", fontWeight: \"Regular\", lineHeight: 22 },\r\n    { name: \"Body2Strong\", fontSize: 16, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 22 },\r\n    { name: \"Body2Stronger\", fontSize: 16, fontFamily: \"SegoeUI\", fontWeight: \"Bold\", lineHeight: 28 },\r\n    { name: \"Subtitle1\", fontSize: 20, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 28 },\r\n    { name: \"Title3\", fontSize: 24, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 34 },\r\n    { name: \"Title2\", fontSize: 28, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 40 },\r\n    { name: \"Title1\", fontSize: 32, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 46 },\r\n    { name: \"LargeTitle\", fontSize: 40, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 56 },\r\n    { name: \"Display\", fontSize: 68, fontFamily: \"SegoeUI\", fontWeight: \"Semibold\", lineHeight: 96 }\r\n);\r\n"
+    OnStart: |+
+      =    Set(FlexOff, 0);
+          Set(FlexOn, 1);
+          Set(FlexOff, 0); Set(FlexOn, 1); Set(AlignStart, AlignInContainer.Start); Set(AlignStretch, AlignInContainer.Stretch);
+      // Get neutral tokens from environment variable
+
+
+      Concurrent(
+          Set(FlexOff, 0);
+          Set(FlexOn, 1);
+          Set(FlexOff, 0); Set(FlexOn, 1); Set(AlignStart, AlignInContainer.Start); Set(AlignStretch, AlignInContainer.Stretch);
+      // Get neutral tokens from environment variable
+      With(
+          {
+              neutralTokens: ParseJSON(
+                  LookUp(
+                      'Environment Variable Definitions',
+                      'Schema Name' = "msdyn_GlobalTokens"
+                  ).'Default Value'
+              )
+          },
+          ClearCollect(
+              GlobalTokens,
+              ForAll(
+                  neutralTokens,
+                  {
+                      name: Text(ThisRecord.name),
+                      value: ColorValue(Text(ThisRecord.value))
+                  }
+              )
+          );
+      );
+      ,
+
+      Set(
+          Typography,
+          {
+              'Caption 2': {
+                  fontSize: 10,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Regular",
+                  lineHeight: 14
+              },
+              'Caption 2 Strong': {
+                  fontSize: 10,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 14
+              },
+              'Caption 1': {
+                  fontSize: 12,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Regular",
+                  lineHeight: 18
+              },
+              'Caption 1 Strong': {
+                  fontSize: 12,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 18
+              },
+              'Caption 1 Stronger': {
+                  fontSize: 12,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Bold",
+                  lineHeight: 18
+              },
+              'Body 1': {
+                  fontSize: 14,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Regular",
+                  lineHeight: 20
+              },
+              'Body 1 Strong': {
+                  fontSize: 14,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 20
+              },
+              'Body 1 Stronger': {
+                  fontSize: 14,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Bold",
+                  lineHeight: 20
+              },
+              'Body 2': {
+                  fontSize: 16,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Regular",
+                  lineHeight: 22
+              },
+              'Body 2 Strong': {
+                  fontSize: 16,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 22
+              },
+              'Body 2 Stronger': {
+                  fontSize: 16,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Bold",
+                  lineHeight: 22
+              },
+              'Subtitle 2': {
+                  fontSize: 16,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 28
+              },
+              'Subtitle 2 Stronger': {
+                  fontSize: 16,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Bold",
+                  lineHeight: 28
+              },
+              'Subtitle 1': {
+                  fontSize: 20,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 28
+              },
+              'Title 3': {
+                  fontSize: 24,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 34
+              },
+              'Title 2': {
+                  fontSize: 28,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 40
+              },
+              'Title 1': {
+                  fontSize: 32,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 46
+              },
+              'Large Title': {
+                  fontSize: 40,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 56
+              },
+              Display: {
+                  fontSize: 68,
+                  fontFamily: Font.'Segoe UI',
+                  fontWeight: "Semibold",
+                  lineHeight: 96
+              }
+          }
+      )
+      );
+
+      // **THEME** //
+      Set( Themes, {
+              Light: {
+                  'Neutral/Background/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                  'Neutral/Background/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-98").value,
+                  'Neutral/Background/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-96").value,
+                  'Neutral/Background/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-94").value,
+                  'Brand/Background/1/Rest': App.Theme.Colors.Primary, //LookUp(GlobalTokens, name="Brand-80"),
+                  'Neutral/Foreground/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-14").value,
+                  'Neutral/Foreground/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-26").value,
+                  'Neutral/Foreground/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-38").value,
+                  'Neutral/Foreground/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-44").value,
+                  'Neutral/Foreground/Disabled/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-74").value,
+                  'Neutral/Foreground/2/Link/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-26").value,
+                  'Neutral/Foreground/On Brand/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                  'Brand/Foreground/1/Rest': App.Theme.Colors.Primary, //LookUp(GlobalTokens, name="Brand-80"),
+                  'Brand/Foreground/2/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                  'Brand/Foreground/Link/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                  'Neutral/Stroke/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-82").value,
+                  'Neutral/Stroke/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-88").value,
+                  'Neutral/Stroke/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-94").value,
+                  'Neutral/Stroke/Subtle/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-88").value,
+                  'Brand/Stroke/1/Rest': App.Theme.Colors.Primary //LookUp(GlobalTokens, name="Brand-80")
+              },
+              Dark: {
+                  'Neutral/Background/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-16").value,
+                  'Neutral/Background/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-12").value,
+                  'Neutral/Background/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-8").value,
+                  'Neutral/Background/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-4").value,
+                  'Brand/Background/1/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                  'Brand/Background/2/Rest': App.Theme.Colors.Darker60, //LookUp(GlobalTokens, name="Brand-20"),
+                  'Neutral/Foreground/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                  'Neutral/Foreground/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-84").value,
+                  'Neutral/Foreground/3/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-68").value,
+                  'Neutral/Foreground/4/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-60").value,
+                  'Neutral/Foreground/Disabled/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-36").value,
+                  'Neutral/Foreground/2/Link/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-84").value,
+                  'Neutral/Foreground/On Brand/Rest': LookUp(GlobalTokens, name="Colors/Neutral/White").value,
+                  'Brand/Foreground/1/Rest': App.Theme.Colors.Lighter20 ,//LookUp(GlobalTokens, name="Brand-100"),
+                  'Brand/Foreground/2/Rest': App.Theme.Colors.Lighter30, //LookUp(GlobalTokens, name="Brand-110"),
+                  'Brand/Foreground/Link/Rest': App.Theme.Colors.Lighter20, //LookUp(GlobalTokens, name="Brand-100"),
+                  'Brand/Foreground/On Light/Rest': App.Theme.Colors.Darker10, //LookUp(GlobalTokens, name="Brand-70"),
+                  'Neutral/Stroke/1/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-40").value,
+                  'Neutral/Stroke/2/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-32").value,
+                  'Neutral/Stroke/Subtle/Rest': LookUp(GlobalTokens, name="Colors/Neutral/Grey-4").value,
+                  'Brand/Stroke/1/Rest': App.Theme.Colors.Lighter20 //LookUp(GlobalTokens, name="Brand-100")
+              }
+          }
+      );
+
+      Set(SelectedTheme, Themes.Light);
+
+      Set(
+          AppThemeJson,
+          JSON(
+              AppTheme,
+              JSONFormat.IndentFour
+          )
+      );
+
+      ClearCollect(RecentDocumentCollection,
+          FirstN(
+              AddColumns(
+                  Filter(
+                      'DocuPilot Document Generation Requests',
+                      !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = User().Email)
+                  ), 
+                  ModifiedOn, 'Modified On',
+                  SolutionName, 'Solution Name',
+                  DocumentName, 'Solution Document'.FileName,
+                  DocumentOwner, 'Owning User'.'Full Name',
+                  LastModified, 'Modified On',
+                  SolutionDocument,'Solution Document',
+                  HTMLDataset, 'Document HTML Dataset',
+                  ConfigurationValue, ConfigurationKeys
+              ),
+              4
+          ));
+
+
+      // Store count upfront to avoid multiple CountRows() calls
+      Set(RecentDocCount, CountRows(RecentDocumentCollection));
+
+      /*
+      // Get top 4 Records having attachment & owner as the current logged-in user
+      ClearCollect(
+          RecentDocumentCollection,
+          With(
+              {
+                  UserEmail: User().Email
+              },
+              FirstN(
+                  AddColumns(
+                      Filter(
+                          'DocuPilot Document Generation Requests',
+                          !IsBlank('Solution Document') && Owner = LookUp(Users, 'Primary Email' = UserEmail)
+                      ),
+                      ModifiedOn, 'Modified On',
+                      TimeDiff, DateDiff('Modified On', Now(), TimeUnit.Minutes),
+                      FormattedTime,
+                      If(
+                          DateDiff('Modified On', Now(), TimeUnit.Minutes) >= 1440,
+                          Text(RoundDown(DateDiff('Modified On', Now(), TimeUnit.Minutes) / 1440, 0), "[$-en-US]0") & " days ago",
+                          If(
+                              DateDiff('Modified On', Now(), TimeUnit.Minutes) >= 60,
+                              Text(RoundDown(DateDiff('Modified On', Now(), TimeUnit.Minutes) / 60, 0), "[$-en-US]0") & " hours ago",
+                              DateDiff('Modified On', Now(), TimeUnit.Minutes) & " mins ago"
+                          )
+                      ),
+                      FileNameParts, Split('Solution Document'.FileName, "-")
+                  ),
+                  4
+              )
+          )
+      );*/
+
+
+    Theme: =PowerAppsTheme

@@ -19,7 +19,7 @@
             <Title LCID="1033" Title="Home" />
           </Titles>
         </SubArea>
-        <SubArea Id="subarea_bc496484" VectorIcon="/WebResources/cat_Code-Review-Icon" Icon="/WebResources/cat_Code-Review-Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" Page="cat_homepage_f8fb3">
+        <SubArea Id="subarea_bc496484" VectorIcon="/WebResources/cat_Code-Review-Icon" Icon="/WebResources/cat_Code-Review-Icon" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="true" Sku="All,OnPremise,Live,SPLA" Page="cat_homepage_f8fb3">
           <Titles>
             <Title LCID="1033" Title="Review Tool" />
           </Titles>

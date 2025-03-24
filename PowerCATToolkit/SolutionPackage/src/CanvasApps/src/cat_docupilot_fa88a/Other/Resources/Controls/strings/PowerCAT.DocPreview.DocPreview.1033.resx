@@ -165,4 +165,8 @@
     <value>Disabled Preview</value>
     <comment/>
   </data>
+  <data name="DocPreview_LatencyMessage_Display_Key" xml:space="preserve">
+    <value>Latency Message</value>
+    <comment/>
+  </data>
 </root>

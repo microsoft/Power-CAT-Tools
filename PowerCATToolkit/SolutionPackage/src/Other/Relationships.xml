@@ -25,6 +25,7 @@
   <EntityRelationship Name="cat_solutionreview_Customer_cat_customer" />
   <EntityRelationship Name="FileAttachment_cat_DocuPilotDocumentGenerationRequest_cat_DocumentHTMLDataset" />
   <EntityRelationship Name="FileAttachment_cat_DocuPilotDocumentGenerationRequest_cat_SolutionDocument" />
+  <EntityRelationship Name="FileAttachment_cat_DocuPilotDocumentGenerationRequest_cat_SolutionZip" />
   <EntityRelationship Name="FileAttachment_cat_DocuPilotDocumentGenerationRequest_cat_SolutionZipFile" />
   <EntityRelationship Name="FileAttachment_cat_solutionreview_cat_SolutionFile" />
   <EntityRelationship Name="lk_cat_apicollection_createdby" />
