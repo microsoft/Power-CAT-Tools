@@ -1,4 +1,4 @@
-# AI Solution documentation
+# AI Solution Documentation
 
 The AI automated documentation tool assists makers in streamlining the creation of comprehensive solution documentation by leveraging AI-driven analysis. Users simply pick a solution from their Power Platform environment or upload a solution file and the tool generates a detailed Word document with insights and documentation for the solution using a configurable predefined structure.
 
