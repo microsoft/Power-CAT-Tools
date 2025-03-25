@@ -1,6 +1,8 @@
-# AI automated documentation
+# AI Solution Documentation
 
 The AI automated documentation tool assists makers in streamlining the creation of comprehensive solution documentation by leveraging AI-driven analysis. Users simply pick a solution from their Power Platform environment or upload a solution file and the tool generates a detailed Word document with insights and documentation for the solution using a configurable predefined structure.
+
+![image](https://github.com/user-attachments/assets/3ae71f5a-6da4-407b-856e-033a42bbb3b5)
 
 # Prerequisites
 
@@ -33,18 +35,40 @@ Users can define the predefined template structure to tailor the documentation f
 
 Review a summary preview of the documentation before final export.
 
-## Export the Word Document
+## Export the Document in Word, Markdown or PDF format
 
-Click Export to Word to download the comprehensive documentation.
+Click Export to Word, Export to PDF or Export to Markdown to download the comprehensive documentation.
+
+![image](https://github.com/user-attachments/assets/463ba40d-de57-47e5-baa1-8290b4e7bbb7)
 
 ## Documentation structure
 
 The generated Word document provides detailed information about the solution, including:
 
-- Solution Overview: High-level architecture and components
-- Component Details
-- Canvas Apps: Detailed app structure, screens, and controls
-- Flows: Description of triggers, actions, and connections]
-- Data Tables: Schema details and relationships
-- Connectors: List of all external connections
+- **Overview**
+  - Solution Overview
+  - Solution Details
+  - Architecture Diagram
+  - Prerequisites
+
+- **UX and Automations**
+  - Canvas Apps / Custom Pages
+  - Power Automate Flows
+  - Custom Controls
+
+- **Data and Security**
+  - Plugins
+  - Tables
+  - Entity Relationship Diagram
+  - Custom APIs
+  - AI Model(s)
+  - Security Role(s)
+
+- **Summary**
+
+## Limitations
+
+- You **cannot edit** an existing saved document from within the application.
+- The **Entity Relationship Diagram** will **not be generated** if the solution contains **more than 25 tables**.
+- The **Solution Architecture Diagram** may appear **crammed** for complex solutions, especially when an app is bound to a **large number of tables or flows**.
 
