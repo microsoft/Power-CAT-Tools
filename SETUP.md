@@ -25,6 +25,8 @@ The Power CAT Tools app is built using Power Platform and requires adequate lice
 
 ## Installation instructions
 
+You can choose **either of the following options** to install **PowerCAT Tools**, based on your preference or environment setup.
+
 ### From AppSource
 
 Refer to the [Detailed Installation Guide](INSTALLATION_GUIDE.md) for step-by-step instructions to install **PowerCAT Tools** via AppSource.
