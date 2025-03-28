@@ -17,8 +17,7 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 ### 1. Open Power Apps Portal
 
 - Go to [https://make.powerapps.com](https://make.powerapps.com)
-- Select the environment where you want to install **Power CAT Tools** using the top-right environment picker
-
+  
 ![image](https://github.com/user-attachments/assets/4733fcd4-2dde-468a-9fff-b6985e0e0314)
 
 ---
@@ -27,7 +26,7 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 
 - Click the gear icon (**⚙️**) in the top-right corner
 - Select **Advanced settings**
-- 
+  
 ![image](https://github.com/user-attachments/assets/28c6808e-7271-4368-bc78-b1243e6d7312)
 
 ---
@@ -83,6 +82,8 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 - Open the newly installed **Power CAT Tools** model-driven app
 
 ![image](https://github.com/user-attachments/assets/a74231a4-9195-4e4e-b495-673e549a0ce4)
+
+![image](https://github.com/user-attachments/assets/f50e6973-a130-4da3-8015-34934f01f2d2)
 
 ---
 
