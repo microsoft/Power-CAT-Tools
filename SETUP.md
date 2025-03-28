@@ -25,9 +25,11 @@ The Power CAT Tools app is built using Power Platform and requires adequate lice
 
 ## Installation instructions
 
+You can choose **either of the following options** to install **PowerCAT Tools**, based on your preference or environment setup.
+
 ### From AppSource
 
-Install Power CAT Tools via the [App Source offering](https://aka.ms/cattools/appsource). Make sure you're signed in, click the "Get it now" button, then follow the prompts to choose your target install environment.
+Refer to the [Detailed Installation Guide](INSTALLATION_GUIDE.md) for step-by-step instructions to install **PowerCAT Tools** via AppSource.
 
 ### Manual installation 
 
