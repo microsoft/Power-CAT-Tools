@@ -52,7 +52,36 @@ The summary dashboard offers a high-level view of the review findings, including
 
 - Pattern details: Each pattern includes a status indicator, comments, and links to supporting documentation.
 - Code insights: View detailed formula breakdowns, search for specific control properties, and link directly to areas of concern.
-- App aettings: Analyze key settings affecting app performance, such as control limits and data connections.
+- App settings: Analyze key settings affecting app performance, such as control limits and data connections.
 
 By reviewing these results, developers and reviewers can identify and prioritize areas for improvement, ensuring that canvas apps adhere to best practices and maintain optimal performance.
+
+## Troubleshooting
+
+- Incase you see a the below message while reviewing canvas app, follow any one of the options shared below under **Solution Update Options** section.
+
+`Note: It appears that solution used in this review is outdated. Please re-export the solution and re-upload to ensure all patterns are executed.`
+
+![image](https://github.com/user-attachments/assets/bc3a9199-e5a4-4231-988b-652ae4afd2e9)
+
+####  Solution Update Options
+
+#####  Option 1: Re-export from Early Release Environment
+
+Please re-export the solution from an early release cycle environment.  
+You can refer to the following link for guidance:  
+🔗 [Early Access Features - Power Platform](https://learn.microsoft.com/en-us/power-platform/admin/early-release)
+
+---
+
+#####  Option 2: Manual Update via Power Apps Studio
+
+Alternatively, you can manually import the app (`.msapp`) in Power Apps Studio:
+
+1. Use the **Download a copy** option to get the latest `.msapp` file.
+2. Unzip the Power Platform solution package.
+3. Inside the `CanvasApps` folder, create a new `src` folder (if it doesn't exist).
+4. Place the new `.msapp` file inside the `src` folder.
+5. Re-zip all the solution components.
+6. Review and import the updated solution again.
 
