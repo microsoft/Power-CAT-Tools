@@ -12,7 +12,7 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 
 ---
 
-## Installation Steps
+## Option 1: Install from Microsoft AppSource
 
 ### 1. Open Power Apps Portal
 
@@ -86,4 +86,60 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 ![image](https://github.com/user-attachments/assets/f50e6973-a130-4da3-8015-34934f01f2d2)
 
 ---
+
+## Option 2: Install using Power Platform Package Deployer (via pac CLI)
+
+This option allows you to manually install the Power CAT Tools solution using the Power Platform CLI (`pac`).  
+Use this method if you prefer deploying from a package deployer `.zip` file instead of AppSource.
+
+---
+
+#### Step 1: Prerequisites
+
+- Install the [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) on your machine
+- Download the solution package  
+  Navigate to the [Releases](../../releases) section of this GitHub repository and from the latest release, download: `PowerCATToolkit_Package_Deployer.zip`
+
+---
+
+#### Step 2: Connect to Your Dataverse Environment
+
+1. Open **Command Prompt**:
+   - Press `Win + R`, type `cmd`, and press `Enter`
+2. In the Command Prompt window, run the following command to authenticate and connect to your Dataverse environment:
+
+```bash
+pac auth create -env "<YOUR-ENVIRONMENT-URL>"
+```
+> Replace 'YOUR-ENVIRONMENT-URL' with the URL of your Dataverse environment (e.g., https://yourorg.crm.dynamics.com/)
+ 
+---
+
+#### Step 3: Deploy the Solution Package
+
+1. Ensure you have downloaded the deployment package from the latest Releases: 'PowerCATToolkit_Package_Deployer.zip`
+
+2. In the same Command Prompt window, run the following command to deploy the solution:
+
+```bash
+pac package deploy -p "<FULL-PATH-TO-ZIP-FILE>" --logConsole
+```
+> Replace the path 'FULL-PATH-TO-ZIP-FILE' with the actual file location where you saved the 'PowerCATToolkit_Package_Deployer.zip` file.
+
+---
+
+#### Step 4: Verify the Solution in Your Environment
+
+After a successful deployment, follow these steps to confirm the Power CAT Tools solution is installed:
+
+1. Open [make.powerapps.com](https://make.powerapps.com)
+2. From the top-right corner, ensure you're in the **correct environment** where you deployed the solution
+3. In the left navigation pane:
+   - Click on **Apps**
+   - Confirm that the **Power CAT Tools** model-driven app is listed and can be opened
+
+![image](https://github.com/user-attachments/assets/a74231a4-9195-4e4e-b495-673e549a0ce4)
+
+
+
 
