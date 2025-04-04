@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25023.200" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25023.200" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25023.00200">
+<ImportExportXml version="9.2.25024.216" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25024.216" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25024.00216">
   <SolutionManifest>
     <UniqueName>PowerCATToolkit</UniqueName>
     <LocalizedNames>
@@ -226,8 +226,8 @@
         <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202502.2.4.1)">
-          <package appName="PowerAI" version="202502.2.4.1">msdyn_AISolutionAnchor (202502.2.4.1)</package>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202502.4.24.2)">
+          <package appName="PowerAI" version="202502.4.24.2">msdyn_AISolutionAnchor (202502.4.24.2)</package>
         </Required>
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
@@ -322,9 +322,9 @@
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5081)">
-          <package appName="msdynce_Activities" version="9.0.25023.250219000">msdynce_EnableUCIByDefault (9.0.25023.250219000)</package>
-          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2187">msdyn_TimelineExtended (1.0.0.2187)</package>
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5319)">
+          <package appName="msdynce_Activities" version="9.0.25024.250304000">msdynce_EnableUCIByDefault (9.0.25024.250304000)</package>
+          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2748">msdyn_TimelineExtended (1.0.0.2748)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Pattern Details" id="{efb23718-9b0d-4859-83b7-f4920c9479b2}" />
       </MissingDependency>
