@@ -9,7 +9,6 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 - Admin or Environment Maker permissions in the target environment
 - Access to [make.powerapps.com](https://make.powerapps.com)
 
-
 ---
 
 ## Option 1: Install from Microsoft AppSource
@@ -108,10 +107,10 @@ Use this method if you prefer deploying from a package deployer `.zip` file inst
    - Press `Win + R`, type `cmd`, and press `Enter`
 2. In the Command Prompt window, run the following command to authenticate and connect to your Dataverse environment:
 
-```bash
-pac auth create -env "<YOUR-ENVIRONMENT-URL>"
-```
-> Replace 'YOUR-ENVIRONMENT-URL' with the URL of your Dataverse environment (e.g., https://yourorg.crm.dynamics.com/)
+  ```bash
+  pac auth create -env "<YOUR-ENVIRONMENT-URL>"
+  ```
+  > Replace 'YOUR-ENVIRONMENT-URL' with the URL of your Dataverse environment (e.g., https://yourorg.crm.dynamics.com/)
  
 ---
 
@@ -121,10 +120,10 @@ pac auth create -env "<YOUR-ENVIRONMENT-URL>"
 
 2. In the same Command Prompt window, run the following command to deploy the solution:
 
-```bash
-pac package deploy -p "<FULL-PATH-TO-ZIP-FILE>" --logConsole
-```
-> Replace the path 'FULL-PATH-TO-ZIP-FILE' with the actual file location where you saved the 'PowerCATToolkit_Package_Deployer.zip` file.
+  ```bash
+  pac package deploy -p "<FULL-PATH-TO-ZIP-FILE>" --logConsole
+  ```
+  > Replace the path 'FULL-PATH-TO-ZIP-FILE' with the actual file location where you saved the 'PowerCATToolkit_Package_Deployer.zip` file.
 
 ---
 
@@ -140,6 +139,76 @@ After a successful deployment, follow these steps to confirm the Power CAT Tools
 
 ![image](https://github.com/user-attachments/assets/a74231a4-9195-4e4e-b495-673e549a0ce4)
 
+---
 
+## Upgrade the solution using Power Platform CLI (`pac`)
 
+> This step is only required if you already have the **Power CAT Tools** solution installed and want to upgrade to a newer version.
 
+This section guides you through upgrading the **Power CAT Tools** solution using the **Power Platform CLI (`pac`)**.
+
+This method is ideal when deploying a newer version of the managed solution downloaded from GitHub Releases.
+
+---
+
+#### Step 1: Prerequisites
+
+- Install the [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) on your machine
+- Download the solution package  
+  Navigate to the [Releases](../../releases) section of this GitHub repository and from the latest release, download: `PowerCATToolkit_Package_Deployer.zip`
+
+---
+
+#### Step 2: Connect to Your Dataverse Environment
+
+1. Open **Command Prompt**:
+   - Press `Win + R`, type `cmd`, and press `Enter`
+2. In the Command Prompt window, run the following command to authenticate and connect to your Dataverse environment:
+
+  ```bash
+  pac auth create -env "<YOUR-ENVIRONMENT-URL>"
+  ```
+  > Replace 'YOUR-ENVIRONMENT-URL' with the URL of your Dataverse environment (e.g., https://yourorg.crm.dynamics.com/)
+ 
+---
+
+#### Step 3: Upgrade the Solution
+
+1. Ensure you have downloaded the correct **managed solution file** from the latest GitHub release:  
+   `PowerCATToolkit_xx.xxx.xxxx_managed.zip`
+
+2. Use the following command to upgrade the solution:
+
+   ```bash
+   pac solution import --path "<FULL-PATH-TO-DOWNLOADED-ZIP>" --import-as-holding
+   ```
+  > Replace <FULL-PATH-TO-DOWNLOADED-ZIP> with the full file path to the downloaded PowerCATToolkit_xx.xxx.xxxx_managed.zip file from the GitHub Releases section.
+
+---
+
+#### Step 4: Finalize & Verify the Upgrade
+
+1. After the import completes successfully:
+   - Open [make.powerapps.com](https://make.powerapps.com)
+   - Select the **correct environment** from the environment selector
+   - Navigate to **Solutions**
+   - Confirm that the **Power CAT Tools** solution is listed with the updated version
+
+2. To validate functionality:
+   - Go to **Apps**
+   - Open the **Power CAT Tools** model-driven app
+   - Confirm that it loads without issues and reflects any new features or updates introduced in the new version
+  
+---
+
+#### Important Note on Target Environment
+
+The upgrade process is applied to the environment that was configured in  
+**`Step 2: Connect to Your Dataverse Environment`** using the `pac auth create` command.
+
+If you need to upgrade the solution in additional environments, you must:
+
+1. Re-run `pac auth create` and connect to the **new target environment**
+2. Repeat the steps outlined in **`Step 3: Upgrade the Solution`**
+
+This ensures that each environment receives the upgraded solution package independently.
