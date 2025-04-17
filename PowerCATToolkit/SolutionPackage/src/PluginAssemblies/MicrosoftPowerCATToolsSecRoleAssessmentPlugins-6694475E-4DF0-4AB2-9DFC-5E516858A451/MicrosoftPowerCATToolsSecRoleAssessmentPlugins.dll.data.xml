@@ -17,5 +17,11 @@
     <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="8bbaecd4-bc09-4ef6-891f-5f05a774f628" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.SecurityRolePrivilegePlugin">
       <FriendlyName>17cb6ffd-30ec-449b-a79d-61ca674f44b2</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugins.RetrieveCustomRolesApi, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="2544a5ba-ec8a-4418-b2a5-ae8a5b5725c9" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugins.RetrieveCustomRolesApi">
+      <FriendlyName>5db4194a-4777-4ccf-8375-b6ffa7b0620f</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Microsoft.PowerCATTools.SecRoleAssessmentPlugins.RetrieveSolutionComponents, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" PluginTypeId="6361baef-65ed-4d28-81e4-a4e099c57666" Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugins.RetrieveSolutionComponents">
+      <FriendlyName>f624b49a-9b99-4a36-855e-d2a880a0e715</FriendlyName>
+    </PluginType>
   </PluginTypes>
 </PluginAssembly>

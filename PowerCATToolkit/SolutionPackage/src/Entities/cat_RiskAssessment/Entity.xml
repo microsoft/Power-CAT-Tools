@@ -611,7 +611,7 @@
           <Type>lookup</Type>
           <Name>cat_riskassessmentsettingid</Name>
           <LogicalName>cat_riskassessmentsettingid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -1611,7 +1611,7 @@
           <Type>lookup</Type>
           <Name>owningbusinessunit</Name>
           <LogicalName>owningbusinessunit</LogicalName>
-          <RequiredLevel>systemrequired</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>0</ValidForUpdateApi>

@@ -1,8 +1,8 @@
 [
   {
     "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
-    "FlowNameId": "5827a8ed-7803-4bfa-a109-ea92af8a961d",
-    "Name": "[DVAccelerator]Scanallcustomroles",
+    "FlowNameId": "f2a63ee7-e884-40a3-b65b-f6fdd1efa573",
+    "Name": "[RiskAssessment]Scanallcustomroles",
     "ServiceKind": "ConnectedWadl",
     "Type": "ServiceInfo",
     "WorkflowEntityId": "f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8"

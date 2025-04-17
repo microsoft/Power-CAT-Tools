@@ -170,20 +170,7 @@
         "Type": 0,
         "WizardStep": null
       },
-      "Layout": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 2,
-        "SectionName": null,
-        "SectionType": "SizeAndPositioningSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 0,
-        "WizardStep": null
-      },
-      "Padding": {
+      "Size": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
@@ -253,16 +240,24 @@
   "CommonEvents": [
     {
       "Description": "",
+      "DisplayName": "OnChange",
+      "Hidden": false,
+      "IsPrimaryInput": false,
+      "Name": "OnChange",
+      "PfxDefaultValue": null
+    },
+    {
+      "Description": "",
       "DisplayName": "OnSelect",
       "Hidden": false,
       "IsPrimaryInput": false,
       "Name": "OnSelect",
-      "PfxDefaultValue": "Switch(Self.Selected.ItemKey,/* Action for Key 'new' */\"new\",Notify(\"New clicked\"),/* Action for 'edit' */\"edit\",Notify(\"Edit clicked\"),/* Action for 'delete' */ \"delete\",Notify(\"Delete clicked\"),/* Action for 'info' */ \"info\",Notify(\"Info clicked\"), /* Default action */  Notify(\"Unrecognized button clicked\"))"
+      "PfxDefaultValue": null
     }
   ],
-  "ControlConstructor": "Toolbar",
+  "ControlConstructor": "TabList",
   "ControlNamespace": "PowerApps.CoreControls",
-  "DisplayNameKey": "Toolbar_Display_Key",
+  "DisplayNameKey": "TabList_Display_Key",
   "IncludedProperties": [
     {
       "Category": "design",
@@ -433,15 +428,15 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Toolbar",
+  "Name": "Tab list",
   "Properties": [
     {
       "Category": "data",
-      "DefaultValue": "Medium",
-      "Description": "Select from padding option",
-      "DescriptionResourceString": "Toolbar_Padding_Desc_Key",
-      "DisplayName": "Padding",
-      "DisplayNameResourceString": "Toolbar_Padding_Display_Key",
+      "DefaultValue": "Large",
+      "Description": "Select from different size",
+      "DescriptionResourceString": "TabList_Size_Desc_Key",
+      "DisplayName": "Size",
+      "DisplayNameResourceString": "TabList_Size_Display_Key",
       "EnumValues": [
         {
           "Description": "Small",
@@ -474,7 +469,7 @@
       "IsPrimaryOutput": false,
       "IsResettable": false,
       "IsResettableToManifestDefault": false,
-      "Name": "Padding",
+      "Name": "Size",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": "",
@@ -482,16 +477,16 @@
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 1,
-      "Usage": 0,
+      "Usage": 2,
       "WebDefaultValue": ""
     },
     {
       "Category": "data",
       "DefaultValue": "Horizontal",
-      "Description": "Alignment of the component that items are laid out.",
-      "DescriptionResourceString": "Toolbar_Alignment_Desc_Key",
+      "Description": "Alignment of the component that tabs are laid out. ",
+      "DescriptionResourceString": "TabList_Alignment_Desc_Key",
       "DisplayName": "Alignment",
-      "DisplayNameResourceString": "Toolbar_Alignment_Display_Key",
+      "DisplayNameResourceString": "TabList_Alignment_Display_Key",
       "EnumValues": [
         {
           "Description": "Vertical",
@@ -525,80 +520,16 @@
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 1,
-      "Usage": 0,
+      "Usage": 2,
       "WebDefaultValue": ""
     },
     {
       "Category": "data",
-      "DefaultValue": "Icon before",
-      "Description": "Layout of the button",
-      "DescriptionResourceString": "Toolbar_Layout_Desc",
-      "DisplayName": "Layout",
-      "DisplayNameResourceString": "Toolbar_Layout",
-      "EnumValues": [
-        {
-          "Description": "Icon before",
-          "DisplayName": "Icon before",
-          "IsDefaultValue": true,
-          "Name": "IconBefore",
-          "Value": "Icon before"
-        },
-        {
-          "Description": "Icon after",
-          "DisplayName": "Icon after",
-          "IsDefaultValue": false,
-          "Name": "IconAfter",
-          "Value": "Icon after"
-        },
-        {
-          "Description": "Icon above",
-          "DisplayName": "Icon above",
-          "IsDefaultValue": false,
-          "Name": "IconAbove",
-          "Value": "Icon above"
-        },
-        {
-          "Description": "Text only",
-          "DisplayName": "Text only",
-          "IsDefaultValue": false,
-          "Name": "TextOnly",
-          "Value": "Text only"
-        },
-        {
-          "Description": "Icon only",
-          "DisplayName": "Icon only",
-          "IsDefaultValue": false,
-          "Name": "IconOnly",
-          "Value": "Icon only"
-        }
-      ],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "Layout",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "Icon before",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 1,
-      "Usage": 0,
-      "WebDefaultValue": "Icon before"
-    },
-    {
-      "Category": "data",
       "DefaultValue": "",
-      "Description": "Accessibility Label for Toolbar ",
-      "DescriptionResourceString": "Toolbar_AccessibleLabel_Desc_Key",
+      "Description": "Accessibility Label for TabList ",
+      "DescriptionResourceString": "TabList_AccessibleLabel_Desc_Key",
       "DisplayName": "Accessibility Label",
-      "DisplayNameResourceString": "Toolbar_AccessibleLabel_Display_Key",
+      "DisplayNameResourceString": "TabList_AccessibleLabel_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
       "Hidden": false,
@@ -679,7 +610,7 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "You can define font size for the text in Toolbar using this property",
+      "Description": "You can define font size for the text in Tab list using this property",
       "DescriptionResourceString": "Font_Size_description",
       "DisplayName": "Font size",
       "DisplayNameResourceString": "Font_Size",
@@ -903,8 +834,8 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Items: The items to display in the Toolbar.",
-      "DescriptionResourceString": "Items: The items to display in the Toolbar.",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
       "DisplayName": "Items(##PCFDatasetItems##)",
       "DisplayNameResourceString": "Items",
       "HelperUI": "",
@@ -920,7 +851,7 @@
       "NullDefaultValue": "",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
-      "PfxDefaultValue": "Table({ItemKey: \"new\", ItemDisplayName: \"New\", ItemIconName: \"Add\", ItemAppearance: \"Primary\", ItemIconStyle: \"Regular\", ItemTooltip: \"Add new item\"},{ItemKey: \"edit\", ItemDisplayName: \"Edit\", ItemIconName: \"Edit\", ItemAppearance: \"Subtle\", ItemIconStyle: \"Regular\"},{ItemKey: \"delete\", ItemDisplayName: \"Delete\", ItemIconName: \"Delete\", ItemDisabled: true, ItemAppearance: \"Subtle\", ItemIconStyle: \"Filled\"},{ItemKey: \"info\", ItemDisplayName: \"Info\", ItemIconName: \"Info\", ItemAppearance: \"Subtle\", ItemIconStyle: \"Regular\"})",
+      "PfxDefaultValue": "[\"Item 1\", \"Item 2\", \"Item 3\"]",
       "PhoneDefaultValue": "",
       "Required": false,
       "ShouldAutoBind": false,
@@ -931,8 +862,8 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Items: The items to display in the Toolbar.",
-      "DescriptionResourceString": "Items: The items to display in the Toolbar.",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
       "DisplayName": "Items(##PCFDatasetSelected##)",
       "DisplayNameResourceString": "Items",
       "HelperUI": "",
@@ -959,8 +890,8 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Items: The items to display in the Toolbar.",
-      "DescriptionResourceString": "Items: The items to display in the Toolbar.",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
       "DisplayName": "Items(##PCFDatasetSelectedItems##)",
       "DisplayNameResourceString": "Items",
       "HelperUI": "",
@@ -987,8 +918,8 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Items: The items to display in the Toolbar.",
-      "DescriptionResourceString": "Items: The items to display in the Toolbar.",
+      "Description": "Items: The items to display in the tab list.",
+      "DescriptionResourceString": "Items: The items to display in the tab list.",
       "DisplayName": "Items(##PCFDatasetDefaultSelectedItems##)",
       "DisplayNameResourceString": "Items",
       "HelperUI": "",
@@ -1010,230 +941,6 @@
       "ShouldAutoBind": false,
       "Type": 26,
       "Usage": 0,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemDisplayName",
-      "DescriptionResourceString": "Toolbar_Items_ItemDisplayName",
-      "DisplayName": "Toolbar_Items_ItemDisplayName",
-      "DisplayNameResourceString": "Toolbar_Items_ItemDisplayName",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemDisplayName",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": true,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemKey",
-      "DescriptionResourceString": "Toolbar_Items_ItemKey",
-      "DisplayName": "Toolbar_Items_ItemKey",
-      "DisplayNameResourceString": "Toolbar_Items_ItemKey",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemKey",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": true,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemDisabled",
-      "DescriptionResourceString": "Toolbar_Items_ItemDisabled",
-      "DisplayName": "Toolbar_Items_ItemDisabled",
-      "DisplayNameResourceString": "Toolbar_Items_ItemDisabled",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemDisabled",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemVisible",
-      "DescriptionResourceString": "Toolbar_Items_ItemVisible",
-      "DisplayName": "Toolbar_Items_ItemVisible",
-      "DisplayNameResourceString": "Toolbar_Items_ItemVisible",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemVisible",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemIconName",
-      "DescriptionResourceString": "Toolbar_Items_ItemIconName",
-      "DisplayName": "Toolbar_Items_ItemIconName",
-      "DisplayNameResourceString": "Toolbar_Items_ItemIconName",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemIconName",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemIconStyle",
-      "DescriptionResourceString": "Toolbar_Items_ItemIconStyle",
-      "DisplayName": "Toolbar_Items_ItemIconStyle",
-      "DisplayNameResourceString": "Toolbar_Items_ItemIconStyle",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemIconStyle",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemAppearance",
-      "DescriptionResourceString": "Toolbar_Items_ItemAppearance",
-      "DisplayName": "Toolbar_Items_ItemAppearance",
-      "DisplayNameResourceString": "Toolbar_Items_ItemAppearance",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemAppearance",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Toolbar_Items_ItemTooltip",
-      "DescriptionResourceString": "Toolbar_Items_ItemTooltip",
-      "DisplayName": "Toolbar_Items_ItemTooltip",
-      "DisplayNameResourceString": "Toolbar_Items_ItemTooltip",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "ItemTooltip",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "Items",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 3,
-      "Usage": 2,
       "WebDefaultValue": ""
     },
     {
@@ -1341,56 +1048,357 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.Toolbar\",\"CustomControlId\":\"PowerApps.CoreControls.Toolbar\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Items\",\"Type\":\"Grid\",\"Columns\":{\"0\":{\"Required\":true,\"Usage\":2,\"Name\":\"ItemDisplayName\",\"Type\":\"SingleLine_Text\"},\"1\":{\"Required\":true,\"Usage\":2,\"Name\":\"ItemKey\",\"Type\":\"SingleLine_Text\"},\"2\":{\"Required\":false,\"Usage\":2,\"Name\":\"ItemDisabled\",\"Type\":\"TwoOptions\"},\"3\":{\"Required\":false,\"Usage\":2,\"Name\":\"ItemVisible\",\"Type\":\"TwoOptions\"},\"4\":{\"Required\":false,\"Usage\":2,\"Name\":\"ItemIconName\",\"Type\":\"SingleLine_Text\"},\"5\":{\"Required\":false,\"Usage\":2,\"Name\":\"ItemIconStyle\",\"Type\":\"SingleLine_Text\"},\"6\":{\"Required\":false,\"Usage\":2,\"Name\":\"ItemAppearance\",\"Type\":\"SingleLine_Text\"},\"7\":{\"Required\":false,\"Usage\":2,\"Name\":\"ItemTooltip\",\"Type\":\"SingleLine_Text\"}},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"Padding\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Medium\"},\"Alignment\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Horizontal\"},\"Layout\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Icon before\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"ItemDisplayName\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemKey\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemDisabled\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemVisible\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemIconName\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemIconStyle\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemAppearance\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"ItemTooltip\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":null,\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.TabList\",\"CustomControlId\":\"PowerApps.CoreControls.TabList\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"Items\":{\"DisplayName\":\"Items\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"Size\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Large\"},\"Alignment\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Horizontal\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"DefaultSelectedItems\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":null},\"Events\":null,\"CommonEvents\":{\"OnChange\":{\"EventName\":\"OnChange\"},\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"DefaultSelectedItems\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"DefaultSelectedItems\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Padding\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Alignment\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Layout\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"ColorPalette\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontItalic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontUnderline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontStrikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Items\",\"Type\":\"DataSet\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"Selected\",\"Type\":\"Object\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"SelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"DefaultSelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemDisplayName\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemKey\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemDisabled\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemVisible\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemIconName\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemIconStyle\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemAppearance\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ItemTooltip\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
+      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Size\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Alignment\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"ColorPalette\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontItalic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontUnderline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontStrikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Items\",\"Type\":\"DataSet\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"Selected\",\"Type\":\"Object\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"SelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"DefaultSelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"2.0.3\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"2.2.30\",\"IsFirstParty\":true}}",
       "Type": 3
-    },
-    {
-      "IsControlSpecific": true,
-      "LoadingOrder": 12,
-      "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toolbar/bundle.js",
-      "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toolbar/libs/powerapps-fluent-icons.js",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toolbar/strings/Toolbar.1033.resx",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1033.resx",
       "Type": 2
     },
     {
       "IsControlSpecific": true,
-      "LoadingOrder": 14,
+      "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Toolbar/strings/Toolbar.1033.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1025.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1026.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1027.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1028.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1029.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1030.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1031.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1032.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1033.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1035.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1036.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1037.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1038.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1040.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1041.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1042.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1043.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1044.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1045.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1046.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1048.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1049.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1050.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1051.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1053.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1054.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1055.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1057.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1058.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1060.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1061.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1062.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1063.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1066.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1069.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1081.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1086.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1087.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.1110.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.2052.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.2070.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.2074.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.3076.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.3082.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 13,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/PowerApps_CoreControls_TabList/strings/TabList.3098.json",
       "Type": 5
     },
     {
       "IsControlSpecific": false,
-      "LoadingOrder": 14,
+      "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Toolbar_Display_Key\":\"Toolbar\",\"Toolbar_Desc_Key\":\"Let users select from a list of items.\",\"Toolbar_Alignment_Display_Key\":\"Alignment\",\"Toolbar_Alignment_Desc_Key\":\"Alignment of the component that items are laid out.\",\"Toolbar_Padding_Display_Key\":\"Padding\",\"Toolbar_Padding_Desc_Key\":\"Select from padding option\",\"Toolbar_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"Toolbar_AccessibleLabel_Desc_Key\":\"Accessibility Label for Toolbar \",\"Toolbar_Items_Display_Key\":\"Items\",\"Toolbar_Items_Desc_Key\":\"Items: The items to display in the Toolbar.\",\"Toolbar_Padding_Small\":\"Small\",\"Toolbar_Padding_Medium\":\"Medium\",\"Toolbar_Padding_Large\":\"Large\",\"Toolbar_Alignment_Vertical\":\"Vertical\",\"Toolbar_Alignment_Horizontal\":\"Horizontal\",\"Toolbar_Layout\":\"Layout\",\"Toolbar_Layout_Desc\":\"Layout of the button\",\"Toolbar_Layout_IconBefore\":\"Icon before\",\"Toolbar_Layout_IconAfter\":\"Icon after\",\"Toolbar_Layout_IconAbove\":\"Icon above\",\"Toolbar_Layout_TextOnly\":\"Text only\",\"Toolbar_Layout_IconOnly\":\"Icon only\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"You can define font size for the text in Toolbar using this property\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"TabList_Display_Key\":\"Tab list\",\"TabList_Desc_Key\":\"Let users select from a list of items.\",\"TabList_Alignment_Display_Key\":\"Alignment\",\"TabList_Alignment_Desc_Key\":\"Alignment of the component that tabs are laid out. \",\"TabList_Size_Display_Key\":\"Size\",\"TabList_Size_Desc_Key\":\"Select from different size\",\"TabList_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"TabList_AccessibleLabel_Desc_Key\":\"Accessibility Label for TabList \",\"TabList_Items_Display_Key\":\"Items\",\"TabList_Items_Desc_Key\":\"Items: The items to display in the tab list.\",\"TabList_Size_Small\":\"Small\",\"TabList_Size_Medium\":\"Medium\",\"TabList_Size_Large\":\"Large\",\"TabList_Alignment_Vertical\":\"Vertical\",\"TabList_Alignment_Horizontal\":\"Horizontal\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"You can define font size for the text in Tab list using this property\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\"}}}",
       "Type": 3
     },
     {
@@ -1415,5 +1423,5 @@
       "Type": 4
     }
   ],
-  "Version": "2.0.3"
+  "Version": "2.2.30"
 }

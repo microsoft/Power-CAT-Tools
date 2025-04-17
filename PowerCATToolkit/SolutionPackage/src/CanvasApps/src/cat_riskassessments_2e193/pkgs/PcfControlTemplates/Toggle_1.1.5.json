@@ -14,30 +14,43 @@
         "Type": 0,
         "WizardStep": null
       },
-      "Appearance": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 2,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 0,
-        "WizardStep": null
-      },
       "BasePaletteColor": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
         "Type": 53,
+        "WizardStep": null
+      },
+      "Checked": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "SectionType": "BehaviorSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 0,
+        "WizardStep": null
+      },
+      "DisplayMode": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "SectionType": "BehaviorSection",
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 27,
         "WizardStep": null
       },
       "Font": {
@@ -46,7 +59,7 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -59,7 +72,7 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -72,7 +85,7 @@
         "Hidden": false,
         "PropertyGroupName": "Style",
         "PropertyKind": 2,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -85,7 +98,7 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -98,7 +111,7 @@
         "Hidden": false,
         "PropertyGroupName": "Style",
         "PropertyKind": 2,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -111,7 +124,7 @@
         "Hidden": false,
         "PropertyGroupName": "Style",
         "PropertyKind": 2,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -124,7 +137,7 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
         "ShowInCanvasInlineActionBar": false,
@@ -137,7 +150,7 @@
         "Hidden": false,
         "PropertyGroupName": "Size",
         "PropertyKind": 2,
-        "SectionIndex": 1,
+        "SectionIndex": 2,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -163,50 +176,24 @@
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 1,
+        "SectionIndex": 2,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
         "Type": 0,
         "WizardStep": null
       },
-      "SpinnerColor": {
+      "ToggleSize": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
-        "SectionIndex": 2,
+        "SectionIndex": 3,
         "SectionName": null,
         "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 29,
-        "WizardStep": null
-      },
-      "SpinnerSize": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 1,
-        "SectionName": null,
-        "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
         "Type": 0,
-        "WizardStep": null
-      },
-      "TrackColor": {
-        "EnabledForFlyout": false,
-        "HelperUI": null,
-        "Hidden": false,
-        "PropertyGroupName": "",
-        "PropertyKind": 1,
-        "SectionIndex": 2,
-        "SectionName": null,
-        "SectionType": "StyleAndThemeSection",
-        "ShowInCanvasInlineActionBar": false,
-        "Type": 29,
         "WizardStep": null
       },
       "Visible": {
@@ -228,7 +215,7 @@
         "Hidden": false,
         "PropertyGroupName": "Size",
         "PropertyKind": 2,
-        "SectionIndex": 1,
+        "SectionIndex": 2,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -241,7 +228,7 @@
         "Hidden": false,
         "PropertyGroupName": "Position",
         "PropertyKind": 2,
-        "SectionIndex": 1,
+        "SectionIndex": 2,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -254,7 +241,7 @@
         "Hidden": false,
         "PropertyGroupName": "Position",
         "PropertyKind": 2,
-        "SectionIndex": 1,
+        "SectionIndex": 2,
         "SectionName": null,
         "SectionType": "SizeAndPositioningSection",
         "ShowInCanvasInlineActionBar": false,
@@ -266,16 +253,34 @@
   "CommonEvents": [
     {
       "Description": "",
-      "DisplayName": "OnChange",
+      "DisplayName": "OnSelect",
       "Hidden": false,
       "IsPrimaryInput": false,
-      "Name": "OnChange",
+      "Name": "OnSelect",
       "PfxDefaultValue": null
     }
   ],
-  "ControlConstructor": "Spinner",
+  "ControlConstructor": "Toggle",
   "ControlNamespace": "PowerApps.CoreControls",
-  "DisplayNameKey": "Spinner_Display_Key",
+  "DisplayNameKey": "Toggle_Display_Key",
+  "Events": [
+    {
+      "Description": "OnCheck",
+      "DisplayName": "OnCheck",
+      "Hidden": false,
+      "IsPrimaryInput": false,
+      "Name": "OnCheck",
+      "PfxDefaultValue": null
+    },
+    {
+      "Description": "OnUncheck",
+      "DisplayName": "OnUncheck",
+      "Hidden": false,
+      "IsPrimaryInput": false,
+      "Name": "OnUncheck",
+      "PfxDefaultValue": null
+    }
+  ],
   "IncludedProperties": [
     {
       "Category": "design",
@@ -335,7 +340,7 @@
     },
     {
       "Category": "design",
-      "DefaultValue": "200",
+      "DefaultValue": "113",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Width",
@@ -354,16 +359,16 @@
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": null,
-      "PhoneDefaultValue": "350",
+      "PhoneDefaultValue": "113",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 2,
       "Usage": 2,
-      "WebDefaultValue": "112"
+      "WebDefaultValue": "113"
     },
     {
       "Category": "design",
-      "DefaultValue": "200",
+      "DefaultValue": "35",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Height",
@@ -382,12 +387,12 @@
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PfxDefaultValue": null,
-      "PhoneDefaultValue": "350",
+      "PhoneDefaultValue": "35",
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 2,
       "Usage": 2,
-      "WebDefaultValue": "112"
+      "WebDefaultValue": "35"
     },
     {
       "Category": "design",
@@ -446,15 +451,43 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "Spinner",
+  "Name": "Toggle",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Label for Spinner",
-      "DescriptionResourceString": "Spinner_Label_Desc_Key",
+      "Description": "To set Toggle checked state",
+      "DescriptionResourceString": "Toggle_Checked_Desc_Key",
+      "DisplayName": "Checked",
+      "DisplayNameResourceString": "Toggle_Checked_Display_Key",
+      "EnumValues": [],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": true,
+      "IsResettableToManifestDefault": false,
+      "Name": "Checked",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 20,
+      "Usage": 2,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "Label",
+      "Description": "Label for Toggle",
+      "DescriptionResourceString": "Toggle_Label_Desc_Key",
       "DisplayName": "Label",
-      "DisplayNameResourceString": "Spinner_Label_Display_Key",
+      "DisplayNameResourceString": "Toggle_Label_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
       "Hidden": false,
@@ -479,10 +512,10 @@
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Accessibility Label for Spinner component",
-      "DescriptionResourceString": "Spinner_AccessibleLabel_Desc_Key",
+      "Description": "Accessibility Label for Toggle component",
+      "DescriptionResourceString": "Toggle_AccessibleLabel_Desc_Key",
       "DisplayName": "Accessibility Label",
-      "DisplayNameResourceString": "Spinner_AccessibleLabel_Display_Key",
+      "DisplayNameResourceString": "Toggle_AccessibleLabel_Display_Key",
       "EnumValues": [],
       "HelperUI": null,
       "Hidden": false,
@@ -506,54 +539,11 @@
     },
     {
       "Category": "data",
-      "DefaultValue": "Primary",
-      "Description": "Appearance of Spinner",
-      "DescriptionResourceString": "Spinner_Appearance_Desc_Key",
-      "DisplayName": "Appearance",
-      "DisplayNameResourceString": "Spinner_Appearance_Display_Key",
-      "EnumValues": [
-        {
-          "Description": "Inverted",
-          "DisplayName": "Inverted",
-          "IsDefaultValue": false,
-          "Name": "Inverted",
-          "Value": "Inverted"
-        },
-        {
-          "Description": "Primary",
-          "DisplayName": "Primary",
-          "IsDefaultValue": true,
-          "Name": "Primary",
-          "Value": "Primary"
-        }
-      ],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "Appearance",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "Primary",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 1,
-      "Usage": 0,
-      "WebDefaultValue": "Primary"
-    },
-    {
-      "Category": "data",
       "DefaultValue": "After",
-      "Description": "Define position for the label around the Spinner",
-      "DescriptionResourceString": "Spinner_LabelPosition_Desc_Key",
+      "Description": "Define position for the label around the Toggle",
+      "DescriptionResourceString": "Toggle_LabelPosition_Desc_Key",
       "DisplayName": "Label Position",
-      "DisplayNameResourceString": "Spinner_LabelPosition_Display_Key",
+      "DisplayNameResourceString": "Toggle_LabelPosition_Display_Key",
       "EnumValues": [
         {
           "Description": "Before",
@@ -575,13 +565,6 @@
           "IsDefaultValue": false,
           "Name": "Above",
           "Value": "Above"
-        },
-        {
-          "Description": "Below",
-          "DisplayName": "Below",
-          "IsDefaultValue": false,
-          "Name": "Below",
-          "Value": "Below"
         }
       ],
       "HelperUI": null,
@@ -603,84 +586,6 @@
       "Type": 1,
       "Usage": 0,
       "WebDefaultValue": "After"
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "Medium",
-      "Description": "Define size of Spinner",
-      "DescriptionResourceString": "Spinner_SpinnerSize_Desc_Key",
-      "DisplayName": "Spinner Size",
-      "DisplayNameResourceString": "Spinner_SpinnerSize_Display_Key",
-      "EnumValues": [
-        {
-          "Description": "Tiny",
-          "DisplayName": "Tiny",
-          "IsDefaultValue": false,
-          "Name": "Tiny",
-          "Value": "Tiny"
-        },
-        {
-          "Description": "ExtraSmall",
-          "DisplayName": "ExtraSmall",
-          "IsDefaultValue": false,
-          "Name": "ExtraSmall",
-          "Value": "ExtraSmall"
-        },
-        {
-          "Description": "Small",
-          "DisplayName": "Small",
-          "IsDefaultValue": false,
-          "Name": "Small",
-          "Value": "Small"
-        },
-        {
-          "Description": "Medium",
-          "DisplayName": "Medium",
-          "IsDefaultValue": true,
-          "Name": "Medium",
-          "Value": "Medium"
-        },
-        {
-          "Description": "Large",
-          "DisplayName": "Large",
-          "IsDefaultValue": false,
-          "Name": "Large",
-          "Value": "Large"
-        },
-        {
-          "Description": "ExtraLarge",
-          "DisplayName": "ExtraLarge",
-          "IsDefaultValue": false,
-          "Name": "ExtraLarge",
-          "Value": "ExtraLarge"
-        },
-        {
-          "Description": "Huge",
-          "DisplayName": "Huge",
-          "IsDefaultValue": false,
-          "Name": "Huge",
-          "Value": "Huge"
-        }
-      ],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": false,
-      "Name": "SpinnerSize",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "Medium",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 1,
-      "Usage": 0,
-      "WebDefaultValue": "Medium"
     },
     {
       "Category": "data",
@@ -907,62 +812,6 @@
       "WebDefaultValue": ""
     },
     {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "The color of the spinner",
-      "DescriptionResourceString": "SpinnerColor_description",
-      "DisplayName": "Spinner color",
-      "DisplayNameResourceString": "SpinnerColor",
-      "EnumValues": [],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": true,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": true,
-      "Name": "SpinnerColor",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 6,
-      "Usage": 0,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "The color of the spinner's track",
-      "DescriptionResourceString": "TrackColor_description",
-      "DisplayName": "Track color",
-      "DisplayNameResourceString": "TrackColor",
-      "EnumValues": [],
-      "HelperUI": null,
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsLinkableToParentTheme": true,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "IsResettableToManifestDefault": true,
-      "Name": "TrackColor",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "",
-      "PfxDefaultValue": "",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 6,
-      "Usage": 0,
-      "WebDefaultValue": ""
-    },
-    {
       "Category": "design",
       "DefaultValue": "",
       "Description": "NA",
@@ -1015,6 +864,34 @@
       "Required": false,
       "ShouldAutoBind": false,
       "Type": 6,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "40",
+      "Description": "The size in pixels for the toggle.",
+      "DescriptionResourceString": "ToggleSize_Description",
+      "DisplayName": "Toggle size",
+      "DisplayNameResourceString": "ToggleSize",
+      "EnumValues": [],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": true,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": true,
+      "Name": "ToggleSize",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 16,
       "Usage": 0,
       "WebDefaultValue": ""
     },
@@ -1101,357 +978,357 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.Spinner\",\"CustomControlId\":\"PowerApps.CoreControls.Spinner\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"Label\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Appearance\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Primary\"},\"LabelPosition\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"After\"},\"SpinnerSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Medium\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"SpinnerColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"TrackColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"}},\"FeatureUsage\":null},\"Events\":null,\"CommonEvents\":null,\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerApps.CoreControls.Toggle\",\"CustomControlId\":\"PowerApps.CoreControls.Toggle\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"Checked\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"Label\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Label\"},\"AccessibleLabel\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"LabelPosition\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"After\"},\"BasePaletteColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontColor\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"FontItalic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontUnderline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"FontStrikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"TabIndex\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Tooltip\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"ToggleSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"40\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"ExplicitCommonEvents\"}]},\"Events\":{\"OnCheck\":{\"EventName\":\"OnCheck\"},\"OnUncheck\":{\"EventName\":\"OnUncheck\"}},\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Label\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Appearance\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"LabelPosition\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"SpinnerSize\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"ColorPalette\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontItalic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontUnderline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontStrikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"SpinnerColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Color\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TrackColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Color\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
+      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Checked\",\"Type\":\"TwoOptions\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Label\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AccessibleLabel\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"LabelPosition\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"BasePaletteColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"ColorPalette\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontColor\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontItalic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontUnderline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontStrikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TabIndex\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Tooltip\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"ToggleSize\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.4.4\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.1.5\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/bundle.js",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1033.resx",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1033.resx",
       "Type": 2
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1025.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1025.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1026.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1026.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1027.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1027.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1028.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1028.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1029.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1029.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1030.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1030.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1031.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1031.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1032.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1032.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1033.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1033.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1035.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1035.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1036.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1036.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1037.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1037.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1038.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1038.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1040.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1040.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1041.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1041.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1042.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1042.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1043.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1043.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1044.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1044.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1045.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1045.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1046.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1046.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1048.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1048.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1049.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1049.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1050.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1050.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1051.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1051.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1053.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1053.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1054.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1054.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1055.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1055.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1057.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1057.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1058.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1058.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1060.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1060.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1061.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1061.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1062.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1062.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1063.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1063.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1066.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1066.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1069.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1069.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1081.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1081.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1086.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1086.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1087.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1087.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.1110.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.1110.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.2052.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.2052.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.2070.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.2070.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.2074.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.2074.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.3076.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.3076.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.3082.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.3082.json",
       "Type": 5
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "/PCFControls/PowerApps_CoreControls_Spinner/strings/Spinner.3098.json",
+      "Path": "/PCFControls/PowerApps_CoreControls_Toggle/strings/Toggle2.3098.json",
       "Type": 5
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Spinner_Display_Key\":\"Spinner\",\"Spinner_Desc_Key\":\"Let users visualise spinner/loading effect\",\"Spinner_Label_Display_Key\":\"Label\",\"Spinner_Label_Desc_Key\":\"Label for Spinner\",\"Spinner_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"Spinner_AccessibleLabel_Desc_Key\":\"Accessibility Label for Spinner component\",\"Spinner_Appearance_Display_Key\":\"Appearance\",\"Spinner_Appearance_Desc_Key\":\"Appearance of Spinner\",\"Spinner_LabelPosition_Display_Key\":\"Label Position\",\"Spinner_LabelPosition_Desc_Key\":\"Define position for the label around the Spinner\",\"Spinner_SpinnerSize_Display_Key\":\"Spinner Size\",\"Spinner_SpinnerSize_Desc_Key\":\"Define size of Spinner\",\"Spinner_LabelPosition_Before\":\"Before\",\"Spinner_LabelPosition_After\":\"After\",\"Spinner_LabelPosition_Above\":\"Above\",\"Spinner_LabelPosition_Below\":\"Below\",\"Spinner_SpinnerSize_Tiny\":\"Tiny\",\"Spinner_SpinnerSize_ExtraSmall\":\"ExtraSmall\",\"Spinner_SpinnerSize_Small\":\"Small\",\"Spinner_SpinnerSize_Medium\":\"Medium\",\"Spinner_SpinnerSize_Large\":\"Large\",\"Spinner_SpinnerSize_ExtraLarge\":\"ExtraLarge\",\"Spinner_SpinnerSize_Huge\":\"Huge\",\"Spinner_Appearance_Primary\":\"Primary\",\"Spinner_Appearance_Inverted\":\"Inverted\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\",\"SpinnerColor\":\"Spinner color\",\"SpinnerColor_description\":\"The color of the spinner\",\"TrackColor\":\"Track color\",\"TrackColor_description\":\"The color of the spinner's track\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Toggle_Display_Key\":\"Toggle\",\"Toggle_Desc_Key\":\"Let users visualise Toggle control\",\"Toggle_Label_Display_Key\":\"Label\",\"Toggle_Label_Desc_Key\":\"Label for Toggle\",\"Toggle_AccessibleLabel_Display_Key\":\"Accessibility Label\",\"Toggle_AccessibleLabel_Desc_Key\":\"Accessibility Label for Toggle component\",\"Toggle_LabelPosition_Display_Key\":\"Label Position\",\"Toggle_LabelPosition_Desc_Key\":\"Define position for the label around the Toggle\",\"Toggle_LabelPosition_Before\":\"Before\",\"Toggle_LabelPosition_After\":\"After\",\"Toggle_LabelPosition_Above\":\"Above\",\"Toggle_Checked_Display_Key\":\"Checked\",\"Toggle_Checked_Desc_Key\":\"To set Toggle checked state\",\"Base_Palette_Color\":\"Color palette\",\"Base_Palette_Color_description\":\"Choose a color palette that's different from the theme.\",\"Font_Size\":\"Font size\",\"Font_Size_description\":\"Set the font size for displayed text.\",\"Font\":\"Font\",\"Font_description\":\"The name of the family of fonts in which text appears\",\"Font_Color\":\"Font color\",\"Font_Color_description\":\"The color of text in the control\",\"Font_Weight\":\"Font weight\",\"Font_Weight_description\":\"The weight of the text in a control\",\"Italic\":\"Italic\",\"Underline\":\"Underline\",\"Strikethrough\":\"Strikethrough\",\"ToggleSize\":\"Toggle size\",\"ToggleSize_Description\":\"The size in pixels for the toggle.\"}}}",
       "Type": 3
     },
     {
@@ -1476,5 +1353,10 @@
       "Type": 4
     }
   ],
-  "Version": "1.4.4"
+  "SubscribedFunctionalities": {
+    "autoDisabledViewState": "true",
+    "supportResettableProperties": "true",
+    "supportSetFocus": "true"
+  },
+  "Version": "1.1.5"
 }

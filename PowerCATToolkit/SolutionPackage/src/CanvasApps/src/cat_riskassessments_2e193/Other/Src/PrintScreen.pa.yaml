@@ -1,0 +1,394 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  PrintScreen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnVisible: "=//@deniseEdit - This entire page\r\n\r\n/* Load data for this page while spinner is loading */\r\nIf(\r\n    init <> true,\r\n    UpdateContext({init: true});\r\n    \r\n);\r\n"
+    Children:
+      - cAppFrame_1:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingRight: =Self.PaddingLeft
+            Width: =Parent.Width
+          Children:
+            - cScreenContainer_1:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Start
+                  DropShadow: =DropShadow.None
+                  Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                  FillPortions: =FlexOff
+                  Height: =Max(div_1.Y, App.ActiveScreen.Height - Self.Y)
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: '=0   '
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingLeft: =Margins
+                  PaddingRight: =Margins
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width - Self.X * 2
+                Children:
+                  - cPageHeaderMain_5:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                        FillPortions: =0
+                        Height: =div_26.Y + 1
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =4
+                        PaddingLeft: =If(Self.X = 0, Margins, 0)
+                        PaddingRight: =Self.PaddingLeft
+                        PaddingTop: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =1181
+                        X: =92
+                        Y: =40
+                      Children:
+                        - cPageHeaderTop_8:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =75
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =1042
+                              X: =68
+                              Y: =52
+                            Children:
+                              - cPageHeaderTitle_10:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =FlexOn
+                                    Height: =cHeaderText_13.Height
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =431
+                                    X: =36
+                                    Y: =40
+                                  Children:
+                                    - ButtonCanvas4_13:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Back"
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="ArrowLeft"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =//Navigate(PaneListScreen)
+                                          Text: =
+                                          Width: =32
+                                    - cHeaderText_13:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          DropShadow: =DropShadow.None
+                                          Height: =rDivider_PageHeader_13.Y
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =4
+                                          LayoutJustifyContent: =LayoutJustifyContent.Center
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width - Self.X
+                                          X: =1-1
+                                          Y: '=1-1 '
+                                        Children:
+                                          - h2Title_12:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                Height: =36
+                                                Size: =20
+                                                Text: ="Print preview"
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =394.49
+                                          - Label3_14:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                BorderColor: =RGBA(0, 18, 107, 1)
+                                                Color: =ColorValue("#424242")
+                                                Font: =Font.'Segoe UI'
+                                                LineHeight: =1.4
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                                Text: =//$"Risk assessment results for {AssessmentHistory.AssessmentDate}"
+                                                VerticalAlign: =VerticalAlign.Top
+                                                Visible: =!IsBlank(Self.Text)
+                                                Width: =Min(600, Parent.Width)
+                                                X: =394.49
+                                          - rDivider_PageHeader_13:
+                                              Control: Rectangle@2.3.0
+                                              Properties:
+                                                Fill: =RGBA(0,0,0,0)
+                                                Height: =1
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =72
+                                                Y: =52
+                                    - ButtonCanvas4_14:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Back"
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="Print"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =Print();
+                                          Text: =
+                                          Width: =32
+                                    - ButtonCanvas4_15:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Back"
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="Send"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: |-
+                                            =//Set(reportPDF, PDF(HtmlText1,{ExpandContainers: true})); Office365Outlook.SendEmailV2(User().Email,"Risk assessment",$"Risk assessment results for {AssessmentHistory.AssessmentDate}",{Attachments:Table({ContentBytes: reportPDF,Name: "Report.pdf"})}); Notify("Successfully sent summary report to yourself",NotificationType.Success);
+                                          Text: =
+                                          Width: =32
+                        - div_26:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignStart
+                              Fill: =ColorValue(AppTheme.palette.neutralLight)
+                              Height: =1
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+                  - cListCard_4:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =Max(div_27.Y, 120)
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: '=0   '
+                        PaddingTop: =
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width - Self.X * 2
+                      Children:
+                        - HtmlText1:
+                            Control: HtmlViewer@2.1.0
+                            Properties:
+                              AutoHeight: =true
+                              Font: =Font.'Segoe UI'
+                              Height: =312
+                              HtmlText: |-
+                                =//PrivilegesListToBeDisplayed
+                                /*
+                                $"<div style='margin-bottom:12px;'>
+                                    <div style='font-weight:bold;font-size:18px;'>{ RoleName }</div>
+                                    <div style='font-size:14px;color:#666;'>Risk assessment results for {AssessmentHistory.AssessmentDate}</div>
+                                </div>
+                                <table border='1' style='border-collapse:collapse;width:100%;'>
+                                    <tr style='background-color:#f2f2f2;'>
+                                        <th style='padding:8px;'>Severity</th>
+                                        <th style='padding:8px;'>Compliance Status</th>
+                                        <th style='padding:8px;'>Privilege</th>
+                                        <th style='padding:8px;'>Table</th>
+                                        <th style='padding:8px;'>Recommended Level</th>
+                                        <th style='padding:8px;'>Level</th>
+                                    </tr>
+                                    {Concat(
+                                        PrivilegesListToBeDisplayed,
+                                        With(
+                                            {
+                                                rowColor: If(Mod(RowNumber, 2) = 0, "#ffffff", "#f9f9f9"),
+                                                severityIcon: If(NewSeverity = "Critical", "⚠️ ", "")
+                                            },
+                                            $"
+                                            <tr style='background-color:{rowColor};'>
+                                                <td style='padding:8px;color:{NewSeverityTagColor};'>{severityIcon}{NewSeverity}</td>
+                                                <td style='padding:8px;'>{PrivilegeComplianceStatus}</td>
+                                                <td style='padding:8px;'>{PrivilegeDisplayName}</td>
+                                                <td style='padding:8px;'>{table}</td>
+                                                <td style='padding:8px;'>{RecommendedLevel}</td>
+                                                <td style='padding:8px;'>{level}</td>
+                                            </tr>"
+                                        )
+                                    )}
+                                </table>"
+
+
+                                //level
+                                */
+                              Size: =12
+                              Width: =1185
+                              X: =90
+                              Y: =342
+                        - cEmptyState_6:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =314
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =8
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =IsEmpty(ActiveRiskAssessmentSettingsToBeDisplayed)
+                              Width: =333
+                              X: =469
+                              Y: =93
+                            Children:
+                              - Image3_10:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: ='Empty states'
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                              - txtSubtitle1_EmptyState_9:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =36
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =20
+                                    Text: ="No assessment settings"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                                    Wrap: =false
+                                    X: =40
+                                    Y: =193
+                              - lblBody1_EmptyState_9:
+                                  Control: FluentV8/Label@1.8.6
+                                  Properties:
+                                    Alignment: =Align.Center
+                                    AutoHeight: =true
+                                    Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                                    FontWeight: =FontWeight.Normal
+                                    Height: =12
+                                    Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                                    VerticalAlignment: =VerticalAlign.Middle
+                                    X: =320
+                                    Y: =197
+                              - Container9_9:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    Height: =44
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Visible: =false
+                                    Width: =Parent.Width
+                                  Children:
+                                    - btnEmptyActionPrimary_8:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Action"
+                                          Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                          OnSelect: "=//UpdateContext({ searchText: \"\" }); "
+                                          Text: ="Action"
+                                          Width: =132
+                                          X: =542
+                        - div_27:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              Fill: =RGBA(0,0,0,0)
+                              Height: =2
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+                  - div_1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        Fill: =RGBA(0,0,0,0)
+                        Height: =2
+                        Width: =Parent.Width - Self.X * 2
+                        X: =84
+                        Y: =256
+      - cSpinner_9:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =RGBA(255,255,255,0.8)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            Visible: =init <> true
+            Width: =Parent.Width
+          Children:
+            - Spinner1_6:
+                Control: Spinner@1.4.6
+                Properties:
+                  AccessibleLabel: ="Spinner"
+                  Height: =Parent.Height
+                  Label: ="Printing to PDF"
+                  LabelPosition: ='Spinner.LabelPosition'.Below
+                  SpinnerSize: ='Spinner.SpinnerSize'.Large
+                  Width: =Parent.Width
