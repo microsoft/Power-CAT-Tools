@@ -1,0 +1,18 @@
+<customapi uniquename="cat_RetrieveCustomRolesApi">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Retrieve all custom roles in an environment">
+    <label description="Retrieve all custom roles in an environment" languagecode="1033" />
+  </description>
+  <displayname default="RetrieveCustomRolesApi">
+    <label description="RetrieveCustomRolesApi" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>RetrieveCustomRolesApi</name>
+  <plugintypeid>
+    <plugintypeexportkey>2544a5ba-ec8a-4418-b2a5-ae8a5b5725c9</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

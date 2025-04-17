@@ -54,6 +54,7 @@ SettingsLandingScreen As screen:
                 ZIndex: =1
 
             "TabList1_6 As 'Tab list'.pcfdataset":
+                AccessibleLabel: ="SettingsLandingScreenTabList"
                 DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =FlexOn
@@ -238,6 +239,7 @@ SettingsLandingScreen As screen:
                         ZIndex: =1
 
                         ButtonCanvas4_11 As Button:
+                            AccessibleLabel: ="Back"
                             Appearance: ='ButtonCanvas.Appearance'.Subtle
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -476,6 +478,7 @@ SettingsLandingScreen As screen:
                                         ZIndex: =1
 
                                     "InfoButton_Settings As 'Information button'":
+                                        AccessibleLabel: ="InfoButton"
                                         Content: ="Click manage to review and update the risk ratings for each security role access level in the default profile, which is used to assess the risk of a security role during scans."
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =24
@@ -487,31 +490,36 @@ SettingsLandingScreen As screen:
                                         ZIndex: =2
 
                                 ReviewandUpdateAssessmentSettingsText As Label:
+                                    AcceptsFocus: =false
                                     AutoHeight: =true
                                     DisplayMode: =DisplayMode.Edit
                                     FontSize: =12 * 0.725
                                     Height: =32
+                                    Italic: =false
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =320
                                     OnChange: =false
+                                    Strikethrough: =false
                                     Text: ="Review and update your risk assessment settings profile before scanning."
+                                    Underline: =false
                                     Width: =Parent.Width-20
                                     X: =0
                                     Y: =0
                                     ZIndex: =2
 
                                 btnManageAssessmentSettings As Button:
+                                    AccessibleLabel: ="Review default"
                                     Appearance: ='ButtonCanvas.Appearance'.Secondary
-                                    DisplayMode: =DisplayMode.Edit
+                                    DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                                     Height: =32
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
-                                    OnSelect: |-
-                                        =Navigate(EditSettingsScreen);
-                                        Set(
+                                    OnSelect: |
+                                        =Set(
                                             currentSelectedAssessmentSetting,
                                             DefaultRiskAssessmentSetting
-                                        )
+                                        );
+                                        Navigate(EditSettingsScreen);
                                     Text: ="Review default "
                                     Width: =120
                                     X: =0
@@ -557,14 +565,18 @@ SettingsLandingScreen As screen:
                                 ZIndex: =1
 
                             AutoScanningText As Label:
+                                AcceptsFocus: =false
                                 AutoHeight: =true
                                 DisplayMode: =DisplayMode.Edit
                                 FontSize: =12 * 0.725
                                 Height: =32
+                                Italic: =false
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: =If( AutoScanEnvVar.Value = "yes", "Auto scanning is enabled; every role change triggers a new scan and updates the assessment results for that role.", "Scan all roles once, or enable auto scanning for continuous evaluation whenever changes are made to security roles.")
+                                Underline: =false
                                 VerticalAlignment: =VerticalAlign.Top
                                 Width: =Parent.Width-20
                                 X: =0
@@ -590,9 +602,10 @@ SettingsLandingScreen As screen:
                                 ZIndex: =3
 
                                 btnScanAllRoles_SettingScreen As Button:
+                                    AccessibleLabel: =DVAssessmentPageLoc.scanAllRoles
                                     Appearance: ='ButtonCanvas.Appearance'.Secondary
                                     BasePaletteColor: =
-                                    DisplayMode: =If(CountRows(RetrieveAssessableSecurityRoles)>0,DisplayMode.Edit,DisplayMode.Disabled)
+                                    DisplayMode: =If(CountRows(AllCustomSecurityRoles)>0 && isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                                     Height: =32
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
@@ -648,7 +661,7 @@ SettingsLandingScreen As screen:
                                                     )
                                                 )
                                             );
-                                            '[DVAccelerator]Scanallcustomroles'.Run();
+                                            '[RiskAssessment]Scanallcustomroles'.Run(Blank());
                                             Concurrent(
                                                 Refresh('Risk Assessments'),
                                                 Refresh('Security Roles'),
@@ -668,43 +681,6 @@ SettingsLandingScreen As screen:
                                             );
                                             
                                         );
-                                        /*
-                                        Set(
-                                            isBatchOperationSuccessful,
-                                            If(
-                                                IsBlankOrError(Environment.cat_ScanAllRoles().out),
-                                                false,
-                                                true
-                                            )
-                                        );
-                                        If(
-                                            isBatchOperationSuccessful,
-                                            true,
-                                            Notify(
-                                                "Something went wrong. Please try again",
-                                                NotificationType.Error
-                                            )
-                                        );
-                                        UpdateContext(
-                                            {
-                                                init: true,
-                                                spinnerLabelForEditSettings: ""
-                                            }
-                                        );
-                                        If(
-                                            CountRows(RetrieveAssessableSecurityRoles) > 0 && isBatchOperationSuccessful,
-                                            Notify(
-                                                DVAssessmentPageLoc.scanRoleNotificationText,
-                                                NotificationType.Information,
-                                                5000
-                                            );
-                                            ,
-                                            true
-                                        );
-                                        ClearCollect(
-                                            col_RiskAssessmentToBeDisplayed,
-                                            RisksAssessmentsToBeDisplayed
-                                        );*/
                                     Text: ="Scan all roles"
                                     Visible: =true
                                     Width: =114
@@ -713,6 +689,7 @@ SettingsLandingScreen As screen:
                                     ZIndex: =1
 
                                 btnEnableAutoScan_SettingsScreen As Button:
+                                    AccessibleLabel: =DVAssessmentPageLoc.enableAutoScan
                                     Appearance: ='ButtonCanvas.Appearance'.Secondary
                                     DisplayMode: =DisplayMode.Edit//If(AutoScanEnvVar.Value <> "yes", DisplayMode.Edit, DisplayMode.Disabled)
                                     Height: =32
@@ -756,6 +733,7 @@ SettingsLandingScreen As screen:
                                     ZIndex: =2
 
                         HidecGetStartedPaneButton As Button:
+                            AccessibleLabel: ="Dismiss"
                             Appearance: ='ButtonCanvas.Appearance'.Subtle
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -883,9 +861,10 @@ SettingsLandingScreen As screen:
                                     ZIndex: =2
 
                             btnNavigateToProfiles As Button:
+                                AccessibleLabel: ="Navigate to profiles"
                                 Align: =Align.Right
                                 Appearance: ='ButtonCanvas.Appearance'.Transparent
-                                DisplayMode: =DisplayMode.Edit
+                                DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
                                 FontColor: =RGBA(66,66,66,1)
@@ -992,10 +971,11 @@ SettingsLandingScreen As screen:
                                     ZIndex: =2
 
                             btnNavigateToProfiles_1 As Button:
+                                AccessibleLabel: ="Navigate to default profile"
                                 Align: =Align.Right
                                 AlignInContainer: =AlignInContainer.Center
                                 Appearance: ='ButtonCanvas.Appearance'.Transparent
-                                DisplayMode: =DisplayMode.Edit
+                                DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                                 FillPortions: =1
                                 Font: =Font.'Segoe UI'
                                 FontColor: =RGBA(66,66,66,1)
@@ -1126,6 +1106,7 @@ SettingsLandingScreen As screen:
                                     ZIndex: =2
 
                             toggleAutoRun As Toggle:
+                                AccessibleLabel: ="Toggle auto run"
                                 BasePaletteColor: |
                                     =RGBA(15, 108, 189, 1)
                                 Checked: |-
@@ -1228,7 +1209,7 @@ SettingsLandingScreen As screen:
                                                     )
                                                 )
                                             );
-                                            '[DVAccelerator]Scanallcustomroles'.Run();
+                                            '[RiskAssessment]Scanallcustomroles'.Run(Blank());
                                             Concurrent(
                                                 Refresh('Risk Assessments'),
                                                 Refresh('Security Roles'),
@@ -1249,54 +1230,6 @@ SettingsLandingScreen As screen:
                                             spinnerLabelForEditSettings: ""
                                         }
                                     );
-                                    // Queuing roles for scanning...
-                                    /*If(
-                                        CountRows(RetrieveAssessableSecurityRoles) > 0,
-                                        UpdateContext({spinnerLabelForEditSettings: "Queuing scans..."});
-                                        Set(
-                                            isBatchOperationSuccessful,
-                                            If(
-                                                IsBlankOrError(Environment.cat_ScanAllRoles().out),
-                                                false,
-                                                true
-                                            )
-                                        );
-                                        If(
-                                            isBatchOperationSuccessful,
-                                            true,
-                                            Notify(
-                                                "Something went wrong. Please try again",
-                                                NotificationType.Error
-                                            )
-                                        );
-                                        UpdateContext(
-                                            {
-                                                init: true,
-                                                spinnerLabelForEditSettings: Blank()
-                                            }
-                                        );
-                                        If(
-                                            CountRows(RetrieveAssessableSecurityRoles) > 0 && isBatchOperationSuccessful,
-                                            Notify(
-                                                DVAssessmentPageLoc.scanRoleNotificationText,
-                                                NotificationType.Information,
-                                                5000
-                                            );
-                                            ,
-                                            true
-                                        );
-                                        ClearCollect(
-                                            col_RiskAssessmentToBeDisplayed,
-                                            RisksAssessmentsToBeDisplayed
-                                        );
-                                        ,
-                                        UpdateContext(
-                                            {
-                                                init: true,
-                                                spinnerLabelForEditSettings: Blank()
-                                            }
-                                        )
-                                    );*/
                                 OnUncheck: |-
                                     =
                                     
@@ -1379,6 +1312,7 @@ SettingsLandingScreen As screen:
         ZIndex: =2
 
         Spinner1_10 As Spinner:
+            AccessibleLabel: ="Spinner"
             DisplayMode: =DisplayMode.Edit
             Height: =Parent.Height
             Label: =spinnerLabelForEditSettings

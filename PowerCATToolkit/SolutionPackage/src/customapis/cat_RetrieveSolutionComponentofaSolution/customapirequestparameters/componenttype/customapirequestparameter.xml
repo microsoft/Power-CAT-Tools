@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="componenttype">
+  <description default="componenttype">
+    <label description="componenttype" languagecode="1033" />
+  </description>
+  <displayname default="componenttype">
+    <label description="componenttype" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>componenttype</name>
+  <type>7</type>
+</customapirequestparameter>

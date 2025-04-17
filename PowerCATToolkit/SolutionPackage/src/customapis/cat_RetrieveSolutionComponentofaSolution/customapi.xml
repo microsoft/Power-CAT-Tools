@@ -1,0 +1,18 @@
+<customapi uniquename="cat_RetrieveSolutionComponentofaSolution">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Retrieves solution component of a solution per component type">
+    <label description="Retrieves solution component of a solution per component type" languagecode="1033" />
+  </description>
+  <displayname default="RetrieveSolutionComponentofaSolution">
+    <label description="RetrieveSolutionComponentofaSolution" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>RetrieveSolutionComponentofaSolution</name>
+  <plugintypeid>
+    <plugintypeexportkey>6361baef-65ed-4d28-81e4-a4e099c57666</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

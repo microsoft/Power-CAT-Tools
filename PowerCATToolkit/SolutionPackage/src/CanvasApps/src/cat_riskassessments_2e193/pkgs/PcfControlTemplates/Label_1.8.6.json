@@ -105,6 +105,19 @@
         "Type": 0,
         "WizardStep": null
       },
+      "Italic": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Style",
+        "PropertyKind": 2,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "SectionType": null,
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 35,
+        "WizardStep": null
+      },
       "Overflow": {
         "EnabledForFlyout": false,
         "HelperUI": null,
@@ -116,6 +129,19 @@
         "SectionType": null,
         "ShowInCanvasInlineActionBar": false,
         "Type": 0,
+        "WizardStep": null
+      },
+      "Strikethrough": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Style",
+        "PropertyKind": 2,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "SectionType": null,
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 37,
         "WizardStep": null
       },
       "Text": {
@@ -142,6 +168,19 @@
         "SectionType": null,
         "ShowInCanvasInlineActionBar": false,
         "Type": 0,
+        "WizardStep": null
+      },
+      "Underline": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "Style",
+        "PropertyKind": 2,
+        "SectionIndex": 1,
+        "SectionName": null,
+        "SectionType": null,
+        "ShowInCanvasInlineActionBar": false,
+        "Type": 36,
         "WizardStep": null
       },
       "VerticalAlignment": {
@@ -687,6 +726,34 @@
       "WebDefaultValue": ""
     },
     {
+      "Category": "data",
+      "DefaultValue": "false",
+      "Description": "Whether this field should receive the focus or not.",
+      "DescriptionResourceString": "Label_AcceptsFocus_Desc_Key",
+      "DisplayName": "Accepts focus",
+      "DisplayNameResourceString": "Label_AcceptsFocus_Display_Key",
+      "EnumValues": [],
+      "HelperUI": "",
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "AcceptsFocus",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 20,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
       "Category": "design",
       "DefaultValue": "32",
       "Description": "Height of the element, may be set automatically if AutoHeight is set to true.",
@@ -934,6 +1001,90 @@
       "WebDefaultValue": ""
     },
     {
+      "Category": "data",
+      "DefaultValue": "false",
+      "Description": "Whether the text in a control is italic",
+      "DescriptionResourceString": "Label_Italic_Desc_Key",
+      "DisplayName": "Italic",
+      "DisplayNameResourceString": "Label_Italic_Display_Key",
+      "EnumValues": [],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "Italic",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 20,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "false",
+      "Description": "Whether a line appears under the text that appears on a control",
+      "DescriptionResourceString": "Label_Underline_Desc_Key",
+      "DisplayName": "Underline",
+      "DisplayNameResourceString": "Label_Underline_Display_Key",
+      "EnumValues": [],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "Underline",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 20,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
+      "Category": "data",
+      "DefaultValue": "false",
+      "Description": "Whether a line appears through the text that appears on a control",
+      "DescriptionResourceString": "Label_Strikethrough_Desc_Key",
+      "DisplayName": "Strikethrough",
+      "DisplayNameResourceString": "Label_Strikethrough_Display_Key",
+      "EnumValues": [],
+      "HelperUI": null,
+      "Hidden": false,
+      "IsDataSourceProperty": false,
+      "IsLinkableToParentTheme": false,
+      "IsPrimaryBehavioral": false,
+      "IsPrimaryInput": false,
+      "IsPrimaryOutput": false,
+      "IsResettable": false,
+      "IsResettableToManifestDefault": false,
+      "Name": "Strikethrough",
+      "ParentDataSetName": "",
+      "PassThroughProperty": "",
+      "PfxDefaultValue": "",
+      "PhoneDefaultValue": "",
+      "Required": false,
+      "ShouldAutoBind": false,
+      "Type": 20,
+      "Usage": 0,
+      "WebDefaultValue": ""
+    },
+    {
       "Category": "design",
       "DefaultValue": "",
       "Description": "",
@@ -1016,26 +1167,26 @@
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"Microsoft.CoreControls.Label\",\"CustomControlId\":\"Microsoft.CoreControls.Label\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"Text\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Label\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"10.5\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"normal\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"'Segoe UI', 'Open Sans', sans-serif\"},\"Alignment\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"left\"},\"VerticalAlignment\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"middle\"},\"Color\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Wrap\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"true\"},\"AutoHeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"Height\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"32\"},\"Overflow\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Hidden\"},\"TextRole\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Default\"},\"PaddingTop\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"PaddingEnd\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"PaddingBottom\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"PaddingStart\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"}},\"FeatureUsage\":null},\"Events\":{\"OnChange\":{\"EventName\":\"OnChange\"}},\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"Microsoft.CoreControls.Label\",\"CustomControlId\":\"Microsoft.CoreControls.Label\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/common/js/container.js\",\"LoadOrder\":5,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"Text\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"Label\"},\"FontSize\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"10.5\"},\"FontWeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"normal\"},\"Font\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"'Segoe UI', 'Open Sans', sans-serif\"},\"Alignment\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"left\"},\"VerticalAlignment\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"middle\"},\"Color\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Wrap\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"true\"},\"AutoHeight\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"AcceptsFocus\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"Height\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"32\"},\"Overflow\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Hidden\"},\"TextRole\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"Default\"},\"PaddingTop\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"PaddingEnd\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"PaddingBottom\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"PaddingStart\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"0\"},\"Italic\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"Underline\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"},\"Strikethrough\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"false\"}},\"FeatureUsage\":null},\"Events\":{\"OnChange\":{\"EventName\":\"OnChange\"}},\"CommonEvents\":{\"OnSelect\":{\"EventName\":\"OnSelect\"}},\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Text\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Decimal\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Alignment\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Align\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"VerticalAlignment\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"VerticalAlign\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Color\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Wrap\",\"Type\":\"TwoOptions\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AutoHeight\",\"Type\":\"TwoOptions\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Height\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Overflow\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TextRole\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingTop\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingEnd\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingBottom\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingStart\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"TabIndex\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Tooltip\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
+      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Text\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"FontSize\",\"Type\":\"Decimal\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"FontWeight\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontWeight\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Font\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Font\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Alignment\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"Align\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"VerticalAlignment\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"VerticalAlign\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Color\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"FontColor\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Wrap\",\"Type\":\"TwoOptions\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AutoHeight\",\"Type\":\"TwoOptions\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"AcceptsFocus\",\"Type\":\"TwoOptions\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Height\",\"Type\":\"Whole_None\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Overflow\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"TextRole\",\"Type\":\"Enum\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingTop\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingEnd\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingBottom\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PaddingStart\",\"Type\":\"Whole_None\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Italic\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Italics\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Underline\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Underline\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"Strikethrough\",\"Type\":\"TwoOptions\",\"ComplexType\":\"Strikethrough\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"TabIndex\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Tooltip\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 10,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.6.0\",\"IsFirstParty\":true}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"1.8.6\",\"IsFirstParty\":true}}",
       "Type": 3
     },
     {
       "IsControlSpecific": true,
-      "LoadingOrder": 12,
+      "LoadingOrder": 11,
       "ModifiedPath": "",
       "Path": "/PCFControls/Microsoft_CoreControls_Label/bundle.js",
       "Type": 0
@@ -1366,7 +1517,7 @@
       "IsControlSpecific": false,
       "LoadingOrder": 13,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Label_Desc_Key\":\"Label control.\",\"Label_Display_Key\":\"Label\",\"Label_Text_Display_Key\":\"Text\",\"Label_Text_Desc_Key\":\"Text for the label.\",\"Label_TextRole_Display_Key\":\"Text role\",\"Label_TextRole_Desc_Key\":\"Change label text role.\",\"Label_TextRole_Default_Display_Key\":\"Default\",\"Label_TextRole_Heading1_Display_Key\":\"Heading 1\",\"Label_TextRole_Heading2_Display_Key\":\"Heading 2\",\"Label_TextRole_Heading3_Display_Key\":\"Heading 3\",\"Label_TextRole_Heading4_Display_Key\":\"Heading 4\",\"Label_FontSize_Display_Key\":\"Font size\",\"Label_FontSize_Desc_Key\":\"Font size (in points) to use for label text.\",\"Label_FontWeight_Display_Key\":\"Font weight\",\"Label_FontWeight_Desc_Key\":\"Font weight to use for label text.\",\"Label_Alignment_Display_Key\":\"Alignment\",\"Label_Alignment_Desc_Key\":\"Horizontal alignment of label text.\",\"Label_Color_Display_Key\":\"Color\",\"Label_Color_Desc_Key\":\"Color to use for label text.\",\"Label_VerticalAlignment_Display_Key\":\"Vertical alignment\",\"Label_VerticalAlignment_Desc_Key\":\"Vertical alignment of label text.\",\"Label_Font_Display_Key\":\"Font\",\"Label_Font_Desc_Key\":\"The font to use for the label.\",\"Label_Wrap_Display_Key\":\"Wrap\",\"Label_Wrap_Desc_Key\":\"Whether the text should ever wrap to multiple lines.\",\"Label_PaddingTop_Display_Key\":\"Top padding\",\"Label_PaddingTop_Desc_Key\":\"The value in pixels of the top padding of the label text.\",\"Label_PaddingEnd_Display_Key\":\"End padding\",\"Label_PaddingEnd_Desc_Key\":\"The value in pixels of the end padding of the label text.\",\"Label_PaddingBottom_Display_Key\":\"Bottom padding\",\"Label_PaddingBottom_Desc_Key\":\"The value in pixels of the bottom padding of the label text.\",\"Label_PaddingStart_Display_Key\":\"Start padding\",\"Label_PaddingStart_Desc_Key\":\"The value in pixels of the start padding of the label text.\",\"Label_AutoHeight_Display_Key\":\"Auto height\",\"Label_AutoHeight_Desc_Key\":\"Whether to adjust height to the container dimensions\",\"Label_Height_Display_Key\":\"Height\",\"Label_Height_Desc_Key\":\"Height of the element, may be set automatically if AutoHeight is set to true.\",\"Label_Overflow_Display_Key\":\"Overflow\",\"Label_Overflow_Desc_Key\":\"Overflow setting of the Label.\",\"Label_Overflow_Hidden_Display_Key\":\"Hidden\",\"Label_Overflow_Scroll_Display_Key\":\"Scroll\"}}}",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"Label_Desc_Key\":\"Label control.\",\"Label_Display_Key\":\"Label\",\"Label_Text_Display_Key\":\"Text\",\"Label_Text_Desc_Key\":\"Text for the label.\",\"Label_TextRole_Display_Key\":\"Text role\",\"Label_TextRole_Desc_Key\":\"Change label text role.\",\"Label_TextRole_Default_Display_Key\":\"Default\",\"Label_TextRole_Heading1_Display_Key\":\"Heading 1\",\"Label_TextRole_Heading2_Display_Key\":\"Heading 2\",\"Label_TextRole_Heading3_Display_Key\":\"Heading 3\",\"Label_TextRole_Heading4_Display_Key\":\"Heading 4\",\"Label_FontSize_Display_Key\":\"Font size\",\"Label_FontSize_Desc_Key\":\"Font size (in points) to use for label text.\",\"Label_FontWeight_Display_Key\":\"Font weight\",\"Label_FontWeight_Desc_Key\":\"Font weight to use for label text.\",\"Label_AcceptsFocus_Display_Key\":\"Accepts focus\",\"Label_AcceptsFocus_Desc_Key\":\"Whether this field should receive the focus or not.\",\"Label_Alignment_Display_Key\":\"Alignment\",\"Label_Alignment_Desc_Key\":\"Horizontal alignment of label text.\",\"Label_Color_Display_Key\":\"Color\",\"Label_Color_Desc_Key\":\"Color to use for label text.\",\"Label_VerticalAlignment_Display_Key\":\"Vertical alignment\",\"Label_VerticalAlignment_Desc_Key\":\"Vertical alignment of label text.\",\"Label_Font_Display_Key\":\"Font\",\"Label_Font_Desc_Key\":\"The font to use for the label.\",\"Label_Wrap_Display_Key\":\"Wrap\",\"Label_Wrap_Desc_Key\":\"Whether the text should ever wrap to multiple lines.\",\"Label_PaddingTop_Display_Key\":\"Top padding\",\"Label_PaddingTop_Desc_Key\":\"The value in pixels of the top padding of the label text.\",\"Label_PaddingEnd_Display_Key\":\"End padding\",\"Label_PaddingEnd_Desc_Key\":\"The value in pixels of the end padding of the label text.\",\"Label_PaddingBottom_Display_Key\":\"Bottom padding\",\"Label_PaddingBottom_Desc_Key\":\"The value in pixels of the bottom padding of the label text.\",\"Label_PaddingStart_Display_Key\":\"Start padding\",\"Label_PaddingStart_Desc_Key\":\"The value in pixels of the start padding of the label text.\",\"Label_AutoHeight_Display_Key\":\"Auto height\",\"Label_AutoHeight_Desc_Key\":\"Whether to adjust height to the container dimensions\",\"Label_Height_Display_Key\":\"Height\",\"Label_Height_Desc_Key\":\"Height of the element, may be set automatically if AutoHeight is set to true.\",\"Label_Overflow_Display_Key\":\"Overflow\",\"Label_Overflow_Desc_Key\":\"Overflow setting of the Label.\",\"Label_Overflow_Hidden_Display_Key\":\"Hidden\",\"Label_Overflow_Scroll_Display_Key\":\"Scroll\",\"Label_Italic_Display_Key\":\"Italic\",\"Label_Italic_Desc_Key\":\"Whether the text in a control is italic\",\"Label_Underline_Display_Key\":\"Underline\",\"Label_Underline_Desc_Key\":\"Whether a line appears under the text that appears on a control\",\"Label_Strikethrough_Display_Key\":\"Strikethrough\",\"Label_Strikethrough_Desc_Key\":\"Whether a line appears through the text that appears on a control\",\"Default_Value_Text\":\"Label\"}}}",
       "Type": 3
     },
     {
@@ -1375,10 +1526,17 @@
       "ModifiedPath": "",
       "Path": "/PCF/fluentui-react.js",
       "Type": 0
+    },
+    {
+      "IsControlSpecific": false,
+      "LoadingOrder": 0,
+      "ModifiedPath": "",
+      "Path": "Fluent/8.121.1/8.121.1",
+      "Type": 4
     }
   ],
   "SubscribedFunctionalities": {
     "autoDisabledViewState": "true"
   },
-  "Version": "1.6.0"
+  "Version": "1.8.6"
 }

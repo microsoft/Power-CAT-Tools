@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="solutionid">
+  <description default="solutionid">
+    <label description="solutionid" languagecode="1033" />
+  </description>
+  <displayname default="solutionid">
+    <label description="solutionid" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>solutionid</name>
+  <type>12</type>
+</customapirequestparameter>

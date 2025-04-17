@@ -1,0 +1,73 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  CardItem:
+    DefinitionType: CanvasComponent
+    AccessAppScope: true
+    CustomProperties:
+      IconName:
+        PropertyKind: Input
+        DisplayName: IconName
+        Description: A custom property
+        DataType: Text
+        Default: ="Text"
+      Image:
+        PropertyKind: Input
+        DisplayName: Image
+        Description: A custom property
+        DataType: Image
+        Default: =SampleImage
+      Text:
+        PropertyKind: Input
+        DisplayName: Text
+        Description: A custom property
+        DataType: Text
+        Default: ="Text"
+      Url:
+        PropertyKind: Input
+        DisplayName: Url
+        Description: A custom property
+        DataType: Text
+        Default: ="Text"
+    Properties:
+      Height: =24
+      Width: =290
+    Children:
+      - Container1_1:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =8
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+            X: =1-1
+            Y: =1-1
+          Children:
+            - Icon2:
+                Control: Icon@0.0.7
+                Properties:
+                  Height: =24
+                  Icon: ="DocumentBulletList"
+                  Width: =24
+            - LinkCanvas1:
+                Control: Link@0.0.44
+                Properties:
+                  BasePaletteColor: =RGBA(189, 178, 176, 1)
+                  FillPortions: =FlexOn
+                  Height: =22
+                  LayoutMinWidth: =100
+                  Text: =CardItem.Text
+                  URL: =CardItem.Url

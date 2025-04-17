@@ -24,6 +24,11 @@
         );
         If(// Added this condition just to prevent the value updation twice after App.onstart
             !isCountOfRolesValidated,
+            //Set(AllCustomSecurityRoles,Environment.cat_RetrieveCustomRolesApi().value);
+            ClearCollect(
+                AllCustomSecurityRoles,
+                Environment.cat_RetrieveCustomRolesApi().value
+            );
             Concurrent(
                 ClearCollect(
                     col_RiskAssessmentCompletedChartData,
@@ -34,9 +39,9 @@
                     CountRows(
                         Filter(
                             'Risk Assessments',
-                            'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant
+                            'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
                         )
-                    ) = CountRows(RetrieveAssessableSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')
+                    ) = CountRows(AllCustomSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')
                 ),
                 Set(
                     CountofRiskAssessmentsWithRisk,
@@ -49,7 +54,7 @@
                 ),
                 Set(
                     CountOfCustomSecurityRoles,
-                    CountRows(RetrieveAssessableSecurityRoles)
+                    CountRows(AllCustomSecurityRoles)
                 ),
                 Select(btnRefresh)
             );
@@ -73,8 +78,25 @@
                     Collect(
                         col_RiskAssessmentStatusChartData,
                         NotAssessedStatusChartData
-                    ),
-                    false
+                    );
+                    If(
+                        CountRows(
+                            Filter(
+                                col_RiskAssessmentStatusChartData,
+                                ItemLegend = "Not assessed"
+                            )
+                        ) > 1,
+                        Remove(
+                            col_RiskAssessmentStatusChartData,
+                            First(
+                                Filter(
+                                    col_RiskAssessmentStatusChartData,
+                                    ItemLegend = "Not assessed"
+                                )
+                            )
+                        ),
+                        false
+                    )
                 );
             );
             Set(
@@ -101,46 +123,16 @@
                         'Is Default' = 'Is Default (Risk Assessment Settings)'.Yes
                     )
                 ) = 0,
-                Patch(
-                    'Risk Assessment Settings',
-                    Defaults('Risk Assessment Settings'),
-                    {
-                        'Is Default': 'Is Default (Risk Assessment Settings)'.Yes,
-                        Name: "Default Risk Assessment Settings",
-                        // Need LOC
-                        'Org Create': 'Org Create (Risk Assessment Settings)'.Critical,
-                        'PCBU Create': 'PCBU Create (Risk Assessment Settings)'.High,
-                        'BU Create': 'BU Create (Risk Assessment Settings)'.Moderate,
-                        'User Create': 'User Create (Risk Assessment Settings)'.'No Risk',
-                        'Org Read': 'Org Read (Risk Assessment Settings)'.Critical,
-                        'PCBU Read': 'PCBU Read (Risk Assessment Settings)'.High,
-                        'BU Read': 'BU Read (Risk Assessment Settings)'.Moderate,
-                        'User Read': 'User Read (Risk Assessment Settings)'.'No Risk',
-                        'Org Write': 'Org Write (Risk Assessment Settings)'.Critical,
-                        'PCBU Write': 'PCBU Write (Risk Assessment Settings)'.High,
-                        'BU Write': 'BU Write (Risk Assessment Settings)'.Moderate,
-                        'User Write': 'User Write (Risk Assessment Settings)'.'No Risk',
-                        'Org Delete': 'Org Delete (Risk Assessment Settings)'.Critical,
-                        'PCBU Delete': 'PCBU Delete (Risk Assessment Settings)'.High,
-                        'BU Delete': 'BU Delete (Risk Assessment Settings)'.Moderate,
-                        'User Delete': 'User Delete (Risk Assessment Settings)'.'No Risk',
-                        'Org Append': 'Org Append (Risk Assessment Settings)'.Critical,
-                        'PCBU Append': 'PCBU Append (Risk Assessment Settings)'.High,
-                        'BU Append': 'BU Append (Risk Assessment Settings)'.Moderate,
-                        'User Append': 'User Append (Risk Assessment Settings)'.'No Risk',
-                        'Org Append To': 'Org Append To (Risk Assessment Settings)'.Critical,
-                        'PCBU Append To': 'PCBU Append To (Risk Assessment Settings)'.High,
-                        'BU Append To': 'BU Append To (Risk Assessment Settings)'.Moderate,
-                        'User Append To': 'User Append To (Risk Assessment Settings)'.'No Risk',
-                        'Org Assign': 'Org Assign (Risk Assessment Settings)'.Critical,
-                        'PCBU Assign': 'PCBU Assign (Risk Assessment Settings)'.High,
-                        'BU Assign': 'BU Assign (Risk Assessment Settings)'.Moderate,
-                        'User Assign': 'User Assign (Risk Assessment Settings)'.'No Risk',
-                        'Org Share': 'Org Share (Risk Assessment Settings)'.Critical,
-                        'PCBU Share': 'PCBU Share (Risk Assessment Settings)'.High,
-                        'BU Share': 'BU Share (Risk Assessment Settings)'.Moderate,
-                        'User Share': 'User Share (Risk Assessment Settings)'.'No Risk'
-                    }
+                Set(
+                    currentSelectedAssessmentSetting,
+                    Patch(
+                        'Risk Assessment Settings',
+                        Defaults('Risk Assessment Settings'),
+                        {
+                            'Is Default': 'Is Default (Risk Assessment Settings)'.Yes,
+                            Name: "Default Risk Assessment Settings"
+                        }
+                    )
                 ),
                 false
             )
@@ -200,6 +192,7 @@
                 ZIndex: =1
 
             "TabList1_3 As 'Tab list'.pcfdataset":
+                AccessibleLabel: ="DashboardScreenTabList"
                 DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =FlexOn
@@ -336,9 +329,10 @@
             ZIndex: =4
 
             FluentMessageBar2 As FluentMessageBar.pcfdataset:
+                AlignInContainer: =AlignInContainer.Center
                 Body: ="You must manually scan roles to view insights, and changes to roles will not be automatically assessed for risk."
                 DisplayMode: =DisplayMode.Edit
-                Height: =Self.AutoHeight
+                Height: =Self.AutoHeight - 12
                 Items: |-
                     =Table(
                         {
@@ -442,9 +436,11 @@
                 ZIndex: =1
 
             FluentMessageBar_BatchStatus As FluentMessageBar.pcfdataset:
+                AlignInContainer: =AlignInContainer.Center
                 Body: =statusMessageBarText
                 DisplayMode: =DisplayMode.Edit
-                Height: =Min(Self.AutoHeight, 44)
+                Height: =Self.AutoHeight//Min(Self.AutoHeight, 44)
+                HideDismiss: =true
                 Intent: =statusMessageBarIntent
                 Items: |-
                     =Table(
@@ -611,6 +607,7 @@
                     ZIndex: =1
 
                     ButtonCanvas4_4 As Button:
+                        AccessibleLabel: ="ArrowLeft"
                         Appearance: ='ButtonCanvas.Appearance'.Subtle
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
@@ -828,6 +825,7 @@
                                 ZIndex: =1
 
                             "InfoButton_AssessmentsToReview As 'Information button'":
+                                AccessibleLabel: ="InfoButton"
                                 Content: =DVAssessmentPageLoc.assessmentsNeededToReviewTooltip
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =28
@@ -1129,6 +1127,7 @@
 
                                             "FluentDetailsAssessedRisk As 'Fluent Details List (1.1.39)'.pcfdataset":
                                                 AccessibilityLabel: =DVAssessmentPageLoc.statusTooltip
+                                                AlignInContainer: =AlignInContainer.Start
                                                 columns_Items: |-
                                                     =Table(
                                                         {
@@ -1245,6 +1244,10 @@
                                                                 selectedAssessment.AssessmentId
                                                             );
                                                             Set(
+                                                                currentRoleId,
+                                                                selectedAssessment.RoleId
+                                                            );
+                                                            Set(
                                                                 currentAssessmentSettingGUID,
                                                                 LookUp(
                                                                     AllRiskAssessmentsFromDataverse,
@@ -1347,6 +1350,7 @@
                             ZIndex: =4
 
                         btnViewAssessments As Button:
+                            AccessibleLabel: ="View assessments"
                             Appearance: ='ButtonCanvas.Appearance'.Secondary
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -1462,6 +1466,7 @@
                                 ZIndex: =1
 
                             "InfoButton_CoverageChart As 'Information button'":
+                                AccessibleLabel: ="InfoButton"
                                 Content: =DVAssessmentPageLoc.coverageToolTip
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =28
@@ -1589,7 +1594,7 @@
                                         LayoutMinHeight: =350
                                         LayoutMinWidth: =350
                                         ShowLabelsInPercentage: =false
-                                        ValueInsideDonut: =CountRows(RetrieveAssessableSecurityRoles)
+                                        ValueInsideDonut: =CountRows(AllCustomSecurityRoles)
                                         Width: =Parent.Width/2 + 30
                                         X: =0
                                         Y: =0
@@ -1631,6 +1636,7 @@
                                     ZIndex: =3
 
                                     Spinner5 As Spinner:
+                                        AccessibleLabel: ="Spinner"
                                         Appearance: ='Spinner.Appearance'.Primary
                                         BasePaletteColor: =
                                         DisplayMode: =DisplayMode.Edit
@@ -1654,11 +1660,12 @@
                             ZIndex: =5
 
                         btnScanAllRoles As Button:
-                            Appearance: ='ButtonCanvas.Appearance'.Secondary
+                            AccessibleLabel: =DVAssessmentPageLoc.scanAllRoles
+                            Appearance: ='ButtonCanvas.Appearance'.Primary
                             BasePaletteColor: =
-                            DisplayMode: =DisplayMode.Edit
+                            DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                             Font: =Font.'Segoe UI'
-                            FontColor: =RGBA(36,36,36,1)
+                            FontColor: =
                             FontWeight: =
                             Height: =32
                             LayoutMinHeight: =32
@@ -1724,7 +1731,7 @@
                                             )
                                         )
                                     );
-                                    '[DVAccelerator]Scanallcustomroles'.Run();
+                                    '[RiskAssessment]Scanallcustomroles'.Run(Blank());
                                     Concurrent(
                                         Refresh('Risk Assessments'),
                                         Refresh('Security Roles'),
@@ -1737,36 +1744,7 @@
                                             hideScanAllRolesButton: true
                                         }
                                     );
-                                    /* Set(
-                                    isBatchOperationSuccessful,
-                                  If(
-                                        IsBlankOrError(Environment.cat_ScanAllRoles().out),
-                                        false,
-                                        true
-                                    )
-                                   
-                                );
-                                If(
-                                    isBatchOperationSuccessful,
-                                    UpdateContext(
-                                        {
-                                            init: true,
-                                            hideScanAllRolesButton: true
-                                        }
-                                    );
-                                    ,
-                                    UpdateContext(
-                                        {
-                                            init: true,
-                                            hideScanAllRolesButton: false
-                                        }
-                                    );
-                                    Notify(
-                                        "Something went wrong. Please try again",
-                                        NotificationType.Error
-                                    )
-                                );*/
-                                Set(
+                                    Set(
                                         showSpinnerLabelForDashboard,
                                         ""
                                     );
@@ -1776,17 +1754,6 @@
                                     );
                                     
                                 );
-                                /*If(
-                                    CountRows(RetrieveAssessableSecurityRoles) > 0 && isBatchOperationSuccessful,
-                                    Notify(
-                                        DVAssessmentPageLoc.scanRoleNotificationText,
-                                        NotificationType.Information,
-                                        5000
-                                    );
-                                    Refresh('Risk Assessments');
-                                    ,
-                                    true
-                                );*/
                             Text: =DVAssessmentPageLoc.scanAllRoles
                             Visible: =(IsEmpty('Risk Assessments'.'Risk Assessment') && !hideScanAllRolesButton) || AutoScanEnabled
                             Width: =135
@@ -1812,6 +1779,9 @@
                                     Refresh('Environment Variable Definitions'),
                                     Refresh('Environment Variable Values')
                                 );
+                                
+                                //Not needed
+                                //Set(AllCustomSecurityRoles,Environment.cat_RetrieveCustomSecurityRoles().value);
                                 If(
                                     BatchStatus = "Error",
                                     UpdateContext(
@@ -1882,9 +1852,9 @@
                                     CountRows(
                                         Filter(
                                             'Risk Assessments',
-                                            'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant
+                                            'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
                                         )
-                                    ) = CountRows(RetrieveAssessableSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')
+                                    ) = CountRows(AllCustomSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')
                                 )
                             Text: =DVAssessmentPageLoc.refresh
                             Visible: |-
@@ -1998,6 +1968,7 @@
                                     ZIndex: =2
 
                             "BulbIcon As 'Fluent Icon (1.1.39)'":
+                                AlignInContainer: =AlignInContainer.Start
                                 DisplayMode: =DisplayMode.Disabled
                                 Height: =22
                                 IconColor: |-
@@ -2015,6 +1986,7 @@
                                 ZIndex: =3
 
                             "InfoButton_Settings_1 As 'Information button'":
+                                AccessibleLabel: ="InfoButton"
                                 AlignInContainer: =AlignInContainer.Start
                                 Content: ="Click manage to review and update the risk ratings for each security role access level in the default profile, which is used to assess the risk of a security role during scans."
                                 DisplayMode: =DisplayMode.Edit
@@ -2058,8 +2030,10 @@
                                 ZIndex: =1
 
                         btnReviewSettings As Button:
+                            AccessibleLabel: =DVAssessmentPageLoc.reviewSettings
                             Appearance: ='ButtonCanvas.Appearance'.Secondary
-                            DisplayMode: =DisplayMode.Edit
+                            BasePaletteColor: =
+                            DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                             Height: =32
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
@@ -2199,6 +2173,7 @@
                                 ZIndex: =1
 
                             "InfoButtonCanvas1_11 As 'Information button'":
+                                AccessibleLabel: ="InfoButton"
                                 Content: ="Text"
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =28
@@ -2242,6 +2217,7 @@
 
                                 "CertificateIcon_HomeScreen As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.riskAssessmentTool
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2271,6 +2247,7 @@
                                     Text: =DVAssessmentPageLoc.riskAssessmentTool
                                     URL: |-
                                         ="https://aka.ms/dvacc/riskassessment"
+                                    VerticalAlign: =
                                     Width: =Parent.Width-20
                                     X: =0
                                     Y: =0
@@ -2294,6 +2271,7 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2348,6 +2326,7 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_HomeScreen As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2402,6 +2381,7 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_HomeScreen As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2489,7 +2469,7 @@
                         RadiusBottomRight: =8
                         RadiusTopLeft: =8
                         RadiusTopRight: =8
-                        Visible: =CountRows('Risk Assessments'.'Risk Assessment') = 0 //|| CountRows(RetrieveAssessableSecurityRoles) = 0
+                        Visible: =CountRows('Risk Assessments'.'Risk Assessment') = 0
                         Width: |-
                             =If(
                                 DashboardScreen.Size = 1 || DashboardScreen.Size = 2 || (DashboardScreen.Size = 3 && DashboardScreen.Orientation = Layout.Horizontal && ScreenContainer1.Width < 840),
@@ -2540,6 +2520,7 @@
 
                                 "CertificateIcon_HomeScreen_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2593,6 +2574,7 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2647,6 +2629,7 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2701,6 +2684,7 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_EmptyHomeScreen_1 As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -2972,20 +2956,21 @@
                                         ZIndex: =3
 
                                         btnReviewScanSettings_1 As Button:
+                                            AccessibleLabel: =DVAssessmentPageLoc.reviewSettings
                                             BasePaletteColor: =RGBA(15, 84, 140, 1)
-                                            DisplayMode: =DisplayMode.Edit
+                                            DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
                                             Font: =Font.'Segoe UI'
                                             FontSize: =14
                                             FontWeight: =FontWeight.Normal
                                             Height: =32
                                             LayoutMinHeight: =32
                                             LayoutMinWidth: =96
-                                            OnSelect: |-
-                                                =Navigate(EditSettingsScreen);
-                                                Set(
+                                            OnSelect: |
+                                                =Set(
                                                     currentSelectedAssessmentSetting,
                                                     DefaultRiskAssessmentSetting
                                                 );
+                                                Navigate(EditSettingsScreen);
                                             Text: =DVAssessmentPageLoc.reviewSettings
                                             Width: =123
                                             X: =0
@@ -2993,6 +2978,7 @@
                                             ZIndex: =1
 
                                         btnSystemRoles_EmptyDashboardScreen As Button:
+                                            AccessibleLabel: =DVAssessmentPageLoc.viewSystemRolesButtonText
                                             Appearance: ='ButtonCanvas.Appearance'.Secondary
                                             DisplayMode: =DisplayMode.Edit
                                             Font: =Font.'Segoe UI'
@@ -3083,6 +3069,7 @@
 
                                 "CertificateIcon_HomeScreen_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3136,6 +3123,7 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3190,6 +3178,7 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3244,6 +3233,7 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_EmptyHomeScreen As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3287,14 +3277,7 @@
                 Height: =RolesCompliantContainer.Height
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
-                Visible: |-
-                    =allRolesAreCompliant
-                    /*CountRows(
-                        Filter(
-                            'Risk Assessments',
-                            'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant
-                        )
-                    ) = CountRows(RetrieveAssessableSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment') */
+                Visible: =allRolesAreCompliant
                 Width: =Parent.Width-20
                 ZIndex: =8
 
@@ -3437,6 +3420,7 @@
                                 ZIndex: =1
 
                             btnSeeAllRoles_2 As Button:
+                                AccessibleLabel: =DVAssessmentPageLoc.seeAll &" "& DVAssessmentPageLoc.roles
                                 AlignInContainer: =AlignInContainer.Start
                                 Appearance: ='ButtonCanvas.Appearance'.Secondary
                                 DisplayMode: =DisplayMode.Edit
@@ -3550,6 +3534,7 @@
 
                                 "CertificateIcon_HomeScreen_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
                                     AccessibilityLabel: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3603,6 +3588,7 @@
                                 ZIndex: =2
 
                                 "DictionaryIcon_HomeScreen_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3657,6 +3643,7 @@
                                 ZIndex: =3
 
                                 "DictionaryIcon_2_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3711,6 +3698,7 @@
                                 ZIndex: =4
 
                                 "DictionaryIcon_3_EmptyHomeScreen_2 As 'Fluent Icon (1.1.39)'":
+                                    AlignInContainer: =AlignInContainer.Center
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =20
                                     IconColor: |-
@@ -3831,6 +3819,7 @@
                             ZIndex: =2
 
                     ButtonCanvas1_8 As Button:
+                        AccessibleLabel: ="button"
                         Appearance: ='ButtonCanvas.Appearance'.Subtle
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
@@ -3886,14 +3875,18 @@
                     ZIndex: =1
 
                 Label1_1 As Label:
+                    AcceptsFocus: =false
                     AutoHeight: =true
                     DisplayMode: =DisplayMode.Edit
                     FontSize: =16 * 0.725
                     Height: =32
+                    Italic: =false
                     LayoutMinHeight: =32
                     LayoutMinWidth: =320
                     OnChange: =false
+                    Strikethrough: =false
                     Text: =LookUp(freContent, Index = freStep).Description
+                    Underline: =false
                     Width: =Parent.Width - Self.X * 2
                     X: =0
                     Y: =0
@@ -3934,6 +3927,7 @@
                     ZIndex: =2
 
                     ButtonCanvas3_1 As Button:
+                        AccessibleLabel: ="Notnow"
                         Appearance: ='ButtonCanvas.Appearance'.Secondary
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
@@ -3948,6 +3942,7 @@
                         ZIndex: =1
 
                     ButtonCanvas3_2 As Button:
+                        AccessibleLabel: ="Next"
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
                         LayoutMinHeight: =32
@@ -3976,6 +3971,7 @@
         ZIndex: =3
 
         Spinner1_1 As Spinner:
+            AccessibleLabel: ="Spinner"
             DisplayMode: =DisplayMode.Edit
             Height: =Parent.Height
             Label: =showSpinnerLabelForDashboard
@@ -4011,10 +4007,10 @@
     TextCanvas4 As Text:
         DisplayMode: =DisplayMode.Edit
         Height: =0
-        Text: =IsEmpty(RiskAssessmentsWithRisk) & CountOfCustomSecurityRoles & CountofRiskAssessmentsWithRisk & IsEmpty(RiskAssessmentStatusChartData) & IsEmpty(RiskAssessmentCompletedChartData) & DefaultRiskAssessmentSetting.'Risk Assessment Setting' & allRolesAreCompliant
+        Text: =IsEmpty(RiskAssessmentsWithRisk) & CountOfCustomSecurityRoles & CountofRiskAssessmentsWithRisk & IsEmpty(RiskAssessmentStatusChartData) & IsEmpty(RiskAssessmentCompletedChartData) & DefaultRiskAssessmentSetting.'Risk Assessment Setting' & allRolesAreCompliant & IsEmpty(NotAssessedStatusChartData) && isLoggedInUserSysAdmin
         Visible: =false
         Width: =0
         X: =0
         Y: =0
-        ZIndex: =5
+        ZIndex: =6
 

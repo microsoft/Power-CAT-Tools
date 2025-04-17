@@ -8,6 +8,12 @@ PaneListScreen As screen:
                 Select(PrivCancelButtonCanvas),
                 false
             ),
+            Reset(ddFilter_3),
+            Reset(txtSearch_2),
+            Set(
+                dropDownStatusForEditRoles,
+                Blank()
+            ),
            // Refresh('Risk Assessments'),
             Set(
                 currentAssessmentGUID,
@@ -22,9 +28,9 @@ PaneListScreen As screen:
             UpdateContext(
                 {
                     skipToUpdatedPage: false,
-                    isRiskAssessmentProfileChanged:false,
+                    isRiskAssessmentProfileChanged: false,
                     isArchivedAssessmentSelected: false,
-                    isRoleUpdatedSuccessfully:false,
+                    isRoleUpdatedSuccessfully: false,
                     currentSelectedSecurityRole: Blank(),
                     RoleId: Blank(),
                     RoleName: Blank(),
@@ -45,18 +51,19 @@ PaneListScreen As screen:
             );
             
         );
+        /*Set(
+            currentRoleId,
+            RoleId
+        );*/
         Set(
             varPageNumber,
             1
-        );
-        Set(
-            currentRoleId,
-            RoleId
         );
         Concurrent(
             UpdateContext(
                 {
                     showMessageBarForPaneScreen: true,
+                    showPane: false,
                     showInProgressMessageBar: false,
                     showBaseLineSettingsMessageBar: false,
                     showWarningMessageBar: true,
@@ -70,7 +77,7 @@ PaneListScreen As screen:
                     triggerUpdateRolePrivileges: false,
                     selectedRoleRiskAssessmentProfileId: LookUp(
                         AllRiskAssessmentsFromDataverse,
-                        'Security Role'.Role = RoleId
+                        'Security Role'.Role = RoleId && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
                     ).'Risk Assessment Setting'.'Risk Assessment Setting',
                     currentSelectedAssesment: LookUp(
                         AllRiskAssessmentsFromDataverse,
@@ -158,6 +165,7 @@ PaneListScreen As screen:
                 ZIndex: =1
 
             "TabList1_5 As 'Tab list'.pcfdataset":
+                AccessibleLabel: ="Panelistscreentablist"
                 DefaultSelectedItems: |-
                     =LookUp(
                         Nav,
@@ -195,6 +203,23 @@ PaneListScreen As screen:
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =3
 
+                ButtonCanvas1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Subtle
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    Icon: ="Print"
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnSelect: |-
+                        =//Navigate(PrintScreen,ScreenTransition.None, {PrivilegesListToBeDisplayed:PrivilegesListToBeDisplayed,RoleName:RoleName,AssessmentHistory:First(riskAssessmentHistory)}) //@deniseEdit - This button to navigate to new print page
+                    Text: ="Print"
+                    Visible: =false
+                    Width: =42
+                    X: =409
+                    Y: =0
+                    ZIndex: =1
+
                 "LearnIcon_2 As 'Fluent Icon (1.1.39)'":
                     AccessibilityLabel: =DVAssessmentPageLoc.learnButtonText
                     DisplayMode: =DisplayMode.Edit
@@ -222,7 +247,7 @@ PaneListScreen As screen:
                     Width: =32
                     X: =0
                     Y: =0
-                    ZIndex: =1
+                    ZIndex: =2
 
                 "QuestionIcon_2 As 'Fluent Icon (1.1.39)'":
                     AccessibilityLabel: =DVAssessmentPageLoc.helpButtonText
@@ -251,7 +276,7 @@ PaneListScreen As screen:
                     Width: =32
                     X: =0
                     Y: =0
-                    ZIndex: =2
+                    ZIndex: =3
 
                 "BugIcon_2 As 'Fluent Icon (1.1.39)'":
                     AccessibilityLabel: ="Report a bug"
@@ -280,7 +305,7 @@ PaneListScreen As screen:
                     Width: =32
                     X: =0
                     Y: =0
-                    ZIndex: =3
+                    ZIndex: =4
 
         FluentMessageBar_Baselinesettingschange As FluentMessageBar.pcfdataset:
             Body: =baseLinseSettingsMessageBarBody
@@ -649,6 +674,7 @@ PaneListScreen As screen:
                             ZIndex: =1
 
                             ButtonCanvas4_10 As Button:
+                                AccessibleLabel: ="Back"
                                 Appearance: ='ButtonCanvas.Appearance'.Subtle
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =32
@@ -732,6 +758,7 @@ PaneListScreen As screen:
                                     ZIndex: =3
 
                         btnScanRole As Button:
+                            AccessibleLabel: =DVAssessmentPageLoc.scanRoleButtonText
                             Align: =Align.Center
                             AlignInContainer: =AlignInContainer.Center
                             Appearance: ='ButtonCanvas.Appearance'.Subtle
@@ -830,7 +857,7 @@ PaneListScreen As screen:
                                         ItemKey: "scanrole",
                                         ItemDisplayName: DVAssessmentPageLoc.scanRoleButtonText,
                                         ItemIconName: "Send",
-                                        ItemDisabled: false,
+                                        ItemDisabled: !isLoggedInUserSysAdmin,
                                         ItemAppearance: "Subtle",
                                         ItemIconStyle: "Regular",
                                         ItemTooltip: "Scan role"
@@ -1076,6 +1103,7 @@ PaneListScreen As screen:
                                 ZIndex: =1
 
                             "InfoButtonCanvas1_7 As 'Information button'":
+                                AccessibleLabel: ="InfoButton"
                                 Content: ="Meet compliance by updating the security role privileges to the recommended access levels. You can update privileges individually. If there’s a good reason for having a higher privilege level than recommended, flag the role as an exception."//Need LOC
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =28
@@ -1100,6 +1128,7 @@ PaneListScreen As screen:
                             ZIndex: =2
 
                             cmbRiskAssessmentHistory As Combobox.pcfdataset:
+                                AccessibleLabel: ="ComboboxRiskAssessmentHistory"
                                 Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
                                 BorderColor: =RGBA(209, 209, 209, 1)
                                 BorderStyle: =BorderStyle.Solid
@@ -1386,7 +1415,7 @@ PaneListScreen As screen:
                                 BorderStyle: =BorderStyle.None
                                 Fill: =RGBA(255, 255, 255, 1)
                                 FillPortions: =0
-                                Height: =If(DashboardScreen.Size=1,100,86)//80
+                                Height: =If(PaneListScreen.Size=1,100,86)//80
                                 LayoutAlignItems: =LayoutAlignItems.Center
                                 LayoutGap: =2
                                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -1437,7 +1466,7 @@ PaneListScreen As screen:
                                         DisplayMode: =DisplayMode.Edit
                                         Font: =Font.'Segoe UI'
                                         FontColor: =RGBA(66, 66, 66, 1)
-                                        Height: =If(DashboardScreen.Size=1,45,30)
+                                        Height: =If(PaneListScreen.Size=1,45,30)
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: ="Privileges with risk"//DVAssessmentPageLoc.riskAssessmentsNonCompliant// Need LOC
@@ -1462,7 +1491,7 @@ PaneListScreen As screen:
                                     RadiusBottomRight: =4
                                     RadiusTopLeft: =4
                                     RadiusTopRight: =4
-                                    Width: =If(DashboardScreen.Size=1,90,100)
+                                    Width: =If(PaneListScreen.Size=1,90,100)
                                     ZIndex: =2
 
                                     TotalCustomRolesCountText_1 As Text:
@@ -1485,7 +1514,7 @@ PaneListScreen As screen:
                                         DisplayMode: =DisplayMode.Edit
                                         Font: =Font.'Segoe UI'
                                         FontColor: =RGBA(66, 66, 66, 1)
-                                        Height: =If(DashboardScreen.Size=1,45,30)
+                                        Height: =If(PaneListScreen.Size=1,45,30)
                                         LayoutMinHeight: =32
                                         LayoutMinWidth: =96
                                         Text: =DVAssessmentPageLoc.totalPrivilegesText
@@ -1765,6 +1794,7 @@ PaneListScreen As screen:
                                         ZIndex: =2
 
                                     "InfoButton_Baseline As 'Information button'":
+                                        AccessibleLabel: ="InfoButton"
                                         AlignInContainer: =AlignInContainer.Start
                                         Content: ="Meet compliance by updating the security role privileges to the recommended access levels. You can update privileges individually. If there’s a good reason for having a higher privilege level than recommended, flag the role as an exception."//Need LOC
                                         DisplayMode: =DisplayMode.Edit
@@ -1777,6 +1807,7 @@ PaneListScreen As screen:
                                         ZIndex: =3
 
                                 CmbBaselineSettingsList As Combobox.pcfdataset:
+                                    AccessibleLabel: ="ComboboxBaseLineSettings"
                                     AlignInContainer: =AlignInContainer.End
                                     Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
                                     BorderColor: =RGBA(209, 209, 209, 1)
@@ -1787,9 +1818,9 @@ PaneListScreen As screen:
                                             'Risk Assessment Settings',
                                             'Risk Assessment Setting' = selectedRoleRiskAssessmentProfileId
                                         )
-                                    DisplayMode: =DisplayMode.Edit
+                                    DisplayMode: =If(isLoggedInUserSysAdmin && cmbRiskAssessmentHistory.Selected.AssessmentId = First(riskAssessmentHistory).AssessmentId , DisplayMode.Edit,DisplayMode.Disabled) 
                                     Height: =32
-                                    Items: =Filter('Risk Assessment Settings', Status='Status (Risk Assessment Settings)'.Active)
+                                    Items: =Filter('Risk Assessment Settings',Status='Status (Risk Assessment Settings)'.Active)
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =320
                                     OnChange: |-
@@ -1811,21 +1842,21 @@ PaneListScreen As screen:
                                     Y: =0
                                     ZIndex: =2
 
-                                    Name1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-                                        FieldDisplayName: ="Name"
-                                        FieldName: ="cat_name"
-                                        FieldType: ="s"
-                                        FieldVariantName: ="textualColumn"
-                                        Order: =1
-                                        ZIndex: =0
-
                                     "'Risk Assessment Setting1' As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn":
                                         FieldDisplayName: ="Risk Assessment Setting"
                                         FieldName: ="cat_riskassessmentsettingid"
                                         FieldType: ="g"
                                         FieldVariantName: ="textualColumn"
                                         Order: =2
-                                        ZIndex: =0
+                                        ZIndex: =17
+
+                                    Name1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+                                        FieldDisplayName: ="Name"
+                                        FieldName: ="cat_name"
+                                        FieldType: ="s"
+                                        FieldVariantName: ="textualColumn"
+                                        Order: =1
+                                        ZIndex: =18
 
                                 txtCaption1_1 As Text:
                                     Align: ='TextCanvas.Align'.Start
@@ -1850,6 +1881,7 @@ PaneListScreen As screen:
                                     ZIndex: =3
 
                                 btnSave As Button:
+                                    AccessibleLabel: =DVAssessmentPageLoc.saveButtonText
                                     Appearance: ='ButtonCanvas.Appearance'.Secondary
                                     BorderColor: =RGBA(209, 209, 209, 1)
                                     BorderThickness: =1
@@ -2035,6 +2067,7 @@ PaneListScreen As screen:
                             ZIndex: =1
 
                             btnRefresh_PrivilegesListScreen As Button:
+                                AccessibleLabel: =DVAssessmentPageLoc.refresh
                                 Align: =Align.Left
                                 AlignInContainer: =AlignInContainer.Center
                                 Appearance: ='ButtonCanvas.Appearance'.Transparent
@@ -2297,6 +2330,7 @@ PaneListScreen As screen:
                                     ZIndex: =1
 
                                 Icon1_9 As icon.Search:
+                                    AccessibleLabel: ="Search"
                                     BorderColor: =RGBA(0, 0, 0, 0)
                                     Color: =RGBA(0, 120, 212, 1)
                                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2316,11 +2350,13 @@ PaneListScreen As screen:
                                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                                     PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                                     PressedFill: =RGBA(0, 0, 0, 0)
+                                    TabIndex: =0
                                     Visible: =App.ActiveScreen.Size <= ScreenSize.Small
                                     Width: =32
                                     ZIndex: =2
 
                                 ddFilter_3 As Dropdown.pcfdataset:
+                                    AccessibleLabel: ="SeverityDropdown"
                                     DefaultSelectedItems: =If(IsBlankOrError(dropDownStatusForEditRoles.ItemKey),First(AssessmentSeverity),dropDownStatusForEditRoles)
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
@@ -2386,6 +2422,7 @@ PaneListScreen As screen:
                                     ZIndex: =4
 
                                     "txtSearch_2 As 'Text input'":
+                                        AccessibleLabel: ="SearchPrivileges"
                                         Appearance: ='TextInputCanvas.Appearance'.FilledLighter
                                         DisplayMode: =DisplayMode.Edit
                                         FillPortions: =1
@@ -2400,6 +2437,7 @@ PaneListScreen As screen:
                                         ZIndex: =1
 
                         Spinner1_8 As Spinner:
+                            AccessibleLabel: ="Spinner"
                             DisplayMode: =DisplayMode.Edit
                             Height: =200
                             LayoutMinHeight: =200
@@ -2428,14 +2466,20 @@ PaneListScreen As screen:
                                     {
                                         ColName: "RolePrivilegeName",
                                         ColDisplayName: DVAssessmentPageLoc.privilegeColumnName,
-                                        ColWidth: Self.Width*0.38,
+                                        ColWidth: Self.Width*0.3,//Self.Width*0.38,
                                         ColMultiLine: true,
+                                        ColSortable: true
+                                    },
+                                    {
+                                        ColName: "table",
+                                        ColDisplayName: DVAssessmentPageLoc.table,
+                                        ColWidth: 120,
                                         ColSortable: true
                                     },
                                     {
                                         ColName: "level",
                                         ColDisplayName: DVAssessmentPageLoc.currentLevelColumnName,
-                                        ColWidth: Max(Self.Width * 0.18,120),
+                                        ColWidth: Max(Self.Width * 0.17,120),//Max(Self.Width * 0.18,120),
                                         ColSortable: true
                                     },
                                     {
@@ -2449,7 +2493,12 @@ PaneListScreen As screen:
                             CurrentSortColumn: =assessedRiskDetailsSortCol
                             CurrentSortDirection: =assessedRiskDetailsSortOrder
                             DisplayMode: =DisplayMode.Edit
-                            Height: =Max(60 + (CountRows(PrivilegesListToBeDisplayed) * 48), 200)//(CountRows(PrivilegesListToBeDisplayed) * 55)+ 100//Max(60 + (CountRows(RolePrvilegesWithRowNumber) * 48), 200)
+                            FillPortions: =FlexOff
+                            Height: |-
+                                =Max(
+                                    80 + (CountRows(PrivilegesListToBeDisplayed) * 48),
+                                    200
+                                )//(CountRows(PrivilegesListToBeDisplayed) * 55)+ 100//Max(60 + (CountRows(RolePrvilegesWithRowNumber) * 48), 200)
                             InputEvent: =ctxTableEvent
                             Items: =PrivilegesListToBeDisplayed
                             LargeDatasetPaging: =true
@@ -2552,8 +2601,7 @@ PaneListScreen As screen:
                                     );
                                     
                                 );
-                            OnSelect: |-
-                                =//UpdateContext({ showPane: true })
+                            OnSelect: =
                             PageSize: =CountRows(SelectedAssessmentRolePrivileges)
                             RaiseOnRowSelectionChangeEvent: =true
                             RecordKey: ="privilegeId"
@@ -2563,7 +2611,7 @@ PaneListScreen As screen:
                                     !IsBlank(AutoScanEnvVar) && AutoScanEnvVar.Value = "yes" && LookUp(
                                         'Risk Assessments',
                                         'Risk Assessment' = cmbRiskAssessmentHistory.Selected.AssessmentId
-                                    ).'Is Archived' = 'Is Archived (Risk Assessments)'.No && currentSelectedAssesment.'Status Reason' <> 'Status Reason (Risk Assessments)'.Stale && makeDetailsListEditableForRoleUpdation,//&& ApprovedExceptionContainer.Visible =false,
+                                    ).'Is Archived' = 'Is Archived (Risk Assessments)'.No && currentSelectedAssesment.'Status Reason' <> 'Status Reason (Risk Assessments)'.Stale && makeDetailsListEditableForRoleUpdation && isLoggedInUserSysAdmin,//&& ApprovedExceptionContainer.Visible =false,
                                     'PowerCAT.FluentDetailsList.SelectionType'.Single,
                                     'PowerCAT.FluentDetailsList.SelectionType'.None
                                 )
@@ -2665,6 +2713,14 @@ PaneListScreen As screen:
                                 Order: =13
                                 ZIndex: =13
 
+                            "TagColor2 As 'cat_PowerCAT.FluentDetailsListTemplate_dataField'.textualColumn":
+                                FieldDisplayName: ="TagColor"
+                                FieldName: ="TagColor"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =14
+                                ZIndex: =19
+
                         cEmptyState_4 As groupContainer.verticalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.Center
                             FillPortions: =0
@@ -2716,6 +2772,7 @@ PaneListScreen As screen:
                                 ZIndex: =2
 
                             lblBody1_EmptyState_5 As Label:
+                                AcceptsFocus: =false
                                 AlignInContainer: =AlignInContainer.Center
                                 Alignment: =Align.Center
                                 AutoHeight: =true
@@ -2723,10 +2780,13 @@ PaneListScreen As screen:
                                 DisplayMode: =DisplayMode.Edit
                                 FontWeight: =FontWeight.Normal
                                 Height: =12
+                                Italic: =false
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                                Underline: =false
                                 VerticalAlignment: =VerticalAlign.Middle
                                 Width: =320
                                 X: =320
@@ -2748,13 +2808,14 @@ PaneListScreen As screen:
                                 ZIndex: =4
 
                                 btnEmptyActionPrimary_4 As Button:
+                                    AccessibleLabel: ="Action"
                                     Appearance: ='ButtonCanvas.Appearance'.Secondary
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
                                     OnSelect: |-
-                                        =UpdateContext({ searchText: "" }); 
+                                        =//UpdateContext({ searchText: "" }); 
                                     Text: ="Action"
                                     Width: =132
                                     X: =542
@@ -2926,12 +2987,16 @@ PaneListScreen As screen:
                                 ZIndex: =6
 
                                 HiddenLbl As Label:
+                                    AcceptsFocus: =false
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
+                                    Italic: =false
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =320
                                     OnChange: =false
+                                    Strikethrough: =false
                                     Text: =TotalPrivilegesOfaSelectedRole//& " | " & TotalCount
+                                    Underline: =false
                                     Visible: =false
                                     Width: =320
                                     X: =0
@@ -2953,6 +3018,7 @@ PaneListScreen As screen:
                                     ZIndex: =2
 
                                 PageNumber As Dropdown.pcfdataset:
+                                    AccessibleLabel: ="Pagenumber"
                                     DefaultSelectedItems: =["15"]
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
@@ -3005,7 +3071,7 @@ PaneListScreen As screen:
                 PaddingRight: =16
                 PaddingTop: =16
                 Visible: =showPane <> false && CountRows(PrivilegesList.SelectedItems)>0
-                Width: =320
+                Width: =450//490//320
                 ZIndex: =2
 
                 Container6 As groupContainer.verticalAutoLayoutContainer:
@@ -3045,6 +3111,7 @@ PaneListScreen As screen:
                             ZIndex: =1
 
                             btnBack As Button:
+                                AccessibleLabel: =DVAssessmentPageLoc.back
                                 Appearance: ='ButtonCanvas.Appearance'.Subtle
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =32
@@ -3188,6 +3255,7 @@ PaneListScreen As screen:
                                 ZIndex: =2
 
                                 btnPreviousPrivilege As Button:
+                                    AccessibleLabel: ="Previous privilege"
                                     Appearance: ='ButtonCanvas.Appearance'.Subtle
                                     DisplayMode: =If(currentSelectedPrivilege.RowNumber=1,DisplayMode.Disabled,DisplayMode.Edit)
                                     Height: =32
@@ -3207,7 +3275,7 @@ PaneListScreen As screen:
                                             UpdateContext({ctxGridEvent: "LoadNextPageSetFocusOnRow" & Text(Rand())}),
                                             false
                                         );
-                                        UpdateContext(
+                                        /*UpdateContext(
                                             {
                                                 currentPrevRec: LookUp(
                                                     Privileges,
@@ -3217,7 +3285,7 @@ PaneListScreen As screen:
                                                     ).privilegeName
                                                 )
                                             }
-                                        );
+                                        ); */
                                         UpdateContext(
                                             {
                                                 selectedRows: Filter(
@@ -3267,6 +3335,7 @@ PaneListScreen As screen:
                                     ZIndex: =1
 
                                 btnNextPrivilege As Button:
+                                    AccessibleLabel: ="Next privilege"
                                     Appearance: ='ButtonCanvas.Appearance'.Subtle
                                     DisplayMode: |-
                                         =If(
@@ -3292,7 +3361,7 @@ PaneListScreen As screen:
                                             UpdateContext({ctxGridEvent: "LoadNextPageSetFocusOnRow" & Text(Rand())}),
                                             false
                                         );
-                                        UpdateContext(
+                                        /*UpdateContext(
                                             {
                                                 currentNextRec: LookUp(
                                                     Privileges,
@@ -3302,7 +3371,7 @@ PaneListScreen As screen:
                                                     ).privilegeName
                                                 )
                                             }
-                                        );
+                                        ); */
                                         UpdateContext(
                                             {
                                                 selectedRows: Filter(
@@ -3352,6 +3421,7 @@ PaneListScreen As screen:
                                     ZIndex: =2
 
                                 btnClosePane As Button:
+                                    AccessibleLabel: ="Close"
                                     Appearance: ='ButtonCanvas.Appearance'.Subtle
                                     DisplayMode: =DisplayMode.Edit
                                     Height: =32
@@ -3409,30 +3479,30 @@ PaneListScreen As screen:
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         LayoutOverflowY: =LayoutOverflow.Scroll
-                        PaddingLeft: =2
+                        PaddingLeft: =6
                         PaddingRight: =6
                         PaddingTop: =12
                         ZIndex: =2
 
                         SelectedPrivInfoContainer As groupContainer.verticalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
+                            AlignInContainer: =AlignInContainer.Start
                             BorderColor: =RGBA(209, 209, 209, 1)
                             BorderThickness: =1
                             Fill: =RGBA(0, 0, 0, 0.01)
                             FillPortions: =0
-                            Height: =PrivDescContainer.Y+PrivDescContainer.Height //If(!hidePanelBackButton,200,160)//160
+                            Height: =div_23.Y//If(!hidePanelBackButton,200,160)//160
                             LayoutAlignItems: =LayoutAlignItems.Stretch
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutGap: =12
                             LayoutMinHeight: =200
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
-                            PaddingLeft: =12
+                            PaddingLeft: =5
                             PaddingTop: =10
-                            RadiusBottomLeft: =8
-                            RadiusBottomRight: =8
-                            RadiusTopLeft: =8
-                            RadiusTopRight: =8
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
                             Visible: |-
                                 =//If(prvSeverityLabel="No Risk",false,true)
                                 If(
@@ -3447,18 +3517,36 @@ PaneListScreen As screen:
                                 AlignInContainer: =AlignInContainer.Start
                                 Fill: =RGBA(255, 255, 255, 1)
                                 FillPortions: =0
-                                Height: =30
+                                Height: =div_24.Y
                                 LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =8
                                 LayoutMinHeight: =100
                                 LayoutMinWidth: =450
                                 LayoutMode: =LayoutMode.Auto
                                 LayoutWrap: =true
+                                PaddingLeft: =12
                                 RadiusBottomLeft: =4
                                 RadiusBottomRight: =4
                                 RadiusTopLeft: =4
                                 RadiusTopRight: =4
                                 Width: =Parent.Width-20
                                 ZIndex: =1
+
+                                Image4 As image:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    Height: =32
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: =If(currentSelectedPrivilege.NewSeverity="Critical",CriticalSeverityWarning,HighSeverityWarning)
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =32
+                                    ZIndex: =1
 
                                 LightBulbInfoIcon As icon.Lightbulb:
                                     BorderColor: =RGBA(0, 0, 0, 0)
@@ -3477,36 +3565,99 @@ PaneListScreen As screen:
                                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                                     PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                                     PressedFill: =RGBA(0, 0, 0, 0)
+                                    Visible: =false
                                     Width: =24
-                                    ZIndex: =1
-
-                                PrivInfoLabel As Text:
-                                    DisplayMode: =DisplayMode.Edit
-                                    Font: =Font.'Segoe UI'
-                                    FontColor: =RGBA(36, 36, 36, 1)
-                                    Height: =32
-                                    LayoutMinHeight: =32
-                                    LayoutMinWidth: =96
-                                    Text: =DVAssessmentPageLoc.reduceRiskLevelHeaderText
-                                    VerticalAlign: =VerticalAlign.Middle
-                                    Weight: ='TextCanvas.Weight'.Semibold
-                                    Width: =150
-                                    X: =0
-                                    Y: =0
                                     ZIndex: =2
 
+                                Container27 As groupContainer.verticalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.Start
+                                    BorderColor: =
+                                    BorderStyle: =BorderStyle.None
+                                    Height: =rCardDivider_12.Y
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =250
+                                    LayoutMode: =LayoutMode.Auto
+                                    ZIndex: =4
+
+                                    PrivInfoLabel As Text:
+                                        DisplayMode: =DisplayMode.Edit
+                                        Font: =Font.'Segoe UI'
+                                        FontColor: =RGBA(36, 36, 36, 1)
+                                        Height: =24
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =96
+                                        Text: =currentSelectedPrivilege.NewSeverity & " risk"//DVAssessmentPageLoc.reduceRiskLevelHeaderText
+                                        VerticalAlign: =VerticalAlign.Middle
+                                        Weight: ='TextCanvas.Weight'.Bold
+                                        Width: =150
+                                        X: =0
+                                        Y: =0
+                                        ZIndex: =1
+
+                                    txtCaption1_6 As Text:
+                                        Align: ="Start"
+                                        AutoHeight: =false
+                                        BorderStyle: =""
+                                        ContentLanguage: =""
+                                        DisplayMode: =DisplayMode.Edit
+                                        Font: =""
+                                        FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                        FontItalic: =false
+                                        FontStrikethrough: =false
+                                        FontUnderline: =false
+                                        Height: =LookUp(_typeramp,name="Caption1").lineHeight
+                                        LayoutMinHeight: =32
+                                        LayoutMinWidth: =96
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =LookUp(_typeramp,name="Caption1").fontSize
+                                        TabIndex: =0
+                                        Text: =If(currentSelectedPrivilege.PrivilegeComplianceStatus="Not allowed","Remove privilege","Reduce privileges")
+                                        Tooltip: =""
+                                        VerticalAlign: =""
+                                        Visible: =true
+                                        Weight: =LookUp(_typeramp,name="Caption1").fontWeight
+                                        Width: =250
+                                        Wrap: =false
+                                        X: =7
+                                        Y: =94
+                                        ZIndex: =2
+
+                                    rCardDivider_12 As rectangle:
+                                        AccessibleLabel: ="buffer"
+                                        BorderColor: =App.Theme.Colors.Darker40
+                                        Fill: =RGBA(0,0,0,0)
+                                        Height: =1
+                                        Width: =Parent.Width - Self.X*2
+                                        X: =72
+                                        Y: =52
+                                        ZIndex: =3
+
+                                div_24 As rectangle:
+                                    AccessibleLabel: ="buffer"
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Fill: =RGBA(0,0,0,0)
+                                    Height: =2
+                                    Width: =Parent.Width - Self.X * 2
+                                    X: =84
+                                    Y: =256
+                                    ZIndex: =6
+
                             PrivDescContainer As groupContainer.verticalAutoLayoutContainer:
-                                AlignInContainer: =AlignInContainer.Start
+                                AlignInContainer: =AlignInContainer.SetByContainer
                                 FillPortions: =0
-                                Height: =PrivDescTextCanvas.Height + PrivWarningContainer.Height + 24 //If(!hidePanelBackButton,160,140) + 
+                                Height: =PrivDescTextCanvas.Height+10//If(!hidePanelBackButton,140,100)//100
                                 LayoutAlignItems: =LayoutAlignItems.Stretch
                                 LayoutDirection: =LayoutDirection.Vertical
-                                LayoutGap: =8
                                 LayoutMinHeight: =80
                                 LayoutMinWidth: =190
                                 LayoutMode: =LayoutMode.Auto
                                 LayoutWrap: =true
-                                PaddingLeft: =24
+                                PaddingLeft: =20
                                 PaddingRight: =10
                                 RadiusBottomLeft: =4
                                 RadiusBottomRight: =4
@@ -3516,6 +3667,43 @@ PaneListScreen As screen:
                                 ZIndex: =2
 
                                 PrivDescTextCanvas As Text:
+                                    Align: ="Start"
+                                    AlignInContainer: =AlignInContainer.Start
+                                    AutoHeight: =true
+                                    BorderStyle: =""
+                                    ContentLanguage: =""
+                                    DisplayMode: =DisplayMode.Edit
+                                    Font: =""
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    FontItalic: =false
+                                    FontStrikethrough: =false
+                                    FontUnderline: =false
+                                    Height: =55
+                                    LayoutMinHeight: =32
+                                    LayoutMinWidth: =96
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =LookUp(_typeramp,name="Caption1").fontSize
+                                    TabIndex: =0
+                                    Text: |-
+                                        =If(
+                                            currentSelectedPrivilege.PrivilegeComplianceStatus = "Not allowed",
+                                            "This privilege has not been approved for use at any level. Remove the privilege from the role and rescan, or contact your admin to coordinate an exception.",
+                                            "The highest approved access level is " & Lower(currentSelectedPrivilege.RecommendedLevel) & ". Remove the privilege from the role and rescan, or contact your admin to coordinate an exception."
+                                        )//DVAssessmentPageLoc.prvOrgRiskInfo
+                                    Tooltip: =""
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Visible: =true
+                                    Weight: =LookUp(_typeramp,name="Caption1").fontWeight
+                                    Width: =Parent.Width-40
+                                    Wrap: =true
+                                    X: =7
+                                    Y: =94
+                                    ZIndex: =1
+
+                                PrivDescTextCanvas_1 As Text:
                                     AlignInContainer: =AlignInContainer.Start
                                     AutoHeight: =true
                                     DisplayMode: =DisplayMode.Edit
@@ -3523,18 +3711,25 @@ PaneListScreen As screen:
                                     Height: =If(PaneListScreen.Size=1,100,60)//560//60
                                     LayoutMinHeight: =32
                                     LayoutMinWidth: =96
-                                    Text: =DVAssessmentPageLoc.prvOrgRiskInfo
+                                    Text: |-
+                                        =If(
+                                            currentSelectedPrivilege.PrivilegeComplianceStatus = "Not allowed",
+                                            "This privilege has not been approved for use at any level. Remove the privilege from the role and rescan, or contact your admin to coordinate an exception.",
+                                            "The highest approved access level is user. Remove the privilege from the role and rescan, or contact your admin to coordinate an exception."
+                                        )//DVAssessmentPageLoc.prvOrgRiskInfo
                                     VerticalAlign: =VerticalAlign.Middle
-                                    Width: =Parent.Width-Self.X
+                                    Visible: =false
+                                    Width: =Parent.Width-30
                                     X: =0
                                     Y: =0
-                                    ZIndex: =1
+                                    ZIndex: =2
 
                                 PrivWarningContainer As groupContainer.verticalAutoLayoutContainer:
                                     AlignInContainer: =AlignInContainer.Start
+                                    DropShadow: =DropShadow.Light
                                     Fill: =RGBA(255, 184, 174, 1)
                                     FillPortions: =0
-                                    Height: =32
+                                    Height: =35
                                     LayoutAlignItems: =LayoutAlignItems.Center
                                     LayoutDirection: =LayoutDirection.Vertical
                                     LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -3545,8 +3740,9 @@ PaneListScreen As screen:
                                     RadiusBottomRight: =4
                                     RadiusTopLeft: =4
                                     RadiusTopRight: =4
+                                    Visible: =false
                                     Width: =180
-                                    ZIndex: =2
+                                    ZIndex: =3
 
                                     PrivWarningTextCanvas As Text:
                                         Align: ='TextCanvas.Align'.Center
@@ -3563,6 +3759,16 @@ PaneListScreen As screen:
                                         X: =0
                                         Y: =0
                                         ZIndex: =1
+
+                            div_23 As rectangle:
+                                AccessibleLabel: ="buffer"
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Fill: =RGBA(0,0,0,0)
+                                Height: =2
+                                Width: =Parent.Width - Self.X * 2
+                                X: =84
+                                Y: =256
+                                ZIndex: =3
 
                         PrivilegeLevelChangesContainer As groupContainer.verticalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.Start
@@ -3745,6 +3951,7 @@ PaneListScreen As screen:
                                         ZIndex: =2
 
                                 CmbPrivilegeLevel As Combobox.pcfdataset:
+                                    AccessibleLabel: ="ComboboxPrivilegeLevel"
                                     BasePaletteColor: =RGBA(245, 245, 245, 1)
                                     DefaultSelectedItems: =Filter(col_privilegesLevel,ItemValue=currentSelectedLevel)
                                     DisplayMode: =DisplayMode.Edit
@@ -3787,7 +3994,7 @@ PaneListScreen As screen:
                                     BorderColor: =RGBA(255, 255, 255, 1)
                                     BorderStyle: =BorderStyle.None
                                     FillPortions: =0
-                                    Height: =FluentMessageBar1.Height+12
+                                    Height: =90//If(EditPrivilegeScreen.Size=1,136,90)//60
                                     LayoutMinHeight: =100
                                     LayoutMinWidth: =250
                                     LayoutMode: =LayoutMode.Auto
@@ -3797,7 +4004,7 @@ PaneListScreen As screen:
                                     RadiusTopLeft: =4
                                     RadiusTopRight: =4
                                     Visible: = If(CmbPrivilegeLevel.Selected.ItemValue = PrivilegesList.Selected.level,false,true) && showWarningMessageBar
-                                    Width: =Parent.Width - Self.X
+                                    Width: =Parent.Width-20
                                     ZIndex: =3
 
                                     Icon1_1 As icon.Warning:
@@ -3847,11 +4054,10 @@ PaneListScreen As screen:
                                             ="Warning: This form will update the actual security role privilege, impacting user access"
                                         DisplayMode: =DisplayMode.Edit
                                         Height: =Self.AutoHeight
-                                        HideDismiss: =true
                                         Intent: ='PowerCAT.FluentMessageBar.Intent'.warning
                                         Items: =
                                         LayoutMinHeight: =Self.AutoHeight
-                                        LayoutMinWidth: =300
+                                        LayoutMinWidth: =200
                                         OnDismiss: =false
                                         OnSelect: =false
                                         Shape: ='PowerCAT.FluentMessageBar.Shape'.rounded
@@ -3873,6 +4079,7 @@ PaneListScreen As screen:
                         ZIndex: =3
 
                         PrivSaveButtonCanvas As Button:
+                            AccessibleLabel: ="Save"
                             Appearance: ='ButtonCanvas.Appearance'.Primary
                             DisplayMode: |-
                                 =If(
@@ -3953,6 +4160,7 @@ PaneListScreen As screen:
                             ZIndex: =1
 
                         PrivCancelButtonCanvas As Button:
+                            AccessibleLabel: ="Cancel"
                             Appearance: ='ButtonCanvas.Appearance'.Secondary
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -4010,10 +4218,10 @@ PaneListScreen As screen:
                         LayoutMinWidth: =200
                         Method: ='PowerCAT.DVAPITester.Method'.Post
                         OnChange: |
-                            =Set(
+                            =/*Set(
                                 responseUpdatedPrv,
                                 Text(Self.OutputString)
-                            );
+                            );*/
                             If(
                                 DVReplaceRolePrivileges.IsSuccessful,
                                 Notify(
@@ -4021,34 +4229,69 @@ PaneListScreen As screen:
                                     NotificationType.Success,
                                     5000
                                 );
-                                Set(
-                                    updatedSeverity,
-                                    With(
-                                        {
-                                            baseLineRecord: LookUp(
-                                                LookUp(
-                                                    BaseLineSettingsListForRoles,
-                                                    AssessmentSettingId = GUID(selectedRoleRiskAssessmentProfileId)
-                                                ).RiskConfiguration,
-                                                Type = currentSelectedPrivilege.securityPrivilegeName
-                                            )
-                                        },
-                                        Switch(
-                                            currentSelectedLevel,
-                                            DVAssessmentPageLoc.userColumnName,
-                                            Text(baseLineRecord.User),
-                                            DVAssessmentPageLoc.parentChildBuColumnName,
-                                            Text(baseLineRecord.ParentChildBusinessUnit),
-                                            DVAssessmentPageLoc.businessUnitColumnName,
-                                            Text(baseLineRecord.BusinessUnit),
-                                            DVAssessmentPageLoc.organizationColumnName,
-                                            Text(baseLineRecord.Organization),
-                                            DVAssessmentPageLoc.noAccessPriviliegeLevel,
-                                            Text('Assessed Risk Level (Risk Assessments)'.'No Risk')//Text(DVAssessmentPageLoc.noRiskValue)
-                            /* Default action */,
-                                            false
+                                UpdateContext(
+                                    {
+                                        privilegeRiskBaselineRecord: LookUp(
+                                            'Privilege Risk Baselines',
+                                            'Privilege Name' = currentSelectedPrivilege.privilegeName && 'Risk Assessment Setting'.'Risk Assessment Setting' = cmbRiskAssessmentHistory.Selected.AssessmentSettingId
                                         )
-                                    )
+                                    }
+                                );
+                                If(
+                                    IsBlankOrError(privilegeRiskBaselineRecord),
+                                    Set(
+                                        updatedSeverity,
+                                        "Critical"
+                                    ),
+                                    Set(
+                                        updatedSeverity,
+                                        With(
+                                            {baseLineRecord: privilegeRiskBaselineRecord},
+                                            Switch(
+                                                currentSelectedLevel,
+                                                DVAssessmentPageLoc.userColumnName,
+                                                Text(baseLineRecord.User),
+                                                DVAssessmentPageLoc.parentChildBuColumnName,
+                                                Text(baseLineRecord.'Parent Child Business Unit'),
+                                                DVAssessmentPageLoc.businessUnitColumnName,
+                                                Text(baseLineRecord.'Business Unit'),
+                                                DVAssessmentPageLoc.organizationColumnName,
+                                                Text(baseLineRecord.Organization),
+                                                DVAssessmentPageLoc.noAccessPriviliegeLevel,
+                                                Text('Assessed Risk Level (Risk Assessments)'.'No Risk')//Text(DVAssessmentPageLoc.noRiskValue)
+                            /* Default action */,
+                                                false
+                                            )
+                                        )
+                                    );
+                                    /* Set(
+                                        updatedSeverity,
+                                        With(
+                                            {
+                                                baseLineRecord: LookUp(
+                                                    LookUp(
+                                                        BaseLineSettingsListForRoles,
+                                                        AssessmentSettingId = GUID(selectedRoleRiskAssessmentProfileId)
+                                                    ).RiskConfiguration,
+                                                    Type = currentSelectedPrivilege.securityPrivilegeName
+                                                )
+                                            },
+                                            Switch(
+                                                currentSelectedLevel,
+                                                DVAssessmentPageLoc.userColumnName,
+                                                Text(baseLineRecord.User),
+                                                DVAssessmentPageLoc.parentChildBuColumnName,
+                                                Text(baseLineRecord.ParentChildBusinessUnit),
+                                                DVAssessmentPageLoc.businessUnitColumnName,
+                                                Text(baseLineRecord.BusinessUnit),
+                                                DVAssessmentPageLoc.organizationColumnName,
+                                                Text(baseLineRecord.Organization),
+                                                DVAssessmentPageLoc.noAccessPriviliegeLevel,
+                                                Text('Assessed Risk Level (Risk Assessments)'.'No Risk')//Text(DVAssessmentPageLoc.noRiskValue)
+                                                false
+                                            )
+                                        )
+                                    );*/
                                 );
                                 UpdateContext(
                                     {
@@ -4088,7 +4331,7 @@ PaneListScreen As screen:
                                                 Severity = updatedSeverity
                                             )
                                         ).Severity,
-                                        NewSeverityTagColor: LookUp(
+                                        /* NewSeverityTagColor: LookUp(
                                             ChartThemeRiskForRoles,
                                             status = Text(
                                                 LookUp(
@@ -4096,7 +4339,19 @@ PaneListScreen As screen:
                                                     Severity = updatedSeverity
                                                 ).Severity
                                             )
-                                        ).color,
+                                        ).color*/
+                                        NewSeverityTagColor: Switch(
+                                            updatedSeverity,
+                                            "Critical",
+                                            "#D83A00",
+                                            "High",
+                                            "#FF9349",
+                                            "Moderate",
+                                            "#FFBA01",
+                                            "Low",
+                                            "#029DCC",
+                                            "#18AB58"// No risk
+                                        ),
                                         RecordSelected: true
                                     }
                                 );
@@ -4220,6 +4475,7 @@ PaneListScreen As screen:
         ZIndex: =2
 
         Spinner1_7 As Spinner:
+            AccessibleLabel: ="Spinner"
             DisplayMode: =DisplayMode.Edit
             Height: =Parent.Height
             Label: =showSpinnerForEditRolesLabel

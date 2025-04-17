@@ -1,0 +1,1357 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  ListScreen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnVisible: |
+        =/* Load data for this page while spinner is loading */
+        If(
+            init <> true,
+            UpdateContext({pageTitle: DVAssessmentPageLoc.assessments});
+            UpdateContext({init: true});
+            UpdateContext({UnscannedCustomRolesText: "Unscanned custom roles"});
+            // Need LOC
+        UpdateContext(
+                {
+                    RiskAssessmentsText: "Risk assessments",
+                    updatedSelectedAssessmentRecord: false
+                }
+            );
+            // Need LOC
+        );
+        Concurrent(
+            If(
+                IsBlank(dropDownStatus),
+                Set(
+                    dropDownStatus,
+                    LookUp(
+                        AssessmentStatuses,
+                        ItemValue = DVAssessmentPageLoc.allStatusValue
+                    )
+                ),
+                true
+            ),
+            If(
+                IsEmpty(tabAssessmentSelectedValue),
+                Set(
+                    tabAssessmentSelectedValue,
+                    Filter(
+                        AssessmentsTabList,
+                        ItemKey = 1
+                    )
+                ),
+                true
+            ),
+            Reset(txtSearchRoles)
+        );
+    Children:
+      - cAppFrame_3:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingRight: =Self.PaddingLeft
+            Width: =Parent.Width
+          Children:
+            - cTopNav_4:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =ColorValue(AppTheme.palette.neutralLighter)
+                  FillPortions: =FlexOff
+                  Height: =60
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =24
+                  PaddingLeft: =20
+                  PaddingRight: =20
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                Children:
+                  - AutoWidthLabel1_4:
+                      Control: CodeComponent
+                      ComponentName: cat_PowerCAT.AutoWidthLabel
+                      Properties:
+                        FontSize: =18
+                        FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
+                        FontWeight: ="600"
+                        Height: =24
+                        Text: =_featureName
+                        Tooltip: ="AutoWidthLabel_Desc"
+                        Width: =Self.AutoWidth
+                  - TabList1_4:
+                      Control: TabList@2.2.30
+                      Properties:
+                        AccessibleLabel: ="ListScreenTabList"
+                        DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
+                        FillPortions: =FlexOn
+                        Items: =Nav
+                        OnChange: |
+                          =Navigate(Self.Selected.Screen);
+                          Concurrent(
+                              Set(
+                                  dropDownStatus,
+                                  LookUp(
+                                      AssessmentStatuses,
+                                      ItemValue = DVAssessmentPageLoc.allStatusValue
+                                  );
+                              ),
+                              Set(
+                                  tabAssessmentSelectedValue,
+                                 Filter(AssessmentsTabList,ItemKey=1)),// [UnscannedCustomRolesText],
+                              Reset(txtSearchRoles)
+                          );
+                      Children:
+                        - DisplayName1_4:
+                            Control: TabListDataField@1.5.0
+                            Variant: textualColumn
+                            IsLocked: true
+                            Properties:
+                              FieldDisplayName: ="DisplayName"
+                              FieldName: ="DisplayName"
+                              FieldType: ="s"
+                              Order: =1
+                  - Container11_11:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =8
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - LearnIcon_5:
+                            Control: CodeComponent
+                            ComponentName: cat_PowerCAT.Icon
+                            Properties:
+                              AccessibilityLabel: =DVAssessmentPageLoc.learnButtonText
+                              FontColor: ="#424242"
+                              Height: =Parent.Height
+                              HoverFillColor: =AppTheme.palette.neutralLight
+                              HoverFontColor: ="#424242"
+                              HoverIconColor: ="#424242"
+                              IconColor: ="#424242"
+                              IconName: ="BookAnswers"
+                              IconSize: =20
+                              OnChange: |-
+                                =Launch(
+                                    "https://aka.ms/dvacc/riskassess",
+                                    {},
+                                    LaunchTarget.New
+                                )
+                              Tooltip: =DVAssessmentPageLoc.learnButtonText
+                              Width: =32
+                        - QuestionIcon_5:
+                            Control: CodeComponent
+                            ComponentName: cat_PowerCAT.Icon
+                            Properties:
+                              AccessibilityLabel: =DVAssessmentPageLoc.helpButtonText
+                              FontColor: ="#424242"
+                              Height: =Parent.Height
+                              HoverFillColor: =AppTheme.palette.neutralLight
+                              HoverFontColor: ="#424242"
+                              HoverIconColor: ="#424242"
+                              IconColor: ="#424242"
+                              IconName: ="StatusCircleQuestionMark"
+                              IconSize: =28
+                              OnChange: |-
+                                =Launch(
+                                    "https://aka.ms/dvacc/riskassess/help",
+                                    {},
+                                    LaunchTarget.New
+                                )
+                              Tooltip: =DVAssessmentPageLoc.helpButtonText
+                              Width: =32
+                        - BugIcon_5:
+                            Control: CodeComponent
+                            ComponentName: cat_PowerCAT.Icon
+                            Properties:
+                              AccessibilityLabel: ="Report a bug"
+                              FontColor: ="#424242"
+                              Height: =Parent.Height
+                              HoverFillColor: =AppTheme.palette.neutralLight
+                              HoverFontColor: ="#424242"
+                              HoverIconColor: ="#424242"
+                              IconColor: ="#424242"
+                              IconName: ="Bug"
+                              IconSize: =20
+                              OnChange: |-
+                                =Launch(
+                                    "https://aka.ms/dvacc/riskassess/bug",
+                                    {},
+                                    LaunchTarget.New
+                                )
+                              Tooltip: ="Report a bug"
+                              Width: =32
+            - ScreenContainer_2:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                  Height: =Parent.Height
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingLeft: =Margins
+                  PaddingRight: =Margins
+                  Width: =Parent.Width
+                Children:
+                  - cPageHeaderMain_3:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                        FillPortions: =0
+                        Height: =div_4.Y + 1
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =4
+                        PaddingLeft: =If(Self.X = 0, Margins, 0)
+                        PaddingRight: =Self.PaddingLeft
+                        PaddingTop: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =1181
+                        X: =92
+                        Y: =40
+                      Children:
+                        - cPageHeaderTop_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =75
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =1042
+                              X: =68
+                              Y: =52
+                            Children:
+                              - cPageHeaderTitle_3:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =FlexOn
+                                    Height: =cHeaderText_6.Height
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =431
+                                    X: =36
+                                    Y: =40
+                                  Children:
+                                    - ButtonCanvas4_6:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Back"
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="ArrowLeft"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =Back()
+                                          Text: =
+                                          Width: =32
+                                    - cHeaderText_6:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =rDivider_PageHeader_6.Y
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =4
+                                          LayoutJustifyContent: =LayoutJustifyContent.Center
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width - Self.X
+                                          X: =1-1
+                                          Y: '=1-1 '
+                                        Children:
+                                          - txtAssessments:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                Height: =36
+                                                Size: =20
+                                                Text: =pageTitle
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =394.49
+                                          - lblEvaluationOfRisks:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                BorderColor: =RGBA(0, 18, 107, 1)
+                                                Color: =ColorValue("#424242")
+                                                Font: =Font.'Segoe UI'
+                                                LineHeight: =1.4
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                                Text: ="Evaluations of risk are based on the risk assessment settings profile assigned to the role."//Need LOC
+                                                VerticalAlign: =VerticalAlign.Top
+                                                Visible: =!IsBlank(Self.Text)
+                                                Width: =Parent.Width//Min(600, Parent.Width)
+                                                X: =394.49
+                                          - rDivider_PageHeader_6:
+                                              Control: Rectangle@2.3.0
+                                              Properties:
+                                                Fill: =RGBA(0,0,0,0)
+                                                Height: =1
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =72
+                                                Y: =52
+                              - tlbRight_3:
+                                  Control: Toolbar@2.0.5
+                                  Properties:
+                                    AccessibleLabel: ="Toolbar"
+                                    Alignment: ='Toolbar.Alignment'.Horizontal
+                                    FillPortions: =0.4
+                                    Height: =44
+                                    Items: "=\nTable(\n  \n    {\n        ItemKey: \"openadmincenter\",\n        ItemDisplayName: \"Open admin center\",//DVAssessmentPageLoc.openAdminCenterButtonText,\n        ItemIconName: \"Open\",\n        ItemAppearance: \"Subtle\",\n        ItemIconStyle: \"Regular\"\n    },\n\n    {\n        ItemKey: \"scanallroles\",\n        ItemDisplayName: DVAssessmentPageLoc.scanAllRoles,\n        ItemIconName: \"Send\",\n        ItemAppearance: \"Subtle\",\n        ItemIconStyle: \"Regular\",\n        ItemDisabled:!isLoggedInUserSysAdmin\n    }\n)"
+                                    OnSelect: |-
+                                      =Switch(
+                                          Self.Selected.ItemKey,
+                                          /* Action for 'scan all roles' */
+                                          "scanallroles",
+                                          If(
+                                              BatchStatus = "Running",
+                                              Notify(
+                                                  "Scanning of the role is still in inprogress State. Please try after some time",
+                                                  NotificationType.Information,
+                                                  5000
+                                              );
+                                              ,
+                                              UpdateContext(
+                                                  {
+                                                      init: false,
+                                                      showSpinnerLabelForRoles: "Queuing scan",
+                                                      showSpinnerBackgroundColorForRoles: RGBA(
+                                                          255,
+                                                          255,
+                                                          255,
+                                                          0.7
+                                                      )
+                                                  }
+                                              );
+                                              With(
+                                                  {
+                                                      s: "msdyn_DVAcceleratorBatchStatus",
+                                                      v: JSON(
+                                                          First(
+                                                              Table(
+                                                                  {
+                                                                      BatchId: GUID(),
+                                                                      BatchStatus: "Running"
+                                                                  }
+                                                              )
+                                                          )
+                                                      )
+                                                  },
+                                                  If(
+                                                      IsBlankOrError(BatchStatusEnvVar),
+                                                      Patch(
+                                                          [@'Environment Variable Values'],
+                                                          Defaults([@'Environment Variable Values']),
+                                                          {
+                                                              'Environment Variable Definition': LookUp(
+                                                                  'Environment Variable Definitions',
+                                                                  'Schema Name' = s
+                                                              ),
+                                                              'Schema Name': s,
+                                                              Value: v
+                                                          }
+                                                      ),
+                                                      Patch(
+                                                          [@'Environment Variable Values'],
+                                                          BatchStatusEnvVar,
+                                                          {
+                                                              'Schema Name': s,
+                                                              Value: v
+                                                          }
+                                                      )
+                                                  )
+                                              );
+                                              '[RiskAssessment]Scanallcustomroles'.Run(Blank());
+                                              Concurrent(
+                                                  Refresh('Risk Assessments'),
+                                                  Refresh('Security Roles'),
+                                                  Refresh('Environment Variable Definitions'),
+                                                  Refresh('Environment Variable Values')
+                                              );
+                                              UpdateContext(
+                                                  {
+                                                      init: true,
+                                                      showSpinnerLabelForRoles: "",
+                                                      showSpinnerBackgroundColorForRoles: Blank()
+                                                  }
+                                              );
+                                              Notify(
+                                                  "Currently scanning all roles, this might take a few minutes. Refresh to get the latest status",
+                                                  NotificationType.Information,
+                                                  5000
+                                              );
+                                          );
+                                          ,/* Action for 'openadmincenter' */
+                                          "openadmincenter",
+                                          Launch(
+                                              AdminPortalUrl & EnvOrganizationId & "/securityroles",
+                                              {},
+                                              LaunchTarget.New
+                                          ),
+                                      /* Default action */
+                                          false
+                                      )
+                                    Padding: ='Toolbar.Padding'.Medium
+                                    Visible: =!NoRolesMainContainer_SecurityRolesScreen.Visible
+                                    Width: =cPageHeaderTitle_3.Width/2-80//450
+                                  Children:
+                                    - ItemAppearance1:
+                                        Control: ToolbarDataField@1.5.0
+                                        Variant: textualColumn
+                                        IsLocked: true
+                                        Properties:
+                                          FieldDisplayName: ="ItemAppearance"
+                                          FieldName: ="ItemAppearance"
+                                          FieldType: ="s"
+                                          Order: =6
+                                    - ItemDisabled1:
+                                        Control: ToolbarDataField@1.5.0
+                                        Variant: textualColumn
+                                        IsLocked: true
+                                        Properties:
+                                          FieldDisplayName: ="ItemDisabled"
+                                          FieldName: ="ItemDisabled"
+                                          FieldType: ="b"
+                                          Order: =5
+                                    - ItemDisplayName1:
+                                        Control: ToolbarDataField@1.5.0
+                                        Variant: textualColumn
+                                        IsLocked: true
+                                        Properties:
+                                          FieldDisplayName: ="ItemDisplayName"
+                                          FieldName: ="ItemDisplayName"
+                                          FieldType: ="s"
+                                          Order: =4
+                                    - ItemKey2:
+                                        Control: ToolbarDataField@1.5.0
+                                        Variant: textualColumn
+                                        IsLocked: true
+                                        Properties:
+                                          FieldDisplayName: ="ItemKey"
+                                          FieldName: ="ItemKey"
+                                          FieldType: ="s"
+                                          Order: =3
+                                    - ItemIconStyle1:
+                                        Control: ToolbarDataField@1.5.0
+                                        Variant: textualColumn
+                                        IsLocked: true
+                                        Properties:
+                                          FieldDisplayName: ="ItemIconStyle"
+                                          FieldName: ="ItemIconStyle"
+                                          FieldType: ="s"
+                                          Order: =2
+                                    - ItemIconName1:
+                                        Control: ToolbarDataField@1.5.0
+                                        Variant: textualColumn
+                                        IsLocked: true
+                                        Properties:
+                                          FieldDisplayName: ="ItemIconName"
+                                          FieldName: ="ItemIconName"
+                                          FieldType: ="s"
+                                          Order: =1
+                        - tabAssessments:
+                            Control: TabList@2.2.30
+                            Properties:
+                              AccessibleLabel: ="AssessmentsTab"
+                              AlignInContainer: =AlignInContainer.Stretch
+                              DefaultSelectedItems: =tabAssessmentSelectedValue//If(IsEmpty(tabAssessmentSelectedValue),[UnscannedCustomRolesText],tabAssessmentSelectedValue) //@deniseEdit - might have updated this
+                              Height: =38
+                              Items: =col_AssessmentsTabList
+                              OnSelect: |
+                                =If(
+                                    Self.Selected.ItemDisplayName = RiskAssessmentsText,
+                                    Set(
+                                        dropDownStatus,
+                                        LookUp(
+                                            AssessmentStatuses,
+                                            ItemValue = DVAssessmentPageLoc.allStatusValue
+                                        )
+                                    ),
+                                    Refresh('Security Roles');
+                                );
+                                UpdateContext(
+                                    {
+                                        ctxAssessmentsEvent: "ClearSelection" & Text(Rand())
+                                    }
+                                );
+                              Size: ='TabList.Size'.Small
+                              Visible: =!NoRolesMainContainer_SecurityRolesScreen.Visible
+                              Y: =150
+                            Children:
+                              - ItemKey7:
+                                  Control: TabListDataField@1.5.0
+                                  Variant: textualColumn
+                                  IsLocked: true
+                                  Properties:
+                                    FieldDisplayName: ="ItemKey"
+                                    FieldName: ="ItemKey"
+                                    FieldType: ="n"
+                                    Order: =3
+                              - ItemDisplayName3:
+                                  Control: TabListDataField@1.5.0
+                                  Variant: textualColumn
+                                  IsLocked: true
+                                  Properties:
+                                    FieldDisplayName: ="ItemDisplayName"
+                                    FieldName: ="ItemDisplayName"
+                                    FieldType: ="s"
+                                    Order: =2
+                        - div_4:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignStart
+                              Fill: =ColorValue(AppTheme.palette.neutralLight)
+                              Height: =1
+                              Visible: =!NoRolesMainContainer_SecurityRolesScreen.Visible
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+                  - cBuffer_2:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =FlexOff
+                        Height: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                  - MainContainer1_1:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Start
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =Max(div_5.Y, 120)
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: '=0   '
+                        PaddingTop: =
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Visible: =!NoRolesMainContainer_SecurityRolesScreen.Visible
+                        Width: =Parent.Width - Self.X * 2
+                      Children:
+                        - cListToolbar_7:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              DropShadow: =DropShadow.None
+                              Fill: =ColorValue(AppTheme.palette.neutralLighter) //RGBA(0, 0, 0, 0)
+                              FillPortions: =0
+                              Height: =48
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =8
+                              PaddingLeft: =16
+                              PaddingRight: =16
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =Parent.Width
+                            Children:
+                              - Toolbar1_6:
+                                  Control: Toolbar@2.0.5
+                                  Properties:
+                                    AccessibleLabel: ="Toolbar"
+                                    FillPortions: =FlexOn
+                                    Height: =44
+                                    Items: |-
+                                      =Table(
+                                          {
+                                              ItemKey: "new",
+                                              ItemDisplayName: "New scan",
+                                              // Need LOC
+                                              ItemIconName: "Add",
+                                              ItemAppearance: "Primary",
+                                              ItemIconStyle: "Regular",
+                                              ItemTooltip: "Add new item",
+                                              ItemDisabled: !(CountRows(AllSecurityRolesAssessmentsList.SelectedItems) > 0 || CountRows(DVUnscannedCustomRolesList.SelectedItems) > 0) || !IsEmpty(
+                                                  Filter(
+                                                      'Risk Assessments',
+                                                      'Security Role'.Role = DVUnscannedCustomRolesList.Selected.RoleId
+                                                  )
+                                              ) || (LookUp(
+                                                  'Risk Assessments',
+                                                  'Risk Assessment' = AllSecurityRolesAssessmentsList.Selected.'Risk Assessment'
+                                              ).'Status Reason' = 'Status Reason (Risk Assessments)'.'In Progress')
+                                          },
+                                          {
+                                              ItemKey: "refresh",
+                                              ItemDisplayName: DVAssessmentPageLoc.refresh,
+                                              ItemIconName: "ArrowClockwise",
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Regular"
+                                          },
+                                          {
+                                              ItemKey: "viewresults",
+                                              ItemDisplayName: "View results",
+                                              //Need LOC
+                                              ItemIconName: "Eye",
+                                              ItemVisible: !IsBlank(AllSecurityRolesAssessmentsList.Selected) && AllSecurityRolesAssessmentsList.Selected.'Status Reason' <> 'Status Reason (Risk Assessments)'.Pending && AllSecurityRolesAssessmentsList.Selected.'Status Reason' <> 'Status Reason (Risk Assessments)'.'In Progress',
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Regular"
+                                          }
+                                      )
+                                    OnSelect: |-
+                                      =Switch(
+                                          Self.Selected.ItemKey,
+                                          /* Action for Key 'new' */
+                                          "new",
+                                          UpdateContext(
+                                              {
+                                                  init: false,
+                                                  showSpinnerLabelForRoles: "Queuing scan...",
+                                                  // Need LOC
+                                                  showSpinnerBackgroundColorForRoles: RGBA(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      0.7
+                                                  )
+                                              }
+                                          );
+                                          If(
+                                              tabAssessments.Selected.ItemDisplayName = RiskAssessmentsText,
+                                              UpdateContext({selectedId: AllSecurityRolesAssessmentsList.Selected.'Security Role'.Role}),
+                                              UpdateContext({selectedId: DVUnscannedCustomRolesList.Selected.RoleId})
+                                          );
+                                          UpdateContext(
+                                              {
+                                                  selectedRoleAssessments: LookUp(
+                                                      'Risk Assessments',
+                                                      'Security Role'.Role = selectedId
+                                                  )
+                                              }
+                                          );
+                                          If(
+                                              IsBlankOrError(selectedRoleAssessments),
+                                              true,
+                                              If(
+                                                  (selectedRoleAssessments.'Status Reason' = 'Status Reason (Risk Assessments)'.'In Progress' || selectedRoleAssessments.'Status Reason' = 'Status Reason (Risk Assessments)'.Pending),
+                                                  UpdateContext({updatedSelectedAssessmentRecord: true});
+                                                  ,
+                                                  Patch(
+                                                      'Risk Assessments',
+                                                      LookUp(
+                                                          'Risk Assessments',
+                                                          'Security Role'.Role = selectedId
+                                                      ),
+                                                      {'Is Archived': true}
+                                                  )
+                                              );
+                                          );
+                                          If(
+                                              updatedSelectedAssessmentRecord,
+                                              Patch(
+                                                  'Risk Assessments',
+                                                  selectedRoleAssessments,
+                                                  {'Status Reason': 'Status Reason (Risk Assessments)'.'In Progress'}
+                                              );
+                                              UpdateContext({updatedSelectedAssessmentRecord: false});
+                                              ,
+                                              Patch(
+                                                  'Risk Assessments',
+                                                  Defaults('Risk Assessments'),
+                                                  {
+                                                      'Security Role': LookUp(
+                                                          'Security Roles',
+                                                          Role = selectedId
+                                                      ),
+                                                      'Risk Assessment Setting': LookUp(
+                                                          'Risk Assessment Settings',
+                                                          'Is Default' = 'Is Default (Risk Assessment Settings)'.Yes
+                                                      ),
+                                                      'Status Reason': 'Status Reason (Risk Assessments)'.'In Progress'
+                                                  }
+                                              );
+                                              If(
+                                           // check if there were any errors when the test score was submitted
+                                                  !IsEmpty(Errors([@'Risk Assessments'])),
+                                           // if true, show any error message
+                                                  Notify(
+                                                      "Something went wrong. Please try after some time",
+                                                      NotificationType.Error,
+                                                      5000
+                                                  ),
+                                                  Concurrent(
+                                                      Refresh('Risk Assessments'),
+                                                      Refresh('Security Roles')
+                                                  );
+                                                  // else, false
+                                      Notify(
+                                                      "Scan has started successfully. Please wait a few minutes for the scan to complete. Refresh the page to view the updated status once it's ready.",
+                                                      NotificationType.Success,
+                                                      5000
+                                                  );
+                                                  UpdateContext({ctxAssessmentsEvent: "ClearSelection" & Text(Rand())});
+                                              );
+                                          );
+                                          UpdateContext(
+                                              {
+                                                  init: true,
+                                                  showSpinnerLabelForRoles: Blank(),
+                                                  showSpinnerBackgroundColorForRoles: Blank()
+                                              }
+                                          );
+                                          ,
+                                          /* Action for 'edit' */
+                                          "viewresults",
+                                          UpdateContext({init: false});
+                                          Set(
+                                              currentAssessmentGUID,
+                                              AllSecurityRolesAssessmentsList.Selected.'Risk Assessment'
+                                          );
+                                          Set(
+                                              currentRoleId,
+                                              AllSecurityRolesAssessmentsList.Selected.'Security Role'.Role
+                                          );
+                                          Set(
+                                              currentAssessmentSettingGUID,
+                                              LookUp(
+                                                  AllRiskAssessmentsFromDataverse,
+                                                  'Security Role'.Role = AllSecurityRolesAssessmentsList.Selected.'Security Role'.Role
+                                              ).'Risk Assessment Setting'.'Risk Assessment Setting'
+                                          );
+                                          Navigate(
+                                              PaneListScreen,
+                                              ScreenTransition.None,
+                                              {
+                                                  AssessmentId: AllSecurityRolesAssessmentsList.Selected.'Risk Assessment',
+                                                  RoleId: AllSecurityRolesAssessmentsList.Selected.'Security Role'.Role,
+                                                  RoleName: AllSecurityRolesAssessmentsList.Selected.'Security Role'.Name
+                                              }
+                                          );
+                                          ,
+                                          "refresh",
+                                          UpdateContext(
+                                              {
+                                                  showLoader: true,
+                                                  ctxAssessmentsEvent: "ClearSelection" & Text(Rand())
+                                              }
+                                          );
+                                          /*  Set(
+                                              AllCustomSecurityRoles,
+                                             Environment.cat_RetrieveCustomRolesApi().value
+                                          );*/
+                                      ClearCollect(
+                                              AllCustomSecurityRoles,
+                                              Environment.cat_RetrieveCustomRolesApi().value
+                                          );
+                                          Refresh('Risk Assessment Settings');
+                                          Refresh('Security Roles');
+                                          Refresh('Risk Assessments');
+                                          Refresh('Environment Variable Definitions');
+                                          Refresh('Environment Variable Values');
+                                          // Concurrent(
+                                      /*Set(
+                                              autoScanEnvironmentVariableCurrentValue,
+                                              LookUp(
+                                                  'Environment Variable Values',
+                                                  'Environment Variable Definition'.'Schema Name' = "msdyn_DVAcceleratorAutoScan"
+                                              )
+                                          );*/
+                                      // );
+                                      UpdateContext({showLoader: false});
+                                          ,
+                                          /* Default action */
+                                          false
+                                      )
+                                    Width: =Parent.Width
+                              - Container9_10:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    Height: =40
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.End
+                                    LayoutMinHeight: =32
+                                    PaddingLeft: =2
+                                    PaddingRight: =2
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                  Children:
+                                    - TextCanvas5_8:
+                                        Control: Text@0.0.50
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.End
+                                          PaddingRight: =8
+                                          Text: |-
+                                            =With(
+                                                {
+                                                    c: If(
+                                                        tabAssessments.Selected.ItemDisplayName = RiskAssessmentsText,
+                                                        CountRows(
+                                                            Filter(
+                                                                RisksAssessmentsToBeDisplayed,
+                                                                'Created By'.'Full Name' <> Blank()
+                                                            )
+                                                        ),
+                                                        CountRows(
+                                                            Filter(
+                                                                ListItems,
+                                                                RoleName <> Blank()
+                                                            )
+                                                        )
+                                                    )
+                                                },
+                                                $"{c} {If(
+                                                    c = 1,
+                                                    "item",
+                                                    "items"
+                                                )}"
+                                            )
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                    - Icon1_8:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          AccessibleLabel: ="Search"
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(0, 120, 212, 1)
+                                          DisabledColor: =RGBA(220, 220, 220, 1)
+                                          DisabledFill: =RGBA(0, 0, 0, 0)
+                                          Height: =32
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                          HoverFill: =RGBA(0, 0, 0, 0)
+                                          Icon: =If(showSearch, Icon.Cancel, Icon.Search)
+                                          OnSelect: |-
+                                            =UpdateContext({showSearch: !showSearch})
+                                          PaddingBottom: =8
+                                          PaddingLeft: =8
+                                          PaddingRight: =8
+                                          PaddingTop: =8
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                          PressedFill: =RGBA(0, 0, 0, 0)
+                                          TabIndex: =0
+                                          Visible: =App.ActiveScreen.Size <= ScreenSize.Small
+                                          Width: =32
+                                    - dpdStatuses:
+                                        Control: DropDown@0.0.44
+                                        Properties:
+                                          AccessibleLabel: =DVAssessmentPageLoc.statusTooltip
+                                          AlignInContainer: =AlignInContainer.Center
+                                          DefaultSelectedItems: |-
+                                            =If(
+                                                IsBlankOrError(dropDownStatus.ItemKey),
+                                                LookUp(
+                                                    AssessmentStatuses,
+                                                    ItemKey = 1
+                                                ),
+                                                dropDownStatus
+                                            )
+                                          FontSize: =12
+                                          Height: =44//Parent.Height
+                                          Items: =AssessmentStatuses
+                                          LayoutMinWidth: =100
+                                          OnChange: |-
+                                            =Set(
+                                                dropDownStatus,
+                                                Self.Selected
+                                            );
+                                          Visible: =tabAssessments.Selected.ItemDisplayName=RiskAssessmentsText
+                                          Width: =120
+                                        Children:
+                                          - ItemKey3:
+                                              Control: DropDownDataField@1.5.0
+                                              Variant: textualColumn
+                                              IsLocked: true
+                                              Properties:
+                                                FieldDisplayName: ="ItemKey"
+                                                FieldName: ="ItemKey"
+                                                FieldType: ="n"
+                                                Order: =2
+                                          - ItemValue3:
+                                              Control: DropDownDataField@1.5.0
+                                              Variant: textualColumn
+                                              IsLocked: true
+                                              Properties:
+                                                FieldDisplayName: ="ItemValue"
+                                                FieldName: ="ItemValue"
+                                                FieldType: ="s"
+                                                Order: =1
+                                    - cSearchTeams_2:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderColor: =ColorValue(AppTheme.palette.neutralQuaternary)
+                                          BorderStyle: =BorderStyle.None
+                                          FillPortions: =0
+                                          Height: =32
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          Visible: =App.ActiveScreen.Size > ScreenSize.Small || showSearch
+                                          Width: =200
+                                        Children:
+                                          - txtSearchRoles:
+                                              Control: TextInput@0.0.53
+                                              Properties:
+                                                AccessibleLabel: ="Search Roles"
+                                                Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                                FillPortions: =1
+                                                LayoutMinWidth: =100
+                                                Placeholder: ="Search"
+                                                TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+                        - Spinner1:
+                            Control: Spinner@1.4.6
+                            Properties:
+                              AccessibleLabel: ="Spinner"
+                              SpinnerSize: ='Spinner.SpinnerSize'.Small
+                              Visible: =showLoader
+                        - cEmptyStateForUnscannedCustomRoles:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =314
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =8
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =tabAssessments.Selected.ItemDisplayName = UnscannedCustomRolesText && IsEmpty(ListItems)
+                              Width: =333
+                              X: =469
+                              Y: =93
+                            Children:
+                              - Image3_2:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: ='Empty states'
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                              - txtSubtitle1_EmptyState_1:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =36
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =20
+                                    Text: ="No custom roles"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                                    Wrap: =false
+                                    X: =40
+                                    Y: =193
+                              - lblBody1_EmptyState_1:
+                                  Control: FluentV8/Label@1.8.6
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    Alignment: =Align.Center
+                                    AutoHeight: =true
+                                    Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                                    FontWeight: =FontWeight.Normal
+                                    Height: =12
+                                    Text: ="Try adjusting the filters, or look at roles that already have assessments."
+                                    VerticalAlignment: =VerticalAlign.Middle
+                                    X: =320
+                                    Y: =197
+                              - Container9_1:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Start
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =44
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =Parent.Width
+                                  Children:
+                                    - btnEmptyActionPrimary_1:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="View risk assessments"
+                                          Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                          OnSelect: |-
+                                            =//@deniseEdit - Added this button to switch tabs
+                                            Set(
+                                                tabAssessmentSelectedValue,
+                                                Filter(
+                                                    AssessmentsTabList,
+                                                    ItemKey = 1
+                                                )
+                                            );
+                                            Set(
+                                                tabAssessmentSelectedValue,
+                                                Filter(
+                                                    AssessmentsTabList,
+                                                    ItemKey = 2
+                                                )
+                                            );
+                                          Text: ="View risk assessments"
+                                          Width: =204
+                                          X: =65
+                        - cEmptyStateForRiskAssessments:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =314
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =8
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =tabAssessments.Selected.ItemDisplayName = RiskAssessmentsText && IsEmpty(RisksAssessmentsToBeDisplayed)
+                              Width: =333
+                              X: =469
+                              Y: =93
+                            Children:
+                              - Image3_7:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: ='Empty states'
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                              - txtSubtitle1_EmptyState_6:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =36
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =20
+                                    Text: =DVAssessmentPageLoc.noAssessments
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                                    Wrap: =false
+                                    X: =40
+                                    Y: =193
+                              - lblBody1_EmptyState_6:
+                                  Control: FluentV8/Label@1.8.6
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    Alignment: =Align.Center
+                                    AutoHeight: =true
+                                    Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                                    FontWeight: =FontWeight.Normal
+                                    Height: =12
+                                    Text: =DVAssessmentPageLoc.reviewRiskAssessments//"Try adjusting the filters or refining with simpler keywords for a broader search."
+                                    VerticalAlignment: =VerticalAlign.Middle
+                                    X: =320
+                                    Y: =197
+                              - Container9_6:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Start
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =100//44
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    LayoutWrap: =true
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Visible: =CountRows('Risk Assessments'.'Risk Assessment')=0
+                                    Width: =Parent.Width
+                                  Children:
+                                    - btnReviewSettings_ListScreen:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: =DVAssessmentPageLoc.reviewSettings
+                                          Appearance: ='ButtonCanvas.Appearance'.Primary
+                                          DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
+                                          OnSelect: |-
+                                            =Set(
+                                                currentSelectedAssessmentSetting,
+                                                DefaultRiskAssessmentSetting
+                                            );
+                                            Navigate(EditSettingsScreen);
+                                          Text: =DVAssessmentPageLoc.reviewSettings
+                                          Width: =132
+                                          X: =542
+                                    - btnScanAllRoles_ListScreen:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: =DVAssessmentPageLoc.scanAllRoles
+                                          Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                          OnSelect: "=If(\n    BatchStatus = \"Running\",\n    Notify(\n        \"Scanning of the role is still in inprogress State. Please try after some time\",\n        NotificationType.Information,\n        5000\n    );\n    ,\n    UpdateContext(\n        {\n            init: false,\n            showSpinnerLabelForRoles: \"Queuing scans...\",\n            showSpinnerBackgroundColorForRoles: RGBA(\n                255,\n                255,\n                255,\n                0.7\n            )\n        }\n    );\n    Set(\n        showSpinnerBackgroundColorForDashboard,\n        RGBA(\n            255,\n            255,\n            255,\n            0.7\n        )\n    );\n    With(\n        {\n            s: \"msdyn_DVAcceleratorBatchStatus\",\n            v: JSON(\n                First(\n                    Table(\n                        {\n                            BatchId: GUID(),\n                            BatchStatus: \"Running\"\n                        }\n                    )\n                )\n            )\n        },\n        If(\n            IsBlankOrError(BatchStatusEnvVar),\n            Patch(\n                [@'Environment Variable Values'],\n                Defaults([@'Environment Variable Values']),\n                {\n                    'Environment Variable Definition': LookUp(\n                        'Environment Variable Definitions',\n                        'Schema Name' = s\n                    ),\n                    'Schema Name': s,\n                    Value: v\n                }\n            ),\n            Patch(\n                [@'Environment Variable Values'],\n                BatchStatusEnvVar,\n                {\n                    'Schema Name': s,\n                    Value: v\n                }\n            )\n        )\n    );\n    '[RiskAssessment]Scanallcustomroles'.Run(Blank());\n    Concurrent(\n        Refresh('Risk Assessments'),\n        Refresh('Security Roles'),\n        Refresh('Environment Variable Definitions'),\n        Refresh('Environment Variable Values')\n    );\n    UpdateContext(\n        {\n            init: true,\n            showSpinnerLabelForRoles: \"\",\n            showSpinnerBackgroundColorForRoles: Blank()\n        }\n    );\n    Notify(\n        \"Currently scanning all roles, this might take a few minutes. Refresh to get the latest status\",\n        NotificationType.Information,\n        5000\n    );\n    \n);\n\n"
+                                          Text: =DVAssessmentPageLoc.scanAllRoles
+                                          Width: =132
+                                          X: =542
+                        - div_5:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignStart
+                              Fill: =RGBA(0,0,0,0)
+                              Height: =2
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+                  - NoRolesMainContainer_SecurityRolesScreen:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =NoRolesImageForListScreen.Height+Container28_3.Height+btnNoRolesContainer_SecurityRoles.Height+20
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Visible: "=isNoRolesScreenVisible && CountRows('Risk Assessments'.'Risk Assessment')=0 "
+                        Width: =Parent.Width
+                      Children:
+                        - NoRolesImageForListScreen:
+                            Control: Image@2.2.3
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledFill: =RGBA(0, 0, 0, 0)
+                              Height: =150
+                              HoverBorderColor: =RGBA(0, 0, 0, 0)
+                              HoverFill: =RGBA(0, 0, 0, 0)
+                              Image: =NoRoles
+                              PaddingTop: =30
+                              PressedBorderColor: =RGBA(0, 0, 0, 0)
+                              PressedFill: =RGBA(0, 0, 0, 0)
+                              Width: =150
+                        - Container28_3:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =NoRolesDashboardRiskAssessmentText_1.Height+NoRolesDashboardInfoText_1.Height+NoRolesRiskAssessmentInfoUrl.Height
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              Width: =Parent.Width-20
+                            Children:
+                              - NoRolesDashboardRiskAssessmentText_1:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Font: =Font.'Segoe UI'
+                                    Size: =16
+                                    Text: =DVAssessmentPageLoc.noRolesYetText
+                                    Weight: ='TextCanvas.Weight'.Bold
+                                    Width: =320
+                              - NoRolesDashboardInfoText_1:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    AutoHeight: =true
+                                    Font: =Font.'Segoe UI'
+                                    Height: =If(ListScreen.Size=1,140,100)
+                                    LayoutMinWidth: =600
+                                    Text: ="There are no custom roles. Configure settings to reflect your risk tolerance before roles are created."//DVAssessmentPageLoc.noRolesYetSubText //Need LOC
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Width: |-
+                                      =If(
+                                          ListScreen.Size = 1 || (ListScreen.Size = 2 && ListScreen.Orientation=Layout.Horizontal),
+                                          Parent.Width - 20,
+                                          Parent.Width / 2-120
+                                      )
+                              - NoRolesRiskAssessmentInfoUrl:
+                                  Control: Link@0.0.44
+                                  Properties:
+                                    Align: =Align.Center
+                                    BasePaletteColor: =RGBA(0, 108, 190, 1)
+                                    Font: =Font.'Segoe UI'
+                                    FontUnderline: =true
+                                    FontWeight: =FontWeight.Normal
+                                    Height: =25
+                                    Text: =DVAssessmentPageLoc.learnMoreAboutRiskAssessments
+                                    URL: ="https://aka.ms/dvacc/riskassessment"
+                        - btnNoRolesContainer_SecurityRoles:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =70
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =10
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              Width: =Parent.Width-30
+                            Children:
+                              - btnReviewScanSettings_2:
+                                  Control: Button@0.0.44
+                                  Properties:
+                                    AccessibleLabel: =DVAssessmentPageLoc.reviewSettings
+                                    BasePaletteColor: =RGBA(15, 84, 140, 1)
+                                    DisplayMode: =If(isLoggedInUserSysAdmin,DisplayMode.Edit,DisplayMode.Disabled)
+                                    Font: =Font.'Segoe UI'
+                                    FontSize: =14
+                                    FontWeight: =FontWeight.Normal
+                                    OnSelect: |
+                                      =Set(
+                                          currentSelectedAssessmentSetting,
+                                          DefaultRiskAssessmentSetting
+                                      );
+                                      Navigate(EditSettingsScreen);
+                                    Text: =DVAssessmentPageLoc.reviewSettings
+                                    Width: =123
+                              - btnSystemRoles_EmptyDashboardScreen_1:
+                                  Control: Button@0.0.44
+                                  Properties:
+                                    AccessibleLabel: =DVAssessmentPageLoc.viewSystemRolesButtonText
+                                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                    Font: =Font.'Segoe UI'
+                                    FontSize: =14
+                                    FontWeight: =FontWeight.Semibold
+                                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                                    OnSelect: |-
+                                      =Launch(
+                                          AdminPortalUrl & EnvOrganizationId & "/securityroles",
+                                          {},
+                                          LaunchTarget.New
+                                      )
+                                    Text: =DVAssessmentPageLoc.viewSystemRolesButtonText
+                                    Visible: =isLoggedInUserSysAdmin
+                                    Width: =140
+      - cSpinner_2:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =If(IsBlankOrError(showSpinnerBackgroundColorForRoles),ColorValue("#fafafa"),showSpinnerBackgroundColorForRoles)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            Visible: =init <> true
+            Width: =Parent.Width
+          Children:
+            - Spinner1_2:
+                Control: Spinner@1.4.6
+                Properties:
+                  AccessibleLabel: ="Spinner"
+                  Height: =Parent.Height
+                  Label: =showSpinnerLabelForRoles
+                  SpinnerSize: ='Spinner.SpinnerSize'.Large
+                  Width: =Parent.Width
+      - TextCanvas3:
+          Control: Text@0.0.50
+          Properties:
+            FontColor: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            Height: =1
+            Text: =CountRows(RisksAssessmentsToBeDisplayed) & IsEmpty(ListItems)
+            Width: =1
+            Y: =733

@@ -1,0 +1,131 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  Material:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      Blur:
+        PropertyKind: Input
+        DisplayName: Blur
+        Description: Blur
+        DataType: Number
+        Default: =5
+      BorderColor:
+        PropertyKind: Input
+        DisplayName: Border Color
+        Description: Border Color rgba(#,#,#,#) format
+        DataType: Text
+        Default: ="rgba(255,255,255,0.1)"
+      BorderRadius:
+        PropertyKind: Input
+        DisplayName: Border Radius
+        Description: Border Radius
+        DataType: Number
+        Default: =8
+      BorderRadiusBottomLeft:
+        PropertyKind: Input
+        DisplayName: Border Radius Bottom Left
+        Description: Border Radius Bottom Left
+        DataType: Number
+        Default: =8
+      BorderRadiusBottomRight:
+        PropertyKind: Input
+        DisplayName: Border Radius Bottom Right
+        Description: Border Radius Bottom Right
+        DataType: Number
+        Default: =8
+      BorderRadiusTopLeft:
+        PropertyKind: Input
+        DisplayName: Border Radius Top Left
+        Description: Border Radius Top Left
+        DataType: Number
+        Default: =8
+      BorderRadiusTopRight:
+        PropertyKind: Input
+        DisplayName: Border Radius Top Right
+        Description: Border Radius Top Right
+        DataType: Number
+        Default: =8
+      BorderThickness:
+        PropertyKind: Input
+        DisplayName: Border Thickness
+        Description: Border Thickness
+        DataType: Number
+        Default: =0
+      FillColor:
+        PropertyKind: Input
+        DisplayName: Fill Color
+        Description: Fill Color rgba(#,#,#,#) format
+        DataType: Text
+        Default: ="rgba(100,100,100,0.1)"
+      Margin:
+        PropertyKind: Input
+        DisplayName: Margin
+        Description: Margin
+        DataType: Number
+        Default: =20
+      ShadowBlur:
+        PropertyKind: Input
+        DisplayName: Shadow Blur
+        Description: Shadow Blur
+        DataType: Number
+        Default: =8
+      ShadowOpacity:
+        PropertyKind: Input
+        DisplayName: Shadow Opacity
+        Description: Shadow Opacity in percentage
+        DataType: Number
+        Default: =28
+      ShadowXAxis:
+        PropertyKind: Input
+        DisplayName: Shadow X Axis
+        Description: Shadow X Axis
+        DataType: Number
+        Default: =0
+      ShadowYAxis:
+        PropertyKind: Input
+        DisplayName: Shadow Y Axis
+        Description: Shadow Y Axis
+        DataType: Number
+        Default: =0.5
+    Children:
+      - MaterialHtml:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            Font: =Font.'Open Sans'
+            Height: =Parent.Height
+            HtmlText: |-
+              ="<div style ='
+                  margin:"& Material.Margin &"px;
+                  width:" & Self.Width - Material.Margin*2 & "px; 
+                  height: " & Self.Height - (Material.Margin*2) - 1 & "px;
+                  background:"& Material.FillColor &";
+                  backdrop-filter: blur("& Material.Blur &"px); 
+                  -webkit-backdrop-filter: blur("& Material.Blur &"px);
+                  border: "& Material.BorderThickness&"px solid "& Material.BorderColor&";
+                  border-radius: " & Coalesce(Material.BorderRadiusTopLeft,Material.BorderRadius,0) & "px " 
+                      & Coalesce(Material.BorderRadiusTopRight,Material.BorderRadius,0) & "px " 
+                      & Coalesce(Material.BorderRadiusBottomRight,Material.BorderRadius,0) & "px " 
+                      & Coalesce(Material.BorderRadiusBottomLeft,Material.BorderRadius,0) & "px;
+                  box-shadow: 
+                      "& Material.ShadowXAxis &"px 
+                      "& Material.ShadowYAxis &"px 
+                      "& Material.ShadowBlur &"px 
+                      rgba(0,0,0,0."& Material.ShadowOpacity &");
+
+              '</div>"
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =21
+            Width: '=Parent.Width '

@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="solutioncomponentcollection">
+  <description default="solutioncomponentcollection">
+    <label description="solutioncomponentcollection" languagecode="1033" />
+  </description>
+  <displayname default="solutioncomponentcollection">
+    <label description="solutioncomponentcollection" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>solutioncomponentcollection</name>
+  <type>4</type>
+</customapiresponseproperty>

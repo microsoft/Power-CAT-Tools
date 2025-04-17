@@ -1,0 +1,916 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  BaselineSettingsScreen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+      OnHidden: |
+        =Set(
+            selectedStatusValue,
+            Choices('Status (Risk Assessment Settings)'.Active)
+        );
+        Reset(SettingsSearchInput);
+      OnVisible: "=/* Load data for this page while spinner is loading */\r\nIf(\r\n  init <> true,\r\n    UpdateContext({pageTitle: \"Assessment settings\"});// Need LOC\r\n    UpdateContext({init: true});\r\n    \r\n);\r\nIf(\r\n    IsBlankOrError(selectedStatusValue),\r\n    Set(\r\n        selectedStatusValue,\r\n        Choices('Status (Risk Assessment Settings)'.Active)\r\n    ),\r\n    false\r\n);\r\nSet(isNewButtonClicked,false);\r\n"
+    Children:
+      - cAppFrame_6:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingRight: =Self.PaddingLeft
+            Width: =Parent.Width
+          Children:
+            - cTopNav_7:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =ColorValue(AppTheme.palette.neutralLighter)
+                  FillPortions: =FlexOff
+                  Height: =60
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =24
+                  PaddingLeft: =20
+                  PaddingRight: =20
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                Children:
+                  - AutoWidthLabel1_6:
+                      Control: CodeComponent
+                      ComponentName: cat_PowerCAT.AutoWidthLabel
+                      Properties:
+                        FontSize: =18
+                        FontSizeUnits: ='PowerCAT.AutoWidthLabel.FontSizeUnits'.Px
+                        FontWeight: ="600"
+                        Height: =24
+                        Text: =_featureName
+                        Tooltip: ="AutoWidthLabel_Desc"
+                        Width: =Self.AutoWidth
+                  - TabList1_7:
+                      Control: TabList@2.2.30
+                      Properties:
+                        AccessibleLabel: ="Baselinesettingsscreentablist"
+                        DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = SettingsLandingScreen)
+                        FillPortions: =FlexOn
+                        Items: =Nav
+                        OnChange: =Navigate(Self.Selected.Screen);
+                      Children:
+                        - DisplayName1_7:
+                            Control: TabListDataField@1.5.0
+                            Variant: textualColumn
+                            IsLocked: true
+                            Properties:
+                              FieldDisplayName: ="DisplayName"
+                              FieldName: ="DisplayName"
+                              FieldType: ="s"
+                              Order: =1
+                  - Container11_9:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =8
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - LearnIcon_3:
+                            Control: CodeComponent
+                            ComponentName: cat_PowerCAT.Icon
+                            Properties:
+                              AccessibilityLabel: =DVAssessmentPageLoc.learnButtonText
+                              FontColor: ="#424242"
+                              Height: =Parent.Height
+                              HoverFillColor: =AppTheme.palette.neutralLight
+                              HoverFontColor: ="#424242"
+                              HoverIconColor: ="#424242"
+                              IconColor: ="#424242"
+                              IconName: ="BookAnswers"
+                              IconSize: =20
+                              OnChange: |-
+                                =Launch(
+                                    "https://aka.ms/dvacc/riskassess",
+                                    {},
+                                    LaunchTarget.New
+                                )
+                              Tooltip: =DVAssessmentPageLoc.learnButtonText
+                              Width: =32
+                        - QuestionIcon_3:
+                            Control: CodeComponent
+                            ComponentName: cat_PowerCAT.Icon
+                            Properties:
+                              AccessibilityLabel: =DVAssessmentPageLoc.helpButtonText
+                              FontColor: ="#424242"
+                              Height: =Parent.Height
+                              HoverFillColor: =AppTheme.palette.neutralLight
+                              HoverFontColor: ="#424242"
+                              HoverIconColor: ="#424242"
+                              IconColor: ="#424242"
+                              IconName: ="StatusCircleQuestionMark"
+                              IconSize: =28
+                              OnChange: |-
+                                =Launch(
+                                    "https://aka.ms/dvacc/riskassess/help",
+                                    {},
+                                    LaunchTarget.New
+                                )
+                              Tooltip: =DVAssessmentPageLoc.helpButtonText
+                              Width: =32
+                        - BugIcon_3:
+                            Control: CodeComponent
+                            ComponentName: cat_PowerCAT.Icon
+                            Properties:
+                              AccessibilityLabel: ="Report a bug"
+                              FontColor: ="#424242"
+                              Height: =Parent.Height
+                              HoverFillColor: =AppTheme.palette.neutralLight
+                              HoverFontColor: ="#424242"
+                              HoverIconColor: ="#424242"
+                              IconColor: ="#424242"
+                              IconName: ="Bug"
+                              IconSize: =20
+                              OnChange: |-
+                                =Launch(
+                                    "https://aka.ms/dvacc/riskassess/bug",
+                                    {},
+                                    LaunchTarget.New
+                                )
+                              Tooltip: ="Report a bug"
+                              Width: =32
+            - ScreenContainer_4:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                  Height: =Parent.Height
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingLeft: =Margins
+                  PaddingRight: =Margins
+                  Width: =Parent.Width
+                Children:
+                  - cPageHeaderMain_7:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.None
+                        Fill: =ColorValue(AppTheme.palette.neutralLighterAlt)
+                        FillPortions: =0
+                        Height: =div_16.Y + 1
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =4
+                        PaddingLeft: =If(Self.X = 0, Margins, 0)
+                        PaddingRight: =Self.PaddingLeft
+                        PaddingTop: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =1181
+                        X: =92
+                        Y: =40
+                      Children:
+                        - Container12:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              BorderColor: =
+                              BorderStyle: =BorderStyle.None
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =32
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =4
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =false
+                              Width: =Parent.Width-Self.X*2
+                            Children:
+                              - txtSettings:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =LookUp(_typeramp,name="Body1").lineHeight
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =LookUp(_typeramp,name="Body1").fontSize
+                                    Text: =DVAssessmentPageLoc.settings
+                                    Weight: =LookUp(_typeramp,name="Body1").fontWeight
+                                    Width: =55
+                                    Wrap: =false
+                                    X: =7
+                                    Y: =188
+                              - txtBody1_3:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =LookUp(_typeramp,name="Body1").lineHeight
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =LookUp(_typeramp,name="Body1").fontSize
+                                    Text: =">"
+                                    Weight: =LookUp(_typeramp,name="Body1Strong").fontWeight
+                                    Width: =20
+                                    Wrap: =false
+                                    X: =7
+                                    Y: =188
+                              - txtAssessmentSettings:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Font: =Font.'Segoe UI'
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =LookUp(_typeramp,name="Body1Strong").lineHeight
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =LookUp(_typeramp,name="Body1Strong").fontSize
+                                    Text: =DVAssessmentPageLoc.assessmentSettingsHeading
+                                    Weight: =LookUp(_typeramp,name="Body1Strong").fontWeight
+                                    Width: =250
+                                    Wrap: =false
+                                    X: =7
+                                    Y: =223
+                        - cPageHeaderTop_7:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =FlexOff
+                              Height: =75
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =1042
+                              X: =68
+                              Y: =52
+                            Children:
+                              - cPageHeaderTitle_9:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =FlexOn
+                                    Height: =cHeaderText_12.Height
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =16
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =431
+                                    X: =36
+                                    Y: =40
+                                  Children:
+                                    - ButtonCanvas4_12:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Back"
+                                          Appearance: ='ButtonCanvas.Appearance'.Subtle
+                                          Icon: ="ArrowLeft"
+                                          Layout: ='ButtonCanvas.Layout'.IconOnly
+                                          OnSelect: =Back()
+                                          Text: =
+                                          Width: =32
+                                    - cHeaderText_12:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =rDivider_PageHeader_12.Y
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =4
+                                          LayoutJustifyContent: =LayoutJustifyContent.Center
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width - Self.X
+                                          X: =1-1
+                                          Y: '=1-1 '
+                                        Children:
+                                          - h2Title_6:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Start
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                Height: =36
+                                                Size: =20
+                                                Text: =pageTitle
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =394.49
+                                          - Label3_8:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Start
+                                                AutoHeight: =true
+                                                BorderColor: =RGBA(0, 18, 107, 1)
+                                                Color: =ColorValue("#424242")
+                                                Font: =Font.'Segoe UI'
+                                                LineHeight: =1.4
+                                                PaddingBottom: =0
+                                                PaddingLeft: =0
+                                                PaddingRight: =0
+                                                PaddingTop: =0
+                                                Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                                                Text: ="Define your risk tolerance on the privilege level. Configure multiple settings profiles to accommodate all scenarios."// need loc
+                                                VerticalAlign: =VerticalAlign.Top
+                                                Visible: =!IsBlank(Self.Text)
+                                                Width: =Parent.Width//Min(600, Parent.Width)
+                                                X: =394.49
+                                          - rDivider_PageHeader_12:
+                                              Control: Rectangle@2.3.0
+                                              Properties:
+                                                Fill: =RGBA(0,0,0,0)
+                                                Height: =1
+                                                Width: =Parent.Width - Self.X * 2
+                                                X: =72
+                                                Y: =52
+                        - div_16:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignStart
+                              Fill: =ColorValue(AppTheme.palette.neutralLight)
+                              Height: =1
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+                  - cBuffer_7:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.None
+                        FillPortions: =FlexOff
+                        Height: =16
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                  - cListCard_1:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Semilight
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =Max(div_17.Y, 120)
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: '=0   '
+                        PaddingTop: =
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width - Self.X * 2
+                      Children:
+                        - cListToolbar_10:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              DropShadow: =DropShadow.None
+                              Fill: =ColorValue(AppTheme.palette.neutralLighter) //RGBA(0, 0, 0, 0)
+                              FillPortions: =0
+                              Height: =48
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =8
+                              PaddingLeft: =16
+                              PaddingRight: =16
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =Parent.Width
+                            Children:
+                              - Toolbar1_9:
+                                  Control: Toolbar@2.0.5
+                                  Properties:
+                                    AccessibleLabel: ="Toolbar"
+                                    BasePaletteColor: =RGBA(15, 84, 140, 1)
+                                    FillPortions: =FlexOn
+                                    Height: =44
+                                    Items: |-
+                                      =Table(
+                                          {
+                                              ItemKey: "Add",
+                                              ItemDisplayName: DVAssessmentPageLoc.newButtonText,
+                                              ItemIconName: "Add",
+                                              ItemVisible: true,
+                                              ItemAppearance: "Primary",
+                                              ItemIconStyle: "Regular",
+                                              ItemTooltip: "Add new item"
+                                          },
+                                          {
+                                              ItemKey: "Edit",
+                                              ItemDisplayName: DVAssessmentPageLoc.editButtonText,
+                                              ItemIconName: "Edit",
+                                              ItemVisible: CountRows(AssessmentSettingsList.SelectedItems) > 0 && AssessmentSettingsList.Selected.Status = 'Status (Risk Assessment Settings)'.Active,
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Regular",
+                                              ItemTooltip: "Edit Setting"
+                                          },
+                                          {
+                                              ItemKey: "Deactivate",
+                                              ItemDisplayName: DVAssessmentPageLoc.deactivateButtonText,
+                                              ItemIconName: "DismissCircle",
+                                              ItemVisible: CountRows(AssessmentSettingsList.SelectedItems) > 0 && AssessmentSettingsList.Selected.Status = 'Status (Risk Assessment Settings)'.Active,
+                                              ItemDisabled: !(CountRows(AssessmentSettingsList.SelectedItems) > 0 && Text(AssessmentSettingsList.Selected.IsDefault) = Text('Is Default (Risk Assessment Settings)'.No) && AssessmentSettingsList.Selected.Status = 'Status (Risk Assessment Settings)'.Active),
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Regular",
+                                              ItemTooltip: "Deactivate setting"
+                                          },
+                                          {
+                                              ItemKey: "Activate",
+                                              ItemDisplayName: DVAssessmentPageLoc.activateButtonText,
+                                              ItemIconName: "CheckmarkCircle",
+                                              ItemVisible: CountRows(AssessmentSettingsList.SelectedItems) > 0 && Text(AssessmentSettingsList.Selected.IsDefault) = Text('Is Default (Risk Assessment Settings)'.No) && AssessmentSettingsList.Selected.Status = 'Status (Risk Assessment Settings)'.Inactive,
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Regular",
+                                              ItemTooltip: "Activate setting"
+                                          },
+                                          {
+                                              ItemKey: "Refresh",
+                                              ItemDisplayName: DVAssessmentPageLoc.refresh,
+                                              ItemIconName: "ArrowClockwise",
+                                              ItemVisible: true,
+                                              ItemAppearance: "Subtle",
+                                              ItemIconStyle: "Regular",
+                                              ItemTooltip: "Refresh settings"
+                                          }
+                                      )
+                                    OnSelect: |-
+                                      =Switch(
+                                          Self.Selected.ItemKey,
+                                          /* Action for ItemKey 1 */
+                                          "Refresh",
+                                          UpdateContext({showLoader: true});
+                                          Concurrent(
+                                              Refresh('Risk Assessment Settings'),
+                                              Refresh('Security Roles'),
+                                              Refresh('Risk Assessments'),
+                                              Refresh('Environment Variable Definitions'),
+                                              Refresh('Environment Variable Values')
+                                          );
+                                          /*Set(
+                                              autoScanEnvironmentVariableCurrentValue,
+                                              LookUp(
+                                                  'Environment Variable Values',
+                                                  'Environment Variable Definition'.'Schema Name' = "msdyn_DVAcceleratorAutoScan"
+                                              )
+                                          );*/
+                                      UpdateContext({showLoader: false});
+                                          ,
+                                          "Add",
+                                          UpdateContext({init: false});
+                                         /* Set(
+                                              currentSelectedAssessmentSetting,
+                                              Blank()
+                                          );*/
+                                          Set(
+                                              isNewButtonClicked,
+                                              true
+                                          );
+                                          Navigate(
+                                              EditSettingsScreen,
+                                              ScreenTransition.None,
+                                              {lblSelectedAssessmentSettingId: Blank()}
+                                          );
+                                          ,
+                                          "Edit",
+                                          UpdateContext(
+                                              {
+                                                  init: false,
+                                                  showSpinnerColorForSettings: RGBA(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      0.7
+                                                  ),
+                                                  showSpinnerLabel: DVAssessmentPageLoc.pleaseWaitLoadingText
+                                              }
+                                          );
+                                          Set(
+                                              currentSelectedAssessmentSetting,
+                                              LookUp(
+                                                  AllRiskAssessmentsSettings,
+                                                  'Risk Assessment Setting' = AssessmentSettingsList.Selected.AssessmentSettingId
+                                              )
+                                          );
+                                          Navigate(
+                                              EditSettingsScreen,
+                                              ScreenTransition.None,
+                                              {lblSelectedAssessmentSettingId: currentSelectedAssessmentSetting.'Risk Assessment Setting'}
+                                          );
+                                          UpdateContext(
+                                              {
+                                                  init: true,
+                                                  showSpinnerColorForSettings: Blank(),
+                                                  showSpinnerLabel: Blank()
+                                              }
+                                          );
+                                          ,
+                                          "Deactivate",
+                                          UpdateContext(
+                                              {
+                                                  init: false,
+                                                  showSpinnerColorForSettings: RGBA(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      0.7
+                                                  ),
+                                                  showSpinnerLabel: DVAssessmentPageLoc.deactivatingRecordText
+                                                  /*ctxAssessmentSettingsEvent: "ClearSelection" & Text(Rand())*/
+                                              }
+                                          );
+                                          Patch(
+                                              'Risk Assessment Settings',
+                                              LookUp(
+                                                  AllRiskAssessmentsSettings,
+                                                  'Risk Assessment Setting' = AssessmentSettingsList.Selected.AssessmentSettingId//lblSelectedAssessmentSettingId
+                                              ),
+                                              {
+                                                  Status: 'Status (Risk Assessment Settings)'.Inactive,
+                                                  'Status Reason': 'Status Reason (Risk Assessment Settings)'.Inactive
+                                              }
+                                          );
+                                          If(
+                                           // check if there were any errors when the risk assessment setting was submitted
+                                              !IsEmpty(Errors('Risk Assessment Settings')),
+                                           // if true, show any error message
+                                              Notify(
+                                                  Concat(
+                                                      Errors('Risk Assessment Settings'),
+                                                      Column & ": " & Message
+                                                  ),
+                                                  NotificationType.Error,
+                                                  1111111
+                                              );
+                                              ,
+                                              Notify(
+                                                  DVAssessmentPageLoc.successfulDeactivationMessage,
+                                                  NotificationType.Success,
+                                                  5000
+                                              );
+                                          );
+                                          UpdateContext(
+                                              {
+                                                  init: true,
+                                                  showSpinnerColorForSettings: Blank(),
+                                                  showSpinnerLabel: Blank()
+                                                  //lblStatus: 'Status (Risk Assessment Settings)'.Inactive
+                                              }
+                                          ),
+                                          "Activate",
+                                          UpdateContext(
+                                              {
+                                                  init: false,
+                                                  showSpinnerColorForSettings: RGBA(
+                                                      255,
+                                                      255,
+                                                      255,
+                                                      0.7
+                                                  ),
+                                                  showSpinnerLabel: DVAssessmentPageLoc.activatingRecordText
+                                                  /*ctxAssessmentSettingsEvent: "ClearSelection" & Text(Rand())*/
+                                              }
+                                          );
+                                          Patch(
+                                              'Risk Assessment Settings',
+                                              LookUp(
+                                                  AllRiskAssessmentsSettings,
+                                                  'Risk Assessment Setting' = AssessmentSettingsList.Selected.AssessmentSettingId//lblSelectedAssessmentSettingId
+                                              ),
+                                              {
+                                                  Status: 'Status (Risk Assessment Settings)'.Active,
+                                                  'Status Reason': 'Status Reason (Risk Assessment Settings)'.Active
+                                              }
+                                          );
+                                          If(
+                                           // check if there were any errors when the risk assessment setting was submitted
+                                              !IsEmpty(Errors('Risk Assessment Settings')),
+                                           // if true, show any error message
+                                              Notify(
+                                                  Concat(
+                                                      Errors('Risk Assessment Settings'),
+                                                      Column & ": " & Message
+                                                  ),
+                                                  NotificationType.Error,
+                                                  1111111
+                                              ),
+                                              Notify(
+                                                  DVAssessmentPageLoc.successfulActivationMessage,
+                                                  NotificationType.Success,
+                                                  5000
+                                              );
+                                          );
+                                          UpdateContext(
+                                              {
+                                                  init: true,
+                                                  showSpinnerColorForSettings: Blank(),
+                                                  showSpinnerLabel: Blank()
+                                                  //lblStatus: 'Status (Risk Assessment Settings)'.Inactive
+                                              }
+                                          ),
+                                          /* Default action */
+                                          false
+                                      )
+                                    Width: =Parent.Width
+                              - Container9_13:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    Height: =40
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.End
+                                    LayoutMinHeight: =32
+                                    PaddingLeft: =2
+                                    PaddingRight: =2
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                  Children:
+                                    - SettingHelpIcon_2:
+                                        Control: CodeComponent
+                                        ComponentName: cat_PowerCAT.Icon
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          Height: =44
+                                          IconName: ="help"
+                                          IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                          Text: =DVAssessmentPageLoc.helpButtonText
+                                          Theme: =AppThemeJson
+                                          Tooltip: ="Risk assessment settings assign threat levels to different privilege access levels, helping calculate a security role's overall risk."
+                                          Width: =70
+                                    - TextCanvas5_11:
+                                        Control: Text@0.0.50
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.End
+                                          AlignInContainer: =AlignInContainer.Center
+                                          PaddingRight: =8
+                                          Text: |-
+                                            =With(
+                                                {
+                                                    c: CountRows(
+                                                        Filter(
+                                                            AllRiskAssessmentSettingsToBeDisplayed_filtered,
+                                                            Name <> Blank()
+                                                        )
+                                                    )
+                                                },
+                                                $"{c} {If(
+                                                    c = 1,
+                                                    "item",
+                                                    "items"
+                                                )}"
+                                            )// need loc
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                    - Icon1_11:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          AccessibleLabel: ="Search"
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          Color: =RGBA(0, 120, 212, 1)
+                                          DisabledColor: =RGBA(220, 220, 220, 1)
+                                          DisabledFill: =RGBA(0, 0, 0, 0)
+                                          Height: =32
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                          HoverFill: =RGBA(0, 0, 0, 0)
+                                          Icon: =If(showSearch, Icon.Cancel, Icon.Search)
+                                          OnSelect: |-
+                                            =UpdateContext({showSearch: !showSearch})
+                                          PaddingBottom: =8
+                                          PaddingLeft: =8
+                                          PaddingRight: =8
+                                          PaddingTop: =8
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                          PressedFill: =RGBA(0, 0, 0, 0)
+                                          TabIndex: =0
+                                          Visible: =App.ActiveScreen.Size <= ScreenSize.Small
+                                          Width: =32
+                                    - CmbSettingStatus:
+                                        Control: DropDown@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="ComboBoxStatus"
+                                          DefaultSelectedItems: =If(IsBlankOrError(selectedStatusValue),'Status (Risk Assessment Settings)'.Active,selectedStatusValue)
+                                          Items: =Choices('Status (Risk Assessment Settings)')
+                                          OnChange: |
+                                            =Set(
+                                                selectedStatusValue,
+                                                Self.SelectedItems
+                                            );
+                                          Width: =94
+                                          X: =294
+                                        Children:
+                                          - Value33:
+                                              Control: DropDownDataField@1.5.0
+                                              Variant: textualColumn
+                                              IsLocked: true
+                                              Properties:
+                                                FieldDisplayName: ="Value"
+                                                FieldName: ="Value"
+                                                FieldType: ="l"
+                                                Order: =1
+                                    - cSearchTeams_5:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          BorderColor: =ColorValue(AppTheme.palette.neutralQuaternary)
+                                          BorderStyle: =BorderStyle.None
+                                          FillPortions: =0
+                                          Height: =32
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          Visible: =App.ActiveScreen.Size > ScreenSize.Small || showSearch
+                                          Width: =200
+                                        Children:
+                                          - SettingsSearchInput:
+                                              Control: TextInput@0.0.53
+                                              Properties:
+                                                AccessibleLabel: ="SettingsSearchInput"
+                                                Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                                FillPortions: =1
+                                                LayoutMinWidth: =100
+                                                Placeholder: ="Search"
+                                                TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+                        - Spinner1_12:
+                            Control: Spinner@1.4.6
+                            Properties:
+                              AccessibleLabel: ="Spinner"
+                              SpinnerSize: ='Spinner.SpinnerSize'.Small
+                              Visible: =showLoader
+                        - cEmptyState_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =314
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =8
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =IsEmpty(AllRiskAssessmentSettingsToBeDisplayed_filtered)
+                              Width: =333
+                              X: =469
+                              Y: =93
+                            Children:
+                              - Image3_8:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: ='Empty states'
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                              - txtSubtitle1_EmptyState_7:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AlignInContainer: =AlignInContainer.Center
+                                    FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
+                                    Height: =36
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =20
+                                    Text: ="No assessment settings"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                                    Wrap: =false
+                                    X: =40
+                                    Y: =193
+                              - lblBody1_EmptyState_7:
+                                  Control: FluentV8/Label@1.8.6
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    Alignment: =Align.Center
+                                    AutoHeight: =true
+                                    Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
+                                    FontWeight: =FontWeight.Normal
+                                    Height: =12
+                                    Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                                    VerticalAlignment: =VerticalAlign.Middle
+                                    X: =320
+                                    Y: =197
+                              - Container9_7:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Start
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =44
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Visible: =false
+                                    Width: =Parent.Width
+                                  Children:
+                                    - btnEmptyActionPrimary_6:
+                                        Control: Button@0.0.44
+                                        Properties:
+                                          AccessibleLabel: ="Action"
+                                          Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                          OnSelect: "=//UpdateContext({ searchText: \"\" }); "
+                                          Text: ="Action"
+                                          Width: =132
+                                          X: =542
+                        - div_17:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              AlignInContainer: =AlignStart
+                              Fill: =RGBA(0,0,0,0)
+                              Height: =2
+                              Width: =Parent.Width - Self.X * 2
+                              X: =84
+                              Y: =256
+      - cSpinner_8:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Fill: =If(IsBlankOrError(showSpinnerColorForSettings),ColorValue("#fafafa"),showSpinnerColorForSettings)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            Visible: =init <> true
+            Width: =Parent.Width
+          Children:
+            - Spinner1_11:
+                Control: Spinner@1.4.6
+                Properties:
+                  AccessibleLabel: ="Spinner"
+                  Height: =Parent.Height
+                  Label: =showSpinnerLabel
+                  SpinnerSize: ='Spinner.SpinnerSize'.Large
+                  Width: =Parent.Width

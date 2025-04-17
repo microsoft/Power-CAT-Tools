@@ -53,6 +53,7 @@ UpdateDefaultSettingScreen As screen:
                 ZIndex: =1
 
             "TabList1 As 'Tab list'.pcfdataset":
+                AccessibleLabel: ="UpdateDefaultSettingScreenTablist"
                 DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = SettingsLandingScreen)
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =FlexOn
@@ -236,6 +237,7 @@ UpdateDefaultSettingScreen As screen:
                         ZIndex: =1
 
                         ButtonCanvas4_9 As Button:
+                            AccessibleLabel: ="Back"
                             Appearance: ='ButtonCanvas.Appearance'.Subtle
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -397,6 +399,7 @@ UpdateDefaultSettingScreen As screen:
                     CurrentSortColumn: =defaultSettingsSortCol
                     CurrentSortDirection: =defaultSettingsSortOrder
                     DisplayMode: =DisplayMode.Edit
+                    FillPortions: =FlexOff
                     HeaderVisible: =false
                     Height: =Max(60 + (CountRows(RiskAssessmentsSettingsToBeDisplayed) * 48), 200)
                     InputEvent: ="SetFocusOnRowSetSelection "&Text(Rand())
@@ -617,6 +620,7 @@ UpdateDefaultSettingScreen As screen:
                         ZIndex: =2
 
                     lblBody1_EmptyState_8 As Label:
+                        AcceptsFocus: =false
                         AlignInContainer: =AlignInContainer.Center
                         Alignment: =Align.Center
                         AutoHeight: =true
@@ -624,10 +628,13 @@ UpdateDefaultSettingScreen As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontWeight: =FontWeight.Normal
                         Height: =12
+                        Italic: =false
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
                         OnChange: =false
+                        Strikethrough: =false
                         Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                        Underline: =false
                         VerticalAlignment: =VerticalAlign.Middle
                         Width: =320
                         X: =320
@@ -649,13 +656,14 @@ UpdateDefaultSettingScreen As screen:
                         ZIndex: =4
 
                         btnEmptyActionPrimary_7 As Button:
+                            AccessibleLabel: ="Action"
                             Appearance: ='ButtonCanvas.Appearance'.Secondary
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
                             OnSelect: |-
-                                =UpdateContext({ searchText: "" }); 
+                                =//UpdateContext({ searchText: "" }); 
                             Text: ="Action"
                             Width: =132
                             X: =542
@@ -697,6 +705,7 @@ UpdateDefaultSettingScreen As screen:
         ZIndex: =2
 
         Spinner1_5 As Spinner:
+            AccessibleLabel: ="Spinner"
             DisplayMode: =DisplayMode.Edit
             Height: =Parent.Height
             Label: ="Updating default setting"

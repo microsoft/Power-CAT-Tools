@@ -47,11 +47,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{afd9195b-fc33-43f0-b8f5-9ea2ed1bbacc}" colspan="2" rowspan="1">
+                      <cell id="{afd9195b-fc33-43f0-b8f5-9ea2ed1bbacc}" colspan="2" rowspan="1" locklevel="1">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="cat_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cat_name" />
+                        <control id="cat_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cat_name" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -61,265 +61,45 @@
                         </labels>
                         <control id="cat_isdefault" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="cat_isdefault" disabled="true" uniqueid="{ac6a874c-01ad-cd54-71dc-365ce994c0d0}" />
                       </cell>
-                      <cell id="{410ed4f2-3f34-4888-bad4-d1765113ad65}" locklevel="0" colspan="1" rowspan="1">
+                      <cell id="{410ed4f2-3f34-4888-bad4-d1765113ad65}" locklevel="1" colspan="1" rowspan="1">
                         <labels>
                           <label description="Description" languagecode="1033" />
                         </labels>
-                        <control id="cat_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cat_description" disabled="false" />
+                        <control id="cat_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cat_description" disabled="true" />
                       </cell>
                     </row>
                   </rows>
                 </section>
-                <section name="null_section_3" id="bdfef0a1-0d47-4b42-b475-879b183117cc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                <section name="null_section_4" id="fd08860f-16c0-4d3e-a4c4-fed34c0b0067" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Organization Configuration" languagecode="1033" />
+                    <label description="Privilege Risk Baselines" languagecode="1033" />
                   </labels>
                   <rows>
+                    <row />
                     <row>
-                      <cell id="{ad908dc9-265a-2ee7-12d5-3674e29c179e}" showlabel="true" locklevel="0">
+                      <cell locklevel="0" id="{3ed47a77-d3c3-4770-bd8e-5a3fd016ec6d}" rowspan="4" colspan="1" auto="false" showlabel="false">
                         <labels>
-                          <label description="Org Append" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="cat_orgappend" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgappend" disabled="false" />
-                      </cell>
-                      <cell id="{53d43e73-719e-d710-2b70-a9c2c4caed6e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Append To" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgappendto" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgappendto" disabled="false" />
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cat_privilegeriskbaseline_RiskAssessmentSetting_cat_riskassessmentsetting</RelationshipName>
+                            <TargetEntityType>cat_privilegeriskbaseline</TargetEntityType>
+                            <ViewId>{85b402e8-9e12-4bc7-bd73-3d5c491a3481}</ViewId>
+                            <ViewIds>{85b402e8-9e12-4bc7-bd73-3d5c491a3481}</ViewIds>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{1ec6430b-48bb-23db-57e6-aca6b1604a5d}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Assign" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgassign" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgassign" disabled="false" />
-                      </cell>
-                      <cell id="{1a92dbae-d19e-b772-c634-63500198a967}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Create" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgcreate" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgcreate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{92e1a08d-73d4-25b1-3564-6dbe57522678}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Delete" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgdelete" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgdelete" disabled="false" />
-                      </cell>
-                      <cell id="{7b187c40-8702-6e32-9673-9bb010ce61de}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Read" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgread" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgread" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{0b968212-9d8e-4a8d-2ac9-ee759716417b}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Share" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgshare" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgshare" disabled="false" />
-                      </cell>
-                      <cell id="{1c702842-a0c5-d0d3-82a5-608153110164}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Org Write" languagecode="1033" />
-                        </labels>
-                        <control id="cat_orgwrite" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_orgwrite" disabled="false" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-                <section name="null_section_4" id="de0ca978-4f0a-4c71-ada1-51786b0afab1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
-                  <labels>
-                    <label description="Business Unit Configuration" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{43928177-a816-a3de-e719-77ac9a011815}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Append" languagecode="1033" />
-                        </labels>
-                        <control id="cat_buappend" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_buappend" disabled="false" />
-                      </cell>
-                      <cell id="{c08e2600-25e4-74c4-16a0-c442729eb0a3}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Append To" languagecode="1033" />
-                        </labels>
-                        <control id="cat_buappendto" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_buappendto" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{755a1d61-7729-2a0c-2441-19a41560d9d3}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Assign" languagecode="1033" />
-                        </labels>
-                        <control id="cat_buassign" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_buassign" disabled="false" />
-                      </cell>
-                      <cell id="{4805c51a-831b-618c-be2e-6844182d12ed}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Create" languagecode="1033" />
-                        </labels>
-                        <control id="cat_bucreate" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_bucreate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{4ed248a3-89ea-684a-467c-bad822285745}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Delete" languagecode="1033" />
-                        </labels>
-                        <control id="cat_budelete" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_budelete" disabled="false" />
-                      </cell>
-                      <cell id="{674157cc-d053-0a14-5284-3b17d5156063}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Read" languagecode="1033" />
-                        </labels>
-                        <control id="cat_buread" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_buread" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{b83b7c70-e3a4-c791-58c6-04a8943dc3cd}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Share" languagecode="1033" />
-                        </labels>
-                        <control id="cat_bushare" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_bushare" disabled="false" />
-                      </cell>
-                      <cell id="{8567d319-1464-0ea3-2127-9a9776a6c1c2}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="BU Write" languagecode="1033" />
-                        </labels>
-                        <control id="cat_buwrite" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_buwrite" disabled="false" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-                <section name="null_section_5" id="f50947d7-ffd9-4d41-9a5a-705cc4a63051" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
-                  <labels>
-                    <label description="Parent Child Business Unit Configuration" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{bdbed128-dae4-8ca0-4bb6-c414a177ab4e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Append" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbuappend" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbuappend" disabled="false" />
-                      </cell>
-                      <cell id="{7d5266ca-a872-93d8-0a05-e5bb0e50b977}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Append To" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbuappendto" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbuappendto" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{d0ad29e8-0127-5223-db86-333c25d8404d}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Assign" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbuassign" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbuassign" disabled="false" />
-                      </cell>
-                      <cell id="{96159400-6656-c1bc-1aa0-d1407113ac29}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Create" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbucreate" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbucreate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{20bd359c-5dc5-044d-c2c5-7a198ae1a4ea}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Delete" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbudelete" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbudelete" disabled="false" />
-                      </cell>
-                      <cell id="{043beab9-6aeb-1328-1b92-1b6d3dc75e99}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Read" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcburead" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcburead" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{da4dc4b5-4c59-7379-aa35-ac4bbd68e52d}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Share" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbushare" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbushare" disabled="false" />
-                      </cell>
-                      <cell id="{e78e2970-67c2-9cb7-45c4-e4205879b286}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="PCBU Write" languagecode="1033" />
-                        </labels>
-                        <control id="cat_pcbuwrite" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_pcbuwrite" disabled="false" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-                <section name="null_section_6" id="88a004a8-af89-4fa3-a9d5-282a597d5212" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
-                  <labels>
-                    <label description="User Configuration" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{1365e72b-16ca-8d40-d9a8-aa70bb2d2dc0}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Append" languagecode="1033" />
-                        </labels>
-                        <control id="cat_userappend" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_userappend" disabled="false" />
-                      </cell>
-                      <cell id="{74563c24-bc43-cc91-ce3a-b2c729c26a44}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Append To" languagecode="1033" />
-                        </labels>
-                        <control id="cat_userappendto" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_userappendto" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{6589d7b1-2a84-70e9-c9d9-56c251215b9a}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Assign" languagecode="1033" />
-                        </labels>
-                        <control id="cat_userassign" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_userassign" disabled="false" />
-                      </cell>
-                      <cell id="{aa6881ce-54b3-6c56-ab29-49ed971298ab}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Create" languagecode="1033" />
-                        </labels>
-                        <control id="cat_usercreate" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_usercreate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{555a755c-9cc8-121d-2646-0948ecc74ab6}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Delete" languagecode="1033" />
-                        </labels>
-                        <control id="cat_userdelete" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_userdelete" disabled="false" />
-                      </cell>
-                      <cell id="{943774de-16d3-20d9-d251-2252b50e8987}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Read" languagecode="1033" />
-                        </labels>
-                        <control id="cat_userread" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_userread" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{7edd225c-4bcd-6874-194e-2d318d9bd93d}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Share" languagecode="1033" />
-                        </labels>
-                        <control id="cat_usershare" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_usershare" disabled="false" />
-                      </cell>
-                      <cell id="{96a52762-1bbb-e6c3-d623-d7a4aa384817}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="User Write" languagecode="1033" />
-                        </labels>
-                        <control id="cat_userwrite" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cat_userwrite" disabled="false" />
-                      </cell>
-                    </row>
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -370,7 +150,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -23,6 +23,7 @@ PageHeader As CanvasComponent:
         ZIndex: =2
 
         ButtonCanvas4 As Button:
+            AccessibleLabel: ="ArrowLeft"
             Appearance: ='ButtonCanvas.Appearance'.Subtle
             DisplayMode: =DisplayMode.Edit
             Height: =32

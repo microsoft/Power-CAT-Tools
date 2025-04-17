@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{85b402e8-9e12-4bc7-bd73-3d5c491a3481}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cat_name" select="1" icon="1" preview="1">
+        <row name="result" id="cat_privilegeriskbaselineid">
+          <cell name="cat_name" width="300" />
+          <cell name="cat_riskassessmentsetting" width="179" />
+          <cell name="cat_organization" width="113" />
+          <cell name="cat_parentchildbusinessunit" width="193" />
+          <cell name="cat_businessunit" width="119" />
+          <cell name="cat_user" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cat_privilegeriskbaseline">
+          <attribute name="cat_privilegeriskbaselineid" />
+          <attribute name="cat_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cat_organization" />
+          <attribute name="cat_parentchildbusinessunit" />
+          <attribute name="cat_businessunit" />
+          <attribute name="cat_user" />
+          <attribute name="cat_riskassessmentsetting" />
+          <order attribute="cat_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Privilege Risk Baselines" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -142,7 +142,7 @@
     "Name": "cat_PowerCAT.DVAPITester",
     "OverridableProperties": {},
     "TemplateDisplayName": "DVAPITester",
-    "Version": "0.1.4"
+    "Version": "0.1.2"
   },
   "DVFluentDetailsListWithContextMenu": {
     "CustomGroupControlTemplateName": "",
@@ -362,7 +362,7 @@
     "Name": "Microsoft_CoreControls_Label",
     "OverridableProperties": {},
     "TemplateDisplayName": "Label",
-    "Version": "1.6.0"
+    "Version": "1.8.6"
   },
   "Link": {
     "CustomGroupControlTemplateName": "",
@@ -378,6 +378,20 @@
     "OverridableProperties": {},
     "TemplateDisplayName": "Link",
     "Version": "0.0.44"
+  },
+  "Microsoft_CoreControls_RadioGroupTemplate_dataField": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/Microsoft_CoreControls_RadioGroupTemplate_dataField",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_RadioGroupTemplate_dataField",
+    "OverridableProperties": {},
+    "Version": "1.5.0"
   },
   "PowerApps_CoreControls_ComboboxCanvasTemplate_dataField": {
     "CustomGroupControlTemplateName": "",
@@ -435,6 +449,21 @@
     "OverridableProperties": {},
     "Version": "1.5.0"
   },
+  "Radio group": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/Microsoft_CoreControls_RadioGroup",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "Microsoft_CoreControls_RadioGroup",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Radio group",
+    "Version": "1.4.7"
+  },
   "rectangle": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -476,7 +505,7 @@
     "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
     "TemplateDisplayName": "Spinner",
-    "Version": "1.4.4"
+    "Version": "1.4.6"
   },
   "Tab list": {
     "CustomGroupControlTemplateName": "",
@@ -491,7 +520,7 @@
     "Name": "PowerApps_CoreControls_TabList",
     "OverridableProperties": {},
     "TemplateDisplayName": "Tab list",
-    "Version": "2.2.28"
+    "Version": "2.2.30"
   },
   "Text": {
     "CustomGroupControlTemplateName": "",
@@ -536,7 +565,7 @@
     "Name": "PowerApps_CoreControls_Toggle",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toggle",
-    "Version": "1.1.3"
+    "Version": "1.1.5"
   },
   "Toolbar": {
     "CustomGroupControlTemplateName": "",
@@ -551,6 +580,6 @@
     "Name": "PowerApps_CoreControls_Toolbar",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toolbar",
-    "Version": "2.0.3"
+    "Version": "2.0.5"
   }
 }

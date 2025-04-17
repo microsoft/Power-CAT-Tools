@@ -17,11 +17,6 @@
     },
     {
       "Kind": "Page",
-      "Name": "API Playground",
-      "Value": "custompage:cat_apiplayground_62f25"
-    },
-    {
-      "Kind": "Page",
       "Name": "Power CAT Tools - Home",
       "Value": "custompage:cat_landing_a3b7a"
     },
@@ -29,6 +24,11 @@
       "Kind": "Page",
       "Name": "DocuPilot",
       "Value": "custompage:cat_docupilot_fa88a"
+    },
+    {
+      "Kind": "Page",
+      "Name": "API Playground",
+      "Value": "custompage:cat_apiplayground_62f25"
     }
   ]
 }

@@ -69,6 +69,7 @@ BaselineSettingsScreen As screen:
                 ZIndex: =1
 
             "TabList1_7 As 'Tab list'.pcfdataset":
+                AccessibleLabel: ="Baselinesettingsscreentablist"
                 DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = SettingsLandingScreen)
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =FlexOn
@@ -328,6 +329,7 @@ BaselineSettingsScreen As screen:
                         ZIndex: =1
 
                         ButtonCanvas4_12 As Button:
+                            AccessibleLabel: ="Back"
                             Appearance: ='ButtonCanvas.Appearance'.Subtle
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -526,21 +528,21 @@ BaselineSettingsScreen As screen:
                                     Refresh('Environment Variable Definitions'),
                                     Refresh('Environment Variable Values')
                                 );
-                                Set(
+                                /*Set(
                                     autoScanEnvironmentVariableCurrentValue,
                                     LookUp(
                                         'Environment Variable Values',
                                         'Environment Variable Definition'.'Schema Name' = "msdyn_DVAcceleratorAutoScan"
                                     )
-                                );
-                                UpdateContext({showLoader: false});
+                                );*/
+                            UpdateContext({showLoader: false});
                                 ,
                                 "Add",
                                 UpdateContext({init: false});
-                                Set(
+                               /* Set(
                                     currentSelectedAssessmentSetting,
-                                    DefaultRiskAssessmentSetting
-                                );
+                                    Blank()
+                                );*/
                                 Set(
                                     isNewButtonClicked,
                                     true
@@ -548,7 +550,7 @@ BaselineSettingsScreen As screen:
                                 Navigate(
                                     EditSettingsScreen,
                                     ScreenTransition.None,
-                                    {lblSelectedAssessmentSettingId: currentSelectedAssessmentSetting.'Risk Assessment Setting'}
+                                    {lblSelectedAssessmentSettingId: Blank()}
                                 );
                                 ,
                                 "Edit",
@@ -594,7 +596,7 @@ BaselineSettingsScreen As screen:
                                             255,
                                             0.7
                                         ),
-                                        spinnerLabelForEditSettings: DVAssessmentPageLoc.deactivatingRecordText
+                                        showSpinnerLabel: DVAssessmentPageLoc.deactivatingRecordText
                                         /*ctxAssessmentSettingsEvent: "ClearSelection" & Text(Rand())*/
                                     }
                                 );
@@ -632,8 +634,8 @@ BaselineSettingsScreen As screen:
                                     {
                                         init: true,
                                         showSpinnerColorForSettings: Blank(),
-                                        spinnerLabelForEditSettings: Blank(),
-                                        lblStatus: 'Status (Risk Assessment Settings)'.Inactive
+                                        showSpinnerLabel: Blank()
+                                        //lblStatus: 'Status (Risk Assessment Settings)'.Inactive
                                     }
                                 ),
                                 "Activate",
@@ -646,7 +648,7 @@ BaselineSettingsScreen As screen:
                                             255,
                                             0.7
                                         ),
-                                        spinnerLabelForEditSettings: DVAssessmentPageLoc.activatingRecordText
+                                        showSpinnerLabel: DVAssessmentPageLoc.activatingRecordText
                                         /*ctxAssessmentSettingsEvent: "ClearSelection" & Text(Rand())*/
                                     }
                                 );
@@ -683,8 +685,8 @@ BaselineSettingsScreen As screen:
                                     {
                                         init: true,
                                         showSpinnerColorForSettings: Blank(),
-                                        spinnerLabelForEditSettings: Blank(),
-                                        lblStatus: 'Status (Risk Assessment Settings)'.Inactive
+                                        showSpinnerLabel: Blank()
+                                        //lblStatus: 'Status (Risk Assessment Settings)'.Inactive
                                     }
                                 ),
                                 /* Default action */
@@ -707,6 +709,7 @@ BaselineSettingsScreen As screen:
                         ZIndex: =2
 
                         "SettingHelpIcon_2 As 'Fluent Icon (1.1.39)'":
+                            AlignInContainer: =AlignInContainer.Center
                             DisplayMode: =DisplayMode.Edit
                             Height: =44
                             IconName: ="help"
@@ -753,6 +756,7 @@ BaselineSettingsScreen As screen:
                             ZIndex: =3
 
                         Icon1_11 As icon.Search:
+                            AccessibleLabel: ="Search"
                             BorderColor: =RGBA(0, 0, 0, 0)
                             Color: =RGBA(0, 120, 212, 1)
                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -772,11 +776,13 @@ BaselineSettingsScreen As screen:
                             PressedBorderColor: =RGBA(0, 0, 0, 0)
                             PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                             PressedFill: =RGBA(0, 0, 0, 0)
+                            TabIndex: =0
                             Visible: =App.ActiveScreen.Size <= ScreenSize.Small
                             Width: =32
                             ZIndex: =4
 
                         CmbSettingStatus As Dropdown.pcfdataset:
+                            AccessibleLabel: ="ComboBoxStatus"
                             DefaultSelectedItems: =If(IsBlankOrError(selectedStatusValue),'Status (Risk Assessment Settings)'.Active,selectedStatusValue)
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
@@ -820,6 +826,7 @@ BaselineSettingsScreen As screen:
                             ZIndex: =6
 
                             "SettingsSearchInput As 'Text input'":
+                                AccessibleLabel: ="SettingsSearchInput"
                                 Appearance: ='TextInputCanvas.Appearance'.FilledLighter
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
@@ -834,6 +841,7 @@ BaselineSettingsScreen As screen:
                                 ZIndex: =1
 
                 Spinner1_12 As Spinner:
+                    AccessibleLabel: ="Spinner"
                     DisplayMode: =DisplayMode.Edit
                     Height: =200
                     LayoutMinHeight: =200
@@ -942,15 +950,16 @@ BaselineSettingsScreen As screen:
                     LayoutMinHeight: =200
                     LayoutMinWidth: =200
                     OnChange: |
-                        =If(
+                        =/*If(
                             Self.EventName = "OnRowSelectionChange",
                             If(
                                 CountRows(Self.SelectedItems) > 0,
-                                UpdateContext({lblSelectedAssessmentSettingId: Self.Selected.AssessmentSettingId});
+                               UpdateContext({lblSelectedAssessmentSettingId: Self.Selected.AssessmentSettingId});
                                 ,
                                 UpdateContext({lblSelectedAssessmentSettingId: Blank()});
                             )
                         );
+                        */
                         If(
                             Self.EventName = "Sort",
                             UpdateContext(
@@ -1123,6 +1132,7 @@ BaselineSettingsScreen As screen:
                         ZIndex: =2
 
                     lblBody1_EmptyState_7 As Label:
+                        AcceptsFocus: =false
                         AlignInContainer: =AlignInContainer.Center
                         Alignment: =Align.Center
                         AutoHeight: =true
@@ -1130,10 +1140,13 @@ BaselineSettingsScreen As screen:
                         DisplayMode: =DisplayMode.Edit
                         FontWeight: =FontWeight.Normal
                         Height: =12
+                        Italic: =false
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
                         OnChange: =false
+                        Strikethrough: =false
                         Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                        Underline: =false
                         VerticalAlignment: =VerticalAlign.Middle
                         Width: =320
                         X: =320
@@ -1155,13 +1168,14 @@ BaselineSettingsScreen As screen:
                         ZIndex: =4
 
                         btnEmptyActionPrimary_6 As Button:
+                            AccessibleLabel: ="Action"
                             Appearance: ='ButtonCanvas.Appearance'.Secondary
                             DisplayMode: =DisplayMode.Edit
                             Height: =32
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
                             OnSelect: |-
-                                =UpdateContext({ searchText: "" }); 
+                                =//UpdateContext({ searchText: "" }); 
                             Text: ="Action"
                             Width: =132
                             X: =542
@@ -1194,6 +1208,7 @@ BaselineSettingsScreen As screen:
         ZIndex: =2
 
         Spinner1_11 As Spinner:
+            AccessibleLabel: ="Spinner"
             DisplayMode: =DisplayMode.Edit
             Height: =Parent.Height
             Label: =showSpinnerLabel

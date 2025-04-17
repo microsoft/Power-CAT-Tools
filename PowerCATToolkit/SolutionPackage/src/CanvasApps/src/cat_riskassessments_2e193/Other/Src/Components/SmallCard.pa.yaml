@@ -1,0 +1,157 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  SmallCard:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      DescriptionText:
+        PropertyKind: Input
+        DisplayName: Description text
+        Description: A custom property
+        DataType: Text
+        Default: ="A short description about the card that spans to the second row"
+      Image:
+        PropertyKind: Input
+        DisplayName: Image
+        Description: A custom property
+        DataType: Image
+        Default: =SampleImage
+      ImageFullWidth:
+        PropertyKind: Input
+        DisplayName: Image (full width)
+        Description: A custom property
+        DataType: Boolean
+        Default: =false
+      ImageRadius:
+        PropertyKind: Input
+        DisplayName: Image radius
+        Description: A custom property
+        DataType: Number
+        Default: =100
+      Screen:
+        PropertyKind: Input
+        DisplayName: Screen
+        Description: A custom property
+        DataType: Screen
+        Default: =App.ActiveScreen
+      TitleFontSize:
+        PropertyKind: Input
+        DisplayName: Title font size
+        Description: Title font size
+        DataType: Number
+        Default: =14
+      TitleText:
+        PropertyKind: Input
+        DisplayName: Title text
+        Description: A custom property
+        DataType: Text
+        Default: ="Card title"
+    Properties:
+      Height: =100
+      Width: =325
+    Children:
+      - cCardContent_5:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =16
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            PaddingLeft: =If(SmallCard.ImageFullWidth, 0, 16)
+            PaddingRight: =16
+            PaddingTop: =0.00
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+            X: =1-1
+            Y: =1-1
+          Children:
+            - imgCardIcon_6:
+                Control: Image@2.2.3
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Height: =If(SmallCard.ImageFullWidth, Parent.Height, 52)
+                  Image: =Coalesce(SmallCard.Image, SampleImage)
+                  PaddingRight: =0.00
+                  PaddingTop: =0.00
+                  RadiusBottomLeft: =Self.RadiusTopLeft
+                  RadiusBottomRight: =Self.RadiusTopLeft
+                  RadiusTopLeft: =If(SmallCard.ImageFullWidth, 0, 8)
+                  RadiusTopRight: =Self.RadiusTopLeft
+                  Width: =Self.Height
+                  X: =14.99
+            - cCardText_5:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  DropShadow: =DropShadow.None
+                  Height: =txtCardTitle_5.Height + txtCardDesc_5.Height + 4
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =4
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  LayoutMinWidth: =100
+                  PaddingRight: =0.00
+                  PaddingTop: =0.00
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =267.99
+                  X: =82.46
+                Children:
+                  - txtCardTitle_5:
+                      Control: Text@0.0.50
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        AutoHeight: =true
+                        Font: =Font.'Segoe UI'
+                        Height: =20
+                        Size: =Coalesce(SmallCard.TitleFontSize, 16)
+                        Text: =SmallCard.TitleText
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width
+                        X: =0.00
+                  - txtCardDesc_5:
+                      Control: Label@2.5.1
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Start
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =ColorValue("#616161")
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14* 0.725
+                        Text: =SmallCard.DescriptionText
+                        Visible: =!IsBlank(SmallCard.DescriptionText)
+                        Width: =Parent.Width
+      - ButtonCanvas3:
+          Control: Button@0.0.44
+          Properties:
+            AccessibleLabel: =SmallCard.TitleText
+            Appearance: ='ButtonCanvas.Appearance'.Transparent
+            ContentLanguage: =
+            FontColor: =RGBA(255, 255, 255, 0)
+            FontSize: =1
+            FontWeight: =FontWeight.Normal
+            Height: =Parent.Height
+            OnSelect: =Navigate(SmallCard.Screen)
+            Text: =
+            Width: =Parent.Width

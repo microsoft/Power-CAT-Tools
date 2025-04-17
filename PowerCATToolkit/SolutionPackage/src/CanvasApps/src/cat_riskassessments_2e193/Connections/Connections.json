@@ -9,45 +9,63 @@
       "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1725/1.0.1725.4004/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
-        "c0bd4cde-43ba-4202-a390-63f906938ea2": {
+        "f906f5a7-ec7a-4d25-9c1c-62cb23472871": {
           "value": "shared_commondataserviceforapps"
         },
         "workflowDisplayName": {
-          "value": "[DVAccelerator] Scan all custom roles"
+          "value": "[RiskAssessment] Scan all custom roles"
         },
         "workflowEntityId": {
           "value": "f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8"
         },
         "workflowName": {
-          "value": "91b9ed1e-e0dd-45e0-80a0-a24ce98a7afd"
+          "value": "38c114a7-2c15-4b7e-939d-4e21e5ddd43f"
         }
       },
       "parameterHintsV2": {
         "shared_commondataserviceforapps": {
-          "value": "c0bd4cde-43ba-4202-a390-63f906938ea2"
+          "value": "f906f5a7-ec7a-4d25-9c1c-62cb23472871"
         },
         "workflowDisplayName": {
-          "value": "[DVAccelerator] Scan all custom roles"
+          "value": "[RiskAssessment] Scan all custom roles"
         },
         "workflowEntityId": {
           "value": "f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8"
         },
         "workflowName": {
-          "value": "91b9ed1e-e0dd-45e0-80a0-a24ce98a7afd"
+          "value": "38c114a7-2c15-4b7e-939d-4e21e5ddd43f"
         }
       }
     },
     "datasets": {},
     "dataSources": [
-      "[DVAccelerator]Scanallcustomroles"
+      "[RiskAssessment]Scanallcustomroles"
     ],
     "dependencies": {
-      "shared_commondataserviceforapps": "c0bd4cde-43ba-4202-a390-63f906938ea2"
+      "shared_commondataserviceforapps": "f906f5a7-ec7a-4d25-9c1c-62cb23472871"
     },
     "dependents": [],
     "id": "5254d5bc-7a29-4bde-9f24-d0df7062e028"
   },
-  "c0bd4cde-43ba-4202-a390-63f906938ea2": {
+  "86d4423f-b6d8-42e5-bfa5-fb60772efc55": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1722/1.0.1722.3975/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "86d4423f-b6d8-42e5-bfa5-fb60772efc55"
+  },
+  "f906f5a7-ec7a-4d25-9c1c-62cb23472871": {
     "appActions": [],
     "connectionRef": {
       "apiTier": "Premium",
@@ -64,6 +82,6 @@
     "dependents": [
       "5254d5bc-7a29-4bde-9f24-d0df7062e028"
     ],
-    "id": "c0bd4cde-43ba-4202-a390-63f906938ea2"
+    "id": "f906f5a7-ec7a-4d25-9c1c-62cb23472871"
   }
 }
