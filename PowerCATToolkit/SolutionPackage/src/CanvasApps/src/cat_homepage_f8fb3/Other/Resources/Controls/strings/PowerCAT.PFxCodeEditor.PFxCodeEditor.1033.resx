@@ -173,8 +173,4 @@
     <value>PowerFx expression</value>
     <comment/>
   </data>
-  <data name="PFxCodeEditor_Showsearchbox_Disp_key" xml:space="preserve">
-    <value>Show search box</value>
-    <comment/>
-  </data>
 </root>

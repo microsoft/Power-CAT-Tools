@@ -20,11 +20,20 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{287fabcb-c4ea-42c0-8e6b-383648450031}" locklevel="0" colspan="1" rowspan="1">
+                      <cell id="{287fabcb-c4ea-42c0-8e6b-383648450031}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
                         <labels>
                           <label description="Security Role" languagecode="1033" />
                         </labels>
-                        <control id="cat_roleid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cat_roleid" disabled="false" />
+                        <control id="cat_roleid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cat_roleid" disabled="true" uniqueid="{85b5b6aa-b790-e7db-395c-b03ae35e0ada}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{61F8D435-8E25-4751-8330-5969506EF536}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                       <cell locklevel="0" id="{7d6ff0cb-230c-4b82-b173-0cf5293a6777}" showlabel="false">
                         <labels>
@@ -155,24 +164,11 @@
                         </labels>
                         <control id="cat_totallowrisk" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cat_totallowrisk" disabled="true" />
                       </cell>
-                      <cell id="{3a0de80a-848a-491f-9098-d68a40104bd1}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
-                        <labels>
-                          <label description="Assessment Log" languagecode="1033" />
-                        </labels>
-                        <control id="cat_assessmentlogjson" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cat_assessmentlogjson" disabled="true" uniqueid="{9eeeca56-9371-89a6-6db2-44218042eb68}" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{6573558b-9801-414a-b0ba-1341c9f4444f}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Total No Risk" languagecode="1033" />
                         </labels>
                         <control id="cat_totalnorisk" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cat_totalnorisk" disabled="true" />
-                      </cell>
-                      <cell id="{7d9cdad1-c01c-1492-ea13-5d03e2e97d5c}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                   </rows>

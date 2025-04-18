@@ -392,7 +392,15 @@
         "ZIndex",
         "Y",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -455,6 +463,11 @@
           "Category": "Data",
           "PropertyName": "Text",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -689,7 +702,14 @@
     "btnReviewScanSettings_2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Navigate(EditSettingsScreen);\nSet(\n    currentSelectedAssessmentSetting,\n    DefaultRiskAssessmentSetting\n)",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BasePaletteColor",
         "Font",
         "FontSize",
@@ -700,7 +720,22 @@
         "X",
         "Y",
         "Height",
-        "DisplayMode"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DisplayMode.Edit",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -780,6 +815,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Width",
           "RuleProviderType": "Unknown"
@@ -807,7 +847,7 @@
         {
           "Category": "Design",
           "PropertyName": "DisplayMode",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -821,7 +861,14 @@
     "btnReviewSettings_ListScreen": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Navigate(EditSettingsScreen);\nSet(\n    currentSelectedAssessmentSetting,\n    DefaultRiskAssessmentSetting\n);",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Appearance",
         "Text",
         "Width",
@@ -829,7 +876,30 @@
         "ZIndex",
         "Y",
         "Height",
-        "DisplayMode"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "DisplayMode.Edit",
+          "InvariantPropertyName": "DisplayMode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "BasePaletteColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -894,6 +964,16 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "BasePaletteColor",
+          "RuleProviderType": "Unknown"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Width",
           "RuleProviderType": "Unknown"
@@ -921,12 +1001,12 @@
         {
           "Category": "Design",
           "PropertyName": "DisplayMode",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -950,7 +1030,15 @@
         "ZIndex",
         "Y",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -1015,6 +1103,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Width",
           "RuleProviderType": "Unknown"
@@ -1069,7 +1162,23 @@
         "X",
         "Y",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "BasePaletteColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -1151,6 +1260,16 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "BasePaletteColor",
           "RuleProviderType": "Unknown"
         },
         {
@@ -1366,7 +1485,15 @@
         "X",
         "Y",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -1439,6 +1566,11 @@
           "Category": "Data",
           "PropertyName": "Text",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -1652,7 +1784,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_assessedrisklevel1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1734,7 +1866,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_assessmentdate1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1816,7 +1948,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_isarchived1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1898,7 +2030,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_name1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1949,7 +2081,7 @@
         {
           "Category": "Design",
           "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         }
       ],
       "StyleName": "",
@@ -1980,7 +2112,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_riskassessmentid1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2062,7 +2194,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_RiskAssessmentSettingId1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2144,7 +2276,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_RoleId1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2226,7 +2358,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_tagbordercolorforstatusreason1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2390,7 +2522,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_tagcolorforstatusreason1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2472,7 +2604,7 @@
       "MetaDataIDKey": "",
       "Name": "cat_totalorglevelprivileges1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4442,16 +4574,15 @@
     "Contextmenu1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "FieldName",
-        "Order",
-        "FieldVariantName",
         "FieldDisplayName",
+        "FieldName",
         "FieldType",
+        "Order",
+        "ZIndex",
         "X",
         "Y",
         "Width",
-        "Height",
-        "ZIndex"
+        "Height"
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -4469,7 +4600,17 @@
       "Properties": [
         {
           "Category": "Data",
+          "PropertyName": "FieldDisplayName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
           "PropertyName": "FieldName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FieldType",
           "RuleProviderType": "Unknown"
         },
         {
@@ -4478,18 +4619,8 @@
           "RuleProviderType": "Unknown"
         },
         {
-          "Category": "Data",
-          "PropertyName": "FieldVariantName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldType",
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         },
         {
@@ -4510,11 +4641,6 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -6147,139 +6273,34 @@
     "DVUnscannedCustomRolesList": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "X",
-        "Y",
-        "Width",
+        "OnChange",
+        "Compact",
+        "CurrentSortColumn",
+        "CurrentSortDirection",
+        "InputEvent",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "200",
-          "InvariantPropertyName": "Height",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        "DisplayMode",
-        "ZIndex",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Visible",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"\"",
-          "InvariantPropertyName": "Theme",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Compact",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "columns_Items",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
+          "AutoRuleBindingString": "SortByColumns(\n    AddColumns(\n        Filter(\n            If(\n                tabAssessments.Selected.ItemDisplayName = \"Unscanned custom roles\",\n                Filter(\n                    Search(\n                        UnScannedCustomRoles,\n                        txtSearchRoles.Value,\n                        RoleName\n                    ),\n                    !IsBlank(RoleName)\n                ),\n                UnScannedCustomRoles\n            ),\n            RoleName <> Blank()\n        ),\n        Contextmenu,\n        \"\"\n    ),\n    assessedRiskDetailsSortCol,\n    If(\n        assessedRiskDetailsSortOrder = 'PowerCAT.DVFluentDetailsListWithContextMenu.SortEventDirection'.Ascending,\n        SortOrder.Ascending,\n        SortOrder.Descending\n    )\n)",
           "InvariantPropertyName": "Items",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "150",
-          "InvariantPropertyName": "PageSize",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "RaiseOnRowSelectionChangeEvent",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"\"",
-          "InvariantPropertyName": "CurrentSortColumn",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"\"",
-          "InvariantPropertyName": "CurrentSortDirection",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"\"",
-          "InvariantPropertyName": "InputEvent",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "false",
-          "InvariantPropertyName": "OnChange",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "menu_Items",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "RecordKey",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "SelectionAlwaysVisible",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "LargeDatasetPaging",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        }
+        "LargeDatasetPaging",
+        "PageSize",
+        "RaiseOnRowSelectionChangeEvent",
+        "RecordKey",
+        "SelectionAlwaysVisible",
+        "Theme",
+        "columns_Items",
+        "menu_Items",
+        "Height",
+        "Visible",
+        "ZIndex",
+        "X",
+        "Y",
+        "Width",
+        "DisplayMode"
       ],
       "DynamicProperties": [
         {
@@ -6335,12 +6356,22 @@
       "Properties": [
         {
           "Category": "Data",
-          "PropertyName": "Theme",
-          "RuleProviderType": "User"
+          "PropertyName": "Compact",
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
-          "PropertyName": "Compact",
+          "PropertyName": "CurrentSortColumn",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "CurrentSortDirection",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "InputEvent",
           "RuleProviderType": "Unknown"
         },
         {
@@ -6350,32 +6381,17 @@
         },
         {
           "Category": "Data",
-          "PropertyName": "PageSize",
-          "RuleProviderType": "User"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "RaiseOnRowSelectionChangeEvent",
+          "PropertyName": "LargeDatasetPaging",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
-          "PropertyName": "CurrentSortColumn",
-          "RuleProviderType": "User"
+          "PropertyName": "PageSize",
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
-          "PropertyName": "CurrentSortDirection",
-          "RuleProviderType": "User"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "InputEvent",
-          "RuleProviderType": "User"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "menu_Items",
+          "PropertyName": "RaiseOnRowSelectionChangeEvent",
           "RuleProviderType": "Unknown"
         },
         {
@@ -6385,17 +6401,37 @@
         },
         {
           "Category": "Data",
-          "PropertyName": "columns_Items",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
           "PropertyName": "SelectionAlwaysVisible",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Data",
-          "PropertyName": "LargeDatasetPaging",
+          "PropertyName": "Theme",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "columns_Items",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "menu_Items",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         },
         {
@@ -6415,23 +6451,8 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Height",
-          "RuleProviderType": "User"
-        },
-        {
-          "Category": "Design",
           "PropertyName": "DisplayMode",
           "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Visible",
-          "RuleProviderType": "User"
         },
         {
           "Category": "Behavior",
@@ -6473,7 +6494,23 @@
         "HoverBorderColor",
         "FocusedBorderColor",
         "BorderThickness",
-        "FocusedBorderThickness"
+        "FocusedBorderThickness",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "TabIndex",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -6527,6 +6564,11 @@
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
         {
           "Category": "Design",
           "PropertyName": "Icon",
@@ -6665,6 +6707,11 @@
         {
           "Category": "Design",
           "PropertyName": "FocusedBorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "TabIndex",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7926,7 +7973,11 @@
         "ZIndex",
         "Width",
         "DisplayMode",
-        "OnChange"
+        "OnChange",
+        "AcceptsFocus",
+        "Italic",
+        "Underline",
+        "Strikethrough"
       ],
       "DynamicProperties": [
         {
@@ -8011,6 +8062,26 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "Italic",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Strikethrough",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Underline",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AcceptsFocus",
+          "RuleProviderType": "Unknown"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Height",
           "RuleProviderType": "Unknown"
@@ -8064,7 +8135,11 @@
         "ZIndex",
         "Width",
         "DisplayMode",
-        "OnChange"
+        "OnChange",
+        "AcceptsFocus",
+        "Italic",
+        "Underline",
+        "Strikethrough"
       ],
       "DynamicProperties": [
         {
@@ -8146,6 +8221,26 @@
         {
           "Category": "Data",
           "PropertyName": "VerticalAlignment",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Italic",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Strikethrough",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Underline",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AcceptsFocus",
           "RuleProviderType": "Unknown"
         },
         {
@@ -8932,16 +9027,15 @@
     "ModifiedOn3": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "FieldName",
-        "Order",
-        "FieldVariantName",
         "FieldDisplayName",
+        "FieldName",
         "FieldType",
+        "Order",
+        "ZIndex",
         "X",
         "Y",
         "Width",
-        "Height",
-        "ZIndex"
+        "Height"
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -8959,7 +9053,17 @@
       "Properties": [
         {
           "Category": "Data",
+          "PropertyName": "FieldDisplayName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
           "PropertyName": "FieldName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FieldType",
           "RuleProviderType": "Unknown"
         },
         {
@@ -8968,18 +9072,8 @@
           "RuleProviderType": "Unknown"
         },
         {
-          "Category": "Data",
-          "PropertyName": "FieldVariantName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldType",
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         },
         {
@@ -9000,11 +9094,6 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -9049,7 +9138,7 @@
       "MetaDataIDKey": "",
       "Name": "msdyn_tagcolorforrisklevel1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 14,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9139,7 +9228,7 @@
       "MetaDataIDKey": "",
       "Name": "msdyn_totalprivileges1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 12,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10310,16 +10399,15 @@
     "RoleId2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "FieldName",
-        "Order",
-        "FieldVariantName",
         "FieldDisplayName",
+        "FieldName",
         "FieldType",
+        "Order",
+        "ZIndex",
         "X",
         "Y",
         "Width",
-        "Height",
-        "ZIndex"
+        "Height"
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -10337,7 +10425,17 @@
       "Properties": [
         {
           "Category": "Data",
+          "PropertyName": "FieldDisplayName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
           "PropertyName": "FieldName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FieldType",
           "RuleProviderType": "Unknown"
         },
         {
@@ -10346,18 +10444,8 @@
           "RuleProviderType": "Unknown"
         },
         {
-          "Category": "Data",
-          "PropertyName": "FieldVariantName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldType",
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         },
         {
@@ -10379,11 +10467,6 @@
           "Category": "Design",
           "PropertyName": "Height",
           "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "",
@@ -10392,16 +10475,15 @@
     "RoleName3": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "FieldName",
-        "Order",
-        "FieldVariantName",
         "FieldDisplayName",
+        "FieldName",
         "FieldType",
+        "Order",
+        "ZIndex",
         "X",
         "Y",
         "Width",
-        "Height",
-        "ZIndex"
+        "Height"
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -10419,7 +10501,17 @@
       "Properties": [
         {
           "Category": "Data",
+          "PropertyName": "FieldDisplayName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
           "PropertyName": "FieldName",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "FieldType",
           "RuleProviderType": "Unknown"
         },
         {
@@ -10428,18 +10520,8 @@
           "RuleProviderType": "Unknown"
         },
         {
-          "Category": "Data",
-          "PropertyName": "FieldVariantName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldDisplayName",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "FieldType",
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         },
         {
@@ -10460,11 +10542,6 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -10673,7 +10750,15 @@
         "Y",
         "Width",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -10733,6 +10818,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
@@ -10781,7 +10871,15 @@
         "ZIndex",
         "X",
         "Y",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -10846,6 +10944,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Height",
           "RuleProviderType": "Unknown"
@@ -10904,7 +11007,7 @@
       "MetaDataIDKey": "",
       "Name": "statecode1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10985,7 +11088,7 @@
       "MetaDataIDKey": "",
       "Name": "statuscode1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 13,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11048,7 +11151,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "DefaultSelectedItems",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "tabAssessmentSelectedValue//If(IsEmpty(tabAssessmentSelectedValue),[UnscannedCustomRolesText],tabAssessmentSelectedValue)",
+          "InvariantPropertyName": "DefaultSelectedItems",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -11064,7 +11174,15 @@
         "ZIndex",
         "X",
         "Width",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -11134,6 +11252,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Height",
           "RuleProviderType": "Unknown"
@@ -11188,7 +11311,15 @@
         "Y",
         "Width",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -11251,6 +11382,11 @@
           "Category": "Data",
           "PropertyName": "Items",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -11542,7 +11678,14 @@
         },
         "AccessibleLabel",
         "Alignment",
-        "Items",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\nTable(\n  \n    {\n        ItemKey: \"openadmincenter\",\n        ItemDisplayName: DVAssessmentPageLoc.openAdminCenterButtonText,\n        ItemIconName: \"Open\",\n        ItemAppearance: \"Subtle\",\n        ItemIconStyle: \"Regular\"\n    },\n\n    {\n        ItemKey: \"scanallroles\",\n        ItemDisplayName: DVAssessmentPageLoc.scanAllRoles,\n        ItemIconName: \"Send\",\n        ItemAppearance: \"Subtle\",\n        ItemIconStyle: \"Regular\"\n    }\n)",
+          "InvariantPropertyName": "Items",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Padding",
         "Height",
         "Visible",
@@ -11881,7 +12024,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -11933,7 +12076,15 @@
         "Y",
         "Width",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -12001,6 +12152,11 @@
           "Category": "Data",
           "PropertyName": "TriggerOutput",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",

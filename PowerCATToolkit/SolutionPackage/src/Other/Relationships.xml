@@ -8,6 +8,7 @@
   <EntityRelationship Name="business_unit_cat_patternidentifier" />
   <EntityRelationship Name="business_unit_cat_patterninstance" />
   <EntityRelationship Name="business_unit_cat_patternresult" />
+  <EntityRelationship Name="business_unit_cat_privilegeriskbaseline" />
   <EntityRelationship Name="business_unit_cat_riskassessment" />
   <EntityRelationship Name="business_unit_cat_riskassessmentsetting" />
   <EntityRelationship Name="business_unit_cat_solutioncomponent" />
@@ -16,11 +17,11 @@
   <EntityRelationship Name="cat_apirequest_FolderName_cat_apicollection" />
   <EntityRelationship Name="cat_PatternInstance_cat_PatternResult" />
   <EntityRelationship Name="cat_PatternResult_cat_SolutionComponent" />
+  <EntityRelationship Name="cat_privilegeriskbaseline_RiskAssessmentSetting_cat_riskassessmentsetting" />
   <EntityRelationship Name="cat_RiskAssessment_cat_RiskAssessment" />
   <EntityRelationship Name="cat_riskassessment_ExceptionApprovedBy_system" />
   <EntityRelationship Name="cat_riskassessment_ExceptionFlaggedBy_systemuser" />
   <EntityRelationship Name="cat_RiskAssessment_RoleId_Role" />
-  <EntityRelationship Name="cat_RiskAssessmentSetting_RoleId_Role" />
   <EntityRelationship Name="cat_solutioncomponent_SolutionReview_cat_solutionreview" />
   <EntityRelationship Name="cat_solutionreview_Customer_cat_customer" />
   <EntityRelationship Name="FileAttachment_cat_DocuPilotDocumentGenerationRequest_cat_DocumentHTMLDataset" />
@@ -44,6 +45,8 @@
   <EntityRelationship Name="lk_cat_patterninstance_modifiedby" />
   <EntityRelationship Name="lk_cat_patternresult_createdby" />
   <EntityRelationship Name="lk_cat_patternresult_modifiedby" />
+  <EntityRelationship Name="lk_cat_privilegeriskbaseline_createdby" />
+  <EntityRelationship Name="lk_cat_privilegeriskbaseline_modifiedby" />
   <EntityRelationship Name="lk_cat_riskassessment_createdby" />
   <EntityRelationship Name="lk_cat_riskassessment_modifiedby" />
   <EntityRelationship Name="lk_cat_riskassessmentsetting_createdby" />
@@ -60,6 +63,7 @@
   <EntityRelationship Name="owner_cat_patternidentifier" />
   <EntityRelationship Name="owner_cat_patterninstance" />
   <EntityRelationship Name="owner_cat_patternresult" />
+  <EntityRelationship Name="owner_cat_privilegeriskbaseline" />
   <EntityRelationship Name="owner_cat_riskassessment" />
   <EntityRelationship Name="owner_cat_riskassessmentsetting" />
   <EntityRelationship Name="owner_cat_solutioncomponent" />
@@ -72,6 +76,7 @@
   <EntityRelationship Name="team_cat_patternidentifier" />
   <EntityRelationship Name="team_cat_patterninstance" />
   <EntityRelationship Name="team_cat_patternresult" />
+  <EntityRelationship Name="team_cat_privilegeriskbaseline" />
   <EntityRelationship Name="team_cat_riskassessment" />
   <EntityRelationship Name="team_cat_riskassessmentsetting" />
   <EntityRelationship Name="team_cat_solutioncomponent" />
@@ -84,6 +89,7 @@
   <EntityRelationship Name="user_cat_patternidentifier" />
   <EntityRelationship Name="user_cat_patterninstance" />
   <EntityRelationship Name="user_cat_patternresult" />
+  <EntityRelationship Name="user_cat_privilegeriskbaseline" />
   <EntityRelationship Name="user_cat_riskassessment" />
   <EntityRelationship Name="user_cat_riskassessmentsetting" />
   <EntityRelationship Name="user_cat_solutioncomponent" />

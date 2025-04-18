@@ -461,14 +461,18 @@ ReviewItemScreen As screen:
                             ZIndex: =1
 
                         Title2 As Label:
+                            AcceptsFocus: =false
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10.5
                             FontWeight: =FontWeight.Semibold
                             Height: =24
+                            Italic: =false
                             OnChange: =false
                             OnSelect: =Select(Parent)
+                            Strikethrough: =false
                             TabIndex: =-1
                             Text: =ThisItem.Value
+                            Underline: =false
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =Parent.TemplateWidth - Self.X - 8
                             X: =0
@@ -509,20 +513,38 @@ ReviewItemScreen As screen:
                             ZIndex: =1
 
                         Title2_1 As Label:
+                            AcceptsFocus: =false
                             DisplayMode: =DisplayMode.Edit
                             FontSize: =10.5
                             FontWeight: =FontWeight.Semibold
                             Height: =24
+                            Italic: =false
                             OnChange: =false
                             OnSelect: =Select(Parent)
+                            Strikethrough: =false
                             TabIndex: =-1
                             Text: |-
                                 =If(CountRows(ThisItem.Topic)>0, "Topics: " & Concat(ThisItem.Topic, TopicName, ", "))
+                            Underline: =false
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =Parent.TemplateWidth - Self.X - 8
                             X: =0
                             Y: =0
                             ZIndex: =3
+
+                    TextCanvas3 As Text:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =45
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        Text: =SelectedReviewItem.failureReason
+                        Visible: =true//SelectedReviewItem.patternID = "app-AssetOptimization"
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =9
 
                     lblRecommendations_4 As Text:
                         Align: ='TextCanvas.Align'.Start
@@ -540,7 +562,7 @@ ReviewItemScreen As screen:
                         Width: =Parent.Width - Self.X
                         X: =20
                         Y: =20
-                        ZIndex: =9
+                        ZIndex: =10
 
                     Container4 As groupContainer.horizontalAutoLayoutContainer:
                         LayoutMinHeight: =100
@@ -551,7 +573,7 @@ ReviewItemScreen As screen:
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         Visible: =ctxShowCode
-                        ZIndex: =10
+                        ZIndex: =11
 
                         CodeTreeContainer As groupContainer.verticalAutoLayoutContainer:
                             Fill: =ColorValue(AppTheme.palette.neutralLighter)
@@ -649,25 +671,45 @@ ReviewItemScreen As screen:
                                     Order: =1
                                     ZIndex: =14
 
-                        "PFxCodeEditor1 As 'PowerFx Code Editor'":
+                                "FailedPowerFxCode1 As 'cat_PowerCAT.CodeViewerTreeTemplate_dataField'.textualColumn":
+                                    FieldDisplayName: ="FailedPowerFxCode"
+                                    FieldName: ="FailedPowerFxCode"
+                                    FieldType: ="s"
+                                    FieldVariantName: ="textualColumn"
+                                    Order: =9
+                                    ZIndex: =15
+
+                        "PFxCodeReviewEditor1 As 'PowerFx Code Review Editor'":
                             AlignInContainer: =AlignInContainer.Stretch
-                            DisplayMode: =DisplayMode.View
+                            CodetoHighlight: |+
+                                =//{codetoHighlight:[ctxSelectedPropery.FailedPowerFxCode, "dsf"]}
+                                {codetoHighlight: ForAll(
+                                    Filter(
+                                        SelectedReviewItem.instanceValue,
+                                        PropertyName = ctxSelectedPropery.PropertyName &&
+                                        ControlName = ctxSelectedPropery.ControlName &&
+                                        ScreenName = ctxSelectedPropery.ScreenName &&
+                                        PatternName = ctxSelectedPropery.PatternName
+                                    ),
+                                    FailedPowerFxCode
+                                )}
+                                
+                            DisplayMode: =DisplayMode.Edit
+                            ErrorMessage: |
+                                =ctxSelectedPropery.FailureReason
                             FillPortions: =1
-                            Height: =Parent.Height
+                            Height: =200
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
-                            PowerFx: |-
+                            PowerFx: |
                                 =If(!IsBlank(ctxSelectedPropery),
                                 Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1)))
                             ShowLineNumber: =false
-                            ShowminiMap: =true
-                            Showsearchbox: =true
-                            Value: =Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1))
                             Visible: =ctxShowCode
-                            Width: =Parent.Width
+                            Width: =200
                             X: =0
                             Y: =0
-                            ZIndex: =2
+                            ZIndex: =3
 
                     div_18 As rectangle:
                         AlignInContainer: =AlignStart
@@ -677,19 +719,5 @@ ReviewItemScreen As screen:
                         Width: =Parent.Width - Self.X * 2
                         X: =84
                         Y: =256
-                        ZIndex: =11
-
-                    TextCanvas3 As Text:
-                        AlignInContainer: =AlignInContainer.Stretch
-                        AutoHeight: =true
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =45
-                        LayoutMinHeight: =32
-                        LayoutMinWidth: =96
-                        Text: =SelectedReviewItem.failureReason
-                        Visible: =true//SelectedReviewItem.patternID = "app-AssetOptimization"
-                        Width: =96
-                        X: =0
-                        Y: =0
                         ZIndex: =12
 

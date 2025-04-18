@@ -56,7 +56,7 @@ Screens:
                         Width: =270
                         X: =394.49
                   - TabList1_4:
-                      Control: TabList@2.2.29
+                      Control: TabList@2.2.30
                       Properties:
                         DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
                         FillPortions: =FlexOn
@@ -212,7 +212,7 @@ Screens:
                                                 X: =72
                                                 Y: =52
                               - tlbRight_8:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =FlexOff
@@ -243,7 +243,7 @@ Screens:
                               Width: =Parent.Width - Self.X * 2
                             Children:
                               - tlbMain_7:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =3
@@ -291,7 +291,7 @@ Screens:
                                       )
                                     Width: =Parent.Width
                               - tlbRight_13:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =FlexOn
@@ -409,7 +409,7 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_12:
-                Control: Spinner@1.4.5
+                Control: Spinner@1.4.6
                 Properties:
                   Height: =Parent.Height
                   Label: ="Generating results"

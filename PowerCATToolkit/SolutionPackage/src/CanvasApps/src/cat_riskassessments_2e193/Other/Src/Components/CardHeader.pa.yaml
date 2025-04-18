@@ -1,0 +1,77 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  CardHeader:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      Image:
+        PropertyKind: Input
+        DisplayName: Image
+        Description: A custom property
+        DataType: Image
+        Default: =SampleImage
+      InfoText:
+        PropertyKind: Input
+        DisplayName: Info text
+        Description: A custom property
+        DataType: Text
+        Default: ="Text"
+      Text:
+        PropertyKind: Input
+        DisplayName: Text
+        Description: A custom property
+        DataType: Text
+        Default: ="Text"
+    Properties:
+      Height: =24
+      Width: =290
+    Children:
+      - Container1:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =8
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+            X: =1-1
+            Y: =1-1
+          Children:
+            - Image1:
+                Control: Image@2.2.3
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Height: =24
+                  Image: =CardHeader.Image
+                  Visible: =!IsBlank(CardHeader.Image)
+                  Width: =24
+            - TextCanvas1:
+                Control: Text@0.0.50
+                Properties:
+                  FillPortions: =1
+                  Height: =24
+                  Size: =16
+                  Text: =CardHeader.Text
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Wrap: =false
+            - InfoButtonCanvas1:
+                Control: InfoButton@0.0.31
+                Properties:
+                  AccessibleLabel: =CardHeader.InfoText
+                  Content: =CardHeader.InfoText
+                  Height: =28
+                  Visible: =!IsBlank(CardHeader.InfoText)
+                  Width: =24

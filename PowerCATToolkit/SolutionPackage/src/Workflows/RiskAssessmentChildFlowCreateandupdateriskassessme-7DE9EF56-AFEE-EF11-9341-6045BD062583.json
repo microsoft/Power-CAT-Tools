@@ -1,0 +1,275 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "msdyn_DVAcceleratorMicrosoftDataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "undefined",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "description": "Please enter your input",
+                  "title": "RoleInformation",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Parse_JSON": {
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerBody()?['text']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "RoleId": {
+                  "type": "string"
+                },
+                "AssessmentSetting": {
+                  "type": "string"
+                },
+                "AssessmentModifiedOn": {
+                  "type": "string"
+                },
+                "RiskAssessmentId": {
+                  "type": "string"
+                },
+                "AssessmentsExists": {
+                  "type": "string"
+                },
+                "RoleModifiedOn": {
+                  "type": "string"
+                },
+                "SolutionModifiedOn": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "runAfter": {}
+        },
+        "Check_if_there_any_assessments_present_for_the_role-copy": {
+          "type": "If",
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@bool(body('Parse_JSON')?['AssessmentsExists'])",
+                  "@true"
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "Create_new_assessment_for_the_current_role_with_status_as_Inprogress_2": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cat_riskassessments",
+                  "item/cat_RoleId@odata.bind": "/roles(@{body('Parse_JSON')?['RoleId']})",
+                  "item/cat_isarchived": false,
+                  "item/cat_RiskAssessmentSettingId@odata.bind": "@body('Parse_JSON')?['RiskAssessmentSetting']",
+                  "item/statuscode": 192350002
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "f45631ce-98b7-4319-900f-02258807e1de"
+              }
+            }
+          },
+          "else": {
+            "actions": {
+              "List_Risk_assessments_for_the_current_role": {
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "parameters": {
+                    "entityName": "cat_riskassessments",
+                    "$filter": "cat_isarchived eq false and _cat_roleid_value eq @{body('Parse_JSON')?['RoleId']}"
+                  },
+                  "host": {
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                    "operationId": "ListRecords",
+                    "connectionName": "shared_commondataserviceforapps"
+                  }
+                }
+              },
+              "Check_if_role_is_modified_by_comparing_with_solution_modified_on_date": {
+                "type": "If",
+                "expression": {
+                  "and": [
+                    {
+                      "equals": [
+                        "@outputs('Solution_Modified_On')",
+                        "@outputs('Role_Modified_On')"
+                      ]
+                    }
+                  ]
+                },
+                "actions": {
+                  "Check_for_eliminating_duplicate_records": {
+                    "type": "If",
+                    "expression": {
+                      "and": [
+                        {
+                          "greater": [
+                            "@length(outputs('List_Risk_assessments_for_the_current_role')?['body/value'])",
+                            0
+                          ]
+                        },
+                        {
+                          "greaterOrEquals": [
+                            "@first(outputs('List_Risk_Assessments_for_the_current_role')?['body/value'])?['modifiedon']",
+                            "@body('Parse_JSON')?['RoleModifiedOn']"
+                          ]
+                        }
+                      ]
+                    },
+                    "actions": {},
+                    "else": {
+                      "actions": {
+                        "Set_Existing_assessment_as_archived": {
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "parameters": {
+                              "entityName": "cat_riskassessments",
+                              "recordId": "@body('Parse_JSON')?['RiskAssessmentId']",
+                              "item/cat_isarchived": true
+                            },
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "operationId": "UpdateOnlyRecord",
+                              "connectionName": "shared_commondataserviceforapps"
+                            }
+                          },
+                          "metadata": {
+                            "operationMetadataId": "9265844e-fcd3-421a-ad92-f16faf076502"
+                          }
+                        },
+                        "Create_new_assessment_for_the_current_role_with_status_as_Inprogress": {
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "parameters": {
+                              "entityName": "cat_riskassessments",
+                              "item/cat_RoleId@odata.bind": "/roles(@{body('Parse_JSON')?['RoleId']})",
+                              "item/cat_isarchived": false,
+                              "item/cat_RiskAssessmentSettingId@odata.bind": "@body('Parse_JSON')?['RiskAssessmentSetting']",
+                              "item/statuscode": 192350002
+                            },
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "connectionName": "shared_commondataserviceforapps"
+                            }
+                          },
+                          "runAfter": {
+                            "Set_Existing_assessment_as_archived": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "f45631ce-98b7-4319-900f-02258807e1de"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "else": {
+                  "actions": {}
+                },
+                "runAfter": {
+                  "Role_Modified_On": [
+                    "Succeeded"
+                  ]
+                }
+              },
+              "Role_Modified_On": {
+                "type": "Compose",
+                "inputs": "@convertToUtc(body('Parse_JSON')?['RoleModifiedOn'],'utc','dd-MM-yyyy hh:mm tt')",
+                "runAfter": {
+                  "Solution_Modified_On": [
+                    "SUCCEEDED"
+                  ]
+                }
+              },
+              "Solution_Modified_On": {
+                "type": "Compose",
+                "inputs": "@convertToUtc(body('Parse_JSON')?['SolutionModifiedOn'],'utc','dd-MM-yyyy hh:mm tt')",
+                "runAfter": {
+                  "List_Risk_assessments_for_the_current_role": [
+                    "Succeeded"
+                  ]
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4dcaf3f7-829d-4b4a-beb6-8c3a563b4a89"
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {}
+            },
+            "statusCode": 200
+          },
+          "runAfter": {
+            "Check_if_there_any_assessments_present_for_the_role-copy": [
+              "Succeeded"
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

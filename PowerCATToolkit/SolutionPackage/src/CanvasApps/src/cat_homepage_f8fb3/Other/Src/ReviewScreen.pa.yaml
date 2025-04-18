@@ -81,7 +81,7 @@ Screens:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
                                   Properties:
-                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    AlignInContainer: =AlignInContainer.Center
                                     DropShadow: =DropShadow.None
                                     FillPortions: =FlexOn
                                     Height: =cHeaderText_9.Height
@@ -108,6 +108,7 @@ Screens:
                                     - Image2:
                                         Control: Image@2.2.3
                                         Properties:
+                                          AlignInContainer: =AlignInContainer.Center
                                           BorderColor: =RGBA(0, 0, 0, 0)
                                           BorderStyle: =BorderStyle.None
                                           BorderThickness: =2
@@ -124,7 +125,7 @@ Screens:
                                         Control: GroupContainer@1.3.0
                                         Variant: AutoLayout
                                         Properties:
-                                          AlignInContainer: =AlignInContainer.SetByContainer
+                                          AlignInContainer: =AlignInContainer.Start
                                           DropShadow: =DropShadow.None
                                           Height: =rDivider_PageHeader_9.Y
                                           LayoutDirection: =LayoutDirection.Vertical
@@ -318,6 +319,7 @@ Screens:
                                         Variant: AutoLayout
                                         Properties:
                                           DropShadow: =DropShadow.None
+                                          FillPortions: =0.5
                                           LayoutDirection: =LayoutDirection.Horizontal
                                           LayoutMinHeight: =40
                                         Children:
@@ -363,7 +365,7 @@ Screens:
                                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                                                 Tooltip: ="Warning"
                                                 Width: =90
-                                          - IconWarning_1:
+                                          - IconSkipped:
                                               Control: CodeComponent
                                               ComponentName: cat_PowerCAT.Icon
                                               Properties:
@@ -373,15 +375,30 @@ Screens:
                                                 IconColor: ="#afafaf"
                                                 IconName: ="StatusErrorFull"
                                                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
-                                                Text: ="Not Executed"
+                                                Text: ="Skipped"
                                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                                                 Tooltip: ="Skipped"
+                                                Width: =90
+                                          - IconNotExecuted:
+                                              Control: CodeComponent
+                                              ComponentName: cat_PowerCAT.Icon
+                                              Properties:
+                                                FillColor: =
+                                                FontColor: =
+                                                Height: =45
+                                                IconColor: ="#a7acd9"
+                                                IconName: ="StatusErrorFull"
+                                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                                Text: ="Not Executed"
+                                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                                Tooltip: ="Not Executed"
                                                 Width: =145
                                     - Container9_14:
                                         Control: GroupContainer@1.3.0
                                         Variant: AutoLayout
                                         Properties:
                                           DropShadow: =DropShadow.None
+                                          FillPortions: =0.5
                                           Height: =40
                                           LayoutAlignItems: =LayoutAlignItems.Center
                                           LayoutDirection: =LayoutDirection.Horizontal
@@ -441,7 +458,7 @@ Screens:
                                                       Placeholder: ="Search"
                                                       TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
                               - Spinner1_11:
-                                  Control: Spinner@1.4.5
+                                  Control: Spinner@1.4.6
                                   Properties:
                                     SpinnerSize: ='Spinner.SpinnerSize'.Small
                                     Visible: =false
@@ -496,7 +513,7 @@ Screens:
                                           X: =40
                                           Y: =193
                                     - lblBody1_EmptyState_7:
-                                        Control: FluentV8/Label@1.6.0
+                                        Control: FluentV8/Label@1.8.6
                                         Properties:
                                           AlignInContainer: =AlignInContainer.Center
                                           Alignment: =Align.Center
@@ -559,81 +576,6 @@ Screens:
                                     RadiusBottomRight: =0
                                     RadiusTopLeft: =0
                                     RadiusTopRight: =0
-                                  Children:
-                                    - FluentDetailsList2_1:
-                                        Control: CodeComponent
-                                        ComponentName: cat_PowerCAT.FluentDetailsList
-                                        Properties:
-                                          Compact: =false
-                                          Height: =Parent.Height
-                                          Items: |-
-                                            =Search(
-                                                AddColumns(
-                                                  SelectedReviewItem.result ,
-                                                    StatusCol,
-                                                    Switch(status,
-                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Pass,
-                                                        "#76DB91",
-                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Fail,
-                                                        "#cc412f",
-                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Skipped,
-                                                        "#afafaf",
-                                                         'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
-                                                        "#f6894b",
-                                                          'PowerCAT.IntelligentReviewVisualizer.Status'.NotExecuted,
-                                                        "#afafaf",
-                                                        "#333333"
-                                                    ),
-                                                    StatusIcon,
-                                                    Switch(
-                                                        status,
-                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Pass,
-                                                        "icon:SkypeCircleCheck",
-                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Fail,
-                                                        "icon:StatusErrorFull",
-                                                        'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
-                                                        "icon:AlertSolid",
-                                                        "icon:StatusErrorFull"
-                                                    ),
-                                                    Action,
-                                                    "Details",
-                                                    RecordKey,
-                                                    patternName
-                                                ),
-                                                txtSearch_5.Value,
-                                                patternName,
-                                                description
-                                            )
-                                          OnChange: |+
-                                            =
-                                            If(
-                                                Self.EventName = "CellAction",
-                                               /* Set(
-                                                    SelectedReviewItemId,
-                                                    GUID(Self.EventRowKey)
-                                                );*/
-                                                Set(SelectedPattern,Self.EventRowKey);
-                                                ClearCollect(
-                                                NavigationItems,
-                                                ForAll(
-                                                    LookUp(AddColumns(SelectedReviewItem.result,RecordKey,patternName), RecordKey = Self.EventRowKey).instanceValue, 
-                                                    {
-                                                        key: ThisRecord.ScreenName,
-                                                        name: ThisRecord.ControlName & " - " & ThisRecord.PropertyName, 
-                                                        url: ThisRecord.ScreenName, 
-                                                        icon: "Page"
-                                                    }
-                                                )
-                                            );
-
-                                            Navigate(ReviewItemScreen,ScreenTransition.None,{SelectedReviewItem: LookUp(SelectedReviewItem.result, patternName = Self.EventRowKey), PatternType: PatternType});    
-                                            )
-                                          RecordKey: =""
-                                          SelectionType: |+
-                                            ='PowerCAT.FluentDetailsList.SelectionType'.None
-                                          Theme: =AppThemeJson
-                                          Width: =Parent.Width - cGrid_4.PaddingLeft
-                                          columns_Items: "=Table(\r\n    {\r\n        ColName: \"StatusIcon\",\r\n        ColDisplayName: \"Status\",\r\n        ColWidth: 40,\r\n        ColSortable: false,\r\n        ColCellType: \"ClickableImage\",\r\n        ColImageWidth: 18,\r\n        ColImagePadding: 8,\r\n        ColVerticalAlign: \"Top\",\r\n        ColTagColorColumn:\"StatusCol\"\r\n  \r\n    },\r\n    {\r\n        ColName: \"patternName\",\r\n        ColDisplayName: \"Title\",\r\n        ColWidth: 250,\r\n        ColSortable: true,\r\n        ColResizable: true,\r\n        ColSortBy: \"Index\",\r\n        ColIsBold:true,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n    },\r\n    /*{\r\n        ColName: \"patternID\",\r\n        ColDisplayName: \"Title\",\r\n        ColWidth: 250,\r\n        ColSortable: true,\r\n        ColResizable: true,\r\n        ColSortBy: \"Index\",\r\n        ColIsBold:true,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n    },\r\n    {\r\n        ColName: \"failureReason\",\r\n        ColDisplayName: \"Comment\",\r\n        ColWidth: 200,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n\r\n    },*/\r\n    {\r\n        ColName: \"description\",\r\n        ColDisplayName: \"Description\",\r\n        ColWidth: Parent.Width - 520,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true,\r\n        ColIsBold:true\r\n\r\n    },\r\n    /*\r\n     {\r\n        ColName: \"status\",\r\n        ColDisplayName: \"Status\",\r\n        ColWidth: Parent.Width - 650,\r\n        ColHeaderMultiline: true,\r\n        ColMultiLine: true\r\n\r\n    },*/\r\n    {ColName:\"Action\",\r\n    ColDisplayName:\"\",ColWidth:100,ColCellType:\"link\"}\r\n)"
                               - cBufferHub_2:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -736,36 +678,6 @@ Screens:
                                           RadiusTopRight: =0
                                           Width: =297
                                           Y: =179
-                                        Children:
-                                          - DonutChart1:
-                                              Control: CodeComponent
-                                              ComponentName: cat_PowerCAT.DonutChart
-                                              Properties:
-                                                CustomColors: =true
-                                                Height: =220
-                                                InnerRadius: =Self.Height/2.2
-                                                Items: |+
-                                                  =Table(
-                                                      {
-                                                          ItemLegend: "Pass",
-                                                          ItemValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Pass)),
-                                                          ItemColor: "#76DB91" 
-                                                      },
-                                                      {
-                                                          ItemLegend: "Fail",
-                                                          ItemValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail)),
-                                                          ItemColor: "#FF6F61" // green
-                                                      },
-                                                       {
-                                                          ItemLegend: "Warning",
-                                                          ItemValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Warning)),
-                                                          ItemColor: "#ff7800" // green
-                                                      }
-                                                  )
-                                                Theme: =AppThemeJson
-                                                Title: =
-                                                Width: =180
-                                                Y: =58
                                     - rCardDivider_9:
                                         Control: Rectangle@2.3.0
                                         Properties:
@@ -853,43 +765,6 @@ Screens:
                                           RadiusTopRight: =0
                                           Width: =297
                                           Y: =86
-                                        Children:
-                                          - HorizontalBarChart1:
-                                              Control: CodeComponent
-                                              ComponentName: cat_PowerCAT.HorizontalBarChart
-                                              Properties:
-                                                BarHeight: =12
-                                                ChartDataMode: ='PowerCAT.HorizontalBarChart.ChartDataMode'.Percentage
-                                                CustomColors: =true
-                                                Height: =224
-                                                Items: |+
-                                                  =Table(
-                                                      {
-                                                          ItemTitle: "High",
-                                                          ItemLegend: "On-time Delivery Rate",
-                                                          ItemValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail && severity = "High" )),
-                                                          ItemTotalValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail)),
-                                                          ItemColor: "#C50F1F" // Red
-                                                      },
-                                                      {
-                                                          ItemTitle: "Medium",
-                                                          ItemLegend: "On-time Delivery Rate",
-                                                          ItemValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail && severity = "Medium" )),
-                                                          ItemTotalValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail)),
-                                                          ItemColor: "#F2610C" // Orange
-                                                      },
-                                                      {
-                                                          ItemTitle: "Low",
-                                                          ItemLegend: "On-time Delivery Rate",
-                                                          ItemValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail && severity = "Low" )),
-                                                          ItemTotalValue: CountRows(Filter(SelectedReviewItem.result, status = 'PowerCAT.IntelligentReviewVisualizer.Status'.Fail)),
-                                                          ItemColor: "#00A892" // Orange
-                                                      }
-                                                  )
-                                                Theme: =
-                                                Variant: ='PowerCAT.HorizontalBarChart.Variant'.PartToWhole
-                                                Width: =Parent.Width - Self.X * 2
-                                                Y: =149
                                     - ButtonCanvas1_4:
                                         Control: Button@0.0.44
                                         Properties:

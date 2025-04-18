@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25023.200" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25023.200" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25023.00200">
+<ImportExportXml version="9.2.25032.228" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25032.228" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25032.00228">
   <SolutionManifest>
     <UniqueName>PowerCATToolkit</UniqueName>
     <LocalizedNames>
@@ -90,12 +90,15 @@
       <RootComponent type="1" schemaName="cat_patternidentifier" behavior="0" />
       <RootComponent type="1" schemaName="cat_patterninstance" behavior="0" />
       <RootComponent type="1" schemaName="cat_patternresult" behavior="0" />
+      <RootComponent type="1" schemaName="cat_privilegeriskbaseline" behavior="0" />
       <RootComponent type="1" schemaName="cat_riskassessment" behavior="0" />
       <RootComponent type="1" schemaName="cat_riskassessmentsetting" behavior="0" />
       <RootComponent type="1" schemaName="cat_solutioncomponent" behavior="0" />
       <RootComponent type="1" schemaName="cat_solutionreview" behavior="0" />
       <RootComponent type="20" id="{b0ed6d52-daa7-ef11-8a6a-7c1e524711aa}" behavior="0" />
+      <RootComponent type="29" id="{7de9ef56-afee-ef11-9341-6045bd062583}" behavior="0" />
       <RootComponent type="29" id="{c1677ec2-3be2-ef11-8ee9-7c1e520bafa0}" behavior="0" />
+      <RootComponent type="29" id="{e62ed30d-9fe7-ef11-a730-7c1e5282409c}" behavior="0" />
       <RootComponent type="29" id="{f44ddf13-9abe-ef11-b8e8-7c1e520ac2d8}" behavior="0" />
       <RootComponent type="300" schemaName="cat_apiplayground_62f25" behavior="0" />
       <RootComponent type="300" schemaName="cat_docupilot_fa88a" behavior="0" />
@@ -147,12 +150,12 @@
       <RootComponent type="9" schemaName="cat_solutioncomponent" behavior="0" />
       <RootComponent type="91" id="{6694475e-4df0-4ab2-9dfc-5e516858a451}" schemaName="Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a" behavior="0" />
       <RootComponent type="92" id="{591f692e-43e8-ef11-8eea-000d3a5933f1}" behavior="0" />
-      <RootComponent type="92" id="{59a4b3cd-42e8-ef11-9341-6045bd062583}" behavior="0" />
       <RootComponent type="92" id="{68d39e51-43e8-ef11-9341-6045bd062583}" behavior="0" />
       <RootComponent type="92" id="{915e31ce-43e8-ef11-9341-6045bd062583}" behavior="0" />
       <RootComponent type="92" id="{c890068f-43e8-ef11-8eea-6045bd09d758}" behavior="0" />
       <RootComponent type="92" id="{d330dbf3-42e8-ef11-8eea-000d3a5933f1}" behavior="0" />
       <RootComponent type="92" id="{e820da65-43e8-ef11-8eea-6045bd09d758}" behavior="0" />
+      <RootComponent type="92" id="{fbd0e0ec-ef04-f011-bae3-0022480c6a7e}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
@@ -226,8 +229,8 @@
         <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202502.2.4.1)">
-          <package appName="PowerAI" version="202502.2.4.1">msdyn_AISolutionAnchor (202502.2.4.1)</package>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202503.1.0.1)">
+          <package appName="PowerAI" version="202503.1.0.1">msdyn_AISolutionAnchor (202503.1.0.1)</package>
         </Required>
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
@@ -318,31 +321,35 @@
         <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="66" schemaName="cat_PowerCAT.PFxCodeReviewEditor" displayName="cat_PowerCAT.PFxCodeReviewEditor" solution="Active" />
+        <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.StackedBarChart" displayName="cat_PowerCAT.StackedBarChart" solution="Active" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5081)">
-          <package appName="msdynce_Activities" version="9.0.25023.250219000">msdynce_EnableUCIByDefault (9.0.25023.250219000)</package>
-          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2187">msdyn_TimelineExtended (1.0.0.2187)</package>
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5353)">
+          <package appName="msdynce_Activities" version="9.0.25025.250226000">msdynce_EnableUCIByDefault (9.0.25025.250226000)</package>
+          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2782">msdyn_TimelineExtended (1.0.0.2782)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Pattern Details" id="{efb23718-9b0d-4859-83b7-f4920c9479b2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.12)" id.uniquename="AppChannel">
-          <package appName="PowerAppsAppFramework Package" version="1.0.0.16">PowerAppsAppFramework_Anchor (1.0.0.16)</package>
+          <package appName="PowerAppsAppFramework Package" version="1.0.0.17">PowerAppsAppFramework_Anchor (1.0.0.17)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_PowerCATToolkit,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="cat_PowerCATToolkit" id.settingdefinitionid.uniquename="AppChannel" />
       </MissingDependency>
       <MissingDependency>
         <Required type="SettingDefinition" displayName="appcopilotenabled" solution="msdyn_AppCopilotAppInfraSettings (9.1.2024115.241121075)" id.uniquename="appcopilotenabled">
-          <package appName="PowerAppsAppCopilotApp Package" version="9.1.2024115.241121075">PowerAppsAppCopilotApp_Anchor (9.1.2024115.241121075)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.1">PowerAppsAppCopilotApp_Anchor (9.2.0.1)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_PowerCATToolkit,settingdefinitionid.uniquename=appcopilotenabled" id.parentappmoduleid.uniquename="cat_PowerCATToolkit" id.settingdefinitionid.uniquename="appcopilotenabled" />
       </MissingDependency>
       <MissingDependency>
         <Required type="SettingDefinition" displayName="enablecopilotautotriggersummarize" solution="msdyn_AppCopilotAppInfraSettings (9.1.2024115.241121075)" id.uniquename="enablecopilotautotriggersummarize">
-          <package appName="PowerAppsAppCopilotApp Package" version="9.1.2024115.241121075">PowerAppsAppCopilotApp_Anchor (9.1.2024115.241121075)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.1">PowerAppsAppCopilotApp_Anchor (9.2.0.1)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_PowerCATToolkit,settingdefinitionid.uniquename=enablecopilotautotriggersummarize" id.parentappmoduleid.uniquename="cat_PowerCATToolkit" id.settingdefinitionid.uniquename="enablecopilotautotriggersummarize" />
       </MissingDependency>

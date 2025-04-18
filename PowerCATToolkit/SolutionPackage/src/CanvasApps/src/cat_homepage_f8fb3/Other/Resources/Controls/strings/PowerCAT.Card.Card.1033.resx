@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Card_Display_Key" xml:space="preserve">
-    <value>Fluent Card (1.1.39) Preview</value>
+    <value>Fluent Card (1.1.41) Preview</value>
     <comment>The display name for the Card control.</comment>
   </data>
   <data name="Card_Description_Key" xml:space="preserve">

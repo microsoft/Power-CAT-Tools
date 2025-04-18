@@ -1,0 +1,19 @@
+{
+  "PFxCodeEditor_Desc_key": "A monaco editor based code component which help view and edit code(JSON for now)",
+  "PFxCodeEditor_Disp_key": "PowerFx Code Review Editor",
+  "PFxCodeEditor_ErrorMessage_Disp_key": "Error Message",
+  "PFxCodeEditor_FailedCode_Disp_key": "Failed Code",
+  "PFxCodeEditor_Language_Disp_key": "Language",
+  "PFxCodeEditor_LinetoJump_Desc_key": "Line to jump in the editor",
+  "PFxCodeEditor_LinetoJump_Disp_key": "Line to jump",
+  "PFxCodeEditor_PowerFX_Desc_key": "PowerFx expression",
+  "PFxCodeEditor_PowerFX_Disp_key": "PowerFx",
+  "PFxCodeEditor_ShowLineNumber_Disp_key": "Show Line Number",
+  "PFxCodeEditor_ShowminiMap_Disp_key": "Show Mini Map",
+  "PFxCodeEditor_Showsearchbox_Disp_key": "Show search box",
+  "PFxCodeEditor_Theme_Disp_key": "Theme",
+  "PFxCodeEditor_Theme_light_Disp_key": "Light",
+  "PFxCodeEditor_Theme_vs-dark_Disp_key": "Dark",
+  "PFxCodeEditor_Value_Desc_key": "Value of the editor",
+  "PFxCodeEditor_Value_Disp_key": "Value"
+}

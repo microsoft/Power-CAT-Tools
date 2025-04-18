@@ -439,12 +439,3 @@ TelemetryScreen As screen:
             Y: =0
             ZIndex: =1
 
-    ButtonCanvas2 As Button:
-        DisplayMode: =DisplayMode.Edit
-        Height: =32
-        OnSelect: =If(IsEmpty(First(First(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items).result).instanceValue),"")
-        Width: =96
-        X: =172
-        Y: =392
-        ZIndex: =3
-

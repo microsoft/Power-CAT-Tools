@@ -47,6 +47,7 @@ CardHeader As CanvasComponent:
             ZIndex: =2
 
         "InfoButtonCanvas1 As 'Information button'":
+            AccessibleLabel: =CardHeader.InfoText
             BasePaletteColor: =
             Content: =CardHeader.InfoText
             DisplayMode: =DisplayMode.Edit

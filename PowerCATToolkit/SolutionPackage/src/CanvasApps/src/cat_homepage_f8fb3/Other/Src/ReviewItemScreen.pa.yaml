@@ -182,7 +182,7 @@ Screens:
                         Width: =Parent.Width - Self.X * 2
                       Children:
                         - tlbMain_5:
-                            Control: Toolbar@2.0.4
+                            Control: Toolbar@2.0.5
                             Properties:
                               AccessibleLabel: ="Toolbar"
                               FillPortions: =3
@@ -230,7 +230,7 @@ Screens:
                                 )
                               Width: =Parent.Width
                         - tlbRight_11:
-                            Control: Toolbar@2.0.4
+                            Control: Toolbar@2.0.5
                             Properties:
                               AccessibleLabel: ="Toolbar"
                               FillPortions: =FlexOn
@@ -436,7 +436,7 @@ Screens:
                                           TabIndex: =0
                                           Width: =Parent.TemplateWidth
                                     - Title2:
-                                        Control: FluentV8/Label@1.6.0
+                                        Control: FluentV8/Label@1.8.6
                                         Properties:
                                           FontWeight: =FontWeight.Semibold
                                           Height: =24
@@ -476,7 +476,7 @@ Screens:
                                           TabIndex: =0
                                           Width: =Parent.TemplateWidth
                                     - Title2_1:
-                                        Control: FluentV8/Label@1.6.0
+                                        Control: FluentV8/Label@1.8.6
                                         Properties:
                                           FontWeight: =FontWeight.Semibold
                                           Height: =24
@@ -486,6 +486,14 @@ Screens:
                                             =If(CountRows(ThisItem.Topic)>0, "Topics: " & Concat(ThisItem.Topic, TopicName, ", "))
                                           VerticalAlignment: =VerticalAlign.Top
                                           Width: =Parent.TemplateWidth - Self.X - 8
+                              - TextCanvas3:
+                                  Control: Text@0.0.50
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    Height: =45
+                                    Text: =SelectedReviewItem.failureReason
+                                    Visible: =true//SelectedReviewItem.patternID = "app-AssetOptimization"
                               - lblRecommendations_4:
                                   Control: Text@0.0.50
                                   Properties:
@@ -527,28 +535,32 @@ Screens:
                                           RadiusTopRight: =0
                                           Visible: =!IsEmpty(SelectedReviewItem.instanceValue)
                                           Width: =280
-                                        Children:
-                                          - CodeViewerTree1:
-                                              Control: CodeComponent
-                                              ComponentName: cat_PowerCAT.CodeViewerTree
-                                              Properties:
-                                                Items: =SelectedReviewItem.instanceValue
-                                                OnSelect: =UpdateContext({ctxSelectedPropery:Self.Selected});
-                                                Width: =Parent.Width - Self.X - (Parent.PaddingLeft * 2)
-                                    - PFxCodeEditor1:
+                                    - PFxCodeReviewEditor1:
                                         Control: CodeComponent
-                                        ComponentName: cat_PowerCAT.PFxCodeEditor
+                                        ComponentName: cat_PowerCAT.PFxCodeReviewEditor
                                         Properties:
-                                          DisplayMode: =DisplayMode.View
-                                          Height: =Parent.Height
-                                          PowerFx: |-
+                                          AlignInContainer: =AlignInContainer.Stretch
+                                          CodetoHighlight: |+
+                                            =//{codetoHighlight:[ctxSelectedPropery.FailedPowerFxCode, "dsf"]}
+                                            {codetoHighlight: ForAll(
+                                                Filter(
+                                                    SelectedReviewItem.instanceValue,
+                                                    PropertyName = ctxSelectedPropery.PropertyName &&
+                                                    ControlName = ctxSelectedPropery.ControlName &&
+                                                    ScreenName = ctxSelectedPropery.ScreenName &&
+                                                    PatternName = ctxSelectedPropery.PatternName
+                                                ),
+                                                FailedPowerFxCode
+                                            )}
+
+                                          ErrorMessage: |+
+                                            =ctxSelectedPropery.FailureReason
+                                          FillPortions: =1
+                                          PowerFx: |+
                                             =If(!IsBlank(ctxSelectedPropery),
                                             Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1)))
                                           ShowLineNumber: =false
-                                          Showsearchbox: =true
-                                          Value: =Trim(Mid(ctxSelectedPropery.Code,2,Len(ctxSelectedPropery.Code)-1))
                                           Visible: =ctxShowCode
-                                          Width: =Parent.Width
                               - div_18:
                                   Control: Rectangle@2.3.0
                                   Properties:
@@ -558,11 +570,3 @@ Screens:
                                     Width: =Parent.Width - Self.X * 2
                                     X: =84
                                     Y: =256
-                              - TextCanvas3:
-                                  Control: Text@0.0.50
-                                  Properties:
-                                    AlignInContainer: =AlignInContainer.Stretch
-                                    AutoHeight: =true
-                                    Height: =45
-                                    Text: =SelectedReviewItem.failureReason
-                                    Visible: =true//SelectedReviewItem.patternID = "app-AssetOptimization"

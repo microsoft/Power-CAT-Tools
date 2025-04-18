@@ -31,7 +31,15 @@
           "inputs": {
             "schema": {
               "type": "object",
-              "properties": {},
+              "properties": {
+                "text": {
+                  "title": "AssessmentSettingId",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "This is optional, if this value is passed it will scan only roles associated with this assessment setting",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
               "required": []
             }
           },
@@ -69,12 +77,12 @@
             "operationMetadataId": "8931e039-5aad-4c28-9409-a3ce356ac7ec"
           }
         },
-        "Get_Risk_Assessments_which_are_not_Archived": {
+        "Get_Custom_Security_Roles": {
           "type": "OpenApiConnection",
           "inputs": {
             "parameters": {
-              "entityName": "cat_riskassessments",
-              "$filter": "cat_isarchived eq false"
+              "entityName": "roles",
+              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"role\">\n    <attribute name=\"name\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"roleid\" />\n    <attribute name=\"createdby\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"parentroleid\" operator=\"null\" />\n    </filter>\n    <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"createdby\" link-type=\"inner\" alias=\"ax\">\n      <filter type=\"and\">\n        <condition attribute=\"fullname\" operator=\"ne\" value=\"SYSTEM\" />\n      </filter>\n    </link-entity>\n    <link-entity name=\"solution\" from=\"solutionid\" to=\"solutionid\" link-type=\"inner\" alias=\"as\">\n      <filter type=\"and\">\n        <condition attribute=\"uniquename\" operator=\"not-like\" value=\"%msdyn%\" />\n        <condition attribute=\"uniquename\" operator=\"not-like\" value=\"%msft%\" />\n        <condition attribute=\"uniquename\" operator=\"not-like\" value=\"%dynamics%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%adx%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%msprov%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%mspcat%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%PowerPages%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%PowerPlatform%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%Microsoft%\" />\n\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
@@ -83,7 +91,7 @@
             }
           },
           "runAfter": {
-            "Get_Custom_Security_Roles": [
+            "Check_if_default_risk_assessment_exists": [
               "Succeeded"
             ]
           },
@@ -93,54 +101,7 @@
             }
           },
           "metadata": {
-            "operationMetadataId": "ec12da91-0d6c-4338-99e4-f86f9b4e4b45"
-          }
-        },
-        "Get_Custom_Security_Roles": {
-          "type": "OpenApiConnection",
-          "inputs": {
-            "parameters": {
-              "entityName": "roles",
-              "$filter": "parentroleid eq null and ismanaged eq false",
-              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"role\">\n    <attribute name=\"name\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"roleid\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"parentroleid\" operator=\"null\" />\n<condition attribute=\"ismanaged\" operator=\"eq\" value=\"false\" />\n\n    </filter>\n    <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"createdby\" link-type=\"inner\" alias=\"ax\">\n      <filter type=\"and\">\n        <condition attribute=\"fullname\" operator=\"ne\" value=\"SYSTEM\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
-            },
-            "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "connectionName": "shared_commondataserviceforapps"
-            }
-          },
-          "runAfter": {
-            "Get_Default_Risk_Assessment_Setting": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
             "operationMetadataId": "b18aaafd-1235-425d-b1ab-6d8430d82156"
-          }
-        },
-        "Count_of_all_assessments_which_are_not_archived": {
-          "type": "Compose",
-          "inputs": "@length(outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value'])",
-          "runAfter": {
-            "Count_of_custom_security_roles": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "4c8e7c30-5855-43c3-a47a-61ebc95f2e84"
-          }
-        },
-        "Count_of_custom_security_roles": {
-          "type": "Compose",
-          "inputs": "@length(outputs('Get_Custom_Security_Roles')?['body/value'])",
-          "runAfter": {
-            "Get_Risk_Assessments_which_are_not_Archived": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "06a1178b-7d66-45fd-8b5e-cbbeb0af0565"
           }
         },
         "Initialize_UnscannedRoles": {
@@ -175,7 +136,7 @@
             ]
           },
           "runAfter": {
-            "Initialize_UnscannedRoles": [
+            "Initialize_DefaultRiskAssessmentSettingReference": [
               "Succeeded"
             ]
           },
@@ -218,7 +179,7 @@
             }
           },
           "runAfter": {
-            "Initialize_EnvironmentVariableValueId": [
+            "Initialize_RiskAssessmentsFilterCondition": [
               "Succeeded"
             ]
           },
@@ -478,6 +439,134 @@
             "operationMetadataId": "968ebabb-321c-4596-bb10-ba0bae2ca641"
           }
         },
+        "Initialize_DefaultRiskAssessmentSettingReference": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefaultRiskAssessmentSettingReference",
+                "type": "string"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_UnscannedRoles": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3df7578e-a440-4999-b19d-4d014a400835"
+          }
+        },
+        "Check_if_default_risk_assessment_exists": {
+          "type": "If",
+          "expression": {
+            "and": [
+              {
+                "greater": [
+                  "@length(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])",
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "Set_DefaultRiskAssessmentSettingReference_value": {
+              "type": "SetVariable",
+              "inputs": {
+                "name": "DefaultRiskAssessmentSettingReference",
+                "value": "/cat_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['cat_riskassessmentsettingid']})"
+              },
+              "metadata": {
+                "operationMetadataId": "cc27ee49-4a10-4c72-9093-488d8f6c05cd"
+              }
+            }
+          },
+          "else": {
+            "actions": {
+              "Set_Default_Risk_Assessment_Setting_Reference": {
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "DefaultRiskAssessmentSettingReference",
+                  "value": "@null"
+                },
+                "metadata": {
+                  "operationMetadataId": "ca27ead3-f895-4e79-a2bc-417a3dd93f95"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Default_Risk_Assessment_Setting": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c5f78f01-aa5e-43e7-9a14-f840cb5145ab"
+          }
+        },
+        "Check_if_AssessmentSettingId_is_empty": {
+          "type": "If",
+          "expression": {
+            "equals": [
+              "@empty(triggerBody()?['text'])",
+              "@true"
+            ]
+          },
+          "actions": {
+            "Add_archived_condition": {
+              "type": "SetVariable",
+              "inputs": {
+                "name": "RiskAssessmentsFilterCondition",
+                "value": "cat_isarchived eq false"
+              },
+              "metadata": {
+                "operationMetadataId": "1637c44d-eb1f-4c90-bd6e-3bb6cffd76eb"
+              }
+            }
+          },
+          "else": {
+            "actions": {
+              "Add_archived_and_riskassessmentsetting_condition": {
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "RiskAssessmentsFilterCondition",
+                  "value": "cat_isarchived eq false and _cat_riskassessmentsettingid_value eq @{triggerBody()?['text']}"
+                },
+                "metadata": {
+                  "operationMetadataId": "cb249613-c9de-40dc-a6c3-103740ae65f4"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Custom_Security_Roles": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "28d68dc5-5216-482a-8560-7bb5f2e3be4d"
+          }
+        },
+        "Initialize_RiskAssessmentsFilterCondition": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "RiskAssessmentsFilterCondition",
+                "type": "string"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_EnvironmentVariableValueId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "256f4b9e-4356-40a1-8729-fefe61dc3015"
+          }
+        },
         "Scope_for_custom_security_roles": {
           "type": "Scope",
           "actions": {
@@ -526,9 +615,9 @@
                           "inputs": {
                             "parameters": {
                               "entityName": "cat_riskassessments",
+                              "item/cat_RiskAssessmentSettingId@odata.bind": "@variables('DefaultRiskAssessmentSettingReference')",
                               "item/cat_RoleId@odata.bind": "/roles(@{items('Apply_to_each_custom_security_role')?['roleid']})",
                               "item/cat_isarchived": false,
-                              "item/cat_RiskAssessmentSettingId@odata.bind": "/cat_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['cat_riskassessmentsettingid']})",
                               "item/statuscode": 192350002
                             },
                             "host": {
@@ -579,9 +668,9 @@
                             "inputs": {
                               "parameters": {
                                 "entityName": "cat_riskassessments",
+                                "item/cat_RiskAssessmentSettingId@odata.bind": "@variables('DefaultRiskAssessmentSettingReference')",
                                 "item/cat_RoleId@odata.bind": "/roles(@{items('Apply_to_each_custom_security_role')?['roleid']})",
                                 "item/cat_isarchived": false,
-                                "item/cat_RiskAssessmentSettingId@odata.bind": "/cat_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['cat_riskassessmentsettingid']})",
                                 "item/statuscode": 192350002
                               },
                               "host": {
@@ -726,6 +815,57 @@
           },
           "metadata": {
             "operationMetadataId": "c6c71682-05ea-4f2f-8a88-e547c70fc8c4"
+          }
+        },
+        "Count_of_all_assessments_which_are_not_archived": {
+          "type": "Compose",
+          "inputs": "@length(outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value'])",
+          "runAfter": {
+            "Count_of_custom_security_roles": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4c8e7c30-5855-43c3-a47a-61ebc95f2e84"
+          }
+        },
+        "Count_of_custom_security_roles": {
+          "type": "Compose",
+          "inputs": "@length(outputs('Get_Custom_Security_Roles')?['body/value'])",
+          "runAfter": {
+            "Get_Risk_Assessments_which_are_not_Archived": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "06a1178b-7d66-45fd-8b5e-cbbeb0af0565"
+          }
+        },
+        "Get_Risk_Assessments_which_are_not_Archived": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cat_riskassessments",
+              "$filter": "@variables('RiskAssessmentsFilterCondition')"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "Check_if_AssessmentSettingId_is_empty": [
+              "Succeeded"
+            ]
+          },
+          "runtimeConfiguration": {
+            "paginationPolicy": {
+              "minimumItemCount": 100000
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "ec12da91-0d6c-4338-99e4-f86f9b4e4b45"
           }
         }
       }

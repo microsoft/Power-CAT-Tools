@@ -3,9 +3,11 @@ HomeScreen As screen:
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
     OnVisible: |-
         =/* Load data for this page while spinner is loading */
+        
+           UpdateContext({ init: false });
         If( init <> true,
-            UpdateContext({ pageTitle: "Power Platform Review Tool" });
-            UpdateContext({ pageSubtext: "This tool automates the process of reviewing your Power Platform solution, making it easier to find and fix errors/anti-patterns."});
+            UpdateContext({ pageTitle: If(optimizeForAgent, "Agent Review Tool",  "Power Platform Review Tool") });
+            UpdateContext({ pageSubtext: If(optimizeForAgent, "This tool automates the process of reviewing your agent, making it easier to find and fix errors/anti-patterns.", "This tool automates the process of reviewing your Power Platform solution, making it easier to find and fix errors/anti-patterns.")});
         
             // TODO: Additional Dataloading Loading 
         
@@ -42,6 +44,8 @@ HomeScreen As screen:
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =24
         LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingBottom: =20
         PaddingRight: =0.00
         PaddingTop: =0.00
         Width: =Parent.Width
@@ -170,18 +174,19 @@ HomeScreen As screen:
                 ZIndex: =5
 
         cMainContainer As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =cGrid_2.Height + cListToolbar_9.Height + cSectionHeader_2.Height + cCardsRow_2.Height + cSectionHeader_1.Height + cScreenContainer_3.Height + cCardsRow_3.Height + 100
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            LayoutOverflowY: =LayoutOverflow.Scroll
             PaddingLeft: =Margins/2
             PaddingRight: =Margins/2
             ZIndex: =3
 
             Container2_2 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
-                Height: =Max(cBufferHub_0.Y + cBufferHub_0.Height, Parent.Height-Self.Y)
+                Height: =cGrid_2.Height + cListToolbar_9.Height + cSectionHeader_2.Height + cCardsRow_2.Height + cSectionHeader_1.Height + cScreenContainer_3.Height + cCardsRow_3.Height + 100
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =16
                 LayoutMinHeight: =100
@@ -260,7 +265,7 @@ HomeScreen As screen:
                     Y: =51
                     ZIndex: =2
 
-                    "Card1_16 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_16 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         Description: ="Optimize your apps for app and page load speed."
                         DisplayMode: =DisplayMode.Edit
                         HeaderImage: =
@@ -279,7 +284,7 @@ HomeScreen As screen:
                         Y: =0
                         ZIndex: =1
 
-                    "Card1_9 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_9 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         Description: ="The Power Automate Cloud Flows Best Practices Whitepaper ."
                         DisplayMode: =DisplayMode.Edit
                         HeaderImage: =
@@ -300,7 +305,7 @@ HomeScreen As screen:
                         Y: =0
                         ZIndex: =2
 
-                    "Card1_10 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_10 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         Description: ="Best practices, implementation, and architecture guidance."
                         DisplayMode: =DisplayMode.Edit
                         HeaderImage: =
@@ -320,7 +325,7 @@ HomeScreen As screen:
                         Y: =0
                         ZIndex: =3
 
-                    "Card1_13 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_13 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         Description: ="Power Pages best practices guidance documentation."
                         DisplayMode: =DisplayMode.Disabled
                         HeaderImage: =
@@ -403,7 +408,7 @@ HomeScreen As screen:
                     DropShadow: =DropShadow.Semilight
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =0
-                    Height: =Max(div_8.Y, 160)
+                    Height: =cGrid_2.Height + cListToolbar_9.Height
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =0   
@@ -422,11 +427,10 @@ HomeScreen As screen:
                         AlignInContainer: =AlignInContainer.Start
                         DropShadow: =DropShadow.Semilight
                         Fill: =RGBA(255, 255, 255, 1)
-                        Height: =Max(div_14.Y, 220)
+                        Height: =cGrid_2.Height + cListToolbar_9.Height
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =0   
-                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                         LayoutMinHeight: =330
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
@@ -608,7 +612,8 @@ HomeScreen As screen:
                             ZIndex: =2
 
                         cGrid_2 As groupContainer.horizontalAutoLayoutContainer:
-                            Height: =Max((CountIf(ListItems,true) * 48), 200)
+                            FillPortions: =0
+                            Height: =CountIf(ListItems, true) * If(numCols<= 6, 85, 34)
                             LayoutMinHeight: =100
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
@@ -616,7 +621,7 @@ HomeScreen As screen:
                             Visible: =!IsEmpty(ListItems)
                             ZIndex: =4
 
-                            "FluentDetailsList1_2 As 'Fluent Details List (1.1.39)'.pcfdataset":
+                            "FluentDetailsList1_2 As 'Fluent Details List (1.1.41)'.pcfdataset":
                                 AlignInContainer: =AlignInContainer.Stretch
                                 AlternateRowColor: =
                                 ColDisplayName: =""
@@ -634,7 +639,7 @@ HomeScreen As screen:
                                             ColDisplayName: "Review Name",
                                             ColSortable: true,
                                             ColIsBold: true,
-                                            ColWidth: App.Width - 800,
+                                            ColWidth: App.Width - 830,
                                             ColRowHeader: true
                                         },
                                         {
@@ -675,7 +680,7 @@ HomeScreen As screen:
                                 CurrentSortDirection: ='PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending
                                 DisplayMode: =DisplayMode.Edit
                                 FillPortions: =1
-                                Height: =Max((CountIf(ListItems, true) * If(numCols<= 6, 85, 50) ), 200)
+                                Height: =CountIf(ListItems, true) * If(numCols<= 6, 85, 34)
                                 Items: =ListItems
                                 LayoutMinHeight: =200
                                 LayoutMinWidth: =200
@@ -897,6 +902,7 @@ HomeScreen As screen:
                                 ZIndex: =2
 
                             lblBody1_EmptyState_5 As Label:
+                                AcceptsFocus: =false
                                 AlignInContainer: =AlignInContainer.Center
                                 Alignment: =Align.Center
                                 AutoHeight: =true
@@ -905,10 +911,13 @@ HomeScreen As screen:
                                 FontSize: =10.5
                                 FontWeight: =FontWeight.Normal
                                 Height: =12
+                                Italic: =false
                                 LayoutMinHeight: =32
                                 LayoutMinWidth: =320
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: ="Try adjusting the filters or refining with keywords for a broader search or simply add a review."
+                                Underline: =false
                                 VerticalAlignment: =VerticalAlign.Middle
                                 Width: =320
                                 X: =320
@@ -1017,7 +1026,7 @@ HomeScreen As screen:
                     Y: =51
                     ZIndex: =7
 
-                    "Card1_14 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_14 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         HeaderImage: =SampleImage1
                         Height: =Self.AutoHeight
@@ -1036,7 +1045,7 @@ HomeScreen As screen:
                         Y: =0
                         ZIndex: =1
 
-                    "Card1_15 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_15 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         Alignment: ='PowerCAT.Card.Alignment'.Vertical
                         Description: =
                         DisplayMode: =DisplayMode.Edit
@@ -1051,12 +1060,13 @@ HomeScreen As screen:
                         Size: ='PowerCAT.Card.Size'.Small
                         Subtitle: ="Create a review for your solution."
                         Title: ="Quick Start"
+                        Visible: =!optimizeForAgent
                         Width: =300
                         X: =0
                         Y: =0
                         ZIndex: =3
 
-                    "Card1_18 As 'Fluent Card (1.1.39) Preview'.pcfdataset":
+                    "Card1_18 As 'Fluent Card (1.1.41) Preview'.pcfdataset":
                         DisplayMode: =DisplayMode.Edit
                         HeaderImage: =SampleImage4
                         Height: =Self.AutoHeight
@@ -1274,14 +1284,18 @@ HomeScreen As screen:
                             ZIndex: =1
 
                             ErrorMessage7_1 As Label:
+                                AcceptsFocus: =false
                                 AutoHeight: =true
                                 Color: =Color.Red
                                 DisplayMode: =DisplayMode.Edit
                                 FontSize: =9
                                 Height: =30
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: =Parent.Error
                                 Tooltip: =Parent.Error
+                                Underline: =false
                                 Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =Parent.Width - 48
                                 Wrap: =true
@@ -1290,12 +1304,16 @@ HomeScreen As screen:
                                 ZIndex: =3
 
                             StarVisible7_1 As Label:
+                                AcceptsFocus: =false
                                 Alignment: =Align.Center
                                 Color: =RGBA(215, 58, 60, 1)
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: ="*"
+                                Underline: =false
                                 Visible: =true///And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =103
@@ -1342,14 +1360,18 @@ HomeScreen As screen:
                             ZIndex: =1
 
                             ErrorMessage6_1 As Label:
+                                AcceptsFocus: =false
                                 AutoHeight: =true
                                 Color: =Color.Red
                                 DisplayMode: =DisplayMode.Edit
                                 FontSize: =9
                                 Height: =30
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: =Parent.Error
                                 Tooltip: =Parent.Error
+                                Underline: =false
                                 Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =Parent.Width - 48
                                 Wrap: =true
@@ -1358,11 +1380,15 @@ HomeScreen As screen:
                                 ZIndex: =3
 
                             StarVisible6_1 As Label:
+                                AcceptsFocus: =false
                                 Alignment: =Align.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: ="*"
+                                Underline: =false
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0
@@ -1615,7 +1641,7 @@ HomeScreen As screen:
                                 Height: =17
                                 Size: =11
                                 Text: |-
-                                    ="Note: This tool only supports solution exported after March 1st 2025"
+                                    ="Note: This tool only supports Power Apps created after March 1st 2025"
                                 Width: =413
                                 X: =27
                                 Y: =77
@@ -1641,13 +1667,17 @@ HomeScreen As screen:
                             ZIndex: =1
 
                             DataCardKey1 As Label:
+                                AcceptsFocus: =false
                                 AutoHeight: =true
                                 DisplayMode: =DisplayMode.Edit
                                 FontSize: =9
                                 Height: =22
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: =Parent.DisplayName
                                 Tooltip: =Parent.DisplayName
+                                Underline: =false
                                 VerticalAlignment: =VerticalAlign.Bottom
                                 Width: =Parent.Width - 48
                                 Wrap: =true
@@ -1670,14 +1700,18 @@ HomeScreen As screen:
                                 ZIndex: =2
 
                             ErrorMessage1 As Label:
+                                AcceptsFocus: =false
                                 AutoHeight: =true
                                 Color: =Color.Red
                                 DisplayMode: =DisplayMode.Edit
                                 FontSize: =9
                                 Height: =30
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: =Parent.Error
                                 Tooltip: =Parent.Error
+                                Underline: =false
                                 Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =Parent.Width - 48
                                 Wrap: =true
@@ -1686,11 +1720,15 @@ HomeScreen As screen:
                                 ZIndex: =3
 
                             StarVisible1 As Label:
+                                AcceptsFocus: =false
                                 Alignment: =Align.Center
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =30
+                                Italic: =false
                                 OnChange: =false
+                                Strikethrough: =false
                                 Text: ="*"
+                                Underline: =false
                                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                                 Width: =30
                                 X: =0

@@ -1,0 +1,570 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "msdyn_DVAcceleratorMicrosoftDataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "AutoScan (msdyn_DVAcceleratorAutoScan)": {
+          "defaultValue": true,
+          "type": "Bool",
+          "metadata": {
+            "schemaName": "msdyn_DVAcceleratorAutoScan"
+          }
+        }
+      },
+      "triggers": {
+        "When_a_solution_is_modified": {
+          "metadata": {
+            "operationMetadataId": "fa848773-179a-4337-bceb-746cac8c8686"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "solution",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "(not contains(uniquename, 'msdyn') and not contains(uniquename, 'msft') and not contains(uniquename, 'mspcat') and not contains(uniquename, 'msprov') and not contains(uniquename, 'adx') and not contains(uniquename, 'PowerPages') and not contains(uniquename, 'dynamics') and not contains(uniquename, 'PowerPlatform') and not contains(uniquename, 'Microsoft') and isvisible eq true)"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "runtimeConfiguration": {
+            "concurrency": {
+              "runs": 1
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_SolutionName": {
+          "runAfter": {
+            "Delay": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7f4de49d-a61c-4d6b-9bcb-b6ca217664eb"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SolutionName",
+                "type": "string",
+                "value": "@triggerOutputs()?['body/friendlyname']"
+              }
+            ]
+          }
+        },
+        "Initialize_AutoScan": {
+          "runAfter": {
+            "Initialize_SolutionName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "02f25e37-f2d7-4630-aee6-1e3dee38fc2f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AutoScan",
+                "type": "boolean",
+                "value": "@parameters('AutoScan (msdyn_DVAcceleratorAutoScan)')"
+              }
+            ]
+          }
+        },
+        "Check_if_AutoScan_is_On": {
+          "actions": {
+            "Get_Risk_Assessments_which_are_not_Archived": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "938b43d1-546f-4953-b516-7857fd97f5d9"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "cat_riskassessments",
+                  "$filter": "cat_isarchived eq false"
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "runtimeConfiguration": {
+                "paginationPolicy": {
+                  "minimumItemCount": 100000
+                }
+              }
+            },
+            "Get_Default_Risk_Assessment_Setting": {
+              "runAfter": {
+                "Get_Risk_Assessments_which_are_not_Archived": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8931e039-5aad-4c28-9409-a3ce356ac7ec"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "cat_riskassessmentsettings",
+                  "$filter": "cat_isdefault eq true and statecode eq 0",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "runtimeConfiguration": {
+                "paginationPolicy": {
+                  "minimumItemCount": 100000
+                }
+              }
+            },
+            "Check_if_default_risk_assessment_exists": {
+              "actions": {
+                "Set_DefaultRiskAssessmentSettingReference_value": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "cc27ee49-4a10-4c72-9093-488d8f6c05cd"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "DefaultRiskAssessmentSettingReference",
+                    "value": "/cat_riskassessmentsettings(@{first(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])?['cat_riskassessmentsettingid']})"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Default_Risk_Assessment_Setting": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Set_Default_Risk_Assessment_Setting_Reference": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "ca27ead3-f895-4e79-a2bc-417a3dd93f95"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "DefaultRiskAssessmentSettingReference",
+                      "value": "@null"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "greater": [
+                      "@length(outputs('Get_Default_Risk_Assessment_Setting')?['body/value'])",
+                      0
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c5f78f01-aa5e-43e7-9a14-f840cb5145ab"
+              },
+              "type": "If"
+            },
+            "List_Custom_roles_present_in_a_solution": {
+              "runAfter": {
+                "Check_if_default_risk_assessment_exists": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "dcf1030b-df40-4d66-88b6-e8139d515b24"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "roles",
+                  "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"role\">\n    <attribute name=\"name\" />\n    <attribute name=\"businessunitid\" />\n    <attribute name=\"roleid\" />\n    <attribute name=\"createdby\" />\n <attribute name=\"modifiedon\" />\n <attribute name=\"createdon\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <filter type=\"and\">\n      <condition attribute=\"parentroleid\" operator=\"null\" />\n <condition attribute=\"solutionid\" operator=\"eq\" value=\"@{triggerOutputs()?['body/solutionid']}\" />\n    </filter>\n    <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"createdby\" link-type=\"inner\" alias=\"ax\">\n      <filter type=\"and\">\n        <condition attribute=\"fullname\" operator=\"ne\" value=\"SYSTEM\" />\n      </filter>\n    </link-entity>\n    <link-entity name=\"solution\" from=\"solutionid\" to=\"solutionid\" link-type=\"inner\" alias=\"as\">\n      <filter type=\"and\">\n        <condition attribute=\"uniquename\" operator=\"not-like\" value=\"%msdyn%\" />\n        <condition attribute=\"uniquename\" operator=\"not-like\" value=\"%msft%\" />\n        <condition attribute=\"uniquename\" operator=\"not-like\" value=\"%dynamics%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%adx%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%msprov%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%mspcat%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%PowerPages%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%PowerPlatform%\" />\n<condition attribute=\"uniquename\" operator=\"not-like\" value=\"%Microsoft%\" />\n      </filter>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "runtimeConfiguration": {
+                "paginationPolicy": {
+                  "minimumItemCount": 100000
+                }
+              }
+            },
+            "Check_if_solution_is_managed": {
+              "actions": {
+                "Check_if_there_are_any_security_roles_present": {
+                  "actions": {
+                    "Managed_Solution_Components": {
+                      "actions": {
+                        "Apply_to_each_custom_security_role": {
+                          "foreach": "@outputs('List_Custom_roles_present_in_a_solution')?['body/value']",
+                          "actions": {
+                            "Find_if_any_assessments_exist_for_the_current_security_role": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "f259b7d8-256e-4543-8b52-06ea0dde0ff6"
+                              },
+                              "type": "Query",
+                              "inputs": {
+                                "from": "@outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value']",
+                                "where": "@equals(item()?['_cat_roleid_value'],items('Apply_to_each_custom_security_role')?['roleid'])"
+                              }
+                            },
+                            "Create_Risk_Assessments_for_custom_roles": {
+                              "runAfter": {
+                                "Find_if_any_assessments_exist_for_the_current_security_role": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "ef7e76db-39c5-4986-bf62-c4e86f128e6c"
+                              },
+                              "type": "Workflow",
+                              "inputs": {
+                                "host": {
+                                  "workflowReferenceName": "7de9ef56-afee-ef11-9341-6045bd062583"
+                                },
+                                "body": {
+                                  "text": "{\n\"RoleId\":\"@{items('Apply_to_each_custom_security_role')?['roleid']}\",\n\"AssessmentSetting\":\"@{variables('DefaultRiskAssessmentSettingReference')}\",\n \"AssessmentModifiedOn\":\"@{if(empty(body('Find_if_any_assessments_exist_for_the_current_security_role')),null,first(body('Find_if_any_assessments_exist_for_the_current_security_role'))?['modifiedon'])}\",\n        \"RiskAssessmentId\": \"@{if(empty(body('Find_if_any_assessments_exist_for_the_current_security_role')),null,first(body('Find_if_any_assessments_exist_for_the_current_security_role'))?['cat_riskassessmentid'])}\",\n        \"AssessmentsExists\": \"@{if(empty(body('Find_if_any_assessments_exist_for_the_current_security_role')),true,false)}\",\n        \"RoleModifiedOn\":\"@{items('Apply_to_each_custom_security_role')?['modifiedon']}\",\n        \"SolutionModifiedOn\": \"@{triggerOutputs()?['body/modifiedon']}\"\n\n\n}"
+                                }
+                              }
+                            }
+                          },
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "7c883634-7a75-4127-ab2e-a659bf22121f"
+                          },
+                          "type": "Foreach"
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "c6c71682-05ea-4f2f-8a88-e547c70fc8c4"
+                      },
+                      "type": "Scope"
+                    }
+                  },
+                  "runAfter": {},
+                  "else": {
+                    "actions": {
+                      "Terminate": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "ad775801-9932-4763-a4d9-b1d7278b2c92"
+                        },
+                        "type": "Terminate",
+                        "inputs": {
+                          "runStatus": "Succeeded"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "and": [
+                      {
+                        "greater": [
+                          "@length(outputs('List_Custom_roles_present_in_a_solution')?['body/value'])",
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "c31f5d93-6101-4184-97ea-45da6dabb6d5"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "List_Custom_roles_present_in_a_solution": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Unmanaged_solution_components": {
+                    "actions": {
+                      "Retrieve_Solution_components_of_a_solution": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "1e8ea84f-1066-4b01-a31b-5efc9c401a02"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "PerformUnboundAction",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "actionName": "cat_RetrieveSolutionComponentofaSolution",
+                            "item/componenttype": 20,
+                            "item/solutionid": "@triggerOutputs()?['body/solutionid']"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Apply_to_each_role_solution_component": {
+                        "foreach": "@outputs('Retrieve_Solution_components_of_a_solution')?['body/value']",
+                        "actions": {
+                          "Get_role_created_by": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "13bdbcb0-50f1-4cae-9c43-b244104d6603"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps",
+                                "operationId": "GetItem",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "systemusers",
+                                "recordId": "@items('Apply_to_each_role_solution_component')?['_createdby_value']",
+                                "$select": "fullname"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          },
+                          "Check_if_role_created_by_is_system": {
+                            "actions": {},
+                            "runAfter": {
+                              "Get_role_created_by": [
+                                "Succeeded"
+                              ]
+                            },
+                            "else": {
+                              "actions": {
+                                "Find_if_any_assessments_exist_for_the_current_security_role_component": {
+                                  "runAfter": {
+                                    "Get_role_modified_on": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "a1cd6a87-8f07-43d7-84c3-5d52825efe2d"
+                                  },
+                                  "type": "Query",
+                                  "inputs": {
+                                    "from": "@outputs('Get_Risk_Assessments_which_are_not_Archived')?['body/value']",
+                                    "where": "@equals(item()?['_cat_roleid_value'],items('Apply_to_each_role_solution_component')?['objectid'])"
+                                  }
+                                },
+                                "Get_role_modified_on": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "c692a55b-2c73-42b6-9ce5-41783c605c24"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps",
+                                      "operationId": "GetItem",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "roles",
+                                      "recordId": "@items('Apply_to_each_role_solution_component')?['objectid']",
+                                      "$select": "modifiedon"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                },
+                                "Create_Risk_Assessments_for_custom_roles_for_unmanaged_solution": {
+                                  "runAfter": {
+                                    "Find_if_any_assessments_exist_for_the_current_security_role_component": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "ef7e76db-39c5-4986-bf62-c4e86f128e6c"
+                                  },
+                                  "type": "Workflow",
+                                  "inputs": {
+                                    "host": {
+                                      "workflowReferenceName": "7de9ef56-afee-ef11-9341-6045bd062583"
+                                    },
+                                    "body": {
+                                      "text": "{\n\"RoleId\":\"@{items('Apply_to_each_role_solution_component')?['objectid']}\",\n\"AssessmentSetting\":\"@{variables('DefaultRiskAssessmentSettingReference')}\",\n \"AssessmentModifiedOn\":\"@{if(empty(body('Find_if_any_assessments_exist_for_the_current_security_role_component')),null,first(body('Find_if_any_assessments_exist_for_the_current_security_role_component'))?['modifiedon'])}\",\n        \"RiskAssessmentId\": \"@{if(empty(body('Find_if_any_assessments_exist_for_the_current_security_role_component')),null,first(body('Find_if_any_assessments_exist_for_the_current_security_role_component'))?['cat_riskassessmentid'])}\",\n        \"AssessmentsExists\": \"@{if(empty(body('Find_if_any_assessments_exist_for_the_current_security_role_component')), true, false)}\",\n        \"RoleModifiedOn\":\"@{outputs('Get_role_modified_on')?['body/modifiedon']}\",\n        \"SolutionModifiedOn\": \"@{triggerOutputs()?['body/modifiedon']}\"\n\n\n}"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "expression": {
+                              "and": [
+                                {
+                                  "equals": [
+                                    "@outputs('Get_role_created_by')?['body/fullname']",
+                                    "@string('SYSTEM')"
+                                  ]
+                                }
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "deb7298b-b5d1-4372-8bbb-3fe98eaf6c4d"
+                            },
+                            "type": "If"
+                          }
+                        },
+                        "runAfter": {
+                          "Retrieve_Solution_components_of_a_solution": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "90bfcb80-c677-4799-b92b-e418720b21f5"
+                        },
+                        "type": "Foreach"
+                      }
+                    },
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "27a3535a-b62f-4567-afad-9f0e88ef504f"
+                    },
+                    "type": "Scope"
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@triggerOutputs()?['body/ismanaged']",
+                      "@true"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "792ba570-cf7f-4bee-9cf1-20583e7c0d54"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Securityrole_modified_on": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Terminate_flow": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "1be3966b-4c33-46ba-ad84-69843d15e632"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Succeeded"
+                }
+              }
+            }
+          },
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@variables('AutoScan')",
+                  "@true"
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "518c8d5f-c188-4709-ace6-fea292a78fbc"
+          },
+          "type": "If"
+        },
+        "Initialize_DefaultRiskAssessmentSettingReference": {
+          "runAfter": {
+            "Initialize_AutoScan": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3df7578e-a440-4999-b19d-4d014a400835"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefaultRiskAssessmentSettingReference",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Delay": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e63a6221-1328-4b81-9025-e0f94fec7384"
+          },
+          "type": "Wait",
+          "inputs": {
+            "interval": {
+              "count": 35,
+              "unit": "Second"
+            }
+          }
+        },
+        "Securityrole_modified_on": {
+          "runAfter": {
+            "Initialize_DefaultRiskAssessmentSettingReference": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "868ade55-f285-423e-82ed-e04d0c07799d"
+          },
+          "type": "Compose",
+          "inputs": "@convertToUtc(triggerOutputs()?['body/modifiedon'],'utc','dd-MM-yyyy hh:mm tt')"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

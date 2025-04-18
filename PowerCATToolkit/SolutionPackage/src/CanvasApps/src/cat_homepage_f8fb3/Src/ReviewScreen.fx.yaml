@@ -67,7 +67,7 @@ ReviewScreen As screen:
                     ZIndex: =1
 
                     cPageHeaderTitle_6 As groupContainer.horizontalAutoLayoutContainer:
-                        AlignInContainer: =AlignInContainer.SetByContainer
+                        AlignInContainer: =AlignInContainer.Center
                         FillPortions: =FlexOn
                         Height: =cHeaderText_9.Height
                         LayoutAlignItems: =LayoutAlignItems.Center
@@ -97,6 +97,7 @@ ReviewScreen As screen:
                             ZIndex: =1
 
                         Image2 As image:
+                            AlignInContainer: =AlignInContainer.Center
                             BorderColor: =RGBA(0, 0, 0, 0)
                             BorderStyle: =BorderStyle.None
                             BorderThickness: =2
@@ -112,7 +113,7 @@ ReviewScreen As screen:
                             ZIndex: =2
 
                         cHeaderText_9 As groupContainer.horizontalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.SetByContainer
+                            AlignInContainer: =AlignInContainer.Start
                             Height: =rDivider_PageHeader_9.Y
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutGap: =4
@@ -310,6 +311,7 @@ ReviewScreen As screen:
                         ZIndex: =1
 
                         Container6 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0.5
                             LayoutMinHeight: =40
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
@@ -319,7 +321,7 @@ ReviewScreen As screen:
                             RadiusTopRight: =4
                             ZIndex: =1
 
-                            "IconPass As 'Fluent Icon (1.1.39)'":
+                            "IconPass As 'Fluent Icon (1.1.41)'":
                                 DisplayMode: =DisplayMode.Edit
                                 FillColor: =
                                 FontColor: =
@@ -338,7 +340,7 @@ ReviewScreen As screen:
                                 Y: =0
                                 ZIndex: =1
 
-                            "IconFail As 'Fluent Icon (1.1.39)'":
+                            "IconFail As 'Fluent Icon (1.1.41)'":
                                 DisplayMode: =DisplayMode.Edit
                                 FillColor: =
                                 FontColor: =
@@ -357,7 +359,7 @@ ReviewScreen As screen:
                                 Y: =0
                                 ZIndex: =2
 
-                            "IconWarning As 'Fluent Icon (1.1.39)'":
+                            "IconWarning As 'Fluent Icon (1.1.41)'":
                                 DisplayMode: =DisplayMode.Edit
                                 FillColor: =
                                 FontColor: =
@@ -376,7 +378,7 @@ ReviewScreen As screen:
                                 Y: =0
                                 ZIndex: =3
 
-                            "IconWarning_1 As 'Fluent Icon (1.1.39)'":
+                            "IconSkipped As 'Fluent Icon (1.1.41)'":
                                 DisplayMode: =DisplayMode.Edit
                                 FillColor: =
                                 FontColor: =
@@ -387,15 +389,36 @@ ReviewScreen As screen:
                                 IconType: ='PowerCAT.Icon.IconType'.ActionButton
                                 LayoutMinHeight: =200
                                 LayoutMinWidth: =200
-                                Text: ="Not Executed"
+                                Text: ="Skipped"
                                 TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
                                 Tooltip: ="Skipped"
-                                Width: =145
+                                Width: =90
                                 X: =0
                                 Y: =0
                                 ZIndex: =4
 
+                            "IconNotExecuted As 'Fluent Icon (1.1.41)'":
+                                DisplayMode: =DisplayMode.Edit
+                                FillColor: =
+                                FontColor: =
+                                Height: =45
+                                IconColor: |-
+                                    ="#a7acd9"
+                                IconName: ="StatusErrorFull"
+                                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                                LayoutMinHeight: =200
+                                LayoutMinWidth: =200
+                                Text: ="Not Executed"
+                                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Left
+                                Tooltip: ="Not Executed"
+                                Visible: =true
+                                Width: =145
+                                X: =0
+                                Y: =0
+                                ZIndex: =5
+
                         Container9_14 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0.5
                             Height: =40
                             LayoutAlignItems: =LayoutAlignItems.Center
                             LayoutGap: =8
@@ -527,6 +550,7 @@ ReviewScreen As screen:
                             ZIndex: =2
 
                         lblBody1_EmptyState_7 As Label:
+                            AcceptsFocus: =false
                             AlignInContainer: =AlignInContainer.Center
                             Alignment: =Align.Center
                             AutoHeight: =true
@@ -535,10 +559,13 @@ ReviewScreen As screen:
                             FontSize: =10.5
                             FontWeight: =FontWeight.Normal
                             Height: =12
+                            Italic: =false
                             LayoutMinHeight: =32
                             LayoutMinWidth: =320
                             OnChange: =false
+                            Strikethrough: =false
                             Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
+                            Underline: =false
                             VerticalAlignment: =VerticalAlign.Middle
                             Width: =320
                             X: =320
@@ -597,7 +624,7 @@ ReviewScreen As screen:
                         PaddingRight: =16
                         ZIndex: =7
 
-                        "FluentDetailsList2_1 As 'Fluent Details List (1.1.39)'.pcfdataset":
+                        "FluentDetailsList2_1 As 'Fluent Details List (1.1.41)'.pcfdataset":
                             columns_Items: |-
                                 =Table(
                                     {
@@ -683,7 +710,7 @@ ReviewScreen As screen:
                                              'PowerCAT.IntelligentReviewVisualizer.Status'.Warning,
                                             "#f6894b",
                                               'PowerCAT.IntelligentReviewVisualizer.Status'.NotExecuted,
-                                            "#afafaf",
+                                            "#a7acd9",
                                             "#333333"
                                         ),
                                         StatusIcon,
@@ -937,8 +964,7 @@ ReviewScreen As screen:
                             Y: =179
                             ZIndex: =2
 
-                            "DonutChart1 As 'Fluent Donut Chart (1.1.39) Preview'.pcfdataset":
-                                AlignInContainer: =AlignInContainer.Stretch
+                            "DonutChart1 As 'Fluent Donut Chart (1.1.41) Preview'.pcfdataset":
                                 CustomColors: =true
                                 DisplayMode: =DisplayMode.Edit
                                 Height: =220
@@ -963,7 +989,7 @@ ReviewScreen As screen:
                                         }
                                     )
                                 LayoutMinHeight: =350
-                                LayoutMinWidth: =200
+                                LayoutMinWidth: =350
                                 ShowLabelsInPercentage: =true
                                 Theme: =AppThemeJson
                                 Title: =
@@ -1069,8 +1095,7 @@ ReviewScreen As screen:
                             Y: =86
                             ZIndex: =2
 
-                            "HorizontalBarChart1 As 'Fluent Horizontal bar Chart (1.1.39) Preview'.pcfdataset":
-                                AlignInContainer: =AlignInContainer.Stretch
+                            "HorizontalBarChart1 As 'Fluent Horizontal bar Chart (1.1.41) Preview'.pcfdataset":
                                 BarHeight: =12
                                 ChartDataMode: ='PowerCAT.HorizontalBarChart.ChartDataMode'.Percentage
                                 CustomColors: =true
@@ -1101,7 +1126,7 @@ ReviewScreen As screen:
                                         }
                                     )
                                 LayoutMinHeight: =400
-                                LayoutMinWidth: =200
+                                LayoutMinWidth: =400
                                 Theme: =
                                 Variant: ='PowerCAT.HorizontalBarChart.Variant'.PartToWhole
                                 Width: =Parent.Width - Self.X * 2
