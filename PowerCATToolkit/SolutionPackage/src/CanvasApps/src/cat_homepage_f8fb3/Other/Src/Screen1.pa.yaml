@@ -1,0 +1,137 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen1:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - PFxCodeReviewEditor2:
+          Control: CodeComponent
+          ComponentName: cat_PowerCAT.PFxCodeReviewEditor
+          Properties:
+            CodetoHighlight: ={codetoHighlight:["Threshold1"]}
+            ErrorMessage: ="E"
+            Height: =546
+            PowerFx: |-
+              ="IfError(Collect(colMetrologyRemove,{SortOrder: Value(ThisItem.SortOrder),
+               ServiceType: ThisItem.ServiceType,
+               StdCapacity: Value(ThisItem.StdCapacity),
+               StdCost: Value(ThisItem.StdCost),
+               StdHrlyCost: Value(ThisItem.StdHrlyCost),
+               Capacity: Value(ThisItem.Capacity),
+               Cost: Value(ThisItem.Cost),
+               HrlyCost: Value(ThisItem.HrlyCost),
+               Threshold1: Value(ThisItem.Threshold1),
+               Threshold2: Value(ThisItem.Threshold2),
+               ID: Value(ThisItem.ID),
+               ModifiedBy: UserNTID,
+               ModifiedDate: DateTimeValue(
+               Now(),
+               ""en-US""
+               )});Remove(colMetrologyTrackingGrid,ThisItem),Notify(
+               glbErrorMessage,
+               NotificationType.Error
+               );
+               Set(
+               errorRaised,
+               true
+               );
+               Collect(
+               colErrorLog,
+               {
+               Action: ""Tried to delete row from LEAFMetrologyTracking"",
+               Control: With({errorLocation:Coalesce(FirstError.Observed, FirstError.Source)}, Left(errorLocation,Find(""."",errorLocation) - 1)),
+               Component: ""Metrology Tracking Screen"",
+               Kind: FirstError.Kind,
+               Message: FirstError.Message,
+               Origin: Origin.SQL,
+               Property: FirstError.Observed,
+               RawErrorInfo: JSON(FirstError),
+               Timestamp: Now()
+               }
+               ));
+               If(errorRaised,ForAll(
+              colErrorLog As ThisError,
+              Patch(
+              'Error Logs',
+              Defaults('Error Logs'),
+              {
+              Action: ThisError.Action,
+              App: ""LEAF"",
+              Control: ThisError.Control,
+              Component: ThisError.Component,
+              Kind: Switch(
+              ThisError.Kind,
+              0,
+              Kind.None,
+              1,
+              Kind.Sync,
+              2,
+              Kind.MissingRequired,
+              3,
+              Kind.CreatePermission,
+              4,
+              Kind.EditPermissions,
+              5,
+              Kind.DeletePermissions,
+              6,
+              Kind.Conflict,
+              7,
+              Kind.NotFound,
+              8,
+              Kind.ConstraintViolated,
+              9,
+              Kind.GeneratedValue,
+              10,
+              Kind.ReadOnlyValue,
+              11,
+              Kind.Validation,
+              12,
+              Kind.Unknown,
+              13,
+              Kind.Div0,
+              14,
+              Kind.BadLanguageCode,
+              15,
+              Kind.BadRegex,
+              16,
+              Kind.InvalidFunctionUsage,
+              17,
+              Kind.FileNotFound,
+              18,
+              Kind.AnalysisError,
+              19,
+              Kind.ReadPermission,
+              20,
+              Kind.NotSupported,
+              21,
+              Kind.InsufficientMemory,
+              22,
+              Kind.QuotaExceeded,
+              23,
+              Kind.Numeric,
+              24,
+              Kind.Network
+              ),
+              Message: ThisError.Message,
+              Name: ""Error in LEAF at "" & ThisError.Timestamp,
+              Origin: ThisError.Origin,
+              Property: ThisError.Property,
+              RawErrorInfo: ThisError.RawErrorInfo,
+              Timestamp: ThisError.Timestamp,
+              User: User().Email
+              }
+              )
+              ));
+               Refresh(LEAFMetrologyTracking);"
+            Width: =812
+            X: =309
+            Y: =117

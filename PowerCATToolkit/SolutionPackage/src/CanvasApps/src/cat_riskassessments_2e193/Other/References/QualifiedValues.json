@@ -60,6 +60,13 @@
       }
     },
     {
+      "Kind": "default.cds_cat_privilegeriskbaseline_forms",
+      "Namespace": "Privilege Risk Baselines (Forms)",
+      "Values": {
+        "Information": "5b1fccbf-49ab-40a9-ab52-cdc0a34a2f9c"
+      }
+    },
+    {
       "Kind": "default.cds_msdyn_riskassessment_forms",
       "Namespace": "Risk Assessments (Forms)1",
       "Values": {
@@ -139,6 +146,11 @@
       "Values": {
         "Information": "aa2fe833-5f77-4fda-b5ca-dd2a549783ed"
       }
+    },
+    {
+      "Kind": "default.cds_canvasapp_forms",
+      "Namespace": "Canvas Apps (Forms)",
+      "Values": {}
     }
   ]
 }

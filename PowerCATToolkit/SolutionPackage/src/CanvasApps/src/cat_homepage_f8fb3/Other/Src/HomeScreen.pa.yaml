@@ -14,9 +14,11 @@ Screens:
       LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
       OnVisible: |-
         =/* Load data for this page while spinner is loading */
+
+           UpdateContext({ init: false });
         If( init <> true,
-            UpdateContext({ pageTitle: "Power Platform Review Tool" });
-            UpdateContext({ pageSubtext: "This tool automates the process of reviewing your Power Platform solution, making it easier to find and fix errors/anti-patterns."});
+            UpdateContext({ pageTitle: If(optimizeForAgent, "Agent Review Tool",  "Power Platform Review Tool") });
+            UpdateContext({ pageSubtext: If(optimizeForAgent, "This tool automates the process of reviewing your agent, making it easier to find and fix errors/anti-patterns.", "This tool automates the process of reviewing your Power Platform solution, making it easier to find and fix errors/anti-patterns.")});
 
             // TODO: Additional Dataloading Loading 
 
@@ -41,7 +43,7 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_4:
-                Control: Spinner@1.4.5
+                Control: Spinner@1.4.6
                 Properties:
                   Label: ="Loading ..."
                   LabelPosition: ='Spinner.LabelPosition'.Below
@@ -54,6 +56,8 @@ Screens:
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =24
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingBottom: =20
             PaddingRight: =0.00
             PaddingTop: =0.00
             RadiusBottomLeft: =0
@@ -187,8 +191,9 @@ Screens:
                 Variant: AutoLayout
                 Properties:
                   DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =cGrid_2.Height + cListToolbar_9.Height + cSectionHeader_2.Height + cCardsRow_2.Height + cSectionHeader_1.Height + cScreenContainer_3.Height + cCardsRow_3.Height + 100
                   LayoutDirection: =LayoutDirection.Vertical
-                  LayoutOverflowY: =LayoutOverflow.Scroll
                   PaddingLeft: =Margins/2
                   PaddingRight: =Margins/2
                   RadiusBottomLeft: =0
@@ -202,7 +207,7 @@ Screens:
                       Properties:
                         DropShadow: =DropShadow.None
                         FillPortions: =0
-                        Height: =Max(cBufferHub_0.Y + cBufferHub_0.Height, Parent.Height-Self.Y)
+                        Height: =cGrid_2.Height + cListToolbar_9.Height + cSectionHeader_2.Height + cCardsRow_2.Height + cSectionHeader_1.Height + cScreenContainer_3.Height + cCardsRow_3.Height + 100
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =16
                         PaddingLeft: =2
@@ -278,59 +283,6 @@ Screens:
                               X: =1.87
                               Y: =51
                             Children:
-                              - Card1_16:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    Description: ="Optimize your apps for app and page load speed."
-                                    HeaderImage: =
-                                    Image: =PowerApps
-                                    Items: =
-                                    OnSelect: =Launch("https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/create-performant-apps-overview");
-                                    Size: ='PowerCAT.Card.Size'.Medium
-                                    Subtitle: =
-                                    Title: ="How to create performant Power Apps"
-                              - Card1_9:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    Description: ="The Power Automate Cloud Flows Best Practices Whitepaper ."
-                                    HeaderImage: =
-                                    Image: =POWERAUTOMATE
-                                    ImagePlacement: ='PowerCAT.Card.ImagePlacement'.'Above header'
-                                    Items: =
-                                    OnSelect: |+
-                                      =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-                                      Launch("https://learn.microsoft.com/en-us/power-platform/guidance/");
-                                    Size: ='PowerCAT.Card.Size'.Medium
-                                    Subtitle: =
-                                    Title: ="Power Automate Best Practices"
-                              - Card1_10:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    Description: ="Best practices, implementation, and architecture guidance."
-                                    HeaderImage: =
-                                    Image: =COPILOT
-                                    Items: =
-                                    OnSelect: |-
-                                      =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"));
-                                      Launch("https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/topics-overview");
-                                    Size: ='PowerCAT.Card.Size'.Medium
-                                    Subtitle: =
-                                    Title: ="Microsoft Copilot Studio guidance"
-                              - Card1_13:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    Description: ="Power Pages best practices guidance documentation."
-                                    DisplayMode: =DisplayMode.Disabled
-                                    HeaderImage: =
-                                    Image: =SampleThumbnail
-                                    Items: =
-                                    OnSelect: =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-                                    Subtitle: =
-                                    Title: ="Coming Soon"
                               - cBufferLanding_3:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -406,7 +358,7 @@ Screens:
                               DropShadow: =DropShadow.Semilight
                               Fill: =RGBA(255, 255, 255, 1)
                               FillPortions: =0
-                              Height: =Max(div_8.Y, 160)
+                              Height: =cGrid_2.Height + cListToolbar_9.Height
                               LayoutAlignItems: =LayoutAlignItems.Stretch
                               LayoutDirection: =LayoutDirection.Vertical
                               LayoutGap: '=0   '
@@ -424,11 +376,10 @@ Screens:
                                     AlignInContainer: =AlignInContainer.Start
                                     DropShadow: =DropShadow.Semilight
                                     Fill: =RGBA(255, 255, 255, 1)
-                                    Height: =Max(div_14.Y, 220)
+                                    Height: =cGrid_2.Height + cListToolbar_9.Height
                                     LayoutAlignItems: =LayoutAlignItems.Stretch
                                     LayoutDirection: =LayoutDirection.Vertical
                                     LayoutGap: '=0   '
-                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                                     LayoutMinHeight: =330
                                     PaddingTop: =
                                     RadiusBottomLeft: =8
@@ -458,7 +409,7 @@ Screens:
                                           Width: =Parent.Width
                                         Children:
                                           - Toolbar1_8:
-                                              Control: Toolbar@2.0.4
+                                              Control: Toolbar@2.0.5
                                               Properties:
                                                 AccessibleLabel: ="Toolbar"
                                                 Height: =44
@@ -556,7 +507,7 @@ Screens:
                                                             LayoutMinWidth: =100
                                                             Placeholder: ="Search"
                                     - Spinner1_9:
-                                        Control: Spinner@1.4.5
+                                        Control: Spinner@1.4.6
                                         Properties:
                                           SpinnerSize: ='Spinner.SpinnerSize'.Small
                                           Visible: =showLoader
@@ -565,7 +516,8 @@ Screens:
                                         Variant: AutoLayout
                                         Properties:
                                           DropShadow: =DropShadow.None
-                                          Height: =Max((CountIf(ListItems,true) * 48), 200)
+                                          FillPortions: =0
+                                          Height: =CountIf(ListItems, true) * If(numCols<= 6, 85, 34)
                                           LayoutDirection: =LayoutDirection.Horizontal
                                           PaddingRight: =16
                                           RadiusBottomLeft: =0
@@ -573,73 +525,6 @@ Screens:
                                           RadiusTopLeft: =0
                                           RadiusTopRight: =0
                                           Visible: =!IsEmpty(ListItems)
-                                        Children:
-                                          - FluentDetailsList1_2:
-                                              Control: CodeComponent
-                                              ComponentName: cat_PowerCAT.FluentDetailsList
-                                              Properties:
-                                                AlternateRowColor: =
-                                                ColDisplayName: =""
-                                                ColName: =""
-                                                CurrentSortDirection: ='PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending
-                                                Height: =Max((CountIf(ListItems, true) * If(numCols<= 6, 85, 50) ), 200)
-                                                Items: =ListItems
-                                                OnChange: "=// On Selection and Review click, navigate User to Review landing screen \nIf(\n    Self.EventName = \"CellAction\",\n    \n    Navigate(\n        SolutionScreen,\n            ScreenTransition.Fade,\n            {\n                showLoader: true,\n                SelectedSolutionReview:LookUp('Solution Reviews','Solution Review' = GUID(FluentDetailsList1_2.EventRowKey)),\n                varStartReview: \"StartReview\"&Rand()\n            }\n    );\n)\n\n\n"
-                                                RaiseOnRowSelectionChangeEvent: =true
-                                                RecordKey: ="cat_solutionreviewid"
-                                                SelectRowsOnFocus: =true
-                                                SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.Single
-                                                Theme: =AppThemeJson
-                                                Width: =Parent.Width
-                                                columns_Items: |-
-                                                  =Table(
-                                                      {
-                                                          ColName: "CustomerName",
-                                                          ColDisplayName: "",
-                                                          ColShowAsSubTextOf: "cat_reviewname",
-                                                          ColSortable: false
-                                                      },
-                                                      {
-                                                          ColName: "cat_reviewname",
-                                                          ColDisplayName: "Review Name",
-                                                          ColSortable: true,
-                                                          ColIsBold: true,
-                                                          ColWidth: App.Width - 800,
-                                                          ColRowHeader: true
-                                                      },
-                                                      {
-                                                          ColName: "Reviewer",
-                                                          ColDisplayName: "Reviewer",
-                                                          ColWidth: 240,
-                                                          ColRowHeader: true,
-                                                          ColVerticalAlign: "Center"
-                                                      },
-                                                      {
-                                                          ColName: "createdon",
-                                                          ColDisplayName: "Created On",
-                                                          ColWidth: 200,
-                                                          ColRowHeader: true,
-                                                          ColVerticalAlign: "Center"
-                                                      },
-                                                      {
-                                                          ColName: "ReviewStatus",
-                                                          ColDisplayName: "Details",
-                                                          ColWidth: 100,
-                                                          ColCellType: "link",
-                                                          ColRowHeader: true,
-                                                          ColVerticalAlign: "Center"
-                                                      },
-                                                      {
-                                                          ColName: "StatusImage",
-                                                          ColDisplayName: "Status",
-                                                          ColCellType: "Image",
-                                                          ColWidth: 40,
-                                                          ColImageWidth: 40,
-                                                          ColImageHeight: 50,
-                                                          ColSortable: false,
-                                                          ColVerticalAlign: "Top"
-                                                      }
-                                                  )
                                     - cEmptyState_5:
                                         Control: GroupContainer@1.3.0
                                         Variant: AutoLayout
@@ -692,7 +577,7 @@ Screens:
                                                 X: =40
                                                 Y: =193
                                           - lblBody1_EmptyState_5:
-                                              Control: FluentV8/Label@1.6.0
+                                              Control: FluentV8/Label@1.8.6
                                               Properties:
                                                 AlignInContainer: =AlignInContainer.Center
                                                 Alignment: =Align.Center
@@ -805,46 +690,6 @@ Screens:
                               X: =1.87
                               Y: =51
                             Children:
-                              - Card1_14:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    HeaderImage: =SampleImage1
-                                    Items: =
-                                    OnSelect: |-
-                                      =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-                                      Launch("https://www.microsoft.com/en-us/power-platform/blog/2025/03/04/elevate-your-microsoft-power-platform-development-experience-with-power-cat-tools/")
-                                    Size: ='PowerCAT.Card.Size'.Small
-                                    Subtitle: ="Discover how the code review blog"
-                                    Title: ="Blog"
-                              - Card1_15:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    Alignment: ='PowerCAT.Card.Alignment'.Vertical
-                                    Description: =
-                                    HeaderImage: =play
-                                    Items: =
-                                    OnSelect: |+
-                                      =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-                                      Launch("https://www.youtube.com/watch?v=ZkXL_IqK4UE&ab_channel=MicrosoftPowerPlatform");
-                                    Size: ='PowerCAT.Card.Size'.Small
-                                    Subtitle: ="Create a review for your solution."
-                                    Title: ="Quick Start"
-                              - Card1_18:
-                                  Control: CodeComponent
-                                  ComponentName: cat_PowerCAT.Card
-                                  Properties:
-                                    HeaderImage: =SampleImage4
-                                    Items: =
-                                    OnSelect: |-
-                                      =//Switch(Self.Selected.ItemKey,/* Action for Key 'mail' */"mail",Notify("Contact clicked"),/* Action for 'chat' */"chat",Notify("Chat clicked"),/* Default action */  Notify("Unrecognized button clicked"))
-
-                                      Launch("https://www.youtube.com/watch?v=PY75d8cvfbs&embeds_referring_euri=https%3A%2F%2Fwww.microsoft.com%2F");
-                                    Size: ='PowerCAT.Card.Size'.Small
-                                    Subtitle: ="Contribute"
-                                    Title: ="Video"
-                                    Visible: =false
                               - cBufferLanding_4:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -978,6 +823,118 @@ Screens:
                                     OnSuccess: "=UpdateContext({showSaveLoader:false});\r\nNavigate(SolutionScreen,Transition.None, { showLoader: true, varStartReview: \"StartReview\"&Rand(), SelectedSolutionReview: Form1_1.LastSubmit, requiresSaving:true});\r\n\r\n /* Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': First(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items).name,\r\n        'Display Name': First(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items).displayName,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.Copilot,\r\n        Score:First(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items).score\r\n     });\r\n\r\nForAll(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items, \r\n      Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': ThisRecord.name,\r\n        'Display Name': ThisRecord.displayName,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.Copilot,\r\n        Score:ThisRecord.score\r\n     });\r\n);\r\n\r\n\r\nForAll(IntelligentReviewVisualizer1_5.ReviewResults.PowerApps.items, \r\n      Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': ThisRecord.name,\r\n        'Display Name': ThisRecord.displayName,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.PowerApps,\r\n        Score:ThisRecord.score\r\n     });\r\n);\r\n\r\nForAll(IntelligentReviewVisualizer1_5.ReviewResults.PowerAutomate.items, \r\n      Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': ThisRecord.name,\r\n        'Display Name': ThisRecord.displayName,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.PowerAutomate,\r\n        Score:ThisRecord.score\r\n     });\r\n);*/\r\n\r\n\r\n\r\n\r\n\r\n\r\n    "
                                     Width: =500
                                   Children:
+                                    - Review Name_DataCard2_1:
+                                        Control: TypedDataCard@1.0.6
+                                        Variant: PcfCoreTextualEditCard
+                                        Properties:
+                                          BorderColor: =RGBA(166, 166, 166, 1)
+                                          DataField: ="cat_reviewname"
+                                          Default: =ThisItem.'Review Name'
+                                          DisplayName: =DataSourceInfo([@'Solution Reviews'],DataSourceInfo.DisplayName,'Review Name')
+                                          MaxLength: =DataSourceInfo([@'Solution Reviews'], DataSourceInfo.MaxLength, 'Review Name')
+                                          Required: =false
+                                          Update: =TextInputCanvas1_2.Value
+                                          Width: =460
+                                          Y: =0
+                                        Children:
+                                          - ErrorMessage7_1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =Color.Red
+                                                FontSize: =9
+                                                Height: =30
+                                                Text: =Parent.Error
+                                                Tooltip: =Parent.Error
+                                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                                Width: =Parent.Width - 48
+                                                X: =24
+                                                Y: =24
+                                          - StarVisible7_1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                Alignment: =Align.Center
+                                                Color: =RGBA(215, 58, 60, 1)
+                                                Height: =30
+                                                Text: ="*"
+                                                Visible: =true///And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                                Width: =30
+                                                X: =103
+                                                Y: =6
+                                          - TextInputCanvas1_2:
+                                              Control: TextInput@0.0.53
+                                              Properties:
+                                                Appearance: ='TextInputCanvas.Appearance'.Outline
+                                                TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+                                                Value: =Parent.Default
+                                                Width: =417
+                                                X: =24
+                                                Y: =40
+                                          - DataCardKey7_6:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Height: =26
+                                                Text: =Parent.DisplayName
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                                Width: =98
+                                                Wrap: =false
+                                                X: =24
+                                                Y: =10
+                                    - Review Description_DataCard2_1:
+                                        Control: TypedDataCard@1.0.6
+                                        Variant: PcfCoreTextualMultiLineEditCard
+                                        Properties:
+                                          BorderColor: =RGBA(166, 166, 166, 1)
+                                          DataField: ="cat_reviewdescription"
+                                          Default: =ThisItem.'Review Description'
+                                          DisplayName: =DataSourceInfo([@'Solution Reviews'],DataSourceInfo.DisplayName,'Review Description')
+                                          Required: =false
+                                          Update: =TextInputCanvas2_2.Value
+                                          Width: =460
+                                          Y: =1
+                                        Children:
+                                          - ErrorMessage6_1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =Color.Red
+                                                FontSize: =9
+                                                Height: =30
+                                                Text: =Parent.Error
+                                                Tooltip: =Parent.Error
+                                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                                Width: =Parent.Width - 48
+                                                X: =24
+                                                Y: =TextInputCanvas2_2.Y + TextInputCanvas2_2.Height
+                                          - StarVisible6_1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                Alignment: =Align.Center
+                                                Height: =30
+                                                Text: ="*"
+                                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                                Width: =30
+                                                Y: =DataCardKey7_7.Y
+                                          - TextInputCanvas2_2:
+                                              Control: TextInput@0.0.53
+                                              Properties:
+                                                Appearance: ='TextInputCanvas.Appearance'.Outline
+                                                Height: =90
+                                                Mode: ='TextInputCanvas.Mode'.Multiline
+                                                Value: =Parent.Default
+                                                Width: =418
+                                                X: =24
+                                                Y: =40
+                                          - DataCardKey7_7:
+                                              Control: Text@0.0.50
+                                              Properties:
+                                                Height: =34
+                                                Text: =Parent.DisplayName
+                                                Weight: ='TextCanvas.Weight'.Semibold
+                                                Width: =Parent.Width - 60
+                                                Wrap: =false
+                                                X: =24
+                                                Y: =10
                                     - Customer_DataCard1_1:
                                         Control: TypedDataCard@1.0.6
                                         Variant: ComboBoxEdit
@@ -1181,10 +1138,70 @@ Screens:
                                                 Height: =17
                                                 Size: =11
                                                 Text: |-
-                                                  ="Note: This tool only supports solution exported after March 1st 2025"
+                                                  ="Note: This tool only supports Power Apps created after March 1st 2025"
                                                 Width: =413
                                                 X: =27
                                                 Y: =77
+                                    - Solution Name_DataCard1:
+                                        Control: TypedDataCard@1.0.6
+                                        Variant: PcfCoreTextualEditCard
+                                        Properties:
+                                          BorderColor: =RGBA(166, 166, 166, 1)
+                                          DataField: ="cat_solutionname"
+                                          Default: =DataCardValue8_4.Selected.Name //ThisItem.'Solution Name'
+                                          DisplayName: =DataSourceInfo([@'Solution Reviews'],DataSourceInfo.DisplayName,'Solution Name')
+                                          MaxLength: =DataSourceInfo([@'Solution Reviews'], DataSourceInfo.MaxLength, 'Solution Name')
+                                          Required: =false
+                                          Update: =DataCardValue1.Value
+                                          Visible: =false
+                                          Width: =460
+                                          Y: =4
+                                        Children:
+                                          - DataCardKey1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                AutoHeight: =true
+                                                FontSize: =9
+                                                Height: =22
+                                                Text: =Parent.DisplayName
+                                                Tooltip: =Parent.DisplayName
+                                                VerticalAlignment: =VerticalAlign.Bottom
+                                                Width: =Parent.Width - 48
+                                                X: =24
+                                                Y: =10
+                                          - DataCardValue1:
+                                              Control: FluentV8/TextBox@1.7.1
+                                              Properties:
+                                                AccessibleLabel: =Parent.DisplayName
+                                                DisplayMode: =Parent.DisplayMode
+                                                Required: =Parent.Required
+                                                Tooltip: =Parent.DisplayName
+                                                Value: =Parent.Default
+                                                Width: =Parent.Width - 48
+                                                X: =24
+                                                Y: =DataCardKey1.Y + DataCardKey1.Height + 4
+                                          - ErrorMessage1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                AutoHeight: =true
+                                                Color: =Color.Red
+                                                FontSize: =9
+                                                Height: =30
+                                                Text: =Parent.Error
+                                                Tooltip: =Parent.Error
+                                                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                                Width: =Parent.Width - 48
+                                                X: =24
+                                                Y: =DataCardValue1.Y + DataCardValue1.Height
+                                          - StarVisible1:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                Alignment: =Align.Center
+                                                Height: =30
+                                                Text: ="*"
+                                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                                Width: =30
+                                                Y: =DataCardKey1.Y
                               - Container4_1:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -1250,7 +1267,7 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_7:
-                Control: Spinner@1.4.5
+                Control: Spinner@1.4.6
                 Properties:
                   Height: =Parent.Height
                   Label: ="Saving Review"

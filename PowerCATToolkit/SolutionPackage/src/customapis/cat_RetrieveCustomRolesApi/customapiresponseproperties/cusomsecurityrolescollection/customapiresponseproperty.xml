@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="cusomsecurityrolescollection">
+  <description default="cusomsecurityrolescollection">
+    <label description="cusomsecurityrolescollection" languagecode="1033" />
+  </description>
+  <displayname default="cusomsecurityrolescollection">
+    <label description="cusomsecurityrolescollection" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>cusomsecurityrolescollection</name>
+  <type>4</type>
+</customapiresponseproperty>

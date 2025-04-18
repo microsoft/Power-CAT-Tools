@@ -1,0 +1,285 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cat_privilegeriskbaselines",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cat_privilegeriskbaseline",
+    "MaxGetRowsCount": 2000,
+    "Name": "Privilege Risk Baselines",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cat_businessunit": "Business Unit",
+      "cat_canbebasic": "Can Be Basic",
+      "cat_canbedeep": "Can Be Deep",
+      "cat_canbeglobal": "Can Be Global",
+      "cat_canbelocal": "Can Be Local",
+      "cat_name": "Name",
+      "cat_organization": "Organization",
+      "cat_parentchildbusinessunit": "Parent Child Business Unit",
+      "cat_privilegename": "Privilege Name",
+      "cat_privilegeriskbaseline_AsyncOperations": "System Jobs",
+      "cat_privilegeriskbaseline_BulkDeleteFailures": "Bulk Delete Failures",
+      "cat_privilegeriskbaseline_DuplicateBaseRecord": "Duplicate Records (cat_privilegeriskbaseline_DuplicateBaseRecord)",
+      "cat_privilegeriskbaseline_DuplicateMatchingRecord": "Duplicate Records (cat_privilegeriskbaseline_DuplicateMatchingRecord)",
+      "cat_privilegeriskbaseline_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cat_privilegeriskbaseline_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cat_privilegeriskbaseline_ProcessSession": "Process Sessions",
+      "cat_privilegeriskbaseline_SyncErrors": "Sync Errors",
+      "cat_privilegeriskbaselineid": "Privilege Risk Baseline",
+      "cat_RiskAssessmentSetting": "Risk Assessment Setting",
+      "cat_table": "Table",
+      "cat_tagcolorforbusinessunit": "Tag Color For Business Unit",
+      "cat_tagcolorfororganization": "Tag Color For Organization",
+      "cat_tagcolorforparentchildbusinessunit": "Tag Color For Parent Child Business Unit",
+      "cat_tagcolorforuser": "Tag Color For User",
+      "cat_type": "Type",
+      "cat_user": "User",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Privilege Risk Baselines",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Privilege Risk Baselines (Views)",
+    "Name": "_cat_privilegeriskbaseline_views",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "46952eeb-43fe-47dc-bf39-f9c3034682db": "Privilege Risk Baseline Associated View",
+      "85b402e8-9e12-4bc7-bd73-3d5c491a3481": "Active Privilege Risk Baselines",
+      "b237a55a-40a0-4250-ad26-df6ecf9ce1dc": "Privilege Risk Baseline Advanced Find View",
+      "d0861e8d-aaa0-4d78-b7c7-e8ca3a279ba1": "Privilege Risk Baseline Lookup View",
+      "f7117c1f-72be-4bc0-b44a-d9c289b1f184": "Inactive Privilege Risk Baselines"
+    }
+  },
+  {
+    "DisplayName": "Business Unit (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_businessunit",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_businessunit",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_businessunit",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Can Be Basic (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_canbebasic",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_canbebasic",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cat_canbebasic",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Can Be Deep (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_canbedeep",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_canbedeep",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cat_canbedeep",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Can Be Global (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_canbeglobal",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_canbeglobal",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cat_canbeglobal",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Can Be Local (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_canbelocal",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_canbelocal",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cat_canbelocal",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Organization (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_organization",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_organization",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_organization",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Parent Child Business Unit (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_parentchildbusinessunit",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_parentchildbusinessunit",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_parentchildbusinessunit",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "User (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_cat_user",
+    "OptionSetInfoNameMapping": {
+      "192350000": "No Risk",
+      "192350001": "Low",
+      "192350002": "Moderate",
+      "192350003": "High",
+      "192350004": "Critical"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cat_user",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cat_user",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Privilege Risk Baselines)",
+    "Name": "cat_privilegeriskbaseline_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Privilege Risk Baselines"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Privilege Risk Baselines",
+    "Type": "OptionSetInfo"
+  }
+]

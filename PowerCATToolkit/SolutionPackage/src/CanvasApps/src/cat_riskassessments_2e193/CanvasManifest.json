@@ -7,13 +7,14 @@
     },
     "DocVersion": "1.345",
     "MinVersionToLoad": "1.331",
-    "MSAppStructureVersion": "2.0"
+    "MSAppStructureVersion": "2.4.0"
   },
   "Properties": {
     "AppCopilotSchemaName": "",
     "AppCreationSource": "AppFromConvergedAppDesigner",
     "AppDescription": "",
     "AppPreviewFlagsMap": {
+      "adaptivepaging": false,
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": true,
       "appinsightserrortracing": false,
@@ -50,6 +51,7 @@
       "enableeditinmcs": true,
       "enableexcelonlinebusinessv2connector": true,
       "enableideaspanel": true,
+      "enableideaspanelbyexample": false,
       "enablelegacybarcodescanner": false,
       "enablelegacydatatable": false,
       "enableonstart": true,
@@ -79,7 +81,7 @@
       "onegrid": false,
       "optimizedforteamsmeeting": false,
       "packagemodernruntime": false,
-      "pdffunction": false,
+      "pdffunction": true,
       "powerfxdecimal": false,
       "powerfxv1": false,
       "preferpayamlv2inux": false,
@@ -146,6 +148,7 @@
     "BaselineSettingsScreen",
     "PaneListScreen",
     "SettingsLandingScreen",
-    "UpdateDefaultSettingScreen"
+    "UpdateDefaultSettingScreen",
+    "PrintScreen"
   ]
 }

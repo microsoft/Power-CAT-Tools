@@ -464,7 +464,6 @@ PowerFxScreen As screen:
                                 PowerFx: =CodeViewerTree1_1.Selected.Code
                                 ShowLineNumber: =false
                                 ShowminiMap: =true
-                                Showsearchbox: =true
                                 Value: =
                                 Visible: =true
                                 Width: =Parent.Width

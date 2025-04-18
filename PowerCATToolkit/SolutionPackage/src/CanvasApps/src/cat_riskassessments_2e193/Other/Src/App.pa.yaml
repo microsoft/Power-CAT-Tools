@@ -1,0 +1,1463 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+App:
+  Properties:
+    Formulas: |-
+      =/* Data formulas*/ // Need LOC
+      freContent = Table(
+          {
+              Index: 1,
+              Title: "Introducing the risk assessment tool",
+              Description: "Gain Insights Into Your Security Posture. This tool helps you identify, prioritize, and mitigate potential threats to your business data in Dataverse. By providing a comprehensive analysis of your security role vulnerabilities, it empowers you to make informed decisions that protect your organization.",
+              BackButtonText: "Not now",
+              NextButtonText: "Next",
+              Image: Shield
+          },
+          {
+              Index: 2,
+              Title: "Detects threats that match your risk tolerance",
+              Description: "First, configure the settings to rank the thread of each security role privileges. The tool generates risk reports based on this criteria. By default, we’ve included a recommended baseline, so first verify if it aligns with your level of comfortability, or modify it to meet your needs.",
+              BackButtonText: "Back",
+              NextButtonText: "Next",
+              Image: scan
+          },
+          {
+              Index: 3,
+              Title: "Strengthen your defense",
+              Description: "Continuously identify potential risks, and review reports at your convenience for quick insight. Take action on inline recommendations to resolve vulnerabilities.",
+              BackButtonText: "Back",
+              NextButtonText: "Try it out",
+              Image: lock
+          }
+      );
+      // Neutral theme (connectors pane)
+      AppThemeNeutral = {
+          palette: {
+              themePrimary: "#000000",
+              themeLighterAlt: "#898989",
+              themeLighter: "#737373",
+              themeLight: "#595959",
+              themeTertiary: "#373737",
+              themeSecondary: "#2f2f2f",
+              themeDarkAlt: "#252525",
+              themeDark: "#151515",
+              themeDarker: "#0b0b0b",
+              neutralLighterAlt: "#faf9f8",
+              neutralLighter: "#f3f2f1",
+              neutralLight: "#edebe9",
+              neutralQuaternaryAlt: "#e1dfdd",
+              neutralQuaternary: "#d0d0d0",
+              neutralTertiaryAlt: "#c8c6c4",
+              neutralTertiary: "#595959",
+              neutralSecondary: "#373737",
+              neutralPrimaryAlt: "#2f2f2f",
+              neutralPrimary: "#000000",
+              neutralDark: "#151515",
+              black: "#0b0b0b",
+              white: "#ffffff"
+          }
+      };
+      DetailsListTheme = {
+          palette: {
+              themePrimary: "#1c5e75",
+              themeLighterAlt: "#f2f7f9",
+              themeLighter: "#cde1e9",
+              themeLight: "#a5c9d6",
+              themeTertiary: "#5e97ac",
+              themeSecondary: "#2c6e86",
+              themeDarkAlt: "#19546a",
+              themeDark: "#154759",
+              themeDarker: "#103442",
+              neutralLighterAlt: "#faf9f8",
+              neutralLighter: "#f3f2f1",
+              neutralLight: "#edebe9",
+              neutralQuaternaryAlt: "#e1dfdd",
+              neutralQuaternary: "#d0d0d0",
+              neutralTertiaryAlt: "#c8c6c4",
+              neutralTertiary: "#c6c6c6",
+              neutralSecondary: "#8e8e8e",
+              neutralPrimaryAlt: "#595959",
+              neutralPrimary: "#424242",
+              neutralDark: "#323232",
+              black: "#252525",
+              white: "#ffffff"
+          }
+      };
+      //Color Values for each assessment status on Home Screen Bar Chart for Severity
+      ChartThemeRisk = [
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.Critical),
+              color: "#D83A00"
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.High),
+              color: "#FF9349"
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.Moderate),
+              color: "#FFBA01"
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.Low),
+              color: "#029DCC"
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.'No Risk'),
+              color: "#18AB58"
+          },
+          {
+              status: DVAssessmentPageLoc.notAssessedText,
+              color: "RGBA(225,223,221,1)"
+          }
+      ];
+      //Color Values for each assessment status on Security Roles Screen Bar Chart for Severity
+      ChartThemeRiskForRoles = [
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.Critical),
+              color: "#D83A00"//"#C50F1F"
+
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.High),
+              color: "#FF9349"//"#F7630C"
+
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.Moderate),
+              color: "#FFBA01"//"#EDAD1C"
+
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.Low),
+              color: "#029DCC"//"#FDE300"
+
+          },
+          {
+              status: Text('Assessed Risk Level (Risk Assessments)'.'No Risk'),
+              color: "#18AB58"//"#888888"
+
+          },
+          {
+              status: DVAssessmentPageLoc.notScannedText,
+              color: "#E3008C"
+          }
+      ];
+      //Color Values for each assessment status on Home Screen DoNut Chart 
+      DoNutChartTheme = [
+          {
+              status: DVAssessmentPageLoc.notStartedText,
+              //Not assessed
+
+              color: "#EB2F6A"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.Pending),
+              color: "#E1DFDD"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.'In Progress'),
+              color: "#EBE6E6"//"#E1DFDD"
+
+          },
+          {
+              status: DVAssessmentPageLoc.completedText,
+              color: "#3A96DD"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.'Needs Review'),
+              color: "#EBA800"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.Exception),
+              color: "#69A600"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.Compliant),
+              color: "#18AB58"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.Stale),
+              color: "#F5560C"
+          }
+      ];
+      //Color Values for Exceptions flagged on Home Screen
+      ChartThemeForExceptions = Table(
+          {
+              status: Text('Status Reason (Risk Assessments)'.'Needs Review'),
+              color: "#CA5010"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.Exception),
+              color: "#F5F5F5"
+          },
+          {
+              status: Text('Status Reason (Risk Assessments)'.Compliant),
+              color: "#637CEF"
+          }
+      );
+      // Status values used to bind dropdowns on Roles and in privileges screen
+      AssessmentStatuses = Table(
+          {
+              ItemKey: 1,
+              ItemValue: DVAssessmentPageLoc.allStatusValue
+          },
+          {
+              ItemKey: 2,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Pending)
+          },
+          {
+              ItemKey: 3,
+              ItemValue: Text('Status Reason (Risk Assessments)'.'Needs Review')
+          },
+          {
+              ItemKey: 4,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Compliant)
+          },
+         /* {
+              ItemKey: 5,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Exception)
+          },*/
+
+          {
+              ItemKey: 5,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Stale)
+          }
+      );
+      // Not Scanned Status value used in Roles screen
+      NotScannedStatus = Table(
+          {
+              Itemkey: 1,
+              ItemValue: DVAssessmentPageLoc.notScannedText
+          }
+      );
+      // Formula for fetching custom roles
+      RetrieveAssessableSecurityRoles = Sort(
+          ForAll(
+              AllCustomSecurityRoles As role,
+              {
+                  roleid: GUID(role.Value.roleid),
+                  name: Text(role.Value.name),
+                  modifiedon: DateTimeValue(
+                      role.Value.modifiedon,
+                      "en"
+                  )
+              }
+          ),
+          name,
+          SortOrder.Ascending
+      );
+      // Formula for fetching all the assessments which are in Needs Review status
+      RefreshCompletedAssessments = ForAll(
+          Filter(
+              Sort(
+                  NotArchivedRiskAssessments,
+                  'Total Privileges',
+                  SortOrder.Descending
+              ),
+              'Status Reason' = 'Status Reason (Risk Assessments)'.'Needs Review'
+          ) As assessment,
+          {
+              AssessmentId: assessment.'Risk Assessment',
+              RoleName: assessment.'Security Role'.Name,
+              RoleId: assessment.'Security Role'.Role,
+              Privileges: assessment.'Total Privileges',
+              DateRun: If(
+                  DateDiff(
+                      assessment.'Assessment Date',
+                      Now(),
+                      TimeUnit.Days
+                  ) < 0,
+                  0,
+                  DateDiff(
+                      assessment.'Assessment Date',
+                      Now(),
+                      TimeUnit.Days
+                  )
+              ) & " " & DVAssessmentPageLoc.daysAgoText,
+              Severity: assessment.'Assessed Risk Level',
+              TagColor: assessment.'Tag Color For Risk Level'
+          }
+      );
+      // Formula for fetching all the assessments which are in Needs Review status
+      RiskAssessmentsWithRisk = ShowColumns(
+          Filter(
+              RefreshCompletedAssessments,
+              Text(Severity) <> Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
+          ),
+          AssessmentId,
+          DateRun,
+          Privileges,
+          RoleId,
+          RoleName,
+          Severity,
+          TagColor
+      );
+      /*RiskAssessmentCompletedChartData = ForAll(
+          GroupBy(
+              Sort(
+                  RiskAssessmentsWithRisk,
+                  Severity,
+                  SortOrder.Descending
+              ),
+              Severity,
+              RoleName
+          ) As assessedRisk,
+          {
+              ItemTitle: Text(assessedRisk.Severity),
+              ItemKey: assessedRisk.Severity,
+              ItemValue: CountRows(assessedRisk.RoleName),
+              ItemColor: If(
+                  IsBlankOrError(assessedRisk.Severity),
+                  LookUp(
+                      ChartThemeRisk,
+                      status = Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
+                  ).color,
+                  LookUp(
+                      ChartThemeRisk,
+                      status = Text(assessedRisk.Severity)
+                  ).color
+              )
+          }
+      ); */
+
+      RiskAssessmentCompletedChartData = ForAll(
+          GroupBy(
+              Sort(
+                  Filter(
+                      'Risk Assessments',
+                      'Status Reason' = 'Status Reason (Risk Assessments)'.'Needs Review' && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
+                  ),
+                  'Assessed Risk Level',
+                  SortOrder.Descending
+              ),
+              'Assessed Risk Level',
+              RoleName
+          ) As assessedRisk,
+          {
+              ItemTitle: Text(assessedRisk.cat_assessedrisklevel),
+              ItemKey: assessedRisk.cat_assessedrisklevel,
+              ItemValue: CountRows(assessedRisk.RoleName),
+              ItemColor: If(
+                  IsBlankOrError(assessedRisk.cat_assessedrisklevel),
+                  LookUp(
+                      ChartThemeRisk,
+                      status = Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
+                  ).color,
+                  LookUp(
+                      ChartThemeRisk,
+                      status = Text(assessedRisk.cat_assessedrisklevel)
+                  ).color
+              )
+          }
+      );
+      RisksAssessmentsToBeDisplayed = If(
+          tabAssessments.Selected.ItemDisplayName = "Risk assessments",
+          If(
+              dropDownStatus.ItemValue = DVAssessmentPageLoc.allStatusValue,
+              If(
+                  IsBlank(txtSearchRoles.Value),
+                  Filter(
+                      'Risk Assessments',
+                      'Risk Assessments (Views)'.'All Risk Assessments'
+                  ),
+                  Filter(
+                      'Risk Assessments',
+                      'Risk Assessments (Views)'.'All Risk Assessments',
+                      StartsWith(
+                          'Security Role'.Name,
+                          txtSearchRoles.Value
+                      )
+                  )
+              ),
+              If(
+                  IsBlank(txtSearchRoles.Value),
+                  Filter(
+                      'Risk Assessments',
+                      'Risk Assessments (Views)'.'All Risk Assessments',
+                      'Status Reason' = LookUp(
+                          RoleStatusValues,
+                          ItemValue = dropDownStatus.ItemValue
+                      ).ItemKey
+                  ),
+                  Filter(
+                      'Risk Assessments',
+                      'Risk Assessments (Views)'.'All Risk Assessments',
+                      'Status Reason' = LookUp(
+                          RoleStatusValues,
+                          ItemValue = dropDownStatus.ItemValue
+                      ).ItemKey && StartsWith(
+                          'Security Role'.Name,
+                          txtSearchRoles.Value
+                      )
+                  )
+              )
+          ),
+          Filter(
+              'Risk Assessments',
+              'Risk Assessments (Views)'.'All Risk Assessments'
+          )
+      );
+      // Formula for holding the priviles depth levels
+      securityPrivilegesLevel = Table(
+          {
+              ItemKey: 8,
+              ItemValue: DVAssessmentPageLoc.organizationColumnName
+          },
+          {
+              ItemKey: 4,
+              ItemValue: DVAssessmentPageLoc.parentChildBuColumnName
+          },
+          {
+              ItemKey: 2,
+              ItemValue: DVAssessmentPageLoc.businessUnitColumnName
+          },
+          {
+              ItemKey: 1,
+              ItemValue: DVAssessmentPageLoc.userColumnName
+          },
+          {
+              ItemKey: 0,
+              ItemValue: DVAssessmentPageLoc.noAccessPriviliegeLevel
+          }
+      );
+      // Formula for holding privileges depth level in text like for org it will be global
+      PrivilegesLeDepthLevel = Table(
+          {
+              ItemKey: DVAssessmentPageLoc.organizationColumnName,
+              //8
+
+              ItemValue: "Global"//DVAssessmentPageLoc.globalText// Org Level
+
+          },
+          {
+              ItemKey: DVAssessmentPageLoc.parentChildBuColumnName,
+              //4
+
+              ItemValue: "Deep"//DVAssessmentPageLoc.deepText// Parent BU Levl
+
+          },
+          {
+              ItemKey: DVAssessmentPageLoc.businessUnitColumnName,
+              //2
+
+              ItemValue: "Local"//DVAssessmentPageLoc.localText// BU Level
+
+          },
+          {
+              ItemKey: DVAssessmentPageLoc.userColumnName,
+              //1
+
+              ItemValue: "Basic"//DVAssessmentPageLoc.basicText// User level
+
+          },
+          {
+              ItemKey: DVAssessmentPageLoc.noAccessPriviliegeLevel,
+              //0
+
+              ItemValue: "None"//DVAssessmentPageLoc.noneText// No Access
+
+          }
+      );
+      // Formula for evaluating all the risk assesment settings
+
+      RiskAssessmentsSettingsToBeDisplayed = ForAll(
+          Sort(
+              'Risk Assessment Settings',
+              'Created On',
+              SortOrder.Ascending
+          ) As AssessmentSetting,
+          {
+              Name: AssessmentSetting.Name,
+              Assessments: CountRows(
+                  Filter(
+                      'Risk Assessments',
+                      'Risk Assessment Setting'.'Risk Assessment Setting' = AssessmentSetting.'Risk Assessment Setting' && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
+                  )
+              ),
+              ModifiedOn: Text(
+                  AssessmentSetting.'Modified On',
+                  "m/d/yyyy"
+              ),
+              ModifiedBy: AssessmentSetting.'Modified By'.'Full Name',
+              Owner: AssessmentSetting.'Created By'.'Full Name',
+              AssessmentSettingId: AssessmentSetting.'Risk Assessment Setting',
+              IsDefault: Text(AssessmentSetting.'Is Default'),
+              AssessmentDescription: AssessmentSetting.Description,
+              Status: AssessmentSetting.Status,
+              Setting: AssessmentSetting,
+              RecordSelected: If(
+                  Text(AssessmentSetting.'Is Default') = "Yes",
+                  true,
+                  false
+              ),
+              ImpactedRoles: "Impacted roles: " & CountRows(
+                  Filter(
+                      'Risk Assessments',
+                      'Risk Assessment Setting'.'Risk Assessment Setting' = AssessmentSetting.'Risk Assessment Setting' && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
+                  )
+              )
+          }
+      );
+      ActiveRiskAssessmentSettingsToBeDisplayed = Filter(
+          RiskAssessmentsSettingsToBeDisplayed,
+          Status = 'Status (Risk Assessment Settings)'.Active
+      );
+      AllRiskAssessmentSettingsToBeDisplayed_filtered = Search(
+          Filter(
+              RiskAssessmentsSettingsToBeDisplayed,
+              Status = If(
+                  CountRows(selectedStatusValue) > 0,
+                  First(selectedStatusValue).Value,
+                  'Status (Risk Assessment Settings)'.Active
+              )
+          ),
+          SettingsSearchInput.Value,
+          Name,
+          ModifiedBy,
+          Owner,
+          ModifiedOn,
+          IsDefault
+      );
+      // Formula for holding assessment severity
+      AssessmentSeverity = Table(
+          {
+              ItemKey: 1,
+              ItemValue: DVAssessmentPageLoc.allStatusValue
+          },
+          {
+              ItemKey: 2,
+              ItemValue: Text('Assessed Risk Level (Risk Assessments)'.Critical)
+          },
+          {
+              ItemKey: 3,
+              ItemValue: Text('Assessed Risk Level (Risk Assessments)'.High)
+          },
+          {
+              ItemKey: 4,
+              ItemValue: Text('Assessed Risk Level (Risk Assessments)'.Moderate)
+          },
+          {
+              ItemKey: 5,
+              ItemValue: Text('Assessed Risk Level (Risk Assessments)'.Low)
+          },
+          {
+              ItemKey: 5,
+              ItemValue: Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
+          }
+      );
+      // Formula for holding all the risk assesment settings fetching directly from datasource
+      AllRiskAssessmentsSettings = 'Risk Assessment Settings';
+      // Formula for holding all the risk assesments fetching directly from datasource
+      AllRiskAssessmentsFromDataverse = 'Risk Assessments';
+      // Formula for holding all the risk assesment settings by creating a risk configuration array object
+      /*BaseLineSettingsListForRoles = ForAll(
+          Sort(
+              'Risk Assessment Settings',
+              'Created On',
+              SortOrder.Ascending
+          ) As riskSetting,
+          {
+              AssessmentSettingId: riskSetting.'Risk Assessment Setting',
+              RiskConfiguration: [
+                  {
+                      Type: "Create",
+                      //DVAssessmentPageLoc.createPrivilege,
+
+                      Organization: riskSetting.'Org Create',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Create',
+                      BusinessUnit: riskSetting.'BU Create',
+                      User: riskSetting.'User Create'
+                  },
+                  {
+                      Type: "Read",
+                      //DVAssessmentPageLoc.readPrivilege,
+
+                      Organization: riskSetting.'Org Read',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Read',
+                      BusinessUnit: riskSetting.'BU Read',
+                      User: riskSetting.'User Read'
+                  },
+                  {
+                      Type: "Write",
+                      //DVAssessmentPageLoc.writePrivilege,
+
+                      Organization: riskSetting.'Org Write',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Write',
+                      BusinessUnit: riskSetting.'BU Write',
+                      User: riskSetting.'User Write'
+                  },
+                  {
+                      Type: "Delete",
+                      //DVAssessmentPageLoc.deletePrivilege,
+
+                      Organization: riskSetting.'Org Delete',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Delete',
+                      BusinessUnit: riskSetting.'BU Delete',
+                      User: riskSetting.'User Delete'
+                  },
+                  {
+                      Type: "Append",
+                      //DVAssessmentPageLoc.appendPrivilege,
+
+                      Organization: riskSetting.'Org Append',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Append',
+                      BusinessUnit: riskSetting.'BU Append',
+                      User: riskSetting.'User Append'
+                  },
+                  {
+                      Type: "AppendTo",
+                      //DVAssessmentPageLoc.appendToText,
+
+                      Organization: riskSetting.'Org Append To',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Append To',
+                      BusinessUnit: riskSetting.'BU Append To',
+                      User: riskSetting.'User Append To'
+                  },
+                  {
+                      Type: "Assign",
+                      //DVAssessmentPageLoc.assignPrivilege,
+
+                      Organization: riskSetting.'Org Assign',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Assign',
+                      BusinessUnit: riskSetting.'BU Assign',
+                      User: riskSetting.'User Assign'
+                  },
+                  {
+                      Type: "Share",
+                      //DVAssessmentPageLoc.sharePrivilege,
+
+                      Organization: riskSetting.'Org Share',
+                      ParentChildBusinessUnit: riskSetting.'PCBU Share',
+                      BusinessUnit: riskSetting.'BU Share',
+                      User: riskSetting.'User Share'
+                  }
+              ]
+          }
+      );*/
+      // Selected Role Assessment Related Privileges
+      SelectedAssessmentRolePrivileges = AddColumns(
+          Sort(
+              ForAll(
+                  Table(
+                      ParseJSON(
+                          LookUp(
+                              AllRiskAssessmentsFromDataverse,
+                              'Risk Assessment' = GUID(currentAssessmentGUID)
+                          ).'Assessment Log JSON'
+                      ).value
+                  ),
+                  {
+                      risk: Text(ThisRecord.Value.risk),
+                      level: If(
+                          Text(ThisRecord.Value.level) = "Org",//DVAssessmentPageLoc.orgText,
+
+                          DVAssessmentPageLoc.organizationColumnName,
+                          Text(ThisRecord.Value.level) = "PCBU",//DVAssessmentPageLoc.pcbuText,
+
+                          DVAssessmentPageLoc.parentChildBuColumnName,
+                          Text(ThisRecord.Value.level) = "BU",//DVAssessmentPageLoc.buText,
+
+                          DVAssessmentPageLoc.businessUnitColumnName,
+                          Text(ThisRecord.Value.level) = "User",//DVAssessmentPageLoc.userColumnName,
+
+                          DVAssessmentPageLoc.userColumnName,
+                          DVAssessmentPageLoc.noAccessPriviliegeLevel
+                      ),
+                      privilegeId: GUID(ThisRecord.Value.privilege),
+                      table: Text(ThisRecord.Value.table),
+                      privilegeName: Text(ThisRecord.Value.privilegeName),
+                      securityPrivilegeName: Substitute(
+                          Substitute(
+                              Text(ThisRecord.Value.privilegeName),
+                              "prv",//DVAssessmentPageLoc.prvText,
+
+                              ""
+                          ),
+                          Text(ThisRecord.Value.table),
+                          ""
+                      ),
+                      RecommendedLevelFromJson: Text(ThisRecord.Value.recommendedLevel),
+                      TagColor: Text(ThisRecord.Value.tagColor),
+                      Table: Text(ThisRecord.Value.Table),
+                      PrivilegeDisplayName: Text(ThisRecord.Value.privilegeDisplayName),
+                      Type: Text(ThisRecord.Value.type),
+                      PrivilegeComplianceStatus: Text(ThisRecord.Value.privilegeComplianceStatus)
+                  }
+              ),
+              risk,
+              SortOrder.Descending
+          ) As selectedRole,
+          Rolename,
+          LookUp(
+              AllRiskAssessmentsFromDataverse,
+              'Risk Assessment' = GUID(currentAssessmentGUID)
+          ).'Security Role'.Name,
+          NewSeverity,
+          LookUp(
+              col_PrivilegesSeverityRisk,
+              key = Text(selectedRole.risk)
+          ).Severity,
+          NewSeverityTagColor,
+          If(
+              IsBlankOrError(selectedRole.TagColor),
+              LookUp(
+                  ChartThemeRiskForRoles,
+                  status = Text(
+                      LookUp(
+                          col_PrivilegesSeverityRisk,
+                          key = Text(selectedRole.risk)
+                      ).Severity
+                  )
+              ).color,
+              Text(selectedRole.TagColor)
+          ),
+          RecommendedLevel,
+          selectedRole.RecommendedLevelFromJson,
+          RolePrivilegeName,
+          If(
+              IsBlankOrError(selectedRole.PrivilegeDisplayName),
+              selectedRole.securityPrivilegeName & " " & selectedRole.table,
+              selectedRole.PrivilegeDisplayName
+          ),
+          RecordSelected,
+          false
+      );
+      // Selected Role Assessment Related Privileges with Row Number Column Added
+      RolePrvilegesWithRowNumber = SortByColumns(
+          With(
+              {
+                  currentItem: SortByColumns(
+                      Search(
+                          currentRolePrivilegesToBeDisplayed,
+                          txtSearch_2.Value,
+                          RolePrivilegeName,
+                          level,
+                          RecommendedLevel
+                      ),
+                      assessedRiskDetailsSortCol,
+                      If(
+                          assessedRiskDetailsSortOrder = 'PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,
+                          SortOrder.Ascending,
+                          SortOrder.Descending
+                      )
+                  )
+              },
+              ForAll(
+                  Sequence(CountRows(currentItem)),
+                  Patch(
+                      Last(
+                          FirstN(
+                              currentItem,
+                              Value
+                          )
+                      ),
+                      {RowNumber: Value}
+                  )
+              )
+          ),
+          "NewSeverity",
+          SortOrder.Ascending
+      );
+      TotalPrivilegesOfaSelectedRole = CountRows(RolePrvilegesWithRowNumber);
+      PrivilegesListToBeDisplayed = SortByColumns(
+          If(
+              nextEndIcon.DisplayMode = DisplayMode.Disabled,
+              LastN(
+                  FirstN(
+                      RolePrvilegesWithRowNumber,
+                      PageNumber.Selected.Value * varPageNumber
+                  ),
+                  PageNumber.Selected.Value - (PageNumber.Selected.Value * varPageNumber-Value(TotalPrivilegesOfaSelectedRole))
+              ),
+              LastN(
+                  FirstN(
+                      RolePrvilegesWithRowNumber,
+                      PageNumber.Selected.Value * varPageNumber
+                  ),
+                  PageNumber.Selected.Value
+              )
+          ),
+          assessedRiskDetailsSortCol,
+          If(
+              assessedRiskDetailsSortOrder = 'PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,
+              SortOrder.Ascending,
+              SortOrder.Descending
+          )
+      );
+      // Privileges Severity Risk 
+      PrivilegesSeverityRiskValues = Table(
+          {
+              key: "192350000",
+              Severity: Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
+          },
+          {
+              key: "192350001",
+              Severity: Text('Assessed Risk Level (Risk Assessments)'.Low)
+          },
+          {
+              key: "192350002",
+              Severity: Text('Assessed Risk Level (Risk Assessments)'.Moderate)
+          },
+          {
+              key: "192350003",
+              Severity: Text('Assessed Risk Level (Risk Assessments)'.High)
+          },
+          {
+              key: "192350004",
+              Severity: Text('Assessed Risk Level (Risk Assessments)'.Critical)
+          }
+      );
+      NotArchivedRiskAssessments = Filter(
+          'Risk Assessments',
+          'Is Archived' = 'Is Archived (Risk Assessments)'.No
+      );
+      // Formula for creating data which is used to bind on DoNut chart on Homescreen
+      RiskAssessmentStatusChartData = ForAll(
+          GroupBy(
+              NotArchivedRiskAssessments,
+              statuscode,
+              cat_riskassessmentid
+          ) As assessmentCount,
+          {
+              ItemLegend: Text(assessmentCount.statuscode),
+              ItemValue: CountRows(assessmentCount.cat_riskassessmentid),
+              ItemColor: LookUp(
+                  DoNutChartTheme,
+                  status = Text(assessmentCount.statuscode)
+              ).color
+          }
+      );
+      RoleStatusValues = Table(
+          {
+              ItemKey: 0,
+              ItemValue: DVAssessmentPageLoc.allStatusValue
+          },
+          {
+              ItemKey: 1,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Pending)
+          },
+          {
+              ItemKey: 192350001,
+              ItemValue: Text('Status Reason (Risk Assessments)'.'Needs Review')
+          },
+          {
+              ItemKey: 192350003,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Compliant)
+          },
+          {
+              ItemKey: 192350004,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Exception)
+          },
+          {
+              ItemKey: 192350005,
+              ItemValue: Text('Status Reason (Risk Assessments)'.Stale)
+          }
+      );
+      AutoScanEnvVar = LookUp(
+          'Environment Variable Values',
+          'Environment Variable Definition'.'Schema Name' = "msdyn_DVAcceleratorAutoScan"
+      );
+      AutoScanEnabled = AutoScanEnvVar.Value <> "yes";
+      // Get UnScanned Custom Roles
+      UnScannedCustomRoles = ForAll(
+          RetrieveAssessableSecurityRoles As role,
+          If(
+              IsBlankOrError(
+                  LookUp(
+                      'Risk Assessments',
+                      'Security Role'.Role = role.roleid
+                  )
+              ),
+              {
+                  RoleId: role.roleid,
+                  RoleName: role.name,
+                  ModifiedOn: If(
+                      DateDiff(
+                          role.modifiedon,
+                          Now(),
+                          TimeUnit.Days
+                      ) < 0,
+                      0,
+                      DateDiff(
+                          role.modifiedon,
+                          Now(),
+                          TimeUnit.Days
+                      )
+                  ) & " " & DVAssessmentPageLoc.daysAgoText
+              }
+          )
+      );
+      isNoRolesScreenVisible = If(
+          !IsEmpty(RetrieveAssessableSecurityRoles),
+          false,
+          true
+      );
+      NotScannedCustomRoles = If(
+          !IsEmpty(RetrieveAssessableSecurityRoles),
+          ForAll(
+              RetrieveAssessableSecurityRoles As role,
+              If(
+                  IsBlankOrError(
+                      LookUp(
+                          'Risk Assessments',
+                          'Security Role'.Role = role.roleid
+                      )
+                  ),
+                  {RoleName: role.name}
+              )
+          )
+      );
+      NotAssessedStatusChartData = If(
+          !IsEmpty(NotScannedCustomRoles),
+          If(
+              CountRows(
+                  Filter(
+                      NotScannedCustomRoles,
+                      RoleName <> Blank()
+                  )
+              ) > 0,
+              Table(
+                  {
+                      ItemLegend: Text(DVAssessmentPageLoc.notAssessedText),
+                      ItemValue: CountRows(
+                          Filter(
+                              NotScannedCustomRoles,
+                              RoleName <> Blank()
+                          )
+                      ),
+                      ItemColor: LookUp(
+                          DoNutChartTheme,
+                          status = Text(DVAssessmentPageLoc.notStartedText)//Not Assessed Color Code
+
+                      ).color
+                  }
+              )
+          )
+      );
+      latestAssessmentForaRole = FirstN(
+          Sort(
+              Filter(
+                  'Risk Assessments',
+                  'Security Role'.Role = currentRoleId
+              ),
+              'Assessment Date',
+              SortOrder.Descending
+          ),
+          1
+      );
+      riskAssessmentHistory = ForAll(
+          Sort(
+              Filter(
+                  'Risk Assessments',
+                  'Security Role'.Role = currentRoleId
+              ),
+              'Assessment Date',
+              SortOrder.Descending
+          )As riskAss,
+          {
+              AssessmentDate: If(
+                  Index(
+                      latestAssessmentForaRole,
+                      1
+                  ).'Risk Assessment' = riskAss.'Risk Assessment',
+                  Text(
+                      riskAss.'Assessment Date',
+                      "dd mmmm yyyy hh:mm AM/PM"
+                  ) & " (Latest)",
+                  Text(
+                      riskAss.'Assessment Date',
+                      "dd mmmm yyyy hh:mm AM/PM"
+                  )
+              ),
+              AssessmentId: riskAss.'Risk Assessment',
+              IsLatest: If(
+                  Index(
+                      latestAssessmentForaRole,
+                      1
+                  ).'Risk Assessment' = riskAss.'Risk Assessment',
+                  true,
+                  false
+              ),
+              AssessmentSettingId: riskAss.'Risk Assessment Setting'.'Risk Assessment Setting',
+              AssessmentSettingName: riskAss.'Risk Assessment Setting'.Name
+          }
+      );
+      CurrentRoleSeverityStatusBarChart = ForAll(
+          GroupBy(
+              currentRolePrivileges_temp,
+              NewSeverity,
+              privilegeName
+          ) As assessedSeverity,
+          {
+              ItemTitle: Text(assessedSeverity.NewSeverity),
+              ItemKey: assessedSeverity.NewSeverity,
+              ItemValue: CountRows(assessedSeverity.privilegeName),
+              ItemColor: If(
+                  IsBlankOrError(assessedSeverity.NewSeverity),
+                  LookUp(
+                      ChartThemeRisk,
+                      status = Text('Assessed Risk Level (Risk Assessments)'.'No Risk')
+                  ).color,
+                  LookUp(
+                      ChartThemeRisk,
+                      status = Text(assessedSeverity.NewSeverity)
+                  ).color
+              )
+          }
+      );
+      DefaultRiskAssessmentSetting = LookUp(
+          'Risk Assessment Settings',
+          'Is Default' = 'Is Default (Risk Assessment Settings)'.Yes
+      );
+      AssessmentsTabList = Table(
+          {
+              ItemKey: 1,
+              ItemDisplayName: "Unscanned custom roles"
+          },
+          {
+              ItemKey: 2,
+              ItemDisplayName: "Risk assessments"
+          }
+      );
+      contextMenuButtonsForListScreen = Table(
+          {
+              ItemKey: "new",
+              ItemDisplayName: "Scan role",
+              // Need LOC
+
+              ItemIconName: "Add",
+              ItemDescription: "New scan"
+          },
+          {
+              ItemKey: "viewinppac",
+              ItemDisplayName: "View in PPAC",
+              //Need LOC
+
+              ItemIconName: "View",
+              ItemDescription: "View in PPAC"
+          }
+      );
+      BatchStatusEnvVar = LookUp(
+          'Environment Variable Values',
+          'Environment Variable Definition'.'Schema Name' = "msdyn_DVAcceleratorBatchStatus"
+      );
+      BatchStatusEnvVarValue = ParseJSON(BatchStatusEnvVar.Value);
+      BatchStatus = If(
+          IsBlankOrError(BatchStatusEnvVarValue),
+          "Not started",
+          Text(BatchStatusEnvVarValue.BatchStatus)
+      );
+      BatchStatusErrorMessage = If(
+          IsBlankOrError(BatchStatusEnvVarValue),
+          "",
+          Text(BatchStatusEnvVarValue.ErrorMessage)
+      );
+      PrivilegesNames = [
+          "Create",
+          "Read",
+          "Write",
+          "Delete",
+          "Assign",
+          "Share",
+          "Append",
+          "AppendTo"
+      ];
+      ActivePrivilegeRiskBaselinesRelatedToAProfile = If(
+          dropDownStatusForEditSettings.Key = 0,
+          If(
+              IsBlankOrError(txtBaselinePrivilegesRatings.Value),
+              Filter(
+                  'Privilege Risk Baselines',
+                  'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                  'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting'
+              ),
+              Filter(
+                  'Privilege Risk Baselines',
+                  'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                  'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting',
+                  (StartsWith(
+                      Table,
+                      txtBaselinePrivilegesRatings.Value
+                  ) || StartsWith(
+                      Name,
+                      txtBaselinePrivilegesRatings.Value
+                  ))
+              )
+          ),
+          If(
+              IsBlankOrError(txtBaselinePrivilegesRatings.Value),
+              Filter(
+                  'Privilege Risk Baselines',
+                  'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                  'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting',
+                  Table = dropDownStatusForEditSettings.TableName
+              ),
+              Filter(
+                  'Privilege Risk Baselines',
+                  'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                  'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting',
+                  Table = dropDownStatusForEditSettings.TableName,
+                  (StartsWith(
+                      Table,
+                      txtBaselinePrivilegesRatings.Value
+                  ) || StartsWith(
+                      Name,
+                      txtBaselinePrivilegesRatings.Value
+                  ))
+              )
+          )
+      );
+      /*End*/
+
+      /* Navigation */ // Need LOC
+      FeatureName = "Risk assessment";
+      Nav = Table(
+          {
+              DisplayName: "Dashboard",
+              Screen: DashboardScreen
+          },
+          {
+              DisplayName: "Assessments",
+              Screen: ListScreen
+          },
+          {
+              DisplayName: "Settings",
+              Screen: SettingsLandingScreen
+          }
+      );
+      /* List screen */
+      ListItems = AddColumns(
+          Filter(
+              If(
+                  tabAssessments.Selected.ItemDisplayName = "Unscanned custom roles",
+                  Filter(
+                      Search(
+                          UnScannedCustomRoles,
+                          txtSearchRoles.Value,
+                          RoleName
+                      ),
+                      !IsBlank(RoleName)
+                  ),
+                  UnScannedCustomRoles
+              ),
+              RoleName <> Blank()
+          ),
+          Contextmenu,
+          ""
+      );
+      isLoggedInUserSysAdmin = !IsBlankOrError(
+          LookUp(
+              LookUp(
+                  Users,
+                  'Primary Email' = User().Email
+              ).'Security Roles (systemuserroles_association)'.Name,
+              Name = "System Administrator"//DVAssessmentPageLoc.systemAdminRoleName
+
+          ).Name
+      );
+      /* Do not edit below */
+
+      /* Responsive properties */
+      Margins = App.ActiveScreen.Width * 0.05;
+      //Min( App.ActiveScreen.Width * 0.05, 32 );
+      //Gutters = If(App.ActiveScreen.Size <= ScreenSize.Medium, 16, 24);
+      DashCols = With(
+          {
+              c1: cCardColumn_1,
+              c2: cCardColumn_2,
+              c3: cCardColumn_3,
+              //c4: cCardColumn_4, // --> Duplicate and rename cCardColumn_3 to 'cCardColumn_4' to add additional columns
+
+              c5: cCardsBuffer_1,
+              c6: cCardsBuffer_2
+          },
+          Table(
+              {
+                  id: 1,
+                  y: c1.Y,
+                  h: c1.Height,
+                  cardHeights: [cCard_5.Height]
+              },
+              {
+                  id: 2,
+                  y: c2.Y,
+                  h: c2.Height,
+                  cardHeights: [
+                      cCard_7.Height,
+                      cCard_8.Height
+                  ]
+              },
+              {
+                  id: 3,
+                  y: c3.Y,
+                  h: c3.Height,
+                  cardHeights: [
+                      cCard_9.Height,
+                      cCard_10.Height
+                  ]
+              },
+          //{id:4,y:c4.Y,h:c4.Height,cardHeights:[cCard_11.Height,cCard_12.Height]},
+
+              {
+                  id: 5,
+                  y: c5.Y,
+                  h: c5.Height
+              },
+              {
+                  id: 6,
+                  y: c6.Y,
+                  h: c6.Height
+              }
+          )
+      );
+      DbCardRows = GroupBy(
+          DashCols,
+          y,
+          rowItems
+      );
+      //* Grid calculations *//
+
+      // Viewport presets
+      // Edit presets based on design (leave as-is for Defaults)
+      // - PARAM: numCols (Int) - Count of columns for the viewport
+      // - PARAM: gutterWidth - Width (in pixels) of the gutters for the viewport
+      viewportPresets = Table(
+          {
+              size: ScreenSize.Small,
+              numCols: 3,
+              gutterWidth: 16
+          },
+          {
+              size: ScreenSize.Medium,
+              numCols: 6,
+              gutterWidth: 16
+          },
+          {
+              size: ScreenSize.Large,
+              numCols: 6,
+              gutterWidth: 16
+          },
+          {
+              size: ScreenSize.ExtraLarge,
+              numCols: 9,
+              gutterWidth: 24
+          }
+      );
+      /* Do not modify below this point */
+      contentSize = Min(
+          (App.ActiveScreen.Width - (Margins*2)),
+          1920
+      );
+      // Number of columns determined by viewport
+      numCols = Index(
+          viewportPresets,
+          App.ActiveScreen.Size
+      ).numCols;
+      // Gutter width presets
+      Gutters = Index(
+          viewportPresets,
+          App.ActiveScreen.Size
+      ).gutterWidth;
+      // Column width is calculated for flexible layout 
+      colWidth = With(
+          {numGutters: numCols - 1},
+          (Min(
+              (App.ActiveScreen.Width - (Margins*2)),
+              1920
+          ) - (Gutters*numGutters)) / Max(
+              numCols,
+              1
+          )
+      );
+      // Visual element width can be calculated to align with columns
+      itemWidth = With(
+          {
+              maxCols: Max(
+                  viewportPresets,
+                  numCols
+              )
+          },
+          ForAll(
+              Sequence(numCols),
+              {
+                  count: ThisRecord.Value,
+                  width: (colWidth * ThisRecord.Value) + (Gutters * (ThisRecord.Value - 1))
+              }
+          )
+      );
+      /*
+
+      // Typeramp
+      With({ t: ParseJSON( LookUp('Environment Variable Definitions', 'Schema Name' = "cat_Typeramp").'Default Value' ) },
+          ClearCollect( Typeramp, ForAll( t, {
+                  name: Text(ThisRecord.name),
+                  fontSize: Value(ThisRecord.fontSize),
+                  fontSizeLegacy: Value(ThisRecord.fontSize) * 0.725,
+                  fontWeight: Text(ThisRecord.fontWeight),
+                  fontWeightLegacy: Switch(Text(ThisRecord.fontWeight),"Bold",FontWeight.Bold,"Semibold",FontWeight.Semibold,"Regular",FontWeight.Normal),
+                  lineHeight: Value(ThisRecord.lineHeight)
+              })
+          )
+      );
+
+      */
+      AppTheme = 
+          /* START THEME OBJECT */
+      {
+          palette: {
+              themePrimary: "#0078d4",
+              themeLighterAlt: "#eff6fc",
+              themeLighter: "#deecf9",
+              themeLight: "#c7e0f4",
+              themeTertiary: "#71afe5",
+              themeSecondary: "#2b88d8",
+              themeDarkAlt: "#106ebe",
+              themeDark: "#005a9e",
+              themeDarker: "#004578",
+              neutralLighterAlt: "#faf9f8",
+              neutralLighter: "#f3f2f1",
+              neutralLight: "#edebe9",
+              neutralQuaternaryAlt: "#e1dfdd",
+              neutralQuaternary: "#d0d0d0",
+              neutralTertiaryAlt: "#c8c6c4",
+              neutralTertiary: "#a19f9d",
+              neutralSecondary: "#605e5c",
+              neutralPrimaryAlt: "#3b3a39",
+              neutralPrimary: "#323130",
+              neutralDark: "#201f1e",
+              black: "#000000",
+              white: "#ffffff"
+          }
+      }
+          /* END THEME OBJECT */
+      ;
+      Typeramp = Table(
+          {
+              name: "Caption2",
+              fontSize: 10,
+              fontFamily: "SegoeUI",
+              fontWeight: "Regular",
+              lineHeight: 14
+          },
+          {
+              name: "Caption2Strong",
+              fontSize: 10,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 14
+          },
+          {
+              name: "Caption1",
+              fontSize: 12,
+              fontFamily: "SegoeUI",
+              fontWeight: "Regular",
+              lineHeight: 18
+          },
+          {
+              name: "Caption1Strong",
+              fontSize: 12,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 18
+          },
+          {
+              name: "Caption1Stronger",
+              fontSize: 12,
+              fontFamily: "SegoeUI",
+              fontWeight: "Bold",
+              lineHeight: 18
+          },
+          {
+              name: "Body1",
+              fontSize: 14,
+              fontFamily: "SegoeUI",
+              fontWeight: "Regular",
+              lineHeight: 20
+          },
+          {
+              name: "Body1Strong",
+              fontSize: 14,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 20
+          },
+          {
+              name: "Body1Stronger",
+              fontSize: 14,
+              fontFamily: "SegoeUI",
+              fontWeight: "Bold",
+              lineHeight: 20
+          },
+          {
+              name: "Body2",
+              fontSize: 16,
+              fontFamily: "SegoeUI",
+              fontWeight: "Regular",
+              lineHeight: 22
+          },
+          {
+              name: "Body2Strong",
+              fontSize: 16,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 22
+          },
+          {
+              name: "Body2Stronger",
+              fontSize: 16,
+              fontFamily: "SegoeUI",
+              fontWeight: "Bold",
+              lineHeight: 28
+          },
+          {
+              name: "Subtitle1",
+              fontSize: 20,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 28
+          },
+          {
+              name: "Title3",
+              fontSize: 24,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 34
+          },
+          {
+              name: "Title2",
+              fontSize: 28,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 40
+          },
+          {
+              name: "Title1",
+              fontSize: 32,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 46
+          },
+          {
+              name: "LargeTitle",
+              fontSize: 40,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 56
+          },
+          {
+              name: "Display",
+              fontSize: 68,
+              fontFamily: "SegoeUI",
+              fontWeight: "Semibold",
+              lineHeight: 96
+          }
+      );
+    OnStart: "=\n// App theme for creator kit components, surfaces, and typography\n/*Set(\n    AppThemeJson,\n    JSON(\n        AppTheme,\n        JSONFormat.IndentFour\n    )\n);*/\nClearCollect(\n    AllCustomSecurityRoles,\n    Environment.cat_RetrieveCustomRolesApi().value\n);\n/*Set(\n    triggerRetrieveRolePrivileges,\n    false\n);*/\nSet(\n    triggerGetOrgURLApi,\n    false\n);\nConcurrent(\n    // THEMING INFO: DO NOT REMOVE\n    Set(\n        AppThemeNeutralJson,\n        JSON(AppThemeNeutral)\n    ),\n// Vars preserve flexible height/width\n    Set(\n        FlexOff,\n        0\n    ),\n    Set(\n        FlexOn,\n        1\n    ),\n    Set(\n        AlignStart,\n        AlignInContainer.Start\n    ),\n    Set(\n        AlignStretch,\n        AlignInContainer.Stretch\n    ),\n    Set(\n        CountofRiskAssessmentsWithRisk,\n        CountRows(\n            Filter(\n                'Risk Assessments',\n                'Status Reason' = 'Status Reason (Risk Assessments)'.'Needs Review' && 'Is Archived' = 'Is Archived (Risk Assessments)'.No\n            )\n        )\n    ),\n    Set(\n        allRolesAreCompliant,\n        CountRows(\n            Filter(\n                'Risk Assessments',\n                'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant && 'Is Archived' = 'Is Archived (Risk Assessments)'.No\n            )\n        ) = CountRows(AllCustomSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')\n    ),\n    Set(\n        CountOfCustomSecurityRoles,\n        CountRows(AllCustomSecurityRoles)\n    ),\n    Set(\n        dropDownStatusForEditSettings,\n        {\n            Key: 0,\n            TableName: \"All\"\n        }\n    ),\n    Set(\n        spinnerForStatusChart,\n        true\n    ),\n    With(\n        {region: Text(First(Environment.RetrieveConnectorSettings().value).Value.ClusterCategory)},\n        Set(\n            AdminPortalUrl,\n            Switch(\n                region,\n                \"preprod\",\n                \"https://admin.preprod.powerplatform.microsoft.com/environments/\",\n                \"test\",\n                \"https://admin.test.powerplatform.microsoft.com/environments/\",\n                \"prod\",\n                \"https://admin.powerplatform.microsoft.com/environments/\",\n                \"https://admin.powerplatform.microsoft.com/environments/\"\n            )\n        )\n    ),\n    Set(\n        _featureName,\n        FeatureName\n    ),\n    ClearCollect(\n        _typeramp,\n        AddColumns(\n            Typeramp,\n            fontSizeLegacy,\n            ThisRecord.fontSize * 0.725,\n            fontWeightLegacy,\n            Switch(\n                Text(ThisRecord.fontWeight),\n                \"Bold\",\n                FontWeight.Bold,\n                \"Semibold\",\n                FontWeight.Semibold,\n                \"Regular\",\n                FontWeight.Normal\n            )\n        )\n    ),\n    Set(\n        freStep,\n        1\n    ),\n    Set(\n        AppThemeJson,\n        JSON(AppTheme)\n    ),\n    Set(\n        DetailsListThemeJson,\n        JSON(DetailsListTheme)\n    ),\n    ClearCollect(\n        col_RiskAssessmentCompletedChartData,\n        RiskAssessmentCompletedChartData\n    ),\n    ClearCollect(\n        col_PrivilegesSeverityRisk,\n        PrivilegesSeverityRiskValues\n    ),\n    ClearCollect(\n        col_AssessmentsTabList,\n        AssessmentsTabList\n    ),\n    Set(\n        isCountOfRolesValidated,\n        true\n    ),\n    Set(\n        triggerRetrieveEntityDefinitions,\n        false\n    ),\n    Set(\n        currentSelectedAssessmentSetting,\n        If(\n            IsBlankOrError(DefaultRiskAssessmentSetting),\n            Blank(),\n            DefaultRiskAssessmentSetting\n        )\n    ),\n    Set(\n        triggerRetrieveMiscellaneousPrivileges,\n        false\n    );\n    \n);\nSet(\n    triggerGetOrgURLApi,\n    !triggerGetOrgURLApi\n);\n"
+    Theme: =PowerAppsTheme

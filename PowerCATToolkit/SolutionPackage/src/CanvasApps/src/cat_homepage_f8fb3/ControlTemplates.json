@@ -97,7 +97,7 @@
     "Name": "cat_PowerCAT.CodeViewerTree",
     "OverridableProperties": {},
     "TemplateDisplayName": "CodeViewerTree",
-    "Version": "0.0.26"
+    "Version": "0.0.28"
   },
   "Combobox": {
     "CustomGroupControlTemplateName": "",
@@ -114,7 +114,7 @@
     "TemplateDisplayName": "Combobox",
     "Version": "0.0.49"
   },
-  "Fluent Card (1.1.39) Preview": {
+  "Fluent Card (1.1.41) Preview": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
     "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.Card",
@@ -126,10 +126,10 @@
     "LastModifiedTimestamp": "0",
     "Name": "cat_PowerCAT.Card",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Fluent Card (1.1.39) Preview",
-    "Version": "1.1.39"
+    "TemplateDisplayName": "Fluent Card (1.1.41) Preview",
+    "Version": "1.1.41"
   },
-  "Fluent Details List (1.1.39)": {
+  "Fluent Details List (1.1.41)": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
     "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.FluentDetailsList",
@@ -141,10 +141,10 @@
     "LastModifiedTimestamp": "0",
     "Name": "cat_PowerCAT.FluentDetailsList",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Fluent Details List (1.1.39)",
-    "Version": "1.1.39"
+    "TemplateDisplayName": "Fluent Details List (1.1.41)",
+    "Version": "1.1.41"
   },
-  "Fluent Donut Chart (1.1.39) Preview": {
+  "Fluent Donut Chart (1.1.41) Preview": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
     "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.DonutChart",
@@ -156,10 +156,10 @@
     "LastModifiedTimestamp": "0",
     "Name": "cat_PowerCAT.DonutChart",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Fluent Donut Chart (1.1.39) Preview",
-    "Version": "1.1.39"
+    "TemplateDisplayName": "Fluent Donut Chart (1.1.41) Preview",
+    "Version": "1.1.41"
   },
-  "Fluent Horizontal bar Chart (1.1.39) Preview": {
+  "Fluent Horizontal bar Chart (1.1.41) Preview": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
     "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.HorizontalBarChart",
@@ -171,10 +171,10 @@
     "LastModifiedTimestamp": "0",
     "Name": "cat_PowerCAT.HorizontalBarChart",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Fluent Horizontal bar Chart (1.1.39) Preview",
-    "Version": "1.1.39"
+    "TemplateDisplayName": "Fluent Horizontal bar Chart (1.1.41) Preview",
+    "Version": "1.1.41"
   },
-  "Fluent Icon (1.1.39)": {
+  "Fluent Icon (1.1.41)": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": false,
     "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.Icon",
@@ -186,8 +186,8 @@
     "LastModifiedTimestamp": "0",
     "Name": "cat_PowerCAT.Icon",
     "OverridableProperties": {},
-    "TemplateDisplayName": "Fluent Icon (1.1.39)",
-    "Version": "1.1.39"
+    "TemplateDisplayName": "Fluent Icon (1.1.41)",
+    "Version": "1.1.41"
   },
   "form": {
     "CustomGroupControlTemplateName": "",
@@ -518,7 +518,7 @@
                     },
                     {
                       "EnumString": "",
-                      "Kind": "Number",
+                      "Kind": "String",
                       "Name": "score",
                       "Type": []
                     }
@@ -532,7 +532,7 @@
                 },
                 {
                   "EnumString": "",
-                  "Kind": "Number",
+                  "Kind": "String",
                   "Name": "totalScore",
                   "Type": []
                 }
@@ -615,6 +615,18 @@
                             {
                               "EnumString": "",
                               "Kind": "String",
+                              "Name": "FailedPowerFxCode",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
+                              "Name": "FailureReason",
+                              "Type": []
+                            },
+                            {
+                              "EnumString": "",
+                              "Kind": "String",
                               "Name": "PatternName",
                               "Type": []
                             },
@@ -666,7 +678,7 @@
                     },
                     {
                       "EnumString": "",
-                      "Kind": "Number",
+                      "Kind": "String",
                       "Name": "score",
                       "Type": []
                     },
@@ -698,7 +710,7 @@
                 },
                 {
                   "EnumString": "",
-                  "Kind": "Number",
+                  "Kind": "String",
                   "Name": "totalScore",
                   "Type": []
                 }
@@ -802,7 +814,7 @@
                     },
                     {
                       "EnumString": "",
-                      "Kind": "Number",
+                      "Kind": "String",
                       "Name": "score",
                       "Type": []
                     }
@@ -816,7 +828,7 @@
                 },
                 {
                   "EnumString": "",
-                  "Kind": "Number",
+                  "Kind": "String",
                   "Name": "totalScore",
                   "Type": []
                 }
@@ -824,7 +836,7 @@
             },
             {
               "EnumString": "",
-              "Kind": "Number",
+              "Kind": "String",
               "Name": "SolutionScore",
               "Type": []
             }
@@ -843,6 +855,12 @@
               "Kind": "Table",
               "Name": "aiModels",
               "Type": [
+                {
+                  "EnumString": "",
+                  "Kind": "String",
+                  "Name": "Model",
+                  "Type": []
+                },
                 {
                   "EnumString": "",
                   "Kind": "String",
@@ -1293,6 +1311,12 @@
                 {
                   "EnumString": "",
                   "Kind": "String",
+                  "Name": "solutionType",
+                  "Type": []
+                },
+                {
+                  "EnumString": "",
+                  "Kind": "String",
                   "Name": "uniqueName",
                   "Type": []
                 },
@@ -1461,16 +1485,16 @@
     },
     "PCFDynamicSchemaForIRRetrieval": {
       "ReviewResults": {
-        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"Copilot\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Topic\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TopicName\":{\"type\":\"string\"},\"InvalidTriggerQueries\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}},\"Flows\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"KnowledgeSource\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"Entity\":{\"type\":\"object\",\"properties\":{\"RegexEntity\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"pattern\":{\"type\":\"string\"},\"matchingPatternEntityList\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}}}}}}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"integer\"}}}},\"totalBots\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"number\"}}},\"PowerAutomate\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"number\"}}}},\"totalFlows\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"number\"}}},\"PowerApps\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"totalScreens\":{\"type\":\"integer\"},\"totalCanvasComponents\":{\"type\":\"integer\"},\"totalCodeComponents\":{\"type\":\"integer\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ScreenName\":{\"type\":\"string\"},\"ControlName\":{\"type\":\"string\"},\"PropertyName\":{\"type\":\"string\"},\"Code\":{\"type\":\"string\"},\"PatternName\":{\"type\":\"string\"},\"ControlType\":{\"type\":\"string\"}}}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"integer\"}}}},\"totalApps\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"number\"}}},\"SolutionScore\":{\"type\":\"number\"}}}",
+        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"Copilot\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Topic\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TopicName\":{\"type\":\"string\"},\"InvalidTriggerQueries\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}},\"Flows\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"KnowledgeSource\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"Entity\":{\"type\":\"object\",\"properties\":{\"RegexEntity\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"pattern\":{\"type\":\"string\"},\"matchingPatternEntityList\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}}}}}}}}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"string\"}}}},\"totalBots\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"string\"}}},\"PowerAutomate\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"string\"}}}},\"totalFlows\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"string\"}}},\"PowerApps\":{\"type\":\"object\",\"properties\":{\"items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"totalScreens\":{\"type\":\"integer\"},\"totalCanvasComponents\":{\"type\":\"integer\"},\"totalCodeComponents\":{\"type\":\"integer\"},\"result\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"patternName\":{\"type\":\"string\"},\"patternID\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"instanceValue\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ScreenName\":{\"type\":\"string\"},\"ControlName\":{\"type\":\"string\"},\"PropertyName\":{\"type\":\"string\"},\"Code\":{\"type\":\"string\"},\"PatternName\":{\"type\":\"string\"},\"ControlType\":{\"type\":\"string\"},\"FailedPowerFxCode\":{\"type\":\"string\"},\"FailureReason\":{\"type\":\"string\"}}}},\"failureReason\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"},\"docLinks\":{\"type\":\"string\",\"format\":\"uri\"},\"category\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\"}}}},\"score\":{\"type\":\"string\"}}}},\"totalApps\":{\"type\":\"integer\"},\"totalScore\":{\"type\":\"string\"}}},\"SolutionScore\":{\"type\":\"string\"}}}",
         "PCFSkipValidation": false
       },
       "SolutionDetails": {
-        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"solutionOverview\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"uniqueName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"uniqueName\",\"version\"]},\"canvasApps\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"appName\":{\"type\":\"string\"},\"appDescription\":{\"type\":\"string\"},\"screens\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"screenName\":{\"type\":\"string\"},\"screenYaml\":{\"type\":\"string\"}},\"required\":[\"screenName\",\"screenYaml\"]}},\"sarifLog\":{\"type\":\"object\",\"properties\":{\"runs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"tool\":{\"type\":\"object\",\"properties\":{\"driver\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"rules\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"properties\":{\"type\":\"object\",\"properties\":{\"howToFix\":{\"type\":\"string\"},\"whyFix\":{\"type\":\"string\"},\"primaryCategory\":{\"type\":\"string\"}},\"additionalProperties\":true},\"messageStrings\":{\"type\":\"object\",\"properties\":{\"issue\":{\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}}}}}},\"required\":[\"id\"]}}},\"required\":[\"name\",\"rules\"]}},\"required\":[\"driver\"]},\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ruleId\":{\"type\":\"string\"},\"messageStrings\":{\"type\":\"object\",\"properties\":{\"issue\":{\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}}}}},\"locations\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"physicalLocation\":{\"type\":\"object\",\"properties\":{\"address\":{\"type\":\"object\",\"properties\":{\"fullyQualifiedName\":{\"type\":\"string\"}}}}}}}},\"properties\":{\"type\":\"object\",\"properties\":{\"level\":{\"type\":\"string\"}},\"additionalProperties\":true}},\"required\":[\"ruleId\"]}}},\"required\":[\"tool\",\"results\"]}}},\"required\":[\"runs\"]}},\"required\":[\"appName\",\"appDescription\",\"screens\",\"sarifLog\"]}},\"tables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"DisplayName\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"Description\":{\"type\":\"string\"},\"Fields\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DataType\":{\"type\":\"string\"}},\"required\":[\"Name\",\"SchemaName\",\"DataType\"]}},\"Relationships\":{\"type\":\"object\",\"properties\":{\"OneToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"ReferencingEntity\":{\"type\":\"string\"},\"ReferencingAttribute\":{\"type\":\"string\"},\"ReferencedEntity\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"ReferencingEntity\",\"ReferencingAttribute\",\"ReferencedEntity\"]}},\"ManyToOne\":{\"type\":\"array\",\"items\":{\"type\":\"object\"}},\"ManyToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"Entity1LogicalName\":{\"type\":\"string\"},\"Entity2LogicalName\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"Entity1LogicalName\",\"Entity2LogicalName\"]}}}}},\"required\":[\"DisplayName\",\"SchemaName\",\"Fields\",\"Relationships\"]}},\"workflows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"primaryEntity\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"json\":{\"type\":\"string\"}},\"required\":[\"name\",\"primaryEntity\",\"category\"]}},\"codeComponents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\",\"version\"]}},\"customApis\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"isPrivate\":{\"type\":\"boolean\"},\"isFunction\":{\"type\":\"boolean\"}},\"required\":[\"displayName\",\"description\",\"isPrivate\",\"isFunction\"]}},\"environmentVariables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\"]}},\"securityRoles\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}}}},\"plugins\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"mermaidERDiagramExpression\":{\"type\":\"string\"},\"mermaidSolutionOverviewExpression\":{\"type\":\"string\"},\"mermaidSolutionArchitectureExpressions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"connectionReferences\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"LogicalName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"ConnectorID\":{\"type\":\"string\"}}}},\"aiModels\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"missingDependencies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Required\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"Solution\":{\"type\":\"string\"}}},\"Dependent\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"}}}}}}},\"required\":[\"solutionOverview\",\"canvasApps\",\"tables\",\"workflows\",\"codeComponents\",\"customApis\",\"environmentVariables\",\"securityRoles\",\"plugins\",\"connectionReferences\",\"aiModels\",\"missingDependencies\"]}",
+        "DynamicSchema": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"solutionOverview\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"uniqueName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"},\"solutionType\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"uniqueName\",\"version\"]},\"canvasApps\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"appName\":{\"type\":\"string\"},\"appDescription\":{\"type\":\"string\"},\"screens\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"screenName\":{\"type\":\"string\"},\"screenYaml\":{\"type\":\"string\"}},\"required\":[\"screenName\",\"screenYaml\"]}},\"sarifLog\":{\"type\":\"object\",\"properties\":{\"runs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"tool\":{\"type\":\"object\",\"properties\":{\"driver\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"rules\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"properties\":{\"type\":\"object\",\"properties\":{\"howToFix\":{\"type\":\"string\"},\"whyFix\":{\"type\":\"string\"},\"primaryCategory\":{\"type\":\"string\"}},\"additionalProperties\":true},\"messageStrings\":{\"type\":\"object\",\"properties\":{\"issue\":{\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}}}}}},\"required\":[\"id\"]}}},\"required\":[\"name\",\"rules\"]}},\"required\":[\"driver\"]},\"results\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"ruleId\":{\"type\":\"string\"},\"messageStrings\":{\"type\":\"object\",\"properties\":{\"issue\":{\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}}}}},\"locations\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"physicalLocation\":{\"type\":\"object\",\"properties\":{\"address\":{\"type\":\"object\",\"properties\":{\"fullyQualifiedName\":{\"type\":\"string\"}}}}}}}},\"properties\":{\"type\":\"object\",\"properties\":{\"level\":{\"type\":\"string\"}},\"additionalProperties\":true}},\"required\":[\"ruleId\"]}}},\"required\":[\"tool\",\"results\"]}}},\"required\":[\"runs\"]}},\"required\":[\"appName\",\"appDescription\",\"screens\",\"sarifLog\"]}},\"tables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"DisplayName\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"Description\":{\"type\":\"string\"},\"Fields\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DataType\":{\"type\":\"string\"}},\"required\":[\"Name\",\"SchemaName\",\"DataType\"]}},\"Relationships\":{\"type\":\"object\",\"properties\":{\"OneToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"ReferencingEntity\":{\"type\":\"string\"},\"ReferencingAttribute\":{\"type\":\"string\"},\"ReferencedEntity\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"ReferencingEntity\",\"ReferencingAttribute\",\"ReferencedEntity\"]}},\"ManyToOne\":{\"type\":\"array\",\"items\":{\"type\":\"object\"}},\"ManyToMany\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"SchemaName\":{\"type\":\"string\"},\"Entity1LogicalName\":{\"type\":\"string\"},\"Entity2LogicalName\":{\"type\":\"string\"}},\"required\":[\"SchemaName\",\"Entity1LogicalName\",\"Entity2LogicalName\"]}}}}},\"required\":[\"DisplayName\",\"SchemaName\",\"Fields\",\"Relationships\"]}},\"workflows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"primaryEntity\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"json\":{\"type\":\"string\"}},\"required\":[\"name\",\"primaryEntity\",\"category\"]}},\"codeComponents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\",\"version\"]}},\"customApis\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"isPrivate\":{\"type\":\"boolean\"},\"isFunction\":{\"type\":\"boolean\"}},\"required\":[\"displayName\",\"description\",\"isPrivate\",\"isFunction\"]}},\"environmentVariables\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"displayName\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"type\":{\"type\":\"string\"}},\"required\":[\"displayName\",\"description\",\"type\"]}},\"securityRoles\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}}}},\"plugins\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"}}}},\"mermaidERDiagramExpression\":{\"type\":\"string\"},\"mermaidSolutionOverviewExpression\":{\"type\":\"string\"},\"mermaidSolutionArchitectureExpressions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"connectionReferences\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"LogicalName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"ConnectorID\":{\"type\":\"string\"}}}},\"aiModels\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"Model\":{\"type\":\"string\"}}}},\"missingDependencies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Required\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"},\"Solution\":{\"type\":\"string\"}}},\"Dependent\":{\"type\":\"object\",\"properties\":{\"Type\":{\"type\":\"string\"},\"SchemaName\":{\"type\":\"string\"},\"DisplayName\":{\"type\":\"string\"}}}}}}},\"required\":[\"solutionOverview\",\"canvasApps\",\"tables\",\"workflows\",\"codeComponents\",\"customApis\",\"environmentVariables\",\"securityRoles\",\"plugins\",\"connectionReferences\",\"aiModels\",\"missingDependencies\"]}",
         "PCFSkipValidation": false
       }
     },
     "TemplateDisplayName": "IntelligentReviewVisualizer",
-    "Version": "0.0.156"
+    "Version": "0.0.175"
   },
   "label": {
     "CustomGroupControlTemplateName": "",
@@ -1499,7 +1523,7 @@
     "Name": "Microsoft_CoreControls_Label",
     "OverridableProperties": {},
     "TemplateDisplayName": "Label",
-    "Version": "1.6.0"
+    "Version": "1.8.6"
   },
   "Link": {
     "CustomGroupControlTemplateName": "",
@@ -1571,7 +1595,22 @@
     "Name": "cat_PowerCAT.PFxCodeEditor",
     "OverridableProperties": {},
     "TemplateDisplayName": "PowerFx Code Editor",
-    "Version": "0.0.8"
+    "Version": "0.0.9"
+  },
+  "PowerFx Code Review Editor": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": false,
+    "Id": "http://microsoft.com/appmagic/powercontrol/cat_PowerCAT.PFxCodeReviewEditor",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "cat_PowerCAT.PFxCodeReviewEditor",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "PowerFx Code Review Editor",
+    "Version": "0.0.27"
   },
   "rectangle": {
     "CustomGroupControlTemplateName": "",
@@ -1614,7 +1653,7 @@
     "Name": "PowerApps_CoreControls_Spinner",
     "OverridableProperties": {},
     "TemplateDisplayName": "Spinner",
-    "Version": "1.4.5"
+    "Version": "1.4.6"
   },
   "Tab list": {
     "CustomGroupControlTemplateName": "",
@@ -1629,7 +1668,7 @@
     "Name": "PowerApps_CoreControls_TabList",
     "OverridableProperties": {},
     "TemplateDisplayName": "Tab list",
-    "Version": "2.2.29"
+    "Version": "2.2.30"
   },
   "Text": {
     "CustomGroupControlTemplateName": "",
@@ -1659,7 +1698,7 @@
     "Name": "Microsoft_CoreControls_TextBox",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text box",
-    "Version": "1.6.1"
+    "Version": "1.7.1"
   },
   "Text input": {
     "CustomGroupControlTemplateName": "",
@@ -1689,7 +1728,7 @@
     "Name": "PowerApps_CoreControls_Toolbar",
     "OverridableProperties": {},
     "TemplateDisplayName": "Toolbar",
-    "Version": "2.0.4"
+    "Version": "2.0.5"
   },
   "typedDataCard": {
     "CustomGroupControlTemplateName": "",

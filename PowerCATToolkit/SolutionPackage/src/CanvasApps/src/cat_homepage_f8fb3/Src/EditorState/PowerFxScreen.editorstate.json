@@ -5145,15 +5145,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "Visible",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Showsearchbox",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        }
+        "Visible"
       ],
       "DynamicProperties": [
         {
@@ -5239,11 +5231,6 @@
         {
           "Category": "Data",
           "PropertyName": "ShowminiMap",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Data",
-          "PropertyName": "Showsearchbox",
           "RuleProviderType": "Unknown"
         },
         {

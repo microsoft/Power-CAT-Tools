@@ -56,7 +56,7 @@ Screens:
                         Width: =270
                         X: =394.49
                   - TabList1_5:
-                      Control: TabList@2.2.29
+                      Control: TabList@2.2.30
                       Properties:
                         DefaultSelectedItems: =LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
                         FillPortions: =FlexOn
@@ -213,7 +213,7 @@ Screens:
                                                 X: =72
                                                 Y: =52
                               - tlbRight_14:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =FlexOff
@@ -244,7 +244,7 @@ Screens:
                               Width: =Parent.Width - Self.X * 2
                             Children:
                               - tlbMain_8:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =3
@@ -292,7 +292,7 @@ Screens:
                                       )
                                     Width: =Parent.Width
                               - tlbRight_15:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =FlexOn
@@ -410,16 +410,10 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_13:
-                Control: Spinner@1.4.5
+                Control: Spinner@1.4.6
                 Properties:
                   Height: =Parent.Height
                   Label: ="Generating results"
                   SpinnerSize: ='Spinner.SpinnerSize'.Large
                   Visible: =false
                   Width: =Parent.Width
-      - ButtonCanvas2:
-          Control: Button@0.0.44
-          Properties:
-            OnSelect: =If(IsEmpty(First(First(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items).result).instanceValue),"")
-            X: =172
-            Y: =392

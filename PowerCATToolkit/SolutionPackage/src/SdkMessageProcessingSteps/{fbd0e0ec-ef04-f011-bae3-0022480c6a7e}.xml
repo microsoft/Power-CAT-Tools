@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin: Create of cat_riskassessmentsetting" SdkMessageProcessingStepId="{fbd0e0ec-ef04-f011-bae3-0022480c6a7e}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>9ebdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin, Microsoft.PowerCATTools.SecRoleAssessmentPlugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d7f1adcf5171fb4a</PluginTypeName>
+  <PluginTypeId>201a3ba0-8d2d-4feb-8432-5137a4764a40</PluginTypeId>
+  <PrimaryEntity>cat_riskassessmentsetting</PrimaryEntity>
+  <AsyncAutoDelete>1</AsyncAutoDelete>
+  <Description>Microsoft.PowerCATTools.SecRoleAssessmentPlugin.AssessmentSettingPlugin: Create of cat_riskassessmentsetting</Description>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>1</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

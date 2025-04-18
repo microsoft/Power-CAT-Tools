@@ -1,0 +1,150 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  PageHeader:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      AutoHeight:
+        PropertyKind: Output
+        DisplayName: Auto height
+        Description: A custom property
+        DataType: Number
+      DescriptionText:
+        PropertyKind: Input
+        DisplayName: Description text
+        Description: A custom property
+        DataType: Text
+        Default: ="Secondary text"
+      IconName:
+        PropertyKind: Input
+        DisplayName: IconName
+        Description: Icon name
+        DataType: Text
+        Default: ="ArrowLeft"
+      LinkText:
+        PropertyKind: Input
+        DisplayName: Link text
+        Description: A custom property
+        DataType: Text
+        Default: =
+      OnIconSelectNavScreen:
+        PropertyKind: Input
+        DisplayName: On Icon Select Nav Screen
+        Description: On icon select navigate to input screen
+        DataType: Screen
+        Default: =App.ActiveScreen
+      TitleFontSize:
+        PropertyKind: Input
+        DisplayName: Title Font Size
+        Description: Title font Size
+        DataType: Number
+        Default: =28
+      TitleText:
+        PropertyKind: Input
+        DisplayName: Title text
+        Description: A custom property
+        DataType: Text
+        Default: ="Page title"
+    Properties:
+      AutoHeight: =rDivider_PageHeader.Y //If(Label3_2.Visible, Label3_2.Height) + If(LinkCanvas3.Visible, LinkCanvas3.Height) + h2DashboardTitle_1.Height
+      Height: =PageHeader.AutoHeight
+      Width: =600
+    Children:
+      - cPageHeader:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =If( !IsBlank(PageHeader.IconName), 16)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+          Children:
+            - ButtonCanvas4:
+                Control: Button@0.0.44
+                Properties:
+                  AccessibleLabel: ="ArrowLeft"
+                  Appearance: ='ButtonCanvas.Appearance'.Subtle
+                  Icon: =Coalesce(PageHeader.IconName, "ArrowLeft")
+                  Layout: ='ButtonCanvas.Layout'.IconOnly
+                  OnSelect: =If(!IsBlank(PageHeader.OnIconSelectNavScreen), Navigate(PageHeader.OnIconSelectNavScreen), Back())
+                  Text: =
+                  Visible: =!IsBlank(PageHeader.IconName)
+                  Width: =32
+            - HeaderContainer1_1:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =Parent.Height //If(App.ActiveScreen.Size > ScreenSize.Small, Label3_2.Height + LinkCanvas3.Height) + h2DashboardTitle_1.Height
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =4
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width - Self.X
+                  X: =1-1
+                  Y: '=1-1 '
+                Children:
+                  - h2DashboardTitle_1:
+                      Control: Text@0.0.50
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        AlignInContainer: =AlignInContainer.Start
+                        AutoHeight: =true
+                        Height: =36
+                        Size: =Coalesce(PageHeader.TitleFontSize, 20)
+                        Text: =PageHeader.TitleText
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - Self.X * 2
+                        X: =394.49
+                  - Label3_2:
+                      Control: Label@2.5.1
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Start
+                        AutoHeight: =true
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =ColorValue("#424242")
+                        Font: =Font.'Segoe UI'
+                        LineHeight: =1.4
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)*0.75
+                        Text: =PageHeader.DescriptionText
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: =!IsBlank(PageHeader.DescriptionText)
+                        Width: =Min(600, Parent.Width)
+                        X: =394.49
+                  - LinkCanvas3:
+                      Control: Link@0.0.44
+                      Properties:
+                        FontSize: =Switch(App.ActiveScreen.Size,ScreenSize.Small,11,ScreenSize.Medium,12,14)
+                        Height: =24
+                        Text: ="Learn more"
+                        Visible: =!IsBlank(PageHeader.LinkText)
+                  - rDivider_PageHeader:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        Fill: =RGBA(0,0,0,0)
+                        Height: =1
+                        Width: =Parent.Width - Self.X * 2
+                        X: =72
+                        Y: =52

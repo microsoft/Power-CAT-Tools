@@ -13,24 +13,6 @@ Screens:
       Fill: =RGBA(255, 255, 255, 1)
       LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
     Children:
-      - IntelligentReviewVisualizer1_5:
-          Control: CodeComponent
-          ComponentName: cat_PowerCAT.IntelligentReviewVisualizer
-          Properties:
-            ChooseButtonTitle: ="Upload Solution"
-            ExtractSolutionDetails: =true
-            Height: =20
-            HideUserInterface: =true
-            InputEvent: =varStartReview
-            Items: |+
-              =//PatternDetailz
-              AddColumns('Pattern Details', description, PatternDescription)
-            OnReviewComplete: "=//Notify(\"review completed\");\r\nClear(SolutionReviewsCol);\r\nUpdateContext({showLoader:true});\r\n\r\nIf(!IsEmpty(Self.ReviewResults.Copilot.items),\r\n    // Copilot Studio\r\n    Collect(\r\n        SolutionReviewsCol,\r\n        {\r\n            Icon: CopilotStudioIcon,\r\n            Title: \"Agents\",\r\n            AppType: \"Agents\",\r\n            /*Score: \"Score \" & Round(\r\n                0.2 * 100,\r\n                    0\r\n            ) & \"%\",*/\r\n            TagColor: LookUp(\r\n                    AppTypeStyles,\r\n                    AppTypeKey = \"Agents\"\r\n                ).Color\r\n        }\r\n        );\r\n    ForAll(\r\n        Self.ReviewResults.Copilot.items,\r\n            Collect(\r\n                SolutionReviewsCol,\r\n                {\r\n                    RecordKey: ThisRecord.name,\r\n                    Item:ThisRecord,\r\n                    Review: ThisRecord.displayName,\r\n                    Action: \"Review\",\r\n                    Score: Round(ThisRecord.score / CountRows(ThisRecord.result) * 100,0) & \"%\",\r\n                    AppType: \"Agents\"\r\n                }\r\n            )\r\n    );\r\n);\r\n\r\nIf(!IsEmpty(Self.ReviewResults.PowerApps.items),\r\n    // Power Apps\r\n    Collect(\r\n        SolutionReviewsCol,\r\n        {\r\n            Icon: PowerAppsIcon,\r\n            Title: \"Power Apps (Canvas & Custom Pages)\",\r\n            AppType: \"Canvas\",\r\n            /*Score: \"Score \" & Round(\r\n                Self.ReviewResults.PowerApps.totalScore * 100,\r\n                    0\r\n            ) & \"%\",*/\r\n            TagColor: LookUp(\r\n                    AppTypeStyles,\r\n                    AppTypeKey = \"Canvas\"\r\n                ).Color\r\n        }\r\n        );\r\n    ForAll(\r\n        Self.ReviewResults.PowerApps.items,\r\n            Collect(\r\n                SolutionReviewsCol,\r\n                {\r\n                    RecordKey: ThisRecord.name,\r\n                    Item:ThisRecord,\r\n                    Review: ThisRecord.name,\r\n                    Action: \"Review\",\r\n                    Score: Round(ThisRecord.score / CountRows(ThisRecord.result) * 100, 0) & \"%\",\r\n                    AppType: \"Canvas\"\r\n                }\r\n            )\r\n    );\r\n);\r\n\r\nIf(!IsEmpty(Self.ReviewResults.PowerAutomate.items),\r\n    // Power Apps\r\n    Collect(\r\n        SolutionReviewsCol,\r\n        {\r\n            Icon: PowerAutomateIcon,\r\n            Title: \"Power Automate\",\r\n            AppType: \"PowerAutomate\",\r\n           /* Score: \"Score \" & Round(\r\n                Self.ReviewResults.PowerAutomate.totalScore * 100,\r\n                    0\r\n            ) & \"%\",*/\r\n            TagColor: LookUp(\r\n                    AppTypeStyles,\r\n                    AppTypeKey = \"PowerAutomate\"\r\n                ).Color\r\n        }\r\n        );\r\n    ForAll(\r\n        Self.ReviewResults.PowerAutomate.items,\r\n            Collect(\r\n                SolutionReviewsCol,\r\n                {\r\n                    RecordKey: ThisRecord.name,\r\n                    Item:ThisRecord,\r\n                    Review: ThisRecord.displayName,\r\n                    Action: \"Review\",\r\n                    Score:Round(ThisRecord.score / CountRows(ThisRecord.result) * 100, 0) & \"%\",\r\n                    AppType: \"PowerAutomate\"\r\n                }\r\n            )\r\n    );\r\n);\r\nUpdateContext({varStartReview: Blank()});\r\nUpdateContext({showLoader:false});\r\n\r\n//Save scores if needed.\r\n/*\r\nIf(requiresSaving,\r\n\r\nForAll(IntelligentReviewVisualizer1_5.ReviewResults.Copilot.items, \r\n      Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': ThisRecord.name,\r\n        'Display Name': ThisRecord.displayName,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.BotPattern,\r\n        Score:ThisRecord.score\r\n     });\r\n);\r\n\r\n\r\nForAll(IntelligentReviewVisualizer1_5.ReviewResults.PowerApps.items, \r\n      Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': ThisRecord.name,\r\n        'Display Name': ThisRecord.name,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.PowerAppsPattern,\r\n        Score:ThisRecord.score\r\n     });\r\n);\r\n\r\nForAll(IntelligentReviewVisualizer1_5.ReviewResults.PowerAutomate.items, \r\n      Patch('Solution Components', Defaults('Solution Components'), {    \r\n        'Component Name': ThisRecord.name,\r\n        'Display Name': ThisRecord.displayName,\r\n        'SolutionReview': Form1_1.LastSubmit,\r\n        'Component Type':'Solution Component'.FlowPattern,\r\n        Score:ThisRecord.score\r\n     });\r\n     \r\n);\r\n);\r\nUpdateContext({requiresSaving:false})*/\r\n"
-            SolutionFile: =SelectedSolutionReview.'Solution File'
-            SolutionName: =SelectedSolutionReview.'Solution Name'
-            Width: =226
-            X: =765
-            Y: =70
       - cAppFrame_1:
           Control: GroupContainer@1.3.0
           Variant: AutoLayout
@@ -68,12 +50,12 @@ Screens:
                         AlignInContainer: =AlignInContainer.Center
                         Height: =30
                         Size: =18
-                        Text: ="Power Platform Review Tool"
+                        Text: =If(optimizeForAgent, "Agent Review Tool",  "Power Platform Review Tool")
                         Weight: ='TextCanvas.Weight'.Semibold
                         Width: =270
                         X: =394.49
                   - TabList1_2:
-                      Control: TabList@2.2.29
+                      Control: TabList@2.2.30
                       Properties:
                         DefaultSelectedItems: =//LookUp(Nav, ThisRecord.Screen = App.ActiveScreen)
                         FillPortions: =1
@@ -248,7 +230,7 @@ Screens:
                               Width: =Parent.Width - Self.X * 2
                             Children:
                               - tlbMain_3:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =3
@@ -296,7 +278,7 @@ Screens:
                                       )
                                     Width: =Parent.Width
                               - tlbRight_9:
-                                  Control: Toolbar@2.0.4
+                                  Control: Toolbar@2.0.5
                                   Properties:
                                     AccessibleLabel: ="Toolbar"
                                     FillPortions: =FlexOn
@@ -383,11 +365,11 @@ Screens:
                         Width: =Parent.Width - Margins
                       Children:
                         - tabForm_3:
-                            Control: TabList@2.2.29
+                            Control: TabList@2.2.30
                             Properties:
                               AlignInContainer: =AlignInContainer.Stretch
                               Height: =38
-                              Items: =[{ItemKey:"All", ItemDisplayName:"All"},{ItemKey:"Agents", ItemDisplayName:"Agents"},{ItemKey:"Canvas", ItemDisplayName:"Power Apps"}, {ItemKey:"PowerAutomate", ItemDisplayName:"Power Automate"}]
+                              Items: =TabItems
                               Size: ='TabList.Size'.Small
                               Y: =150
                             Children:
@@ -512,7 +494,7 @@ Screens:
                                                       Placeholder: ="Search"
                                                       TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
                               - Spinner1_10:
-                                  Control: Spinner@1.4.5
+                                  Control: Spinner@1.4.6
                                   Properties:
                                     SpinnerSize: ='Spinner.SpinnerSize'.Small
                                     Visible: =showLoader
@@ -530,18 +512,6 @@ Screens:
                                     RadiusBottomRight: =0
                                     RadiusTopLeft: =0
                                     RadiusTopRight: =0
-                                  Children:
-                                    - FluentDetailsList4:
-                                        Control: CodeComponent
-                                        ComponentName: cat_PowerCAT.FluentDetailsList
-                                        Properties:
-                                          Items: =Search(If(tabForm_3.Selected.ItemKey="All", SolutionReviewsCol, Filter(SolutionReviewsCol, AppType = tabForm_3.Selected.ItemKey)), txtSearch_4.Value, Review)
-                                          OnChange: "=\nIf(\n    Self.EventName = \"CellAction\",\n    Set(\n        SelectedReviewID,\n        GUID(Self.EventRowKey)\n    );\n    Set(SelectedPowerPlatformItem,Self.EventRowKey);\n \n    Navigate(\n        ReviewScreen,ScreenTransition.None, { SelectedReviewItem: LookUp(SolutionReviewsCol,RecordKey = Self.EventRowKey).Item, PatternType: LookUp(SolutionReviewsCol,RecordKey = Self.EventRowKey).AppType }\n    );\n    \n)\n\n"
-                                          SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
-                                          Theme: =AppThemeJson
-                                          Visible: =!showLoader
-                                          Width: =Parent.Width
-                                          columns_Items: "=With({\n                // If there is a selection column, we remove the width and the padding\n                availableWidth:Self.Width,\n                padding:32,\n                iconWidth:16,\n                reviewWidth:100,\n                scrollWidth:20\n                },\n                Table(\n                    // Main Columns\n                    {\n                        ColName: \"Icon\",\n                        ColCellType:\"image\",\n                        ColImageColor:\"blue\",\n                        ColVerticalAlign: \"top\",\n                        ColHorizontalAlign: \"center\",\n                         ColWidth:iconWidth,\n                         ColImageWidth: iconWidth\n                    },\n                    {\n                    ColName:\"Review\",\n                    ColPaddingLeft:20, \n                    ColDisplayName:\"\",\n                    ColSortable:false,\n                    ColIsBold:false,\n                    ColWidth:availableWidth-iconWidth-padding-reviewWidth-padding-scrollWidth - 100,\n                    ColRowHeader:false\n                    },\n                    {\n                         ColName:\"Title\", \n                         ColRowHeader:true,ColShowAsSubTextOf:\"Review\",ColSubTextRow:1,\n                         ColHideWhenBlank:true,\n                         ColIsBold:true,\n                 \n                        ColWidth:300,\n                        ColHorizontalAlign:\"right\"\n                    },\n                   /* {ColName: \"AppType\",ColCellType:\"tag\",ColTagColorColumn: \"TagColor\",ColHideWhenBlank:true,                     \n                        ColHorizontalAlign:\"center\",ColShowAsSubTextOf:\"Review\",ColSubTextRow:1},*/\n                   {ColName: \"Score\", ColDisplayName:\"Score\", /*ColCellType:\"tag, */ ColHorizontalAlign:\"left\",ColHideWhenBlank:true, ColWidth:100},\n                   {ColName:\"Action\",ColDisplayName:\"Action\",ColWidth:100,ColCellType:\"link\",ColRowHeader:true,ColHideWhenBlank:true,ColHorizontalAlign:\"center\"}\n                  \n                    \n                )\n            )"
                               - cEmptyState_6:
                                   Control: GroupContainer@1.3.0
                                   Variant: AutoLayout
@@ -553,11 +523,12 @@ Screens:
                                     LayoutAlignItems: =LayoutAlignItems.Center
                                     LayoutDirection: =LayoutDirection.Vertical
                                     LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.Center
                                     RadiusBottomLeft: =0
                                     RadiusBottomRight: =0
                                     RadiusTopLeft: =0
                                     RadiusTopRight: =0
-                                    Visible: =IsEmpty(ListItems)
+                                    Visible: =FluentDetailsList4.TotalRecords = 0
                                     Width: =333
                                     X: =469
                                     Y: =93
@@ -580,58 +551,19 @@ Screens:
                                         Properties:
                                           Align: ='TextCanvas.Align'.Center
                                           AlignInContainer: =AlignInContainer.Center
+                                          AutoHeight: =true
                                           FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
-                                          Height: =36
+                                          Height: =48
                                           PaddingBottom: =0
                                           PaddingLeft: =0
                                           PaddingRight: =0
                                           PaddingTop: =0
                                           Size: =20
-                                          Text: ="Empty state"
+                                          Text: =If(tabForm_3.Selected.ItemDisplayName <> "All", "No " & tabForm_3.Selected.ItemDisplayName & " found", "Solution does not contain any Agent, Power Automate or Power Apps")
                                           Weight: ='TextCanvas.Weight'.Semibold
                                           Width: =250
-                                          Wrap: =false
                                           X: =40
                                           Y: =193
-                                    - lblBody1_EmptyState_6:
-                                        Control: FluentV8/Label@1.6.0
-                                        Properties:
-                                          AlignInContainer: =AlignInContainer.Center
-                                          Alignment: =Align.Center
-                                          AutoHeight: =true
-                                          Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
-                                          FontWeight: =FontWeight.Normal
-                                          Height: =12
-                                          Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
-                                          VerticalAlignment: =VerticalAlign.Middle
-                                          X: =320
-                                          Y: =197
-                                    - Container9_6:
-                                        Control: GroupContainer@1.3.0
-                                        Variant: AutoLayout
-                                        Properties:
-                                          AlignInContainer: =AlignInContainer.Start
-                                          DropShadow: =DropShadow.None
-                                          FillPortions: =0
-                                          Height: =44
-                                          LayoutAlignItems: =LayoutAlignItems.Center
-                                          LayoutDirection: =LayoutDirection.Horizontal
-                                          LayoutGap: =8
-                                          LayoutJustifyContent: =LayoutJustifyContent.Center
-                                          RadiusBottomLeft: =0
-                                          RadiusBottomRight: =0
-                                          RadiusTopLeft: =0
-                                          RadiusTopRight: =0
-                                          Width: =Parent.Width
-                                        Children:
-                                          - btnEmptyActionPrimary_6:
-                                              Control: Button@0.0.44
-                                              Properties:
-                                                Appearance: ='ButtonCanvas.Appearance'.Secondary
-                                                OnSelect: "=UpdateContext({ searchText: \"\" }); "
-                                                Text: ="Action"
-                                                Width: =132
-                                                X: =542
                               - div_15:
                                   Control: Rectangle@2.3.0
                                   Properties:
@@ -664,7 +596,7 @@ Screens:
             Width: =Parent.Width
           Children:
             - Spinner1_6:
-                Control: Spinner@1.4.5
+                Control: Spinner@1.4.6
                 Properties:
                   Height: =Parent.Height
                   Label: ="Generating results"

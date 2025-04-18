@@ -39,6 +39,36 @@
       "Kind": "Page",
       "Name": "App-FlowRelationship",
       "Value": "custompage:cat_appflowrelationship_da5bf"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Prompt Advisor Studio",
+      "Value": "custompage:cat_promptadvisorstudio_6e1ce"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Conversation KPI",
+      "Value": "custompage:cat_conversationkpi_6082b"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Adaptive Cards",
+      "Value": "custompage:cat_adaptivecards_4476e"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Webchat Customizer",
+      "Value": "custompage:cat_webchatcustomizer_48d6e"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Home",
+      "Value": "custompage:cat_home_c8017"
+    },
+    {
+      "Kind": "Page",
+      "Name": "Intelligent Reviewer",
+      "Value": "custompage:cat_intelligentreviewer_8e44c"
     }
   ]
 }

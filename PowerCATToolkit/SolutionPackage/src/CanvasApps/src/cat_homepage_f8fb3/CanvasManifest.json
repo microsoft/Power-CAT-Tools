@@ -14,6 +14,7 @@
     "AppCreationSource": "AppFromConvergedAppDesigner",
     "AppDescription": "",
     "AppPreviewFlagsMap": {
+      "adaptivepaging": false,
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": true,
       "appinsightserrortracing": false,
@@ -122,7 +123,7 @@
     "DocumentType": "Page",
     "EnableInstrumentation": false,
     "FileID": "82d2695b-c00d-46eb-a495-0c6aba334013",
-    "Id": "05c2e0c1-e9bb-43ea-b58b-f16299c3c573",
+    "Id": "7be94099-97d1-4d59-92a0-847112b0a228",
     "ManualOfflineProfileId": "",
     "Name": "Power Platform Review Tool",
     "OriginatingVersion": "1.343",
@@ -149,6 +150,7 @@
     "ReviewItemScreen",
     "DashboardScreen",
     "ArchitectureScreen",
-    "TelemetryScreen"
+    "TelemetryScreen",
+    "Screen1"
   ]
 }

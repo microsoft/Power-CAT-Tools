@@ -2449,14 +2449,14 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil104eus.blob.core.windows.net/ca6c96b4-7058-459f-8e91-bf9bd8f1bad6-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App1000work03lfupsxj.tzj020S0Resources0Controls0PowerCAT.FluentDetailsList.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T18%3A46%3A01Z&ske=2025-02-12T19%3A01%3A01Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T19%3A01%3A01Z&sr=b&sp=r&sig=MBTcKHXjK899Iy7avfb028p7iPKuLeCx4mCbCP3dFlU%3D",
+      "ModifiedPath": "https://docserverpwaprodeus.blob.core.windows.net/05958e92-81c8-429e-8428-cd9a9614cce8-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4hbm5jv.imy020S0Resources0Controls0PowerCAT.FluentDetailsList.bundle.js?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-01-24T09%3A32%3A00Z&ske=2025-01-25T09%3A47%3A00Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-01-25T09%3A47%3A00Z&sr=b&sp=r&sig=jUtBpJv%2FbRY6V7h4zXM8PUqynOALfr7RxlH%2FHJjiUrk%3D",
       "Path": "/PCFControls/cat_PowerCAT.FluentDetailsList/PowerCAT.FluentDetailsList.bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 11,
-      "ModifiedPath": "https://dsprdil104eus.blob.core.windows.net/ca6c96b4-7058-459f-8e91-bf9bd8f1bad6-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App1000work03lfupsxj.tzj020S0Resources0Controls0css%252fPowerCAT.FluentDetailsList.DetailsList.css?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T18%3A46%3A01Z&ske=2025-02-12T19%3A01%3A01Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T19%3A01%3A01Z&sr=b&sp=r&sig=jT6s6VRdioVpHYKPh4QmY9sbB8AyERKL4noyj4G4VxQ%3D",
+      "ModifiedPath": "https://docserverpwaprodeus.blob.core.windows.net/05958e92-81c8-429e-8428-cd9a9614cce8-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4hbm5jv.imy020S0Resources0Controls0css%252fPowerCAT.FluentDetailsList.DetailsList.css?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-01-24T09%3A32%3A00Z&ske=2025-01-25T09%3A47%3A00Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-01-25T09%3A47%3A00Z&sr=b&sp=r&sig=JB9qr3SS8A96pYpPPxsK6ep%2F6KUDjdN9wL9Z4bjaW3g%3D",
       "Path": "/PCFControls/cat_PowerCAT.FluentDetailsList/css/PowerCAT.FluentDetailsList.DetailsList.css",
       "Type": 1
     },
@@ -2470,7 +2470,7 @@
     {
       "IsControlSpecific": true,
       "LoadingOrder": 14,
-      "ModifiedPath": "https://dsprdil104eus.blob.core.windows.net/ca6c96b4-7058-459f-8e91-bf9bd8f1bad6-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App1000work03lfupsxj.tzj020S0Resources0Controls0strings%252fPowerCAT.FluentDetailsList.DetailsList.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-02-11T18%3A46%3A01Z&ske=2025-02-12T19%3A01%3A01Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-02-12T19%3A01%3A01Z&sr=b&sp=r&sig=jkqnauCOG%2FBYsJ9pifKu7Jr%2FY%2BEKbxQcvsfKt%2BXN6RM%3D",
+      "ModifiedPath": "https://docserverpwaprodeus.blob.core.windows.net/05958e92-81c8-429e-8428-cd9a9614cce8-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0d4hbm5jv.imy020S0Resources0Controls0strings%252fPowerCAT.FluentDetailsList.DetailsList.1033.json?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2025-01-24T09%3A32%3A00Z&ske=2025-01-25T09%3A47%3A00Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2025-01-25T09%3A47%3A00Z&sr=b&sp=r&sig=CJYYQ3YrMEQh4F%2FSdKepldt%2BJStHmb4k4djaN%2BLoPpA%3D",
       "Path": "/PCFControls/cat_PowerCAT.FluentDetailsList/strings/PowerCAT.FluentDetailsList.DetailsList.1033.json",
       "Type": 5
     },

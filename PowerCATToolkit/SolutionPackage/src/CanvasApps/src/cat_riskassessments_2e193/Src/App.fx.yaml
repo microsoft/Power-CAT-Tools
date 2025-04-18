@@ -112,23 +112,28 @@ App As appinfo:
         ChartThemeRiskForRoles = [
             {
                 status: Text('Assessed Risk Level (Risk Assessments)'.Critical),
-                color: "#C50F1F"
+                color: "#D83A00"//"#C50F1F"
+        
             },
             {
                 status: Text('Assessed Risk Level (Risk Assessments)'.High),
-                color: "#F7630C"
+                color: "#FF9349"//"#F7630C"
+        
             },
             {
                 status: Text('Assessed Risk Level (Risk Assessments)'.Moderate),
-                color: "#EDAD1C"
+                color: "#FFBA01"//"#EDAD1C"
+        
             },
             {
                 status: Text('Assessed Risk Level (Risk Assessments)'.Low),
-                color: "#FDE300"
+                color: "#029DCC"//"#FDE300"
+        
             },
             {
                 status: Text('Assessed Risk Level (Risk Assessments)'.'No Risk'),
-                color: "#888888"
+                color: "#18AB58"//"#888888"
+        
             },
             {
                 status: DVAssessmentPageLoc.notScannedText,
@@ -225,11 +230,18 @@ App As appinfo:
         );
         // Formula for fetching custom roles
         RetrieveAssessableSecurityRoles = Sort(
-            Filter(
-                'Security Roles',
-                State = 'Is Component Managed'.Unmanaged && !IsBlank('Created By') && 'Created By'.'Full Name' <> "SYSTEM" && IsBlank('Parent Role')
+            ForAll(
+                AllCustomSecurityRoles As role,
+                {
+                    roleid: GUID(role.Value.roleid),
+                    name: Text(role.Value.name),
+                    modifiedon: DateTimeValue(
+                        role.Value.modifiedon,
+                        "en"
+                    )
+                }
             ),
-            Name,
+            name,
             SortOrder.Ascending
         );
         // Formula for fetching all the assessments which are in Needs Review status
@@ -536,7 +548,7 @@ App As appinfo:
         // Formula for holding all the risk assesments fetching directly from datasource
         AllRiskAssessmentsFromDataverse = 'Risk Assessments';
         // Formula for holding all the risk assesment settings by creating a risk configuration array object
-        BaseLineSettingsListForRoles = ForAll(
+        /*BaseLineSettingsListForRoles = ForAll(
             Sort(
                 'Risk Assessment Settings',
                 'Created On',
@@ -619,7 +631,7 @@ App As appinfo:
                     }
                 ]
             }
-        );
+        );*/
         // Selected Role Assessment Related Privileges
         SelectedAssessmentRolePrivileges = AddColumns(
             Sort(
@@ -662,7 +674,12 @@ App As appinfo:
                             Text(ThisRecord.Value.table),
                             ""
                         ),
-                        RecommendedLevelFromJson: Text(ThisRecord.Value.recommendedLevel)
+                        RecommendedLevelFromJson: Text(ThisRecord.Value.recommendedLevel),
+                        TagColor: Text(ThisRecord.Value.tagColor),
+                        Table: Text(ThisRecord.Value.Table),
+                        PrivilegeDisplayName: Text(ThisRecord.Value.privilegeDisplayName),
+                        Type: Text(ThisRecord.Value.type),
+                        PrivilegeComplianceStatus: Text(ThisRecord.Value.privilegeComplianceStatus)
                     }
                 ),
                 risk,
@@ -679,19 +696,27 @@ App As appinfo:
                 key = Text(selectedRole.risk)
             ).Severity,
             NewSeverityTagColor,
-            LookUp(
-                ChartThemeRiskForRoles,
-                status = Text(
-                    LookUp(
-                        col_PrivilegesSeverityRisk,
-                        key = Text(selectedRole.risk)
-                    ).Severity
-                )
-            ).color,
+            If(
+                IsBlankOrError(selectedRole.TagColor),
+                LookUp(
+                    ChartThemeRiskForRoles,
+                    status = Text(
+                        LookUp(
+                            col_PrivilegesSeverityRisk,
+                            key = Text(selectedRole.risk)
+                        ).Severity
+                    )
+                ).color,
+                Text(selectedRole.TagColor)
+            ),
             RecommendedLevel,
             selectedRole.RecommendedLevelFromJson,
             RolePrivilegeName,
-            selectedRole.securityPrivilegeName & " " & selectedRole.table,
+            If(
+                IsBlankOrError(selectedRole.PrivilegeDisplayName),
+                selectedRole.securityPrivilegeName & " " & selectedRole.table,
+                selectedRole.PrivilegeDisplayName
+            ),
             RecordSelected,
             false
         );
@@ -838,21 +863,21 @@ App As appinfo:
                 IsBlankOrError(
                     LookUp(
                         'Risk Assessments',
-                        'Security Role'.Role = role.Role
+                        'Security Role'.Role = role.roleid
                     )
                 ),
                 {
-                    RoleId: role.Role,
-                    RoleName: role.Name,
+                    RoleId: role.roleid,
+                    RoleName: role.name,
                     ModifiedOn: If(
                         DateDiff(
-                            role.'Modified On',
+                            role.modifiedon,
                             Now(),
                             TimeUnit.Days
                         ) < 0,
                         0,
                         DateDiff(
-                            role.'Modified On',
+                            role.modifiedon,
                             Now(),
                             TimeUnit.Days
                         )
@@ -861,37 +886,50 @@ App As appinfo:
             )
         );
         isNoRolesScreenVisible = If(
-            CountRows(
-                Filter(
-                    'Security Roles',
-                    State = 'Is Component Managed'.Unmanaged && !IsBlank('Created By') && 'Created By'.'Full Name' <> "SYSTEM" && IsBlank('Parent Role')
-                )
-            ) > 0,
+            !IsEmpty(RetrieveAssessableSecurityRoles),
             false,
             true
         );
-        NotAssessedStatusChartData = If(
-            CountRows(
-                Filter(
-                    UnScannedCustomRoles,
-                    RoleName <> Blank()
-                )
-            ) > 0,
-            Table(
-                {
-                    ItemLegend: Text(DVAssessmentPageLoc.notAssessedText),
-                    ItemValue: CountRows(
-                        Filter(
-                            UnScannedCustomRoles,
-                            RoleName <> Blank()
+        NotScannedCustomRoles = If(
+            !IsEmpty(RetrieveAssessableSecurityRoles),
+            ForAll(
+                RetrieveAssessableSecurityRoles As role,
+                If(
+                    IsBlankOrError(
+                        LookUp(
+                            'Risk Assessments',
+                            'Security Role'.Role = role.roleid
                         )
                     ),
-                    ItemColor: LookUp(
-                        DoNutChartTheme,
-                        status = Text(DVAssessmentPageLoc.notStartedText)//Not Assessed Color Code
+                    {RoleName: role.name}
+                )
+            )
+        );
+        NotAssessedStatusChartData = If(
+            !IsEmpty(NotScannedCustomRoles),
+            If(
+                CountRows(
+                    Filter(
+                        NotScannedCustomRoles,
+                        RoleName <> Blank()
+                    )
+                ) > 0,
+                Table(
+                    {
+                        ItemLegend: Text(DVAssessmentPageLoc.notAssessedText),
+                        ItemValue: CountRows(
+                            Filter(
+                                NotScannedCustomRoles,
+                                RoleName <> Blank()
+                            )
+                        ),
+                        ItemColor: LookUp(
+                            DoNutChartTheme,
+                            status = Text(DVAssessmentPageLoc.notStartedText)//Not Assessed Color Code
         
-                    ).color
-                }
+                        ).color
+                    }
+                )
             )
         );
         latestAssessmentForaRole = FirstN(
@@ -1012,6 +1050,61 @@ App As appinfo:
             "",
             Text(BatchStatusEnvVarValue.ErrorMessage)
         );
+        PrivilegesNames = [
+            "Create",
+            "Read",
+            "Write",
+            "Delete",
+            "Assign",
+            "Share",
+            "Append",
+            "AppendTo"
+        ];
+        ActivePrivilegeRiskBaselinesRelatedToAProfile = If(
+            dropDownStatusForEditSettings.Key = 0,
+            If(
+                IsBlankOrError(txtBaselinePrivilegesRatings.Value),
+                Filter(
+                    'Privilege Risk Baselines',
+                    'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                    'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting'
+                ),
+                Filter(
+                    'Privilege Risk Baselines',
+                    'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                    'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting',
+                    (StartsWith(
+                        Table,
+                        txtBaselinePrivilegesRatings.Value
+                    ) || StartsWith(
+                        Name,
+                        txtBaselinePrivilegesRatings.Value
+                    ))
+                )
+            ),
+            If(
+                IsBlankOrError(txtBaselinePrivilegesRatings.Value),
+                Filter(
+                    'Privilege Risk Baselines',
+                    'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                    'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting',
+                    Table = dropDownStatusForEditSettings.TableName
+                ),
+                Filter(
+                    'Privilege Risk Baselines',
+                    'Privilege Risk Baselines (Views)'.'Active Privilege Risk Baselines',
+                    'Risk Assessment Setting'.'Risk Assessment Setting' = currentSelectedAssessmentSetting.'Risk Assessment Setting',
+                    Table = dropDownStatusForEditSettings.TableName,
+                    (StartsWith(
+                        Table,
+                        txtBaselinePrivilegesRatings.Value
+                    ) || StartsWith(
+                        Name,
+                        txtBaselinePrivilegesRatings.Value
+                    ))
+                )
+            )
+        );
         /*End*/
         
         /* Navigation */ // Need LOC
@@ -1049,6 +1142,16 @@ App As appinfo:
             ),
             Contextmenu,
             ""
+        );
+        isLoggedInUserSysAdmin = !IsBlankOrError(
+            LookUp(
+                LookUp(
+                    Users,
+                    'Primary Email' = User().Email
+                ).'Security Roles (systemuserroles_association)'.Name,
+                Name = "System Administrator"//DVAssessmentPageLoc.systemAdminRoleName
+        
+            ).Name
         );
         /* Do not edit below */
         
@@ -1357,10 +1460,14 @@ App As appinfo:
                 JSONFormat.IndentFour
             )
         );*/
-        Set(
+        ClearCollect(
+            AllCustomSecurityRoles,
+            Environment.cat_RetrieveCustomRolesApi().value
+        );
+        /*Set(
             triggerRetrieveRolePrivileges,
             false
-        );
+        );*/
         Set(
             triggerGetOrgURLApi,
             false
@@ -1402,13 +1509,20 @@ App As appinfo:
                 CountRows(
                     Filter(
                         'Risk Assessments',
-                        'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant
+                        'Status Reason' = 'Status Reason (Risk Assessments)'.Compliant && 'Is Archived' = 'Is Archived (Risk Assessments)'.No
                     )
-                ) = CountRows(RetrieveAssessableSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')
+                ) = CountRows(AllCustomSecurityRoles) && !IsEmpty('Risk Assessments'.'Risk Assessment')
             ),
             Set(
                 CountOfCustomSecurityRoles,
-                CountRows(RetrieveAssessableSecurityRoles)
+                CountRows(AllCustomSecurityRoles)
+            ),
+            Set(
+                dropDownStatusForEditSettings,
+                {
+                    Key: 0,
+                    TableName: "All"
+                }
             ),
             Set(
                 spinnerForStatusChart,
@@ -1477,20 +1591,24 @@ App As appinfo:
                 AssessmentsTabList
             ),
             Set(
-                isLoggedInUserSysAdmin,
-                !IsBlankOrError(
-                    LookUp(
-                        LookUp(
-                            Users,
-                            'Primary Email' = User().Email
-                        ).'Security Roles (systemuserroles_association)'.Name,
-                        Name = "System Administrator"//DVAssessmentPageLoc.systemAdminRoleName
-                    ).Name
+                isCountOfRolesValidated,
+                true
+            ),
+            Set(
+                triggerRetrieveEntityDefinitions,
+                false
+            ),
+            Set(
+                currentSelectedAssessmentSetting,
+                If(
+                    IsBlankOrError(DefaultRiskAssessmentSetting),
+                    Blank(),
+                    DefaultRiskAssessmentSetting
                 )
             ),
             Set(
-                isCountOfRolesValidated,
-                true
+                triggerRetrieveMiscellaneousPrivileges,
+                false
             );
             
         );

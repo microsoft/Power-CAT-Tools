@@ -43,14 +43,14 @@ SolutionScreen As screen:
                                 Item:ThisRecord,
                                 Review: ThisRecord.displayName,
                                 Action: "Review",
-                                Score: Round(ThisRecord.score / CountRows(ThisRecord.result) * 100,0) & "%",
+                                Score: ThisRecord.score,//Round(ThisRecord.score / CountRows(ThisRecord.result) * 100,0) & "%",
                                 AppType: "Agents"
                             }
                         )
                 );
             );
             
-            If(!IsEmpty(Self.ReviewResults.PowerApps.items),
+            If(!IsEmpty(Self.ReviewResults.PowerApps.items) && !optimizeForAgent,
                 // Power Apps
                 Collect(
                     SolutionReviewsCol,
@@ -77,7 +77,7 @@ SolutionScreen As screen:
                                 Item:ThisRecord,
                                 Review: ThisRecord.name,
                                 Action: "Review",
-                                Score: Round(ThisRecord.score / CountRows(ThisRecord.result) * 100, 0) & "%",
+                                Score: ThisRecord.score,//Round(ThisRecord.score / CountRows(ThisRecord.result) * 100, 0) & "%",
                                 AppType: "Canvas"
                             }
                         )
@@ -111,7 +111,7 @@ SolutionScreen As screen:
                                 Item:ThisRecord,
                                 Review: ThisRecord.displayName,
                                 Action: "Review",
-                                Score:Round(ThisRecord.score / CountRows(ThisRecord.result) * 100, 0) & "%",
+                                Score:ThisRecord.score,//Round(ThisRecord.score / CountRows(ThisRecord.result) * 100, 0) & "%",
                                 AppType: "PowerAutomate"
                             }
                         )
@@ -219,7 +219,7 @@ SolutionScreen As screen:
                 LayoutMinHeight: =32
                 LayoutMinWidth: =96
                 Size: =18
-                Text: ="Power Platform Review Tool"
+                Text: =If(optimizeForAgent, "Agent Review Tool",  "Power Platform Review Tool")
                 Visible: =true
                 Weight: ='TextCanvas.Weight'.Semibold
                 Width: =270
@@ -546,8 +546,7 @@ SolutionScreen As screen:
                     AlignInContainer: =AlignInContainer.Stretch
                     DisplayMode: =DisplayMode.Edit
                     Height: =38
-                    Items: |-
-                        =[{ItemKey:"All", ItemDisplayName:"All"},{ItemKey:"Agents", ItemDisplayName:"Agents"},{ItemKey:"Canvas", ItemDisplayName:"Power Apps"}, {ItemKey:"PowerAutomate", ItemDisplayName:"Power Automate"}]
+                    Items: =TabItems
                     LayoutMinHeight: =55
                     LayoutMinWidth: =280
                     Size: ='TabList.Size'.Small
@@ -697,7 +696,7 @@ SolutionScreen As screen:
                         PaddingRight: =16
                         ZIndex: =4
 
-                        "FluentDetailsList4 As 'Fluent Details List (1.1.39)'.pcfdataset":
+                        "FluentDetailsList4 As 'Fluent Details List (1.1.41)'.pcfdataset":
                             AlignInContainer: =AlignInContainer.Stretch
                             columns_Items: |-
                                 =With({
@@ -861,10 +860,11 @@ SolutionScreen As screen:
                         LayoutAlignItems: =LayoutAlignItems.Center
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutGap: =8
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        Visible: =IsEmpty(ListItems)
+                        Visible: =FluentDetailsList4.TotalRecords = 0
                         Width: =333
                         X: =469
                         Y: =93
@@ -886,11 +886,12 @@ SolutionScreen As screen:
                         txtSubtitle1_EmptyState_6 As Text:
                             Align: ='TextCanvas.Align'.Center
                             AlignInContainer: =AlignInContainer.Center
+                            AutoHeight: =true
                             BorderColor: =
                             DisplayMode: =DisplayMode.Edit
                             Fill: =
                             FontColor: =ColorValue(AppTheme.palette.neutralPrimary)
-                            Height: =36
+                            Height: =48
                             LayoutMinHeight: =32
                             LayoutMinWidth: =96
                             PaddingBottom: =0
@@ -898,62 +899,13 @@ SolutionScreen As screen:
                             PaddingRight: =0
                             PaddingTop: =0
                             Size: =20
-                            Text: ="Empty state"
+                            Text: =If(tabForm_3.Selected.ItemDisplayName <> "All", "No " & tabForm_3.Selected.ItemDisplayName & " found", "Solution does not contain any Agent, Power Automate or Power Apps")
                             Weight: ='TextCanvas.Weight'.Semibold
                             Width: =250
-                            Wrap: =false
+                            Wrap: =true
                             X: =40
                             Y: =193
                             ZIndex: =2
-
-                        lblBody1_EmptyState_6 As Label:
-                            AlignInContainer: =AlignInContainer.Center
-                            Alignment: =Align.Center
-                            AutoHeight: =true
-                            Color: =ColorValue(AppTheme.palette.neutralPrimaryAlt)
-                            DisplayMode: =DisplayMode.Edit
-                            FontSize: =10.5
-                            FontWeight: =FontWeight.Normal
-                            Height: =12
-                            LayoutMinHeight: =32
-                            LayoutMinWidth: =320
-                            OnChange: =false
-                            Text: ="Try adjusting the filters or refining with simpler keywords for a broader search."
-                            VerticalAlignment: =VerticalAlign.Middle
-                            Width: =320
-                            X: =320
-                            Y: =197
-                            ZIndex: =3
-
-                        Container9_6 As groupContainer.horizontalAutoLayoutContainer:
-                            AlignInContainer: =AlignInContainer.Start
-                            FillPortions: =0
-                            Height: =44
-                            LayoutAlignItems: =LayoutAlignItems.Center
-                            LayoutGap: =8
-                            LayoutJustifyContent: =LayoutJustifyContent.Center
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            Width: =Parent.Width
-                            ZIndex: =4
-
-                            btnEmptyActionPrimary_6 As Button:
-                                Appearance: ='ButtonCanvas.Appearance'.Secondary
-                                BasePaletteColor: =
-                                BorderColor: =
-                                DisplayMode: =DisplayMode.Edit
-                                FontColor: =
-                                Height: =32
-                                LayoutMinHeight: =32
-                                LayoutMinWidth: =96
-                                OnSelect: |-
-                                    =UpdateContext({ searchText: "" }); 
-                                Text: ="Action"
-                                Width: =132
-                                X: =542
-                                Y: =0
-                                ZIndex: =1
 
                     div_15 As rectangle:
                         AlignInContainer: =AlignStart

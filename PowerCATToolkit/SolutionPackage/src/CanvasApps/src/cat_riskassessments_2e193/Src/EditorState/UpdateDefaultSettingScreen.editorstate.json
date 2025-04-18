@@ -139,11 +139,18 @@
       ],
       "DynamicProperties": [
         {
-          "ControlPropertyState": "FillPortions",
+          "ControlPropertyState": {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "0",
+            "InvariantPropertyName": "FillPortions",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
+          },
           "Property": {
             "Category": "Design",
             "PropertyName": "FillPortions",
-            "RuleProviderType": "Unknown"
+            "RuleProviderType": "User"
           },
           "PropertyName": "FillPortions"
         },
@@ -673,7 +680,14 @@
     "btnEmptyActionPrimary_7": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "UpdateContext({ searchText: \"\" }); ",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Appearance",
         "Text",
         "Width",
@@ -681,7 +695,15 @@
         "ZIndex",
         "Y",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -746,6 +768,11 @@
           "RuleProviderType": "Unknown"
         },
         {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
           "Category": "Design",
           "PropertyName": "Width",
           "RuleProviderType": "Unknown"
@@ -778,7 +805,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnSelect",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "",
@@ -981,7 +1008,15 @@
         "X",
         "Y",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -1054,6 +1089,11 @@
           "Category": "Data",
           "PropertyName": "Text",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -4682,7 +4722,11 @@
         "ZIndex",
         "Width",
         "DisplayMode",
-        "OnChange"
+        "OnChange",
+        "AcceptsFocus",
+        "Italic",
+        "Underline",
+        "Strikethrough"
       ],
       "DynamicProperties": [
         {
@@ -4764,6 +4808,26 @@
         {
           "Category": "Data",
           "PropertyName": "VerticalAlignment",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Italic",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Strikethrough",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Underline",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AcceptsFocus",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5896,6 +5960,14 @@
           "InvariantPropertyName": "LabelPosition",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "DynamicProperties": [
@@ -5964,6 +6036,11 @@
           "Category": "Data",
           "PropertyName": "LabelPosition",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -6092,7 +6169,15 @@
         "Y",
         "Width",
         "Height",
-        "DisplayMode"
+        "DisplayMode",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "AccessibleLabel",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -6155,6 +6240,11 @@
           "Category": "Data",
           "PropertyName": "Items",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "AccessibleLabel",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
