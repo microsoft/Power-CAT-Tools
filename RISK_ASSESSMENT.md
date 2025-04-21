@@ -44,8 +44,7 @@ To begin using the Risk Assessment tool:
  
 > 💡 **Tip**
 > 
-> App makers and owners can create their own security roles in development environments where they are system admins, and the admin of a shared pre-preoduction or production environment can import solutions with roles for them. Or, in a shared development environment, a special security role can be configured for app owners that can create or modify security roles at the user access level.
-
+> App makers and owners can create their own security roles in development environments where they are system admins, and the admin of a shared preproduction or production environment can import solutions with roles for them. Or, in a shared development environment, a special security role can be configured for app owners that can create or modify security roles at the user access level.
 ## Configuring risk settings
 
 Risk settings, also known as the **risk baseline**, are the foundation of the assessment engine. They define what combinations of privileges and access scopes are considered acceptable or risky within your organization’s context. This is where you define your own threat tolerance.
