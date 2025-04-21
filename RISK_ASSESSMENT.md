@@ -1,16 +1,16 @@
 # 🔐 Automated risk assessment compliance scanning
 
-The **Risk Assessment** feature in Power CAT Tools helps organizations evaluate and mitigate potential security risks associated with custom security roles in Microsoft Dataverse. By scanning roles against defined risk policies, it ensures that solutions comply with your organization's security standards—such as the principle of least privilege—and reduces the chances of over-permissioned roles making their way into production environments.
+The **security risk assessment** feature in Power CAT Tools helps organizations evaluate and mitigate potential security risks associated with custom security roles in Microsoft Dataverse. By scanning roles against defined risk policies, it ensures that solutions comply with your organization's security standards—such as the principle of least privilege—and reduces the chances of over-permissioned roles making their way into production environments.
 
 ## Key Features
 
-- **Automated Scanning**  
+- **Automated scanning**  
   Automatically detects and evaluates changes to security roles, minimizing the need for manual reviews.
 
-- **Noncompliance Alerts**  
-  Notifies you when roles exceed defined risk tolerance levels.
+- **Noncompliance monitoring**  
+  Easily displays when roles exceed defined risk tolerance levels.
 
-- **Customizable Risk Settings**  
+- **Customizable risk settings**  
   Administrators can define what combinations of privileges and access scopes are acceptable, critical, or high risk.
 
 ## Getting Started
@@ -24,22 +24,27 @@ To begin using the Risk Assessment tool:
    Define what levels of privilege (e.g., Read, Write, Delete) and scope (e.g., Global, Business Unit, User) are allowed and assign risk levels to combinations.
 
 3. **Enable Scanning**  
-   - **Auto-Scan**: Evaluates roles in real-time as they are created or updated.  
-   - **Manual Scan**: Available for ad-hoc role reviews or batch assessments.
+   - **Auto-scan**: Evaluates roles in real-time as they are created or updated.  
+   - **Manual scan**: Available for ad-hoc role reviews or batch assessments.
 
-4. **Train Key Users**  
+4. **Train key users**  
    Ensure app makers and environment admins understand how to interpret scan results and resolve noncompliance.
 
-## User Roles and Responsibilities
+## User roles and responsibilities
 
-- **App Makers & Owners**  
-  - Create solutions and assign security roles.  
+- **App makers & owners**  
+  - Create solutions with tables and security roles.
   - Respond to risk alerts by adjusting roles or requesting exceptions.
 
-- **Environment Administrators**  
-  - Define risk settings and update them as needed.  
-  - Review flagged roles and approve exceptions if business-justified.  
+- **Environment administrators**  
+  - Define risk settings and update them as needed.
+  - Assigns security roles.
+  - Review flagged roles and approve exceptions if business-justified.
   - Maintain scanning configurations across environments.
+ 
+> 💡 **Tip**
+> 
+> App makers and owners can create their own security roles in development environments where they are system admins, and the admin of a shared pre-preoduction or production environment can import solutions with roles for them. Or, in a shared development environment, a special security role can be configured for app owners that can create or modify security roles at the user access level.
 
 ## Configuring risk settings
 
@@ -60,31 +65,33 @@ Each privilege is assessed in conjunction with its **access scope**, which can b
 
 You can assign a **risk level** to each privilege/scope pair:
 
-- ✅ No Risk  
-- 🔵 Low Risk  
-- 🟡 Medium Risk  
-- 🟠 High Risk  
-- 🚨 Critical Risk
+- ✅ **No Risk**: Fully compliant. Role fits your defined security policies exactly.
+- 🔵 **Low Risk**: Minor deviations from policy; may be acceptable in some cases. 
+- 🟡 **Moderate Risk**: Moderate but concerning issues, such as elevated privileges in a scoped area.
+- 🟠 **High Risk**: The role includes multiple violations or a particularly dangerous permission.
+- 🚨 **Critical Risk**: Role contains excessive privileges or scopes far beyond acceptable levels.
 
-### Example Use Cases
+> ℹ️ **Information**
+>
+> Only roles assessed as "No Risk" are considered compliant in the interface. All higher levels are considered 'noncompliant' and will result in an overall assessment status that "Needs Review".
 
-| Privilege                         | Scope   | Assigned Risk |
+
+### Example use cases
+
+| Privilege                        | Scope   | Assigned Risk |
 |----------------------------------|---------|---------------|
 | Read on `account`                | Global  | Medium Risk   |
-| Delete on `contact`             | Local   | High Risk     |
+| Delete on `contact`              | Local   | High Risk     |
 | Bulk Delete (misc privilege)     | Global  | Critical Risk |
 | Assign on `custom_project`       | Basic   | Low Risk      |
 
-### Multiple Baselines
+### Multiple baselines
 
 You can create and maintain multiple risk baselines to reflect different risk tolerances for different scenarios. For example, management or elevated privileges, internal vs external (portals), and so on.
 
-Environment admins can switch which baselines are the default profile as needed.
-Here’s an expanded and clearer version of the **“Assessment Scans”** section with an added status table that explains each stage and recommended actions:
+Environment admins can switch which baselines are the default profile as needed. Once a role has been scanned once, it can be assigned to a different baseline for all future scans.
 
----
-
-## Assessment Scans
+## Assessment scans
 
 Once you’ve configured your risk settings (baseline), you can perform **assessment scans** on security roles within an environment. These scans compare each role’s privileges and scopes against your risk baseline and flag any discrepancies that could pose a risk to your business.
 
@@ -94,7 +101,7 @@ Assessment scans help you:
 - **Quickly identify roles** with excessive or out-of-scope privileges.
 - Drive **remediation planning** by pinpointing exact risk factors.
 
-### How It Works
+### How it works
 
 1. **Load Roles**: The tool fetches all security roles from the selected environment.
 2. **Compare Privileges**: For each role, it cross-references all privileges (including both table-level and non-table capabilities) with your configured risk baseline.
@@ -110,39 +117,17 @@ Each scan and each role receives a **status** to help you track progress and nex
 
 | Status              | Description                                                                 | What to Do                                                                 |
 |---------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| `Not Started`       | The scan hasn’t been initiated yet.                                          | Click **Scan Roles** to start the risk assessment.                         |
+| `Not Assessed`      | The scan hasn’t been initiated yet.                                          | Click **Scan Roles** to start the risk assessment.                         |
 | `In Progress`       | The scan is currently running.                                               | Wait for it to complete. No action needed.                                 |
-| `Completed`         | The scan is done, and results are available.                                 | Review roles flagged with high or critical risks.                          |
-| `Out of Date`       | The scan results are no longer valid because the baseline or roles changed.  | Re-run the scan to get updated results.                                    |
-| `Missing Baseline`  | No risk baseline is configured, so no scan can be run.                       | Go to **Configure Risk Settings** and set up a baseline first.             |
-| `Partial Results`   | Some roles were scanned, but others encountered errors or were skipped.      | Review scan logs and consider re-running for the affected roles.           |
+| `Needs review`      | The scan is done, results are available, and the role is not compliant.      | Review roles flagged with high or critical risks.                          |
+| `Stale`             | The scan results are no longer valid because the baseline or roles changed.  | Re-run the scan to get updated results.                                    |
+| `Compliant`         | The scan is done, results are available and the role is compliant.           | No further action needed. If auto scan is off, scan the role at regular intervals. |
 
 ### Tips
 
 - Always ensure you have the **latest baseline configured** before scanning.
 - Use **filters and sort** on the results page to focus on roles with **Critical** or **High** risk items first.
 - Export the scan report for compliance documentation or internal security reviews.
-
-## Understanding Risk Levels
-
-The tool assigns one of the following levels to each role based on how its privileges align with your configured risk settings:
-
-- **Critical Risk**  
-  Role contains excessive privileges or scopes far beyond acceptable levels.
-
-- **High Risk**  
-  The role includes multiple violations or a particularly dangerous permission.
-
-- **Medium Risk**  
-  Moderate but concerning issues, such as elevated privileges in a scoped area.
-
-- **Low Risk**  
-  Minor deviations from policy; may be acceptable in some cases.
-
-- **No Risk**  
-  Fully compliant. Role fits your defined security policies exactly.
-
-ℹ️ **Only roles assessed as "No Risk" are considered compliant and ready for production.**
 
 ## Integrating Risk Assessment into the App Lifecycle
 
