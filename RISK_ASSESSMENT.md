@@ -1,42 +1,157 @@
-# Enhance security with automated role compliance checks
+# 🔐 Automated risk assessment compliance scanning
 
-Risk assessments help identify potential weaknesses in a system before they happen, like who can access important business data and what they can do with it. They are a great tool for helping Power Platform makers and admins protect sensitive business data and mitigate issues like unauthorized access or data breaches, keeping the system safe.
-Strengthen your organization's security with the risk assessment tool to monitor and evaluate custom roles in Microsoft Dataverse, the underlying security model for most Power Platform products. Ensure roles meet baseline access levels, customizable to reflect your organization’s definition of secure.
+The **security risk assessment** feature in Power CAT Tools helps organizations evaluate and mitigate potential security risks associated with custom security roles in Microsoft Dataverse. By scanning roles against defined risk policies, it ensures that solutions comply with your organization's security standards—such as the principle of least privilege—and reduces the chances of over-permissioned roles making their way into production environments.
 
-### Key features
-1.	Automated scanning: Monitors all custom security roles for changes to minimize need for manual audits.
-2.	Noncompliance flagging: Identifies roles that do not meet baseline policies.
-3.	Customize risk tolerance: Allows tailoring of security settings to specific business needs.
+## Key Features
 
-## Incorporating risk assessment into the Power Platform application lifecycle
+- **Automated scanning**  
+  Automatically detects and evaluates changes to security roles, minimizing the need for manual reviews.
 
-The purpose of following overview is to outline the application lifecycle process including the integration of Security Roles Risk Assessment to ensure compliance and prevent noncompliant solutions from being deployed to production.
+- **Noncompliance monitoring**  
+  Easily displays when roles exceed defined risk tolerance levels.
 
-### Application Lifecycle Process
+- **Customizable risk settings**  
+  Administrators can define what combinations of privileges and access scopes are acceptable, critical, or high risk.
 
-The application lifecycle process involves several stages, starting from development, moving through testing, and finally reaching deployment. This process ensures that applications are built, tested, and deployed in a structured and secure manner.
+## Getting Started
 
-### Security Roles Risk Assessment
+To begin using the Risk Assessment tool:
 
-The Security Roles Risk Assessment can be incorporated into development workstreams as a crucial part of this lifecycle. It involves dynamic analysis and risk assessment recommendations to streamline role management. The tool helps makers ensure that they are building the right security constructs into their solutions. It provides a comprehensive view of security roles' impact, promoting proactive and informed decision-making in access control and user provisioning.
+1. **Install Power CAT Tools**  
+   Deploy the solution to the desired Dataverse environment.
 
-### Scenario for makers
+2. **Configure Risk Settings**  
+   Define what levels of privilege (e.g., Read, Write, Delete) and scope (e.g., Global, Business Unit, User) are allowed and assign risk levels to combinations.
 
-In a typical scenario, makers develop their solutions in a separate environment. When a solution is ready to be shipped, it is brought to a deployment team for review. This team then imports the solution into a preproduction environment for further validation.
+3. **Enable Scanning**  
+   - **Auto-scan**: Evaluates roles in real-time as they are created or updated.  
+   - **Manual scan**: Available for ad-hoc role reviews or batch assessments.
 
-### Preproduction Environment
+4. **Train key users**  
+   Ensure app makers and environment admins understand how to interpret scan results and resolve noncompliance.
 
-The preproduction environment plays a critical role in validating the solution's security roles. It allows for the assessment of security roles against predefined risk assessment settings. For instance, if a security role grants critical privileges like creating or deleting accounts at an organization level, it is flagged for review. The risk assessment tool evaluates these roles and provides a compliance status.
+## User roles and responsibilities
 
-### Validation Blocker
+- **App makers & owners**  
+  - Create solutions with tables and security roles.
+  - Respond to risk alerts by adjusting roles or requesting exceptions.
 
-If the risk assessment identifies any level of noncompliance, it acts as a validation blocker, preventing the solution from being deployed to production. This ensures that only compliant solutions, which adhere to the principle of least privilege and other security guidelines, are moved to the production environment.
+- **Environment administrators**  
+  - Define risk settings and update them as needed.
+  - Assigns security roles.
+  - Review flagged roles and approve exceptions if business-justified.
+  - Maintain scanning configurations across environments.
+ 
+> 💡 **Tip**
+> 
+> App makers and owners can create their own security roles in development environments where they are system admins, and the admin of a shared preproduction or production environment can import solutions with roles for them. Or, in a shared development environment, a special security role can be configured for app owners that can create or modify security roles at the user access level.
+## Configuring risk settings
 
-By incorporating these steps, the application lifecycle process ensures that security roles are properly managed and validated, reducing the risk of security breaches and ensuring compliance with organizational policies.
+Risk settings, also known as the **risk baseline**, are the foundation of the assessment engine. They define what combinations of privileges and access scopes are considered acceptable or risky within your organization’s context. This is where you define your own threat tolerance.
 
-### Mermaid Flowchart
+A **risk baseline** covers **all types of privileges**, including:
 
-Here is a mermaid flowchart demonstrating the application lifecycle process with a boolean split for the risk assessment process:
+- **Table-level privileges**: Create, Read, Write, Delete, Append, Append To, Assign, Share (e.g., on `account`, `contact`, `custom tables`).
+- **Non-table (miscellaneous) privileges**: Platform-wide capabilities like "Bulk Delete", "Manage User Roles", "Publish Customizations", etc.
+
+Each privilege is assessed in conjunction with its **access scope**, which can be:
+
+- **Global** (organization-wide)
+- **Deep** (parent-child business unit)
+- **Local** (single business unit)
+- **Basic** (user-level)
+- **None**
+
+You can assign a **risk level** to each privilege/scope pair:
+
+- ✅ **No Risk**: Fully compliant. Role fits your defined security policies exactly.
+- 🔵 **Low Risk**: Minor deviations from policy; may be acceptable in some cases. 
+- 🟡 **Moderate Risk**: Moderate but concerning issues, such as elevated privileges in a scoped area.
+- 🟠 **High Risk**: The role includes multiple violations or a particularly dangerous permission.
+- 🚨 **Critical Risk**: Role contains excessive privileges or scopes far beyond acceptable levels.
+
+> ℹ️ **Information**
+>
+> Only roles assessed as "No Risk" are considered compliant in the interface. All higher levels are considered 'noncompliant' and will result in an overall assessment status that "Needs Review".
+
+
+### Example use cases
+
+| Privilege                        | Scope   | Assigned Risk |
+|----------------------------------|---------|---------------|
+| Read on `account`                | Global  | Medium Risk   |
+| Delete on `contact`              | Local   | High Risk     |
+| Bulk Delete (misc privilege)     | Global  | Critical Risk |
+| Assign on `custom_project`       | Basic   | Low Risk      |
+
+### Multiple baselines
+
+You can create and maintain multiple risk baselines to reflect different risk tolerances for different scenarios. For example, management or elevated privileges, internal vs external (portals), and so on.
+
+Environment admins can switch which baselines are the default profile as needed. Once a role has been scanned once, it can be assigned to a different baseline for all future scans.
+
+## Assessment scans
+
+Once you’ve configured your risk settings (baseline), you can perform **assessment scans** on security roles within an environment. These scans compare each role’s privileges and scopes against your risk baseline and flag any discrepancies that could pose a risk to your business.
+
+Assessment scans help you:
+
+- Understand **how each role stacks up** against your defined risk tolerance.
+- **Quickly identify roles** with excessive or out-of-scope privileges.
+- Drive **remediation planning** by pinpointing exact risk factors.
+
+### How it works
+
+1. **Load Roles**: The tool fetches all security roles from the selected environment.
+2. **Compare Privileges**: For each role, it cross-references all privileges (including both table-level and non-table capabilities) with your configured risk baseline.
+3. **Score the Role**: Each privilege is scored based on its assigned risk level (None, Low, Medium, High, Critical).
+4. **Summarize Risk Profile**: The role is given an overall risk summary, and flagged if it includes any privileges that exceed your acceptable risk threshold.
+5. **Save Results**: The tool stores results for further review, export, and auditing.
+
+You can **re-scan** roles at any time, particularly after making changes to your risk baseline or if roles have been updated.
+
+### Understanding Scan Statuses
+
+Each scan and each role receives a **status** to help you track progress and next steps. Here's a breakdown:
+
+| Status              | Description                                                                 | What to Do                                                                 |
+|---------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `Not Assessed`      | The scan hasn’t been initiated yet.                                          | Click **Scan Roles** to start the risk assessment.                         |
+| `In Progress`       | The scan is currently running.                                               | Wait for it to complete. No action needed.                                 |
+| `Needs review`      | The scan is done, results are available, and the role is not compliant.      | Review roles flagged with high or critical risks.                          |
+| `Stale`             | The scan results are no longer valid because the baseline or roles changed.  | Re-run the scan to get updated results.                                    |
+| `Compliant`         | The scan is done, results are available and the role is compliant.           | No further action needed. If auto scan is off, scan the role at regular intervals. |
+
+### Tips
+
+- Always ensure you have the **latest baseline configured** before scanning.
+- Use **filters and sort** on the results page to focus on roles with **Critical** or **High** risk items first.
+- Export the scan report for compliance documentation or internal security reviews.
+
+## Integrating Risk Assessment into the App Lifecycle
+
+The Risk Assessment tool is designed to seamlessly support your secure app development process. Here's how to embed it across stages of the ALM lifecycle:
+
+1. **Development**  
+   Developers build the app and define initial security roles in a dedicated environment.
+
+2. **Preproduction Testing**  
+   The solution is imported into a test or staging environment. Roles are reviewed using the Risk Assessment tool.
+
+3. **Assessment Phase**  
+   - Run scans on all custom roles.  
+   - Review flagged issues.  
+   - Revise or request exception approvals for roles with risks.
+
+4. **Approval Gate**  
+   Only roles evaluated as "No Risk" can proceed to deployment. Admins can approve exceptions in special cases.
+
+5. **Production Deployment**  
+   The secure, reviewed, and approved solution is deployed to production, ensuring only compliant roles are introduced.
+
+### Flowchart
+
+Here is a flowchart demonstrating the application lifecycle process with a boolean split for the risk assessment process:
 
 ```mermaid
 graph TD
@@ -48,112 +163,6 @@ graph TD
     D --> F[Deployment to Production]
 ```
 
-In this flowchart:
-- The process starts at the **Development Stage**.
-- The solution is then moved to the **Preproduction Environment**.
-- A **Risk Assessment** is conducted.
-  - If the solution is **Compliant**, it moves to **Validation** and then to **Deployment to Production**.
-  - If the solution is **Not Compliant**, the app owner must **Update Security Roles**, and the process returns to the **Development Stage**.
-   
-## Get started
+## Limitations
 
-To get started with the risk assessment tool, follow the steps below:
-1.	[Install the Power CAT Toolkit in a Dataverse environment](./SETUP.md)
-2.	Set your risk tolerance preferences
-3.	Decide whether to enable auto-scan or perform manual scans
-4.	Provide access and instructions to app owners and integrate into development pipeline
- 
-## Personas and permissions
-
-Understand the two main personas' roles and responsibilities to effectively use the risk assessment tool.
-
-### App owner
-
-The app owner is the maker who submits their solution for evaluation, so it can be used in a production environment with signoff from the admin. They must conform to the threat tolerance of the company and adjust privileges as needed, or coordinate with the admin team to request exceptions where necessary.
-
-•	Responsibilities: Ensure compliance of managed roles, address noncompliance issues.
-
-#### Environment admin
-
-The admin oversees the security of the production environment, and often times is in a tenant admin role, therefore the responsibility of the business' data security often rests with this team. They must review and filter out threats, which is why it's common for admins to take a defensive security posture. They can allow exceptions if they are closely monitored, but they broadly define the default threat tolerance that applies broadly. They may manually coordinate with individual cases to approve or reject special requests. They may also choose to configure auto-scan settings to proactively allow the for scans, or they may choose to periodically manually scan all roles.
-
-•	Responsibilities: Ensure security compliance within the environment, configure setup and threat tolerance settings, and manage all role assessments in a way that accomodatees their workstream preferences.
-
-## Configure settings
-
-The risk assessment tool uses a settings profile to determine threat tolerance. One "default" settings profile is created on the first run of the app, which should be reviewed and adjusted to meet your company's preferences. The default settings are used to scan all new and edited roles in the environment.
-
-1. On the dashboard, click the Review settings button in the card
-1. Review the current default settings, which is presented in a grid of dropdowns for each intersection between a privilege type and an access level.
-1. Each dropdown represents the associated risk for a given privilege type and access level combination
-    > Example: the top left-most dropdown defines the risk associated with a create type privilege at the organization level. Since an organization level means
-    > ![image](https://github.com/user-attachments/assets/69211f3b-2dd0-418d-b835-9cf6e7eec7d0)
-
-1. Define the appropriate risk levels (Critical, High, Moderate, Low, or No risk) for each privilege category at each access level. This is where you ensure the values reflect the desired risk tolerance for your organization for that type of privilege.
-
-#### Key components of settings
-
-| Components | Definition |
-| ---------- | ---------- |
-| Privilege level | Specifies the actions (such as read, write, delete) that are allowed for various data entities within the Dataverse environment. Baseline settings indicate which privileges are appropriate for each role. |
-| Access scope | Defines how much data a role can access, such as organization, business unit, or user levels. Baseline settings ensure roles have appropriate access based on their purpose. |
-
-Multiple profiles can be configured if needed. For example, if a role needs more liberal or restricted types of permissions, you might want to make a settings profile that adheres to that standard. The settings can be adjusted on the risk assessment screen, after the role has been scanned at least once.
-
-### Auto-scan setting
-Auto-scan continuously monitors roles by triggering a scan when a custom role is created or updated. Admins can choose to enable this feature, or leave it disabled and run manual scans periodically instead. Only system administrators can toggle this feature.
-
-#### Toggling auto-scan
-
-Admins can disable continuous scanning and opt for periodic manual scans.
-  1. Locate the auto-scan settings (found on the security roles screen and settings screen under the "app settings" tab).
-  2. Toggle the auto-scan feature to the off position.
-
-#### Manual scans
-This option is available for users who prefer not to use continuous scanning. If continuous scanning is enabled, manual scans are unnecessary. 
-
-- Admins can scan all roles manually
-- App owners can scan roles they own individually
-
-## What risks does an assessment identify?
-
-During a scan, privileges are compared to baseline policies and categorized by risk. This process ensures roles meet minimum security standards and do not pose undue risk. The minimum security standards are defined by the risk assessment settings that can be configured to meet the customer's threat tolerance.
-
-#### Risk levels
-
-Risk level classification assesses deviations to prioritize roles requiring urgent review. Only 'no risk' explicitly indicates 'Compliance' with policy.
-
-| Risk Level | Description |
-| - | - |
-| Critical Risk | Roles far exceeding baseline policies, posing high security threats. |
-| High Risk | Roles with several severe deviations from baseline policies. |
-| Medium Risk | Roles with moderate deviations posing some risk. |
-| Low Risk | Roles with minor deviations posing minimal risk. |
-| No Risk | Roles fully compliant with baseline policies, posing no risk. |
-
-#### Assessment states
-
-The "Assessment State" status field on the Risk Assessment indicates the current stage of evaluating security roles within Microsoft Dataverse. Each state represents the compliance status and required action.
-
-| **Status**       | **Description**                                    |
-|------------------|----------------------------------------------------|
-| Not scanned | Role has not been scanned.                                    |
-| Pending          | Scan is queued.                                    |
-| In Progress      | Scan is currently running.                         |
-| Needs Review     | Noncompliance detected, requires action.           |
-| Compliant        | All privileges meet baseline policies, no action required.             |
-| Stale | Role has been changed since the last scan (if auto-scan is off). | 
-
-### Compliance
-
-A custom role gets a 'Compliant' status if all privileges are no risk. If any privilege has higher risk, the role gets a 'Needs review' status.
-
-#### Actions for admins
-
-If a role is marked as 'Needs review', use your discretion on whether to allow the role to continue in the application lifecycle (whether that's deployment to production, or if this is a production environment whether the role needs to be adjusted to match your threat tolerance levels). 
-
-#### Actions for app owners
-
-If a role is marked as ‘Needs review’, it is considered non-compliant and carries some risk based on the threat tolerance defined in the settings. There are two actions the user can take to address the non-compliance status:
-•	Set privilege levels to baseline requirements.
-•	Request exceptions if needed.
+- This tool only scans roles in the current environment it's installed in. We are currently releasing the tool for environment level feedback on the experience. Please leave feedback as GitHub issues in this repository with a feature label; more feedback helps us prioritize tenant level plans.
