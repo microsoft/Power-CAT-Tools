@@ -150,10 +150,6 @@ The Risk Assessment tool is designed to seamlessly support your secure app devel
 5. **Production Deployment**  
    The secure, reviewed, and approved solution is deployed to production, ensuring only compliant roles are introduced.
 
-## Limitations
-
-- This tool only scans roles in the current environment it's installed in. We are currently releasing the tool for environment level feedback on the experience, which will help us prioritize tenant level plans.
-
 ### Flowchart
 
 Here is a flowchart demonstrating the application lifecycle process with a boolean split for the risk assessment process:
@@ -168,4 +164,6 @@ graph TD
     D --> F[Deployment to Production]
 ```
 
+## Limitations
 
+- This tool only scans roles in the current environment it's installed in. We are currently releasing the tool for environment level feedback on the experience. Please leave feedback as GitHub issues in this repository with a feature label; more feedback helps us prioritize tenant level plans.
