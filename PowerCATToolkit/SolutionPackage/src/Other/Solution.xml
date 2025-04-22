@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25032.228" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25032.228" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25032.00228">
+<ImportExportXml version="9.2.25033.232" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25033.232" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25033.00232">
   <SolutionManifest>
     <UniqueName>PowerCATToolkit</UniqueName>
     <LocalizedNames>
@@ -143,6 +143,7 @@
       <RootComponent type="66" schemaName="cat_PowerCAT.Mermaid2Png" behavior="0" />
       <RootComponent type="66" schemaName="cat_PowerCAT.NavigationComponentPCF" behavior="0" />
       <RootComponent type="66" schemaName="cat_PowerCAT.PFxCodeEditor" behavior="0" />
+      <RootComponent type="66" schemaName="cat_PowerCAT.PFxCodeReviewEditor" behavior="0" />
       <RootComponent type="80" schemaName="cat_PowerCATToolkit" behavior="0" />
       <RootComponent type="9" schemaName="cat_category" behavior="0" />
       <RootComponent type="9" schemaName="cat_patterntypechoices" behavior="0" />
@@ -229,8 +230,8 @@
         <Dependent type="300" schemaName="cat_plugintracelog_d12af" displayName="Plugin Monitor" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202503.1.0.1)">
-          <package appName="PowerAI" version="202503.1.0.1">msdyn_AISolutionAnchor (202503.1.0.1)</package>
+        <Required type="1" schemaName="msdyn_aimodel" displayName="AI Model" solution="msdyn_AISolution (202503.2.4.1)">
+          <package appName="PowerAI" version="202503.2.4.1">msdyn_AISolutionAnchor (202503.2.4.1)</package>
         </Required>
         <Dependent type="300" schemaName="cat_docupilot_fa88a" displayName="DocuPilot" />
       </MissingDependency>
@@ -321,17 +322,13 @@
         <Dependent type="300" schemaName="cat_apiplayground_62f25" displayName="API Playground" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="cat_PowerCAT.PFxCodeReviewEditor" displayName="cat_PowerCAT.PFxCodeReviewEditor" solution="Active" />
-        <Dependent type="300" schemaName="cat_homepage_f8fb3" displayName="Power Platform Review Tool" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="66" schemaName="cat_PowerCAT.StackedBarChart" displayName="cat_PowerCAT.StackedBarChart" solution="Active" />
         <Dependent type="300" schemaName="cat_riskassessments_2e193" displayName="Risk Assessments" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5353)">
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.5630)">
           <package appName="msdynce_Activities" version="9.0.25025.250226000">msdynce_EnableUCIByDefault (9.0.25025.250226000)</package>
-          <package appName="msdyn_CustomControlsExtended" version="1.0.0.2782">msdyn_TimelineExtended (1.0.0.2782)</package>
+          <package appName="msdyn_CustomControlsExtended" version="1.0.0.3059">msdyn_TimelineExtended (1.0.0.3059)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Pattern Details" id="{efb23718-9b0d-4859-83b7-f4920c9479b2}" />
       </MissingDependency>
@@ -342,14 +339,14 @@
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_PowerCATToolkit,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="cat_PowerCATToolkit" id.settingdefinitionid.uniquename="AppChannel" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="appcopilotenabled" solution="msdyn_AppCopilotAppInfraSettings (9.1.2024115.241121075)" id.uniquename="appcopilotenabled">
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.1">PowerAppsAppCopilotApp_Anchor (9.2.0.1)</package>
+        <Required type="SettingDefinition" displayName="appcopilotenabled" solution="msdyn_AppCopilotAppInfraSettings (9.2.2025042.250409005)" id.uniquename="appcopilotenabled">
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.2025042.250409005">PowerAppsAppCopilotApp_Anchor (9.2.2025042.250409005)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_PowerCATToolkit,settingdefinitionid.uniquename=appcopilotenabled" id.parentappmoduleid.uniquename="cat_PowerCATToolkit" id.settingdefinitionid.uniquename="appcopilotenabled" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="enablecopilotautotriggersummarize" solution="msdyn_AppCopilotAppInfraSettings (9.1.2024115.241121075)" id.uniquename="enablecopilotautotriggersummarize">
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.1">PowerAppsAppCopilotApp_Anchor (9.2.0.1)</package>
+        <Required type="SettingDefinition" displayName="enablecopilotautotriggersummarize" solution="msdyn_AppCopilotAppInfraSettings (9.2.2025042.250409005)" id.uniquename="enablecopilotautotriggersummarize">
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.2025042.250409005">PowerAppsAppCopilotApp_Anchor (9.2.2025042.250409005)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cat_PowerCATToolkit,settingdefinitionid.uniquename=enablecopilotautotriggersummarize" id.parentappmoduleid.uniquename="cat_PowerCATToolkit" id.settingdefinitionid.uniquename="enablecopilotautotriggersummarize" />
       </MissingDependency>
