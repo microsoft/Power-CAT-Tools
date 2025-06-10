@@ -19,6 +19,9 @@ Yes, comprehensive documentation is available on the GitHub repository. You can 
 ### Are there any specific requirements for using Power CAT Tools?
 Power CAT Tools is designed to be used within the Power Platform environment. It is compatible with Microsoft Dataverse and integrates seamlessly with other Power Platform components. [Review the prerequisites section](./SETUP.md) for more specific requirements.
 
+### How does credit usage work with Power CAT Tools?
+AI Builder credit usage applies specifically to the AI Solution Documentation feature. Credit consumption varies based on the complexity of solution components, including apps and flows. Solutions with multiple apps, numerous screens, and many components per screen will consume more credits. The larger and more complex the solution, the higher the credit usage will be. Each project is unique, so credit consumption will always vary depending on specific requirements. As of today, no other Power CAT Tools features use AI Builder credits.
+
 ### Can I contribute to Power CAT Tools?
 No. Power CAT Tools is an open-source project for transparency in our implementation, but we are not currently accepting contributions from the community.
 
