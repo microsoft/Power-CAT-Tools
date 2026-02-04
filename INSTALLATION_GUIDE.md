@@ -21,22 +21,21 @@ Install the **Power CAT Tools** solution from Microsoft AppSource into your Powe
 
 ---
 
-### 2. Open Advanced Settings
+### 2. Go to Solutions
 
-- Click the gear icon (**⚙️**) in the top-right corner
-- Select **Advanced settings**
+- Click Solutions in the left rail
   
-![image](https://github.com/user-attachments/assets/28c6808e-7271-4368-bc78-b1243e6d7312)
+![image](https://github.com/user-attachments/assets/7983da4b-aa21-46a2-bdf3-1eb07d74c4ef)
+
 
 ---
 
 ### 3. Access Microsoft AppSource
 
-- A new tab will open with the classic Dynamics 365 settings
-- Navigate to:  
-  `Settings > Customizations > Microsoft AppSource`
+- In the command bar, click "[Open AppSource](http://aka.ms/AppSourcePPApps)"
+  ![image](https://github.com/user-attachments/assets/08062f94-20c0-4f72-8c0b-1545dda4982d)
 
-![image](https://github.com/user-attachments/assets/295f2174-2590-4cd9-aeff-166d316962e6)
+- A new tab will open and load the Power Platform area of the Microsoft Marketplace (AppSource)
 
 ---
 
